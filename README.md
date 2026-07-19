@@ -6,7 +6,7 @@ A bilingual (Hindi–English), practice-first learning portal by Sambhriti Found
 
 ## What's inside
 
-- **Accountancy — CBSE Class 11** (full rationalised syllabus): 9 chapters, 27 micro-topic lessons, 49 practice questions with instant bilingual explanations.
+- **Accountancy — CBSE Class 11** (full rationalised syllabus): 9 chapters, 43 micro-topic lessons, 59 practice questions with instant bilingual explanations. Chapters 1–2 carry full NCERT-sourced micro-topic notes with stories and examples (see `study-material/`).
 - **English Communication** (all age groups): Foundation (4–10), Intermediate (11–15) and Advanced/Adult levels — 9 chapters, 25 questions.
 - Working quiz engine (MCQ, true/false, short answer), progress tracking, streaks, weak-topic revision queue — all stored in the learner's browser.
 - Admin portal with question editor and spreadsheet **import/export** (`selflearn-question-template.xlsx` is the authoring format).
