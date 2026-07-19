@@ -59,6 +59,10 @@
   .clickable:hover{box-shadow:0 6px 20px rgba(79,70,229,.15);border-color:var(--primary)}
   .rowflex{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}
   .notes{white-space:pre-wrap;font-size:.97rem}
+  .notes table{border-collapse:collapse;margin:4px 0;width:100%;white-space:normal}
+  .notes th,.notes td{border:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top;font-size:.93rem}
+  .notes th{background:var(--bg);color:var(--primary)}
+  .notes tr:nth-child(even) td{background:var(--bg)}
   .option{display:block;width:100%;text-align:left;background:var(--card);border:2px solid var(--line);border-radius:10px;padding:13px 15px;font-size:.96rem;cursor:pointer;margin-bottom:9px;font-family:inherit;color:var(--ink)}
   .option:hover:not(:disabled){border-color:var(--primary)}
   .option.correct{border-color:var(--green);background:var(--green-light)}
@@ -114,6 +118,21 @@ var LANG = localStorage.getItem("sl_lang") || "en";
 function sp(en, hi){ return '<span class="en">'+en+'</span><span class="hi">'+(hi||en)+'</span>'; }
 function t(obj){ return obj ? (obj[LANG] || obj.en || "") : ""; }
 function esc(s){ return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+/* Lightweight markdown for topic notes: **bold**, *italic*, | tables | */
+function fmtNotes(txt){
+  var lines = esc(txt).split("\n"), out = [], i = 0;
+  function cells(row){ return row.replace(/^\s*\|/,"").replace(/\|\s*$/,"").split("|").map(function(c){ return c.trim(); }); }
+  while(i < lines.length){
+    if(/^\s*\|.*\|\s*$/.test(lines[i]) && i+1 < lines.length && /^\s*\|[\s\-–—|:]+\|\s*$/.test(lines[i+1])){
+      var hdr = cells(lines[i]); i += 2; var rows = [];
+      while(i < lines.length && /^\s*\|.*\|\s*$/.test(lines[i])){ rows.push(cells(lines[i])); i++; }
+      out.push('<table><thead><tr>' + hdr.map(function(c){ return '<th>'+c+'</th>'; }).join("")
+        + '</tr></thead><tbody>' + rows.map(function(r){ return '<tr>'+r.map(function(c){ return '<td>'+c+'</td>'; }).join("")+'</tr>'; }).join("") + '</tbody></table>');
+    } else { out.push(lines[i]); i++; }
+  }
+  return out.join("\n").replace(/\n?(<table>)/g,"$1").replace(/(<\/table>)\n?/g,"$1")
+    .replace(/\*\*([^*\n]+)\*\*/g,"<b>$1</b>").replace(/\*([^*\n]+)\*/g,"<i>$1</i>");
+}
 function setLang(l){
   LANG = l; localStorage.setItem("sl_lang", l);
   document.body.classList.toggle("lang-hi", l==="hi");
@@ -302,7 +321,7 @@ function vTopic(code){
     + (tp.exam ? '<span class="chip green">'+sp("Exam-important","परीक्षा-महत्वपूर्ण")+'</span>' : '')
     + (a2!==null ? '<span class="chip '+(a2>=80?"green":(a2>=60?"amber":"red"))+'">'+sp("Your accuracy: ","आपकी शुद्धता: ")+a2+'%</span>' : '')
     + '</div><h1 style="margin:10px 0 12px">'+t(tp.name)+'</h1>'
-    + '<div class="notes">'+esc(t(tp.notes))+'</div></div>';
+    + '<div class="notes">'+fmtNotes(t(tp.notes))+'</div></div>';
   h += '<div class="card rowflex" style="margin-top:14px"><div>'
     + '<h3>'+(qn ? sp("Practise this concept now","अभी इस अवधारणा का अभ्यास करें") : sp("No questions yet for this topic","इस विषय हेतु अभी प्रश्न नहीं हैं"))+'</h3>'
     + (qn ? '<div class="sub">'+Math.min(qn,8)+' '+sp("questions · instant explanations","प्रश्न · तुरंत व्याख्या")+'</div>' : '')
