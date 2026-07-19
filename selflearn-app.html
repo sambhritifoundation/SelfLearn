@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SelfLearn — Practice-first Learning</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<style>
+  :root{
+    --primary:#4f46e5; --primary-dark:#3730a3; --primary-light:#eef2ff;
+    --accent:#f59e0b; --accent-light:#fef3c7;
+    --green:#16a34a; --green-light:#dcfce7;
+    --red:#dc2626; --red-light:#fee2e2;
+    --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; --bg:#f8fafc; --card:#fff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Segoe UI','Noto Sans','Noto Sans Devanagari',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
+  .hi{display:none}
+  body.lang-hi .hi{display:inline}
+  body.lang-hi .en{display:none}
+  .appnav{background:var(--card);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
+  .appnav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:14px;padding:12px 24px;flex-wrap:wrap}
+  .logo{font-size:1.25rem;font-weight:800;color:var(--primary);cursor:pointer;letter-spacing:-.5px}
+  .logo span{color:var(--accent)}
+  .navlinks{display:flex;gap:4px;flex:1}
+  .navlinks button{border:0;background:none;padding:8px 14px;border-radius:8px;font-size:.9rem;color:var(--muted);cursor:pointer;font-weight:600}
+  .navlinks button:hover{background:var(--primary-light);color:var(--primary)}
+  .lang-switch{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+  .lang-switch button{border:0;background:var(--card);padding:6px 14px;font-size:.85rem;cursor:pointer;font-weight:700;color:var(--muted)}
+  .lang-switch button.active{background:var(--primary);color:#fff}
+  #app{max-width:1100px;margin:0 auto;padding:26px 24px 70px}
+  .crumb{font-size:.82rem;color:var(--muted);margin-bottom:16px}
+  .crumb a{color:var(--primary);cursor:pointer;text-decoration:none}
+  .grid{display:grid;gap:16px}
+  .g2{grid-template-columns:repeat(2,1fr)} .g3{grid-template-columns:repeat(3,1fr)} .g4{grid-template-columns:repeat(4,1fr)}
+  @media(max-width:860px){.g2,.g3,.g4{grid-template-columns:1fr}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px}
+  .btn{display:inline-block;border:0;background:var(--primary);color:#fff;padding:10px 20px;border-radius:9px;font-size:.93rem;font-weight:700;cursor:pointer;font-family:inherit}
+  .btn:hover{background:var(--primary-dark)}
+  .btn.ghost{background:var(--primary-light);color:var(--primary)}
+  .btn.warn{background:var(--accent);color:#3b2b00}
+  .btn.green{background:var(--green)}
+  .btn.sm{padding:6px 13px;font-size:.84rem}
+  .btn.danger{background:var(--red-light);color:var(--red)}
+  .chip{display:inline-block;background:var(--primary-light);color:var(--primary);border-radius:99px;padding:2px 11px;font-size:.74rem;font-weight:700;margin-right:5px}
+  .chip.amber{background:var(--accent-light);color:#92400e}
+  .chip.green{background:var(--green-light);color:var(--green)}
+  .chip.red{background:var(--red-light);color:var(--red)}
+  .chip.grey{background:var(--line);color:var(--muted)}
+  h1{font-size:1.6rem;letter-spacing:-.4px} h2{font-size:1.2rem;margin-bottom:8px} h3{font-size:1rem}
+  .sub{color:var(--muted);font-size:.9rem}
+  .bar{height:8px;background:var(--line);border-radius:99px;overflow:hidden;margin-top:6px}
+  .bar i{display:block;height:100%;background:var(--primary);border-radius:99px}
+  .bar i.g{background:var(--green)} .bar i.a{background:var(--accent)} .bar i.r{background:var(--red)}
+  .hero{background:linear-gradient(120deg,var(--primary),#6d28d9);color:#fff;border-radius:16px;padding:30px;margin-bottom:22px}
+  .hero h1{color:#fff;margin-bottom:6px}
+  .hero p{opacity:.9;max-width:600px}
+  .clickable{cursor:pointer;transition:box-shadow .15s}
+  .clickable:hover{box-shadow:0 6px 20px rgba(79,70,229,.15);border-color:var(--primary)}
+  .rowflex{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}
+  .notes{white-space:pre-wrap;font-size:.97rem}
+  .option{display:block;width:100%;text-align:left;background:var(--card);border:2px solid var(--line);border-radius:10px;padding:13px 15px;font-size:.96rem;cursor:pointer;margin-bottom:9px;font-family:inherit;color:var(--ink)}
+  .option:hover:not(:disabled){border-color:var(--primary)}
+  .option.correct{border-color:var(--green);background:var(--green-light)}
+  .option.wrong{border-color:var(--red);background:var(--red-light)}
+  .option:disabled{cursor:default}
+  .explain{border-radius:10px;padding:13px 15px;margin-top:12px}
+  .explain.ok{background:var(--green-light);border:1px solid var(--green)}
+  .explain.no{background:var(--red-light);border:1px solid var(--red)}
+  .qdots{display:flex;gap:5px;flex-wrap:wrap}
+  .qdots i{width:22px;height:6px;border-radius:99px;background:var(--line)}
+  .qdots i.done{background:var(--primary)} .qdots i.ok{background:var(--green)} .qdots i.bad{background:var(--red)}
+  table{width:100%;border-collapse:collapse;font-size:.88rem}
+  th{text-align:left;color:var(--muted);font-size:.75rem;text-transform:uppercase;letter-spacing:.5px;padding:8px;border-bottom:1px solid var(--line)}
+  td{padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+  label{display:block;font-size:.78rem;font-weight:700;color:var(--muted);margin:10px 0 4px;text-transform:uppercase;letter-spacing:.4px}
+  input[type=text],select,textarea{width:100%;border:1px solid var(--line);border-radius:8px;padding:9px 11px;font-size:.92rem;font-family:inherit;background:var(--card)}
+  textarea{resize:vertical}
+  .score-ring{width:140px;height:140px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto}
+  .score-ring>div{width:104px;height:104px;border-radius:50%;background:var(--card);display:flex;flex-direction:column;align-items:center;justify-content:center}
+  .score-ring b{font-size:1.5rem}
+  .stat{text-align:center}
+  .stat b{font-size:1.4rem;display:block}
+  .tabbar{display:flex;gap:6px;margin-bottom:16px;flex-wrap:wrap}
+  .tabbar button{border:1px solid var(--line);background:var(--card);padding:7px 15px;border-radius:8px;font-size:.86rem;cursor:pointer;font-weight:600;color:var(--muted)}
+  .tabbar button.active{background:var(--primary);color:#fff;border-color:var(--primary)}
+  .toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:11px 22px;border-radius:9px;font-size:.9rem;z-index:200;display:none}
+  .shortinput{border:2px solid var(--line);border-radius:10px;padding:12px;font-size:1rem;width:100%}
+  .lvl{font-size:.72rem;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);font-weight:800;margin:14px 0 6px}
+</style>
+</head>
+<body>
+<nav class="appnav"><div class="appnav-inner">
+  <div class="logo" onclick="go('home')">Self<span>Learn</span></div>
+  <div class="navlinks">
+    <button onclick="go('home')"><span class="en">Learn</span><span class="hi">सीखें</span></button>
+    <button onclick="go('dashboard')"><span class="en">My Progress</span><span class="hi">मेरी प्रगति</span></button>
+    <button onclick="go('admin')">Admin</button>
+  </div>
+  <div class="lang-switch">
+    <button id="btnEn" class="active" onclick="setLang('en')">EN</button>
+    <button id="btnHi" onclick="setLang('hi')">हिं</button>
+  </div>
+</div></nav>
+<div id="app"></div>
+<div class="toast" id="toast"></div>
+
+<script src="data-accountancy.js"></script>
+<script src="data-english.js"></script>
+<script>
+"use strict";
+/* ================= helpers ================= */
+var LANG = localStorage.getItem("sl_lang") || "en";
+function sp(en, hi){ return '<span class="en">'+en+'</span><span class="hi">'+(hi||en)+'</span>'; }
+function t(obj){ return obj ? (obj[LANG] || obj.en || "") : ""; }
+function esc(s){ return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+function setLang(l){
+  LANG = l; localStorage.setItem("sl_lang", l);
+  document.body.classList.toggle("lang-hi", l==="hi");
+  document.getElementById("btnEn").classList.toggle("active", l==="en");
+  document.getElementById("btnHi").classList.toggle("active", l==="hi");
+  render();
+}
+function toast(msg){
+  var el = document.getElementById("toast");
+  el.textContent = msg; el.style.display = "block";
+  clearTimeout(el._t); el._t = setTimeout(function(){ el.style.display="none"; }, 2600);
+}
+function todayStr(){ var d = new Date(); return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0"); }
+function shuffle(a){ a = a.slice(); for(var i=a.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var tmp=a[i]; a[i]=a[j]; a[j]=tmp; } return a; }
+
+/* ================= data access ================= */
+var SUBJECTS = (window.SL_DATA && window.SL_DATA.subjects) || [];
+function customQuestions(){ try{ return JSON.parse(localStorage.getItem("sl_custom_questions")||"[]"); }catch(e){ return []; } }
+function saveCustom(list){ localStorage.setItem("sl_custom_questions", JSON.stringify(list)); }
+function allQuestions(){
+  var base = (window.SL_DATA && window.SL_DATA.questions) || [];
+  var custom = customQuestions();
+  var map = {};
+  base.forEach(function(q){ map[q.id] = q; });
+  custom.forEach(function(q){ map[q.id] = q; });      // custom overrides builtin by id
+  return Object.keys(map).map(function(k){ return map[k]; });
+}
+function pubQuestions(){ return allQuestions().filter(function(q){ return q.status === "published"; }); }
+function subj(code){ return SUBJECTS.find(function(s){ return s.code===code; }); }
+function chapter(s, no){ return s.chapters.find(function(c){ return c.no==no; }); }
+function topicByCode(code){
+  for(var i=0;i<SUBJECTS.length;i++) for(var j=0;j<SUBJECTS[i].chapters.length;j++){
+    var tt = SUBJECTS[i].chapters[j].topics.find(function(x){ return x.code===code; });
+    if(tt) return { subject:SUBJECTS[i], chapter:SUBJECTS[i].chapters[j], topic:tt };
+  }
+  return null;
+}
+function qForTopic(code){ return pubQuestions().filter(function(q){ return q.topic===code; }); }
+function qForChapter(sc, no){ return pubQuestions().filter(function(q){ return q.subject===sc && q.chapter==no; }); }
+
+/* ================= progress ================= */
+function P(){ try{ return JSON.parse(localStorage.getItem("sl_progress")||"{}"); }catch(e){ return {}; } }
+function saveP(p){ localStorage.setItem("sl_progress", JSON.stringify(p)); }
+function record(q, ok){
+  var p = P();
+  p.attempts = p.attempts || {}; p.topics = p.topics || {}; p.days = p.days || {};
+  var a = p.attempts[q.id] || {n:0,c:0}; a.n++; if(ok) a.c++; p.attempts[q.id]=a;
+  var key = q.topic || (q.subject+"-ch"+q.chapter);
+  var tp = p.topics[key] || {n:0,c:0}; tp.n++; if(ok) tp.c++; tp.last=Date.now(); p.topics[key]=tp;
+  p.days[todayStr()] = (p.days[todayStr()]||0)+1;
+  saveP(p);
+}
+function topicStats(code){ var p=P(); return (p.topics&&p.topics[code]) || null; }
+function acc(st){ return st && st.n ? Math.round(100*st.c/st.n) : null; }
+function streak(){
+  var p=P(); var days=p.days||{}; var n=0; var d=new Date();
+  if(!days[todayStr()]) d.setDate(d.getDate()-1);
+  while(true){
+    var k=d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
+    if(days[k]){ n++; d.setDate(d.getDate()-1); } else break;
+  }
+  return n;
+}
+function totalAttempts(){ var p=P(); var s=0; var a=p.attempts||{}; Object.keys(a).forEach(function(k){ s+=a[k].n; }); return s; }
+function overallAcc(){ var p=P(); var n=0,c=0; var a=p.attempts||{}; Object.keys(a).forEach(function(k){ n+=a[k].n; c+=a[k].c; }); return n?Math.round(100*c/n):null; }
+function subjectProgress(s){
+  var total=0, done=0;
+  s.chapters.forEach(function(c){ c.topics.forEach(function(tp){ total++; var st=topicStats(tp.code); if(st&&st.n>0) done++; }); });
+  return { total:total, done:done, pct: total?Math.round(100*done/total):0 };
+}
+function weakTopics(){
+  var p=P(); var out=[]; var tps=p.topics||{};
+  Object.keys(tps).forEach(function(code){
+    var st=tps[code]; var a2=acc(st);
+    if(a2!==null && a2<70){ var info=topicByCode(code); if(info) out.push({code:code, info:info, acc:a2, n:st.n}); }
+  });
+  out.sort(function(x,y){ return x.acc-y.acc; });
+  return out;
+}
+function lastVisited(){ try{ return JSON.parse(localStorage.getItem("sl_last")||"null"); }catch(e){ return null; } }
+function setLastVisited(o){ localStorage.setItem("sl_last", JSON.stringify(o)); }
+function sessions(){ try{ return JSON.parse(localStorage.getItem("sl_sessions")||"[]"); }catch(e){ return []; } }
+function saveSession(s){ var l=sessions(); l.push(s); localStorage.setItem("sl_sessions", JSON.stringify(l)); }
+
+/* ================= router ================= */
+var VIEW = { name:"home" };
+function go(name, args){ VIEW = Object.assign({name:name}, args||{}); render(); window.scrollTo(0,0); }
+function render(){
+  var el = document.getElementById("app");
+  var v = VIEW.name;
+  if(v==="home") el.innerHTML = vHome();
+  else if(v==="subject") el.innerHTML = vSubject(VIEW.code);
+  else if(v==="topic") el.innerHTML = vTopic(VIEW.code);
+  else if(v==="quiz") el.innerHTML = vQuiz();
+  else if(v==="result") el.innerHTML = vResult();
+  else if(v==="dashboard") el.innerHTML = vDashboard();
+  else if(v==="admin") el.innerHTML = vAdmin();
+  document.body.classList.toggle("lang-hi", LANG==="hi");
+}
+
+/* ================= HOME ================= */
+function vHome(){
+  var h = '<div class="hero"><span class="chip amber">'+sp("Practice-first learning","अभ्यास-प्रथम शिक्षा")+'</span>'
+    + '<h1 style="margin-top:10px">'+sp("Learn one small concept. Practise it now.","एक छोटा concept सीखें। तुरंत अभ्यास करें।")+'</h1>'
+    + '<p>'+sp("Short bilingual lessons, focused practice, instant explanations.","छोटे द्विभाषी पाठ, केंद्रित अभ्यास, तुरंत व्याख्या।")+'</p></div>';
+
+  var last = lastVisited();
+  if(last && topicByCode(last.topic)){
+    var info = topicByCode(last.topic);
+    h += '<div class="card rowflex" style="margin-bottom:20px"><div>'
+      + '<span class="chip">▶ '+sp("Continue where you left off","जहाँ छोड़ा था वहीं से")+'</span>'
+      + '<h3 style="margin-top:6px">'+t(info.subject.name)+' · '+t(info.chapter.name)+' · '+t(info.topic.name)+'</h3></div>'
+      + '<button class="btn" onclick="go(\'topic\',{code:\''+last.topic+'\'})">'+sp("Resume","जारी रखें")+'</button></div>';
+  }
+
+  h += '<h2>'+sp("Courses","पाठ्यक्रम")+'</h2><div class="grid g3">';
+  SUBJECTS.forEach(function(s){
+    var pr = subjectProgress(s);
+    var qn = pubQuestions().filter(function(q){ return q.subject===s.code; }).length;
+    h += '<div class="card clickable" onclick="go(\'subject\',{code:\''+s.code+'\'})">'
+      + '<div style="font-size:1.8rem;margin-bottom:8px">'+s.icon+'</div>'
+      + '<h3>'+t(s.name)+'</h3>'
+      + '<div class="sub">'+(s.board==="GEN" ? sp("All ages · 3 levels","सभी आयु · 3 स्तर") : s.board+" · "+sp("Class "+s.klass,"कक्षा "+s.klass))
+      + ' · '+s.chapters.length+' '+sp("chapters","अध्याय")+' · '+qn+' '+sp("questions","प्रश्न")+'</div>'
+      + '<div class="bar"><i style="width:'+pr.pct+'%"></i></div>'
+      + '<div class="sub" style="margin-top:4px">'+pr.done+'/'+pr.total+' '+sp("topics practised","विषयों का अभ्यास")+'</div></div>';
+  });
+  h += '</div>';
+
+  var weak = weakTopics().slice(0,4);
+  if(weak.length){
+    h += '<h2 style="margin-top:24px">🔁 '+sp("Revision queue — practise these again","पुनरावृत्ति सूची — इनका फिर से अभ्यास करें")+'</h2><div class="grid g2">';
+    weak.forEach(function(w){
+      h += '<div class="card rowflex"><div><span class="chip '+(w.acc<50?"red":"amber")+'">'+w.acc+'% · '+w.n+' '+sp("attempts","प्रयास")+'</span>'
+        + '<h3 style="margin-top:6px">'+t(w.info.topic.name)+'</h3><div class="sub">'+t(w.info.subject.name)+'</div></div>'
+        + '<button class="btn ghost sm" onclick="startQuiz(\'topic\',\''+w.code+'\')">'+sp("Practise","अभ्यास करें")+'</button></div>';
+    });
+    h += '</div>';
+  }
+  return h;
+}
+
+/* ================= SUBJECT (chapters) ================= */
+function vSubject(code){
+  var s = subj(code); if(!s) return "Not found";
+  var h = '<div class="crumb"><a onclick="go(\'home\')">'+sp("Home","मुख्य")+'</a> › <b>'+t(s.name)+'</b></div>'
+    + '<h1>'+s.icon+' '+t(s.name)+'</h1><p class="sub" style="margin-bottom:14px">'
+    + (s.board==="GEN" ? sp("A generic course for every age group — pick the level that fits you.","हर आयु वर्ग हेतु सामान्य पाठ्यक्रम — अपना स्तर चुनें।") : s.board+" · "+sp("Class "+s.klass,"कक्षा "+s.klass))+'</p>';
+  var lastLevel = null;
+  s.chapters.forEach(function(c){
+    if(c.level && t(c.level)!==lastLevel){ lastLevel = t(c.level); h += '<div class="lvl">'+esc(lastLevel)+'</div>'; }
+    var qn = qForChapter(s.code, c.no).length;
+    var done = c.topics.filter(function(tp){ var st=topicStats(tp.code); return st&&st.n>0; }).length;
+    h += '<div class="card rowflex" style="margin-bottom:10px"><div style="flex:1;min-width:250px">'
+      + '<h3>'+sp("Chapter "+c.no,"अध्याय "+c.no)+': '+t(c.name)+'</h3>'
+      + '<div class="sub">'+c.topics.length+' '+sp("micro-topics","सूक्ष्म-विषय")+' · '+qn+' '+sp("questions","प्रश्न")+' · '+done+'/'+c.topics.length+' '+sp("practised","अभ्यास किया")+'</div>'
+      + '<div style="margin-top:8px">';
+    c.topics.forEach(function(tp){
+      var st = topicStats(tp.code); var a2 = acc(st);
+      var chipCls = a2===null ? "grey" : (a2>=80?"green":(a2>=60?"amber":"red"));
+      h += '<span class="chip '+chipCls+' clickable" style="margin-bottom:5px" onclick="go(\'topic\',{code:\''+tp.code+'\'})">'
+        + t(tp.name)+(a2!==null?" · "+a2+"%":"")+'</span> ';
+    });
+    h += '</div></div><div style="display:flex;flex-direction:column;gap:6px">'
+      + '<button class="btn sm" onclick="go(\'topic\',{code:\''+c.topics[0].code+'\'})">'+sp("Start","शुरू करें")+'</button>'
+      + (qn ? '<button class="btn ghost sm" onclick="startQuiz(\'chapter\',\''+s.code+'\','+c.no+')">'+sp("Chapter test","अध्याय परीक्षा")+'</button>' : '')
+      + '</div></div>';
+  });
+  return h;
+}
+
+/* ================= TOPIC ================= */
+function vTopic(code){
+  var info = topicByCode(code); if(!info) return "Not found";
+  setLastVisited({topic:code});
+  var s=info.subject, c=info.chapter, tp=info.topic;
+  var qn = qForTopic(code).length;
+  var idx = c.topics.indexOf(tp);
+  var prev = idx>0 ? c.topics[idx-1] : null;
+  var next = idx<c.topics.length-1 ? c.topics[idx+1] : null;
+  var st = topicStats(code); var a2 = acc(st);
+  var h = '<div class="crumb"><a onclick="go(\'home\')">'+sp("Home","मुख्य")+'</a> › <a onclick="go(\'subject\',{code:\''+s.code+'\'})">'+t(s.name)+'</a> › '
+    + sp("Ch "+c.no,"अध्याय "+c.no)+': '+t(c.name)+' › <b>'+t(tp.name)+'</b></div>';
+  h += '<div class="card"><div>'
+    + '<span class="chip">'+sp("Concept","अवधारणा")+'</span>'
+    + (tp.exam ? '<span class="chip green">'+sp("Exam-important","परीक्षा-महत्वपूर्ण")+'</span>' : '')
+    + (a2!==null ? '<span class="chip '+(a2>=80?"green":(a2>=60?"amber":"red"))+'">'+sp("Your accuracy: ","आपकी शुद्धता: ")+a2+'%</span>' : '')
+    + '</div><h1 style="margin:10px 0 12px">'+t(tp.name)+'</h1>'
+    + '<div class="notes">'+esc(t(tp.notes))+'</div></div>';
+  h += '<div class="card rowflex" style="margin-top:14px"><div>'
+    + '<h3>'+(qn ? sp("Practise this concept now","अभी इस अवधारणा का अभ्यास करें") : sp("No questions yet for this topic","इस विषय हेतु अभी प्रश्न नहीं हैं"))+'</h3>'
+    + (qn ? '<div class="sub">'+Math.min(qn,8)+' '+sp("questions · instant explanations","प्रश्न · तुरंत व्याख्या")+'</div>' : '')
+    + '</div><div>'
+    + (qn ? '<button class="btn" onclick="startQuiz(\'topic\',\''+code+'\')">'+sp("Start practice →","अभ्यास शुरू करें →")+'</button>' : '')
+    + '</div></div>';
+  h += '<div class="rowflex" style="margin-top:14px">'
+    + (prev ? '<button class="btn ghost sm" onclick="go(\'topic\',{code:\''+prev.code+'\'})">← '+t(prev.name)+'</button>' : '<span></span>')
+    + (next ? '<button class="btn ghost sm" onclick="go(\'topic\',{code:\''+next.code+'\'})">'+t(next.name)+' →</button>' : '<span></span>')
+    + '</div>';
+  return h;
+}
+
+/* ================= QUIZ ENGINE ================= */
+var QUIZ = null;
+function startQuiz(scope, a, b){
+  var qs, title, backTopic=null;
+  if(scope==="topic"){
+    qs = qForTopic(a);
+    var info = topicByCode(a); title = info ? t(info.topic.name) : a; backTopic = a;
+  } else {
+    qs = qForChapter(a, b);
+    var s = subj(a); var c = s && chapter(s,b);
+    title = c ? (t(s.name)+" · "+t(c.name)) : a;
+  }
+  if(!qs.length){ toast(LANG==="hi"?"अभी प्रश्न उपलब्ध नहीं":"No questions available yet"); return; }
+  QUIZ = { scope:scope, key: scope==="topic"?a:(a+"-ch"+b), title:title, backTopic:backTopic,
+           qs: shuffle(qs).slice(0,8), i:0, results:[], answered:false, t0:Date.now() };
+  go("quiz");
+}
+function vQuiz(){
+  if(!QUIZ) return vHome();
+  var q = QUIZ.qs[QUIZ.i];
+  var dots = QUIZ.qs.map(function(_,k){
+    var r = QUIZ.results[k];
+    return '<i class="'+(r===true?"ok":(r===false?"bad":(k===QUIZ.i?"done":"")))+'"></i>';
+  }).join("");
+  var h = '<div style="max-width:680px;margin:0 auto">'
+    + '<div class="rowflex" style="margin-bottom:12px"><div class="qdots">'+dots+'</div>'
+    + '<span class="sub">'+sp("Question","प्रश्न")+' '+(QUIZ.i+1)+' / '+QUIZ.qs.length+'</span></div>'
+    + '<div class="sub" style="margin-bottom:8px">'+esc(QUIZ.title)+'</div>'
+    + '<div class="card">'
+    + '<span class="chip">'+q.type.toUpperCase()+'</span><span class="chip amber">'+sp(q.diff,{easy:"आसान",medium:"मध्यम",hard:"कठिन"}[q.diff]||q.diff)+'</span>'
+    + '<h2 style="margin-top:10px">'+esc(t(q.q))+'</h2><div style="margin-top:12px" id="qbody">';
+  if(q.type==="mcq"){
+    var letters=["A","B","C","D"];
+    (q.opts[LANG]||q.opts.en).forEach(function(o,k){
+      h += '<button class="option" id="opt'+k+'" onclick="answerMcq('+k+')"><b>'+letters[k]+'.</b> '+esc(o)+'</button>';
+    });
+  } else if(q.type==="tf"){
+    h += '<button class="option" id="optT" onclick="answerTf(true)"><b>'+sp("TRUE","सही")+'</b></button>'
+       + '<button class="option" id="optF" onclick="answerTf(false)"><b>'+sp("FALSE","गलत")+'</b></button>';
+  } else {
+    h += '<input class="shortinput" id="shortAns" placeholder="'+(LANG==="hi"?"उत्तर लिखें…":"Type your answer…")+'" onkeydown="if(event.key===\'Enter\')answerShort()">'
+       + '<button class="btn" style="margin-top:10px" onclick="answerShort()">'+sp("Check","जाँचें")+'</button>';
+  }
+  h += '</div><div id="exp"></div>'
+    + '<div class="rowflex" style="margin-top:16px">'
+    + '<button class="btn ghost sm" onclick="quitQuiz()">← '+sp("Exit","बाहर")+'</button>'
+    + '<button class="btn" id="nextBtn" style="display:none" onclick="nextQ()">'+sp("Next →","अगला →")+'</button>'
+    + '</div></div></div>';
+  return h;
+}
+function showExplanation(ok, q, extra){
+  var el = document.getElementById("exp");
+  el.innerHTML = '<div class="explain '+(ok?"ok":"no")+'"><b>'+(ok?(LANG==="hi"?"✅ सही!":"✅ Correct!"):(LANG==="hi"?"❌ सही नहीं।":"❌ Not quite."))+'</b> '
+    + (extra||"") + esc(t(q.exp)) + '</div>';
+  var nb = document.getElementById("nextBtn");
+  nb.style.display = "inline-block";
+  nb.innerHTML = QUIZ.i === QUIZ.qs.length-1 ? (LANG==="hi"?"परिणाम देखें →":"See results →") : (LANG==="hi"?"अगला →":"Next →");
+}
+function settle(ok, q, extra){
+  QUIZ.results[QUIZ.i] = ok; QUIZ.answered = true;
+  record(q, ok);
+  showExplanation(ok, q, extra);
+}
+function answerMcq(k){
+  if(QUIZ.answered) return;
+  var q = QUIZ.qs[QUIZ.i];
+  var correctIdx = {A:0,B:1,C:2,D:3}[q.correct];
+  var ok = k===correctIdx;
+  for(var i2=0;i2<4;i2++){ var o=document.getElementById("opt"+i2); if(o) o.disabled=true; }
+  var chosen = document.getElementById("opt"+k); if(chosen) chosen.classList.add(ok?"correct":"wrong");
+  if(!ok){ var co=document.getElementById("opt"+correctIdx); if(co) co.classList.add("correct"); }
+  settle(ok, q);
+}
+function answerTf(val){
+  if(QUIZ.answered) return;
+  var q = QUIZ.qs[QUIZ.i];
+  var correct = String(q.correct).toUpperCase()==="TRUE";
+  var ok = val===correct;
+  ["T","F"].forEach(function(x){ var o=document.getElementById("opt"+x); if(o) o.disabled=true; });
+  var chosen = document.getElementById(val?"optT":"optF"); if(chosen) chosen.classList.add(ok?"correct":"wrong");
+  if(!ok){ var co=document.getElementById(correct?"optT":"optF"); if(co) co.classList.add("correct"); }
+  settle(ok, q);
+}
+function answerShort(){
+  if(QUIZ.answered) return;
+  var q = QUIZ.qs[QUIZ.i];
+  var inp = document.getElementById("shortAns");
+  var val = (inp.value||"").trim().toLowerCase();
+  if(!val){ toast(LANG==="hi"?"पहले उत्तर लिखें":"Type an answer first"); return; }
+  var accepted = String(q.correct).split("|").map(function(x){ return x.trim().toLowerCase(); });
+  var ok = accepted.indexOf(val)>-1;
+  inp.disabled = true;
+  inp.style.borderColor = ok ? "var(--green)" : "var(--red)";
+  var extra = ok ? "" : '<b>'+(LANG==="hi"?"स्वीकृत उत्तर: ":"Accepted answer: ")+'</b>'+esc(String(q.correct).split("|")[0])+'. ';
+  settle(ok, q, extra);
+}
+function nextQ(){
+  if(QUIZ.i < QUIZ.qs.length-1){ QUIZ.i++; QUIZ.answered=false; render(); window.scrollTo(0,0); }
+  else {
+    var score = QUIZ.results.filter(function(r){ return r; }).length;
+    saveSession({date:Date.now(), key:QUIZ.key, score:score, total:QUIZ.qs.length});
+    go("result");
+  }
+}
+function quitQuiz(){
+  var back = QUIZ && QUIZ.backTopic;
+  QUIZ = null;
+  if(back) go("topic",{code:back}); else go("home");
+}
+
+/* ================= RESULT ================= */
+function vResult(){
+  if(!QUIZ) return vHome();
+  var score = QUIZ.results.filter(function(r){ return r; }).length;
+  var total = QUIZ.qs.length;
+  var pct = Math.round(100*score/total);
+  var secs = Math.round((Date.now()-QUIZ.t0)/1000);
+  var mins = Math.floor(secs/60)+":"+String(secs%60).padStart(2,"0");
+  var deg = Math.round(360*pct/100);
+  var col = pct>=80?"var(--green)":(pct>=60?"var(--accent)":"var(--red)");
+  var prevSessions = sessions().filter(function(s2){ return s2.key===QUIZ.key; });
+  var improve = "";
+  if(prevSessions.length>1){
+    var first = prevSessions[0];
+    var diff = pct - Math.round(100*first.score/first.total);
+    if(diff>0) improve = '<div class="chip green" style="margin-top:14px">▲ +'+diff+'% '+sp("vs your first attempt","पहले प्रयास की तुलना में")+'</div>';
+    else if(diff<0) improve = '<div class="chip amber" style="margin-top:14px">▼ '+diff+'% '+sp("vs your first attempt","पहले प्रयास की तुलना में")+'</div>';
+  }
+  var h = '<div style="max-width:720px;margin:0 auto">'
+    + '<div class="card" style="text-align:center;padding:26px">'
+    + '<h1>'+(pct>=60?"🎉":"💪")+' '+sp("Practice complete!","अभ्यास पूर्ण!")+'</h1>'
+    + '<p class="sub" style="margin-bottom:16px">'+esc(QUIZ.title)+' · '+total+' '+sp("questions","प्रश्न")+'</p>'
+    + '<div class="score-ring" style="background:conic-gradient('+col+' 0 '+deg+'deg,var(--line) '+deg+'deg 360deg)"><div><b>'+pct+'%</b><span class="sub">'+sp("score","स्कोर")+'</span></div></div>'
+    + '<div class="grid g3" style="margin-top:18px">'
+    + '<div class="stat"><b style="color:var(--green)">'+score+'</b><span class="sub">'+sp("Correct","सही")+'</span></div>'
+    + '<div class="stat"><b style="color:var(--red)">'+(total-score)+'</b><span class="sub">'+sp("Incorrect","गलत")+'</span></div>'
+    + '<div class="stat"><b>'+mins+'</b><span class="sub">'+sp("Time","समय")+'</span></div></div>'
+    + improve + '</div>';
+  h += '<div class="card" style="margin-top:16px"><h2>'+sp("Question review","प्रश्न समीक्षा")+'</h2><table><tr><th>#</th><th>'+sp("Question","प्रश्न")+'</th><th>'+sp("Result","परिणाम")+'</th></tr>';
+  QUIZ.qs.forEach(function(q,k){
+    h += '<tr><td>'+(k+1)+'</td><td>'+esc(t(q.q))+'</td><td><span class="chip '+(QUIZ.results[k]?"green":"red")+'">'+(QUIZ.results[k]?"✓":"✗")+'</span></td></tr>';
+  });
+  h += '</table></div>';
+  var again = QUIZ.scope==="topic"
+    ? '<button class="btn" onclick="startQuiz(\'topic\',\''+QUIZ.key+'\')">'+sp("Practise again","फिर अभ्यास करें")+'</button>'
+    : '';
+  var backT = QUIZ.backTopic ? '<button class="btn ghost" onclick="go(\'topic\',{code:\''+QUIZ.backTopic+'\'})">'+sp("Revise the concept","अवधारणा दोहराएँ")+'</button>' : '';
+  h += '<div class="card" style="margin-top:16px;background:var(--primary-light);border-color:var(--primary)">'
+    + '<h2>🎯 '+sp("What next?","आगे क्या?")+'</h2>'
+    + '<p class="sub" style="margin-bottom:12px">'
+    + (pct<70 ? sp("Revise the concept and re-attempt — repeat practice is where marks improve.","अवधारणा दोहराकर पुनः प्रयास करें — दोहराया अभ्यास ही अंक सुधारता है।")
+              : sp("Great! Move to the next topic, or re-attempt tomorrow to lock it into memory.","बहुत बढ़िया! अगले विषय पर जाएँ, या कल पुनः प्रयास कर स्मृति में पक्का करें।"))
+    + '</p><div style="display:flex;gap:8px;flex-wrap:wrap">'+again+backT
+    + '<button class="btn ghost" onclick="go(\'dashboard\')">'+sp("My progress","मेरी प्रगति")+'</button></div></div></div>';
+  return h;
+}
+
+/* ================= DASHBOARD ================= */
+function vDashboard(){
+  var oa = overallAcc();
+  var mastered = 0, attempted = 0, totalTopics = 0;
+  SUBJECTS.forEach(function(s){ s.chapters.forEach(function(c){ c.topics.forEach(function(tp){
+    totalTopics++; var st=topicStats(tp.code);
+    if(st&&st.n>0){ attempted++; if(acc(st)>=80) mastered++; }
+  }); }); });
+  var h = '<h1>'+sp("My Progress","मेरी प्रगति")+'</h1><p class="sub" style="margin-bottom:16px">'
+    + sp("All progress is stored on this device.","सारी प्रगति इसी डिवाइस पर संग्रहीत है।")+'</p>'
+    + '<div class="grid g4" style="margin-bottom:18px">'
+    + '<div class="card stat"><span style="font-size:1.8rem">🔥</span><b>'+streak()+'</b><span class="sub">'+sp("day streak","दिन की स्ट्रीक")+'</span></div>'
+    + '<div class="card stat"><b>'+totalAttempts()+'</b><span class="sub">'+sp("questions attempted","प्रश्न हल किए")+'</span></div>'
+    + '<div class="card stat"><b>'+(oa===null?"—":oa+"%")+'</b><span class="sub">'+sp("overall accuracy","कुल शुद्धता")+'</span></div>'
+    + '<div class="card stat"><b>'+mastered+'/'+totalTopics+'</b><span class="sub">'+sp("topics mastered (≥80%)","विषयों में महारत (≥80%)")+'</span></div></div>';
+
+  h += '<div class="grid g2">';
+  SUBJECTS.forEach(function(s){
+    h += '<div class="card"><h2>'+s.icon+' '+t(s.name)+'</h2>';
+    s.chapters.forEach(function(c){
+      c.topics.forEach(function(tp){
+        var st = topicStats(tp.code); var a2 = acc(st);
+        var cls = a2===null?"":(a2>=80?"g":(a2>=60?"a":"r"));
+        h += '<div class="sub" style="margin-top:8px">'+sp("Ch "+c.no,"अ. "+c.no)+' · '+t(tp.name)+' — '+(a2===null?sp("not attempted","प्रयास नहीं"):a2+"%")+'</div>'
+           + '<div class="bar"><i class="'+cls+'" style="width:'+(a2===null?0:a2)+'%"></i></div>';
+      });
+    });
+    h += '</div>';
+  });
+  h += '</div>';
+
+  var weak = weakTopics();
+  if(weak.length){
+    h += '<div class="card" style="margin-top:16px"><h2>⚠️ '+sp("Weak topics — practise first","कमज़ोर विषय — पहले अभ्यास करें")+'</h2>';
+    weak.forEach(function(w){
+      h += '<div class="rowflex" style="padding:8px 0;border-bottom:1px solid var(--line)"><div><b>'+t(w.info.topic.name)+'</b>'
+        + '<div class="sub">'+t(w.info.subject.name)+' · '+w.acc+'% · '+w.n+' '+sp("attempts","प्रयास")+'</div></div>'
+        + '<button class="btn sm" onclick="startQuiz(\'topic\',\''+w.code+'\')">'+sp("Practise","अभ्यास")+'</button></div>';
+    });
+    h += '</div>';
+  }
+  h += '<div style="margin-top:18px"><button class="btn danger sm" onclick="if(confirm(\'Reset all progress?\')){localStorage.removeItem(\'sl_progress\');localStorage.removeItem(\'sl_sessions\');localStorage.removeItem(\'sl_last\');render();}">'+sp("Reset progress","प्रगति रीसेट करें")+'</button></div>';
+  return h;
+}
+
+/* ================= ADMIN ================= */
+var ADMIN_TAB = "bank";
+var ADMIN_FILTER = "";
+var EDIT_ID = null;
+function vAdmin(){
+  var tabs = [["bank","Question bank"],["edit", EDIT_ID?"Edit question":"Add question"],["io","Import / Export"],["curr","Curriculum"]];
+  var h = '<h1>Admin portal</h1><p class="sub" style="margin-bottom:14px">Content management — visible to the content team only. Imported/edited questions are stored in this browser and merged with the built-in content packs.</p><div class="tabbar">';
+  tabs.forEach(function(tb){ h += '<button class="'+(ADMIN_TAB===tb[0]?"active":"")+'" onclick="ADMIN_TAB=\''+tb[0]+'\';render()">'+tb[1]+'</button>'; });
+  h += '</div>';
+  if(ADMIN_TAB==="bank") h += adminBank();
+  else if(ADMIN_TAB==="edit") h += adminEdit();
+  else if(ADMIN_TAB==="io") h += adminIO();
+  else h += adminCurr();
+  return h;
+}
+function adminBank(){
+  var qs = allQuestions();
+  if(ADMIN_FILTER) qs = qs.filter(function(q){ return q.subject===ADMIN_FILTER; });
+  var custom = {}; customQuestions().forEach(function(q){ custom[q.id]=true; });
+  var h = '<div class="card"><div class="rowflex" style="margin-bottom:10px"><div><b>'+qs.length+'</b> questions'
+    + (ADMIN_FILTER?' in '+ADMIN_FILTER:'')+'</div><div><select style="width:auto" onchange="ADMIN_FILTER=this.value;render()">'
+    + '<option value="">All subjects</option>';
+  SUBJECTS.forEach(function(s){ h += '<option value="'+s.code+'"'+(ADMIN_FILTER===s.code?" selected":"")+'>'+s.code+' — '+s.name.en+'</option>'; });
+  h += '</select></div></div><div style="overflow-x:auto"><table><tr><th>ID</th><th>Subject</th><th>Ch</th><th>Topic</th><th>Type</th><th>Diff</th><th>Question (EN)</th><th>Status</th><th></th></tr>';
+  qs.forEach(function(q){
+    h += '<tr><td>'+esc(q.id)+(custom[q.id]?' <span class="chip amber">edited</span>':'')+'</td><td>'+esc(q.subject)+'</td><td>'+q.chapter+'</td><td>'+esc(q.topic||"—")+'</td>'
+      + '<td>'+q.type+'</td><td>'+q.diff+'</td><td>'+esc(q.q.en).slice(0,60)+'…</td>'
+      + '<td><span class="chip '+(q.status==="published"?"green":"amber")+'">'+q.status+'</span></td>'
+      + '<td style="white-space:nowrap"><button class="btn ghost sm" onclick="EDIT_ID=\''+q.id+'\';ADMIN_TAB=\'edit\';render()">Edit</button>'
+      + (custom[q.id]?' <button class="btn danger sm" onclick="deleteCustom(\''+q.id+'\')">Revert</button>':'')
+      + '</td></tr>';
+  });
+  h += '</table></div></div>';
+  return h;
+}
+function deleteCustom(id){
+  saveCustom(customQuestions().filter(function(q){ return q.id!==id; }));
+  toast("Removed local copy of "+id); render();
+}
+function adminEdit(){
+  var q = EDIT_ID ? allQuestions().find(function(x){ return x.id===EDIT_ID; }) : null;
+  q = q || { id:"", board:"CBSE", klass:"11", subject:SUBJECTS[0]?SUBJECTS[0].code:"", chapter:1, topic:"", type:"mcq", diff:"medium",
+             q:{en:"",hi:""}, opts:{en:["","","",""],hi:["","","",""]}, correct:"A", exp:{en:"",hi:""}, tags:[], source:"", status:"draft" };
+  function val(x){ return esc(x==null?"":x); }
+  var h = '<div class="card"><h2>'+(EDIT_ID?"Edit "+esc(EDIT_ID):"Add a new question")+'</h2>'
+    + '<div class="grid g4">'
+    + '<div><label>ID (blank = auto)</label><input type="text" id="f_id" value="'+val(q.id)+'"'+(EDIT_ID?' disabled':'')+'></div>'
+    + '<div><label>Subject</label><select id="f_subject">'+SUBJECTS.map(function(s){ return '<option value="'+s.code+'"'+(q.subject===s.code?" selected":"")+'>'+s.code+'</option>'; }).join("")+'</select></div>'
+    + '<div><label>Chapter no</label><input type="text" id="f_chapter" value="'+val(q.chapter)+'"></div>'
+    + '<div><label>Topic code</label><input type="text" id="f_topic" value="'+val(q.topic)+'" placeholder="e.g. ACC-1-2"></div>'
+    + '</div><div class="grid g4">'
+    + '<div><label>Type</label><select id="f_type"><option'+(q.type==="mcq"?" selected":"")+'>mcq</option><option'+(q.type==="tf"?" selected":"")+'>tf</option><option'+(q.type==="short"?" selected":"")+'>short</option></select></div>'
+    + '<div><label>Difficulty</label><select id="f_diff"><option'+(q.diff==="easy"?" selected":"")+'>easy</option><option'+(q.diff==="medium"?" selected":"")+'>medium</option><option'+(q.diff==="hard"?" selected":"")+'>hard</option></select></div>'
+    + '<div><label>Status</label><select id="f_status"><option'+(q.status==="draft"?" selected":"")+'>draft</option><option'+(q.status==="review"?" selected":"")+'>review</option><option'+(q.status==="published"?" selected":"")+'>published</option></select></div>'
+    + '<div><label>Tags (comma-sep)</label><input type="text" id="f_tags" value="'+val((q.tags||[]).join(", "))+'"></div>'
+    + '</div>'
+    + '<div class="grid g2"><div><label>Question (English)</label><textarea id="f_qen" rows="2">'+val(q.q.en)+'</textarea></div>'
+    + '<div><label>Question (Hindi)</label><textarea id="f_qhi" rows="2">'+val(q.q.hi)+'</textarea></div></div>'
+    + '<label>Options (MCQ only) — EN | HI per row</label>';
+  for(var k=0;k<4;k++){
+    var letters=["A","B","C","D"];
+    h += '<div class="grid g2" style="margin-bottom:6px">'
+      + '<input type="text" id="f_oen'+k+'" placeholder="Option '+letters[k]+' (EN)" value="'+val(q.opts&&q.opts.en?q.opts.en[k]:"")+'">'
+      + '<input type="text" id="f_ohi'+k+'" placeholder="Option '+letters[k]+' (HI)" value="'+val(q.opts&&q.opts.hi?q.opts.hi[k]:"")+'"></div>';
+  }
+  h += '<div class="grid g2"><div><label>Correct (A–D / TRUE / FALSE / answers with |)</label><input type="text" id="f_correct" value="'+val(q.correct)+'"></div>'
+    + '<div><label>Source</label><input type="text" id="f_source" value="'+val(q.source)+'"></div></div>'
+    + '<div class="grid g2"><div><label>Explanation (English)</label><textarea id="f_een" rows="3">'+val(q.exp.en)+'</textarea></div>'
+    + '<div><label>Explanation (Hindi)</label><textarea id="f_ehi" rows="3">'+val(q.exp.hi)+'</textarea></div></div>'
+    + '<div style="margin-top:14px;display:flex;gap:8px">'
+    + '<button class="btn" onclick="saveQuestion()">💾 Save</button>'
+    + (EDIT_ID?'<button class="btn ghost" onclick="EDIT_ID=null;render()">New question instead</button>':'')
+    + '</div></div>';
+  return h;
+}
+function saveQuestion(){
+  function gv(id){ var e=document.getElementById(id); return e?e.value.trim():""; }
+  var subjCode = gv("f_subject");
+  var s = subj(subjCode);
+  var id = EDIT_ID || gv("f_id");
+  if(!id){
+    var n = allQuestions().filter(function(q){ return q.subject===subjCode; }).length + 1;
+    id = subjCode+"-Q"+String(900+n);
+  }
+  var type = gv("f_type");
+  var q = {
+    id:id, board:s?s.board:"CBSE", klass:s?s.klass:"11", subject:subjCode,
+    chapter: parseInt(gv("f_chapter"))||1, topic: gv("f_topic"),
+    type:type, diff:gv("f_diff"),
+    q:{en:gv("f_qen"), hi:gv("f_qhi")},
+    correct:gv("f_correct"),
+    exp:{en:gv("f_een"), hi:gv("f_ehi")},
+    tags: gv("f_tags").split(",").map(function(x){ return x.trim(); }).filter(Boolean),
+    source: gv("f_source"), status: gv("f_status")
+  };
+  if(type==="mcq"){
+    q.opts = {en:[gv("f_oen0"),gv("f_oen1"),gv("f_oen2"),gv("f_oen3")], hi:[gv("f_ohi0"),gv("f_ohi1"),gv("f_ohi2"),gv("f_ohi3")]};
+    if(q.opts.en.some(function(x){ return !x; })){ toast("Fill all four English options for MCQ"); return; }
+    if(["A","B","C","D"].indexOf(q.correct.toUpperCase())<0){ toast("Correct must be A, B, C or D"); return; }
+    q.correct = q.correct.toUpperCase();
+  }
+  if(!q.q.en || !q.exp.en){ toast("English question and explanation are required"); return; }
+  var custom = customQuestions().filter(function(x){ return x.id!==id; });
+  custom.push(q); saveCustom(custom);
+  EDIT_ID = null; ADMIN_TAB="bank";
+  toast("Saved "+id); render();
+}
+/* ---------- import / export ---------- */
+var HEADERS = ["id","board","class","subject_code","chapter_no","topic_code","type","difficulty",
+  "question_en","question_hi","option_a_en","option_b_en","option_c_en","option_d_en",
+  "option_a_hi","option_b_hi","option_c_hi","option_d_hi","correct",
+  "explanation_en","explanation_hi","tags","source","status"];
+function qToRow(q){
+  var oe = (q.opts&&q.opts.en)||["","","",""], oh=(q.opts&&q.opts.hi)||["","","",""];
+  return [q.id, q.board, q.klass, q.subject, q.chapter, q.topic||"", q.type, q.diff,
+    q.q.en, q.q.hi||"", oe[0]||"",oe[1]||"",oe[2]||"",oe[3]||"", oh[0]||"",oh[1]||"",oh[2]||"",oh[3]||"",
+    String(q.correct), q.exp.en, q.exp.hi||"", (q.tags||[]).join(", "), q.source||"", q.status];
+}
+function rowToQ(r){
+  function g(name){ var v=r[name]; return v==null?"":String(v).trim(); }
+  var subjCode = g("subject_code"); if(!subjCode || !g("question_en")) return null;
+  var q = { id:g("id"), board:g("board")||"CBSE", klass:g("class")||"11", subject:subjCode,
+    chapter: parseInt(g("chapter_no"))||1, topic:g("topic_code"),
+    type:(g("type")||"mcq").toLowerCase(), diff:(g("difficulty")||"medium").toLowerCase(),
+    q:{en:g("question_en"), hi:g("question_hi")}, correct:g("correct"),
+    exp:{en:g("explanation_en"), hi:g("explanation_hi")},
+    tags:g("tags").split(",").map(function(x){return x.trim();}).filter(Boolean),
+    source:g("source"), status:(g("status")||"draft").toLowerCase() };
+  if(q.type==="mcq"){
+    q.opts = {en:[g("option_a_en"),g("option_b_en"),g("option_c_en"),g("option_d_en")],
+              hi:[g("option_a_hi"),g("option_b_hi"),g("option_c_hi"),g("option_d_hi")]};
+    q.correct = q.correct.toUpperCase();
+    if(["A","B","C","D"].indexOf(q.correct)<0) return null;
+    if(q.opts.en.some(function(x){ return !x; })) return null;
+  }
+  if(q.type==="tf") q.correct = q.correct.toUpperCase();
+  if(!q.correct || !q.exp.en) return null;
+  return q;
+}
+function adminIO(){
+  return '<div class="grid g2">'
+    + '<div class="card"><h2>⬇ Export question bank</h2>'
+    + '<p class="sub" style="margin-bottom:12px">Downloads every question (built-in + edited/imported) in the standard template format. Edit in Excel and re-import to update.</p>'
+    + '<div style="display:flex;gap:8px;flex-wrap:wrap">'
+    + '<button class="btn" onclick="exportXlsx()">Export .xlsx</button>'
+    + '<button class="btn ghost" onclick="exportCsv()">Export .csv</button></div>'
+    + '<p class="sub" style="margin-top:12px">Format matches <b>selflearn-question-template.xlsx</b> — column rules are on its Instructions sheet.</p></div>'
+    + '<div class="card"><h2>⬆ Import questions</h2>'
+    + '<p class="sub" style="margin-bottom:12px">Upload a filled template (.xlsx or .csv). Rows with an existing ID update that question; rows with a new/blank ID are added. Invalid rows are skipped and reported.</p>'
+    + '<input type="file" id="impFile" accept=".xlsx,.xls,.csv" style="margin-bottom:10px">'
+    + '<br><button class="btn green" onclick="importFile()">Import</button>'
+    + '<div id="impReport" class="sub" style="margin-top:12px"></div></div></div>';
+}
+function exportRows(){
+  var rows = [HEADERS];
+  allQuestions().forEach(function(q){ rows.push(qToRow(q)); });
+  return rows;
+}
+function exportXlsx(){
+  if(typeof XLSX === "undefined"){ toast("Spreadsheet library not loaded (offline?) — use CSV export"); return; }
+  var ws = XLSX.utils.aoa_to_sheet(exportRows());
+  var wb = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb, ws, "Questions");
+  XLSX.writeFile(wb, "selflearn-questions-export.xlsx");
+  toast("Exported "+(exportRows().length-1)+" questions");
+}
+function exportCsv(){
+  var rows = exportRows();
+  var csv = rows.map(function(r){ return r.map(function(v){
+    v = String(v==null?"":v);
+    return (v.indexOf(",")>-1||v.indexOf('"')>-1||v.indexOf("\n")>-1) ? '"'+v.replace(/"/g,'""')+'"' : v;
+  }).join(","); }).join("\r\n");
+  var blob = new Blob(["﻿"+csv], {type:"text/csv;charset=utf-8"});
+  var a = document.createElement("a");
+  a.href = URL.createObjectURL(blob); a.download = "selflearn-questions-export.csv"; a.click();
+  toast("Exported "+(rows.length-1)+" questions");
+}
+function importFile(){
+  var inp = document.getElementById("impFile");
+  if(!inp.files || !inp.files[0]){ toast("Choose a file first"); return; }
+  if(typeof XLSX === "undefined"){ toast("Spreadsheet library not loaded — check internet connection"); return; }
+  var f = inp.files[0];
+  var reader = new FileReader();
+  reader.onload = function(e){
+    try{
+      var wb = XLSX.read(e.target.result, {type:"array"});
+      var sheetName = wb.SheetNames.indexOf("Questions")>-1 ? "Questions" : wb.SheetNames[0];
+      var rows = XLSX.utils.sheet_to_json(wb.Sheets[sheetName], {defval:""});
+      var added=0, updated=0, skipped=0;
+      var custom = customQuestions();
+      var existingIds = {}; allQuestions().forEach(function(q){ existingIds[q.id]=true; });
+      var counter = 1;
+      rows.forEach(function(r){
+        var q = rowToQ(r);
+        if(!q){ skipped++; return; }
+        if(!q.id){
+          do { q.id = q.subject+"-I"+String(Date.now()%100000)+"-"+(counter++); } while(existingIds[q.id]);
+        }
+        var isUpdate = existingIds[q.id];
+        custom = custom.filter(function(x){ return x.id!==q.id; });
+        custom.push(q);
+        existingIds[q.id]=true;
+        if(isUpdate) updated++; else added++;
+      });
+      saveCustom(custom);
+      document.getElementById("impReport").innerHTML =
+        '<b>Import complete:</b> '+added+' added, '+updated+' updated, '+skipped+' skipped (missing/invalid required fields).';
+      toast("Imported: "+added+" added, "+updated+" updated");
+    }catch(err){
+      document.getElementById("impReport").innerHTML = '<b style="color:var(--red)">Import failed:</b> '+esc(err.message);
+    }
+  };
+  reader.readAsArrayBuffer(f);
+}
+function adminCurr(){
+  var h = '<div class="card"><h2>Curriculum & topic codes</h2><p class="sub" style="margin-bottom:10px">Use these topic codes in the spreadsheet\'s <b>topic_code</b> column.</p>';
+  SUBJECTS.forEach(function(s){
+    h += '<h3 style="margin-top:14px">'+s.icon+' '+s.code+' — '+s.name.en+' ('+s.board+', '+(s.klass==="ALL"?"all ages":"Class "+s.klass)+')</h3>';
+    s.chapters.forEach(function(c){
+      h += '<div class="sub" style="margin:6px 0 2px"><b>Ch '+c.no+': '+c.name.en+'</b>'+(c.level?' — '+c.level.en:'')+'</div>';
+      c.topics.forEach(function(tp){
+        var qn = allQuestions().filter(function(q){ return q.topic===tp.code; }).length;
+        h += '<div class="sub" style="padding-left:16px"><code>'+tp.code+'</code> — '+tp.name.en+' ('+qn+' q)</div>';
+      });
+    });
+  });
+  h += '</div>';
+  return h;
+}
+
+/* ================= boot ================= */
+setLang(LANG);
+</script>
+</body>
+</html>

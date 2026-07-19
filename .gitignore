@@ -1,0 +1,5 @@
+~$*
+*.tmp
+Thumbs.db
+desktop.ini
+push-to-github.bat
