@@ -226,6 +226,7 @@ function render(){
   if(v==="home") el.innerHTML = vHome();
   else if(v==="subject") el.innerHTML = vSubject(VIEW.code);
   else if(v==="topic") el.innerHTML = vTopic(VIEW.code);
+  else if(v==="assignment") el.innerHTML = vAssignment(VIEW.code, VIEW.chapter);
   else if(v==="quiz") el.innerHTML = vQuiz();
   else if(v==="result") el.innerHTML = vResult();
   else if(v==="dashboard") el.innerHTML = vDashboard();
@@ -299,6 +300,7 @@ function vSubject(code){
     h += '</div></div><div style="display:flex;flex-direction:column;gap:6px">'
       + '<button class="btn sm" onclick="go(\'topic\',{code:\''+c.topics[0].code+'\'})">'+sp("Start","शुरू करें")+'</button>'
       + (qn ? '<button class="btn ghost sm" onclick="startQuiz(\'chapter\',\''+s.code+'\','+c.no+')">'+sp("Chapter test","अध्याय परीक्षा")+'</button>' : '')
+      + (c.assignment ? '<button class="btn ghost sm" onclick="go(\'assignment\',{code:\''+s.code+'\',chapter:'+c.no+'})">📋 '+sp("Assignment","असाइनमेंट")+'</button>' : '')
       + '</div></div>';
   });
   return h;
@@ -330,7 +332,27 @@ function vTopic(code){
     + '</div></div>';
   h += '<div class="rowflex" style="margin-top:14px">'
     + (prev ? '<button class="btn ghost sm" onclick="go(\'topic\',{code:\''+prev.code+'\'})">← '+t(prev.name)+'</button>' : '<span></span>')
-    + (next ? '<button class="btn ghost sm" onclick="go(\'topic\',{code:\''+next.code+'\'})">'+t(next.name)+' →</button>' : '<span></span>')
+    + (next ? '<button class="btn ghost sm" onclick="go(\'topic\',{code:\''+next.code+'\'})">'+t(next.name)+' →</button>'
+        : (c.assignment ? '<button class="btn sm" onclick="go(\'assignment\',{code:\''+s.code+'\',chapter:'+c.no+'})">📋 '+sp("Chapter assignment","अध्याय असाइनमेंट")+' →</button>' : '<span></span>'))
+    + '</div>';
+  return h;
+}
+
+/* ================= ASSIGNMENT ================= */
+function vAssignment(code, chNo){
+  var s = subj(code); if(!s) return "Not found";
+  var c = s.chapters.find(function(x){ return x.no===chNo; });
+  if(!c || !c.assignment) return "Not found";
+  var h = '<div class="crumb"><a onclick="go(\'home\')">'+sp("Home","मुख्य")+'</a> › <a onclick="go(\'subject\',{code:\''+s.code+'\'})">'+t(s.name)+'</a> › '
+    + sp("Ch "+c.no,"अध्याय "+c.no)+': '+t(c.name)+' › <b>'+sp("Assignment","असाइनमेंट")+'</b></div>';
+  h += '<div class="card"><div>'
+    + '<span class="chip amber">📋 '+sp("Hands-on assignment","व्यावहारिक असाइनमेंट")+'</span>'
+    + '<span class="chip">'+sp("Use a spreadsheet","स्प्रेडशीट का उपयोग करें")+'</span>'
+    + '</div><h1 style="margin:10px 0 12px">'+sp("Chapter "+c.no+" Assignment","अध्याय "+c.no+" असाइनमेंट")+': '+t(c.name)+'</h1>'
+    + '<div class="notes">'+fmtNotes(t(c.assignment))+'</div></div>';
+  h += '<div class="rowflex" style="margin-top:14px">'
+    + '<button class="btn ghost sm" onclick="go(\'subject\',{code:\''+s.code+'\'})">← '+sp("Back to chapters","अध्यायों पर वापस")+'</button>'
+    + '<button class="btn ghost sm" onclick="go(\'topic\',{code:\''+c.topics[0].code+'\'})">'+sp("Revise topics","विषय दोहराएँ")+' →</button>'
     + '</div>';
   return h;
 }
