@@ -222,6 +222,27 @@ var DIAGRAMS = {
       +'<text x="495" y="179" text-anchor="middle" font-size="10.5" fill="var(--ink)" opacity="0.7">'+d("to Centre (shared)","केंद्र को (साझा)")+'</text>'
       +'</svg>';
   },
+  "acc-qualities": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    var node=function(x,y,w,txt,col){
+      return '<rect x="'+x+'" y="'+y+'" width="'+w+'" height="34" rx="8" fill="var(--card)" stroke="'+col+'" stroke-width="2"/>'
+        +'<text x="'+(x+w/2)+'" y="'+(y+22)+'" text-anchor="middle" font-size="12" font-weight="bold" fill="var(--ink)">'+txt+'</text>';
+    };
+    var line=function(x1,y1,x2,y2){return '<line x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'" stroke="var(--line)" stroke-width="2"/>';};
+    return '<svg viewBox="0 0 660 230" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="330" y="18" text-anchor="middle" font-size="14" font-weight="bold" fill="var(--primary)">'+d("What makes accounting information useful?","लेखांकन सूचना को उपयोगी क्या बनाता है?")+'</text>'
+      +node(230,28,200,d("Decision Usefulness","निर्णय-उपयोगिता"),"var(--primary)")
+      +line(330,62,150,96)+line(330,62,330,96)+line(330,62,510,96)
+      +node(70,96,160,d("Reliability","विश्वसनीयता"),"var(--green)")
+      +node(250,96,160,d("Relevance","प्रासंगिकता"),"var(--green)")
+      +node(430,96,160,d("Understandability","सुबोधता"),"var(--amber)")
+      +'<text x="150" y="150" text-anchor="middle" font-size="10.5" fill="var(--ink)" opacity="0.75">'+d("verifiable · neutral · faithful","सत्यापन · निष्पक्ष · सच्ची")+'</text>'
+      +'<text x="330" y="150" text-anchor="middle" font-size="10.5" fill="var(--ink)" opacity="0.75">'+d("timely · predictive · feedback","समय पर · पूर्वानुमान · फीडबैक")+'</text>'
+      +'<text x="510" y="150" text-anchor="middle" font-size="10.5" fill="var(--ink)" opacity="0.75">'+d("clear · same sense","स्पष्ट · समान अर्थ")+'</text>'
+      +node(250,178,160,d("Comparability","तुलनीयता"),"var(--amber)")
+      +'<text x="330" y="216" text-anchor="middle" font-size="10.5" fill="var(--ink)" opacity="0.75">'+d("across periods & firms","अवधियों व फर्मों में")+'</text>'
+      +'</svg>';
+  },
   "meena-evolution": function(L){
     var d=function(a,b){return L==="hi"?b:a;};
     var shop=function(cx,base,w,h,col){
