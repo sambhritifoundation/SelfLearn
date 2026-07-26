@@ -364,6 +364,12 @@ function quizChapterCtx(){
   var cur=s.chapters[idx], nextC=s.chapters[idx+1]||null;
   return { subjectCode:sc, curFirst:(cur.topics[0]||{}).code, nextFirst:nextC&&(nextC.topics[0]||{}).code, nextName:nextC?t(nextC.name):null, nextNo:nextC?nextC.no:null };
 }
+function nextTopicCode(code){
+  var info=topicByCode(code); if(!info) return null;
+  var ts=info.chapter.topics, i=-1;
+  ts.forEach(function(tp,k){ if(tp.code===code) i=k; });
+  return (i>=0 && ts[i+1]) ? ts[i+1].code : null;
+}
 function qForTopic(code){ return pubQuestions().filter(function(q){ return q.topic===code; }); }
 function qForChapter(sc, no){ return pubQuestions().filter(function(q){ return q.subject===sc && q.chapter==no; }); }
 
@@ -421,6 +427,7 @@ function render(){
   else if(v==="subject") el.innerHTML = vSubject(VIEW.code);
   else if(v==="topic") el.innerHTML = vTopic(VIEW.code);
   else if(v==="assignment") el.innerHTML = vAssignment(VIEW.code, VIEW.chapter);
+  else if(v==="summary") el.innerHTML = vChapterSummary(VIEW.code, VIEW.chapter);
   else if(v==="quiz") el.innerHTML = vQuiz();
   else if(v==="result") el.innerHTML = vResult();
   else if(v==="dashboard") el.innerHTML = vDashboard();
@@ -493,9 +500,7 @@ function vSubject(code){
     });
     h += '</div></div><div style="display:flex;flex-direction:column;gap:6px">'
       + '<button class="btn sm" onclick="go(\'topic\',{code:\''+c.topics[0].code+'\'})">'+sp("Start","शुरू करें")+'</button>'
-      + (c.checkpoint ? '<button class="btn ghost sm" onclick="startCheckpoint(\''+s.code+'\','+c.no+',\'pre\')">🧭 '+sp("Pre-test","प्री-टेस्ट")+'</button>' : '')
-      + (qn ? '<button class="btn ghost sm" onclick="startQuiz(\'chapter\',\''+s.code+'\','+c.no+')">'+sp("Chapter test","अध्याय परीक्षा")+'</button>' : '')
-      + (c.checkpoint ? '<button class="btn ghost sm" onclick="startCheckpoint(\''+s.code+'\','+c.no+',\'exit\')">🎯 '+sp("Exit ticket","एग्ज़िट टिकट")+'</button>' : '')
+      + (c.summary ? '<button class="btn ghost sm" onclick="go(\'summary\',{code:\''+s.code+'\',chapter:'+c.no+'})">📄 '+sp("Summary & Assessment","सारांश व मूल्यांकन")+'</button>' : '')
       + (c.assignment ? '<button class="btn ghost sm" onclick="go(\'assignment\',{code:\''+s.code+'\',chapter:'+c.no+'})">📋 '+sp("Assignment","असाइनमेंट")+'</button>' : '')
       + '</div></div>';
   });
@@ -531,7 +536,8 @@ function vTopic(code){
   h += '<div class="rowflex" style="margin-top:14px">'
     + (prev ? '<button class="btn ghost sm" onclick="go(\'topic\',{code:\''+prev.code+'\'})">← '+t(prev.name)+'</button>' : '<span></span>')
     + (next ? '<button class="btn ghost sm" onclick="go(\'topic\',{code:\''+next.code+'\'})">'+t(next.name)+' →</button>'
-        : (c.assignment ? '<button class="btn sm" onclick="go(\'assignment\',{code:\''+s.code+'\',chapter:'+c.no+'})">📋 '+sp("Chapter assignment","अध्याय असाइनमेंट")+' →</button>' : '<span></span>'))
+        : (c.summary ? '<button class="btn sm" onclick="go(\'summary\',{code:\''+s.code+'\',chapter:'+c.no+'})">📄 '+sp("Chapter Summary","अध्याय सारांश")+' →</button>'
+            : (c.assignment ? '<button class="btn sm" onclick="go(\'assignment\',{code:\''+s.code+'\',chapter:'+c.no+'})">📋 '+sp("Chapter assignment","अध्याय असाइनमेंट")+' →</button>' : '<span></span>')))
     + '</div>';
   return h;
 }
@@ -570,6 +576,29 @@ function startQuiz(scope, a, b){
   if(!qs.length){ toast(LANG==="hi"?"अभी प्रश्न उपलब्ध नहीं":"No questions available yet"); return; }
   QUIZ = { scope:scope, key: scope==="topic"?a:(a+"-ch"+b), title:title, backTopic:backTopic,
            qs: shuffle(qs).slice(0,8), i:0, results:[], answered:false, t0:Date.now() };
+  go("quiz");
+}
+function vChapterSummary(code, chap){
+  var s=subj(code); var c=s&&chapter(s,chap);
+  if(!c || !c.summary) return "Not found";
+  var h='<div class="crumb"><a onclick="go(\'home\')">'+sp("Home","मुख्य")+'</a> › <a onclick="go(\'subject\',{code:\''+code+'\'})">'+t(s.name)+'</a> › <b>'+sp("Ch "+c.no+" · Summary","अध्याय "+c.no+" · सारांश")+'</b></div>'
+    + '<div class="card"><span class="chip amber">📄 '+sp("Chapter Summary & Revision","अध्याय सारांश व दोहराव")+'</span>'
+    + '<h1 style="margin:10px 0 12px">'+t(c.name)+'</h1>'
+    + '<div class="notes">'+fmtNotes(t(c.summary))+'</div></div>'
+    + '<div class="card" style="margin-top:16px"><div class="resultnav-row">'
+    + '<button class="btn ghost" onclick="go(\'subject\',{code:\''+code+'\'})">← '+sp("Back to Topics","विषयों पर लौटें")+'</button>'
+    + ((c.assessment&&c.assessment.length) ? '<button class="btn" onclick="startAssessment(\''+code+'\','+c.no+')">'+sp("Start Assessment","मूल्यांकन शुरू करें")+' →</button>' : '')
+    + '</div></div>';
+  return h;
+}
+function startAssessment(code, chap){
+  var s=subj(code); var c=s&&chapter(s,chap);
+  var ids=(c&&c.assessment)||[];
+  var qs=ids.map(function(id){ return window.SL_DATA.questions.find(function(q){ return q.id===id; }); }).filter(Boolean);
+  if(!qs.length){ toast(LANG==="hi"?"मूल्यांकन उपलब्ध नहीं":"No assessment available"); return; }
+  QUIZ={ scope:"assessment", ckKey:code+"-ch"+chap, key:code+"-ch"+chap+"-assess",
+         title:(c?t(c.name):code)+" — "+(LANG==="hi"?"मूल्यांकन":"Assessment"),
+         backSubject:code, qs:shuffle(qs.slice()), i:0, results:[], answered:false, t0:Date.now() };
   go("quiz");
 }
 function startCheckpoint(code, chap, phase){
@@ -755,7 +784,7 @@ function vResult(){
   }
   var h = '<div style="max-width:720px;margin:0 auto">'
     + '<div class="card" style="text-align:center;padding:26px">'
-    + '<h1>'+(pct>=60?"🎉":"💪")+' '+sp("Practice complete!","अभ्यास पूर्ण!")+'</h1>'
+    + '<h1>'+(pct>=60?"🎉":"💪")+' '+(QUIZ.scope==="assessment"?sp("Assessment complete!","मूल्यांकन पूर्ण!"):sp("Practice complete!","अभ्यास पूर्ण!"))+'</h1>'
     + '<p class="sub" style="margin-bottom:16px">'+esc(QUIZ.title)+' · '+total+' '+sp("questions","प्रश्न")+'</p>'
     + '<div class="score-ring" style="background:conic-gradient('+col+' 0 '+deg+'deg,var(--line) '+deg+'deg 360deg)"><div><b>'+pct+'%</b><span class="sub">'+sp("score","स्कोर")+'</span></div></div>'
     + '<div class="grid g3" style="margin-top:18px">'
@@ -782,30 +811,55 @@ function vResult(){
       }
     }
   }
+  if(QUIZ.scope==="assessment"){
+    var byT={};
+    QUIZ.qs.forEach(function(qq,k){ var tt=byT[qq.topic]=byT[qq.topic]||{c:0,n:0}; tt.n++; if(QUIZ.results[k]) tt.c++; });
+    var weak=[], rows="";
+    Object.keys(byT).forEach(function(tc){
+      var info2=topicByCode(tc), nm=info2?t(info2.topic.name):tc, tpc=Math.round(100*byT[tc].c/byT[tc].n);
+      var cls=tpc>=80?"green":(tpc>=50?"amber":"red");
+      if(tpc<60) weak.push({code:tc,name:nm});
+      rows+='<tr><td>'+esc(nm)+'</td><td>'+byT[tc].c+'/'+byT[tc].n+'</td><td><span class="chip '+cls+'">'+tpc+'%</span></td></tr>';
+    });
+    QUIZ._weak=weak;
+    var mlevel = pct>=80?sp("Mastered ⭐","महारत ⭐"):(pct>=60?sp("Proficient","निपुण"):sp("Needs revision","दोहराव आवश्यक"));
+    h += '<div class="card" style="margin-top:16px;background:var(--primary-light);border-color:var(--primary)">'
+      + '<h2>🏆 '+sp("Chapter mastery","अध्याय महारत")+': '+pct+'% · '+mlevel+'</h2>'
+      + '<h3 style="margin-top:10px">'+sp("Topic-wise performance","विषय-वार प्रदर्शन")+'</h3>'
+      + '<div style="overflow-x:auto"><table><tr><th>'+sp("Topic","विषय")+'</th><th>'+sp("Score","स्कोर")+'</th><th>%</th></tr>'+rows+'</table></div>';
+    if(weak.length){
+      h += '<h3 style="margin-top:12px">'+sp("Recommended for revision","दोहराव हेतु अनुशंसित")+'</h3><div>'
+        + weak.map(function(w){ return '<span class="chip red clickable" style="margin:3px" onclick="go(\'topic\',{code:\''+w.code+'\'})">'+esc(w.name)+'</span>'; }).join(" ")+'</div>';
+    } else {
+      h += '<p class="sub" style="margin-top:10px">✅ '+sp("No weak topics — excellent! You are ready for the next chapter.","कोई कमज़ोर विषय नहीं — बढ़िया! आप अगले अध्याय हेतु तैयार हैं।")+'</p>';
+    }
+    h += '</div>';
+  }
   h += '<div class="card" style="margin-top:16px"><h2>'+sp("Question review","प्रश्न समीक्षा")+'</h2><table><tr><th>#</th><th>'+sp("Question","प्रश्न")+'</th><th>'+sp("Result","परिणाम")+'</th></tr>';
   QUIZ.qs.forEach(function(q,k){
     h += '<tr><td>'+(k+1)+'</td><td>'+esc(t(q.q))+'</td><td><span class="chip '+(QUIZ.results[k]?"green":"red")+'">'+(QUIZ.results[k]?"✓":"✗")+'</span></td></tr>';
   });
   h += '</table></div>';
-  var again = QUIZ.scope==="topic"
-    ? '<button class="btn" onclick="startQuiz(\'topic\',\''+QUIZ.key+'\')">'+sp("Practise again","फिर अभ्यास करें")+'</button>'
-    : '';
-  var backT = QUIZ.backTopic ? '<button class="btn ghost" onclick="go(\'topic\',{code:\''+QUIZ.backTopic+'\'})">'+sp("Revise the concept","अवधारणा दोहराएँ")+'</button>' : '';
-  if(QUIZ.scope==="checkpoint" && QUIZ.backSubject) backT = '<button class="btn ghost" onclick="go(\'subject\',{code:\''+QUIZ.backSubject+'\'})">'+sp("Back to chapters","अध्यायों पर लौटें")+'</button>';
-  h += '<div class="card" style="margin-top:16px;background:var(--primary-light);border-color:var(--primary)">'
-    + '<h2>🎯 '+sp("What next?","आगे क्या?")+'</h2>'
-    + '<p class="sub" style="margin-bottom:12px">'
-    + (pct<70 ? sp("Revise the concept and re-attempt — repeat practice is where marks improve.","अवधारणा दोहराकर पुनः प्रयास करें — दोहराया अभ्यास ही अंक सुधारता है।")
-              : sp("Great! Move to the next topic, or re-attempt tomorrow to lock it into memory.","बहुत बढ़िया! अगले विषय पर जाएँ, या कल पुनः प्रयास कर स्मृति में पक्का करें।"))
-    + '</p><div style="display:flex;gap:8px;flex-wrap:wrap">'+again+backT
-    + '<button class="btn ghost" onclick="go(\'dashboard\')">'+sp("My progress","मेरी प्रगति")+'</button></div></div>';
-  var ctx = quizChapterCtx();
-  if(ctx && ctx.curFirst){
-    h += '<div class="card" style="margin-top:16px"><div class="resultnav-row">'
-      + '<button class="btn ghost" onclick="go(\'topic\',{code:\''+ctx.curFirst+'\'})">🔄 '+sp("Revise Chapter","अध्याय दोहराएँ")+'</button>'
-      + (ctx.nextFirst ? '<button class="btn" onclick="go(\'topic\',{code:\''+ctx.nextFirst+'\'})">'+sp("Next Chapter","अगला अध्याय")+' →</button>'
-                       : '<button class="btn ghost" onclick="go(\'subject\',{code:\''+ctx.subjectCode+'\'})">'+sp("All chapters","सभी अध्याय")+'</button>')
-      + '</div></div>';
+  if(QUIZ.scope==="assessment"){
+    var ctx = quizChapterCtx();
+    var reviseWeak = (QUIZ._weak&&QUIZ._weak.length)
+      ? '<button class="btn ghost" onclick="go(\'topic\',{code:\''+QUIZ._weak[0].code+'\'})">🔁 '+sp("Revise Weak Topics","कमज़ोर विषय दोहराएँ")+'</button>' : '';
+    var ck=(QUIZ.ckKey||"").split("-ch");
+    var retake = ck.length===2 ? '<button class="btn ghost" onclick="startAssessment(\''+ck[0]+'\','+ck[1]+')">↻ '+sp("Retake Assessment","पुनः मूल्यांकन")+'</button>' : '';
+    var nextC = (ctx&&ctx.nextFirst)
+      ? '<button class="btn" onclick="go(\'topic\',{code:\''+ctx.nextFirst+'\'})">'+sp("Next Chapter","अगला अध्याय")+' →</button>'
+      : '<button class="btn ghost" onclick="go(\'subject\',{code:\''+(ctx?ctx.subjectCode:QUIZ.backSubject)+'\'})">'+sp("All chapters","सभी अध्याय")+'</button>';
+    h += '<div class="card" style="margin-top:16px"><div class="resultnav-row">'+reviseWeak+retake+nextC+'</div></div>';
+  } else {
+    var curInfo = QUIZ.backTopic ? topicByCode(QUIZ.backTopic) : null;
+    var nt = QUIZ.backTopic ? nextTopicCode(QUIZ.backTopic) : null;
+    var reviseTopic = QUIZ.backTopic ? '<button class="btn ghost" onclick="go(\'topic\',{code:\''+QUIZ.backTopic+'\'})">← '+sp("Revise Topic","विषय दोहराएँ")+'</button>' : '';
+    var nextTopicBtn = "";
+    if(nt) nextTopicBtn = '<button class="btn" onclick="go(\'topic\',{code:\''+nt+'\'})">'+sp("Next Topic","अगला विषय")+' →</button>';
+    else if(curInfo && curInfo.chapter.summary) nextTopicBtn = '<button class="btn" onclick="go(\'summary\',{code:\''+curInfo.subject.code+'\',chapter:'+curInfo.chapter.no+'})">📄 '+sp("Chapter Summary","अध्याय सारांश")+' →</button>';
+    h += '<div class="card" style="margin-top:16px"><div class="resultnav-row">'+reviseTopic+nextTopicBtn+'</div>'
+      + '<div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap"><button class="btn ghost sm" onclick="startQuiz(\'topic\',\''+QUIZ.key+'\')">'+sp("Practise again","फिर अभ्यास करें")+'</button>'
+      + '<button class="btn ghost sm" onclick="go(\'dashboard\')">'+sp("My progress","मेरी प्रगति")+'</button></div></div>';
   }
   h += '</div>';
   return h;
