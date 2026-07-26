@@ -92,6 +92,11 @@
   .tabbar button.active{background:var(--primary);color:#fff;border-color:var(--primary)}
   .toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:11px 22px;border-radius:9px;font-size:.9rem;z-index:200;display:none}
   .shortinput{border:2px solid var(--line);border-radius:10px;padding:12px;font-size:1rem;width:100%}
+  .sortrow,.matchrow{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:9px 12px;border:1px solid var(--line);border-radius:9px;margin-bottom:8px;background:var(--card)}
+  .sortrow .lbl,.matchrow .lbl{font-size:.94rem;flex:1}
+  .sortrow select,.matchrow select{font-family:inherit;font-size:.88rem;padding:7px 9px;border:2px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink);max-width:50%}
+  .sortrow.correct,.matchrow.correct{border-color:var(--green);background:var(--green-light)}
+  .sortrow.wrong,.matchrow.wrong{border-color:var(--red);background:var(--red-light)}
   .lvl{font-size:.72rem;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);font-weight:800;margin:14px 0 6px}
 </style>
 </head>
@@ -531,6 +536,21 @@ function vQuiz(){
   } else if(q.type==="tf"){
     h += '<button class="option" id="optT" onclick="answerTf(true)"><b>'+sp("TRUE","सही")+'</b></button>'
        + '<button class="option" id="optF" onclick="answerTf(false)"><b>'+sp("FALSE","गलत")+'</b></button>';
+  } else if(q.type==="sort"){
+    var catOpts = q.cats.map(function(c){ return '<option value="'+c.k+'">'+esc(t(c))+'</option>'; }).join("");
+    h += q.items.map(function(it,idx){
+      return '<div class="sortrow" id="sr'+idx+'"><span class="lbl">'+esc(t(it))+'</span>'
+        + '<select id="ss'+idx+'"><option value="">'+(LANG==="hi"?"चुनें…":"choose…")+'</option>'+catOpts+'</select></div>';
+    }).join("");
+    h += '<button class="btn" style="margin-top:8px" onclick="answerSort()">'+sp("Check","जाँचें")+'</button>';
+  } else if(q.type==="match"){
+    var rights = shuffle(q.pairs.map(function(p,idx){ return {idx:idx, txt:t(p.r)}; }));
+    var rOpts = rights.map(function(r){ return '<option value="'+r.idx+'">'+esc(r.txt)+'</option>'; }).join("");
+    h += q.pairs.map(function(p,idx){
+      return '<div class="matchrow" id="mr'+idx+'"><span class="lbl">'+esc(t(p.l))+'</span>'
+        + '<select id="ms'+idx+'"><option value="">'+(LANG==="hi"?"चुनें…":"choose…")+'</option>'+rOpts+'</select></div>';
+    }).join("");
+    h += '<button class="btn" style="margin-top:8px" onclick="answerMatch()">'+sp("Check","जाँचें")+'</button>';
   } else {
     h += '<input class="shortinput" id="shortAns" placeholder="'+(LANG==="hi"?"उत्तर लिखें…":"Type your answer…")+'" onkeydown="if(event.key===\'Enter\')answerShort()">'
        + '<button class="btn" style="margin-top:10px" onclick="answerShort()">'+sp("Check","जाँचें")+'</button>';
@@ -587,6 +607,34 @@ function answerShort(){
   inp.style.borderColor = ok ? "var(--green)" : "var(--red)";
   var extra = ok ? "" : '<b>'+(LANG==="hi"?"स्वीकृत उत्तर: ":"Accepted answer: ")+'</b>'+esc(String(q.correct).split("|")[0])+'. ';
   settle(ok, q, extra);
+}
+function answerSort(){
+  if(QUIZ.answered) return;
+  var q = QUIZ.qs[QUIZ.i];
+  var sels = q.items.map(function(it,idx){ return document.getElementById("ss"+idx).value; });
+  if(sels.some(function(v){ return !v; })){ toast(LANG==="hi"?"पहले सभी को वर्गीकृत करें":"Sort every item first"); return; }
+  var allOk = true;
+  q.items.forEach(function(it,idx){
+    var row=document.getElementById("sr"+idx), sel=document.getElementById("ss"+idx);
+    var ok = sels[idx]===it.k; if(!ok) allOk=false;
+    row.classList.add(ok?"correct":"wrong"); sel.disabled=true;
+    if(!ok){ var cat=q.cats.find(function(c){ return c.k===it.k; }); row.insertAdjacentHTML("beforeend",'<span class="sub" style="color:var(--red);margin-left:6px">→ '+esc(t(cat))+'</span>'); }
+  });
+  settle(allOk, q);
+}
+function answerMatch(){
+  if(QUIZ.answered) return;
+  var q = QUIZ.qs[QUIZ.i];
+  var sels = q.pairs.map(function(p,idx){ return document.getElementById("ms"+idx).value; });
+  if(sels.some(function(v){ return v===""; })){ toast(LANG==="hi"?"पहले सभी मिलाएँ":"Match every item first"); return; }
+  var allOk = true;
+  q.pairs.forEach(function(p,idx){
+    var row=document.getElementById("mr"+idx), sel=document.getElementById("ms"+idx);
+    var ok = String(sels[idx])===String(idx); if(!ok) allOk=false;
+    row.classList.add(ok?"correct":"wrong"); sel.disabled=true;
+    if(!ok){ row.insertAdjacentHTML("beforeend",'<span class="sub" style="color:var(--red);margin-left:6px">→ '+esc(t(p.r))+'</span>'); }
+  });
+  settle(allOk, q);
 }
 function nextQ(){
   if(QUIZ.i < QUIZ.qs.length-1){ QUIZ.i++; QUIZ.answered=false; render(); window.scrollTo(0,0); }

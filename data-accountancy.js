@@ -837,4 +837,39 @@ window.SL_DATA.questions.push(
     correct:"B", exp:{en:"Profit or loss is shown by the profit & loss account; what the business owns vs owes (financial position) is shown by the balance sheet.", hi:"लाभ या हानि लाभ-हानि खाते से; व्यवसाय के पास क्या है बनाम क्या देना है (वित्तीय स्थिति) चिट्ठे से दिखती है।"},
     tags:["hots","exam-important"], source:"NCERT Ch 1", status:"published" }
 );
+/* Gap #3 — new interactive question types: sort/classify and match */
+window.SL_DATA.questions.push(
+  { id:"ACC-Q115", board:"CBSE", klass:"11", subject:"ACC", chapter:1, topic:"ACC-1-10", type:"sort", diff:"medium",
+    q:{en:"Classify each item from Meena didi's shop into the correct category.", hi:"मीना दीदी की दुकान की प्रत्येक मद को सही वर्ग में रखें।"},
+    cats:[{k:"asset",en:"Asset",hi:"संपत्ति"},{k:"liab",en:"Liability",hi:"दायित्व"},{k:"rev",en:"Revenue",hi:"आगम"},{k:"exp",en:"Expense",hi:"व्यय"}],
+    items:[{en:"Cash in the till",hi:"गल्ले में नकद",k:"asset"},{en:"Wholesaler's unpaid bill",hi:"थोक व्यापारी का अदत्त बिल",k:"liab"},{en:"Today's sales",hi:"आज की बिक्री",k:"rev"},{en:"Helper's wages",hi:"सहायक की मज़दूरी",k:"exp"},{en:"Delivery cycle",hi:"डिलीवरी साइकिल",k:"asset"},{en:"Electricity bill",hi:"बिजली बिल",k:"exp"}],
+    exp:{en:"Assets are owned resources (cash, cycle); a liability is owed to an outsider (unpaid bill); revenue is earned from sales; expenses are costs incurred to earn revenue (wages, electricity).", hi:"संपत्तियाँ स्वामित्व के संसाधन (नकद, साइकिल); दायित्व बाहरी को देय (अदत्त बिल); आगम बिक्री से अर्जित; व्यय आगम कमाने की लागत (मज़दूरी, बिजली)।"},
+    tags:["sort","classify","exam-important"], source:"NCERT Ch 1, sort activity", status:"published" },
+  { id:"ACC-Q116", board:"CBSE", klass:"11", subject:"ACC", chapter:1, topic:"ACC-1-10", type:"sort", diff:"hard",
+    q:{en:"Sort these into Asset, Liability, Capital or Drawings.", hi:"इन्हें संपत्ति, दायित्व, पूंजी या आहरण में बाँटें।"},
+    cats:[{k:"asset",en:"Asset",hi:"संपत्ति"},{k:"liab",en:"Liability",hi:"दायित्व"},{k:"cap",en:"Capital",hi:"पूंजी"},{k:"draw",en:"Drawings",hi:"आहरण"}],
+    items:[{en:"Owner's ₹50,000 investment",hi:"स्वामी का ₹50,000 निवेश",k:"cap"},{en:"Money taken home for family groceries",hi:"घर की किराने हेतु घर ले गया धन",k:"draw"},{en:"Bank loan of ₹1,00,000",hi:"₹1,00,000 का बैंक ऋण",k:"liab"},{en:"Shop furniture",hi:"दुकान का फर्नीचर",k:"asset"},{en:"Stock of goods on the shelf",hi:"शेल्फ पर माल का स्टॉक",k:"asset"}],
+    exp:{en:"Capital is the owner's investment; drawings are what the owner withdraws for personal use; a bank loan is a liability; furniture and stock are assets.", hi:"पूंजी स्वामी का निवेश; आहरण स्वामी द्वारा निजी उपयोग हेतु निकासी; बैंक ऋण दायित्व; फर्नीचर व स्टॉक संपत्तियाँ।"},
+    tags:["sort","classify","exam-important"], source:"NCERT Ch 1, sort activity", status:"published" },
+  { id:"ACC-Q117", board:"CBSE", klass:"11", subject:"ACC", chapter:1, topic:"ACC-1-10", type:"match", diff:"medium",
+    q:{en:"Match each accounting term with its meaning.", hi:"प्रत्येक लेखांकन शब्द को उसके अर्थ से मिलाएँ।"},
+    pairs:[
+      {l:{en:"Debtor",hi:"देनदार"},r:{en:"Owes money to the business",hi:"व्यवसाय को धन देना है"}},
+      {l:{en:"Creditor",hi:"लेनदार"},r:{en:"The business owes money to them",hi:"व्यवसाय को उन्हें धन देना है"}},
+      {l:{en:"Drawings",hi:"आहरण"},r:{en:"Owner takes cash/goods for personal use",hi:"स्वामी निजी उपयोग हेतु नकद/माल लेता है"}},
+      {l:{en:"Capital",hi:"पूंजी"},r:{en:"Owner's investment in the business",hi:"व्यवसाय में स्वामी का निवेश"}}
+    ],
+    exp:{en:"Debtor = owes us (asset); Creditor = we owe them (liability); Drawings reduce capital; Capital is the owner's investment.", hi:"देनदार = हमें देना है (संपत्ति); लेनदार = हमें देना है (दायित्व); आहरण पूंजी घटाता है; पूंजी स्वामी का निवेश।"},
+    tags:["match","terminology","exam-important"], source:"NCERT Ch 1, match activity", status:"published" },
+  { id:"ACC-Q118", board:"CBSE", klass:"11", subject:"ACC", chapter:1, topic:"ACC-1-5", type:"match", diff:"medium",
+    q:{en:"Match each user of accounting information with their main question.", hi:"लेखांकन सूचना के प्रत्येक उपयोगकर्ता को उनके मुख्य प्रश्न से मिलाएँ।"},
+    pairs:[
+      {l:{en:"Bank / lender",hi:"बैंक / ऋणदाता"},r:{en:"Can the loan be repaid?",hi:"क्या ऋण चुकाया जा सकेगा?"}},
+      {l:{en:"Government",hi:"सरकार"},r:{en:"Is the correct tax being paid?",hi:"क्या सही कर चुकाया जा रहा है?"}},
+      {l:{en:"Investor",hi:"निवेशक"},r:{en:"Return and safety of my money?",hi:"मेरे धन का प्रतिफल व सुरक्षा?"}},
+      {l:{en:"Employee",hi:"कर्मचारी"},r:{en:"Job security and bonus?",hi:"नौकरी की सुरक्षा व बोनस?"}}
+    ],
+    exp:{en:"Each external/internal user reads the same accounts for a different decision: lenders check repayment, government checks tax, investors check return, employees check stability.", hi:"हर बाहरी/आंतरिक उपयोगकर्ता एक ही खातों को अलग निर्णय हेतु पढ़ता है: ऋणदाता भुगतान, सरकार कर, निवेशक प्रतिफल, कर्मचारी स्थिरता।"},
+    tags:["match","exam-important"], source:"NCERT Ch 1, match activity", status:"published" }
+);
 
