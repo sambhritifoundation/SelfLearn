@@ -36,6 +36,9 @@
   @media(max-width:860px){.g2,.g3,.g4{grid-template-columns:1fr}}
   .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px}
   .btn{display:inline-block;border:0;background:var(--primary);color:#fff;padding:10px 20px;border-radius:9px;font-size:.93rem;font-weight:700;cursor:pointer;font-family:inherit}
+  .resultnav-row{display:flex;gap:10px;align-items:stretch}
+  .resultnav-row .btn{flex:1;text-align:center}
+  @media(max-width:520px){ .resultnav-row{flex-direction:column} }
   .btn:hover{background:var(--primary-dark)}
   .btn.ghost{background:var(--primary-light);color:var(--primary)}
   .btn.warn{background:var(--accent);color:#3b2b00}
@@ -348,6 +351,19 @@ function topicByCode(code){
   }
   return null;
 }
+function quizChapterCtx(){
+  if(!QUIZ) return null;
+  var sc=null, cn=null;
+  if(QUIZ.backTopic){ var info=topicByCode(QUIZ.backTopic); if(info){ sc=info.subject.code; cn=info.chapter.no; } }
+  else if(QUIZ.ckKey){ var m=String(QUIZ.ckKey).split("-ch"); sc=m[0]; cn=parseInt(m[1],10); }
+  else if(QUIZ.key){ var m2=String(QUIZ.key).split("-ch"); if(m2.length===2){ sc=m2[0]; cn=parseInt(m2[1],10); } }
+  if(!sc||!cn) return null;
+  var s=subj(sc); if(!s) return null;
+  var idx=-1; s.chapters.forEach(function(c,i){ if(c.no==cn) idx=i; });
+  if(idx<0) return null;
+  var cur=s.chapters[idx], nextC=s.chapters[idx+1]||null;
+  return { subjectCode:sc, curFirst:(cur.topics[0]||{}).code, nextFirst:nextC&&(nextC.topics[0]||{}).code, nextName:nextC?t(nextC.name):null, nextNo:nextC?nextC.no:null };
+}
 function qForTopic(code){ return pubQuestions().filter(function(q){ return q.topic===code; }); }
 function qForChapter(sc, no){ return pubQuestions().filter(function(q){ return q.subject===sc && q.chapter==no; }); }
 
@@ -584,8 +600,16 @@ function vQuiz(){
     + '<h2 style="margin-top:10px">'+esc(t(q.q))+'</h2><div style="margin-top:12px" id="qbody">';
   if(q.type==="mcq"){
     var letters=["A","B","C","D"];
-    (q.opts[LANG]||q.opts.en).forEach(function(o,k){
-      h += '<button class="option" id="opt'+k+'" onclick="answerMcq('+k+')"><b>'+letters[k]+'.</b> '+esc(o)+'</button>';
+    var opts = q.opts[LANG]||q.opts.en;
+    // Shuffle option order at render time to remove answer-position bias.
+    // Skip questions whose options depend on order (assertion-reason, "all/none of the above", "both A and R").
+    var positional = (q.tags||[]).indexOf("assertion-reason")>-1
+      || opts.some(function(o){ return /\b(above|all of|none of|both a)\b/i.test(o); });
+    var order = opts.map(function(_,k){ return k; });
+    if(!positional) order = shuffle(order);
+    QUIZ.optOrder = order;
+    order.forEach(function(origIdx, displayIdx){
+      h += '<button class="option" id="opt'+displayIdx+'" onclick="answerMcq('+displayIdx+')"><b>'+letters[displayIdx]+'.</b> '+esc(opts[origIdx])+'</button>';
     });
   } else if(q.type==="tf"){
     h += '<button class="option" id="optT" onclick="answerTf(true)"><b>'+sp("TRUE","सही")+'</b></button>'
@@ -629,14 +653,17 @@ function settle(ok, q, extra){
   if(QUIZ.scope!=="checkpoint") record(q, ok);
   showExplanation(ok, q, extra);
 }
-function answerMcq(k){
+function answerMcq(displayIdx){
   if(QUIZ.answered) return;
   var q = QUIZ.qs[QUIZ.i];
-  var correctIdx = {A:0,B:1,C:2,D:3}[q.correct];
-  var ok = k===correctIdx;
-  for(var i2=0;i2<4;i2++){ var o=document.getElementById("opt"+i2); if(o) o.disabled=true; }
-  var chosen = document.getElementById("opt"+k); if(chosen) chosen.classList.add(ok?"correct":"wrong");
-  if(!ok){ var co=document.getElementById("opt"+correctIdx); if(co) co.classList.add("correct"); }
+  var order = QUIZ.optOrder || [0,1,2,3];
+  var n = (q.opts[LANG]||q.opts.en).length;
+  var origIdx = order[displayIdx];
+  var correctOrig = {A:0,B:1,C:2,D:3}[q.correct];
+  var ok = origIdx===correctOrig;
+  for(var i2=0;i2<n;i2++){ var o=document.getElementById("opt"+i2); if(o) o.disabled=true; }
+  var chosen = document.getElementById("opt"+displayIdx); if(chosen) chosen.classList.add(ok?"correct":"wrong");
+  if(!ok){ var cd=order.indexOf(correctOrig); var co=document.getElementById("opt"+cd); if(co) co.classList.add("correct"); }
   settle(ok, q);
 }
 function answerTf(val){
@@ -771,7 +798,16 @@ function vResult(){
     + (pct<70 ? sp("Revise the concept and re-attempt — repeat practice is where marks improve.","अवधारणा दोहराकर पुनः प्रयास करें — दोहराया अभ्यास ही अंक सुधारता है।")
               : sp("Great! Move to the next topic, or re-attempt tomorrow to lock it into memory.","बहुत बढ़िया! अगले विषय पर जाएँ, या कल पुनः प्रयास कर स्मृति में पक्का करें।"))
     + '</p><div style="display:flex;gap:8px;flex-wrap:wrap">'+again+backT
-    + '<button class="btn ghost" onclick="go(\'dashboard\')">'+sp("My progress","मेरी प्रगति")+'</button></div></div></div>';
+    + '<button class="btn ghost" onclick="go(\'dashboard\')">'+sp("My progress","मेरी प्रगति")+'</button></div></div>';
+  var ctx = quizChapterCtx();
+  if(ctx && ctx.curFirst){
+    h += '<div class="card" style="margin-top:16px"><div class="resultnav-row">'
+      + '<button class="btn ghost" onclick="go(\'topic\',{code:\''+ctx.curFirst+'\'})">🔄 '+sp("Revise Chapter","अध्याय दोहराएँ")+'</button>'
+      + (ctx.nextFirst ? '<button class="btn" onclick="go(\'topic\',{code:\''+ctx.nextFirst+'\'})">'+sp("Next Chapter","अगला अध्याय")+' →</button>'
+                       : '<button class="btn ghost" onclick="go(\'subject\',{code:\''+ctx.subjectCode+'\'})">'+sp("All chapters","सभी अध्याय")+'</button>')
+      + '</div></div>';
+  }
+  h += '</div>';
   return h;
 }
 

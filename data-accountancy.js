@@ -964,4 +964,22 @@ window.SL_DATA.questions.push(
     correct:"B", exp:{en:"When expenses exceed revenue, the difference is a loss (Profit = Revenue − Expenses).", hi:"जब व्यय आगम से अधिक हों, तो अंतर हानि है (लाभ = आगम − व्यय)।"},
     tags:["theory","exam-important"], source:"NCERT Ch 1", status:"published" }
 );
+/* Document-based & error-spotting questions (Bloom Apply/Analyze); stored correct on A/C to also balance raw data */
+window.SL_DATA.questions.push(
+  { id:"ACC-Q136", board:"CBSE", klass:"11", subject:"ACC", chapter:1, topic:"ACC-1-10", type:"mcq", diff:"medium",
+    q:{en:"Meena didi buys sugar for cash from the wholesaler. Which source document does she receive as proof?", hi:"मीना दीदी थोक व्यापारी से नकद चीनी खरीदती हैं। प्रमाण के रूप में उन्हें कौन-सा स्रोत प्रलेख मिलता है?"},
+    opts:{en:["Cash memo","Invoice (bill on credit)","Debit note","Salary voucher"], hi:["कैश मेमो","बीजक (उधार बिल)","नामे नोट","वेतन प्रमाणक"]},
+    correct:"A", exp:{en:"A cash memo is the documentary proof for a cash purchase or sale; an invoice is used for credit dealings.", hi:"नकद क्रय या विक्रय का दस्तावेज़ी प्रमाण कैश मेमो है; उधार लेन-देन हेतु बीजक प्रयोग होता है।"},
+    tags:["document","terminology","exam-important"], source:"NCERT Ch 1, document-based", status:"published" },
+  { id:"ACC-Q137", board:"CBSE", klass:"11", subject:"ACC", chapter:1, topic:"ACC-1-10", type:"mcq", diff:"medium",
+    q:{en:"When a business buys goods ON CREDIT, the document it receives from the supplier is called a(n):", hi:"जब कोई व्यवसाय उधार माल खरीदता है, तो आपूर्तिकर्ता से मिलने वाला प्रलेख कहलाता है:"},
+    opts:{en:["Receipt","Cash memo","Invoice / bill","Pay slip"], hi:["रसीद","कैश मेमो","बीजक / बिल","वेतन पर्ची"]},
+    correct:"C", exp:{en:"A credit purchase is supported by an invoice (bill). A receipt is proof of a payment made, not of a credit purchase.", hi:"उधार क्रय का समर्थन बीजक (बिल) करता है। रसीद किए गए भुगतान का प्रमाण है, उधार क्रय का नहीं।"},
+    tags:["document","terminology"], source:"NCERT Ch 1, document-based", status:"published" },
+  { id:"ACC-Q138", board:"CBSE", klass:"11", subject:"ACC", chapter:1, topic:"ACC-1-4", type:"mcq", diff:"hard",
+    q:{en:"Spot the error. In her books Meena recorded: (i) cash sales ₹3,000, (ii) wages ₹2,000, (iii) 'my helper's honesty' valued at ₹10,000, (iv) rent ₹1,500. Which entry is WRONG?", hi:"अशुद्धि पहचानें। मीना ने पुस्तकों में दर्ज किया: (i) नकद बिक्री ₹3,000, (ii) मज़दूरी ₹2,000, (iii) 'मेरे सहायक की ईमानदारी' मूल्य ₹10,000, (iv) किराया ₹1,500। कौन-सी प्रविष्टि गलत है?"},
+    opts:{en:["(i) cash sales","(ii) wages","(iii) helper's honesty","(iv) rent"], hi:["(i) नकद बिक्री","(ii) मज़दूरी","(iii) सहायक की ईमानदारी","(iv) किराया"]},
+    correct:"C", exp:{en:"Honesty cannot be measured in money, so it must NOT be recorded (money measurement concept). The other three are valid money transactions.", hi:"ईमानदारी को मुद्रा में नहीं मापा जा सकता, इसलिए इसे दर्ज नहीं करना चाहिए (मुद्रा मापन अवधारणा)। शेष तीन वैध मौद्रिक लेन-देन हैं।"},
+    tags:["error-spotting","hots","exam-important"], source:"NCERT Ch 1, error-spotting", status:"published" }
+);
 
