@@ -68,6 +68,28 @@
   .legal-doc h2{margin:18px 0 8px}
   .legal-doc p,.legal-doc li{color:var(--ink);margin-bottom:8px}
   .legal-doc ul{padding-left:22px}
+  /* progress indicator */
+  #overallBar{height:4px;background:var(--line)}
+  #overallBarFill{height:100%;background:var(--primary);width:0;transition:width .4s ease}
+  .progress-strip{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin-bottom:14px}
+  .progress-strip .ps-meta{font-size:.85rem;color:var(--ink)}
+  .progress-strip .bar{height:8px;background:var(--bg);border-radius:6px;overflow:hidden;margin:7px 0}
+  .progress-strip .bar i{display:block;height:100%;background:var(--primary);border-radius:6px}
+  /* badges */
+  .badge-grid{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+  .badge{display:inline-flex;align-items:center;gap:6px;background:var(--bg);border:1px solid var(--line);border-radius:20px;padding:6px 12px;font-size:.83rem;font-weight:700;color:var(--ink)}
+  .badge .badge-ic{font-size:1.05rem}
+  .badge-new{background:var(--green-light);border-color:var(--green);color:var(--green)}
+  /* reusable callout design system (for structured content blocks) */
+  .callout{border-left:4px solid var(--primary);background:var(--primary-light);border-radius:8px;padding:10px 14px;margin:10px 0}
+  .callout.story{border-color:var(--primary)} .callout.observe{border-color:var(--accent);background:var(--accent-light)}
+  .callout.mistake{border-color:var(--red);background:var(--red-light)} .callout.why{border-color:var(--green);background:var(--green-light)}
+  .callout.check{border-color:var(--accent);background:var(--accent-light)}
+  /* accessibility: visible focus + comfortable tap targets */
+  a:focus-visible,button:focus-visible,.option:focus-visible,select:focus-visible,input:focus-visible,[tabindex]:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:6px}
+  .btn,.option{min-height:42px}
+  .footer-links a,.crumb a,.chip.clickable{cursor:pointer}
+  @media(prefers-reduced-motion:reduce){ #overallBarFill,.progress-strip .bar i{transition:none} }
   .btn:hover{background:var(--primary-dark)}
   .btn.ghost{background:var(--primary-light);color:var(--primary)}
   .btn.warn{background:var(--accent);color:#3b2b00}
@@ -133,19 +155,20 @@
 </style>
 </head>
 <body>
-<nav class="appnav"><div class="appnav-inner">
-  <div class="logo" onclick="go('home')">Self<span>Learn</span></div>
+<nav class="appnav" aria-label="Main navigation"><div class="appnav-inner">
+  <div class="logo" role="button" tabindex="0" aria-label="SelfLearn home" onclick="go('home')">Self<span>Learn</span></div>
   <div class="navlinks">
     <button onclick="go('home')"><span class="en">Learn</span><span class="hi">सीखें</span></button>
     <button onclick="go('dashboard')"><span class="en">My Progress</span><span class="hi">मेरी प्रगति</span></button>
     <button onclick="go('admin')">Admin</button>
   </div>
-  <div class="lang-switch">
-    <button id="btnEn" class="active" onclick="setLang('en')">EN</button>
-    <button id="btnHi" onclick="setLang('hi')">हिं</button>
+  <div class="lang-switch" role="group" aria-label="Language">
+    <button id="btnEn" class="active" aria-label="English" onclick="setLang('en')">EN</button>
+    <button id="btnHi" aria-label="हिंदी" onclick="setLang('hi')">हिं</button>
   </div>
 </div></nav>
-<div id="app"></div>
+<div id="overallBar" role="progressbar" aria-label="Overall learning progress" aria-valuemin="0" aria-valuemax="100"><div id="overallBarFill"></div></div>
+<main id="app"></main>
 <footer id="siteFooter">
   <div class="footer-inner">
     <p class="footer-copy">© <span id="copyYear">2025</span> Sambhriti Foundation for Education. All Rights Reserved.</p>
@@ -432,6 +455,7 @@ function record(q, ok){
   var tp = p.topics[key] || {n:0,c:0}; tp.n++; if(ok) tp.c++; tp.last=Date.now(); p.topics[key]=tp;
   p.days[todayStr()] = (p.days[todayStr()]||0)+1;
   saveP(p);
+  var info=topicByCode(q.topic); if(info) checkChapterBadges(info.chapter);
 }
 function topicStats(code){ var p=P(); return (p.topics&&p.topics[code]) || null; }
 function acc(st){ return st && st.n ? Math.round(100*st.c/st.n) : null; }
@@ -462,6 +486,47 @@ function weakTopics(){
 }
 function lastVisited(){ try{ return JSON.parse(localStorage.getItem("sl_last")||"null"); }catch(e){ return null; } }
 function setLastVisited(o){ localStorage.setItem("sl_last", JSON.stringify(o)); }
+/* ---- badges ---- */
+var BADGES = {
+  "story-explorer":  { icon:"🧭", en:"Story Explorer",       hi:"कहानी खोजी",      de:"Read every micro-topic of a chapter",        dh:"अध्याय का हर सूक्ष्म-विषय पढ़ा" },
+  "practice-master": { icon:"🎯", en:"Practice Master",       hi:"अभ्यास मास्टर",    de:"Practised every micro-topic of a chapter",   dh:"अध्याय के हर सूक्ष्म-विषय का अभ्यास" },
+  "assignment-done": { icon:"📝", en:"Assignment Completed",  hi:"असाइनमेंट पूर्ण",  de:"Completed an End-of-Chapter Assignment",     dh:"अध्याय-अंत असाइनमेंट पूर्ण" },
+  "chapter-champion":{ icon:"🏆", en:"Chapter Champion",      hi:"अध्याय चैंपियन",   de:"Scored 80%+ in a Chapter Assignment",        dh:"अध्याय असाइनमेंट में 80%+" }
+};
+function earnedBadges(){ try{ return JSON.parse(localStorage.getItem("sl_badges")||"{}"); }catch(e){ return {}; } }
+function hasBadge(id){ return !!earnedBadges()[id]; }
+function awardBadge(id){ var b=earnedBadges(); if(!b[id]){ b[id]=Date.now(); localStorage.setItem("sl_badges", JSON.stringify(b)); return true; } return false; }
+function markVisited(code){ var p=P(); p.visited=p.visited||{}; if(!p.visited[code]){ p.visited[code]=Date.now(); saveP(p); } }
+function isVisited(code){ var p=P(); return !!(p.visited&&p.visited[code]); }
+function checkChapterBadges(chapter){
+  if(!chapter) return [];
+  var got=[];
+  if(chapter.topics.every(function(tp){ return isVisited(tp.code); })){ if(awardBadge("story-explorer")) got.push("story-explorer"); }
+  if(chapter.topics.every(function(tp){ var st=topicStats(tp.code); return st&&st.n>0; })){ if(awardBadge("practice-master")) got.push("practice-master"); }
+  return got;
+}
+/* ---- progress ---- */
+function chapterProgressPct(chapter){
+  var done = chapter.topics.filter(function(tp){ var st=topicStats(tp.code); return st&&st.n>0; }).length;
+  return chapter.topics.length ? Math.round(100*done/chapter.topics.length) : 0;
+}
+function overallProgressPct(){
+  var total=0, done=0;
+  SUBJECTS.forEach(function(s){ s.chapters.forEach(function(c){ c.topics.forEach(function(tp){ total++; var st=topicStats(tp.code); if(st&&st.n>0) done++; }); }); });
+  return total ? Math.round(100*done/total) : 0;
+}
+function progressStrip(subject, chapter, topicIdx){
+  var chIdx=0; subject.chapters.forEach(function(c,i){ if(c.no===chapter.no) chIdx=i+1; });
+  var cp=chapterProgressPct(chapter);
+  var aria=t(subject.name)+", "+(LANG==="hi"?"अध्याय ":"chapter ")+chIdx+"/"+subject.chapters.length+", "+(LANG==="hi"?"विषय ":"topic ")+(topicIdx+1)+"/"+chapter.topics.length+", "+cp+"%";
+  return '<div class="progress-strip" role="status" aria-label="'+esc(aria)+'">'
+    + '<div class="ps-meta"><b>'+esc(t(subject.name))+'</b> · '+sp("Chapter","अध्याय")+' '+chIdx+' / '+subject.chapters.length+' · '+sp("Topic","विषय")+' '+(topicIdx+1)+' / '+chapter.topics.length+'</div>'
+    + '<div class="bar" aria-hidden="true"><i style="width:'+cp+'%"></i></div>'
+    + '<div class="ps-meta sub">'+cp+'% '+sp("of this chapter practised","इस अध्याय का अभ्यास")+'</div></div>';
+}
+function badgeChips(ids, highlight){
+  return ids.map(function(id){ var b=BADGES[id]; if(!b) return ""; return '<span class="badge'+(highlight?" badge-new":"")+'" title="'+esc(LANG==="hi"?b.dh:b.de)+'"><span class="badge-ic" aria-hidden="true">'+b.icon+'</span> '+esc(LANG==="hi"?b.hi:b.en)+'</span>'; }).join(" ");
+}
 function sessions(){ try{ return JSON.parse(localStorage.getItem("sl_sessions")||"[]"); }catch(e){ return []; } }
 function saveSession(s){ var l=sessions(); l.push(s); localStorage.setItem("sl_sessions", JSON.stringify(l)); }
 
@@ -482,7 +547,27 @@ function render(){
   else if(v==="dashboard") el.innerHTML = vDashboard();
   else if(v==="admin") el.innerHTML = vAdmin();
   document.body.classList.toggle("lang-hi", LANG==="hi");
+  updateOverallBar();
+  enhanceA11y();
 }
+function updateOverallBar(){
+  var pct=overallProgressPct(); var fill=document.getElementById("overallBarFill"), bar=document.getElementById("overallBar");
+  if(fill) fill.style.width=pct+"%";
+  if(bar) bar.setAttribute("aria-valuenow", pct);
+}
+/* Make onclick-only anchors/chips keyboard-focusable and operable (Enter/Space). */
+function enhanceA11y(){
+  var nodes=document.querySelectorAll('#app a[onclick]:not([tabindex]), #app .chip.clickable:not([tabindex])');
+  for(var i=0;i<nodes.length;i++){ nodes[i].setAttribute('tabindex','0'); if(!nodes[i].getAttribute('role')) nodes[i].setAttribute('role','button'); }
+}
+document.addEventListener("keydown", function(e){
+  if((e.key==="Enter"||e.key===" ")){
+    var el=document.activeElement;
+    if(el && el.getAttribute && el.getAttribute("tabindex")==="0" && (el.tagName==="A" || el.classList.contains("chip") || el.classList.contains("logo"))){
+      e.preventDefault(); el.click();
+    }
+  }
+});
 
 /* ================= HOME ================= */
 function vHome(){
@@ -561,6 +646,7 @@ function vTopic(code){
   var info = topicByCode(code); if(!info) return "Not found";
   setLastVisited({topic:code});
   var s=info.subject, c=info.chapter, tp=info.topic;
+  markVisited(code); checkChapterBadges(c);
   var qn = qForTopic(code).length;
   var idx = c.topics.indexOf(tp);
   var prev = idx>0 ? c.topics[idx-1] : null;
@@ -568,6 +654,7 @@ function vTopic(code){
   var st = topicStats(code); var a2 = acc(st);
   var h = '<div class="crumb"><a onclick="go(\'home\')">'+sp("Home","मुख्य")+'</a> › <a onclick="go(\'subject\',{code:\''+s.code+'\'})">'+t(s.name)+'</a> › '
     + sp("Ch "+c.no,"अध्याय "+c.no)+': '+t(c.name)+' › <b>'+t(tp.name)+'</b></div>';
+  h += progressStrip(s, c, idx);
   h += '<div class="card"><div>'
     + '<span class="chip">'+sp("Concept","अवधारणा")+'</span>'
     + (tp.exam ? '<span class="chip green">'+sp("Exam-important","परीक्षा-महत्वपूर्ण")+'</span>' : '')
@@ -575,7 +662,7 @@ function vTopic(code){
     + '</div><h1 style="margin:10px 0 12px">'+t(tp.name)+'</h1>'
     + '<div class="notes">'+fmtNotes(t(tp.notes))+'</div></div>';
   var dgs = tp.diagram ? (Array.isArray(tp.diagram)?tp.diagram:[tp.diagram]) : [];
-  dgs.forEach(function(k){ if(DIAGRAMS[k]) h += '<div class="card diagram" style="margin-top:14px">'+DIAGRAMS[k](LANG)+'</div>'; });
+  dgs.forEach(function(k){ if(DIAGRAMS[k]) h += '<div class="card diagram" role="img" aria-label="'+esc((LANG==="hi"?"आरेख: ":"Diagram: ")+t(tp.name))+'" style="margin-top:14px">'+DIAGRAMS[k](LANG)+'</div>'; });
   h += '<div class="card rowflex" style="margin-top:14px"><div>'
     + '<h3>'+(qn ? sp("Practise this concept now","अभी इस अवधारणा का अभ्यास करें") : sp("No questions yet for this topic","इस विषय हेतु अभी प्रश्न नहीं हैं"))+'</h3>'
     + (qn ? '<div class="sub">'+Math.min(qn,8)+' '+sp("questions · instant explanations","प्रश्न · तुरंत व्याख्या")+'</div>' : '')
@@ -838,6 +925,11 @@ function nextQ(){
     } else {
       saveSession({date:Date.now(), key:QUIZ.key, score:score, total:QUIZ.qs.length});
     }
+    if(QUIZ.scope==="assessment"){
+      var newB=[]; if(awardBadge("assignment-done")) newB.push("assignment-done");
+      if(Math.round(100*score/QUIZ.qs.length)>=80 && awardBadge("chapter-champion")) newB.push("chapter-champion");
+      QUIZ._newBadges=newB;
+    }
     go("result");
   }
 }
@@ -905,16 +997,28 @@ function vResult(){
       rows+='<tr><td>'+esc(nm)+'</td><td>'+byT[tc].c+'/'+byT[tc].n+'</td><td><span class="chip '+cls+'">'+tpc+'%</span></td></tr>';
     });
     QUIZ._weak=weak;
+    var totalTopics=Object.keys(byT).length;
+    var masteredCount=0; Object.keys(byT).forEach(function(tc){ if(Math.round(100*byT[tc].c/byT[tc].n)>=80) masteredCount++; });
     var mlevel = pct>=80?sp("Mastered ⭐","महारत ⭐"):(pct>=60?sp("Proficient","निपुण"):sp("Needs revision","दोहराव आवश्यक"));
     h += '<div class="card" style="margin-top:16px;background:var(--primary-light);border-color:var(--primary)">'
-      + '<h2>🏆 '+sp("Chapter mastery","अध्याय महारत")+': '+pct+'% · '+mlevel+'</h2>'
-      + '<h3 style="margin-top:10px">'+sp("Topic-wise performance","विषय-वार प्रदर्शन")+'</h3>'
+      + '<h2>🎉 '+sp("Congratulations — chapter complete!","बधाई — अध्याय पूर्ण!")+'</h2>'
+      + '<p class="sub">'+sp("Your chapter mastery","आपकी अध्याय महारत")+': <b>'+pct+'% · '+mlevel+'</b></p>'
+      + '<div class="grid g3" style="margin-top:14px">'
+      + '<div class="stat"><b>'+pct+'%</b><span class="sub">'+sp("Score","स्कोर")+'</span></div>'
+      + '<div class="stat"><b style="color:var(--green)">'+masteredCount+'/'+totalTopics+'</b><span class="sub">'+sp("Topics mastered","विषयों में महारत")+'</span></div>'
+      + '<div class="stat"><b style="color:'+(weak.length?"var(--red)":"var(--green)")+'">'+weak.length+'</b><span class="sub">'+sp("Topics to revise","दोहराने योग्य विषय")+'</span></div></div>'
+      + '<h3 style="margin-top:14px">'+sp("Topic-wise performance","विषय-वार प्रदर्शन")+'</h3>'
       + '<div style="overflow-x:auto"><table><tr><th>'+sp("Topic","विषय")+'</th><th>'+sp("Score","स्कोर")+'</th><th>%</th></tr>'+rows+'</table></div>';
     if(weak.length){
-      h += '<h3 style="margin-top:12px">'+sp("Recommended for revision","दोहराव हेतु अनुशंसित")+'</h3><div>'
+      h += '<h3 style="margin-top:12px">'+sp("Topics to revise","दोहराने योग्य विषय")+'</h3><div>'
         + weak.map(function(w){ return '<span class="chip red clickable" style="margin:3px" onclick="go(\'topic\',{code:\''+w.code+'\'})">'+esc(w.name)+'</span>'; }).join(" ")+'</div>';
     } else {
       h += '<p class="sub" style="margin-top:10px">✅ '+sp("No weak topics — excellent! You are ready for the next chapter.","कोई कमज़ोर विषय नहीं — बढ़िया! आप अगले अध्याय हेतु तैयार हैं।")+'</p>';
+    }
+    var allB=Object.keys(earnedBadges()), newB=QUIZ._newBadges||[];
+    if(allB.length){
+      h += '<h3 style="margin-top:14px">🏅 '+sp("Achievement badges","उपलब्धि बैज")+(newB.length?' · <span class="chip green">+'+newB.length+' '+sp("new","नए")+'</span>':'')+'</h3>'
+        + '<div class="badge-grid">'+badgeChips(allB.filter(function(b){return newB.indexOf(b)<0;}),false)+badgeChips(newB,true)+'</div>';
     }
     h += '</div>';
   }
@@ -963,6 +1067,11 @@ function vDashboard(){
     + '<div class="card stat"><b>'+totalAttempts()+'</b><span class="sub">'+sp("questions attempted","प्रश्न हल किए")+'</span></div>'
     + '<div class="card stat"><b>'+(oa===null?"—":oa+"%")+'</b><span class="sub">'+sp("overall accuracy","कुल शुद्धता")+'</span></div>'
     + '<div class="card stat"><b>'+mastered+'/'+totalTopics+'</b><span class="sub">'+sp("topics mastered (≥80%)","विषयों में महारत (≥80%)")+'</span></div></div>';
+  var eb=earnedBadges();
+  h += '<div class="card" style="margin-bottom:18px"><h2>🏅 '+sp("Achievement badges","उपलब्धि बैज")+' · '+Object.keys(eb).length+'/'+Object.keys(BADGES).length+'</h2><div class="badge-grid">'
+    + Object.keys(BADGES).map(function(id){ var b=BADGES[id], got=!!eb[id];
+        return '<span class="badge'+(got?" badge-new":"")+'" style="'+(got?"":"opacity:.45")+'" title="'+esc(LANG==="hi"?b.dh:b.de)+'"><span class="badge-ic" aria-hidden="true">'+(got?b.icon:"🔒")+'</span> '+esc(LANG==="hi"?b.hi:b.en)+'</span>'; }).join(" ")
+    + '</div></div>';
 
   h += '<div class="grid g2">';
   SUBJECTS.forEach(function(s){
