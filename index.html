@@ -554,10 +554,11 @@ function vAssignment(code, chNo){
     + '<span class="chip">'+sp("Use a spreadsheet","स्प्रेडशीट का उपयोग करें")+'</span>'
     + '</div><h1 style="margin:10px 0 12px">'+sp("Chapter "+c.no+" Assignment","अध्याय "+c.no+" असाइनमेंट")+': '+t(c.name)+'</h1>'
     + '<div class="notes">'+fmtNotes(t(c.assignment))+'</div></div>';
-  h += '<div class="rowflex" style="margin-top:14px">'
-    + '<button class="btn ghost sm" onclick="go(\'subject\',{code:\''+s.code+'\'})">← '+sp("Back to chapters","अध्यायों पर वापस")+'</button>'
-    + '<button class="btn ghost sm" onclick="go(\'topic\',{code:\''+c.topics[0].code+'\'})">'+sp("Revise topics","विषय दोहराएँ")+' →</button>'
-    + '</div>';
+  h += '<div class="card" style="margin-top:16px"><div class="resultnav-row">'
+    + '<button class="btn ghost" onclick="go(\'topic\',{code:\''+c.topics[0].code+'\'})">← '+sp("Revise Topics","विषय दोहराएँ")+'</button>'
+    + ((c.assessment&&c.assessment.length) ? '<button class="btn" onclick="startAssessment(\''+s.code+'\','+c.no+')">'+sp("Start Assessment","मूल्यांकन शुरू करें")+' →</button>'
+        : '<button class="btn ghost" onclick="go(\'subject\',{code:\''+s.code+'\'})">'+sp("Back to chapters","अध्यायों पर वापस")+'</button>')
+    + '</div></div>';
   return h;
 }
 
