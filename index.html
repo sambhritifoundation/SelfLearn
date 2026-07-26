@@ -248,6 +248,46 @@ var DIAGRAMS = {
       +'<text x="330" y="216" text-anchor="middle" font-size="10.5" fill="var(--ink)" opacity="0.75">'+d("across periods & firms","अवधियों व फर्मों में")+'</text>'
       +'</svg>';
   },
+  "info-flow": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    var box=function(x,w,txt){ return '<rect x="'+x+'" y="34" width="'+w+'" height="44" rx="9" fill="var(--card)" stroke="var(--primary)" stroke-width="2"/><text x="'+(x+w/2)+'" y="61" text-anchor="middle" font-size="13" font-weight="bold" fill="var(--ink)">'+txt+'</text>'; };
+    var pill=function(x,w,txt){ return '<rect x="'+x+'" y="112" width="'+w+'" height="30" rx="15" fill="var(--card)" stroke="var(--amber)" stroke-width="1.8"/><text x="'+(x+w/2)+'" y="131" text-anchor="middle" font-size="11.5" fill="var(--ink)">'+txt+'</text>'; };
+    return '<svg viewBox="0 0 660 250" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<defs><marker id="ahf" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--primary)"/></marker></defs>'
+      +'<text x="330" y="18" text-anchor="middle" font-size="14" font-weight="bold" fill="var(--primary)">'+d("Accounting as an information system","लेखांकन एक सूचना प्रणाली")+'</text>'
+      +box(30,180,d("Transactions","लेन-देन"))+box(240,180,d("Records","अभिलेख"))+box(450,180,d("Reports","रिपोर्ट"))
+      +'<line x1="210" y1="56" x2="240" y2="56" stroke="var(--primary)" stroke-width="2" marker-end="url(#ahf)"/>'
+      +'<line x1="420" y1="56" x2="450" y2="56" stroke="var(--primary)" stroke-width="2" marker-end="url(#ahf)"/>'
+      +'<text x="330" y="99" text-anchor="middle" font-size="10.5" fill="var(--ink)" opacity="0.7">'+d("read by →","पढ़ते हैं →")+'</text>'
+      +'<line x1="540" y1="78" x2="540" y2="103" stroke="var(--line)" stroke-width="1.5"/><line x1="100" y1="103" x2="565" y2="103" stroke="var(--line)" stroke-width="1.5"/>'
+      +'<line x1="100" y1="103" x2="100" y2="112" stroke="var(--line)" stroke-width="1.5"/><line x1="255" y1="103" x2="255" y2="112" stroke="var(--line)" stroke-width="1.5"/><line x1="410" y1="103" x2="410" y2="112" stroke="var(--line)" stroke-width="1.5"/><line x1="565" y1="103" x2="565" y2="112" stroke="var(--line)" stroke-width="1.5"/>'
+      +pill(30,140,d("Owner","स्वामी"))+pill(185,140,d("Bank","बैंक"))+pill(340,140,d("Government","सरकार"))+pill(495,140,d("Investor","निवेशक"))
+      +'<line x1="100" y1="142" x2="100" y2="170" stroke="var(--line)" stroke-width="1.5"/><line x1="255" y1="142" x2="255" y2="170" stroke="var(--line)" stroke-width="1.5"/><line x1="410" y1="142" x2="410" y2="170" stroke="var(--line)" stroke-width="1.5"/><line x1="565" y1="142" x2="565" y2="170" stroke="var(--line)" stroke-width="1.5"/>'
+      +'<line x1="100" y1="170" x2="565" y2="170" stroke="var(--line)" stroke-width="1.5"/>'
+      +'<line x1="330" y1="170" x2="330" y2="192" stroke="var(--primary)" stroke-width="2" marker-end="url(#ahf)"/>'
+      +'<rect x="225" y="194" width="210" height="42" rx="10" fill="var(--primary)"/><text x="330" y="220" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">'+d("Better decisions","बेहतर निर्णय")+'</text>'
+      +'</svg>';
+  },
+  "documents": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    var doc=function(x,title,sub){
+      var lines="";
+      [72,84,96].forEach(function(y){ lines += '<line x1="'+(x+12)+'" y1="'+y+'" x2="'+(x+118)+'" y2="'+y+'" stroke="var(--line)" stroke-width="2"/>'; });
+      return '<rect x="'+x+'" y="34" width="130" height="104" rx="6" fill="var(--card)" stroke="var(--primary)" stroke-width="2"/>'
+        +'<path d="M'+x+',40 a6,6 0 0 1 6,-6 h118 a6,6 0 0 1 6,6 v16 h-130 z" fill="var(--primary)"/>'
+        +'<text x="'+(x+65)+'" y="51" text-anchor="middle" font-size="11" font-weight="bold" fill="#fff">'+title+'</text>'
+        + lines
+        +'<rect x="'+(x+70)+'" y="108" width="48" height="18" rx="3" fill="none" stroke="var(--green)" stroke-width="1.5"/><text x="'+(x+94)+'" y="121" text-anchor="middle" font-size="8" fill="var(--ink)">₹ / '+d("sign","हस्ताक्षर")+'</text>'
+        +'<text x="'+(x+65)+'" y="154" text-anchor="middle" font-size="10" fill="var(--ink)" opacity="0.75">'+sub+'</text>';
+    };
+    return '<svg viewBox="0 0 660 175" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="330" y="18" text-anchor="middle" font-size="14" font-weight="bold" fill="var(--primary)">'+d("Source documents — the proof behind every entry","स्रोत प्रलेख — हर प्रविष्टि का प्रमाण")+'</text>'
+      +doc(20,d("Cash Memo","कैश मेमो"),d("cash purchase","नकद क्रय"))
+      +doc(180,d("Invoice","बीजक"),d("credit purchase","उधार क्रय"))
+      +doc(340,d("Receipt","रसीद"),d("payment made","भुगतान पर"))
+      +doc(500,d("Voucher","प्रमाणक"),d("proof of a transaction","लेन-देन का प्रमाण"))
+      +'</svg>';
+  },
   "meena-evolution": function(L){
     var d=function(a,b){return L==="hi"?b:a;};
     var shop=function(cx,base,w,h,col){
