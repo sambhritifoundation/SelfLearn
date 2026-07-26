@@ -362,6 +362,32 @@ var DIAGRAMS = {
       +doc(500,d("Voucher","प्रमाणक"),d("proof of a transaction","लेन-देन का प्रमाण"))
       +'</svg>';
   },
+  "meena-book": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    var panel=function(x,stage,title,badge,col,rows){
+      var h='<rect x="'+x+'" y="36" width="180" height="118" rx="8" fill="var(--card)" stroke="'+col+'" stroke-width="2"/>'
+        +'<rect x="'+x+'" y="36" width="180" height="22" rx="8" fill="'+col+'"/>'
+        +'<text x="'+(x+90)+'" y="52" text-anchor="middle" font-size="11" font-weight="bold" fill="#fff">'+stage+'</text>'
+        +'<text x="'+(x+90)+'" y="74" text-anchor="middle" font-size="11.5" font-weight="bold" fill="var(--ink)">'+title+'</text>';
+      rows.forEach(function(r,i){
+        h += '<text x="'+(x+12)+'" y="'+(94+i*17)+'" font-size="9.5" fill="var(--ink)" opacity="0.8">'+r+'</text>';
+      });
+      h += '<text x="'+(x+90)+'" y="172" text-anchor="middle" font-size="15" font-weight="bold" fill="'+col+'">'+badge+'</text>';
+      return h;
+    };
+    return '<svg viewBox="0 0 660 190" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<defs><marker id="ahb" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--ink)"/></marker></defs>'
+      +'<text x="330" y="20" text-anchor="middle" font-size="14" font-weight="bold" fill="var(--primary)">'+d("How Meena's book grew up","मीना की कॉपी कैसे सुधरी")+'</text>'
+      +panel(15, d("Stage 1","चरण 1"), d("Only in her head","सब दिमाग में"), "✘ "+d("No record","कोई record नहीं"), "var(--red)",
+             [d("• nothing written","• कुछ लिखा नहीं"), d("• forgets udhaar","• उधार भूल जाती हैं"), d("• no proof","• कोई सबूत नहीं")])
+      +panel(240, d("Stage 2","चरण 2"), d("Messy notebook","बेतरतीब कॉपी"), "⚠ "+d("Many errors","बहुत ग़लतियाँ"), "var(--accent)",
+             [d("• no dates","• तारीख़ नहीं"), d("• home + shop mixed","• घर और दुकान मिले"), d("• no bills kept","• bill नहीं रखे")])
+      +panel(465, d("Stage 3","चरण 3"), d("Proper register","सही register"), "✔ "+d("Accounting","यही Accounting"), "var(--green)",
+             [d("• date-wise","• तारीख़ के क्रम में"), d("• only money items","• सिर्फ़ पैसे वाली बातें"), d("• voucher for each","• हर entry का सबूत")])
+      +'<line x1="200" y1="95" x2="235" y2="95" stroke="var(--ink)" stroke-width="2" marker-end="url(#ahb)"/>'
+      +'<line x1="425" y1="95" x2="460" y2="95" stroke="var(--ink)" stroke-width="2" marker-end="url(#ahb)"/>'
+      +'</svg>';
+  },
   "meena-evolution": function(L){
     var d=function(a,b){return L==="hi"?b:a;};
     var shop=function(cx,base,w,h,col){
