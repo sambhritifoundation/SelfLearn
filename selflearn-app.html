@@ -437,7 +437,9 @@ function vSubject(code){
     });
     h += '</div></div><div style="display:flex;flex-direction:column;gap:6px">'
       + '<button class="btn sm" onclick="go(\'topic\',{code:\''+c.topics[0].code+'\'})">'+sp("Start","शुरू करें")+'</button>'
+      + (c.checkpoint ? '<button class="btn ghost sm" onclick="startCheckpoint(\''+s.code+'\','+c.no+',\'pre\')">🧭 '+sp("Pre-test","प्री-टेस्ट")+'</button>' : '')
       + (qn ? '<button class="btn ghost sm" onclick="startQuiz(\'chapter\',\''+s.code+'\','+c.no+')">'+sp("Chapter test","अध्याय परीक्षा")+'</button>' : '')
+      + (c.checkpoint ? '<button class="btn ghost sm" onclick="startCheckpoint(\''+s.code+'\','+c.no+',\'exit\')">🎯 '+sp("Exit ticket","एग्ज़िट टिकट")+'</button>' : '')
       + (c.assignment ? '<button class="btn ghost sm" onclick="go(\'assignment\',{code:\''+s.code+'\',chapter:'+c.no+'})">📋 '+sp("Assignment","असाइनमेंट")+'</button>' : '')
       + '</div></div>';
   });
@@ -514,6 +516,18 @@ function startQuiz(scope, a, b){
            qs: shuffle(qs).slice(0,8), i:0, results:[], answered:false, t0:Date.now() };
   go("quiz");
 }
+function startCheckpoint(code, chap, phase){
+  var s = subj(code); var c = s && chapter(s, chap);
+  var ids = (c && c.checkpoint) || [];
+  var qs = ids.map(function(id){ return window.SL_DATA.questions.find(function(q){ return q.id===id; }); }).filter(Boolean);
+  if(!qs.length){ toast(LANG==="hi"?"चेकपॉइंट उपलब्ध नहीं":"No checkpoint available"); return; }
+  var ttl = c ? t(c.name) : code;
+  var pre = phase==="pre";
+  QUIZ = { scope:"checkpoint", phase:phase, ckKey:code+"-ch"+chap, key:code+"-ch"+chap+"-"+phase,
+           title:(pre?(LANG==="hi"?"प्री-टेस्ट: ":"Pre-test: "):(LANG==="hi"?"एग्ज़िट टिकट: ":"Exit ticket: "))+ttl,
+           backSubject:code, qs:qs.slice(), i:0, results:[], answered:false, t0:Date.now() };
+  go("quiz");
+}
 function vQuiz(){
   if(!QUIZ) return vHome();
   var q = QUIZ.qs[QUIZ.i];
@@ -572,7 +586,7 @@ function showExplanation(ok, q, extra){
 }
 function settle(ok, q, extra){
   QUIZ.results[QUIZ.i] = ok; QUIZ.answered = true;
-  record(q, ok);
+  if(QUIZ.scope!=="checkpoint") record(q, ok);
   showExplanation(ok, q, extra);
 }
 function answerMcq(k){
@@ -640,14 +654,18 @@ function nextQ(){
   if(QUIZ.i < QUIZ.qs.length-1){ QUIZ.i++; QUIZ.answered=false; render(); window.scrollTo(0,0); }
   else {
     var score = QUIZ.results.filter(function(r){ return r; }).length;
-    saveSession({date:Date.now(), key:QUIZ.key, score:score, total:QUIZ.qs.length});
+    if(QUIZ.scope==="checkpoint"){
+      if(QUIZ.phase==="pre"){ try{ localStorage.setItem("sl_pre_"+QUIZ.ckKey, JSON.stringify({score:score, total:QUIZ.qs.length, date:Date.now()})); }catch(e){} }
+    } else {
+      saveSession({date:Date.now(), key:QUIZ.key, score:score, total:QUIZ.qs.length});
+    }
     go("result");
   }
 }
 function quitQuiz(){
-  var back = QUIZ && QUIZ.backTopic;
+  var backT = QUIZ && QUIZ.backTopic, backS = QUIZ && QUIZ.backSubject;
   QUIZ = null;
-  if(back) go("topic",{code:back}); else go("home");
+  if(backT) go("topic",{code:backT}); else if(backS) go("subject",{code:backS}); else go("home");
 }
 
 /* ================= RESULT ================= */
@@ -678,6 +696,25 @@ function vResult(){
     + '<div class="stat"><b style="color:var(--red)">'+(total-score)+'</b><span class="sub">'+sp("Incorrect","गलत")+'</span></div>'
     + '<div class="stat"><b>'+mins+'</b><span class="sub">'+sp("Time","समय")+'</span></div></div>'
     + improve + '</div>';
+  if(QUIZ.scope==="checkpoint"){
+    if(QUIZ.phase==="pre"){
+      h += '<div class="card" style="margin-top:16px;background:var(--primary-light);border-color:var(--primary)">'
+        + '<h2>🧭 '+sp("Starting point saved","प्रारंभिक स्थिति सहेजी गई")+'</h2>'
+        + '<p class="sub">'+sp("This marks where you begin — "+pct+"%. It is fine to score low; you have not studied the chapter yet. Study the topics, then take the Exit ticket to measure how much you have grown.","यह आपकी शुरुआत दर्शाता है — "+pct+"%। कम अंक ठीक है; आपने अभी अध्याय नहीं पढ़ा। विषय पढ़ें, फिर एग्ज़िट टिकट से देखें कि आप कितना आगे बढ़े।")+'</p></div>';
+    } else {
+      var preRec=null; try{ preRec=JSON.parse(localStorage.getItem("sl_pre_"+QUIZ.ckKey)||"null"); }catch(e){}
+      if(preRec){
+        var prePct=Math.round(100*preRec.score/preRec.total), delta=pct-prePct;
+        var badge = delta>0 ? '<span class="chip green">▲ +'+delta+'%</span>' : (delta<0 ? '<span class="chip amber">▼ '+delta+'%</span>' : '<span class="chip">= '+sp("no change","कोई बदलाव नहीं")+'</span>');
+        h += '<div class="card" style="margin-top:16px;background:var(--primary-light);border-color:var(--primary)">'
+          + '<h2>🎯 '+sp("Your growth this chapter","इस अध्याय में आपकी प्रगति")+'</h2>'
+          + '<p style="font-size:1.15rem;margin-bottom:6px"><b>'+prePct+'%</b> '+sp("pre-test","प्री-टेस्ट")+' &nbsp;→&nbsp; <b>'+pct+'%</b> '+sp("now","अब")+' &nbsp; '+badge+'</p>'
+          + '<p class="sub">'+(delta>0 ? sp("Real, measurable learning — well done!","वास्तविक, मापनीय अधिगम — शाबाश!") : sp("Revisit the weak topics below and take the Exit ticket again.","नीचे कमज़ोर विषय दोहराएँ और एग्ज़िट टिकट पुनः लें।"))+'</p></div>';
+      } else {
+        h += '<div class="card" style="margin-top:16px"><p class="sub">'+sp("No pre-test found to compare against. Next time, take the Pre-test before studying to measure your growth.","तुलना हेतु कोई प्री-टेस्ट नहीं मिला। अगली बार पढ़ने से पहले प्री-टेस्ट लें ताकि प्रगति मापी जा सके।")+'</p></div>';
+      }
+    }
+  }
   h += '<div class="card" style="margin-top:16px"><h2>'+sp("Question review","प्रश्न समीक्षा")+'</h2><table><tr><th>#</th><th>'+sp("Question","प्रश्न")+'</th><th>'+sp("Result","परिणाम")+'</th></tr>';
   QUIZ.qs.forEach(function(q,k){
     h += '<tr><td>'+(k+1)+'</td><td>'+esc(t(q.q))+'</td><td><span class="chip '+(QUIZ.results[k]?"green":"red")+'">'+(QUIZ.results[k]?"✓":"✗")+'</span></td></tr>';
@@ -687,6 +724,7 @@ function vResult(){
     ? '<button class="btn" onclick="startQuiz(\'topic\',\''+QUIZ.key+'\')">'+sp("Practise again","फिर अभ्यास करें")+'</button>'
     : '';
   var backT = QUIZ.backTopic ? '<button class="btn ghost" onclick="go(\'topic\',{code:\''+QUIZ.backTopic+'\'})">'+sp("Revise the concept","अवधारणा दोहराएँ")+'</button>' : '';
+  if(QUIZ.scope==="checkpoint" && QUIZ.backSubject) backT = '<button class="btn ghost" onclick="go(\'subject\',{code:\''+QUIZ.backSubject+'\'})">'+sp("Back to chapters","अध्यायों पर लौटें")+'</button>';
   h += '<div class="card" style="margin-top:16px;background:var(--primary-light);border-color:var(--primary)">'
     + '<h2>🎯 '+sp("What next?","आगे क्या?")+'</h2>'
     + '<p class="sub" style="margin-bottom:12px">'
