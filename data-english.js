@@ -1,3 +1,9 @@
+/*!
+ * SelfLearn content pack — © 2025 Sambhriti Foundation for Education. All Rights Reserved.
+ * Educational content, questions, explanations and assessments are the intellectual property
+ * of Sambhriti Foundation for Education (https://sambhriti.in). Unauthorized copying,
+ * redistribution or commercial use is prohibited. See LICENSE / NOTICE.md.
+ */
 /* SelfLearn content pack — English Language Communication (generic course, all age groups)
    Levels: Foundation (ages 4–10) · Intermediate (ages 11–15) · Advanced/Adult (16+)
    Auto-loaded by selflearn-app.html. */

@@ -1,9 +1,26 @@
 <!DOCTYPE html>
+<!--
+  SelfLearn — Practice-first Learning Portal
+  © 2025 Sambhriti Foundation for Education. All Rights Reserved.
+  Educational content, instructional design, assessments and supporting materials are the
+  intellectual property of Sambhriti Foundation for Education (https://sambhriti.in).
+  Unauthorized copying, redistribution, or commercial use is prohibited unless expressly
+  permitted by the copyright holder. See LICENSE and NOTICE.md.
+-->
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SelfLearn — Practice-first Learning</title>
+<meta name="description" content="SelfLearn — a bilingual, practice-first, NCERT-aligned learning portal by Sambhriti Foundation for Education.">
+<meta name="author" content="Sambhriti Foundation for Education">
+<meta name="copyright" content="© 2025 Sambhriti Foundation for Education. All Rights Reserved.">
+<meta name="publisher" content="Sambhriti Foundation for Education">
+<meta property="og:site_name" content="SelfLearn — Sambhriti Foundation for Education">
+<meta property="og:title" content="SelfLearn — Practice-first Learning">
+<meta property="og:description" content="Bilingual, NCERT-aligned learning portal by Sambhriti Foundation for Education.">
+<meta property="og:url" content="https://sambhriti.in">
+<link rel="author" href="https://sambhriti.in">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <style>
   :root{
@@ -39,6 +56,18 @@
   .resultnav-row{display:flex;gap:10px;align-items:stretch}
   .resultnav-row .btn{flex:1;text-align:center}
   @media(max-width:520px){ .resultnav-row{flex-direction:column} }
+  #siteFooter{margin-top:44px;border-top:1px solid var(--line);background:var(--card);padding:24px 16px}
+  .footer-inner{max-width:960px;margin:0 auto;text-align:center;color:var(--muted);font-size:.85rem}
+  .footer-copy{font-weight:700;color:var(--ink);margin-bottom:4px}
+  .footer-attr{margin:0 auto 12px;max-width:640px;line-height:1.5}
+  .footer-links{display:flex;gap:8px 18px;flex-wrap:wrap;justify-content:center}
+  .footer-links a{color:var(--primary);cursor:pointer;text-decoration:none;font-weight:600}
+  .footer-links a:hover{text-decoration:underline}
+  @media(max-width:520px){ .footer-links{flex-direction:column;gap:10px} }
+  .legal-doc{max-width:760px;margin:0 auto}
+  .legal-doc h2{margin:18px 0 8px}
+  .legal-doc p,.legal-doc li{color:var(--ink);margin-bottom:8px}
+  .legal-doc ul{padding-left:22px}
   .btn:hover{background:var(--primary-dark)}
   .btn.ghost{background:var(--primary-light);color:var(--primary)}
   .btn.warn{background:var(--accent);color:#3b2b00}
@@ -117,12 +146,31 @@
   </div>
 </div></nav>
 <div id="app"></div>
+<footer id="siteFooter">
+  <div class="footer-inner">
+    <p class="footer-copy">© <span id="copyYear">2025</span> Sambhriti Foundation for Education. All Rights Reserved.</p>
+    <p class="footer-attr"><span class="en">Educational content, instructional design, assessments and supporting materials are developed by</span><span class="hi">शैक्षिक सामग्री, अनुदेशात्मक डिज़ाइन, मूल्यांकन व सहायक सामग्री</span> <b>Sambhriti Foundation for Education</b><span class="hi"> द्वारा विकसित।</span>.</p>
+    <nav class="footer-links">
+      <a id="footerSite" href="https://sambhriti.in" target="_blank" rel="noopener noreferrer">Website</a>
+      <a onclick="go('legal',{doc:'about'})"><span class="en">About</span><span class="hi">परिचय</span></a>
+      <a onclick="go('legal',{doc:'copyright'})"><span class="en">Copyright Notice</span><span class="hi">कॉपीराइट सूचना</span></a>
+      <a onclick="go('legal',{doc:'terms'})"><span class="en">Terms of Use</span><span class="hi">उपयोग की शर्तें</span></a>
+      <a onclick="go('legal',{doc:'privacy'})"><span class="en">Privacy Policy</span><span class="hi">गोपनीयता नीति</span></a>
+    </nav>
+  </div>
+</footer>
 <div class="toast" id="toast"></div>
 
 <script src="data-accountancy.js"></script>
 <script src="data-english.js"></script>
 <script>
 "use strict";
+/* SelfLearn — Practice-first Learning Portal
+   © 2025 Sambhriti Foundation for Education. All Rights Reserved. https://sambhriti.in
+   Content, instructional design and assessments are the IP of Sambhriti Foundation for Education.
+   Unauthorized copying, redistribution or commercial use is prohibited. See LICENSE / NOTICE.md. */
+var SL_CONFIG = { org: "Sambhriti Foundation for Education", year: 2025, website: "https://sambhriti.in" };
+(function(){ var y=document.getElementById("copyYear"); if(y) y.textContent=SL_CONFIG.year; })();
 /* ================= helpers ================= */
 var LANG = localStorage.getItem("sl_lang") || "en";
 function sp(en, hi){ return '<span class="en">'+en+'</span><span class="hi">'+(hi||en)+'</span>'; }
@@ -428,6 +476,7 @@ function render(){
   else if(v==="topic") el.innerHTML = vTopic(VIEW.code);
   else if(v==="assignment") el.innerHTML = vAssignment(VIEW.code, VIEW.chapter);
   else if(v==="summary") el.innerHTML = vChapterSummary(VIEW.code, VIEW.chapter);
+  else if(v==="legal") el.innerHTML = vLegal(VIEW.doc);
   else if(v==="quiz") el.innerHTML = vQuiz();
   else if(v==="result") el.innerHTML = vResult();
   else if(v==="dashboard") el.innerHTML = vDashboard();
@@ -500,8 +549,8 @@ function vSubject(code){
     });
     h += '</div></div><div style="display:flex;flex-direction:column;gap:6px">'
       + '<button class="btn sm" onclick="go(\'topic\',{code:\''+c.topics[0].code+'\'})">'+sp("Start","शुरू करें")+'</button>'
-      + (c.summary ? '<button class="btn ghost sm" onclick="go(\'summary\',{code:\''+s.code+'\',chapter:'+c.no+'})">📄 '+sp("Summary & Assessment","सारांश व मूल्यांकन")+'</button>' : '')
-      + (c.assignment ? '<button class="btn ghost sm" onclick="go(\'assignment\',{code:\''+s.code+'\',chapter:'+c.no+'})">📋 '+sp("Assignment","असाइनमेंट")+'</button>' : '')
+      + (c.summary ? '<button class="btn ghost sm" onclick="go(\'summary\',{code:\''+s.code+'\',chapter:'+c.no+'})">📄 '+sp("Summary & Assignment","सारांश व असाइनमेंट")+'</button>' : '')
+      + (c.assignment ? '<button class="btn ghost sm" onclick="go(\'assignment\',{code:\''+s.code+'\',chapter:'+c.no+'})">📋 '+sp("Practical Activity","व्यावहारिक गतिविधि")+'</button>' : '')
       + '</div></div>';
   });
   return h;
@@ -536,8 +585,8 @@ function vTopic(code){
   h += '<div class="rowflex" style="margin-top:14px">'
     + (prev ? '<button class="btn ghost sm" onclick="go(\'topic\',{code:\''+prev.code+'\'})">← '+t(prev.name)+'</button>' : '<span></span>')
     + (next ? '<button class="btn ghost sm" onclick="go(\'topic\',{code:\''+next.code+'\'})">'+t(next.name)+' →</button>'
-        : (c.summary ? '<button class="btn sm" onclick="go(\'summary\',{code:\''+s.code+'\',chapter:'+c.no+'})">📄 '+sp("Chapter Summary","अध्याय सारांश")+' →</button>'
-            : (c.assignment ? '<button class="btn sm" onclick="go(\'assignment\',{code:\''+s.code+'\',chapter:'+c.no+'})">📋 '+sp("Chapter assignment","अध्याय असाइनमेंट")+' →</button>' : '<span></span>')))
+        : (c.summary ? '<button class="btn sm" onclick="go(\'summary\',{code:\''+s.code+'\',chapter:'+c.no+'})">🚀 '+sp("Start Assignment","असाइनमेंट शुरू करें")+' →</button>'
+            : (c.assignment ? '<button class="btn sm" onclick="go(\'assignment\',{code:\''+s.code+'\',chapter:'+c.no+'})">📋 '+sp("Practical Activity","व्यावहारिक गतिविधि")+' →</button>' : '<span></span>')))
     + '</div>';
   return h;
 }
@@ -550,7 +599,7 @@ function vAssignment(code, chNo){
   var h = '<div class="crumb"><a onclick="go(\'home\')">'+sp("Home","मुख्य")+'</a> › <a onclick="go(\'subject\',{code:\''+s.code+'\'})">'+t(s.name)+'</a> › '
     + sp("Ch "+c.no,"अध्याय "+c.no)+': '+t(c.name)+' › <b>'+sp("Assignment","असाइनमेंट")+'</b></div>';
   h += '<div class="card"><div>'
-    + '<span class="chip amber">📋 '+sp("Hands-on assignment","व्यावहारिक असाइनमेंट")+'</span>'
+    + '<span class="chip amber">📋 '+sp("Practical Activity","व्यावहारिक गतिविधि")+'</span>'
     + '<span class="chip">'+sp("Use a spreadsheet","स्प्रेडशीट का उपयोग करें")+'</span>'
     + '</div><h1 style="margin:10px 0 12px">'+sp("Chapter "+c.no+" Assignment","अध्याय "+c.no+" असाइनमेंट")+': '+t(c.name)+'</h1>'
     + '<div class="notes">'+fmtNotes(t(c.assignment))+'</div></div>';
@@ -579,16 +628,49 @@ function startQuiz(scope, a, b){
            qs: shuffle(qs).slice(0,8), i:0, results:[], answered:false, t0:Date.now() };
   go("quiz");
 }
+function vLegal(doc){
+  var ORG=SL_CONFIG.org, YR=SL_CONFIG.year, SITE=SL_CONFIG.website;
+  var docs={
+    about:{ title:sp("About","परिचय"), body:
+      '<p>'+sp("SelfLearn is a bilingual (English–Hindi), practice-first learning portal developed by <b>"+ORG+"</b>. It presents NCERT-aligned lessons as short, story-driven micro-topics with instant practice, diagrams, and end-of-chapter assessments.","SelfLearn एक द्विभाषी (अंग्रेज़ी–हिंदी), अभ्यास-प्रथम शिक्षण पोर्टल है, जिसे <b>"+ORG+"</b> द्वारा विकसित किया गया है। यह NCERT-संरेखित पाठों को कहानी-आधारित सूक्ष्म-विषयों के रूप में प्रस्तुत करता है।")+'</p>'
+      + '<p>'+sp("Our mission is to make quality education accessible and engaging for every learner.","हमारा उद्देश्य हर विद्यार्थी के लिए गुणवत्तापूर्ण शिक्षा को सुलभ और रोचक बनाना है।")+'</p>'
+      + '<p>'+sp("Website","वेबसाइट")+': <a href="'+SITE+'" target="_blank" rel="noopener noreferrer">'+SITE+'</a></p>' },
+    copyright:{ title:sp("Copyright Notice","कॉपीराइट सूचना"), body:
+      '<p><b>© '+YR+' '+ORG+'. '+sp("All Rights Reserved.","सर्वाधिकार सुरक्षित।")+'</b></p>'
+      + '<p>'+sp("All educational content, instructional design, assessments, questions, explanations, diagrams and supporting materials on this portal are the intellectual property of "+ORG+".","इस पोर्टल की समस्त शैक्षिक सामग्री, अनुदेशात्मक डिज़ाइन, मूल्यांकन, प्रश्न, व्याख्याएँ, आरेख व सहायक सामग्री "+ORG+" की बौद्धिक संपदा है।")+'</p>'
+      + '<p>'+sp("Unauthorized copying, reproduction, redistribution, public display, or commercial use of any part of this content is strictly prohibited unless expressly permitted in writing by the copyright holder.","इस सामग्री के किसी भी भाग की अनधिकृत नकल, पुनरुत्पादन, पुनर्वितरण, सार्वजनिक प्रदर्शन या व्यावसायिक उपयोग सख्त वर्जित है, जब तक कॉपीराइट धारक द्वारा लिखित रूप में स्पष्ट अनुमति न दी गई हो।")+'</p>'
+      + '<p>'+sp("For permissions, contact us via","अनुमति हेतु संपर्क करें")+' <a href="'+SITE+'" target="_blank" rel="noopener noreferrer">'+SITE+'</a>.</p>' },
+    terms:{ title:sp("Terms of Use","उपयोग की शर्तें"), body:
+      '<ul>'
+      + '<li>'+sp("This portal is provided for personal, non-commercial educational use only.","यह पोर्टल केवल व्यक्तिगत, गैर-व्यावसायिक शैक्षिक उपयोग हेतु है।")+'</li>'
+      + '<li>'+sp("You may not copy, redistribute, resell, or create derivative works from the content without written permission from "+ORG+".","आप "+ORG+" की लिखित अनुमति के बिना सामग्री की नकल, पुनर्वितरण, पुनर्विक्रय या व्युत्पन्न कार्य नहीं बना सकते।")+'</li>'
+      + '<li>'+sp("The content is provided \"as is\" for learning support and does not replace formal instruction or official NCERT/CBSE materials.","सामग्री \"जैसी है\" के आधार पर शिक्षण-सहायता हेतु दी गई है और औपचारिक शिक्षण या आधिकारिक NCERT/CBSE सामग्री का स्थान नहीं लेती।")+'</li>'
+      + '<li>'+sp("NCERT/CBSE names are used only to indicate curriculum alignment; all original expression and design are the property of "+ORG+".","NCERT/CBSE नाम केवल पाठ्यक्रम-संरेखण दर्शाने हेतु प्रयुक्त हैं; समस्त मौलिक अभिव्यक्ति व डिज़ाइन "+ORG+" की संपत्ति है।")+'</li>'
+      + '</ul>' },
+    privacy:{ title:sp("Privacy Policy","गोपनीयता नीति"), body:
+      '<ul>'
+      + '<li>'+sp("SelfLearn stores your learning progress (scores, streaks, attempts) locally in your own browser. It is not uploaded to any server.","SelfLearn आपकी सीखने की प्रगति (स्कोर, स्ट्रीक, प्रयास) आपके ब्राउज़र में ही संग्रहीत करता है। इसे किसी सर्वर पर नहीं भेजा जाता।")+'</li>'
+      + '<li>'+sp("We do not collect personal information, and we do not use tracking or advertising cookies.","हम व्यक्तिगत जानकारी एकत्र नहीं करते, और न ही ट्रैकिंग या विज्ञापन कुकीज़ का उपयोग करते हैं।")+'</li>'
+      + '<li>'+sp("Clearing your browser data will remove your saved progress from this device.","अपने ब्राउज़र का डेटा साफ़ करने पर इस डिवाइस से आपकी सहेजी गई प्रगति हट जाएगी।")+'</li>'
+      + '</ul>' }
+  };
+  var d=docs[doc]||docs.about;
+  return '<div class="legal-doc"><div class="crumb"><a onclick="go(\'home\')">'+sp("Home","मुख्य")+'</a> › <b>'+d.title+'</b></div>'
+    + '<div class="card"><h1>'+d.title+'</h1>'+d.body
+    + '<p class="sub" style="margin-top:16px">© '+YR+' '+ORG+'. '+sp("All Rights Reserved.","सर्वाधिकार सुरक्षित।")+'</p></div>'
+    + '<div style="margin-top:14px"><button class="btn ghost" onclick="go(\'home\')">← '+sp("Back to Home","मुख्य पर लौटें")+'</button></div></div>';
+}
 function vChapterSummary(code, chap){
   var s=subj(code); var c=s&&chapter(s,chap);
   if(!c || !c.summary) return "Not found";
   var h='<div class="crumb"><a onclick="go(\'home\')">'+sp("Home","मुख्य")+'</a> › <a onclick="go(\'subject\',{code:\''+code+'\'})">'+t(s.name)+'</a> › <b>'+sp("Ch "+c.no+" · Summary","अध्याय "+c.no+" · सारांश")+'</b></div>'
-    + '<div class="card"><span class="chip amber">📄 '+sp("Chapter Summary & Revision","अध्याय सारांश व दोहराव")+'</span>'
+    + '<div class="card"><span class="chip amber">📄 '+sp("Chapter Summary & Assignment","अध्याय सारांश व असाइनमेंट")+'</span>'
     + '<h1 style="margin:10px 0 12px">'+t(c.name)+'</h1>'
+    + '<p class="sub" style="margin-bottom:10px">'+sp("Revise the whole chapter below, then start the assignment.","नीचे पूरा अध्याय दोहराएँ, फिर असाइनमेंट शुरू करें।")+'</p>'
     + '<div class="notes">'+fmtNotes(t(c.summary))+'</div></div>'
     + '<div class="card" style="margin-top:16px"><div class="resultnav-row">'
     + '<button class="btn ghost" onclick="go(\'subject\',{code:\''+code+'\'})">← '+sp("Back to Topics","विषयों पर लौटें")+'</button>'
-    + ((c.assessment&&c.assessment.length) ? '<button class="btn" onclick="startAssessment(\''+code+'\','+c.no+')">'+sp("Start Assessment","मूल्यांकन शुरू करें")+' →</button>' : '')
+    + ((c.assessment&&c.assessment.length) ? '<button class="btn" onclick="startAssessment(\''+code+'\','+c.no+')">'+sp("Start Assignment","असाइनमेंट शुरू करें")+' →</button>' : '')
     + '</div></div>';
   return h;
 }
@@ -598,7 +680,7 @@ function startAssessment(code, chap){
   var qs=ids.map(function(id){ return window.SL_DATA.questions.find(function(q){ return q.id===id; }); }).filter(Boolean);
   if(!qs.length){ toast(LANG==="hi"?"मूल्यांकन उपलब्ध नहीं":"No assessment available"); return; }
   QUIZ={ scope:"assessment", ckKey:code+"-ch"+chap, key:code+"-ch"+chap+"-assess",
-         title:(c?t(c.name):code)+" — "+(LANG==="hi"?"मूल्यांकन":"Assessment"),
+         title:(c?t(c.name):code)+" — "+(LANG==="hi"?"असाइनमेंट":"Assignment"),
          backSubject:code, qs:shuffle(qs.slice()), i:0, results:[], answered:false, t0:Date.now() };
   go("quiz");
 }
@@ -785,7 +867,7 @@ function vResult(){
   }
   var h = '<div style="max-width:720px;margin:0 auto">'
     + '<div class="card" style="text-align:center;padding:26px">'
-    + '<h1>'+(pct>=60?"🎉":"💪")+' '+(QUIZ.scope==="assessment"?sp("Assessment complete!","मूल्यांकन पूर्ण!"):sp("Practice complete!","अभ्यास पूर्ण!"))+'</h1>'
+    + '<h1>'+(pct>=60?"🎉":"💪")+' '+(QUIZ.scope==="assessment"?sp("Assignment complete!","असाइनमेंट पूर्ण!"):sp("Practice complete!","अभ्यास पूर्ण!"))+'</h1>'
     + '<p class="sub" style="margin-bottom:16px">'+esc(QUIZ.title)+' · '+total+' '+sp("questions","प्रश्न")+'</p>'
     + '<div class="score-ring" style="background:conic-gradient('+col+' 0 '+deg+'deg,var(--line) '+deg+'deg 360deg)"><div><b>'+pct+'%</b><span class="sub">'+sp("score","स्कोर")+'</span></div></div>'
     + '<div class="grid g3" style="margin-top:18px">'
@@ -846,7 +928,7 @@ function vResult(){
     var reviseWeak = (QUIZ._weak&&QUIZ._weak.length)
       ? '<button class="btn ghost" onclick="go(\'topic\',{code:\''+QUIZ._weak[0].code+'\'})">🔁 '+sp("Revise Weak Topics","कमज़ोर विषय दोहराएँ")+'</button>' : '';
     var ck=(QUIZ.ckKey||"").split("-ch");
-    var retake = ck.length===2 ? '<button class="btn ghost" onclick="startAssessment(\''+ck[0]+'\','+ck[1]+')">↻ '+sp("Retake Assessment","पुनः मूल्यांकन")+'</button>' : '';
+    var retake = ck.length===2 ? '<button class="btn ghost" onclick="startAssessment(\''+ck[0]+'\','+ck[1]+')">↻ '+sp("Retake Assignment","पुनः असाइनमेंट")+'</button>' : '';
     var nextC = (ctx&&ctx.nextFirst)
       ? '<button class="btn" onclick="go(\'topic\',{code:\''+ctx.nextFirst+'\'})">'+sp("Next Chapter","अगला अध्याय")+' →</button>'
       : '<button class="btn ghost" onclick="go(\'subject\',{code:\''+(ctx?ctx.subjectCode:QUIZ.backSubject)+'\'})">'+sp("All chapters","सभी अध्याय")+'</button>';
@@ -857,7 +939,7 @@ function vResult(){
     var reviseTopic = QUIZ.backTopic ? '<button class="btn ghost" onclick="go(\'topic\',{code:\''+QUIZ.backTopic+'\'})">← '+sp("Revise Topic","विषय दोहराएँ")+'</button>' : '';
     var nextTopicBtn = "";
     if(nt) nextTopicBtn = '<button class="btn" onclick="go(\'topic\',{code:\''+nt+'\'})">'+sp("Next Topic","अगला विषय")+' →</button>';
-    else if(curInfo && curInfo.chapter.summary) nextTopicBtn = '<button class="btn" onclick="go(\'summary\',{code:\''+curInfo.subject.code+'\',chapter:'+curInfo.chapter.no+'})">📄 '+sp("Chapter Summary","अध्याय सारांश")+' →</button>';
+    else if(curInfo && curInfo.chapter.summary) nextTopicBtn = '<button class="btn" onclick="go(\'summary\',{code:\''+curInfo.subject.code+'\',chapter:'+curInfo.chapter.no+'})">🚀 '+sp("Start Assignment","असाइनमेंट शुरू करें")+' →</button>';
     h += '<div class="card" style="margin-top:16px"><div class="resultnav-row">'+reviseTopic+nextTopicBtn+'</div>'
       + '<div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap"><button class="btn ghost sm" onclick="startQuiz(\'topic\',\''+QUIZ.key+'\')">'+sp("Practise again","फिर अभ्यास करें")+'</button>'
       + '<button class="btn ghost sm" onclick="go(\'dashboard\')">'+sp("My progress","मेरी प्रगति")+'</button></div></div>';

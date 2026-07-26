@@ -30,3 +30,14 @@ Open `index.html` in any browser — no build step, no server needed. Keep the `
 1. Fill rows in `selflearn-question-template.xlsx` (see its Instructions sheet).
 2. Open the app → Admin → Import / Export → upload the file.
 3. To make content permanent for all users, add it to a `data-*.js` pack and commit.
+
+## Copyright & License
+
+© 2025 **Sambhriti Foundation for Education**. All Rights Reserved. — https://sambhriti.in
+
+Educational content, instructional design, assessments, and supporting materials are the
+intellectual property of Sambhriti Foundation for Education. Unauthorized copying,
+redistribution, or commercial use is prohibited unless expressly permitted by the copyright
+holder. See [LICENSE](LICENSE) and [NOTICE.md](NOTICE.md).
+
+The displayed copyright year is configurable via the `SL_CONFIG` object in `index.html`.
