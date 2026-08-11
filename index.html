@@ -471,6 +471,55 @@ var DIAGRAMS = {
       +'<text x="330" y="228" text-anchor="middle" font-size="11" font-weight="bold" fill="var(--primary)">'+d("Every account, in every book, is balanced at period end","हर खाता, हर बही में, अवधि के अंत में संतुलित होता है")+'</text>'
       +'</svg>';
   },
+  "brs-timing": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 660 220" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="330" y="18" text-anchor="middle" font-size="14" font-weight="bold" fill="var(--primary)">'+d("Same cheque, two different recording dates","एक ही चेक, दो अलग दर्ज होने की तारीख़ें")+'</text>'
+      +'<text x="45" y="68" font-size="11" font-weight="bold" fill="var(--primary)">'+d("Cash Book","रोकड़ बही")+'</text>'
+      +'<line x1="40" y1="80" x2="620" y2="80" stroke="var(--primary)" stroke-width="3"/>'
+      +'<circle cx="150" cy="80" r="7" fill="var(--red)"/>'
+      +'<text x="150" y="105" text-anchor="middle" font-size="9.5" fill="var(--ink)">'+d("Mar 28: cheque written","28 मार्च: चेक लिखा")+'</text>'
+      +'<text x="150" y="118" text-anchor="middle" font-size="9.5" fill="var(--red)" font-weight="bold">'+d("bank balance ↓ now","bank शेष अभी ↓")+'</text>'
+      +'<text x="45" y="158" font-size="11" font-weight="bold" fill="var(--green)">'+d("Bank Passbook","बैंक पासबुक")+'</text>'
+      +'<line x1="40" y1="170" x2="620" y2="170" stroke="var(--green)" stroke-width="3"/>'
+      +'<circle cx="470" cy="170" r="7" fill="var(--green)"/>'
+      +'<text x="470" y="150" text-anchor="middle" font-size="9.5" fill="var(--ink)">'+d("Apr 3: cheque presented","3 अप्रैल: चेक प्रस्तुत")+'</text>'
+      +'<text x="470" y="196" text-anchor="middle" font-size="9.5" fill="var(--green)" font-weight="bold">'+d("bank balance ↓ now","bank शेष अभी ↓")+'</text>'
+      +'<rect x="150" y="80" width="320" height="90" fill="var(--amber)" opacity="0.13"/>'
+      +'<line x1="150" y1="80" x2="150" y2="170" stroke="var(--line)" stroke-width="1.5" stroke-dasharray="3,3"/>'
+      +'<line x1="470" y1="80" x2="470" y2="170" stroke="var(--line)" stroke-width="1.5" stroke-dasharray="3,3"/>'
+      +'<text x="310" y="128" text-anchor="middle" font-size="11" font-weight="bold" fill="var(--amber)">'+d("timing gap -- both books are correct, just not in sync yet","समय-अंतर -- दोनों किताबें सही हैं, बस अभी तालमेल में नहीं")+'</text>'
+      +'</svg>';
+  },
+  "brs-flip": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    var col=function(x,title,c,rows){
+      var h='<rect x="'+x+'" y="40" width="270" height="150" rx="8" fill="var(--card)" stroke="'+c+'" stroke-width="2"/>'
+        +'<rect x="'+x+'" y="40" width="270" height="34" rx="8" fill="'+c+'"/>'
+        +'<text x="'+(x+135)+'" y="62" text-anchor="middle" font-size="11" font-weight="bold" fill="#fff">'+title+'</text>';
+      rows.forEach(function(r,i){
+        var y=90+i*46;
+        h += '<text x="'+(x+12)+'" y="'+y+'" font-size="9.5" fill="var(--ink)">'+r[0]+'</text>'
+          + '<text x="'+(x+12)+'" y="'+(y+16)+'" font-size="9.5" fill="var(--ink)">'+r[1]+'</text>'
+          + '<text x="'+(x+245)+'" y="'+(y+6)+'" text-anchor="middle" font-size="20" font-weight="bold" fill="'+(r[2]==="+"?"var(--green)":"var(--red)")+'">'+r[2]+'</text>';
+      });
+      return h;
+    };
+    return '<svg viewBox="0 0 660 220" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="330" y="18" text-anchor="middle" font-size="14" font-weight="bold" fill="var(--primary)">'+d("Same items -- opposite treatment, once the starting balance flips","वही मदें -- शुरुआती शेष पलटते ही उल्टा व्यवहार")+'</text>'
+      + col(15, d("Favourable balance (start)","अनुकूल शेष (शुरुआत)"), "var(--green)", [
+          [d("Cheques issued,","निर्गमित पर"), d("not presented","अप्रस्तुत चेक"), "+"],
+          [d("Cheques deposited,","जमा पर"), d("not collected","असंग्रहित चेक"), "-"]
+        ])
+      + col(375, d("Overdraft (start)","अधिविकर्ष (शुरुआत)"), "var(--red)", [
+          [d("Cheques issued,","निर्गमित पर"), d("not presented","अप्रस्तुत चेक"), "-"],
+          [d("Cheques deposited,","जमा पर"), d("not collected","असंग्रहित चेक"), "+"]
+        ])
+      +'<text x="330" y="113" text-anchor="middle" font-size="16" fill="var(--amber)">⇄</text>'
+      +'<text x="330" y="159" text-anchor="middle" font-size="16" fill="var(--amber)">⇄</text>'
+      +'<text x="330" y="205" text-anchor="middle" font-size="10.5" fill="var(--ink)" opacity="0.75">'+d("Ask: does this item make the passbook figure bigger or smaller, right now?","पूछें: क्या यह मद अभी पासबुक के आँकड़े को बड़ा बनाती है या छोटा?")+'</text>'
+      +'</svg>';
+  },
   "going-concern-fridge": function(L){
     var d=function(a,b){return L==="hi"?b:a;};
     var bars=""; var yrs=[2080,2080,2080,2080,2080,2080,2080,2080,2080,2080];
