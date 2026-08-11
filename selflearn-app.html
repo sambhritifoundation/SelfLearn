@@ -362,6 +362,54 @@ var DIAGRAMS = {
       +doc(500,d("Voucher","प्रमाणक"),d("proof of a transaction","लेन-देन का प्रमाण"))
       +'</svg>';
   },
+  "debit-credit-rules": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    var col=function(x,title,side1,side2,c){
+      return '<rect x="'+x+'" y="40" width="120" height="140" rx="8" fill="var(--card)" stroke="'+c+'" stroke-width="2"/>'
+        +'<rect x="'+x+'" y="40" width="120" height="30" rx="8" fill="'+c+'"/>'
+        +'<text x="'+(x+60)+'" y="60" text-anchor="middle" font-size="11" font-weight="bold" fill="#fff">'+title+'</text>'
+        +'<line x1="'+(x+60)+'" y1="70" x2="'+(x+60)+'" y2="180" stroke="var(--line)" stroke-width="1.5"/>'
+        +'<text x="'+(x+30)+'" y="90" text-anchor="middle" font-size="10" font-weight="bold" fill="var(--ink)">Dr.</text>'
+        +'<text x="'+(x+90)+'" y="90" text-anchor="middle" font-size="10" font-weight="bold" fill="var(--ink)">Cr.</text>'
+        +'<text x="'+(x+30)+'" y="115" text-anchor="middle" font-size="18" fill="'+(side1==="+"?"var(--green)":"var(--red)")+'">'+side1+'</text>'
+        +'<text x="'+(x+90)+'" y="115" text-anchor="middle" font-size="18" fill="'+(side2==="+"?"var(--green)":"var(--red)")+'">'+side2+'</text>';
+    };
+    return '<svg viewBox="0 0 660 195" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="330" y="18" text-anchor="middle" font-size="14" font-weight="bold" fill="var(--primary)">'+d("The five categories -- DEAD CLR","पाँच श्रेणियाँ -- DEAD CLR")+'</text>'
+      + col(15, d("Assets","Assets"), "+", "-", "var(--primary)")
+      + col(150, d("Expenses","Expenses"), "+", "-", "var(--primary)")
+      + col(285, d("Liabilities","Liabilities"), "-", "+", "var(--amber)")
+      + col(420, d("Capital","Capital"), "-", "+", "var(--amber)")
+      + col(555, d("Revenue","Revenue"), "-", "+", "var(--amber)")
+      +'<text x="330" y="188" text-anchor="middle" font-size="10.5" fill="var(--ink)" opacity="0.75">'+d("Debit increases Expenses, Assets, Drawings -- Credit increases Liabilities, Revenue, Capital","Debit से Expenses, Assets, Drawings बढ़ते -- Credit से Liabilities, Revenue, Capital बढ़ते")+'</text>'
+      +'</svg>';
+  },
+  "journal-to-ledger": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 660 200" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<defs><marker id="ahjl" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--primary)"/></marker></defs>'
+      +'<text x="330" y="18" text-anchor="middle" font-size="14" font-weight="bold" fill="var(--primary)">'+d("Posting: journal -> ledger","Posting: journal -> ledger")+'</text>'
+      +'<rect x="20" y="40" width="230" height="90" rx="8" fill="var(--card)" stroke="var(--primary)" stroke-width="2"/>'
+      +'<text x="135" y="58" text-anchor="middle" font-size="11.5" font-weight="bold" fill="var(--primary)">'+d("Journal (book of original entry)","Journal (मूल प्रविष्टि पुस्तक)")+'</text>'
+      +'<text x="35" y="78" font-size="10" fill="var(--ink)">Furniture A/c   Dr.  25,000</text>'
+      +'<text x="35" y="94" font-size="10" fill="var(--ink)">   To Cash A/c         5,000</text>'
+      +'<text x="35" y="110" font-size="10" fill="var(--ink)">   To M. Furniture   20,000</text>'
+      +'<line x1="250" y1="85" x2="300" y2="85" stroke="var(--primary)" stroke-width="2" marker-end="url(#ahjl)"/>'
+      +'<text x="275" y="75" text-anchor="middle" font-size="9.5" fill="var(--ink)" opacity="0.75">'+d("post","खतौनी")+'</text>'
+      +'<rect x="305" y="40" width="160" height="150" rx="8" fill="var(--card)" stroke="var(--green)" stroke-width="2"/>'
+      +'<text x="385" y="58" text-anchor="middle" font-size="11" font-weight="bold" fill="var(--green)">'+d("Furniture A/c","फर्नीचर खाता")+'</text>'
+      +'<line x1="385" y1="65" x2="385" y2="180" stroke="var(--line)" stroke-width="1.5"/>'
+      +'<text x="345" y="78" text-anchor="middle" font-size="9.5" font-weight="bold" fill="var(--ink)">Dr.</text>'
+      +'<text x="425" y="78" text-anchor="middle" font-size="9.5" font-weight="bold" fill="var(--ink)">Cr.</text>'
+      +'<text x="345" y="98" text-anchor="middle" font-size="10" fill="var(--ink)">25,000</text>'
+      +'<rect x="480" y="40" width="160" height="70" rx="8" fill="var(--card)" stroke="var(--red)" stroke-width="2"/>'
+      +'<text x="560" y="58" text-anchor="middle" font-size="11" font-weight="bold" fill="var(--red)">'+d("Cash A/c","Cash खाता")+'</text>'
+      +'<text x="620" y="78" text-anchor="middle" font-size="10" fill="var(--ink)">5,000</text>'
+      +'<rect x="480" y="120" width="160" height="70" rx="8" fill="var(--card)" stroke="var(--red)" stroke-width="2"/>'
+      +'<text x="560" y="138" text-anchor="middle" font-size="10.5" font-weight="bold" fill="var(--red)">'+d("M. Furniture A/c","M. Furniture खाता")+'</text>'
+      +'<text x="620" y="158" text-anchor="middle" font-size="10" fill="var(--ink)">20,000</text>'
+      +'</svg>';
+  },
   "going-concern-fridge": function(L){
     var d=function(a,b){return L==="hi"?b:a;};
     var bars=""; var yrs=[2080,2080,2080,2080,2080,2080,2080,2080,2080,2080];
