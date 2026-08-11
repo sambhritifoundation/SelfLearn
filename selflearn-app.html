@@ -520,6 +520,50 @@ var DIAGRAMS = {
       +'<text x="330" y="205" text-anchor="middle" font-size="10.5" fill="var(--ink)" opacity="0.75">'+d("Ask: does this item make the passbook figure bigger or smaller, right now?","पूछें: क्या यह मद अभी पासबुक के आँकड़े को बड़ा बनाती है या छोटा?")+'</text>'
       +'</svg>';
   },
+  "error-types-map": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    var chip=function(x,y,w,title,sub){
+      return '<rect x="'+x+'" y="'+y+'" width="'+w+'" height="52" rx="7" fill="var(--card)" stroke="var(--line)" stroke-width="1.5"/>'
+        +'<text x="'+(x+w/2)+'" y="'+(y+21)+'" text-anchor="middle" font-size="10.5" font-weight="bold" fill="var(--ink)">'+title+'</text>'
+        +'<text x="'+(x+w/2)+'" y="'+(y+38)+'" text-anchor="middle" font-size="9" fill="var(--ink)" opacity="0.75">'+sub+'</text>';
+    };
+    return '<svg viewBox="0 0 660 270" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="330" y="18" text-anchor="middle" font-size="14" font-weight="bold" fill="var(--primary)">'+d("Four types of errors -- only some break the tally","चार तरह की अशुद्धियाँ -- कुछ ही tally बिगाड़ती हैं")+'</text>'
+      +'<rect x="15" y="40" width="290" height="215" rx="10" fill="var(--red)" opacity="0.08" stroke="var(--red)" stroke-width="2"/>'
+      +'<text x="160" y="62" text-anchor="middle" font-size="11.5" font-weight="bold" fill="var(--red)">'+d("Usually ONE-SIDED -- tally breaks","आमतौर पर ONE-SIDED -- tally बिगड़े")+'</text>'
+      + chip(35,75,250, d("Errors of Commission (लेख)","लेख अशुद्धि"), d("wrong amount / wrong side posted","गलत राशि / गलत पक्ष post"))
+      + chip(35,135,250, d("Partial Omission (आंशिक लोप)","आंशिक लोप अशुद्धि"), d("recorded, but posting missed","दर्ज हुआ, पर posting छूटी"))
+      +'<text x="160" y="230" text-anchor="middle" font-size="10" fill="var(--ink)" opacity="0.7">'+d("-> parked in Suspense A/c until found","-> मिलने तक Suspense A/c में")+'</text>'
+      +'<rect x="325" y="40" width="320" height="215" rx="10" fill="var(--green)" opacity="0.08" stroke="var(--green)" stroke-width="2"/>'
+      +'<text x="485" y="62" text-anchor="middle" font-size="11.5" font-weight="bold" fill="var(--green)">'+d("Always TWO-SIDED -- tally survives","हमेशा TWO-SIDED -- tally बना रहे")+'</text>'
+      + chip(345,75,280, d("Complete Omission (पूर्ण लोप)","पूर्ण लोप अशुद्धि"), d("never recorded anywhere at all","कहीं भी दर्ज ही नहीं हुआ"))
+      + chip(345,135,280, d("Errors of Principle (सैद्धांतिक)","सैद्धांतिक अशुद्धि"), d("capital vs revenue confused","capital बनाम revenue उलझन"))
+      + chip(345,195,280, d("Compensating Errors (क्षतिपूरक)","क्षतिपूरक अशुद्धि"), d("one error cancels another","एक गलती दूसरी को काटे"))
+      +'</svg>';
+  },
+  "suspense-flow": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    var box=function(x,y,w,h,title,sub,c){
+      return '<rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="9" fill="var(--card)" stroke="'+c+'" stroke-width="2"/>'
+        +'<text x="'+(x+w/2)+'" y="'+(y+26)+'" text-anchor="middle" font-size="11.5" font-weight="bold" fill="'+c+'">'+title+'</text>'
+        +'<text x="'+(x+w/2)+'" y="'+(y+46)+'" text-anchor="middle" font-size="9.5" fill="var(--ink)" opacity="0.8">'+sub+'</text>';
+    };
+    var arr=function(x1,x2,y){return '<line x1="'+x1+'" y1="'+y+'" x2="'+x2+'" y2="'+y+'" stroke="var(--primary)" stroke-width="2" marker-end="url(#ahsf)"/>';};
+    return '<svg viewBox="0 0 660 220" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<defs><marker id="ahsf" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--primary)"/></marker></defs>'
+      +'<text x="330" y="18" text-anchor="middle" font-size="14" font-weight="bold" fill="var(--primary)">'+d("The Suspense Account -- a temporary parking spot","उचंती खाता -- एक अस्थायी पार्किंग जगह")+'</text>'
+      + box(10,45,190,70, d("Trial Balance","Trial Balance"), d("doesn't tally -- ₹15,000 short","नहीं मिल रहा -- ₹15,000 कम"), "var(--red)")
+      + arr(205,235,80)
+      + box(240,45,190,70, d("Suspense A/c","उचंती खाता"), d("₹15,000 parked here for now","अभी यहाँ ₹15,000 पार्क"), "var(--amber)")
+      + arr(435,465,80)
+      + box(470,45,180,70, d("Errors found","गलतियाँ मिलीं"), d("one by one, journalised","एक-एक कर, journal से"), "var(--green)")
+      +'<line x1="335" y1="115" x2="335" y2="150" stroke="var(--line)" stroke-width="1.5" stroke-dasharray="3,3"/>'
+      +'<rect x="140" y="150" width="390" height="55" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="1.5"/>'
+      +'<text x="335" y="172" text-anchor="middle" font-size="10" fill="var(--ink)">Mohan\'s A/c Dr. 10,000</text>'
+      +'<text x="335" y="188" text-anchor="middle" font-size="10" fill="var(--ink)">     To Suspense A/c 10,000</text>'
+      +'<text x="335" y="215" text-anchor="middle" font-size="10" font-weight="bold" fill="var(--primary)">'+d("Once every error is traced, Suspense A/c closes to zero.","हर गलती मिलते ही, उचंती खाता शून्य हो जाता है।")+'</text>'
+      +'</svg>';
+  },
   "going-concern-fridge": function(L){
     var d=function(a,b){return L==="hi"?b:a;};
     var bars=""; var yrs=[2080,2080,2080,2080,2080,2080,2080,2080,2080,2080];
