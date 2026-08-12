@@ -609,6 +609,54 @@ var DIAGRAMS = {
       +'<text x="490" y="213" text-anchor="middle" font-size="9.5" font-weight="bold" fill="var(--red)">'+d("Secret Reserve -- doesn't appear in the balance sheet at all","गुप्त संचय -- balance sheet में दिखता ही नहीं")+'</text>'
       +'</svg>';
   },
+  "trading-account-flow": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    var box=function(x,y,w,h,title,c){
+      return '<rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="8" fill="var(--card)" stroke="'+c+'" stroke-width="2"/>'
+        +'<text x="'+(x+w/2)+'" y="'+(y+h/2+4)+'" text-anchor="middle" font-size="10.5" font-weight="bold" fill="'+c+'">'+title+'</text>';
+    };
+    var plus=function(x,y){return '<text x="'+x+'" y="'+(y+5)+'" text-anchor="middle" font-size="16" fill="var(--ink-soft)" opacity="0.6">+</text>';};
+    var minus=function(x,y){return '<text x="'+x+'" y="'+(y+5)+'" text-anchor="middle" font-size="16" fill="var(--red)">−</text>';};
+    return '<svg viewBox="0 0 660 230" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="330" y="18" text-anchor="middle" font-size="14" font-weight="bold" fill="var(--primary)">'+d("From trial balance figures to Gross Profit","Trial Balance के आँकड़ों से सकल लाभ तक")+'</text>'
+      + box(10,40,110,50, d("Opening Stock","प्रारंभिक रहतिया"), "var(--primary)")
+      + plus(132,65)
+      + box(150,40,110,50, d("Purchases","क्रय"), "var(--primary)")
+      + plus(272,65)
+      + box(290,40,130,50, d("Direct Expenses","आंतरिक ख़र्च"), "var(--primary)")
+      + minus(432,65)
+      + box(450,40,110,50, d("Closing Stock","अंतिम रहतिया"), "var(--red)")
+      +'<text x="580" y="65" text-anchor="middle" font-size="14" fill="var(--ink-soft)">=</text>'
+      +'<rect x="150" y="110" width="260" height="40" rx="8" fill="var(--amber)" opacity="0.15" stroke="var(--amber)" stroke-width="2"/>'
+      +'<text x="280" y="135" text-anchor="middle" font-size="11.5" font-weight="bold" fill="var(--amber)">'+d("Cost of Goods Sold","बिके माल की लागत (COGS)")+'</text>'
+      +'<line x1="280" y1="150" x2="280" y2="170" stroke="var(--line-strong)" stroke-width="2"/>'
+      +'<text x="330" y="185" text-anchor="middle" font-size="12" fill="var(--ink)">'+d("Sales − COGS","Sales − COGS")+'</text>'
+      +'<rect x="230" y="192" width="200" height="34" rx="8" fill="var(--green)" opacity="0.15" stroke="var(--green)" stroke-width="2"/>'
+      +'<text x="330" y="214" text-anchor="middle" font-size="12" font-weight="bold" fill="var(--green)">'+d("Gross Profit","सकल लाभ")+'</text>'
+      +'</svg>';
+  },
+  "balance-sheet-groups": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    var chip=function(x,y,w,title,sub){
+      return '<rect x="'+x+'" y="'+y+'" width="'+w+'" height="46" rx="7" fill="var(--card)" stroke="var(--line)" stroke-width="1.5"/>'
+        +'<text x="'+(x+w/2)+'" y="'+(y+19)+'" text-anchor="middle" font-size="10.5" font-weight="bold" fill="var(--ink)">'+title+'</text>'
+        +'<text x="'+(x+w/2)+'" y="'+(y+34)+'" text-anchor="middle" font-size="8.7" fill="var(--ink)" opacity="0.75">'+sub+'</text>';
+    };
+    return '<svg viewBox="0 0 660 250" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="330" y="18" text-anchor="middle" font-size="14" font-weight="bold" fill="var(--primary)">'+d("Balance Sheet -- grouped by how soon it turns to cash","तुलन-पत्र -- कितनी जल्दी नकद बने, उस हिसाब से समूहित")+'</text>'
+      +'<rect x="15" y="36" width="305" height="200" rx="10" fill="var(--amber)" opacity="0.08" stroke="var(--amber)" stroke-width="2"/>'
+      +'<text x="167" y="56" text-anchor="middle" font-size="11.5" font-weight="bold" fill="var(--amber)">'+d("Liabilities (left)","दायित्व (बायीं ओर)")+'</text>'
+      + chip(30,66,275, d("Owner's Funds","स्वामी निधि"), d("Capital + Net Profit − Drawings","पूंजी + निवल लाभ − आहरण"))
+      + chip(30,118,275, d("Non-current Liabilities","गैर-चालू दायित्व"), d("long-term loans -- payable after a year","एक साल बाद चुकाने योग्य"))
+      + chip(30,170,275, d("Current Liabilities","चालू दायित्व"), d("creditors, bank overdraft, bills payable","एक साल में चुकाने योग्य"))
+      +'<rect x="340" y="36" width="305" height="200" rx="10" fill="var(--teal)" opacity="0.08" stroke="var(--teal)" stroke-width="2"/>'
+      +'<text x="492" y="56" text-anchor="middle" font-size="11.5" font-weight="bold" fill="var(--teal)">'+d("Assets (right)","परिसंपत्तियाँ (दायीं ओर)")+'</text>'
+      + chip(355,66,275, d("Non-current Assets","स्थायी परिसंपत्ति"), d("land, furniture, machinery -- long-term use, not resale","लंबे इस्तेमाल के लिए"))
+      + chip(355,118,275, d("Current Assets","चालू परिसंपत्ति"), d("cash, bank, debtors, closing stock","एक साल में नकद बन सकें"))
+      + chip(355,170,275, d("Intangible Assets","अमूर्त परिसंपत्ति"), d("goodwill, patents -- can't be seen or touched","देखी-छुई नहीं जा सकतीं"))
+      +'<text x="330" y="247" text-anchor="middle" font-size="10.5" font-weight="bold" fill="var(--primary)">'+d("Left total = Right total, always","बायाँ योग = दायाँ योग, हमेशा")+'</text>'
+      +'</svg>';
+  },
   "going-concern-fridge": function(L){
     var d=function(a,b){return L==="hi"?b:a;};
     var bars=""; var yrs=[2080,2080,2080,2080,2080,2080,2080,2080,2080,2080];
