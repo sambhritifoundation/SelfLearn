@@ -121,6 +121,10 @@
   .notes tr:nth-child(even) td{background:var(--bg)}
   .diagram{margin:14px 0;text-align:center;overflow-x:auto}
   .notes code{font-family:ui-monospace,Consolas,'Courier New',monospace;font-size:.92em;background:var(--primary-light);color:var(--primary-dark);padding:2px 6px;border-radius:5px;white-space:nowrap}
+  .anim svg{width:100%;max-width:660px;display:block;margin:0 auto}
+  .anim .animbar{display:flex;gap:10px;align-items:center;justify-content:center;margin-top:10px;flex-wrap:wrap}
+  .animout{font-family:ui-monospace,Consolas,monospace;font-weight:700;color:var(--primary);font-size:.9rem}
+  @media (prefers-reduced-motion: reduce){ .anim .animnote{display:none} }
   .linkwrap{display:flex;flex-wrap:wrap;gap:8px}
   .reflink{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);border-radius:9px;padding:8px 12px;text-decoration:none;color:var(--ink);font-size:.86rem;font-weight:600;background:var(--card)}
   .reflink:hover{border-color:var(--primary);color:var(--primary)}
@@ -1010,6 +1014,121 @@ function spCalc(){
   document.getElementById("spOut").textContent="I = "+I.toFixed(2)+" kg m²  ·  ω = "+w.toFixed(2)+" rad/s";
   document.getElementById("spNote").innerHTML=sp("L = I ω stays fixed at 8.00 kg m²/s — no outside torque.","L = I ω 8.00 kg m²/s पर स्थिर — कोई बाहरी torque नहीं।");
 }
+
+/* ============ Animations: press Play to watch the physics happen ============
+   Nothing auto-plays, and prefers-reduced-motion jumps straight to the end state. */
+var ANIMATIONS = {
+  "door-torque": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    /* Top view. The door starts horizontal (closed) and swings downward about the
+       hinge at the group origin. The dashed line marks that closed position, and the
+       push arrow stays put outside the rotating group so its label never turns over. */
+    var panel=function(gid, hx, hy, armPx, label, tq, c){
+      return '<g transform="translate('+hx+','+hy+')">'
+        +'<line x1="0" y1="6" x2="168" y2="6" stroke="var(--line-strong)" stroke-width="2" stroke-dasharray="5,4"/>'
+        +'<text x="172" y="10" font-size="9.5" fill="var(--ink-soft)">'+d("closed","बंद")+'</text>'
+        +'<line x1="'+armPx+'" y1="-36" x2="'+armPx+'" y2="-8" stroke="var(--red)" stroke-width="3.5" marker-end="url(#ahdr)"/>'
+        +'<text x="'+armPx+'" y="-42" text-anchor="middle" font-size="10.5" font-weight="bold" fill="var(--red)">40 N</text>'
+        +'<g id="'+gid+'" transform="rotate(0)">'
+        +'<rect x="0" y="0" width="150" height="13" rx="2" fill="'+c+'" opacity="0.9"/>'
+        +'</g>'
+        +'<circle cx="0" cy="6" r="5.5" fill="var(--ink)"/>'
+        +'<text x="-8" y="10" text-anchor="end" font-size="9.5" fill="var(--ink-soft)">'+d("hinge","कुंडा")+'</text>'
+        +'<text x="75" y="168" text-anchor="middle" font-size="11" font-weight="bold" fill="'+c+'">'+label+'</text>'
+        +'<text x="75" y="185" text-anchor="middle" font-size="10.5" fill="var(--ink)">τ = '+tq+'</text>'
+        +'</g>';
+    };
+    return '<svg viewBox="0 0 660 272" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<defs><marker id="ahdr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--red)"/></marker></defs>'
+      +'<text x="330" y="14" text-anchor="middle" font-size="13.5" font-weight="bold" fill="var(--primary)">'
+      + d("Same 40 N push — only the distance from the hinge is different","वही 40 N का धक्का — बस कुंडे से दूरी अलग है")+'</text>'
+      + panel("doorA", 60, 74, 132, d("Push at the handle (r = 0.8 m)","हैंडल पर धक्का (r = 0.8 m)"), "32 N m", "var(--green)")
+      + panel("doorB", 390, 74, 18, d("Push near the hinge (r = 0.1 m)","कुंडे के पास धक्का (r = 0.1 m)"), "4 N m", "var(--red)")
+      +'</svg>'
+      +'<div class="animbar">'
+      +'<button class="btn sm" id="doorBtn" onclick="doorPlay()">▶︎ '+d("Play","चलाइए")+'</button>'
+      +'<span class="animout" id="doorOut">'+d("Both doors closed","दोनों दरवाज़े बंद")+'</span></div>'
+      +'<div class="labnote animnote">'+d("Eight times the torque means eight times the angle in the same time.","आठ गुना torque यानी उतने ही समय में आठ गुना कोण।")+'</div>';
+  },
+  "skater-spin": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 660 210" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="330" y="16" text-anchor="middle" font-size="13.5" font-weight="bold" fill="var(--primary)">'
+      + d("Arms pull in → I drops → ω shoots up. L never changes.","हाथ अंदर → I घटा → ω बढ़ा। L कभी नहीं बदलता।")+'</text>'
+      +'<ellipse cx="330" cy="150" rx="120" ry="22" fill="var(--primary-light)"/>'
+      +'<g id="skGrp" transform="translate(330,110)">'
+      +'<g id="skSpin" transform="rotate(0)">'
+      +'<line id="skArmL" x1="0" y1="0" x2="-92" y2="0" stroke="var(--primary)" stroke-width="7" stroke-linecap="round"/>'
+      +'<line id="skArmR" x1="0" y1="0" x2="92" y2="0" stroke="var(--primary)" stroke-width="7" stroke-linecap="round"/>'
+      +'<circle id="skWL" cx="-92" cy="0" r="13" fill="var(--red)"/>'
+      +'<circle id="skWR" cx="92" cy="0" r="13" fill="var(--red)"/>'
+      +'<circle cx="0" cy="0" r="17" fill="var(--ink)"/>'
+      +'</g></g>'
+      +'<line x1="330" y1="40" x2="330" y2="180" stroke="var(--ink-soft)" stroke-width="1.5" stroke-dasharray="4,3"/>'
+      +'</svg>'
+      +'<div class="animbar">'
+      +'<button class="btn sm" id="skBtn" onclick="skPlay()">▶︎ '+d("Pull the arms in","हाथ अंदर खींचिए")+'</button>'
+      +'<span class="animout" id="skOut">I = 4.00 · ω = 2.00 · L = 8.00</span></div>'
+      +'<div class="labnote animnote">'+d("Watch the spin speed up on its own as the weights come in.","देखिए, वज़न अंदर आते ही घूमना अपने आप तेज़ हो जाता है।")+'</div>';
+  }
+};
+function _reduceMotion(){ return window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches; }
+var _rafDoor=null, _rafSk=null;
+function doorPlay(){
+  var A=document.getElementById("doorA"), B=document.getElementById("doorB"), out=document.getElementById("doorOut");
+  if(!A||!B) return;
+  if(_rafDoor){ cancelAnimationFrame(_rafDoor); _rafDoor=null; }
+  var MA=80, MB=10, dur=1700;                 /* θ ratio matches the 8:1 torque ratio */
+  function paint(a,b){
+    A.setAttribute("transform","rotate("+a.toFixed(1)+")");
+    B.setAttribute("transform","rotate("+b.toFixed(1)+")");
+    out.innerHTML=sp("Opened "+a.toFixed(0)+"° vs "+b.toFixed(0)+"°","खुला "+a.toFixed(0)+"° बनाम "+b.toFixed(0)+"°");
+  }
+  if(_reduceMotion()){ paint(MA,MB); return; }
+  var t0=null;
+  paint(0,0);
+  _rafDoor=requestAnimationFrame(function frame(ts){
+    if(!document.getElementById("doorA")) { _rafDoor=null; return; }   /* user navigated away */
+    if(t0===null) t0=ts;
+    var k=Math.min((ts-t0)/dur,1), e=k*k;      /* constant angular acceleration: θ ∝ t² */
+    paint(MA*e, MB*e);
+    if(k<1) _rafDoor=requestAnimationFrame(frame); else _rafDoor=null;
+  });
+}
+function skPlay(){
+  var spin=document.getElementById("skSpin"), out=document.getElementById("skOut");
+  if(!spin||!out) return;
+  if(_rafSk){ cancelAnimationFrame(_rafSk); _rafSk=null; }
+  var R0=92, R1=46, dur=4200, Lc=8;
+  function setArms(r){
+    document.getElementById("skArmL").setAttribute("x2",-r);
+    document.getElementById("skArmR").setAttribute("x2", r);
+    document.getElementById("skWL").setAttribute("cx",-r);
+    document.getElementById("skWR").setAttribute("cx", r);
+  }
+  function readout(r,ang){
+    var I=4*Math.pow(r/R0,2), w=Lc/I;
+    spin.setAttribute("transform","rotate("+ang.toFixed(1)+")");
+    out.textContent="I = "+I.toFixed(2)+" · ω = "+w.toFixed(2)+" · L = "+Lc.toFixed(2);
+    return w;
+  }
+  if(_reduceMotion()){ setArms(R1); readout(R1,0); return; }
+  var t0=null, ang=0, last=null;
+  setArms(R0);
+  _rafSk=requestAnimationFrame(function frame(ts){
+    if(!document.getElementById("skSpin")) { _rafSk=null; return; }
+    if(t0===null){ t0=ts; last=ts; }
+    var k=Math.min((ts-t0)/dur,1);
+    /* hold wide, pull in over the middle stretch, then hold tight */
+    var pull = k<0.25 ? 0 : (k>0.6 ? 1 : (k-0.25)/0.35);
+    var r=R0+(R1-R0)*pull;
+    var w=Lc/(4*Math.pow(r/R0,2));            /* rad/s, from L = Iω */
+    ang += w*40*((ts-last)/1000);             /* 40 = degrees-per-radian display scale */
+    last=ts;
+    setArms(r); readout(r,ang);
+    if(k<1) _rafSk=requestAnimationFrame(frame); else _rafSk=null;
+  });
+}
 function setLang(l){
   LANG = l; localStorage.setItem("sl_lang", l);
   document.body.classList.toggle("lang-hi", l==="hi");
@@ -1306,6 +1425,11 @@ function vTopic(code){
     + '<div class="notes">'+fmtNotes(t(tp.notes))+'</div></div>';
   var dgs = tp.diagram ? (Array.isArray(tp.diagram)?tp.diagram:[tp.diagram]) : [];
   dgs.forEach(function(k){ if(DIAGRAMS[k]) h += '<div class="card diagram" role="img" aria-label="'+esc((LANG==="hi"?"आरेख: ":"Diagram: ")+t(tp.name))+'" style="margin-top:14px">'+DIAGRAMS[k](LANG)+'</div>'; });
+  var ani = tp.animation ? (Array.isArray(tp.animation)?tp.animation:[tp.animation]) : [];
+  ani.forEach(function(k){ if(ANIMATIONS[k]) h += '<div class="card anim" style="margin-top:14px">'
+    + '<h3 style="margin:0 0 4px">🎬 '+sp("Watch it happen","होते हुए देखिए")+'</h3>'
+    + '<div class="sub" style="margin-bottom:10px">'+sp("Press play — nothing moves until you ask it to.","Play दबाइए — जब तक आप न कहें, कुछ नहीं चलेगा।")+'</div>'
+    + ANIMATIONS[k](LANG)+'</div>'; });
   var lab = tp.interactive ? (Array.isArray(tp.interactive)?tp.interactive:[tp.interactive]) : [];
   lab.forEach(function(k){ if(INTERACTIVES[k]) h += '<div class="card lab" style="margin-top:14px">'
     + '<h3 style="margin:0 0 4px">🔬 '+sp("Try it yourself","ख़ुद करके देखें")+'</h3>'
