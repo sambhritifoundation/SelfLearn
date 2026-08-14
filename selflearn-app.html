@@ -121,6 +121,12 @@
   .notes tr:nth-child(even) td{background:var(--bg)}
   .diagram{margin:14px 0;text-align:center;overflow-x:auto}
   .notes code{font-family:ui-monospace,Consolas,'Courier New',monospace;font-size:.92em;background:var(--primary-light);color:var(--primary-dark);padding:2px 6px;border-radius:5px;white-space:nowrap}
+  button.reflink{cursor:pointer;font:inherit;font-size:.86rem;font-weight:600;text-align:left}
+  .scopebox{border-left:4px solid var(--accent);background:var(--accent-light);border-radius:8px;padding:11px 14px;margin:12px 0;font-size:.88rem}
+  .scopebox p{margin:0}
+  .derivnav{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+  .deriv{scroll-margin-top:80px}
+  .deriv.flash{box-shadow:0 0 0 3px var(--accent)}
   .anim svg{width:100%;max-width:660px;display:block;margin:0 auto}
   .anim .animbar{display:flex;gap:10px;align-items:center;justify-content:center;margin-top:10px;flex-wrap:wrap}
   .animout{font-family:ui-monospace,Consolas,monospace;font-weight:700;color:var(--primary);font-size:.9rem}
@@ -874,6 +880,53 @@ var DIAGRAMS = {
       +'<text x="330" y="196" text-anchor="middle" font-size="10.5" fill="var(--ink)" opacity="0.8">'+d("Order matters: b × a points the opposite way (into the page).","क्रम मायने रखता है: b × a उल्टी दिशा में (पन्ने के अंदर)।")+'</text>'
       +'</svg>';
   },
+  "bottle-cap": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    /* A real bottle, seen from the side: fingers sweep a flat circle, the cap climbs the axis. */
+    var finger=function(cx,cy,rot,op){
+      return '<g transform="translate('+cx+','+cy+') rotate('+rot+')" opacity="'+op+'">'
+        +'<rect x="-6" y="-30" width="12" height="30" rx="6" fill="#e8b48c" stroke="#c98f66" stroke-width="1.2"/>'
+        +'<circle cx="0" cy="-30" r="6" fill="#f0c2a0" stroke="#c98f66" stroke-width="1.2"/></g>';
+    };
+    return '<svg viewBox="0 0 660 250" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<defs>'
+      +'<marker id="ahbc" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="var(--red)"/></marker>'
+      +'<marker id="ahbc2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--primary)"/></marker>'
+      +'<linearGradient id="glass" x1="0" y1="0" x2="1" y2="0">'
+      +'<stop offset="0" stop-color="#bfe3f5"/><stop offset="0.45" stop-color="#e8f6fd"/><stop offset="1" stop-color="#a9d8ef"/></linearGradient>'
+      +'</defs>'
+      +'<text x="330" y="17" text-anchor="middle" font-size="13.5" font-weight="bold" fill="var(--primary)">'
+      + d("Your fingers turn in a flat circle — the cap rises straight up","आपकी उँगलियाँ सपाट गोले में घूमती हैं — ढक्कन सीधे ऊपर उठता है")+'</text>'
+      /* ---- the bottle ---- */
+      +'<path d="M232,232 L232,150 Q232,126 250,116 L250,92 L286,92 L286,116 Q304,126 304,150 L304,232 Z" fill="url(#glass)" stroke="#7fbcd8" stroke-width="2"/>'
+      +'<rect x="243" y="196" width="50" height="24" rx="3" fill="var(--primary)" opacity="0.25"/>'
+      +'<text x="268" y="212" text-anchor="middle" font-size="9" fill="var(--primary-dark)" font-weight="bold">1 L</text>'
+      /* ---- the cap, lifted a little off the neck ---- */
+      +'<rect x="244" y="60" width="48" height="20" rx="4" fill="var(--red)"/>'
+      +'<rect x="244" y="60" width="48" height="20" rx="4" fill="none" stroke="#a01d1d" stroke-width="1.2"/>'
+      +'<line x1="250" y1="60" x2="250" y2="80" stroke="#a01d1d" stroke-width="1"/>'
+      +'<line x1="259" y1="60" x2="259" y2="80" stroke="#a01d1d" stroke-width="1"/>'
+      +'<line x1="268" y1="60" x2="268" y2="80" stroke="#a01d1d" stroke-width="1"/>'
+      +'<line x1="277" y1="60" x2="277" y2="80" stroke="#a01d1d" stroke-width="1"/>'
+      +'<line x1="286" y1="60" x2="286" y2="80" stroke="#a01d1d" stroke-width="1"/>'
+      /* ---- fingers sweeping the flat circle around the cap ---- */
+      +'<ellipse cx="268" cy="70" rx="74" ry="19" fill="none" stroke="var(--primary)" stroke-width="2" stroke-dasharray="6,5"/>'
+      + finger(200,70,-95,"0.95") + finger(336,70,88,"0.95") + finger(268,86,178,"0.45")
+      +'<path d="M196,52 A76,20 0 0 1 338,58" fill="none" stroke="var(--primary)" stroke-width="2.5" marker-end="url(#ahbc2)"/>'
+      +'<text x="268" y="40" text-anchor="middle" font-size="10.5" font-weight="bold" fill="var(--primary)">'+d("fingers: flat circle","उँगलियाँ: सपाट गोला")+'</text>'
+      /* ---- the cap's motion: straight up the axis ---- */
+      +'<line x1="268" y1="56" x2="268" y2="14" stroke="var(--red)" stroke-width="3.5" marker-end="url(#ahbc)"/>'
+      +'<text x="300" y="32" font-size="11" font-weight="bold" fill="var(--red)">'+d("cap goes UP","ढक्कन ऊपर")+'</text>'
+      /* ---- the physics panel ---- */
+      +'<rect x="400" y="46" width="246" height="150" rx="10" fill="var(--primary-light)" stroke="var(--primary)" stroke-width="1.6"/>'
+      +'<text x="523" y="70" text-anchor="middle" font-size="11.5" font-weight="bold" fill="var(--primary)">'+d("That is a cross product","यही cross product है")+'</text>'
+      +'<text x="416" y="94" font-size="10.5" fill="var(--ink)">'+d("Fingers move in the flat plane…","उँगलियाँ सपाट तल में चलीं…")+'</text>'
+      +'<text x="416" y="114" font-size="10.5" fill="var(--ink)">'+d("…the cap moves out of it.","…ढक्कन उससे बाहर निकला।")+'</text>'
+      +'<text x="416" y="141" font-size="12.5" font-weight="bold" fill="var(--red)">a × b ⟂ '+d("both a and b","a और b दोनों")+'</text>'
+      +'<text x="416" y="164" font-size="11" fill="var(--ink)">|a × b| = a b sin θ</text>'
+      +'<text x="416" y="185" font-size="10" fill="var(--ink)" opacity="0.8">'+d("Turn the other way → cap comes down.","उल्टा घुमाइए → ढक्कन नीचे आएगा।")+'</text>'
+      +'</svg>';
+  },
   "omega-v-link": function(L){
     var d=function(a,b){return L==="hi"?b:a;};
     var dot=function(cx,r,lab){
@@ -906,14 +959,14 @@ var DIAGRAMS = {
     };
     return '<svg viewBox="0 0 660 200" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
       +'<text x="330" y="18" text-anchor="middle" font-size="14" font-weight="bold" fill="var(--primary)">'+d("Same mass, same radius — but mass placed farther out means bigger I","एक ही mass, एक ही radius — पर mass जितनी बाहर, I उतना बड़ा")+'</text>'
-      + card(20, d("Ring","छल्ला"), "I = M R²",
-          '<circle cx="95" cy="92" r="32" fill="none" stroke="var(--red)" stroke-width="7"/><circle cx="95" cy="92" r="2.5" fill="var(--ink-soft)"/>')
-      + card(190, d("Disc","चकती"), "I = ½ M R²",
-          '<circle cx="265" cy="92" r="32" fill="var(--amber)" opacity="0.55"/><circle cx="265" cy="92" r="32" fill="none" stroke="var(--amber)" stroke-width="2"/><circle cx="265" cy="92" r="2.5" fill="var(--ink-soft)"/>')
-      + card(360, d("Solid sphere","ठोस गोला"), "I = ⅖ M R²",
-          '<circle cx="435" cy="92" r="32" fill="var(--green)" opacity="0.55"/><circle cx="435" cy="92" r="32" fill="none" stroke="var(--green)" stroke-width="2"/><circle cx="435" cy="92" r="2.5" fill="var(--ink-soft)"/>')
-      + card(530, d("Rod (centre)","छड़ (केंद्र)"), "I = ML²/12",
-          '<rect x="545" y="86" width="120" height="11" rx="3" fill="var(--primary)" opacity="0.7"/><circle cx="605" cy="92" r="3" fill="var(--ink-soft)"/>')
+      + card(8, d("Ring","छल्ला"), "I = M R²",
+          '<circle cx="83" cy="92" r="32" fill="none" stroke="var(--red)" stroke-width="7"/><circle cx="83" cy="92" r="2.5" fill="var(--ink-soft)"/>')
+      + card(172, d("Disc","चकती"), "I = ½ M R²",
+          '<circle cx="247" cy="92" r="32" fill="var(--amber)" opacity="0.55"/><circle cx="247" cy="92" r="32" fill="none" stroke="var(--amber)" stroke-width="2"/><circle cx="247" cy="92" r="2.5" fill="var(--ink-soft)"/>')
+      + card(336, d("Solid sphere","ठोस गोला"), "I = ⅖ M R²",
+          '<circle cx="411" cy="92" r="32" fill="var(--green)" opacity="0.55"/><circle cx="411" cy="92" r="32" fill="none" stroke="var(--green)" stroke-width="2"/><circle cx="411" cy="92" r="2.5" fill="var(--ink-soft)"/>')
+      + card(500, d("Rod (centre)","छड़ (केंद्र)"), "I = ML²/12",
+          '<rect x="515" y="86" width="120" height="11" rx="3" fill="var(--primary)" opacity="0.7"/><circle cx="575" cy="92" r="3" fill="var(--ink-soft)"/>')
       +'</svg>';
   },
   "lever-moments": function(L){
@@ -1285,6 +1338,7 @@ function render(){
   else if(v==="topic") el.innerHTML = vTopic(VIEW.code);
   else if(v==="assignment") el.innerHTML = vAssignment(VIEW.code, VIEW.chapter);
   else if(v==="summary") el.innerHTML = vChapterSummary(VIEW.code, VIEW.chapter);
+  else if(v==="derivation") el.innerHTML = vDerivations(VIEW.code, VIEW.chapter, VIEW.focus);
   else if(v==="legal") el.innerHTML = vLegal(VIEW.doc);
   else if(v==="intro") el.innerHTML = vSubjectIntro(VIEW.code);
   else if(v==="quiz") el.innerHTML = vQuiz();
@@ -1302,6 +1356,8 @@ function initLabs(){
     if(document.getElementById("tqR")) tqCalc();
     if(document.getElementById("cmM1")) cmCalc();
     if(document.getElementById("spR")) spCalc();
+    var f=document.querySelector(".deriv[data-focus]");   /* arrived via a See-derivation link */
+    if(f){ f.scrollIntoView({block:"start"}); f.classList.add("flash"); setTimeout(function(){f.classList.remove("flash");},1600); }
   }catch(e){}
 }
 function updateOverallBar(){
@@ -1445,6 +1501,18 @@ function vTopic(code){
     });
     h += '</div></div>';
   }
+  if(tp.derivations && tp.derivations.length){
+    var ch = info.chapter, sc = info.subject.code;
+    var byKey = {}; (ch.derivations||[]).forEach(function(d){ byKey[d.key]=d; });
+    h += '<div class="card" style="margin-top:14px"><h3 style="margin:0 0 4px">🧮 '+sp("Where these formulas come from","ये सूत्र आते कहाँ से हैं")+'</h3>'
+      + '<div class="sub" style="margin-bottom:10px">'+sp("Not needed for the board exam — but essential for JEE.","Board परीक्षा के लिए ज़रूरी नहीं — पर JEE के लिए ज़रूरी।")+'</div><div class="linkwrap">';
+    tp.derivations.forEach(function(k){
+      if(!byKey[k]) return;
+      h += '<button class="reflink" onclick="go(\'derivation\',{code:\''+sc+'\',chapter:'+ch.no+',focus:\''+k+'\'})">'
+         + '<span class="ico">🧮</span><span>'+sp("See derivation: ","व्युत्पत्ति देखें: ")+t(byKey[k].title)+'</span></button>';
+    });
+    h += '</div></div>';
+  }
   h += '<div class="card rowflex" style="margin-top:14px"><div>'
     + '<h3>'+(qn ? sp("Practise this concept now","अभी इस अवधारणा का अभ्यास करें") : sp("No questions yet for this topic","इस विषय हेतु अभी प्रश्न नहीं हैं"))+'</h3>'
     + (qn ? '<div class="sub">'+Math.min(qn,8)+' '+sp("questions · instant explanations","प्रश्न · तुरंत व्याख्या")+'</div>' : '')
@@ -1553,7 +1621,52 @@ function vChapterSummary(code, chap){
     + '<button class="btn ghost" onclick="go(\'subject\',{code:\''+code+'\'})">← '+sp("Back to Topics","विषयों पर लौटें")+'</button>'
     + ((c.assessment&&c.assessment.length) ? '<button class="btn" onclick="startAssessment(\''+code+'\','+c.no+')">'+sp("Start Assignment","असाइनमेंट शुरू करें")+' →</button>' : '')
     + '</div></div>';
+  var extras = '';
+  if(c.derivations && c.derivations.length)
+    extras += '<button class="btn ghost" onclick="go(\'derivation\',{code:\''+code+'\',chapter:'+c.no+'})">🧮 '+sp("Derivations","व्युत्पत्तियाँ")+' →</button>';
+  if(c.revision && c.revision.length)
+    extras += '<button class="btn" onclick="startRevision(\''+code+'\','+c.no+')">⚡ '+sp("Quick Revision Quiz","झटपट रिवीज़न quiz")+' ('+c.revision.length+') →</button>';
+  if(extras) h += '<div class="card" style="margin-top:14px"><h3 style="margin:0 0 4px">'+sp("Exam-prep tools","परीक्षा तैयारी के औज़ार")+'</h3>'
+    + '<div class="sub" style="margin-bottom:10px">'+sp("Full proofs, and a fast mixed quiz to test yourself.","पूरी उपपत्तियाँ, और ख़ुद को जाँचने के लिए तेज़ मिला-जुला quiz।")+'</div>'
+    + '<div class="resultnav-row">'+extras+'</div></div>';
   return h;
+}
+/* Derivations live on their own page so the main chapter stays readable. */
+function vDerivations(code, chap, focus){
+  var s=subj(code); var c=s&&chapter(s,chap);
+  if(!c || !c.derivations) return "Not found";
+  var h='<div class="crumb"><a onclick="go(\'home\')">'+sp("Home","मुख्य")+'</a> › <a onclick="go(\'subject\',{code:\''+code+'\'})">'+t(s.name)+'</a> › '
+    + '<a onclick="go(\'summary\',{code:\''+code+'\',chapter:'+c.no+'})">'+sp("Ch "+c.no,"अध्याय "+c.no)+'</a> › <b>'+sp("Derivations","व्युत्पत्तियाँ")+'</b></div>'
+    + '<div class="card"><span class="chip">🧮 '+sp("Step-by-step proofs","चरण-दर-चरण उपपत्तियाँ")+'</span>'
+    + '<h1 style="margin:10px 0 8px">'+sp("Derivations — ","व्युत्पत्तियाँ — ")+t(c.name)+'</h1>'
+    + (c.derivScope ? '<div class="scopebox">'+fmtNotes(t(c.derivScope))+'</div>' : '')
+    + '<div class="derivnav">'+c.derivations.map(function(d){
+        return '<a class="reflink" href="#" onclick="jumpDeriv(\''+d.key+'\');return false;">'+t(d.title)+'</a>'; }).join('')
+    + '</div></div>';
+  c.derivations.forEach(function(d){
+    h += '<div class="card deriv" id="dv-'+d.key+'"'+(focus===d.key?' data-focus="1"':'')+' style="margin-top:14px">'
+      + '<h2 style="margin:0 0 10px">'+t(d.title)+'</h2>'
+      + '<div class="notes">'+fmtNotes(t(d.body))+'</div></div>';
+  });
+  h += '<div class="card" style="margin-top:14px"><div class="resultnav-row">'
+    + '<button class="btn ghost" onclick="go(\'summary\',{code:\''+code+'\',chapter:'+c.no+'})">← '+sp("Back to Summary","सारांश पर लौटें")+'</button>'
+    + ((c.revision&&c.revision.length)?'<button class="btn" onclick="startRevision(\''+code+'\','+c.no+')">⚡ '+sp("Quick Revision Quiz","झटपट रिवीज़न quiz")+' →</button>':'')
+    + '</div></div>';
+  return h;
+}
+function jumpDeriv(key){
+  var el=document.getElementById("dv-"+key);
+  if(el){ el.scrollIntoView({block:"start", behavior:"smooth"}); el.classList.add("flash"); setTimeout(function(){el.classList.remove("flash");},1400); }
+}
+function startRevision(code, chap){
+  var s=subj(code); var c=s&&chapter(s,chap);
+  var ids=(c&&c.revision)||[];
+  var qs=ids.map(function(id){ return window.SL_DATA.questions.find(function(q){ return q.id===id; }); }).filter(Boolean);
+  if(!qs.length){ toast(LANG==="hi"?"रिवीज़न quiz उपलब्ध नहीं":"No revision quiz available"); return; }
+  QUIZ={ scope:"revision", ckKey:code+"-ch"+chap, key:code+"-ch"+chap+"-revision",
+         title:(c?t(c.name):code)+" — "+(LANG==="hi"?"झटपट रिवीज़न":"Quick Revision"),
+         backSubject:code, qs:shuffle(qs.slice()), i:0, results:[], answered:false, t0:Date.now() };
+  go("quiz");
 }
 function startAssessment(code, chap){
   var s=subj(code); var c=s&&chapter(s,chap);
