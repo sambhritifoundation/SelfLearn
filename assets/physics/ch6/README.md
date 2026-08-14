@@ -4,7 +4,9 @@ Drop a file here, then reference it from `data-physics.js` on the matching topic
 
 ```js
 images: [{
-  src: "assets/physics/ch6/cross-product-bottle-cap.png",
+  src:  "assets/physics/ch6/cross-product-bottle-cap.jpg",   // fallback, always present
+  webp: "assets/physics/ch6/cross-product-bottle-cap.webp",  // optional, preferred when supported
+  w: 1600, h: 900,                                           // intrinsic size, stops layout shift
   alt: { en: "Three photos: fingers turning a bottle cap in a flat circle, and the cap rising straight up.",
          hi: "तीन फ़ोटो: उँगलियाँ बोतल का ढक्कन सपाट गोले में घुमाती हैं, और ढक्कन सीधे ऊपर उठता है।" },
   caption: { en: "…", hi: "…" }
@@ -13,14 +15,30 @@ images: [{
 
 Rules:
 - **Filename**: lowercase, hyphens, describes the content. No spaces.
-- **Width**: 1600 px is plenty; the page never renders wider than ~860 px.
-- **Format**: PNG for diagrams/text, JPG for pure photos, WebP if you have it.
-- **Size**: keep under ~400 KB so the page stays fast on mobile data.
+- **Width**: resize to 1600 px. The page never renders wider than ~860 CSS px,
+  so 1600 covers a 2x retina display and anything beyond that is wasted bytes.
+- **Format**: ship **both** a WebP and a JPG. `<picture>` hands modern browsers
+  the small WebP; iOS 13 and older fall back to the JPG on their own.
+- **Size**: keep the fallback under ~400 KB — students are on mobile data.
 - **alt text is required** — it is what a screen-reader user hears, and what
   shows if the image fails to load. Describe the physics, not the styling.
 
-Expected files (not yet supplied):
-- `cross-product-bottle-cap.png` — for topic PHY-6-4
+Recipe used for the files here (Pillow):
+
+```py
+src = Image.open(original).convert("RGB")
+im  = src.resize((1600, round(src.height*1600/src.width)), Image.LANCZOS)
+im.save(name + ".webp", quality=88, method=6)
+im.save(name + ".jpg",  quality=90, optimize=True, subsampling=0, progressive=True)
+```
+
+`subsampling=0` matters — these panels carry small coloured text, and the default
+4:2:0 chroma subsampling smears it. Check a 2x crop of the smallest text before
+shipping.
+
+Files present:
+- `cross-product-bottle-cap.webp` (124 KB) + `.jpg` (272 KB), 1600x900 — topic PHY-6-4.
+  The source PNG was 1.7 MB and was deliberately not committed; this pair replaces it.
 
 ---
 

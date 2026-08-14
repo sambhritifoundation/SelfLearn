@@ -1549,8 +1549,12 @@ function vTopic(code){
   dgs.forEach(function(k){ if(DIAGRAMS[k]) h += '<div class="card diagram" role="img" aria-label="'+esc((LANG==="hi"?"आरेख: ":"Diagram: ")+t(tp.name))+'" style="margin-top:14px">'+DIAGRAMS[k](LANG)+'</div>'; });
   if(tp.images && tp.images.length){
     tp.images.forEach(function(im){
+      /* im.webp is optional: modern browsers take the small WebP, older ones fall back to im.src */
       h += '<figure class="photo card" style="margin-top:14px">'
-        + '<img src="'+esc(im.src)+'" alt="'+esc(t(im.alt))+'" loading="lazy">'
+        + (im.webp ? '<picture><source srcset="'+esc(im.webp)+'" type="image/webp">' : '')
+        + '<img src="'+esc(im.src)+'" alt="'+esc(t(im.alt))+'" loading="lazy"'
+        + (im.w && im.h ? ' width="'+im.w+'" height="'+im.h+'"' : '') + '>'
+        + (im.webp ? '</picture>' : '')
         + (im.caption ? '<figcaption>'+t(im.caption)+'</figcaption>' : '')
         + '</figure>';
     });
