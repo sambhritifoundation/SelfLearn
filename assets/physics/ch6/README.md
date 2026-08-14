@@ -21,3 +21,31 @@ Rules:
 
 Expected files (not yet supplied):
 - `cross-product-bottle-cap.png` — for topic PHY-6-4
+
+---
+
+## Generation prompt: `cross-product-bottle-cap.png`
+
+Paste into any image generator (see tool notes below). Aspect **16:9**.
+
+> Photorealistic 3-panel educational infographic, clean white studio background,
+> soft even lighting, shot from a low 3/4 angle. A hand unscrewing the blue plastic
+> cap of a clear water bottle standing upright on a white table.
+> Panel 1 "TURN": fingers gripping the cap, a curved blue arrow showing the fingers
+> sweeping counter-clockwise in the flat horizontal plane of the cap.
+> Panel 2 "LIFT": the same cap now risen a few millimetres above the bottle neck,
+> a straight red arrow pointing vertically upward, perpendicular to that flat plane.
+> Panel 3 "RULE": an open right hand, fingers curling counter-clockwise, thumb
+> extended straight up beside the bottle, matching the red arrow.
+> Thin sans-serif labels: "a" and "b" on the curved blue arrow, "a x b" on the red
+> arrow. Textbook illustration style, high detail, no clutter, no watermark.
+
+**Physics check before you accept the image** — reject and regenerate if wrong:
+- The curved arrow and the straight arrow must be **perpendicular**: turning is
+  flat/horizontal, the cap moves straight up.
+- Counter-clockwise turn (seen from above) must pair with the cap moving **up**.
+  Clockwise-with-up is backwards and teaches the wrong rule.
+- The thumb in panel 3 points the **same** way as the red arrow in panel 2.
+
+Then: save as `cross-product-bottle-cap.png` in this folder, and hand it back —
+the `images:` block for PHY-6-4 gets filled in from the snippet at the top.
