@@ -268,6 +268,76 @@ function fmtNotes(txt, images){
 }
 /* Inline SVG diagram registry — theme-aware (CSS vars) and bilingual (rebuilt on language toggle). */
 var DIAGRAMS = {
+  "distance-vs-displacement": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 640 260" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="320" y="18" text-anchor="middle" font-size="14" font-weight="bold" fill="var(--primary)">'+d("A farmer's round trip to the well","किसान की कुएँ तक गोल यात्रा")+'</text>'
+      +'<circle cx="120" cy="90" r="14" fill="var(--amber)"/><text x="120" y="94" text-anchor="middle" font-size="13" fill="#fff">🏠</text>'
+      +'<circle cx="480" cy="90" r="14" fill="var(--teal)"/><text x="480" y="94" text-anchor="middle" font-size="13" fill="#fff">⛲</text>'
+      +'<text x="120" y="118" text-anchor="middle" font-size="11" fill="var(--ink)">'+d("Home","घर")+'</text>'
+      +'<text x="480" y="118" text-anchor="middle" font-size="11" fill="var(--ink)">'+d("Well","कुआँ")+'</text>'
+      +'<line x1="140" y1="70" x2="460" y2="70" stroke="var(--primary)" stroke-width="3" marker-end="url(#dvArrow)"/>'
+      +'<text x="300" y="58" text-anchor="middle" font-size="11.5" fill="var(--primary)">'+d("Going: 200 m","जाते हुए: 200 m")+'</text>'
+      +'<line x1="460" y1="112" x2="140" y2="112" stroke="var(--red)" stroke-width="3" marker-end="url(#dvArrowR)"/>'
+      +'<text x="300" y="132" text-anchor="middle" font-size="11.5" fill="var(--red)">'+d("Returning: 200 m","लौटते हुए: 200 m")+'</text>'
+      +'<defs>'
+      +'<marker id="dvArrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--primary)"/></marker>'
+      +'<marker id="dvArrowR" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--red)"/></marker>'
+      +'</defs>'
+      +'<rect x="70" y="165" width="220" height="70" rx="10" fill="var(--card)" stroke="var(--primary)" stroke-width="2"/>'
+      +'<text x="180" y="190" text-anchor="middle" font-size="12.5" font-weight="bold" fill="var(--ink)">'+d("Distance (path length)","दूरी (path length)")+'</text>'
+      +'<text x="180" y="212" text-anchor="middle" font-size="16" font-weight="bold" fill="var(--primary)">200 + 200 = 400 m</text>'
+      +'<rect x="350" y="165" width="220" height="70" rx="10" fill="var(--card)" stroke="var(--green)" stroke-width="2"/>'
+      +'<text x="460" y="190" text-anchor="middle" font-size="12.5" font-weight="bold" fill="var(--ink)">'+d("Displacement","विस्थापन")+'</text>'
+      +'<text x="460" y="212" text-anchor="middle" font-size="16" font-weight="bold" fill="var(--green)">'+d("0 m (back home)","0 m (वापस घर)")+'</text>'
+      +'</svg>';
+  },
+  "kinematic-area-proof": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 500 260" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="250" y="18" text-anchor="middle" font-size="14" font-weight="bold" fill="var(--primary)">'+d("Area under the v-t line = rectangle + triangle","v-t रेखा के नीचे का क्षेत्रफल = आयत + त्रिभुज")+'</text>'
+      +'<line x1="60" y1="220" x2="60" y2="40" stroke="var(--ink)" stroke-width="2"/>'
+      +'<line x1="60" y1="220" x2="440" y2="220" stroke="var(--ink)" stroke-width="2"/>'
+      +'<text x="30" y="130" text-anchor="middle" font-size="13" fill="var(--ink)">v</text>'
+      +'<text x="440" y="240" text-anchor="middle" font-size="13" fill="var(--ink)">t</text>'
+      +'<polygon points="60,220 380,220 380,90 60,150" fill="var(--primary)" opacity="0.18"/>'
+      +'<polygon points="60,150 380,90 380,150 60,150" fill="var(--amber)" opacity="0.35"/>'
+      +'<line x1="60" y1="150" x2="380" y2="90" stroke="var(--primary)" stroke-width="3"/>'
+      +'<line x1="60" y1="150" x2="60" y2="220" stroke="var(--line)" stroke-width="1.5" stroke-dasharray="3,3"/>'
+      +'<line x1="380" y1="90" x2="380" y2="220" stroke="var(--line)" stroke-width="1.5" stroke-dasharray="3,3"/>'
+      +'<text x="45" y="153" text-anchor="end" font-size="11.5" fill="var(--ink)">v₀</text>'
+      +'<text x="395" y="93" text-anchor="start" font-size="11.5" fill="var(--ink)">v</text>'
+      +'<text x="380" y="235" text-anchor="middle" font-size="11.5" fill="var(--ink)">t</text>'
+      +'<text x="150" y="192" text-anchor="middle" font-size="12" font-weight="bold" fill="var(--primary)">v₀t</text>'
+      +'<text x="220" y="115" text-anchor="middle" font-size="12" font-weight="bold" fill="#8a5a00">½(v−v₀)t</text>'
+      +'</svg>';
+  },
+  "relative-velocity-vectors": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    var arrow=function(x1,y,len,mk){ return '<line x1="'+x1+'" y1="'+y+'" x2="'+(x1+len)+'" y2="'+y+'" stroke-width="4" marker-end="url(#'+mk+')" class="'+mk+'"/>'; };
+    var arrowL=function(x1,y,len,mk){ return '<line x1="'+x1+'" y1="'+y+'" x2="'+(x1-len)+'" y2="'+y+'" stroke-width="4" marker-end="url(#'+mk+')" class="'+mk+'"/>'; };
+    return '<svg viewBox="0 0 640 280" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<defs>'
+      +'<marker id="rvPrimary" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="var(--primary)"/></marker>'
+      +'<marker id="rvAmber" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="var(--amber)"/></marker>'
+      +'<marker id="rvGreen" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="var(--green)"/></marker>'
+      +'<marker id="rvRed" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M7,0 L0,3 L7,6 Z" fill="var(--red)"/></marker>'
+      +'</defs>'
+      +'<style>.rvPrimary{stroke:var(--primary)}.rvAmber{stroke:var(--amber)}.rvGreen{stroke:var(--green)}.rvRed{stroke:var(--red)}</style>'
+      +'<rect x="10" y="10" width="620" height="120" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="1.5"/>'
+      +'<text x="320" y="30" text-anchor="middle" font-size="12.5" font-weight="bold" fill="var(--ink)">'+d("Same direction — velocities subtract","एक ही दिशा — velocity घटती हैं")+'</text>'
+      +arrow(60,60,300,"rvPrimary")+'<text x="60" y="52" font-size="11" fill="var(--primary)">'+d("Car 60 km/h","कार 60 km/h")+'</text>'
+      +arrow(60,90,180,"rvAmber")+'<text x="60" y="82" font-size="11" fill="#8a5a00">'+d("Truck 40 km/h","ट्रक 40 km/h")+'</text>'
+      +arrow(60,115,120,"rvGreen")
+      +'<text x="190" y="112" font-size="11.5" fill="var(--green)">'+d("Relative: 20 km/h","आपेक्षिक: 20 km/h")+'</text>'
+      +'<rect x="10" y="150" width="620" height="120" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="1.5"/>'
+      +'<text x="320" y="170" text-anchor="middle" font-size="12.5" font-weight="bold" fill="var(--ink)">'+d("Opposite directions — velocities add","उल्टी दिशाएँ — velocity जुड़ती हैं")+'</text>'
+      +arrow(60,200,300,"rvPrimary")+'<text x="60" y="192" font-size="11" fill="var(--primary)">'+d("Car +60 km/h","कार +60 km/h")+'</text>'
+      +arrowL(580,230,75,"rvRed")+'<text x="505" y="222" font-size="11" fill="var(--red)">'+d("Bike −15 km/h","बाइक −15 km/h")+'</text>'
+      +arrow(60,255,375,"rvGreen")
+      +'<text x="250" y="252" font-size="11.5" fill="var(--green)">'+d("Relative: 75 km/h — they close in fast","आपेक्षिक: 75 km/h — तेज़ी से पास आते हैं")+'</text>'
+      +'</svg>';
+  },
   "measure-standard": function(L){
     var d=function(a,b){return L==="hi"?b:a;};
     var tick=function(x,y,h,color){ return '<line x1="'+x+'" y1="'+y+'" x2="'+x+'" y2="'+(y-h)+'" stroke="'+color+'" stroke-width="3" stroke-linecap="round"/>'; };
@@ -1324,6 +1394,45 @@ var DIAGRAMS = {
 
 /* Interactive widgets: sliders students can move to feel the relationship. */
 var INTERACTIVES = {
+  "instant-velocity-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Shrink Δt around t = 4 s","t = 4 s के आसपास Δt सिकोड़िए")+'</label>'
+      +'<input type="range" id="ivIdx" min="0" max="4" step="1" value="0" oninput="ivCalc()">'
+      +'<span class="labval" id="ivDtv">Δt = 2.0 s</span></div>'
+      +'<div class="labout" id="ivOut">'+d("Average velocity over [3.00 s, 5.00 s] = 3.9200 m/s","[3.00 s, 5.00 s] पर औसत velocity = 3.9200 m/s")+'</div>'
+      +'<div class="labnote" id="ivNote">'+d("Shrink Δt further and watch this number settle down.","Δt को और सिकोड़िए और देखिए यह संख्या कैसे टिकती है।")+'</div>';
+  },
+  "vt-graph-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Initial velocity u (m/s)","शुरुआती velocity u (m/s)")+'</label>'
+      +'<input type="range" id="vtU" min="-20" max="20" step="1" value="10" oninput="vtCalc()">'
+      +'<span class="labval" id="vtUv">10 m/s</span></div>'
+      +'<div class="labrow"><label>'+d("Acceleration a (m/s²)","त्वरण a (m/s²)")+'</label>'
+      +'<input type="range" id="vtA" min="-5" max="5" step="0.5" value="2" oninput="vtCalc()">'
+      +'<span class="labval" id="vtAv">2.0 m/s²</span></div>'
+      +'<div style="margin-top:8px"><svg viewBox="0 0 300 160" style="width:100%;max-width:340px;display:block;margin:0 auto">'
+      +'<line x1="20" y1="10" x2="20" y2="150" stroke="var(--line-strong)" stroke-width="2"/>'
+      +'<line x1="20" y1="80" x2="280" y2="80" stroke="var(--line-strong)" stroke-width="2"/>'
+      +'<text x="10" y="14" font-size="9" fill="var(--ink)">v</text>'
+      +'<text x="282" y="92" font-size="9" fill="var(--ink)">t</text>'
+      +'<polygon id="vtArea" points="20,80 20,50 280,20 280,80" fill="var(--primary)" opacity="0.25"/>'
+      +'<line id="vtLine" x1="20" y1="50" x2="280" y2="20" stroke="var(--primary)" stroke-width="3"/>'
+      +'</svg></div>'
+      +'<div class="labout" id="vtOut">v(4 s) = 18.0 m/s · displacement = 56.0 m</div>'
+      +'<div class="labnote" id="vtNote">'+d("Acceleration is in the same direction as velocity — speeding up.","त्वरण velocity की उसी दिशा में है — तेज़ हो रहा है।")+'</div>';
+  },
+  "stopping-distance-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Initial speed (km/h)","शुरुआती speed (km/h)")+'</label>'
+      +'<input type="range" id="sdV" min="20" max="140" step="10" value="60" oninput="sdCalc()">'
+      +'<span class="labval" id="sdVv">60 km/h</span></div>'
+      +'<div style="margin-top:8px"><svg viewBox="0 0 400 60" style="width:100%;max-width:420px;display:block;margin:0 auto">'
+      +'<line x1="20" y1="45" x2="380" y2="45" stroke="var(--line-strong)" stroke-width="3"/>'
+      +'<rect id="sdBar" x="20" y="28" width="50" height="18" rx="4" fill="var(--red)"/>'
+      +'</svg></div>'
+      +'<div class="labout" id="sdOut">'+d("Stopping distance ≈ 23.1 m (at 6.0 m/s² braking)","रुकने की दूरी ≈ 23.1 m (6.0 m/s² braking पर)")+'</div>'
+      +'<div class="labnote" id="sdNote">'+d("Halve your speed to 30 km/h, and stopping distance falls to about 5.8 m — a quarter, not a half.","अपनी speed आधी करके 30 km/h कीजिए, तो रुकने की दूरी घटकर लगभग 5.8 m रह जाती है — चौथाई, आधी नहीं।")+'</div>';
+  },
   "sigfig-calc-lab": function(L){
     var d=function(a,b){return L==="hi"?b:a;};
     return '<div class="labrow"><label>'+d("Mass (g)","Mass (g)")+'</label>'
@@ -1443,6 +1552,49 @@ var INTERACTIVES = {
       +'<div class="labnote" id="soNote">'+d("Higher orbits move slower but take a rounder, longer path.","ऊँची कक्षाएँ धीमी चलती हैं पर गोलाकार, लंबा रास्ता तय करती हैं।")+'</div>';
   }
 };
+var IV_DTS=[2.0,1.0,0.5,0.1,0.01];
+function ivCalc(){
+  var idx=+document.getElementById("ivIdx").value;
+  var dt=IV_DTS[idx];
+  document.getElementById("ivDtv").textContent="Δt = "+dt+" s";
+  var t1=4-dt/2, t2=4+dt/2;
+  var x1=0.08*Math.pow(t1,3), x2=0.08*Math.pow(t2,3);
+  var avg=(x2-x1)/dt;
+  document.getElementById("ivOut").textContent="Average velocity over ["+t1.toFixed(3)+" s, "+t2.toFixed(3)+" s] = "+avg.toFixed(4)+" m/s";
+  var note=document.getElementById("ivNote");
+  if(idx===4) note.innerHTML=sp("This has settled to the instantaneous velocity at t = 4 s: 3.84 m/s.","यह t = 4 s पर तात्क्षणिक velocity पर टिक गया: 3.84 m/s।");
+  else note.innerHTML=sp("Shrink Δt further and watch this number settle down.","Δt को और सिकोड़िए और देखिए यह संख्या कैसे टिकती है।");
+}
+function vtCalc(){
+  var u=+document.getElementById("vtU").value, a=+document.getElementById("vtA").value;
+  document.getElementById("vtUv").textContent=u+" m/s";
+  document.getElementById("vtAv").textContent=a.toFixed(1)+" m/s²";
+  var T=4, v4=u+a*T, disp=u*T+0.5*a*T*T;
+  document.getElementById("vtOut").textContent="v(4 s) = "+v4.toFixed(1)+" m/s · displacement = "+disp.toFixed(1)+" m";
+  var vy=function(v){ var y=80-v*3; if(y<10)y=10; if(y>150)y=150; return y; };
+  var y0=vy(u), y1=vy(v4);
+  document.getElementById("vtLine").setAttribute("y1",y0); document.getElementById("vtLine").setAttribute("y2",y1);
+  document.getElementById("vtArea").setAttribute("points","20,80 20,"+y0+" 280,"+y1+" 280,80");
+  var note=document.getElementById("vtNote");
+  if(a===0) note.innerHTML=sp("Zero acceleration — constant velocity, a straight x-t line.","शून्य त्वरण — स्थिर velocity, सीधी x-t रेखा।");
+  else{
+    var speedingUp = (u===0) ? true : ((u>0)===(a>0));
+    if(speedingUp) note.innerHTML=sp("Acceleration is in the same direction as velocity — speeding up.","त्वरण velocity की उसी दिशा में है — तेज़ हो रहा है।");
+    else note.innerHTML=sp("Acceleration is opposite to velocity — slowing down (it may even reverse direction).","त्वरण velocity के उल्टा है — धीमा हो रहा है (दिशा भी उलट सकती है)।");
+  }
+}
+function sdCalc(){
+  var vkmh=+document.getElementById("sdV").value;
+  document.getElementById("sdVv").textContent=vkmh+" km/h";
+  var v=vkmh/3.6, a=6.0;
+  var ds=(v*v)/(2*a);
+  document.getElementById("sdOut").textContent="Stopping distance ≈ "+ds.toFixed(1)+" m (at "+a.toFixed(1)+" m/s² braking)";
+  var barWidth=Math.min(360, ds*3);
+  document.getElementById("sdBar").setAttribute("width",barWidth.toFixed(1));
+  var half=vkmh/2, vHalf=half/3.6, dsHalf=(vHalf*vHalf)/(2*a);
+  var note=document.getElementById("sdNote");
+  note.innerHTML=sp("Halve your speed to "+half+" km/h, and stopping distance falls to about "+dsHalf.toFixed(1)+" m — a quarter, not a half.","अपनी speed आधी करके "+half+" km/h कीजिए, तो रुकने की दूरी घटकर लगभग "+dsHalf.toFixed(1)+" m रह जाती है — चौथाई, आधी नहीं।");
+}
 function sfCalc(){
   var m=+document.getElementById("sfM").value, v=+document.getElementById("sfV").value;
   document.getElementById("sfMv").textContent=m.toFixed(3)+" g";
