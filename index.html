@@ -980,8 +980,8 @@ var DIAGRAMS = {
   },
   "kepler-ellipse": function(L){
     var d=function(a,b){return L==="hi"?b:a;};
-    var cx=350, cy=135, a=210, b=168, c=a*0.6, fx=cx-c;
-    return '<svg viewBox="0 0 660 260" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+    var cx=350, cy=205, a=210, b=168, c=a*0.6, fx=cx-c;
+    return '<svg viewBox="0 0 660 420" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
       +'<defs><marker id="ahke" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--ink-soft)"/></marker></defs>'
       +'<text x="330" y="16" text-anchor="middle" font-size="13.5" font-weight="bold" fill="var(--primary)">'+d("Law of orbits + law of areas","कक्षाओं का नियम + क्षेत्रफलों का नियम")+'</text>'
       +'<ellipse cx="'+cx+'" cy="'+cy+'" rx="'+a+'" ry="'+b+'" fill="none" stroke="var(--primary)" stroke-width="2.5"/>'
@@ -993,7 +993,7 @@ var DIAGRAMS = {
       +'<text x="'+(cx+a)+'" y="'+(cy+24)+'" text-anchor="middle" font-size="10.5" fill="var(--teal)">'+d("Aphelion (slow)","अपसौर (धीमा)")+'</text>'
       +'<path d="M'+fx+','+cy+' L'+(cx-a)+','+(cy-30)+' A'+a+','+b+' 0 0 1 '+(cx-a)+','+(cy+30)+' Z" fill="var(--red)" opacity="0.28"/>'
       +'<path d="M'+fx+','+cy+' L'+(cx+a-70)+','+(cy-58)+' A'+a+','+b+' 0 0 1 '+(cx+a)+','+(cy)+' Z" fill="var(--teal)" opacity="0.28"/>'
-      +'<text x="330" y="228" text-anchor="middle" font-size="11" fill="var(--ink)">'+d("Both shaded wedges: same area, swept in the same time — the planet must move faster where the wedge is thin.","दोनों छायांकित हिस्से: एक जैसा क्षेत्रफल, एक जैसे समय में बुहारा — जहाँ हिस्सा पतला है वहाँ ग्रह को तेज़ चलना पड़ता है।")+'</text>'
+      +'<text x="330" y="400" text-anchor="middle" font-size="11" fill="var(--ink)">'+d("Both shaded wedges: same area, swept in the same time — the planet must move faster where the wedge is thin.","दोनों छायांकित हिस्से: एक जैसा क्षेत्रफल, एक जैसे समय में बुहारा — जहाँ हिस्सा पतला है वहाँ ग्रह को तेज़ चलना पड़ता है।")+'</text>'
       +'</svg>';
   },
   "gravitation-shell": function(L){
@@ -1490,13 +1490,13 @@ var ANIMATIONS = {
   },
   "orbit-sweep": function(L){
     var d=function(a,b){return L==="hi"?b:a;};
-    return '<svg viewBox="0 0 660 220" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+    return '<svg viewBox="0 0 660 360" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
       +'<text x="330" y="16" text-anchor="middle" font-size="13.5" font-weight="bold" fill="var(--primary)">'+d("Equal areas in equal time — watch the speed change","समान समय में समान क्षेत्रफल — speed का बदलना देखिए")+'</text>'
-      +'<ellipse cx="330" cy="120" rx="190" ry="152" fill="none" stroke="var(--line-strong)" stroke-width="2"/>'
-      +'<circle cx="216" cy="120" r="11" fill="var(--amber)"/>'
-      +'<text x="216" y="102" text-anchor="middle" font-size="10.5" font-weight="bold" fill="var(--amber)">'+d("Sun","सूर्य")+'</text>'
-      +'<line id="obLine" x1="216" y1="120" x2="140" y2="120" stroke="var(--ink-soft)" stroke-width="1.5" stroke-dasharray="3,3"/>'
-      +'<circle id="obDot" cx="140" cy="120" r="8" fill="var(--red)"/>'
+      +'<ellipse cx="330" cy="185" rx="190" ry="152" fill="none" stroke="var(--line-strong)" stroke-width="2"/>'
+      +'<circle cx="216" cy="185" r="11" fill="var(--amber)"/>'
+      +'<text x="216" y="167" text-anchor="middle" font-size="10.5" font-weight="bold" fill="var(--amber)">'+d("Sun","सूर्य")+'</text>'
+      +'<line id="obLine" x1="216" y1="185" x2="140" y2="185" stroke="var(--ink-soft)" stroke-width="1.5" stroke-dasharray="3,3"/>'
+      +'<circle id="obDot" cx="140" cy="185" r="8" fill="var(--red)"/>'
       +'</svg>'
       +'<div class="animbar">'
       +'<button class="btn sm" id="obBtn" onclick="obPlay()">▶︎ '+d("Play","चलाइए")+'</button>'
@@ -1564,7 +1564,7 @@ function skPlay(){
 function obPlay(){
   var dot=document.getElementById("obDot"), line=document.getElementById("obLine"), out=document.getElementById("obOut"), btn=document.getElementById("obBtn");
   if(!dot) return;
-  var fx=216, cy=120, a=190, e=0.6;                 /* ellipse: same geometry as the static diagram */
+  var fx=216, cy=185, a=190, e=0.6;                 /* ellipse: same geometry as the static diagram */
   var rmin=a*(1-e), rmax=a*(1+e);
   function paint(theta){
     var r = a*(1-e*e)/(1+e*Math.cos(theta));
