@@ -38,6 +38,9 @@ shipping.
 
 Files present:
 - `cross-product-bottle-cap.webp` (124 KB) + `.jpg` (272 KB), 1600x900 — topic PHY-6-4.
+- `merry-go-round-angular-momentum.webp` (237 KB) + `.jpg` (376 KB, quality dropped to
+  85 to fit the size budget — this source image is denser text than the bottle-cap one,
+  q90 came out at 462 KB), 1600x1067 — topic PHY-6-10.
 
 ## Where the full-resolution masters live
 
@@ -53,9 +56,9 @@ That path mirrors this one, so a master matches its derivatives by name. See
 needs re-cropping, re-exporting at another size, or reuse in print or slides —
 re-deriving from the master beats upscaling the 1600 px web copy.
 
-The master for this chapter's image is
-`asset-masters/selflearn/physics/ch6/cross-product-bottle-cap.png`
-(1.7 MB, 1672x941).
+Masters for this chapter's images:
+- `asset-masters/selflearn/physics/ch6/cross-product-bottle-cap.png` (1.7 MB, 1672x941)
+- `asset-masters/selflearn/physics/ch6/merry-go-round-angular-momentum.png` (2.1 MB, 1536x1024)
 
 ---
 
