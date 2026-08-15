@@ -38,7 +38,24 @@ shipping.
 
 Files present:
 - `cross-product-bottle-cap.webp` (124 KB) + `.jpg` (272 KB), 1600x900 — topic PHY-6-4.
-  The source PNG was 1.7 MB and was deliberately not committed; this pair replaces it.
+
+## Where the full-resolution masters live
+
+Masters are **not committed** — they run 1–3 MB each and git would keep every
+version forever. They are archived outside the repo, on OneDrive:
+
+```
+C:\Users\Dell\OneDrive\SambhritiNGO\asset-masters\selflearn\<subject>\<chapter>\
+```
+
+That path mirrors this one, so a master matches its derivatives by name. See
+`asset-masters/README.md` for the full convention. Go there first when an image
+needs re-cropping, re-exporting at another size, or reuse in print or slides —
+re-deriving from the master beats upscaling the 1600 px web copy.
+
+The master for this chapter's image is
+`asset-masters/selflearn/physics/ch6/cross-product-bottle-cap.png`
+(1.7 MB, 1672x941).
 
 ---
 
