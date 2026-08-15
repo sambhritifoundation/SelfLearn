@@ -231,11 +231,29 @@ function sp(en, hi){ return '<span class="en">'+en+'</span><span class="hi">'+(h
 function t(obj){ return obj ? (obj[LANG] || obj.en || "") : ""; }
 function esc(s){ return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
 /* Lightweight markdown for topic notes: **bold**, *italic*, | tables | */
-function fmtNotes(txt){
+function fmtNotes(txt, images){
   var lines = esc(txt).split("\n"), out = [], i = 0;
   function cells(row){ return row.replace(/^\s*\|/,"").replace(/\|\s*$/,"").split("|").map(function(c){ return c.trim(); }); }
   while(i < lines.length){
-    if(/^\s*\|.*\|\s*$/.test(lines[i]) && i+1 < lines.length && /^\s*\|[\s\-–—|:]+\|\s*$/.test(lines[i+1])){
+    /* {{diagram:key}} / {{image:N}} on their own line drop that visual inline, right
+       where the explanation needs it — instead of every visual piling up after all
+       the text. Falls back to a no-op (line dropped) if the key/index doesn't exist. */
+    var dgTok = /^\{\{diagram:([\w-]+)\}\}$/.exec(lines[i].trim());
+    var imTok = /^\{\{image:(\d+)\}\}$/.exec(lines[i].trim());
+    if(dgTok){
+      if(DIAGRAMS[dgTok[1]]) out.push('<div class="card diagram" style="margin:14px 0">'+DIAGRAMS[dgTok[1]](LANG)+'</div>');
+      i++;
+    } else if(imTok){
+      var im = images && images[+imTok[1]];
+      if(im) out.push('<figure class="photo card" style="margin:14px 0">'
+        + (im.webp ? '<picture><source srcset="'+esc(im.webp)+'" type="image/webp">' : '')
+        + '<img src="'+esc(im.src)+'" alt="'+esc(t(im.alt))+'" loading="lazy"'
+        + (im.w && im.h ? ' width="'+im.w+'" height="'+im.h+'"' : '') + '>'
+        + (im.webp ? '</picture>' : '')
+        + (im.caption ? '<figcaption>'+t(im.caption)+'</figcaption>' : '')
+        + '</figure>');
+      i++;
+    } else if(/^\s*\|.*\|\s*$/.test(lines[i]) && i+1 < lines.length && /^\s*\|[\s\-–—|:]+\|\s*$/.test(lines[i+1])){
       var hdr = cells(lines[i]); i += 2; var rows = [];
       while(i < lines.length && /^\s*\|.*\|\s*$/.test(lines[i])){ rows.push(cells(lines[i])); i++; }
       out.push('<table><thead><tr>' + hdr.map(function(c){ return '<th>'+c+'</th>'; }).join("")
@@ -912,22 +930,32 @@ var DIAGRAMS = {
   },
   "moi-shapes": function(L){
     var d=function(a,b){return L==="hi"?b:a;};
-    var card=function(x,name,form,shape){
-      return '<rect x="'+x+'" y="34" width="150" height="150" rx="10" fill="var(--card)" stroke="var(--line-strong)" stroke-width="1.6"/>'
+    var card=function(x,y,name,form,shape){
+      return '<rect x="'+x+'" y="'+y+'" width="150" height="150" rx="10" fill="var(--card)" stroke="var(--line-strong)" stroke-width="1.6"/>'
         + shape
-        +'<text x="'+(x+75)+'" y="150" text-anchor="middle" font-size="10.5" font-weight="bold" fill="var(--ink)">'+name+'</text>'
-        +'<text x="'+(x+75)+'" y="171" text-anchor="middle" font-size="12" font-weight="bold" fill="var(--primary)">'+form+'</text>';
+        +'<text x="'+(x+75)+'" y="'+(y+116)+'" text-anchor="middle" font-size="10.5" font-weight="bold" fill="var(--ink)">'+name+'</text>'
+        +'<text x="'+(x+75)+'" y="'+(y+137)+'" text-anchor="middle" font-size="12" font-weight="bold" fill="var(--primary)">'+form+'</text>';
     };
-    return '<svg viewBox="0 0 660 200" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
-      +'<text x="330" y="18" text-anchor="middle" font-size="14" font-weight="bold" fill="var(--primary)">'+d("Same mass, same radius — but mass placed farther out means bigger I","एक ही mass, एक ही radius — पर mass जितनी बाहर, I उतना बड़ा")+'</text>'
-      + card(8, d("Ring","छल्ला"), "I = M R²",
-          '<circle cx="83" cy="92" r="32" fill="none" stroke="var(--red)" stroke-width="7"/><circle cx="83" cy="92" r="2.5" fill="var(--ink-soft)"/>')
-      + card(172, d("Disc","चकती"), "I = ½ M R²",
-          '<circle cx="247" cy="92" r="32" fill="var(--amber)" opacity="0.55"/><circle cx="247" cy="92" r="32" fill="none" stroke="var(--amber)" stroke-width="2"/><circle cx="247" cy="92" r="2.5" fill="var(--ink-soft)"/>')
-      + card(336, d("Solid sphere","ठोस गोला"), "I = ⅖ M R²",
-          '<circle cx="411" cy="92" r="32" fill="var(--green)" opacity="0.55"/><circle cx="411" cy="92" r="32" fill="none" stroke="var(--green)" stroke-width="2"/><circle cx="411" cy="92" r="2.5" fill="var(--ink-soft)"/>')
-      + card(500, d("Rod (centre)","छड़ (केंद्र)"), "I = ML²/12",
-          '<rect x="515" y="86" width="120" height="11" rx="3" fill="var(--primary)" opacity="0.7"/><circle cx="575" cy="92" r="3" fill="var(--ink-soft)"/>')
+    var Y1=54, Y2=222;
+    return '<svg viewBox="0 0 660 400" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="330" y="18" text-anchor="middle" font-size="14" font-weight="bold" fill="var(--primary)">'+d("NCERT Table 6.1 — all eight standard shapes","NCERT तालिका 6.1 — सभी आठ मानक आकार")+'</text>'
+      +'<text x="330" y="38" text-anchor="middle" font-size="10.5" fill="var(--ink-soft)">'+d("Same mass, same radius — mass placed farther out always means bigger I","एक ही mass, एक ही radius — मास जितना बाहर, I उतना बड़ा")+'</text>'
+      + card(8, Y1, d("Ring, ⊥ axis","छल्ला, लंबवत अक्ष"), "I = M R²",
+          '<circle cx="83" cy="'+(Y1+58)+'" r="30" fill="none" stroke="var(--red)" stroke-width="7"/><circle cx="83" cy="'+(Y1+58)+'" r="2.5" fill="var(--ink-soft)"/>')
+      + card(172, Y1, d("Ring, diameter","छल्ला, व्यास"), "I = ½ M R²",
+          '<ellipse cx="247" cy="'+(Y1+58)+'" rx="30" ry="12" fill="none" stroke="var(--red)" stroke-width="7"/><line x1="217" y1="'+(Y1+58)+'" x2="277" y2="'+(Y1+58)+'" stroke="var(--ink-soft)" stroke-width="1.5" stroke-dasharray="3,3"/>')
+      + card(336, Y1, d("Disc, ⊥ axis","चकती, लंबवत अक्ष"), "I = ½ M R²",
+          '<circle cx="411" cy="'+(Y1+58)+'" r="30" fill="var(--amber)" opacity="0.55"/><circle cx="411" cy="'+(Y1+58)+'" r="30" fill="none" stroke="var(--amber)" stroke-width="2"/><circle cx="411" cy="'+(Y1+58)+'" r="2.5" fill="var(--ink-soft)"/>')
+      + card(500, Y1, d("Disc, diameter","चकती, व्यास"), "I = ¼ M R²",
+          '<ellipse cx="575" cy="'+(Y1+58)+'" rx="30" ry="12" fill="var(--amber)" opacity="0.55"/><ellipse cx="575" cy="'+(Y1+58)+'" rx="30" ry="12" fill="none" stroke="var(--amber)" stroke-width="2"/><line x1="545" y1="'+(Y1+58)+'" x2="605" y2="'+(Y1+58)+'" stroke="var(--ink-soft)" stroke-width="1.5" stroke-dasharray="3,3"/>')
+      + card(8, Y2, d("Hollow cylinder","खोखला बेलन"), "I = M R²",
+          '<rect x="63" y="'+(Y2+30)+'" width="40" height="56" rx="6" fill="none" stroke="var(--teal)" stroke-width="6"/><line x1="83" y1="'+(Y2+20)+'" x2="83" y2="'+(Y2+96)+'" stroke="var(--ink-soft)" stroke-width="1.5" stroke-dasharray="3,3"/>')
+      + card(172, Y2, d("Solid cylinder","ठोस बेलन"), "I = ½ M R²",
+          '<rect x="227" y="'+(Y2+30)+'" width="40" height="56" rx="6" fill="var(--teal)" opacity="0.55"/><rect x="227" y="'+(Y2+30)+'" width="40" height="56" rx="6" fill="none" stroke="var(--teal)" stroke-width="2"/><line x1="247" y1="'+(Y2+20)+'" x2="247" y2="'+(Y2+96)+'" stroke="var(--ink-soft)" stroke-width="1.5" stroke-dasharray="3,3"/>')
+      + card(336, Y2, d("Solid sphere","ठोस गोला"), "I = ⅖ M R²",
+          '<circle cx="411" cy="'+(Y2+58)+'" r="30" fill="var(--green)" opacity="0.55"/><circle cx="411" cy="'+(Y2+58)+'" r="30" fill="none" stroke="var(--green)" stroke-width="2"/><circle cx="411" cy="'+(Y2+58)+'" r="2.5" fill="var(--ink-soft)"/>')
+      + card(500, Y2, d("Rod (centre)","छड़ (केंद्र)"), "I = ML²/12",
+          '<rect x="515" y="'+(Y2+52)+'" width="120" height="11" rx="3" fill="var(--primary)" opacity="0.7"/><circle cx="575" cy="'+(Y2+58)+'" r="3" fill="var(--ink-soft)"/>')
       +'</svg>';
   },
   "lever-moments": function(L){
@@ -1143,6 +1171,93 @@ var DIAGRAMS = {
       +'<line x1="440" y1="150" x2="440" y2="170" stroke="var(--amber)" stroke-width="3" marker-end="url(#ahwl)"/>'
       +'<line x1="560" y1="150" x2="560" y2="170" stroke="var(--amber)" stroke-width="3" marker-end="url(#ahwl)"/>'
       +'<text x="490" y="200" text-anchor="middle" font-size="10" fill="var(--ink)">'+d("Both fall at the same g — no push, no felt weight","दोनों एक ही g से गिरते हैं — कोई धक्का नहीं, वज़न महसूस नहीं")+'</text>'
+      +'</svg>';
+  },
+  "com-outside-body": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 660 230" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="330" y="18" text-anchor="middle" font-size="13.5" font-weight="bold" fill="var(--primary)">'+d("A ring's centre of mass sits in empty air","छल्ले का द्रव्यमान केंद्र खाली हवा में होता है")+'</text>'
+      +'<rect x="10" y="30" width="300" height="180" rx="10" fill="var(--primary-light)" opacity="0.5"/>'
+      +'<circle cx="160" cy="120" r="62" fill="none" stroke="var(--red)" stroke-width="12"/>'
+      +'<circle cx="160" cy="120" r="4.5" fill="var(--ink)"/>'
+      +'<text x="160" y="145" text-anchor="middle" font-size="10.5" font-weight="bold" fill="var(--ink)">'+d("COM — no material here","COM — यहाँ कोई पदार्थ नहीं")+'</text>'
+      +'<text x="160" y="200" text-anchor="middle" font-size="11" fill="var(--ink)">'+d("Bangle / ring","चूड़ी / छल्ला")+'</text>'
+      +'<rect x="350" y="30" width="300" height="180" rx="10" fill="var(--primary-light)" opacity="0.5"/>'
+      +'<circle cx="500" cy="120" r="62" fill="var(--teal)" opacity="0.55"/>'
+      +'<circle cx="500" cy="120" r="62" fill="none" stroke="var(--teal)" stroke-width="2"/>'
+      +'<circle cx="500" cy="120" r="4.5" fill="var(--ink)"/>'
+      +'<text x="500" y="145" text-anchor="middle" font-size="10.5" font-weight="bold" fill="var(--ink)">'+d("COM — right on the material","COM — पदार्थ पर ही")+'</text>'
+      +'<text x="500" y="200" text-anchor="middle" font-size="11" fill="var(--ink)">'+d("Solid disc","ठोस चकती")+'</text>'
+      +'</svg>';
+  },
+  "explosion-com": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 660 260" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<defs><marker id="ahec" markerWidth="7" markerHeight="7" refX="5" refY="2.5" orient="auto"><path d="M0,0 L5,2.5 L0,5 Z" fill="var(--ink-soft)"/></marker></defs>'
+      +'<text x="330" y="16" text-anchor="middle" font-size="13.5" font-weight="bold" fill="var(--primary)">'+d("The COM keeps flying the same curve, even after the burst","फटने के बाद भी COM उसी वक्र पर उड़ता रहता है")+'</text>'
+      +'<path d="M40,220 Q250,40 460,120" fill="none" stroke="var(--line-strong)" stroke-width="2" stroke-dasharray="5,4"/>'
+      +'<path d="M460,120 Q520,150 560,220" fill="none" stroke="var(--red)" stroke-width="2.5" stroke-dasharray="4,3" marker-end="url(#ahec)"/>'
+      +'<circle cx="460" cy="120" r="7" fill="var(--amber)"/>'
+      +'<text x="460" y="102" text-anchor="middle" font-size="10.5" font-weight="bold" fill="var(--amber)">'+d("burst","विस्फोट")+'</text>'
+      +'<line x1="460" y1="120" x2="380" y2="160" stroke="var(--teal)" stroke-width="2" marker-end="url(#ahec)"/>'
+      +'<line x1="460" y1="120" x2="560" y2="60" stroke="var(--teal)" stroke-width="2" marker-end="url(#ahec)"/>'
+      +'<line x1="460" y1="120" x2="500" y2="200" stroke="var(--teal)" stroke-width="2" marker-end="url(#ahec)"/>'
+      +'<text x="330" y="240" text-anchor="middle" font-size="11" fill="var(--ink)">'+d("Dashed red = path the COM still follows. Teal arrows = scattered pieces.","लाल डैश = वह रास्ता जो COM अब भी लेता है। हरे तीर = बिखरे टुकड़े।")+'</text>'
+      +'</svg>';
+  },
+  "torque-diagram": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 660 220" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<defs><marker id="ahtd" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--red)"/></marker></defs>'
+      +'<text x="330" y="16" text-anchor="middle" font-size="13.5" font-weight="bold" fill="var(--primary)">'+d("τ = r F sin θ — only the perpendicular part of F turns the door","τ = r F sin θ — बल का सिर्फ़ लंबवत हिस्सा दरवाज़ा घुमाता है")+'</text>'
+      +'<circle cx="130" cy="130" r="6" fill="var(--ink)"/>'
+      +'<text x="130" y="155" text-anchor="middle" font-size="10" fill="var(--ink-soft)">'+d("hinge","कुंडा")+'</text>'
+      +'<line x1="130" y1="130" x2="430" y2="130" stroke="var(--ink-soft)" stroke-width="8" stroke-linecap="round" opacity="0.35"/>'
+      +'<line x1="130" y1="130" x2="430" y2="60" stroke="var(--primary)" stroke-width="3"/>'
+      +'<text x="440" y="58" font-size="11" fill="var(--primary)">'+d("door edge (r)","दरवाज़े का किनारा (r)")+'</text>'
+      +'<line x1="430" y1="60" x2="520" y2="10" stroke="var(--red)" stroke-width="4" marker-end="url(#ahtd)"/>'
+      +'<text x="528" y="12" font-size="11" font-weight="bold" fill="var(--red)">F</text>'
+      +'<path d="M170,130 A40,40 0 0 0 158,109" fill="none" stroke="var(--amber)" stroke-width="2"/>'
+      +'<text x="180" y="112" font-size="10.5" fill="var(--amber)">θ</text>'
+      +'<line x1="430" y1="60" x2="472" y2="99" stroke="var(--teal)" stroke-width="2.5" stroke-dasharray="4,3"/>'
+      +'<text x="500" y="105" font-size="10" fill="var(--teal)">'+d("F sin θ (useful part)","F sin θ (काम का हिस्सा)")+'</text>'
+      +'<text x="330" y="195" text-anchor="middle" font-size="11" fill="var(--ink)">'+d("Push straight along the door (θ = 0°) and sin θ = 0 — zero torque, no matter how hard you push.","दरवाज़े के साथ-साथ धक्का दें (θ = 0°) तो sin θ = 0 — चाहे कितना भी ज़ोर लगाएँ, torque शून्य।")+'</text>'
+      +'</svg>';
+  },
+  "angular-momentum-diagram": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 660 260" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<defs><marker id="ahad" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--red)"/></marker></defs>'
+      +'<text x="330" y="16" text-anchor="middle" font-size="13.5" font-weight="bold" fill="var(--primary)">'+d("A spinning wheel's angular momentum points along its axle","घूमते पहिये का कोणीय संवेग उसके धुरे के साथ इशारा करता है")+'</text>'
+      +'<g transform="translate(180,155)">'
+      +'<ellipse cx="0" cy="0" rx="34" ry="70" fill="none" stroke="var(--primary)" stroke-width="7"/>'
+      +'<ellipse cx="0" cy="0" rx="34" ry="70" fill="var(--primary-light)" opacity="0.4"/>'
+      +'<circle cx="0" cy="0" r="5" fill="var(--ink)"/>'
+      +'<path d="M-18,-55 A55,16 0 0 1 18,-55" fill="none" stroke="var(--ink-soft)" stroke-width="1.5" marker-end="url(#ahad)"/>'
+      +'<line x1="0" y1="-70" x2="0" y2="-130" stroke="var(--red)" stroke-width="4" marker-end="url(#ahad)"/>'
+      +'</g>'
+      +'<text x="180" y="18" text-anchor="middle" font-size="12" font-weight="bold" fill="var(--red)">L</text>'
+      +'<text x="180" y="240" text-anchor="middle" font-size="10.5" fill="var(--ink)">'+d("wheel spinning","घूमता पहिया")+'</text>'
+      +'<rect x="380" y="80" width="260" height="120" rx="10" fill="var(--primary-light)" opacity="0.5"/>'
+      +'<text x="510" y="104" text-anchor="middle" font-size="11.5" font-weight="bold" fill="var(--primary)">l = r × p</text>'
+      +'<text x="510" y="126" text-anchor="middle" font-size="10" fill="var(--ink)">'+d("For a whole spinning body:","पूरे घूमते पिंड के लिए:")+'</text>'
+      +'<text x="510" y="146" text-anchor="middle" font-size="12.5" font-weight="bold" fill="var(--red)">L = I ω</text>'
+      +'<text x="510" y="172" text-anchor="middle" font-size="9.5" fill="var(--ink)">'+d("(the rotational twin of p = mv)","(p = mv का घूर्णी जुड़वाँ)")+'</text>'
+      +'</svg>';
+  },
+  "centre-of-gravity": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 660 232" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<defs><marker id="ahcg" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--ink)"/></marker></defs>'
+      +'<text x="330" y="16" text-anchor="middle" font-size="13.5" font-weight="bold" fill="var(--primary)">'+d("Support right under G, and every torque cancels","G के ठीक नीचे सहारा दें, तो हर torque कट जाता है")+'</text>'
+      +'<path d="M230,60 Q170,90 190,140 Q160,180 220,190 Q280,210 340,180 Q400,190 410,140 Q440,100 380,70 Q340,40 280,55 Z" fill="var(--primary-light)" stroke="var(--primary)" stroke-width="2"/>'
+      +'<circle cx="300" cy="128" r="6" fill="var(--red)"/>'
+      +'<text x="300" y="112" text-anchor="middle" font-size="10.5" font-weight="bold" fill="var(--red)">G</text>'
+      +'<line x1="300" y1="134" x2="300" y2="182" stroke="var(--ink)" stroke-width="2"/>'
+      +'<polygon points="300,182 290,206 310,206" fill="var(--ink-soft)"/>'
+      +'<line x1="300" y1="128" x2="300" y2="86" stroke="var(--teal)" stroke-width="3" marker-end="url(#ahcg)"/>'
+      +'<text x="316" y="92" font-size="10" fill="var(--teal)">'+d("support pushes up","सहारा ऊपर धकेलता है")+'</text>'
+      +'<text x="300" y="216" text-anchor="middle" font-size="10.5" fill="var(--ink)">'+d("pencil tip","पेंसिल की नोक")+'</text>'
       +'</svg>';
   }
 };
@@ -1781,10 +1896,16 @@ function vTopic(code){
     + (tp.exam ? '<span class="chip green">'+sp("Exam-important","परीक्षा-महत्वपूर्ण")+'</span>' : '')
     + (a2!==null ? '<span class="chip '+(a2>=80?"green":(a2>=60?"amber":"red"))+'">'+sp("Your accuracy: ","आपकी शुद्धता: ")+a2+'%</span>' : '')
     + '</div><h1 style="margin:10px 0 12px">'+t(tp.name)+'</h1>'
-    + '<div class="notes">'+fmtNotes(t(tp.notes))+'</div></div>';
-  var dgs = tp.diagram ? (Array.isArray(tp.diagram)?tp.diagram:[tp.diagram]) : [];
+    + '<div class="notes">'+fmtNotes(t(tp.notes), tp.images)+'</div></div>';
+  /* Topics whose notes place {{diagram:...}} / {{image:N}} inline (right next to the
+     explanation they belong to) skip the old after-all-the-text rendering below, so
+     nothing shows twice. Older topics with no inline tokens render exactly as before. */
+  var notesRaw = t(tp.notes);
+  var inlinedDiagrams = /\{\{diagram:/.test(notesRaw);
+  var inlinedImages = /\{\{image:\d+\}\}/.test(notesRaw);
+  var dgs = (!inlinedDiagrams && tp.diagram) ? (Array.isArray(tp.diagram)?tp.diagram:[tp.diagram]) : [];
   dgs.forEach(function(k){ if(DIAGRAMS[k]) h += '<div class="card diagram" role="img" aria-label="'+esc((LANG==="hi"?"आरेख: ":"Diagram: ")+t(tp.name))+'" style="margin-top:14px">'+DIAGRAMS[k](LANG)+'</div>'; });
-  if(tp.images && tp.images.length){
+  if(!inlinedImages && tp.images && tp.images.length){
     tp.images.forEach(function(im){
       /* im.webp is optional: modern browsers take the small WebP, older ones fall back to im.src */
       h += '<figure class="photo card" style="margin-top:14px">'
