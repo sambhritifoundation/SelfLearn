@@ -949,6 +949,201 @@ var DIAGRAMS = {
       +'<text x="400" y="112" text-anchor="middle" font-size="10.5" fill="var(--green)" font-weight="bold">d₂ = 3 m</text>'
       +'<text x="330" y="178" text-anchor="middle" font-size="12.5" font-weight="bold" fill="var(--primary)">60 × 1 = 20 × 3  →  '+d("balanced","संतुलित")+'   ( d₁F₁ = d₂F₂ )</text>'
       +'</svg>';
+  },
+  "kepler-ellipse": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    var cx=350, cy=135, a=210, b=168, c=a*0.6, fx=cx-c;
+    return '<svg viewBox="0 0 660 260" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<defs><marker id="ahke" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--ink-soft)"/></marker></defs>'
+      +'<text x="330" y="16" text-anchor="middle" font-size="13.5" font-weight="bold" fill="var(--primary)">'+d("Law of orbits + law of areas","कक्षाओं का नियम + क्षेत्रफलों का नियम")+'</text>'
+      +'<ellipse cx="'+cx+'" cy="'+cy+'" rx="'+a+'" ry="'+b+'" fill="none" stroke="var(--primary)" stroke-width="2.5"/>'
+      +'<circle cx="'+fx+'" cy="'+cy+'" r="10" fill="var(--amber)"/>'
+      +'<text x="'+fx+'" y="'+(cy-18)+'" text-anchor="middle" font-size="11" font-weight="bold" fill="var(--amber)">'+d("Sun (focus)","सूर्य (नाभि)")+'</text>'
+      +'<circle cx="'+(cx-a)+'" cy="'+cy+'" r="6" fill="var(--red)"/>'
+      +'<text x="'+(cx-a)+'" y="'+(cy+24)+'" text-anchor="middle" font-size="10.5" fill="var(--red)">'+d("Perihelion (fast)","उपसौर (तेज़)")+'</text>'
+      +'<circle cx="'+(cx+a)+'" cy="'+cy+'" r="6" fill="var(--teal)"/>'
+      +'<text x="'+(cx+a)+'" y="'+(cy+24)+'" text-anchor="middle" font-size="10.5" fill="var(--teal)">'+d("Aphelion (slow)","अपसौर (धीमा)")+'</text>'
+      +'<path d="M'+fx+','+cy+' L'+(cx-a)+','+(cy-30)+' A'+a+','+b+' 0 0 1 '+(cx-a)+','+(cy+30)+' Z" fill="var(--red)" opacity="0.28"/>'
+      +'<path d="M'+fx+','+cy+' L'+(cx+a-70)+','+(cy-58)+' A'+a+','+b+' 0 0 1 '+(cx+a)+','+(cy)+' Z" fill="var(--teal)" opacity="0.28"/>'
+      +'<text x="330" y="228" text-anchor="middle" font-size="11" fill="var(--ink)">'+d("Both shaded wedges: same area, swept in the same time — the planet must move faster where the wedge is thin.","दोनों छायांकित हिस्से: एक जैसा क्षेत्रफल, एक जैसे समय में बुहारा — जहाँ हिस्सा पतला है वहाँ ग्रह को तेज़ चलना पड़ता है।")+'</text>'
+      +'</svg>';
+  },
+  "gravitation-shell": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 660 230" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<defs><marker id="ahgs" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--primary)"/></marker></defs>'
+      +'<rect x="10" y="10" width="300" height="210" rx="10" fill="var(--primary-light)" opacity="0.5"/>'
+      +'<text x="160" y="30" text-anchor="middle" font-size="11.5" font-weight="bold" fill="var(--primary)">'+d("Newton's law","न्यूटन का नियम")+'</text>'
+      +'<circle cx="70" cy="120" r="16" fill="var(--red)"/><text x="70" y="150" text-anchor="middle" font-size="10.5" fill="var(--ink)">m₁</text>'
+      +'<circle cx="250" cy="120" r="22" fill="var(--teal)"/><text x="250" y="158" text-anchor="middle" font-size="10.5" fill="var(--ink)">m₂</text>'
+      +'<line x1="90" y1="120" x2="140" y2="120" stroke="var(--primary)" stroke-width="3" marker-end="url(#ahgs)"/>'
+      +'<line x1="226" y1="120" x2="176" y2="120" stroke="var(--primary)" stroke-width="3" marker-end="url(#ahgs)"/>'
+      +'<text x="160" y="105" text-anchor="middle" font-size="10" fill="var(--ink-soft)">r</text>'
+      +'<text x="160" y="195" text-anchor="middle" font-size="11.5" font-weight="bold" fill="var(--ink)">F = Gm₁m₂/r²</text>'
+      +'<rect x="330" y="10" width="320" height="210" rx="10" fill="var(--primary-light)" opacity="0.5"/>'
+      +'<text x="490" y="30" text-anchor="middle" font-size="11.5" font-weight="bold" fill="var(--primary)">'+d("Shell theorem","कोश प्रमेय")+'</text>'
+      +'<circle cx="490" cy="125" r="55" fill="none" stroke="var(--ink-soft)" stroke-width="2" stroke-dasharray="4,3"/>'
+      +'<circle cx="490" cy="125" r="6" fill="var(--ink)"/><text x="490" y="150" text-anchor="middle" font-size="9.5" fill="var(--ink)">'+d("inside: F = 0","भीतर: F = 0")+'</text>'
+      +'<circle cx="600" cy="125" r="7" fill="var(--red)"/>'
+      +'<line x1="592" y1="125" x2="552" y2="125" stroke="var(--red)" stroke-width="2.5" marker-end="url(#ahgs)"/>'
+      +'<text x="600" y="150" text-anchor="middle" font-size="9.5" fill="var(--red)">'+d("outside: pulls as a point mass","बाहर: point mass जैसा खींचता है")+'</text>'
+      +'</svg>';
+  },
+  "cavendish-setup": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 660 260" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="330" y="16" text-anchor="middle" font-size="13.5" font-weight="bold" fill="var(--primary)">'+d("Cavendish's torsion balance","कैवेंडिश की मरोड़ तुला")+'</text>'
+      +'<line x1="330" y1="26" x2="330" y2="90" stroke="var(--ink-soft)" stroke-width="2"/>'
+      +'<text x="345" y="55" font-size="10" fill="var(--ink-soft)">'+d("fine wire","पतला तार")+'</text>'
+      +'<g transform="translate(330,110) rotate(8)">'
+      +'<line x1="-120" y1="0" x2="120" y2="0" stroke="var(--ink)" stroke-width="4"/>'
+      +'<circle cx="-120" cy="0" r="10" fill="var(--teal)"/>'
+      +'<circle cx="120" cy="0" r="10" fill="var(--teal)"/>'
+      +'</g>'
+      +'<circle cx="-118" cy="60" r="26" fill="var(--red)" opacity="0.85" transform="translate(330,110)"/>'
+      +'<circle cx="122" cy="-60" r="26" fill="var(--red)" opacity="0.85" transform="translate(330,110)"/>'
+      +'<text x="196" y="52" font-size="10" fill="var(--red)">'+d("large sphere S₁","बड़ा गोला S₁")+'</text>'
+      +'<text x="430" y="192" font-size="10" fill="var(--red)">'+d("large sphere S₂","बड़ा गोला S₂")+'</text>'
+      +'<path d="M330,90 A20,20 0 0 1 344,98" fill="none" stroke="var(--amber)" stroke-width="2"/>'
+      +'<text x="352" y="100" font-size="10.5" fill="var(--amber)">θ</text>'
+      +'<text x="330" y="238" text-anchor="middle" font-size="11" fill="var(--ink)">'+d("Big spheres twist the wire a tiny angle θ. G comes from measuring θ.","बड़े गोले तार को एक छोटा कोण θ मरोड़ते हैं। θ नापकर G मिलता है।")+'</text>'
+      +'</svg>';
+  },
+  "g-variation-graph": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    var ox=90, oy=200, sx=550/2, surfx=ox+sx;
+    return '<svg viewBox="0 0 660 240" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<defs><marker id="ahgv" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--ink-soft)"/></marker></defs>'
+      +'<line x1="'+ox+'" y1="20" x2="'+ox+'" y2="'+oy+'" stroke="var(--ink-soft)" stroke-width="1.5" marker-end="url(#ahgv)"/>'
+      +'<line x1="'+ox+'" y1="'+oy+'" x2="620" y2="'+oy+'" stroke="var(--ink-soft)" stroke-width="1.5" marker-end="url(#ahgv)"/>'
+      +'<text x="70" y="26" text-anchor="end" font-size="10.5" fill="var(--ink)">g</text>'
+      +'<text x="628" y="'+(oy+4)+'" font-size="10.5" fill="var(--ink)">r</text>'
+      +'<path d="M'+ox+','+oy+' L'+surfx+',40" stroke="var(--teal)" stroke-width="3" fill="none"/>'
+      +'<path d="M'+surfx+',40 Q'+(surfx+90)+',95 '+(surfx+230)+',150 T'+(surfx+330)+',180" stroke="var(--red)" stroke-width="3" fill="none"/>'
+      +'<line x1="'+surfx+'" y1="'+oy+'" x2="'+surfx+'" y2="40" stroke="var(--line-strong)" stroke-width="1.5" stroke-dasharray="4,3"/>'
+      +'<circle cx="'+surfx+'" cy="40" r="5.5" fill="var(--amber)"/>'
+      +'<text x="'+surfx+'" y="'+(oy+18)+'" text-anchor="middle" font-size="10.5" fill="var(--ink)">'+d("surface (r = RE)","सतह (r = RE)")+'</text>'
+      +'<text x="'+(ox+20)+'" y="'+(oy-10)+'" font-size="10" fill="var(--teal)">'+d("inside: g rises","भीतर: g बढ़ता है")+'</text>'
+      +'<text x="'+(surfx+70)+'" y="105" font-size="10" fill="var(--red)">'+d("outside: g falls as 1/r²","बाहर: g, 1/r² की तरह घटता है")+'</text>'
+      +'<text x="330" y="228" text-anchor="middle" font-size="11" fill="var(--ink)">'+d("g is maximum exactly at the surface — falls whichever way you move from there.","g ठीक सतह पर अधिकतम है — वहाँ से किसी भी दिशा में हटने पर घटता है।")+'</text>'
+      +'</svg>';
+  },
+  "grav-pe-well": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    var ox=90, zy=50, oy=190;
+    return '<svg viewBox="0 0 660 220" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<defs><marker id="ahpe" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--ink-soft)"/></marker></defs>'
+      +'<line x1="'+ox+'" y1="20" x2="'+ox+'" y2="'+oy+'" stroke="var(--ink-soft)" stroke-width="1.5" marker-end="url(#ahpe)"/>'
+      +'<line x1="'+ox+'" y1="'+zy+'" x2="620" y2="'+zy+'" stroke="var(--line-strong)" stroke-width="1.5" stroke-dasharray="4,3"/>'
+      +'<text x="628" y="'+(zy+4)+'" font-size="10.5" fill="var(--ink)">'+d("V = 0 at r = ∞","r = ∞ पर V = 0")+'</text>'
+      +'<line x1="'+ox+'" y1="'+oy+'" x2="620" y2="'+oy+'" stroke="var(--ink-soft)" stroke-width="1.5" marker-end="url(#ahpe)"/>'
+      +'<text x="70" y="30" text-anchor="end" font-size="10.5" fill="var(--ink)">V(r)</text>'
+      +'<text x="628" y="'+(oy+18)+'" font-size="10.5" fill="var(--ink)">r</text>'
+      +'<path d="M120,'+oy+' Q160,120 260,90 T460,60 T600,'+(zy+6)+'" stroke="var(--red)" stroke-width="3" fill="none"/>'
+      +'<circle cx="150" cy="'+(oy-8)+'" r="5.5" fill="var(--amber)"/>'
+      +'<text x="150" y="'+(oy+18)+'" text-anchor="middle" font-size="10.5" fill="var(--ink)">'+d("surface","सतह")+'</text>'
+      +'<text x="330" y="205" text-anchor="middle" font-size="11" fill="var(--ink)">'+d("V(r) = −GMm/r : always negative, climbing toward (never reaching) zero as r grows.","V(r) = −GMm/r : हमेशा ऋणात्मक, r बढ़ने पर शून्य की ओर चढ़ता है (कभी पहुँचता नहीं)।")+'</text>'
+      +'</svg>';
+  },
+  "escape-speed-energy": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    var zy=120, bw=90;
+    return '<svg viewBox="0 0 660 220" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="330" y="16" text-anchor="middle" font-size="13.5" font-weight="bold" fill="var(--primary)">'+d("Total energy decides: fall back, or escape?","कुल ऊर्जा तय करती है: वापस गिरे, या पलायन करे?")+'</text>'
+      +'<line x1="60" y1="'+zy+'" x2="600" y2="'+zy+'" stroke="var(--ink-soft)" stroke-width="1.5"/>'
+      +'<text x="612" y="'+(zy+4)+'" font-size="10" fill="var(--ink-soft)">E = 0</text>'
+      +'<rect x="130" y="'+zy+'" width="'+bw+'" height="55" fill="var(--red)" opacity="0.75"/>'
+      +'<text x="'+(130+bw/2)+'" y="'+(zy+70)+'" text-anchor="middle" font-size="10">v &lt; vₑ</text>'
+      +'<text x="'+(130+bw/2)+'" y="'+(zy-8)+'" text-anchor="middle" font-size="10" fill="var(--red)">'+d("E &lt; 0 — falls back","E &lt; 0 — वापस गिरता है")+'</text>'
+      +'<rect x="290" y="'+(zy-2)+'" width="'+bw+'" height="4" fill="var(--amber)"/>'
+      +'<text x="'+(290+bw/2)+'" y="'+(zy+18)+'" text-anchor="middle" font-size="10">v = vₑ</text>'
+      +'<text x="'+(290+bw/2)+'" y="'+(zy-8)+'" text-anchor="middle" font-size="10" fill="var(--amber)">'+d("E = 0 — just escapes","E = 0 — बस पलायन करता है")+'</text>'
+      +'<rect x="450" y="'+(zy-55)+'" width="'+bw+'" height="55" fill="var(--teal)" opacity="0.85"/>'
+      +'<text x="'+(450+bw/2)+'" y="'+(zy+18)+'" text-anchor="middle" font-size="10">v &gt; vₑ</text>'
+      +'<text x="'+(450+bw/2)+'" y="'+(zy-63)+'" text-anchor="middle" font-size="10" fill="var(--teal)">'+d("E &gt; 0 — escapes with speed to spare","E &gt; 0 — बचती speed के साथ पलायन")+'</text>'
+      +'</svg>';
+  },
+  "satellite-orbit": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    var cx=330, cy=120, R=95, angle=-35, rad=angle*Math.PI/180;
+    var px=cx+R*Math.cos(rad), py=cy+R*Math.sin(rad);
+    return '<svg viewBox="0 0 660 240" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<defs><marker id="ahso" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--primary)"/></marker></defs>'
+      +'<circle cx="'+cx+'" cy="'+cy+'" r="34" fill="var(--teal)" opacity="0.9"/>'
+      +'<text x="'+cx+'" y="'+(cy+5)+'" text-anchor="middle" font-size="10" fill="#fff" font-weight="bold">'+d("Earth","पृथ्वी")+'</text>'
+      +'<circle cx="'+cx+'" cy="'+cy+'" r="'+R+'" fill="none" stroke="var(--ink-soft)" stroke-width="2" stroke-dasharray="5,4"/>'
+      +'<circle cx="'+px.toFixed(1)+'" cy="'+py.toFixed(1)+'" r="8" fill="var(--red)"/>'
+      +'<line x1="'+px.toFixed(1)+'" y1="'+py.toFixed(1)+'" x2="'+cx+'" y2="'+cy+'" stroke="var(--primary)" stroke-width="2.5" marker-end="url(#ahso)"/>'
+      +'<text x="'+((px+cx)/2-8).toFixed(1)+'" y="'+((py+cy)/2-8).toFixed(1)+'" font-size="10" fill="var(--primary)">F</text>'
+      +'<line x1="'+px.toFixed(1)+'" y1="'+py.toFixed(1)+'" x2="'+(px+70*Math.cos(rad+Math.PI/2)).toFixed(1)+'" y2="'+(py+70*Math.sin(rad+Math.PI/2)).toFixed(1)+'" stroke="var(--amber)" stroke-width="2.5" marker-end="url(#ahso)"/>'
+      +'<text x="'+(px+80*Math.cos(rad+Math.PI/2)).toFixed(1)+'" y="'+(py+80*Math.sin(rad+Math.PI/2)).toFixed(1)+'" text-anchor="middle" font-size="10" fill="var(--amber)">V</text>'
+      +'<text x="330" y="16" text-anchor="middle" font-size="13.5" font-weight="bold" fill="var(--primary)">'+d("Gravity supplies exactly the centripetal force","गुरुत्वाकर्षण ठीक अभिकेन्द्र बल देता है")+'</text>'
+      +'<text x="330" y="228" text-anchor="middle" font-size="11" fill="var(--ink)">V is tangent to the orbit; F points to the centre — falling forever, missing the ground.</text>'
+      +'</svg>';
+  },
+  "geostationary-orbit": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    var cx=200, cy=130;
+    return '<svg viewBox="0 0 660 260" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="330" y="16" text-anchor="middle" font-size="13.5" font-weight="bold" fill="var(--primary)">'+d("Geostationary: T = 24 h, equatorial, same spin direction","भूस्थिर: T = 24 घंटे, भूमध्यरेखीय, वही घूर्णन दिशा")+'</text>'
+      +'<circle cx="'+cx+'" cy="'+cy+'" r="30" fill="var(--teal)"/>'
+      +'<line x1="'+(cx-90)+'" y1="'+cy+'" x2="'+(cx+90)+'" y2="'+cy+'" stroke="var(--line-strong)" stroke-width="1.5" stroke-dasharray="3,3"/>'
+      +'<text x="'+(cx+96)+'" y="'+(cy+4)+'" font-size="9.5" fill="var(--ink-soft)">'+d("equator","भूमध्य रेखा")+'</text>'
+      +'<circle cx="'+cx+'" cy="'+cy+'" r="90" fill="none" stroke="var(--amber)" stroke-width="2.5"/>'
+      +'<circle cx="'+(cx+90)+'" cy="'+cy+'" r="7" fill="var(--amber)"/>'
+      +'<text x="'+(cx+90)+'" y="'+(cy-14)+'" text-anchor="middle" font-size="10" fill="var(--amber)">'+d("geostationary satellite","भूस्थिर उपग्रह")+'</text>'
+      +'<ellipse cx="'+cx+'" cy="'+cy+'" rx="55" ry="90" fill="none" stroke="var(--ink-soft)" stroke-width="1.5" stroke-dasharray="3,3" transform="rotate(20 '+cx+' '+cy+')"/>'
+      +'<text x="'+(cx-70)+'" y="40" font-size="9.5" fill="var(--ink-soft)">'+d("polar orbit (RISAT/Cartosat)","ध्रुवीय कक्षा (RISAT/Cartosat)")+'</text>'
+      +'<rect x="470" y="70" width="150" height="120" rx="8" fill="var(--primary-light)"/>'
+      +'<text x="545" y="92" text-anchor="middle" font-size="10.5" font-weight="bold" fill="var(--primary)">'+d("DTH dish","DTH डिश")+'</text>'
+      +'<rect x="520" y="140" width="12" height="40" fill="var(--ink-soft)"/>'
+      +'<path d="M500,150 A30,30 0 0 1 552,140" fill="none" stroke="var(--ink)" stroke-width="4"/>'
+      +'<text x="545" y="205" text-anchor="middle" font-size="9.5" fill="var(--ink)">'+d("bolted once, never moves","एक बार कसी, कभी नहीं हिलती")+'</text>'
+      +'</svg>';
+  },
+  "satellite-energy-bars": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    var zy=170, bw=80;
+    return '<svg viewBox="0 0 660 220" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<line x1="60" y1="'+zy+'" x2="600" y2="'+zy+'" stroke="var(--ink-soft)" stroke-width="1.5"/>'
+      +'<text x="612" y="'+(zy+4)+'" font-size="10" fill="var(--ink-soft)">0</text>'
+      +'<rect x="150" y="'+(zy-60)+'" width="'+bw+'" height="60" fill="var(--teal)"/>'
+      +'<text x="'+(150+bw/2)+'" y="'+(zy-70)+'" text-anchor="middle" font-size="11" font-weight="bold" fill="var(--teal)">K</text>'
+      +'<text x="'+(150+bw/2)+'" y="'+(zy+18)+'" text-anchor="middle" font-size="10">+GMm/2r</text>'
+      +'<rect x="290" y="'+zy+'" width="'+bw+'" height="120" fill="var(--red)"/>'
+      +'<text x="'+(290+bw/2)+'" y="'+(zy+134)+'" text-anchor="middle" font-size="11" font-weight="bold" fill="var(--red)">P.E.</text>'
+      +'<text x="'+(290+bw/2)+'" y="'+(zy-8)+'" text-anchor="middle" font-size="10">−GMm/r = −2K</text>'
+      +'<rect x="430" y="'+zy+'" width="'+bw+'" height="60" fill="var(--amber)"/>'
+      +'<text x="'+(430+bw/2)+'" y="'+(zy+74)+'" text-anchor="middle" font-size="11" font-weight="bold" fill="var(--amber)">E</text>'
+      +'<text x="'+(430+bw/2)+'" y="'+(zy-8)+'" text-anchor="middle" font-size="10">−GMm/2r = −K</text>'
+      +'<text x="330" y="20" text-anchor="middle" font-size="11" fill="var(--ink)">'+d("|P.E.| is twice K; total E has the same size as K but is negative — bound forever.","|P.E.|, K का दुगना है; कुल E, K जितने आकार की पर ऋणात्मक है — हमेशा के लिए बद्ध।")+'</text>'
+      +'</svg>';
+  },
+  "weightlessness-freefall": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 660 240" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<defs><marker id="ahwl" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--ink)"/></marker></defs>'
+      +'<rect x="10" y="10" width="300" height="210" rx="10" fill="var(--primary-light)" opacity="0.5"/>'
+      +'<text x="160" y="30" text-anchor="middle" font-size="11.5" font-weight="bold" fill="var(--primary)">'+d("Standing on the ground","ज़मीन पर खड़े")+'</text>'
+      +'<rect x="100" y="150" width="120" height="14" fill="var(--ink-soft)"/>'
+      +'<circle cx="160" cy="120" r="16" fill="var(--red)"/>'
+      +'<line x1="160" y1="136" x2="160" y2="150" stroke="var(--ink)" stroke-width="4"/>'
+      +'<line x1="160" y1="150" x2="160" y2="185" stroke="var(--red)" stroke-width="3" marker-end="url(#ahwl)"/>'
+      +'<text x="176" y="185" font-size="10" fill="var(--red)">mg</text>'
+      +'<line x1="160" y1="150" x2="160" y2="115" stroke="var(--teal)" stroke-width="3" marker-end="url(#ahwl)"/>'
+      +'<text x="176" y="122" font-size="10" fill="var(--teal)">N</text>'
+      +'<text x="160" y="205" text-anchor="middle" font-size="10" fill="var(--ink)">'+d("N pushes back — weight felt","N वापस धकेलता है — वज़न महसूस")+'</text>'
+      +'<rect x="330" y="10" width="320" height="210" rx="10" fill="var(--primary-light)" opacity="0.5"/>'
+      +'<text x="490" y="30" text-anchor="middle" font-size="11.5" font-weight="bold" fill="var(--primary)">'+d("Free fall (orbit or falling lift)","मुक्त पतन (कक्षा या गिरती लिफ़्ट)")+'</text>'
+      +'<rect x="440" y="110" width="120" height="14" fill="var(--ink-soft)"/>'
+      +'<circle cx="500" cy="90" r="16" fill="var(--red)"/>'
+      +'<line x1="500" y1="106" x2="500" y2="110" stroke="var(--ink)" stroke-width="4"/>'
+      +'<line x1="500" y1="145" x2="500" y2="165" stroke="var(--amber)" stroke-width="3" marker-end="url(#ahwl)"/>'
+      +'<text x="516" y="160" font-size="10" fill="var(--amber)">g</text>'
+      +'<line x1="440" y1="150" x2="440" y2="170" stroke="var(--amber)" stroke-width="3" marker-end="url(#ahwl)"/>'
+      +'<line x1="560" y1="150" x2="560" y2="170" stroke="var(--amber)" stroke-width="3" marker-end="url(#ahwl)"/>'
+      +'<text x="490" y="200" text-anchor="middle" font-size="10" fill="var(--ink)">'+d("Both fall at the same g — no push, no felt weight","दोनों एक ही g से गिरते हैं — कोई धक्का नहीं, वज़न महसूस नहीं")+'</text>'
+      +'</svg>';
   }
 };
 
@@ -994,6 +1189,47 @@ var INTERACTIVES = {
       +'<span class="labval" id="spRv">100%</span></div>'
       +'<div class="labout" id="spOut">I = 4.00 kg m²  ·  ω = 2.00 rad/s</div>'
       +'<div class="labnote" id="spNote">'+d("L = I ω stays fixed at 8.00 kg m²/s — no outside torque.","L = I ω 8.00 kg m²/s पर स्थिर — कोई बाहरी torque नहीं।")+'</div>';
+  },
+  "g-height-depth-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Position: depth ←  0  → height (km)","स्थिति: गहराई ←  0  → ऊँचाई (km)")+'</label>'
+      +'<input type="range" id="gdX" min="-3200" max="6400" step="100" value="0" oninput="gdCalc()">'
+      +'<span class="labval" id="gdXv">0 km (surface)</span></div>'
+      +'<div style="margin-top:8px"><svg viewBox="0 0 400 60" style="width:100%;max-width:420px;display:block;margin:0 auto">'
+      +'<line x1="20" y1="30" x2="380" y2="30" stroke="var(--line-strong)" stroke-width="3"/>'
+      +'<circle cx="153" cy="30" r="5" fill="var(--amber)"/>'
+      +'<text x="153" y="15" text-anchor="middle" font-size="9" fill="var(--amber)">'+d("surface","सतह")+'</text>'
+      +'<circle id="gdDot" cx="153" cy="30" r="8" fill="var(--red)"/>'
+      +'</svg></div>'
+      +'<div class="labout" id="gdOut">g = 9.80 m/s² (100% of surface g)</div>'
+      +'<div class="labnote" id="gdNote">'+d("Height costs twice what depth does, for the same distance.","बराबर दूरी के लिए, ऊँचाई गहराई से दुगना वसूलती है।")+'</div>';
+  },
+  "escape-speed-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Launch speed (km/s)","प्रक्षेपण speed (km/s)")+'</label>'
+      +'<input type="range" id="esV" min="1" max="16" step="0.2" value="6" oninput="esCalc()">'
+      +'<span class="labval" id="esVv">6.0 km/s</span></div>'
+      +'<div style="margin-top:8px"><svg viewBox="0 0 400 90" style="width:100%;max-width:420px;display:block;margin:0 auto">'
+      +'<circle cx="60" cy="75" r="16" fill="var(--teal)"/>'
+      +'<line x1="60" y1="75" x2="400" y2="75" stroke="var(--line-strong)" stroke-width="1.5" stroke-dasharray="3,3"/>'
+      +'<line id="esArrow" x1="60" y1="75" x2="60" y2="20" stroke="var(--red)" stroke-width="4"/>'
+      +'<circle id="esDot" cx="60" cy="20" r="6" fill="var(--red)"/>'
+      +'</svg></div>'
+      +'<div class="labout" id="esOut">v &lt; vₑ — falls back after reaching a maximum height</div>'
+      +'<div class="labnote" id="esNote">'+d("At 11.2 km/s the object just barely never returns.","11.2 km/s पर वस्तु बस मुश्किल से कभी वापस नहीं आती।")+'</div>';
+  },
+  "satellite-orbit-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Orbit height above surface (km)","सतह से ऊपर कक्षा की ऊँचाई (km)")+'</label>'
+      +'<input type="range" id="soH" min="200" max="40000" step="200" value="400" oninput="soCalc()">'
+      +'<span class="labval" id="soHv">400 km</span></div>'
+      +'<div style="margin-top:8px"><svg viewBox="0 0 300 200" style="width:100%;max-width:300px;display:block;margin:0 auto">'
+      +'<circle cx="150" cy="100" r="24" fill="var(--teal)"/>'
+      +'<circle id="soOrbit" cx="150" cy="100" r="45" fill="none" stroke="var(--primary)" stroke-width="2" stroke-dasharray="5,4"/>'
+      +'<circle id="soSat" cx="195" cy="100" r="6" fill="var(--red)"/>'
+      +'</svg></div>'
+      +'<div class="labout" id="soOut">V = 7.67 km/s · T = 92.6 min</div>'
+      +'<div class="labnote" id="soNote">'+d("Higher orbits move slower but take a rounder, longer path.","ऊँची कक्षाएँ धीमी चलती हैं पर गोलाकार, लंबा रास्ता तय करती हैं।")+'</div>';
   }
 };
 function tqCalc(){
@@ -1027,6 +1263,58 @@ function spCalc(){
   var w=Lc/I;
   document.getElementById("spOut").textContent="I = "+I.toFixed(2)+" kg m²  ·  ω = "+w.toFixed(2)+" rad/s";
   document.getElementById("spNote").innerHTML=sp("L = I ω stays fixed at 8.00 kg m²/s — no outside torque.","L = I ω 8.00 kg m²/s पर स्थिर — कोई बाहरी torque नहीं।");
+}
+function gdCalc(){
+  var x=+document.getElementById("gdX").value;         /* km: negative = depth, positive = height */
+  var RE=6400, g0=9.8, g, label;
+  if(x>=0){ g=g0*Math.pow(RE/(RE+x),2); label=x.toFixed(0)+" km "+sp("height","ऊँचाई"); }
+  else { var depth=-x; g=g0*(1-depth/RE); label=depth.toFixed(0)+" km "+sp("depth","गहराई"); }
+  if(x===0) label=sp("0 km (surface)","0 km (सतह)");
+  document.getElementById("gdXv").innerHTML=label;
+  var pct=(g/g0*100);
+  document.getElementById("gdOut").innerHTML="g = "+g.toFixed(2)+" m/s² ("+pct.toFixed(0)+"% "+sp("of surface g","सतह के g का")+")";
+  var px = x<0 ? 153+(x/3200)*133 : 153+(x/6400)*227;
+  document.getElementById("gdDot").setAttribute("cx", px.toFixed(1));
+  var note=document.getElementById("gdNote");
+  if(x>0) note.innerHTML=sp("Going up costs roughly twice what the same distance down costs.","ऊपर जाना, उतनी ही दूरी नीचे जाने से लगभग दुगना वसूलता है।");
+  else if(x<0) note.innerHTML=sp("Going down: only the mass closer to the centre than you still pulls.","नीचे जाना: सिर्फ़ आपसे केंद्र के ज़्यादा पास का द्रव्यमान अब भी खींचता है।");
+  else note.innerHTML=sp("The surface is the peak — g falls whichever way you move from here.","सतह ही चोटी है — यहाँ से किसी भी दिशा में हटने पर g घटता है।");
+}
+function esCalc(){
+  var v=+document.getElementById("esV").value;          /* km/s */
+  document.getElementById("esVv").textContent=v.toFixed(1)+" km/s";
+  var ve=11.2, RE=6.371e6, g=9.8, out=document.getElementById("esOut"), note=document.getElementById("esNote");
+  var arrow=document.getElementById("esArrow"), dot=document.getElementById("esDot");
+  if(v<ve){
+    var vm=v*1000, denom=1-(vm*vm)/(2*g*RE);
+    var rmax=RE/denom, hkm=(rmax-RE)/1000;
+    var len=Math.min(55, 8+ (hkm/12000)*55);
+    arrow.setAttribute("y2", (75-len).toFixed(1)); arrow.setAttribute("stroke","var(--red)"); arrow.setAttribute("stroke-dasharray","");
+    dot.setAttribute("cy", (75-len).toFixed(1)); dot.setAttribute("fill","var(--red)");
+    out.innerHTML="v &lt; vₑ — "+sp("reaches about","लगभग")+" "+(hkm>=1000? (hkm/1000).toFixed(2)+" × 10³ km": hkm.toFixed(0)+" km")+" "+sp("then falls back","फिर वापस गिरता है");
+  } else {
+    var vfar=Math.sqrt(v*v-ve*ve);
+    arrow.setAttribute("y2","6"); arrow.setAttribute("stroke","var(--teal)"); arrow.setAttribute("stroke-dasharray","4,3");
+    dot.setAttribute("cy","6"); dot.setAttribute("fill","var(--teal)");
+    out.innerHTML="v ≥ vₑ — "+sp("escapes, arriving far away at","पलायन करता है, दूर पहुँचकर speed")+" "+vfar.toFixed(2)+" km/s";
+  }
+  note.innerHTML = v<ve ? sp("At 11.2 km/s the object just barely never returns.","11.2 km/s पर वस्तु बस मुश्किल से कभी वापस नहीं आती।")
+                        : sp("Notice: mass never entered this calculation.","ग़ौर कीजिए: इस हिसाब में द्रव्यमान कहीं नहीं आया।");
+}
+function soCalc(){
+  var h=+document.getElementById("soH").value;          /* km */
+  document.getElementById("soHv").textContent=h.toFixed(0)+" km";
+  var RE=6400, GM=3.98e14, r=(RE+h)*1000;
+  var V=Math.sqrt(GM/r)/1000;                            /* km/s */
+  var T=2*Math.PI*Math.sqrt(Math.pow(r,3)/GM);            /* s */
+  var Ttxt = T<10800 ? (T/60).toFixed(1)+" "+sp("min","मिनट") : (T/3600).toFixed(2)+" "+sp("h","घंटे");
+  document.getElementById("soOut").innerHTML="V = "+V.toFixed(2)+" km/s · T = "+Ttxt;
+  var rpx=45+Math.min(1,h/40000)*140;
+  document.getElementById("soOrbit").setAttribute("r", rpx.toFixed(1));
+  document.getElementById("soSat").setAttribute("cx",(150+rpx).toFixed(1));
+  var note=document.getElementById("soNote");
+  if(h>30000) note.innerHTML=sp("Near geostationary range — period approaches 24 hours here.","भूस्थिर सीमा के पास — यहाँ आवर्तकाल 24 घंटे के क़रीब पहुँचता है।");
+  else note.innerHTML=sp("Higher orbits move slower but take a rounder, longer path.","ऊँची कक्षाएँ धीमी चलती हैं पर गोलाकार, लंबा रास्ता तय करती हैं।");
 }
 
 /* ============ Animations: press Play to watch the physics happen ============
@@ -1084,10 +1372,25 @@ var ANIMATIONS = {
       +'<button class="btn sm" id="skBtn" onclick="skPlay()">▶︎ '+d("Pull the arms in","हाथ अंदर खींचिए")+'</button>'
       +'<span class="animout" id="skOut">I = 4.00 · ω = 2.00 · L = 8.00</span></div>'
       +'<div class="labnote animnote">'+d("Watch the spin speed up on its own as the weights come in.","देखिए, वज़न अंदर आते ही घूमना अपने आप तेज़ हो जाता है।")+'</div>';
+  },
+  "orbit-sweep": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 660 220" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="330" y="16" text-anchor="middle" font-size="13.5" font-weight="bold" fill="var(--primary)">'+d("Equal areas in equal time — watch the speed change","समान समय में समान क्षेत्रफल — speed का बदलना देखिए")+'</text>'
+      +'<ellipse cx="330" cy="120" rx="190" ry="152" fill="none" stroke="var(--line-strong)" stroke-width="2"/>'
+      +'<circle cx="216" cy="120" r="11" fill="var(--amber)"/>'
+      +'<text x="216" y="102" text-anchor="middle" font-size="10.5" font-weight="bold" fill="var(--amber)">'+d("Sun","सूर्य")+'</text>'
+      +'<line id="obLine" x1="216" y1="120" x2="140" y2="120" stroke="var(--ink-soft)" stroke-width="1.5" stroke-dasharray="3,3"/>'
+      +'<circle id="obDot" cx="140" cy="120" r="8" fill="var(--red)"/>'
+      +'</svg>'
+      +'<div class="animbar">'
+      +'<button class="btn sm" id="obBtn" onclick="obPlay()">▶︎ '+d("Play","चलाइए")+'</button>'
+      +'<span class="animout" id="obOut">'+d("Distance: closest · Speed: fastest","दूरी: सबसे पास · Speed: सबसे तेज़")+'</span></div>'
+      +'<div class="labnote animnote">'+d("The dot speeds up near the Sun and crawls when far away — same rule, no extra force needed.","सूर्य के पास बिंदु तेज़ हो जाता है और दूर होने पर रेंगता है — वही नियम, कोई अतिरिक्त बल नहीं चाहिए।")+'</div>';
   }
 };
 function _reduceMotion(){ return window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches; }
-var _rafDoor=null, _rafSk=null;
+var _rafDoor=null, _rafSk=null, _rafOb=null, _obRunning=false;
 function doorPlay(){
   var A=document.getElementById("doorA"), B=document.getElementById("doorB"), out=document.getElementById("doorOut");
   if(!A||!B) return;
@@ -1141,6 +1444,45 @@ function skPlay(){
     last=ts;
     setArms(r); readout(r,ang);
     if(k<1) _rafSk=requestAnimationFrame(frame); else _rafSk=null;
+  });
+}
+function obPlay(){
+  var dot=document.getElementById("obDot"), line=document.getElementById("obLine"), out=document.getElementById("obOut"), btn=document.getElementById("obBtn");
+  if(!dot) return;
+  var fx=216, cy=120, a=190, e=0.6;                 /* ellipse: same geometry as the static diagram */
+  var rmin=a*(1-e), rmax=a*(1+e);
+  function paint(theta){
+    var r = a*(1-e*e)/(1+e*Math.cos(theta));
+    var ang = theta + Math.PI;                       /* perihelion points toward -x from the focus */
+    var px = fx + r*Math.cos(ang), py = cy - r*Math.sin(ang);
+    dot.setAttribute("cx", px.toFixed(1)); dot.setAttribute("cy", py.toFixed(1));
+    line.setAttribute("x2", px.toFixed(1)); line.setAttribute("y2", py.toFixed(1));
+    var frac = (r-rmin)/(rmax-rmin);                  /* 0 = perihelion, 1 = aphelion */
+    var distLabel = frac<0.15?sp("closest","सबसे पास"):frac<0.4?sp("near","पास"):frac<0.6?sp("mid","बीच"):frac<0.85?sp("far","दूर"):sp("farthest","सबसे दूर");
+    var speedLabel = frac<0.15?sp("fastest","सबसे तेज़"):frac<0.4?sp("fast","तेज़"):frac<0.6?sp("medium","मध्यम"):frac<0.85?sp("slow","धीमा"):sp("slowest","सबसे धीमा");
+    out.innerHTML=sp("Distance: ","दूरी: ")+distLabel+sp(" · Speed: "," · Speed: ")+speedLabel;
+    return r;
+  }
+  if(_reduceMotion()){ paint(Math.PI); return; }        /* static frame at aphelion, with the note explaining the rest */
+  if(_obRunning){                                        /* pause */
+    _obRunning=false;
+    if(_rafOb){ cancelAnimationFrame(_rafOb); _rafOb=null; }
+    btn.innerHTML="▶︎ "+sp("Play","चलाइए");
+    return;
+  }
+  _obRunning=true;
+  btn.innerHTML="⏸ "+sp("Pause","रोकिए");
+  var theta=window._obTheta||0, last=null;
+  var dur=4200, C=2*Math.PI*a*(a*Math.sqrt(1-e*e))/dur;  /* dθ/dt = C/r², calibrated so one full orbit ≈ dur ms */
+  _rafOb=requestAnimationFrame(function frame(ts){
+    if(!document.getElementById("obDot")) { _rafOb=null; _obRunning=false; return; }
+    if(last===null) last=ts;
+    var dt=ts-last; last=ts;
+    var r=paint(theta);
+    theta += (C/(r*r))*dt;
+    if(theta>2*Math.PI) theta-=2*Math.PI;
+    window._obTheta=theta;
+    if(_obRunning) _rafOb=requestAnimationFrame(frame);
   });
 }
 function setLang(l){
