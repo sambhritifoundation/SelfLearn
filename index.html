@@ -268,6 +268,66 @@ function fmtNotes(txt, images){
 }
 /* Inline SVG diagram registry — theme-aware (CSS vars) and bilingual (rebuilt on language toggle). */
 var DIAGRAMS = {
+  "measure-standard": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    var tick=function(x,y,h,color){ return '<line x1="'+x+'" y1="'+y+'" x2="'+x+'" y2="'+(y-h)+'" stroke="'+color+'" stroke-width="3" stroke-linecap="round"/>'; };
+    var ticksA=""; for(var i=0;i<9;i++){ ticksA+=tick(30+i*30,95,22,"var(--primary)"); }
+    var ticksB=""; for(var j=0;j<7;j++){ ticksB+=tick(30+j*38,150,18,"var(--red)"); }
+    var ticksR=""; for(var k=0;k<=8;k++){ ticksR+=tick(350+k*30,95,14,"var(--teal)"); }
+    return '<svg viewBox="0 0 660 230" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="330" y="18" text-anchor="middle" font-size="14" font-weight="bold" fill="var(--primary)">'+d("Same rope, two different “units”","वही रस्सी, दो अलग “unit”")+'</text>'
+      +'<rect x="10" y="30" width="300" height="185" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="1.5"/>'
+      +'<text x="160" y="50" text-anchor="middle" font-size="12.5" font-weight="bold" fill="var(--ink)">'+d("Without a shared unit","बिना साझा unit के")+'</text>'
+      +'<line x1="30" y1="95" x2="270" y2="95" stroke="var(--ink)" stroke-width="3"/>'
+      +ticksA
+      +'<text x="160" y="118" text-anchor="middle" font-size="11.5" fill="var(--primary)">'+d("Hand A → 32 bittas","हाथ A → 32 बित्ते")+'</text>'
+      +'<line x1="30" y1="150" x2="270" y2="150" stroke="var(--ink)" stroke-width="3" opacity="0.35"/>'
+      +ticksB
+      +'<text x="160" y="173" text-anchor="middle" font-size="11.5" fill="var(--red)">'+d("Hand B → 27 bittas","हाथ B → 27 बित्ते")+'</text>'
+      +'<text x="160" y="202" text-anchor="middle" font-size="11" font-weight="bold" fill="var(--ink)" opacity="0.75">'+d("Same rope. Two different answers.","वही रस्सी। दो अलग जवाब।")+'</text>'
+      +'<rect x="350" y="30" width="300" height="185" rx="10" fill="var(--card)" stroke="var(--teal)" stroke-width="2"/>'
+      +'<text x="500" y="50" text-anchor="middle" font-size="12.5" font-weight="bold" fill="var(--ink)">'+d("With a shared unit (SI metre)","साझा unit के साथ (SI मीटर)")+'</text>'
+      +'<line x1="370" y1="95" x2="610" y2="95" stroke="var(--ink)" stroke-width="3"/>'
+      +ticksR
+      +'<text x="500" y="118" text-anchor="middle" font-size="11.5" fill="var(--teal)">'+d("Anyone, anywhere → 3.2 m","कोई भी, कहीं भी → 3.2 m")+'</text>'
+      +'<text x="500" y="150" text-anchor="middle" font-size="11.5" fill="var(--green)">'+d("Hand A checks it: 3.2 m ✓","हाथ A जाँचता है: 3.2 m ✓")+'</text>'
+      +'<text x="500" y="173" text-anchor="middle" font-size="11.5" fill="var(--green)">'+d("Hand B checks it: 3.2 m ✓","हाथ B जाँचता है: 3.2 m ✓")+'</text>'
+      +'<text x="500" y="202" text-anchor="middle" font-size="11" font-weight="bold" fill="var(--ink)" opacity="0.75">'+d("Same rope. One answer, always.","वही रस्सी। हमेशा एक जवाब।")+'</text>'
+      +'</svg>';
+  },
+  "sig-fig-ruler": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    var marks=""; for(var i=0;i<=10;i++){ var x=40+i*54; var big=(i%10===0); marks+='<line x1="'+x+'" y1="70" x2="'+x+'" y2="'+(big?40:52)+'" stroke="var(--ink)" stroke-width="'+(big?2.5:1.5)+'"/>'; if(big) marks+='<text x="'+x+'" y="32" text-anchor="middle" font-size="11" fill="var(--ink)">'+(1.6+i*0.01).toFixed(2)+'</text>'; }
+    return '<svg viewBox="0 0 660 190" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="330" y="18" text-anchor="middle" font-size="14" font-weight="bold" fill="var(--primary)">'+d("Reading a scale: certain digits + one honest guess","Scale पढ़ना: पक्के अंक + एक ईमानदार अंदाज़ा")+'</text>'
+      +'<rect x="20" y="55" width="580" height="24" rx="4" fill="var(--card)" stroke="var(--line)" stroke-width="1.5"/>'
+      +marks
+      +'<line x1="40" y1="70" x2="580" y2="70" stroke="var(--line-strong)" stroke-width="2"/>'
+      +'<line x1="329" y1="130" x2="329" y2="72" stroke="var(--red)" stroke-width="2.5" stroke-dasharray="4,3"/>'
+      +'<polygon points="329,72 322,84 336,84" fill="var(--red)"/>'
+      +'<text x="329" y="150" text-anchor="middle" font-size="13" font-weight="bold" fill="var(--red)">'+d("Nail's edge — lands between marks","कील की नोक — निशानों के बीच")+'</text>'
+      +'<text x="180" y="172" text-anchor="middle" font-size="12" fill="var(--primary)">'+d("“1” and “6” — read directly, certain","“1” और “6” — सीधे पढ़े, पक्के")+'</text>'
+      +'<text x="480" y="172" text-anchor="middle" font-size="12" fill="var(--red)">'+d("“2” — estimated, still significant","“2” — अंदाज़ा, फिर भी सार्थक")+'</text>'
+      +'</svg>';
+  },
+  "dimension-blocks": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    var block=function(x,y,w,label,color){ return '<rect x="'+x+'" y="'+y+'" width="'+w+'" height="34" rx="6" fill="'+color+'"/>'
+      +'<text x="'+(x+w/2)+'" y="'+(y+22)+'" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">'+label+'</text>'; };
+    return '<svg viewBox="0 0 640 260" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="320" y="18" text-anchor="middle" font-size="14" font-weight="bold" fill="var(--primary)">'+d("Every quantity is a recipe of M, L, T","हर राशि M, L, T का एक नुस्ख़ा है")+'</text>'
+      +'<text x="20" y="55" font-size="12.5" fill="var(--ink)">'+d("Volume = L × L × L","Volume = L × L × L")+'</text>'
+      +block(230,38,60,"L","var(--primary)")+block(296,38,60,"L","var(--primary)")+block(362,38,60,"L","var(--primary)")
+      +'<text x="530" y="60" font-size="13" fill="var(--ink)" opacity="0.8">[L³]</text>'
+      +'<text x="20" y="115" font-size="12.5" fill="var(--ink)">'+d("Speed = L ÷ T","Speed = L ÷ T")+'</text>'
+      +block(230,98,60,"L","var(--primary)")+block(296,98,60,"T⁻¹","var(--amber)")
+      +'<text x="530" y="120" font-size="13" fill="var(--ink)" opacity="0.8">[L T⁻¹]</text>'
+      +'<text x="20" y="175" font-size="12.5" fill="var(--ink)">'+d("Force = M × L × T⁻²","Force = M × L × T⁻²")+'</text>'
+      +block(230,158,60,"M","var(--green)")+block(296,158,60,"L","var(--primary)")+block(362,158,60,"T⁻²","var(--amber)")
+      +'<text x="530" y="180" font-size="13" fill="var(--ink)" opacity="0.8">[M L T⁻²]</text>'
+      +'<text x="320" y="230" text-anchor="middle" font-size="11.5" font-weight="bold" fill="var(--ink)" opacity="0.75">'+d("Same blocks, in any unit system, forever — that is a dimension.","चाहे कोई भी unit system हो, यही ब्लॉक हमेशा — यही dimension है।")+'</text>'
+      +'</svg>';
+  },
   "acc-process": function(L){
     var d=function(a,b){return L==="hi"?b:a;};
     var box=function(x,n,lab,sub){
@@ -1264,6 +1324,42 @@ var DIAGRAMS = {
 
 /* Interactive widgets: sliders students can move to feel the relationship. */
 var INTERACTIVES = {
+  "sigfig-calc-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Mass (g)","Mass (g)")+'</label>'
+      +'<input type="range" id="sfM" min="1.000" max="9.999" step="0.001" value="4.237" oninput="sfCalc()">'
+      +'<span class="labval" id="sfMv">4.237 g</span></div>'
+      +'<div class="labrow"><label>'+d("Volume (cm³)","Volume (cm³)")+'</label>'
+      +'<input type="range" id="sfV" min="1.00" max="9.99" step="0.01" value="2.51" oninput="sfCalc()">'
+      +'<span class="labval" id="sfVv">2.51 cm³</span></div>'
+      +'<div class="labout">'+d("Raw calculator value:","कच्चा calculator मान:")+' <span id="sfRaw">1.688048 g/cm³</span></div>'
+      +'<div class="labout" id="sfOut" style="font-weight:bold">1.69 g/cm³</div>'
+      +'<div class="labnote" id="sfNote">'+d("Volume has only 3 significant figures, so density can have at most 3 — no more truth than the least precise input.","Volume में सिर्फ़ 3 सार्थक अंक हैं, तो घनत्व में भी ज़्यादा से ज़्यादा 3 — सबसे कम सटीक input से ज़्यादा सच नहीं।")+'</div>';
+  },
+  "error-combo-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Length error on l = 16.2 cm (± cm)","l = 16.2 cm पर त्रुटि (± cm)")+'</label>'
+      +'<input type="range" id="ecDL" min="0" max="0.5" step="0.05" value="0.1" oninput="ecCalc()">'
+      +'<span class="labval" id="ecDLv">± 0.10 cm</span></div>'
+      +'<div class="labrow"><label>'+d("Breadth error on b = 10.1 cm (± cm)","b = 10.1 cm पर त्रुटि (± cm)")+'</label>'
+      +'<input type="range" id="ecDB" min="0" max="0.5" step="0.05" value="0.1" oninput="ecCalc()">'
+      +'<span class="labval" id="ecDBv">± 0.10 cm</span></div>'
+      +'<div class="labout" id="ecOut">Area = 163.62 cm² ± 2.6 cm²  (1.6%)</div>'
+      +'<div class="labnote" id="ecNote">'+d("Percentage errors add when quantities are multiplied.","राशियाँ गुणा होने पर प्रतिशत त्रुटियाँ जुड़ती हैं।")+'</div>';
+  },
+  "dim-check-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Candidate formula for kinetic energy K","गतिज ऊर्जा K के लिए उम्मीदवार formula")+'</label>'
+      +'<select id="dcSel" onchange="dcCalc()" style="padding:6px 8px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink)">'
+      +'<option value="a">K = m² v³</option>'
+      +'<option value="b" selected>K = ½ m v²</option>'
+      +'<option value="c">K = m a</option>'
+      +'<option value="d">K = ¾ m v²</option>'
+      +'<option value="e">K = ½ m v² + m a</option>'
+      +'</select></div>'
+      +'<div class="labout" id="dcOut">Dimension: [M L² T⁻²]   (need [M L² T⁻²])</div>'
+      +'<div class="labnote" id="dcNote">'+d("Passes the dimension check — but so does the other correct-looking option. Dimensions alone cannot tell you which numeric factor is the real one.","Dimension जाँच पार करता है — पर दूसरा सही दिखने वाला विकल्प भी करता है। अकेली dimensions नहीं बता सकतीं कौन-सा अंक असली है।")+'</div>';
+  },
   "torque-lab": function(L){
     var d=function(a,b){return L==="hi"?b:a;};
     return '<div class="labrow"><label>'+d("Distance r (m)","दूरी r (m)")+'</label>'
@@ -1347,6 +1443,36 @@ var INTERACTIVES = {
       +'<div class="labnote" id="soNote">'+d("Higher orbits move slower but take a rounder, longer path.","ऊँची कक्षाएँ धीमी चलती हैं पर गोलाकार, लंबा रास्ता तय करती हैं।")+'</div>';
   }
 };
+function sfCalc(){
+  var m=+document.getElementById("sfM").value, v=+document.getElementById("sfV").value;
+  document.getElementById("sfMv").textContent=m.toFixed(3)+" g";
+  document.getElementById("sfVv").textContent=v.toFixed(2)+" cm³";
+  var raw=m/v;
+  document.getElementById("sfRaw").textContent=raw.toFixed(6)+" g/cm³";
+  document.getElementById("sfOut").textContent=parseFloat(raw.toPrecision(3))+" g/cm³";
+}
+function ecCalc(){
+  var l=16.2,b=10.1;
+  var dl=+document.getElementById("ecDL").value, db=+document.getElementById("ecDB").value;
+  document.getElementById("ecDLv").textContent="± "+dl.toFixed(2)+" cm";
+  document.getElementById("ecDBv").textContent="± "+db.toFixed(2)+" cm";
+  var pctL=dl/l*100, pctB=db/b*100, pctTot=pctL+pctB;
+  var area=l*b, absErr=area*pctTot/100;
+  document.getElementById("ecOut").textContent="Area = "+area.toFixed(2)+" cm² ± "+absErr.toFixed(1)+" cm²  ("+pctTot.toFixed(1)+"%)";
+  var note=document.getElementById("ecNote");
+  note.innerHTML=sp("Length error "+pctL.toFixed(1)+"% + breadth error "+pctB.toFixed(1)+"% = "+pctTot.toFixed(1)+"% on the area — percentage errors add when you multiply.","लंबाई त्रुटि "+pctL.toFixed(1)+"% + चौड़ाई त्रुटि "+pctB.toFixed(1)+"% = क्षेत्रफल पर "+pctTot.toFixed(1)+"% — गुणा करने पर प्रतिशत त्रुटियाँ जुड़ती हैं।");
+}
+function dcCalc(){
+  var sel=document.getElementById("dcSel").value;
+  var map={ a:{dim:"[M² L³ T⁻³]", ok:false}, b:{dim:"[M L² T⁻²]", ok:true}, c:{dim:"[M L T⁻²]", ok:false}, d:{dim:"[M L² T⁻²]", ok:true}, e:{dim:null, ok:false} };
+  var req="[M L² T⁻²]";
+  var r=map[sel];
+  document.getElementById("dcOut").innerHTML = sp("Dimension: "+(r.dim||"not a valid expression")+"   (need "+req+")", "Dimension: "+(r.dim||"वैध व्यंजक नहीं")+"   (चाहिए "+req+")");
+  var note=document.getElementById("dcNote");
+  if(r.ok) note.innerHTML=sp("Passes the dimension check — but so does the other correct-looking option. Dimensions alone cannot tell you which numeric factor (½ or ¾) is the real one.","Dimension जाँच पार करता है — पर दूसरा सही दिखने वाला विकल्प भी करता है। अकेली dimensions नहीं बता सकतीं कौन-सा अंक (½ या ¾) असली है।");
+  else if(sel==="e") note.innerHTML=sp("Adding ½mv² (energy) and ma (force) is not even a legal expression — their dimensions differ.","½mv² (ऊर्जा) और ma (बल) को जोड़ना वैध व्यंजक ही नहीं — इनकी dimensions अलग हैं।");
+  else note.innerHTML=sp("Ruled out immediately — its dimension does not match energy's [M L² T⁻²] at all.","तुरंत ख़ारिज — इसकी dimension ऊर्जा के [M L² T⁻²] से बिलकुल मेल नहीं खाती।");
+}
 function tqCalc(){
   var r=+document.getElementById("tqR").value, F=+document.getElementById("tqF").value, A=+document.getElementById("tqA").value;
   document.getElementById("tqRv").textContent=r.toFixed(1)+" m";
