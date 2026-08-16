@@ -190,7 +190,7 @@
   <div class="navlinks">
     <button onclick="go('home')"><span class="en">Learn</span><span class="hi">सीखें</span></button>
     <button onclick="go('dashboard')"><span class="en">My Progress</span><span class="hi">मेरी प्रगति</span></button>
-    <button onclick="go('admin')">Admin</button>
+    <!-- Admin nav hidden until role-based access control exists; show only to admin-role users then. Route/vAdmin() left intact below. -->
   </div>
   <div class="lang-switch" role="group" aria-label="Language">
     <button id="btnEn" class="active" aria-label="English" onclick="setLang('en')">EN</button>
