@@ -2107,6 +2107,123 @@ var DIAGRAMS = {
       +'<text x="244" y="172" text-anchor="middle" font-size="12" font-weight="bold" fill="var(--red)">P′</text>'
       +'<text x="210" y="290" text-anchor="middle" font-size="9" fill="var(--ink-soft)">'+d("P moves on the circle; its shadow P′ on the x-axis executes SHM","P circle पर चलता है; x-axis पर इसकी छाया P′ SHM करती है")+'</text>'
       +'</svg>';
+  },
+  "wave-propagation-intro": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    var ticks='';
+    for(var i=0;i<15;i++){ var tx=25+i*13.6; ticks+='<line x1="'+tx+'" y1="65" x2="'+tx+'" y2="75" stroke="var(--ink-soft)" stroke-width="1.5"/>'; }
+    return '<svg viewBox="0 0 480 220" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="120" y="16" text-anchor="middle" font-size="11" font-weight="bold" fill="var(--ink)">'+d("Spring chain — tug one end","Spring chain — एक सिरा खींचिए")+'</text>'
+      +'<line x1="25" y1="70" x2="215" y2="70" stroke="var(--ink)" stroke-width="2"/>'
+      +ticks
+      +'<path d="M75,70 Q100,35 120,70 Q140,105 145,70" fill="none" stroke="var(--primary)" stroke-width="2.5"/>'
+      +'<line x1="150" y1="70" x2="185" y2="70" stroke="var(--amber)" stroke-width="2"/>'
+      +'<polygon points="185,70 175,64 175,76" fill="var(--amber)"/>'
+      +'<rect x="215" y="40" width="14" height="60" fill="var(--line-strong)"/>'
+      +'<text x="120" y="197" text-anchor="middle" font-size="9" fill="var(--ink-soft)">'+d("disturbance moves along —","गड़बड़ी आगे बढ़ती है —")+'</text>'
+      +'<text x="120" y="209" text-anchor="middle" font-size="9" fill="var(--ink-soft)">'+d("each spring only wiggles in place","हर spring बस अपनी जगह हिलती है")+'</text>'
+      +'<text x="360" y="16" text-anchor="middle" font-size="11" font-weight="bold" fill="var(--ink)">'+d("Pond ripple","तालाब की लहर")+'</text>'
+      +'<circle cx="330" cy="110" r="3" fill="var(--ink)"/>'
+      +'<circle cx="330" cy="110" r="22" fill="none" stroke="var(--primary)" stroke-width="1.5" opacity="0.85"/>'
+      +'<circle cx="330" cy="110" r="42" fill="none" stroke="var(--primary)" stroke-width="1.5" opacity="0.55"/>'
+      +'<circle cx="330" cy="110" r="62" fill="none" stroke="var(--primary)" stroke-width="1.5" opacity="0.3"/>'
+      +'<circle cx="366" cy="87" r="6" fill="var(--amber)"/>'
+      +'<line x1="366" y1="78" x2="366" y2="70" stroke="var(--amber)" stroke-width="1.5"/>'
+      +'<polygon points="366,70 362,76 370,76" fill="var(--amber)"/>'
+      +'<line x1="366" y1="96" x2="366" y2="104" stroke="var(--amber)" stroke-width="1.5"/>'
+      +'<polygon points="366,104 362,98 370,98" fill="var(--amber)"/>'
+      +'<text x="360" y="205" text-anchor="middle" font-size="9" fill="var(--ink-soft)">'+d("cork just bobs up and down — never drifts outward","cork बस ऊपर-नीचे होता है — कभी बाहर नहीं बहता")+'</text>'
+      +'</svg>';
+  },
+  "transverse-longitudinal-waves": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    var lines='';
+    var xs=[260,268,276,284, 310, 318,326,334,342, 368, 376,384,392,400, 426, 434,442,450,458];
+    xs.forEach(function(x){ lines+='<line x1="'+x+'" y1="60" x2="'+x+'" y2="160" stroke="var(--ink-soft)" stroke-width="1.5"/>'; });
+    return '<svg viewBox="0 0 480 210" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="120" y="16" text-anchor="middle" font-size="11" font-weight="bold" fill="var(--ink)">'+d("Transverse (rope)","Transverse (rope)")+'</text>'
+      +'<path d="M20,110 Q45,70 70,110 Q95,150 120,110 Q145,70 170,110 Q195,150 220,110" fill="none" stroke="var(--primary)" stroke-width="2.5"/>'
+      +'<line x1="45" y1="88" x2="45" y2="70" stroke="var(--red)" stroke-width="1.5"/>'
+      +'<polygon points="45,70 41,78 49,78" fill="var(--red)"/>'
+      +'<line x1="95" y1="132" x2="95" y2="150" stroke="var(--red)" stroke-width="1.5"/>'
+      +'<polygon points="95,150 91,142 99,142" fill="var(--red)"/>'
+      +'<line x1="145" y1="88" x2="145" y2="70" stroke="var(--red)" stroke-width="1.5"/>'
+      +'<polygon points="145,70 141,78 149,78" fill="var(--red)"/>'
+      +'<line x1="20" y1="180" x2="215" y2="180" stroke="var(--amber)" stroke-width="2"/>'
+      +'<polygon points="215,180 205,175 205,185" fill="var(--amber)"/>'
+      +'<text x="120" y="200" text-anchor="middle" font-size="8.5" fill="var(--ink-soft)">'+d("particles move ⊥ to propagation","particles प्रसार के लंबवत चलते हैं")+'</text>'
+      +'<text x="360" y="16" text-anchor="middle" font-size="11" font-weight="bold" fill="var(--ink)">'+d("Longitudinal (slinky/sound)","Longitudinal (slinky/sound)")+'</text>'
+      +lines
+      +'<line x1="260" y1="180" x2="458" y2="180" stroke="var(--amber)" stroke-width="2"/>'
+      +'<polygon points="458,180 448,175 448,185" fill="var(--amber)"/>'
+      +'<text x="360" y="200" text-anchor="middle" font-size="8.5" fill="var(--ink-soft)">'+d("particles move ‖ to propagation (compress/rarefy)","particles प्रसार के समानांतर चलते हैं (compress/rarefy)")+'</text>'
+      +'</svg>';
+  },
+  "progressive-wave-elements": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 460 260" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<line x1="40" y1="230" x2="40" y2="30" stroke="var(--ink)" stroke-width="2"/>'
+      +'<text x="46" y="20" text-anchor="start" font-size="11" font-weight="bold" fill="var(--ink)">y</text>'
+      +'<line x1="40" y1="150" x2="430" y2="150" stroke="var(--ink)" stroke-width="2"/>'
+      +'<text x="436" y="154" font-size="11" font-weight="bold" fill="var(--ink)">x</text>'
+      +'<line x1="40" y1="150" x2="430" y2="150" stroke="var(--line-strong)" stroke-width="1" stroke-dasharray="2,3"/>'
+      +'<path d="M40,84 L60,123.2 L80,172.6 L100,213.7 L120,230 L140,216 L160,176.8 L180,127.4 L200,86.3 L220,70 L240,84 L260,123.2 L280,172.6 L300,213.7 L320,230 L340,216 L360,176.8 L380,127.4 L400,86.3 L420,70" fill="none" stroke="var(--primary)" stroke-width="2.5"/>'
+      +'<line x1="220" y1="150" x2="220" y2="70" stroke="var(--red)" stroke-width="1.5"/>'
+      +'<polygon points="220,70 216,78 224,78" fill="var(--red)"/>'
+      +'<polygon points="220,150 216,142 224,142" fill="var(--red)"/>'
+      +'<text x="230" y="112" font-size="11" font-weight="bold" fill="var(--red)">a</text>'
+      +'<line x1="220" y1="45" x2="420" y2="45" stroke="var(--teal)" stroke-width="1.5"/>'
+      +'<polygon points="220,45 228,41 228,49" fill="var(--teal)"/>'
+      +'<polygon points="420,45 412,41 412,49" fill="var(--teal)"/>'
+      +'<text x="320" y="38" text-anchor="middle" font-size="11" font-weight="bold" fill="var(--teal)">λ</text>'
+      +'<text x="220" y="63" text-anchor="middle" font-size="8.5" fill="var(--amber)">'+d("crest","crest")+'</text>'
+      +'<text x="120" y="244" text-anchor="middle" font-size="8.5" fill="var(--amber)">'+d("trough","trough")+'</text>'
+      +'<text x="230" y="248" text-anchor="middle" font-size="9" fill="var(--ink-soft)">'+d("A snapshot in space at fixed t: amplitude a, wavelength λ","तय t पर अंतरिक्ष में एक झलक: amplitude a, wavelength λ")+'</text>'
+      +'</svg>';
+  },
+  "wave-superposition": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 460 300" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="230" y="14" text-anchor="middle" font-size="11" font-weight="bold" fill="var(--green)">'+d("Constructive (φ=0): amplitudes add","Constructive (φ=0): amplitudes जुड़ते हैं")+'</text>'
+      +'<path d="M40,55 Q65,40 90,55 Q115,70 140,55 Q165,40 190,55 Q215,70 240,55" fill="none" stroke="var(--ink-soft)" stroke-width="1.5" stroke-dasharray="4,3"/>'
+      +'<path d="M40,55 Q65,42 90,55 Q115,68 140,55 Q165,42 190,55 Q215,68 240,55" fill="none" stroke="var(--teal)" stroke-width="1.5" stroke-dasharray="2,2"/>'
+      +'<path d="M40,55 Q65,20 90,55 Q115,90 140,55 Q165,20 190,55 Q215,90 240,55" fill="none" stroke="var(--primary)" stroke-width="2.5"/>'
+      +'<text x="250" y="30" font-size="10" fill="var(--primary)">2a</text>'
+      +'<line x1="270" y1="20" x2="270" y2="90" stroke="var(--line-strong)" stroke-width="1"/>'
+      +'<text x="330" y="55" text-anchor="middle" font-size="9" fill="var(--ink-soft)">'+d("two waves in phase → bigger wave","in phase दो waves → बड़ी wave")+'</text>'
+      +'<text x="230" y="160" text-anchor="middle" font-size="11" font-weight="bold" fill="var(--red)">'+d("Destructive (φ=π): amplitudes cancel","Destructive (φ=π): amplitudes रद्द होते हैं")+'</text>'
+      +'<path d="M40,200 Q65,180 90,200 Q115,220 140,200 Q165,180 190,200 Q215,220 240,200" fill="none" stroke="var(--ink-soft)" stroke-width="1.5" stroke-dasharray="4,3"/>'
+      +'<path d="M40,200 Q65,220 90,200 Q115,180 140,200 Q165,220 190,200 Q215,180 240,200" fill="none" stroke="var(--teal)" stroke-width="1.5" stroke-dasharray="2,2"/>'
+      +'<line x1="40" y1="200" x2="240" y2="200" stroke="var(--red)" stroke-width="2.5"/>'
+      +'<text x="250" y="204" font-size="10" fill="var(--red)">0</text>'
+      +'<text x="330" y="200" text-anchor="middle" font-size="9" fill="var(--ink-soft)">'+d("two waves out of phase → flat line","out of phase दो waves → सपाट रेखा")+'</text>'
+      +'</svg>';
+  },
+  "standing-waves-modes": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 460 260" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<line x1="40" y1="35" x2="40" y2="65" stroke="var(--ink-soft)" stroke-width="2.5"/>'
+      +'<line x1="420" y1="35" x2="420" y2="65" stroke="var(--ink-soft)" stroke-width="2.5"/>'
+      +'<path d="M40,50 Q230,15 420,50" fill="none" stroke="var(--primary)" stroke-width="2.5"/>'
+      +'<circle cx="40" cy="50" r="4" fill="var(--red)"/><circle cx="420" cy="50" r="4" fill="var(--red)"/>'
+      +'<circle cx="230" cy="15" r="4" fill="var(--teal)"/>'
+      +'<text x="40" y="70" text-anchor="middle" font-size="9" fill="var(--red)">N</text>'
+      +'<text x="230" y="10" text-anchor="middle" font-size="9" fill="var(--teal)">A</text>'
+      +'<text x="10" y="52" font-size="9" fill="var(--ink-soft)">n=1</text>'
+      +'<line x1="40" y1="100" x2="40" y2="120" stroke="var(--ink-soft)" stroke-width="2.5"/>'
+      +'<line x1="420" y1="100" x2="420" y2="120" stroke="var(--ink-soft)" stroke-width="2.5"/>'
+      +'<path d="M40,110 Q130,75 220,110 Q330,145 420,110" fill="none" stroke="var(--primary)" stroke-width="2.5"/>'
+      +'<circle cx="40" cy="110" r="4" fill="var(--red)"/><circle cx="220" cy="110" r="4" fill="var(--red)"/><circle cx="420" cy="110" r="4" fill="var(--red)"/>'
+      +'<circle cx="130" cy="75" r="4" fill="var(--teal)"/><circle cx="330" cy="145" r="4" fill="var(--teal)"/>'
+      +'<text x="10" y="112" font-size="9" fill="var(--ink-soft)">n=2</text>'
+      +'<line x1="40" y1="165" x2="40" y2="185" stroke="var(--ink-soft)" stroke-width="2.5"/>'
+      +'<line x1="420" y1="165" x2="420" y2="185" stroke="var(--ink-soft)" stroke-width="2.5"/>'
+      +'<path d="M40,180 Q103,150 167,180 Q230,210 293,180 Q357,150 420,180" fill="none" stroke="var(--primary)" stroke-width="2.5"/>'
+      +'<circle cx="40" cy="180" r="4" fill="var(--red)"/><circle cx="167" cy="180" r="4" fill="var(--red)"/><circle cx="293" cy="180" r="4" fill="var(--red)"/><circle cx="420" cy="180" r="4" fill="var(--red)"/>'
+      +'<text x="10" y="182" font-size="9" fill="var(--ink-soft)">n=3</text>'
+      +'<text x="230" y="235" text-anchor="middle" font-size="9.5" fill="var(--ink-soft)">'+d("N = node (never moves) · A = antinode (largest swing)","N = node (कभी नहीं हिलता) · A = antinode (सबसे बड़ा झूला)")+'</text>'
+      +'<text x="230" y="250" text-anchor="middle" font-size="9" fill="var(--ink-soft)">'+d("fixed ends must be nodes — this limits which λ fit","तय सिरे node होने चाहिए — यह सीमित करता है कौन सी λ फ़िट होती हैं")+'</text>'
+      +'</svg>';
   }
 };
 
@@ -2711,12 +2828,12 @@ var INTERACTIVES = {
   "shm-spring-lab": function(L){
     var d=function(a,b){return L==="hi"?b:a;};
     return '<div class="labrow"><label>'+d("Mass m (kg)","Mass m (kg)")+'</label>'
-      +'<input type="range" id="ssM" min="0.5" max="10" step="0.5" value="1" oninput="ssCalc()">'
-      +'<span class="labval" id="ssMv">1.0 kg</span></div>'
+      +'<input type="range" id="smM" min="0.5" max="10" step="0.5" value="1" oninput="smCalc()">'
+      +'<span class="labval" id="smMv">1.0 kg</span></div>'
       +'<div class="labrow"><label>'+d("Spring constant k (N/m)","Spring constant k (N/m)")+'</label>'
-      +'<input type="range" id="ssK" min="10" max="500" step="10" value="50" oninput="ssCalc()">'
-      +'<span class="labval" id="ssKv">50 N/m</span></div>'
-      +'<div class="labout" id="ssOut">ω ≈ 7.07 rad/s · T ≈ 0.89 s · f ≈ 1.13 Hz</div>'
+      +'<input type="range" id="smK" min="10" max="500" step="10" value="50" oninput="smCalc()">'
+      +'<span class="labval" id="smKv">50 N/m</span></div>'
+      +'<div class="labout" id="smOut">ω ≈ 7.07 rad/s · T ≈ 0.89 s · f ≈ 1.13 Hz</div>'
       +'<div class="labnote">'+d("Raise k (a stiffer spring) and watch the period shrink; raise m and watch it grow.","k बढ़ाइए (ज़्यादा कड़ी spring) और period को सिकुड़ते देखिए; m बढ़ाइए और इसे बढ़ते देखिए।")+'</div>';
   },
   "shm-energy-lab": function(L){
@@ -2736,13 +2853,63 @@ var INTERACTIVES = {
   "simple-pendulum-lab": function(L){
     var d=function(a,b){return L==="hi"?b:a;};
     return '<div class="labrow"><label>'+d("Length L (m)","Length L (m)")+'</label>'
-      +'<input type="range" id="spL" min="0.2" max="3" step="0.1" value="1" oninput="spCalc()">'
-      +'<span class="labval" id="spLv">1.0 m</span></div>'
+      +'<input type="range" id="pdL" min="0.2" max="3" step="0.1" value="1" oninput="pdCalc()">'
+      +'<span class="labval" id="pdLv">1.0 m</span></div>'
       +'<div class="labrow"><label>'+d("g (m/s²) — try 9.8 Earth, 1.6 Moon","g (m/s²) — 9.8 पृथ्वी, 1.6 चाँद आज़माइए")+'</label>'
-      +'<input type="range" id="spG" min="1.6" max="9.8" step="0.1" value="9.8" oninput="spCalc()">'
-      +'<span class="labval" id="spGv">9.8 m/s²</span></div>'
-      +'<div class="labout" id="spOut">T ≈ 2.01 s</div>'
+      +'<input type="range" id="pdG" min="1.6" max="9.8" step="0.1" value="9.8" oninput="pdCalc()">'
+      +'<span class="labval" id="pdGv">9.8 m/s²</span></div>'
+      +'<div class="labout" id="pdOut">T ≈ 2.01 s</div>'
       +'<div class="labnote">'+d("Try switching g to 1.6 (Moon) with the same length — the period gets much longer.","g को 1.6 (चाँद) पर बदलकर देखिए, वही length के साथ — period कहीं ज़्यादा लंबा हो जाता है।")+'</div>';
+  },
+  "wave-speed-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Wavelength λ (m)","Wavelength λ (m)")+'</label>'
+      +'<input type="range" id="wsL" min="0.5" max="10" step="0.5" value="2" oninput="wsCalc()">'
+      +'<span class="labval" id="wsLv">2.0 m</span></div>'
+      +'<div class="labrow"><label>'+d("Frequency ν (Hz)","Frequency ν (Hz)")+'</label>'
+      +'<input type="range" id="wsF" min="1" max="20" step="0.5" value="5" oninput="wsCalc()">'
+      +'<span class="labval" id="wsFv">5.0 Hz</span></div>'
+      +'<div class="labout" id="wsOut">v = λν = 10.0 m/s</div>'
+      +'<div class="labnote">'+d("The medium fixes v — raising ν just shrinks λ to match, via λ = v/ν.","माध्यम v तय करता है — ν बढ़ाने से बस λ मेल खाने के लिए सिकुड़ती है, λ = v/ν के ज़रिए।")+'</div>';
+  },
+  "string-wave-speed-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Tension T (N)","Tension T (N)")+'</label>'
+      +'<input type="range" id="swT" min="10" max="200" step="5" value="60" oninput="swCalc()">'
+      +'<span class="labval" id="swTv">60 N</span></div>'
+      +'<div class="labrow"><label>'+d("Wire mass (×10⁻³ kg)","Wire mass (×10⁻³ kg)")+'</label>'
+      +'<input type="range" id="swM" min="1" max="20" step="0.5" value="5" oninput="swCalc()">'
+      +'<span class="labval" id="swMv">5.0 ×10⁻³ kg</span></div>'
+      +'<div class="labrow"><label>'+d("Wire length (m)","Wire की length (m)")+'</label>'
+      +'<input type="range" id="swLen" min="0.2" max="2" step="0.02" value="0.72" oninput="swCalc()">'
+      +'<span class="labval" id="swLenv">0.72 m</span></div>'
+      +'<div class="labout" id="swOut">μ = 6.94 ×10⁻³ kg/m · v = √(T/μ) ≈ 93.0 m/s</div>'
+      +'<div class="labnote">'+d("Raise the tension or use a lighter wire, and watch the wave speed climb.","Tension बढ़ाइए या हल्का wire इस्तेमाल कीजिए, और wave speed को बढ़ते देखिए।")+'</div>';
+  },
+  "sound-speed-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("γ = Cp/Cv","γ = Cp/Cv")+'</label>'
+      +'<input type="range" id="scG" min="1.0" max="1.67" step="0.01" value="1.4" oninput="scCalc()">'
+      +'<span class="labval" id="scGv">1.40</span></div>'
+      +'<div class="labrow"><label>'+d("Pressure P (×10⁵ Pa)","दबाव P (×10⁵ Pa)")+'</label>'
+      +'<input type="range" id="scP" min="0.5" max="2" step="0.01" value="1.01" oninput="scCalc()">'
+      +'<span class="labval" id="scPv">1.01 ×10⁵ Pa</span></div>'
+      +'<div class="labrow"><label>'+d("Density ρ (kg/m³)","Density ρ (kg/m³)")+'</label>'
+      +'<input type="range" id="scR" min="0.5" max="2" step="0.01" value="1.29" oninput="scCalc()">'
+      +'<span class="labval" id="scRv">1.29 kg/m³</span></div>'
+      +'<div class="labout" id="scOut">v = √(γP/ρ) ≈ 331.1 m/s</div>'
+      +'<div class="labnote">'+d("These defaults are air at STP — matching the measured 331 m/s almost exactly.","ये defaults STP पर हवा के हैं — मापी गई 331 m/s से लगभग बिल्कुल मेल खाते हुए।")+'</div>';
+  },
+  "beats-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Frequency ν1 (Hz)","Frequency ν1 (Hz)")+'</label>'
+      +'<input type="range" id="btF1" min="200" max="500" step="1" value="427" oninput="btCalc()">'
+      +'<span class="labval" id="btF1v">427 Hz</span></div>'
+      +'<div class="labrow"><label>'+d("Frequency ν2 (Hz)","Frequency ν2 (Hz)")+'</label>'
+      +'<input type="range" id="btF2" min="200" max="500" step="1" value="422" oninput="btCalc()">'
+      +'<span class="labval" id="btF2v">422 Hz</span></div>'
+      +'<div class="labout" id="btOut">ν_beat = |ν1 − ν2| = 5 Hz</div>'
+      +'<div class="labnote">'+d("Move ν2 towards ν1 — the beats slow down, exactly like tuning an instrument by ear.","ν2 को ν1 की ओर ले जाइए — beats धीमी होती हैं, बिल्कुल कान से instrument tune करने जैसा।")+'</div>';
   }
 };
 var IV_DTS=[2.0,1.0,0.5,0.1,0.01];
@@ -3295,15 +3462,15 @@ function vaCalc(){
   var a=-w*w*A*Math.cos(phase);
   document.getElementById("vaOut").textContent="x ≈ "+x.toFixed(2)+" m · v ≈ "+v.toFixed(1)+" m/s · a ≈ "+a.toFixed(1)+" m/s² (φ = π/4 fixed)";
 }
-function ssCalc(){
-  var m=+document.getElementById("ssM").value;
-  var k=+document.getElementById("ssK").value;
-  document.getElementById("ssMv").textContent=m.toFixed(1)+" kg";
-  document.getElementById("ssKv").textContent=k.toFixed(0)+" N/m";
+function smCalc(){
+  var m=+document.getElementById("smM").value;
+  var k=+document.getElementById("smK").value;
+  document.getElementById("smMv").textContent=m.toFixed(1)+" kg";
+  document.getElementById("smKv").textContent=k.toFixed(0)+" N/m";
   var w=Math.sqrt(k/m);
   var T=2*Math.PI/w;
   var f=1/T;
-  document.getElementById("ssOut").textContent="ω ≈ "+w.toFixed(2)+" rad/s · T ≈ "+T.toFixed(2)+" s · f ≈ "+f.toFixed(2)+" Hz";
+  document.getElementById("smOut").textContent="ω ≈ "+w.toFixed(2)+" rad/s · T ≈ "+T.toFixed(2)+" s · f ≈ "+f.toFixed(2)+" Hz";
 }
 function seCalc(){
   var k=+document.getElementById("seK").value;
@@ -3317,13 +3484,52 @@ function seCalc(){
   var KE=E-PE;
   document.getElementById("seOut").textContent="E = "+E.toFixed(3)+" J · PE = "+PE.toFixed(4)+" J · KE = "+KE.toFixed(3)+" J";
 }
-function spCalc(){
-  var Len=+document.getElementById("spL").value;
-  var g=+document.getElementById("spG").value;
-  document.getElementById("spLv").textContent=Len.toFixed(1)+" m";
-  document.getElementById("spGv").textContent=g.toFixed(1)+" m/s²";
+function pdCalc(){
+  var Len=+document.getElementById("pdL").value;
+  var g=+document.getElementById("pdG").value;
+  document.getElementById("pdLv").textContent=Len.toFixed(1)+" m";
+  document.getElementById("pdGv").textContent=g.toFixed(1)+" m/s²";
   var T=2*Math.PI*Math.sqrt(Len/g);
-  document.getElementById("spOut").textContent="T ≈ "+T.toFixed(2)+" s";
+  document.getElementById("pdOut").textContent="T ≈ "+T.toFixed(2)+" s";
+}
+function wsCalc(){
+  var lam=+document.getElementById("wsL").value;
+  var f=+document.getElementById("wsF").value;
+  document.getElementById("wsLv").textContent=lam.toFixed(1)+" m";
+  document.getElementById("wsFv").textContent=f.toFixed(1)+" Hz";
+  var v=lam*f;
+  document.getElementById("wsOut").textContent="v = λν = "+v.toFixed(1)+" m/s";
+}
+function swCalc(){
+  var T=+document.getElementById("swT").value;
+  var mMg=+document.getElementById("swM").value;
+  var len=+document.getElementById("swLen").value;
+  document.getElementById("swTv").textContent=T.toFixed(0)+" N";
+  document.getElementById("swMv").textContent=mMg.toFixed(1)+" ×10⁻³ kg";
+  document.getElementById("swLenv").textContent=len.toFixed(2)+" m";
+  var m=mMg*1e-3;
+  var mu=m/len;
+  var v=Math.sqrt(T/mu);
+  document.getElementById("swOut").textContent="μ = "+sciStr(mu)+" kg/m · v = √(T/μ) ≈ "+v.toFixed(1)+" m/s";
+}
+function scCalc(){
+  var gamma=+document.getElementById("scG").value;
+  var Pfac=+document.getElementById("scP").value;
+  var rho=+document.getElementById("scR").value;
+  document.getElementById("scGv").textContent=gamma.toFixed(2);
+  document.getElementById("scPv").textContent=Pfac.toFixed(2)+" ×10⁵ Pa";
+  document.getElementById("scRv").textContent=rho.toFixed(2)+" kg/m³";
+  var P=Pfac*1e5;
+  var v=Math.sqrt(gamma*P/rho);
+  document.getElementById("scOut").textContent="v = √(γP/ρ) ≈ "+v.toFixed(1)+" m/s";
+}
+function btCalc(){
+  var f1=+document.getElementById("btF1").value;
+  var f2=+document.getElementById("btF2").value;
+  document.getElementById("btF1v").textContent=f1.toFixed(0)+" Hz";
+  document.getElementById("btF2v").textContent=f2.toFixed(0)+" Hz";
+  var beat=Math.abs(f1-f2);
+  document.getElementById("btOut").textContent="ν_beat = |ν1 − ν2| = "+beat.toFixed(0)+" Hz";
 }
 
 /* ============ Animations: press Play to watch the physics happen ============
