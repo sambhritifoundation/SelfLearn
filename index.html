@@ -2346,6 +2346,109 @@ var DIAGRAMS = {
       +'<text x="150" y="75" text-anchor="middle" font-size="8.5" fill="var(--ink-soft)">'+d("(perpendicular bisector)","(लंबवत bisector)")+'</text>'
       +'<text x="230" y="230" text-anchor="middle" font-size="9.5" fill="var(--ink-soft)">'+d("Total charge = 0, but the field is nonzero close in — and fades as 1/r³, not 1/r².","कुल charge = 0, फिर भी पास field ग़ैर-शून्य है — और 1/r² नहीं, 1/r³ से मिटता है।")+'</text>'
       +'</svg>';
+  },
+  "potential-field-vs-r-graph": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    var vPts=[], ePts=[], n=40, x0=50, x1=430, y0=210, yTop=20;
+    for(var i=0;i<=n;i++){
+      var r=0.3+i*(4.7/n);
+      var vx=x0+(x1-x0)*(i/n);
+      var vv=1/r, ev=1/(r*r);
+      var vy=y0-(y0-yTop)*Math.min(vv/3.3,1);
+      var ey=y0-(y0-yTop)*Math.min(ev/3.3,1);
+      vPts.push(vx.toFixed(1)+","+vy.toFixed(1));
+      ePts.push(vx.toFixed(1)+","+ey.toFixed(1));
+    }
+    return '<svg viewBox="0 0 460 250" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<line x1="50" y1="210" x2="440" y2="210" stroke="var(--line-strong)" stroke-width="1.5"/>'
+      +'<line x1="50" y1="210" x2="50" y2="20" stroke="var(--line-strong)" stroke-width="1.5"/>'
+      +'<text x="445" y="214" font-size="10" fill="var(--ink-soft)">r</text>'
+      +'<text x="38" y="18" text-anchor="end" font-size="10" fill="var(--ink-soft)">'+d("V, E","V, E")+'</text>'
+      +'<polyline points="'+vPts.join(" ")+'" fill="none" stroke="var(--primary)" stroke-width="2.5"/>'
+      +'<polyline points="'+ePts.join(" ")+'" fill="none" stroke="var(--red)" stroke-width="2.5"/>'
+      +'<text x="120" y="70" font-size="10.5" font-weight="bold" fill="var(--red)">'+d("E ∝ 1/r²","E ∝ 1/r²")+'</text>'
+      +'<text x="260" y="150" font-size="10.5" font-weight="bold" fill="var(--primary)">'+d("V ∝ 1/r","V ∝ 1/r")+'</text>'
+      +'<text x="245" y="232" text-anchor="middle" font-size="9.5" fill="var(--ink-soft)">'+d("Potential (V) fades gently — field (E) drops off much faster.","Potential (V) नरमी से मिटता है — field (E) कहीं तेज़ी से गिरता है।")+'</text>'
+      +'</svg>';
+  },
+  "equipotential-surfaces-gallery": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 460 260" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<circle cx="80" cy="60" r="9" fill="var(--red)"/>'
+      +'<circle cx="80" cy="60" r="18" fill="none" stroke="var(--primary)" stroke-width="1.2"/>'
+      +'<circle cx="80" cy="60" r="28" fill="none" stroke="var(--primary)" stroke-width="1.2"/>'
+      +'<circle cx="80" cy="60" r="38" fill="none" stroke="var(--primary)" stroke-width="1.2"/>'
+      +'<text x="80" y="112" text-anchor="middle" font-size="9" fill="var(--ink-soft)">'+d("point charge","point charge")+'</text>'
+      +'<circle cx="205" cy="50" r="7" fill="var(--teal)"/><circle cx="235" cy="50" r="7" fill="var(--red)"/>'
+      +'<circle cx="205" cy="50" r="16" fill="none" stroke="var(--teal)" stroke-width="1.1"/>'
+      +'<circle cx="205" cy="50" r="24" fill="none" stroke="var(--teal)" stroke-width="1.1"/>'
+      +'<circle cx="235" cy="50" r="16" fill="none" stroke="var(--red)" stroke-width="1.1"/>'
+      +'<circle cx="235" cy="50" r="24" fill="none" stroke="var(--red)" stroke-width="1.1"/>'
+      +'<text x="220" y="112" text-anchor="middle" font-size="9" fill="var(--ink-soft)">'+d("dipole","dipole")+'</text>'
+      +'<circle cx="350" cy="50" r="7" fill="var(--red)"/><circle cx="390" cy="50" r="7" fill="var(--red)"/>'
+      +'<path d="M336,50 Q370,20 404,50 Q370,80 336,50 Z" fill="none" stroke="var(--primary)" stroke-width="1.1"/>'
+      +'<path d="M326,50 Q370,8 414,50 Q370,92 326,50 Z" fill="none" stroke="var(--primary)" stroke-width="1.1"/>'
+      +'<text x="370" y="112" text-anchor="middle" font-size="9" fill="var(--ink-soft)">'+d("two like charges","दो like charges")+'</text>'
+      +'<line x1="60" y1="170" x2="60" y2="230" stroke="var(--amber)" stroke-width="1.4"/>'
+      +'<line x1="110" y1="170" x2="110" y2="230" stroke="var(--amber)" stroke-width="1.4"/>'
+      +'<line x1="160" y1="170" x2="160" y2="230" stroke="var(--amber)" stroke-width="1.4"/>'
+      +'<line x1="210" y1="170" x2="210" y2="230" stroke="var(--amber)" stroke-width="1.4"/>'
+      +'<line x1="50" y1="200" x2="220" y2="200" stroke="var(--ink-soft)" stroke-width="1.5" marker-end="url(#aheq)"/>'
+      +'<defs><marker id="aheq" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--ink-soft)"/></marker></defs>'
+      +'<text x="225" y="204" font-size="9" fill="var(--ink-soft)">E</text>'
+      +'<text x="135" y="248" text-anchor="middle" font-size="9" fill="var(--ink-soft)">'+d("uniform field","uniform field")+'</text>'
+      +'<text x="345" y="200" text-anchor="middle" font-size="9.5" fill="var(--ink-soft)">'+d("E always ⊥ to the equipotential surface","E हमेशा equipotential surface के ⊥")+'</text>'
+      +'<text x="345" y="216" text-anchor="middle" font-size="9" fill="var(--ink-soft)">'+d("(no work moving a charge along one)","(इसके साथ charge चलाने में कोई काम नहीं)")+'</text>'
+      +'</svg>';
+  },
+  "conductor-electrostatics-properties": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 460 260" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<defs><marker id="ahcnd" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--primary)"/></marker></defs>'
+      +'<path d="M120,60 Q250,20 380,60 Q420,130 380,200 Q250,240 120,200 Q80,130 120,60 Z" fill="none" stroke="var(--primary)" stroke-width="2.5"/>'
+      +'<ellipse cx="250" cy="130" rx="70" ry="55" fill="none" stroke="var(--ink-soft)" stroke-width="1.5" stroke-dasharray="4,3"/>'
+      +'<text x="250" y="126" text-anchor="middle" font-size="11" font-weight="bold" fill="var(--ink-soft)">E = 0</text>'
+      +'<text x="250" y="142" text-anchor="middle" font-size="9" fill="var(--ink-soft)">'+d("(inside — always)","(अंदर — हमेशा)")+'</text>'
+      +'<circle cx="330" cy="150" r="18" fill="var(--card)" stroke="var(--ink-soft)" stroke-width="1.2"/>'
+      +'<text x="330" y="153" text-anchor="middle" font-size="8.5" fill="var(--ink-soft)">'+d("cavity","cavity")+'</text>'
+      +'<text x="330" y="185" text-anchor="middle" font-size="8" fill="var(--ink-soft)">'+d("(shielded, E=0)","(shielded, E=0)")+'</text>'
+      +'<text x="130" y="45" text-anchor="middle" font-size="10" fill="var(--red)">+ + +</text>'
+      +'<text x="380" y="45" text-anchor="middle" font-size="10" fill="var(--red)">+ +</text>'
+      +'<line x1="130" y1="48" x2="130" y2="20" stroke="var(--red)" stroke-width="2" marker-end="url(#ahcnd)"/>'
+      +'<text x="140" y="15" font-size="9" fill="var(--red)">'+d("E = σ/ε₀ ⊥ surface","E = σ/ε₀ ⊥ surface")+'</text>'
+      +'<text x="250" y="230" text-anchor="middle" font-size="9.5" fill="var(--ink-soft)">'+d("Whole conductor: one equipotential. Excess charge: only on the surface.","पूरा conductor: एक equipotential। अतिरिक्त charge: सिर्फ़ सतह पर।")+'</text>'
+      +'</svg>';
+  },
+  "dielectric-polarisation-molecules": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 460 260" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<defs><marker id="ahdl" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--ink-soft)"/></marker></defs>'
+      +'<line x1="20" y1="40" x2="20" y2="120" stroke="var(--ink-soft)" stroke-width="1.4" marker-end="url(#ahdl)"/>'
+      +'<line x1="20" y1="55" x2="20" y2="135" stroke="var(--ink-soft)" stroke-width="1.4" marker-end="url(#ahdl)"/>'
+      +'<text x="8" y="30" font-size="9" fill="var(--ink-soft)">'+d("E₀","E₀")+'</text>'
+      +'<rect x="45" y="35" width="150" height="105" fill="none" stroke="var(--line-strong)" stroke-width="1.5"/>'
+      +'<text x="120" y="25" text-anchor="middle" font-size="9.5" fill="var(--ink-soft)">'+d("non-polar (induced)","non-polar (प्रेरित)")+'</text>'
+      +'<ellipse cx="90" cy="70" rx="15" ry="7" fill="none" stroke="var(--primary)" stroke-width="1.2"/>'
+      +'<text x="83" y="73" font-size="9" fill="var(--teal)">−</text><text x="97" y="73" font-size="9" fill="var(--red)">+</text>'
+      +'<ellipse cx="150" cy="70" rx="15" ry="7" fill="none" stroke="var(--primary)" stroke-width="1.2"/>'
+      +'<text x="143" y="73" font-size="9" fill="var(--teal)">−</text><text x="157" y="73" font-size="9" fill="var(--red)">+</text>'
+      +'<ellipse cx="90" cy="105" rx="15" ry="7" fill="none" stroke="var(--primary)" stroke-width="1.2"/>'
+      +'<text x="83" y="108" font-size="9" fill="var(--teal)">−</text><text x="97" y="108" font-size="9" fill="var(--red)">+</text>'
+      +'<ellipse cx="150" cy="105" rx="15" ry="7" fill="none" stroke="var(--primary)" stroke-width="1.2"/>'
+      +'<text x="143" y="108" font-size="9" fill="var(--teal)">−</text><text x="157" y="108" font-size="9" fill="var(--red)">+</text>'
+      +'<text x="60" y="160" font-size="9.5" fill="var(--red)">σp</text>'
+      +'<text x="180" y="160" font-size="9.5" fill="var(--teal)">−σp</text>'
+      +'<rect x="255" y="35" width="150" height="105" fill="none" stroke="var(--line-strong)" stroke-width="1.5"/>'
+      +'<text x="330" y="25" text-anchor="middle" font-size="9.5" fill="var(--ink-soft)">'+d("polar (aligned)","polar (align हुए)")+'</text>'
+      +'<line x1="285" y1="65" x2="300" y2="75" stroke="var(--primary)" stroke-width="2"/><text x="277" y="63" font-size="9" fill="var(--teal)">−</text><text x="302" y="80" font-size="9" fill="var(--red)">+</text>'
+      +'<line x1="345" y1="65" x2="360" y2="75" stroke="var(--primary)" stroke-width="2"/><text x="337" y="63" font-size="9" fill="var(--teal)">−</text><text x="362" y="80" font-size="9" fill="var(--red)">+</text>'
+      +'<line x1="285" y1="100" x2="300" y2="110" stroke="var(--primary)" stroke-width="2"/><text x="277" y="98" font-size="9" fill="var(--teal)">−</text><text x="302" y="115" font-size="9" fill="var(--red)">+</text>'
+      +'<line x1="345" y1="100" x2="360" y2="110" stroke="var(--primary)" stroke-width="2"/><text x="337" y="98" font-size="9" fill="var(--teal)">−</text><text x="362" y="115" font-size="9" fill="var(--red)">+</text>'
+      +'<text x="270" y="160" font-size="9.5" fill="var(--red)">σp</text>'
+      +'<text x="390" y="160" text-anchor="end" font-size="9.5" fill="var(--teal)">−σp</text>'
+      +'<text x="230" y="200" text-anchor="middle" font-size="9.5" fill="var(--ink-soft)">'+d("Inside: charges cancel. At the two faces: uncancelled bound charge.","अंदर: charges रद्द। दो सतहों पर: बिना-रद्द bound charge।")+'</text>'
+      +'<text x="230" y="216" text-anchor="middle" font-size="9" fill="var(--ink-soft)">'+d("The bound-charge field opposes E₀ — but never cancels it fully.","Bound-charge field E₀ का विरोध करता है — पर कभी पूरी तरह रद्द नहीं करता।")+'</text>'
+      +'</svg>';
   }
 };
 
@@ -3093,6 +3196,97 @@ var INTERACTIVES = {
       +'<span class="labval" id="gsrv">15 cm</span></div>'
       +'<div class="labout" id="gsOut">'+d("Outside (r ≥ R): E = kQ/r² = 8.00 × 10⁵ N/C","बाहर (r ≥ R): E = kQ/r² = 8.00 × 10⁵ N/C")+'</div>'
       +'<div class="labnote">'+d("Drag r below R — the field snaps to exactly zero, not just small.","r को R से नीचे ले जाइए — field बिल्कुल शून्य हो जाता है, सिर्फ़ छोटा नहीं।")+'</div>';
+  },
+  "dipole-potential-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Dipole moment p (×10⁻⁹ C·m)","Dipole moment p (×10⁻⁹ C·m)")+'</label>'
+      +'<input type="range" id="dpP" min="1" max="10" step="0.1" value="4" oninput="dpCalc()">'
+      +'<span class="labval" id="dpPv">4.0 ×10⁻⁹ C·m</span></div>'
+      +'<div class="labrow"><label>'+d("Distance r (cm)","दूरी r (cm)")+'</label>'
+      +'<input type="range" id="dpR" min="5" max="30" step="1" value="10" oninput="dpCalc()">'
+      +'<span class="labval" id="dpRv">10 cm</span></div>'
+      +'<div class="labrow"><label>'+d("Angle θ from dipole axis","Dipole axis से angle θ")+'</label>'
+      +'<input type="range" id="dpTheta" min="0" max="180" step="1" value="0" oninput="dpCalc()">'
+      +'<span class="labval" id="dpThetav">0°</span></div>'
+      +'<div class="labout" id="dpOut">V = kp cosθ/r² = 3.60 × 10³ V</div>'
+      +'<div class="labnote">'+d("Drag θ to 90° — V drops to exactly zero, on the equatorial line.","θ को 90° पर ले जाइए — equatorial रेखा पर V बिल्कुल शून्य हो जाता है।")+'</div>';
+  },
+  "system-charges-pe-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Charge q1 (μC)","Charge q1 (μC)")+'</label>'
+      +'<input type="range" id="ueQ1" min="-10" max="10" step="0.5" value="7" oninput="ueCalc()">'
+      +'<span class="labval" id="ueQ1v">7.0 μC</span></div>'
+      +'<div class="labrow"><label>'+d("Charge q2 (μC)","Charge q2 (μC)")+'</label>'
+      +'<input type="range" id="ueQ2" min="-10" max="10" step="0.5" value="-2" oninput="ueCalc()">'
+      +'<span class="labval" id="ueQ2v">−2.0 μC</span></div>'
+      +'<div class="labrow"><label>'+d("Separation r (cm)","दूरी r (cm)")+'</label>'
+      +'<input type="range" id="ueR" min="5" max="40" step="1" value="18" oninput="ueCalc()">'
+      +'<span class="labval" id="ueRv">18 cm</span></div>'
+      +'<div class="labout" id="ueOut">U = kq1q2/r = −0.700 J</div>'
+      +'<div class="labnote">'+d("Make both charges the same sign — U flips positive, since you'd have to push them together.","दोनों charges को एक जैसा चिह्न दीजिए — U धनात्मक हो जाता है, क्योंकि आपको उन्हें साथ धकेलना पड़ेगा।")+'</div>';
+  },
+  "dipole-external-field-pe-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Dipole moment p (×10⁻⁶ C·m)","Dipole moment p (×10⁻⁶ C·m)")+'</label>'
+      +'<input type="range" id="dfP" min="1" max="10" step="0.1" value="6" oninput="dfCalc()">'
+      +'<span class="labval" id="dfPv">6.0 ×10⁻⁶ C·m</span></div>'
+      +'<div class="labrow"><label>'+d("Field E (×10⁶ V/m)","Field E (×10⁶ V/m)")+'</label>'
+      +'<input type="range" id="dfE" min="0.1" max="2" step="0.1" value="1" oninput="dfCalc()">'
+      +'<span class="labval" id="dfEv">1.0 ×10⁶ V/m</span></div>'
+      +'<div class="labrow"><label>'+d("Angle θ between p and E","p और E के बीच angle θ")+'</label>'
+      +'<input type="range" id="dfTheta" min="0" max="180" step="1" value="0" oninput="dfCalc()">'
+      +'<span class="labval" id="dfThetav">0°</span></div>'
+      +'<div class="labout" id="dfOut">U = −pE cosθ = −6.00 J</div>'
+      +'<div class="labnote">'+d("Drag θ past 90° — U turns positive, the least stable orientation.","θ को 90° से आगे ले जाइए — U धनात्मक हो जाता है, सबसे कम स्थिर orientation।")+'</div>';
+  },
+  "parallel-plate-capacitor-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Plate area A (m²)","Plate का क्षेत्रफल A (m²)")+'</label>'
+      +'<input type="range" id="ppA" min="0.1" max="2" step="0.01" value="1" oninput="ppCalc()">'
+      +'<span class="labval" id="ppAv">1.00 m²</span></div>'
+      +'<div class="labrow"><label>'+d("Separation d (mm)","अलगाव d (mm)")+'</label>'
+      +'<input type="range" id="ppD" min="0.1" max="5" step="0.01" value="1" oninput="ppCalc()">'
+      +'<span class="labval" id="ppDv">1.00 mm</span></div>'
+      +'<div class="labout" id="ppOut">C = ε₀A/d = 8.85 × 10⁻⁹ F</div>'
+      +'<div class="labnote">'+d("Shrink d — capacitance shoots up, exactly like squeezing capacitor plates closer together.","d को छोटा कीजिए — capacitance तेज़ी से बढ़ता है, बिल्कुल capacitor plates को पास दबाने जैसा।")+'</div>';
+  },
+  "dielectric-constant-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Vacuum capacitance C₀ (pF)","Vacuum capacitance C₀ (pF)")+'</label>'
+      +'<input type="range" id="dkC0" min="1" max="20" step="0.1" value="8" oninput="dkCalc()">'
+      +'<span class="labval" id="dkC0v">8.0 pF</span></div>'
+      +'<div class="labrow"><label>'+d("Dielectric constant K","Dielectric constant K")+'</label>'
+      +'<input type="range" id="dkK" min="1" max="10" step="0.1" value="6" oninput="dkCalc()">'
+      +'<span class="labval" id="dkKv">6.0</span></div>'
+      +'<div class="labout" id="dkOut">C = KC₀ = 48.0 pF</div>'
+      +'<div class="labnote">'+d("Drag K down to 1 — that's vacuum (or air), and C returns to C₀.","K को 1 तक ले जाइए — यह vacuum (या हवा) है, और C वापस C₀ हो जाता है।")+'</div>';
+  },
+  "capacitor-combination-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Capacitor C1 (pF)","Capacitor C1 (pF)")+'</label>'
+      +'<input type="range" id="cbC1" min="1" max="20" step="0.5" value="6" oninput="cbCalc()">'
+      +'<span class="labval" id="cbC1v">6.0 pF</span></div>'
+      +'<div class="labrow"><label>'+d("Capacitor C2 (pF)","Capacitor C2 (pF)")+'</label>'
+      +'<input type="range" id="cbC2" min="1" max="20" step="0.5" value="3" oninput="cbCalc()">'
+      +'<span class="labval" id="cbC2v">3.0 pF</span></div>'
+      +'<div class="labrow"><label>'+d("Combination","संयोजन")+'</label>'
+      +'<select id="cbMode" onchange="cbCalc()" style="padding:6px 8px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink)">'
+      +'<option value="series" selected>'+d("Series","Series")+'</option>'
+      +'<option value="parallel">'+d("Parallel","Parallel")+'</option>'
+      +'</select></div>'
+      +'<div class="labout" id="cbOut">C = 2.00 pF ('+d("series","series")+')</div>'
+      +'<div class="labnote">'+d("Switch to parallel with the same two capacitors — watch C jump to 9 pF instead of 2 pF.","वही दोनों capacitors के साथ parallel पर switch कीजिए — C को 2 pF की जगह 9 pF तक उछलते देखिए।")+'</div>';
+  },
+  "capacitor-energy-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Capacitance C (pF)","Capacitance C (pF)")+'</label>'
+      +'<input type="range" id="cuC" min="100" max="2000" step="10" value="900" oninput="cuCalc()">'
+      +'<span class="labval" id="cuCv">900 pF</span></div>'
+      +'<div class="labrow"><label>'+d("Voltage V (volts)","Voltage V (volts)")+'</label>'
+      +'<input type="range" id="cuV" min="10" max="300" step="1" value="100" oninput="cuCalc()">'
+      +'<span class="labval" id="cuVv">100 V</span></div>'
+      +'<div class="labout" id="cuOut">U = ½CV² = 4.50 × 10⁻⁶ J</div>'
+      +'<div class="labnote">'+d("Double V — energy quadruples, since U depends on V².","V दोगुना कीजिए — ऊर्जा चार गुना हो जाती है, क्योंकि U, V² पर निर्भर करता है।")+'</div>';
   }
 };
 var IV_DTS=[2.0,1.0,0.5,0.1,0.01];
@@ -3763,6 +3957,71 @@ function gsCalc(){
     var E=K_COULOMB*(Q*1e-6)/Math.pow(r/100,2);
     out.textContent=(LANG==="hi"?"बाहर (r ≥ R): E = kQ/r² = ":"Outside (r ≥ R): E = kQ/r² = ")+sciStr(E)+" N/C";
   }
+}
+function dpCalc(){
+  var p=+document.getElementById("dpP").value;
+  var r=+document.getElementById("dpR").value;
+  var th=+document.getElementById("dpTheta").value;
+  document.getElementById("dpPv").textContent=p.toFixed(1)+" ×10⁻⁹ C·m";
+  document.getElementById("dpRv").textContent=r.toFixed(0)+" cm";
+  document.getElementById("dpThetav").textContent=th.toFixed(0)+"°";
+  var V=K_COULOMB*(p*1e-9)*Math.cos(th*Math.PI/180)/Math.pow(r/100,2);
+  document.getElementById("dpOut").textContent="V = kp cosθ/r² = "+sciStr(V)+" V";
+}
+function ueCalc(){
+  var q1=+document.getElementById("ueQ1").value;
+  var q2=+document.getElementById("ueQ2").value;
+  var r=+document.getElementById("ueR").value;
+  document.getElementById("ueQ1v").textContent=q1.toFixed(1)+" μC";
+  document.getElementById("ueQ2v").textContent=q2.toFixed(1)+" μC";
+  document.getElementById("ueRv").textContent=r.toFixed(0)+" cm";
+  var U=K_COULOMB*(q1*1e-6)*(q2*1e-6)/(r/100);
+  document.getElementById("ueOut").textContent="U = kq1q2/r = "+(U>=0?"+":"−")+Math.abs(U).toFixed(3)+" J";
+}
+function dfCalc(){
+  var p=+document.getElementById("dfP").value;
+  var E=+document.getElementById("dfE").value;
+  var th=+document.getElementById("dfTheta").value;
+  document.getElementById("dfPv").textContent=p.toFixed(1)+" ×10⁻⁶ C·m";
+  document.getElementById("dfEv").textContent=E.toFixed(1)+" ×10⁶ V/m";
+  document.getElementById("dfThetav").textContent=th.toFixed(0)+"°";
+  var U=-(p*1e-6)*(E*1e6)*Math.cos(th*Math.PI/180);
+  document.getElementById("dfOut").textContent="U = −pE cosθ = "+(U>=0?"+":"−")+Math.abs(U).toFixed(2)+" J";
+}
+function ppCalc(){
+  var A=+document.getElementById("ppA").value;
+  var d=+document.getElementById("ppD").value;
+  document.getElementById("ppAv").textContent=A.toFixed(2)+" m²";
+  document.getElementById("ppDv").textContent=d.toFixed(2)+" mm";
+  var C=EPS0*A/(d/1000);
+  document.getElementById("ppOut").textContent="C = ε₀A/d = "+sciStr(C)+" F";
+}
+function dkCalc(){
+  var C0=+document.getElementById("dkC0").value;
+  var K=+document.getElementById("dkK").value;
+  document.getElementById("dkC0v").textContent=C0.toFixed(1)+" pF";
+  document.getElementById("dkKv").textContent=K.toFixed(1);
+  var C=C0*K;
+  document.getElementById("dkOut").textContent="C = KC₀ = "+C.toFixed(1)+" pF";
+}
+function cbCalc(){
+  var C1=+document.getElementById("cbC1").value;
+  var C2=+document.getElementById("cbC2").value;
+  var mode=document.getElementById("cbMode").value;
+  document.getElementById("cbC1v").textContent=C1.toFixed(1)+" pF";
+  document.getElementById("cbC2v").textContent=C2.toFixed(1)+" pF";
+  var C, label;
+  if(mode==="parallel"){ C=C1+C2; label=LANG==="hi"?"parallel":"parallel"; }
+  else{ C=1/(1/C1+1/C2); label=LANG==="hi"?"series":"series"; }
+  document.getElementById("cbOut").textContent="C = "+C.toFixed(2)+" pF ("+label+")";
+}
+function cuCalc(){
+  var C=+document.getElementById("cuC").value;
+  var V=+document.getElementById("cuV").value;
+  document.getElementById("cuCv").textContent=C.toFixed(0)+" pF";
+  document.getElementById("cuVv").textContent=V.toFixed(0)+" V";
+  var U=0.5*(C*1e-12)*V*V;
+  document.getElementById("cuOut").textContent="U = ½CV² = "+sciStr(U)+" J";
 }
 
 /* ============ Animations: press Play to watch the physics happen ============
