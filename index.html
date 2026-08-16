@@ -1863,6 +1863,120 @@ var DIAGRAMS = {
       +'<circle cx="410" cy="110" r="16" fill="var(--teal)"/>'
       +'<text x="410" y="155" text-anchor="middle" font-size="9.5" fill="var(--ink-soft)">'+d("Earth","पृथ्वी")+'</text>'
       +'</svg>';
+  },
+  "zeroth-law-equilibrium": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 520 250" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="130" y="15" text-anchor="middle" font-size="11" font-weight="bold" fill="var(--ink)">'+d("Step 1","कदम 1")+'</text>'
+      +'<text x="390" y="15" text-anchor="middle" font-size="11" font-weight="bold" fill="var(--ink)">'+d("Step 2","कदम 2")+'</text>'
+      +'<rect x="70" y="25" width="120" height="32" rx="4" fill="var(--card)" stroke="var(--primary)" stroke-width="2"/>'
+      +'<text x="130" y="46" text-anchor="middle" font-size="12" font-weight="bold" fill="var(--primary)">C</text>'
+      +'<line x1="95" y1="57" x2="65" y2="82" stroke="var(--teal)" stroke-width="6"/>'
+      +'<line x1="165" y1="57" x2="195" y2="82" stroke="var(--teal)" stroke-width="6"/>'
+      +'<rect x="15" y="82" width="100" height="75" rx="4" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/>'
+      +'<text x="65" y="125" text-anchor="middle" font-size="16" font-weight="bold" fill="var(--ink)">A</text>'
+      +'<rect x="145" y="82" width="100" height="75" rx="4" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/>'
+      +'<text x="195" y="125" text-anchor="middle" font-size="16" font-weight="bold" fill="var(--ink)">B</text>'
+      +'<rect x="115" y="82" width="30" height="75" fill="var(--line-strong)" opacity="0.55"/>'
+      +'<line x1="118" y1="150" x2="132" y2="89" stroke="var(--ink-soft)" stroke-width="1.5"/>'
+      +'<line x1="128" y1="150" x2="142" y2="89" stroke="var(--ink-soft)" stroke-width="1.5"/>'
+      +'<line x1="122" y1="89" x2="118" y2="105" stroke="var(--ink-soft)" stroke-width="1.5"/>'
+      +'<line x1="138" y1="150" x2="142" y2="134" stroke="var(--ink-soft)" stroke-width="1.5"/>'
+      +'<text x="130" y="178" text-anchor="middle" font-size="9" fill="var(--ink-soft)">'+d("A, B each reach equilibrium with C","A, B अलग-अलग C के equilibrium में")+'</text>'
+      +'<rect x="330" y="25" width="120" height="32" rx="4" fill="var(--card)" stroke="var(--ink-soft)" stroke-width="2" stroke-dasharray="4,3" opacity="0.55"/>'
+      +'<text x="390" y="46" text-anchor="middle" font-size="12" fill="var(--ink-soft)" opacity="0.7">C</text>'
+      +'<rect x="275" y="82" width="100" height="75" rx="4" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/>'
+      +'<text x="325" y="125" text-anchor="middle" font-size="16" font-weight="bold" fill="var(--ink)">A</text>'
+      +'<rect x="405" y="82" width="100" height="75" rx="4" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/>'
+      +'<text x="455" y="125" text-anchor="middle" font-size="16" font-weight="bold" fill="var(--ink)">B</text>'
+      +'<rect x="375" y="82" width="30" height="75" fill="var(--teal)" opacity="0.4"/>'
+      +'<text x="390" y="178" text-anchor="middle" font-size="9" fill="var(--ink-soft)">'+d("Now connect A–B: nothing changes!","अब A–B जोड़ें: कुछ नहीं बदलता!")+'</text>'
+      +'<text x="260" y="212" text-anchor="middle" font-size="13" font-weight="bold" fill="var(--primary)">TA = TC = TB  ⇒  TA = TB</text>'
+      +'<text x="260" y="232" text-anchor="middle" font-size="9.5" fill="var(--ink-soft)">'+d("Zeroth Law: equal to a third system ⇒ equal to each other","Zeroth नियम: तीसरे के बराबर ⇒ आपस में बराबर")+'</text>'
+      +'</svg>';
+  },
+  "heat-work-internal-energy": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 460 260" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<rect x="140" y="60" width="180" height="140" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/>'
+      +'<rect x="140" y="60" width="180" height="16" fill="var(--line-strong)"/>'
+      +'<circle cx="170" cy="110" r="4" fill="var(--primary)" opacity="0.8"/>'
+      +'<circle cx="195" cy="150" r="4" fill="var(--primary)" opacity="0.8"/>'
+      +'<circle cx="220" cy="95" r="4" fill="var(--primary)" opacity="0.8"/>'
+      +'<circle cx="245" cy="170" r="4" fill="var(--primary)" opacity="0.8"/>'
+      +'<circle cx="270" cy="115" r="4" fill="var(--primary)" opacity="0.8"/>'
+      +'<circle cx="290" cy="160" r="4" fill="var(--primary)" opacity="0.8"/>'
+      +'<circle cx="180" cy="180" r="4" fill="var(--primary)" opacity="0.8"/>'
+      +'<circle cx="300" cy="95" r="4" fill="var(--primary)" opacity="0.8"/>'
+      +'<text x="230" y="132" text-anchor="middle" font-size="15" font-weight="bold" fill="var(--red)">U ↑</text>'
+      +'<text x="230" y="148" text-anchor="middle" font-size="8.5" fill="var(--ink-soft)">'+d("internal energy","internal energy")+'</text>'
+      +'<path d="M55,225 q6,-22 14,-10 q6,-12 14,0 q6,-16 12,2 q4,-8 8,4 l0,10 z" fill="var(--red)" opacity="0.85"/>'
+      +'<line x1="105" y1="205" x2="138" y2="192" stroke="var(--red)" stroke-width="3"/>'
+      +'<polygon points="138,192 128,192 134,182" fill="var(--red)"/>'
+      +'<text x="70" y="245" text-anchor="middle" font-size="10.5" fill="var(--red)" font-weight="bold">'+d("heat (Q)","heat (Q)")+'</text>'
+      +'<rect x="212" y="12" width="36" height="24" fill="var(--ink-soft)"/>'
+      +'<text x="230" y="10" text-anchor="middle" font-size="9" fill="var(--ink-soft)">'+d("weight","वज़न")+'</text>'
+      +'<line x1="230" y1="36" x2="230" y2="58" stroke="var(--ink)" stroke-width="3"/>'
+      +'<polygon points="230,58 224,48 236,48" fill="var(--ink)"/>'
+      +'<text x="340" y="28" text-anchor="middle" font-size="10.5" fill="var(--ink)" font-weight="bold">'+d("work (W)","work (W)")+'</text>'
+      +'<text x="230" y="240" text-anchor="middle" font-size="9.5" fill="var(--ink-soft)">'+d("Both heat and work can raise internal energy","Heat और work दोनों internal energy बढ़ा सकते हैं")+'</text>'
+      +'</svg>';
+  },
+  "pv-processes-map": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 460 300" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<line x1="60" y1="260" x2="60" y2="30" stroke="var(--ink)" stroke-width="2"/>'
+      +'<text x="60" y="20" text-anchor="middle" font-size="12" font-weight="bold" fill="var(--ink)">P</text>'
+      +'<line x1="60" y1="260" x2="420" y2="260" stroke="var(--ink)" stroke-width="2"/>'
+      +'<text x="428" y="264" font-size="12" font-weight="bold" fill="var(--ink)">V</text>'
+      +'<circle cx="140" cy="140" r="5" fill="var(--ink)"/>'
+      +'<text x="140" y="128" text-anchor="middle" font-size="9" fill="var(--ink-soft)">'+d("start","शुरू")+'</text>'
+      +'<line x1="140" y1="140" x2="140" y2="50" stroke="var(--red)" stroke-width="2.5"/>'
+      +'<text x="140" y="42" text-anchor="middle" font-size="9.5" font-weight="bold" fill="var(--red)">'+d("isochoric","isochoric")+'</text>'
+      +'<line x1="140" y1="140" x2="400" y2="140" stroke="var(--green)" stroke-width="2.5"/>'
+      +'<text x="400" y="132" text-anchor="end" font-size="9.5" font-weight="bold" fill="var(--green)">'+d("isobaric","isobaric")+'</text>'
+      +'<path d="M140,140 Q230,150 320,200" fill="none" stroke="var(--primary)" stroke-width="2.5"/>'
+      +'<text x="325" y="198" font-size="9.5" font-weight="bold" fill="var(--primary)">'+d("isothermal","isothermal")+'</text>'
+      +'<path d="M140,140 Q210,170 320,240" fill="none" stroke="var(--amber)" stroke-width="2.5"/>'
+      +'<text x="325" y="248" font-size="9.5" font-weight="bold" fill="var(--amber)">'+d("adiabatic","adiabatic")+'</text>'
+      +'<text x="240" y="288" text-anchor="middle" font-size="9.5" fill="var(--ink-soft)">'+d("Same start, four different constraints, four different paths","एक ही शुरुआत, चार अलग शर्तें, चार अलग रास्ते")+'</text>'
+      +'</svg>';
+  },
+  "heat-engine-second-law": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 460 280" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="100" y="16" text-anchor="middle" font-size="10.5" font-weight="bold" fill="var(--red)">'+d("✕ Impossible engine","✕ असंभव engine")+'</text>'
+      +'<rect x="40" y="24" width="120" height="34" fill="var(--red)" opacity="0.12" stroke="var(--red)" stroke-width="1.5"/>'
+      +'<text x="100" y="45" text-anchor="middle" font-size="10" fill="var(--red)">'+d("T1 (hot)","T1 (गरम)")+'</text>'
+      +'<line x1="100" y1="58" x2="100" y2="90" stroke="var(--ink)" stroke-width="2.5"/>'
+      +'<polygon points="100,90 94,80 106,80" fill="var(--ink)"/>'
+      +'<text x="112" y="78" font-size="9.5" fill="var(--ink)">Q1</text>'
+      +'<circle cx="100" cy="128" r="34" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/>'
+      +'<text x="100" y="132" text-anchor="middle" font-size="9.5" fill="var(--ink)">'+d("Engine","Engine")+'</text>'
+      +'<line x1="80" y1="102" x2="120" y2="154" stroke="var(--red)" stroke-width="4"/>'
+      +'<line x1="120" y1="102" x2="80" y2="154" stroke="var(--red)" stroke-width="4"/>'
+      +'<line x1="100" y1="162" x2="100" y2="196" stroke="var(--ink)" stroke-width="2.5"/>'
+      +'<polygon points="100,196 94,186 106,186" fill="var(--ink)"/>'
+      +'<text x="100" y="214" text-anchor="middle" font-size="9.5" fill="var(--ink)">'+d("W = Q1 (100%)","W = Q1 (100%)")+'</text>'
+      +'<text x="100" y="230" text-anchor="middle" font-size="8.5" fill="var(--ink-soft)">'+d("no cold sink — never happens","कोई ठंडा sink नहीं — कभी नहीं होता")+'</text>'
+      +'<text x="360" y="16" text-anchor="middle" font-size="10.5" font-weight="bold" fill="var(--green)">'+d("✓ Real engine","✓ असली engine")+'</text>'
+      +'<rect x="300" y="24" width="120" height="34" fill="var(--red)" opacity="0.12" stroke="var(--red)" stroke-width="1.5"/>'
+      +'<text x="360" y="45" text-anchor="middle" font-size="10" fill="var(--red)">'+d("T1 (hot)","T1 (गरम)")+'</text>'
+      +'<line x1="360" y1="58" x2="360" y2="90" stroke="var(--ink)" stroke-width="2.5"/>'
+      +'<polygon points="360,90 354,80 366,80" fill="var(--ink)"/>'
+      +'<text x="372" y="78" font-size="9.5" fill="var(--ink)">Q1</text>'
+      +'<circle cx="360" cy="128" r="34" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/>'
+      +'<text x="360" y="132" text-anchor="middle" font-size="9.5" fill="var(--ink)">'+d("Engine","Engine")+'</text>'
+      +'<line x1="392" y1="118" x2="424" y2="105" stroke="var(--ink)" stroke-width="2.5"/>'
+      +'<polygon points="424,105 412,106 418,116" fill="var(--ink)"/>'
+      +'<text x="428" y="100" font-size="9.5" fill="var(--ink)">W</text>'
+      +'<line x1="360" y1="162" x2="360" y2="194" stroke="var(--ink)" stroke-width="2.5"/>'
+      +'<polygon points="360,194 354,184 366,184" fill="var(--ink)"/>'
+      +'<text x="372" y="182" font-size="9.5" fill="var(--ink)">Q2</text>'
+      +'<rect x="300" y="200" width="120" height="34" fill="var(--teal)" opacity="0.15" stroke="var(--teal)" stroke-width="1.5"/>'
+      +'<text x="360" y="221" text-anchor="middle" font-size="10" fill="var(--teal)">'+d("T2 (cold)","T2 (ठंडा)")+'</text>'
+      +'<text x="360" y="250" text-anchor="middle" font-size="8.5" fill="var(--ink-soft)">'+d("always rejects some heat","हमेशा कुछ heat छोड़ता है")+'</text>'
+      +'</svg>';
   }
 };
 
@@ -2355,6 +2469,53 @@ var INTERACTIVES = {
       +'</svg></div>'
       +'<div class="labout" id="ccOut">Temperature ≈ 94.0°C · Excess over room = 74.0°C</div>'
       +'<div class="labnote">'+d("Notice how fast it drops early on, and how slowly near the end.","देखिए शुरुआत में यह कितनी तेज़ी से गिरता है, और आख़िर में कितनी धीमी।")+'</div>';
+  },
+  "first-law-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Heat supplied ΔQ (J)","दी गई heat ΔQ (J)")+'</label>'
+      +'<input type="range" id="flQ" min="-200" max="300" step="5" value="100" oninput="flCalc()">'
+      +'<span class="labval" id="flQv">100 J</span></div>'
+      +'<div class="labrow"><label>'+d("Work done by system ΔW (J)","system द्वारा किया work ΔW (J)")+'</label>'
+      +'<input type="range" id="flW" min="-200" max="300" step="5" value="75" oninput="flCalc()">'
+      +'<span class="labval" id="flWv">75 J</span></div>'
+      +'<div class="labout" id="flOut">ΔU = ΔQ − ΔW = 25 J (internal energy increases)</div>'
+      +'<div class="labnote">'+d("Try ΔQ = 0 and a negative ΔW — like squeezing a bicycle pump.","ΔQ = 0 और ऋणात्मक ΔW आज़माइए — साइकिल पंप दबाने जैसा।")+'</div>';
+  },
+  "specific-heat-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Mass of water m (kg)","पानी का mass m (kg)")+'</label>'
+      +'<input type="range" id="shM" min="0.5" max="5" step="0.5" value="2" oninput="shCalc()">'
+      +'<span class="labval" id="shMv">2.0 kg</span></div>'
+      +'<div class="labrow"><label>'+d("Temperature rise ΔT (°C)","तापमान बढ़ोतरी ΔT (°C)")+'</label>'
+      +'<input type="range" id="shT" min="5" max="60" step="5" value="20" oninput="shCalc()">'
+      +'<span class="labval" id="shTv">20°C</span></div>'
+      +'<div class="labout" id="shOut">ΔQ = m s ΔT = 167440 J ≈ 167.4 kJ (s = 4186 J kg⁻¹K⁻¹)</div>'
+      +'<div class="labnote">'+d("Cooking oil's s is roughly half water's — the same heat would raise its temperature about twice as much.","खाना पकाने के तेल का s पानी का लगभग आधा है — उतनी ही heat से उसका तापमान क़रीब दोगुना बढ़ेगा।")+'</div>';
+  },
+  "isothermal-adiabatic-work-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Starting temperature T1 (K)","शुरुआती तापमान T1 (K)")+'</label>'
+      +'<input type="range" id="iaT" min="200" max="500" step="10" value="300" oninput="iaCalc()">'
+      +'<span class="labval" id="iaTv">300 K</span></div>'
+      +'<div class="labrow"><label>'+d("Volume ratio V2/V1","Volume अनुपात V2/V1")+'</label>'
+      +'<input type="range" id="iaR" min="1.2" max="4" step="0.1" value="2" oninput="iaCalc()">'
+      +'<span class="labval" id="iaRv">2.0</span></div>'
+      +'<div class="labout" id="iaOut">Isothermal W = 1728 J (Q = W) · Adiabatic W = 1509 J, T2 = 227 K</div>'
+      +'<div class="labnote">'+d("Same expansion, same starting T — but the adiabatic gas ends up colder, and does less work.","एक जैसा फैलाव, एक जैसा शुरुआती T — पर adiabatic गैस आख़िर में ज़्यादा ठंडी होती है, और कम work करती है।")+'</div>';
+  },
+  "carnot-engine-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Hot reservoir T1 (K)","गरम reservoir T1 (K)")+'</label>'
+      +'<input type="range" id="ceT1" min="350" max="700" step="10" value="500" oninput="ceCalc()">'
+      +'<span class="labval" id="ceT1v">500 K</span></div>'
+      +'<div class="labrow"><label>'+d("Cold reservoir T2 (K)","ठंडा reservoir T2 (K)")+'</label>'
+      +'<input type="range" id="ceT2" min="200" max="400" step="10" value="300" oninput="ceCalc()">'
+      +'<span class="labval" id="ceT2v">300 K</span></div>'
+      +'<div class="labrow"><label>'+d("Heat absorbed Q1 (J)","सोखी गई heat Q1 (J)")+'</label>'
+      +'<input type="range" id="ceQ1" min="200" max="2000" step="50" value="1000" oninput="ceCalc()">'
+      +'<span class="labval" id="ceQ1v">1000 J</span></div>'
+      +'<div class="labout" id="ceOut">η = 40.0% · W = 400 J · Q2 rejected = 600 J</div>'
+      +'<div class="labnote">'+d("Widen the temperature gap (raise T1 or lower T2) and watch efficiency climb — but it never reaches 100%.","तापमान का फ़र्क़ बढ़ाइए (T1 बढ़ाएँ या T2 घटाएँ) और efficiency को बढ़ते देखिए — पर यह कभी 100% तक नहीं पहुँचती।")+'</div>';
   }
 };
 var IV_DTS=[2.0,1.0,0.5,0.1,0.01];
@@ -2796,6 +2957,47 @@ function ccCalc(){
   var y=140-(T-Ts)/(T0-Ts)*115;
   document.getElementById("ccDot").setAttribute("cx",x.toFixed(1));
   document.getElementById("ccDot").setAttribute("cy",y.toFixed(1));
+}
+function flCalc(){
+  var Q=+document.getElementById("flQ").value;
+  var W=+document.getElementById("flW").value;
+  document.getElementById("flQv").textContent=Q.toFixed(0)+" J";
+  document.getElementById("flWv").textContent=W.toFixed(0)+" J";
+  var U=Q-W;
+  var trend=U>0?"increases":(U<0?"decreases":"stays the same");
+  document.getElementById("flOut").textContent="ΔU = ΔQ − ΔW = "+U.toFixed(0)+" J (internal energy "+trend+")";
+}
+function shCalc(){
+  var m=+document.getElementById("shM").value;
+  var T=+document.getElementById("shT").value;
+  document.getElementById("shMv").textContent=m.toFixed(1)+" kg";
+  document.getElementById("shTv").textContent=T.toFixed(0)+"°C";
+  var s=4186;
+  var Q=m*s*T;
+  document.getElementById("shOut").textContent="ΔQ = m s ΔT = "+Q.toFixed(0)+" J ≈ "+(Q/1000).toFixed(1)+" kJ (s = 4186 J kg⁻¹K⁻¹)";
+}
+function iaCalc(){
+  var T1=+document.getElementById("iaT").value;
+  var r=+document.getElementById("iaR").value;
+  document.getElementById("iaTv").textContent=T1.toFixed(0)+" K";
+  document.getElementById("iaRv").textContent=r.toFixed(1);
+  var R=8.31, gamma=1.4;
+  var isoW=R*T1*Math.log(r);
+  var T2=T1/Math.pow(r,gamma-1);
+  var adiaW=R*(T1-T2)/(gamma-1);
+  document.getElementById("iaOut").textContent="Isothermal W = "+isoW.toFixed(0)+" J (Q = W) · Adiabatic W = "+adiaW.toFixed(0)+" J, T2 = "+T2.toFixed(0)+" K";
+}
+function ceCalc(){
+  var T1=+document.getElementById("ceT1").value;
+  var T2=+document.getElementById("ceT2").value;
+  var Q1=+document.getElementById("ceQ1").value;
+  document.getElementById("ceT1v").textContent=T1.toFixed(0)+" K";
+  document.getElementById("ceT2v").textContent=T2.toFixed(0)+" K";
+  document.getElementById("ceQ1v").textContent=Q1.toFixed(0)+" J";
+  var eta=1-T2/T1;
+  var W=eta*Q1;
+  var Q2=Q1-W;
+  document.getElementById("ceOut").textContent="η = "+(eta*100).toFixed(1)+"% · W = "+W.toFixed(0)+" J · Q2 rejected = "+Q2.toFixed(0)+" J";
 }
 
 /* ============ Animations: press Play to watch the physics happen ============
