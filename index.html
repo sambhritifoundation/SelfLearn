@@ -1783,6 +1783,86 @@ var DIAGRAMS = {
       +'<line x1="330" y1="90" x2="330" y2="146" stroke="var(--ink-soft)" stroke-width="1" stroke-dasharray="3,2"/>'
       +'<text x="320" y="120" text-anchor="end" font-size="10" fill="var(--ink)">h</text>'
       +'</svg>';
+  },
+  "temperature-scales-comparison": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    var col=function(x,label,valTop,valBot){
+      return '<line x1="'+x+'" y1="190" x2="'+x+'" y2="45" stroke="var(--ink)" stroke-width="3"/>'
+        +'<text x="'+x+'" y="30" text-anchor="middle" font-size="12" font-weight="bold" fill="var(--ink)">'+label+'</text>'
+        +'<line x1="'+(x-10)+'" y1="70" x2="'+(x+10)+'" y2="70" stroke="var(--red)" stroke-width="3"/>'
+        +'<text x="'+(x+16)+'" y="74" font-size="10.5" fill="var(--red)">'+valTop+'</text>'
+        +'<line x1="'+(x-10)+'" y1="165" x2="'+(x+10)+'" y2="165" stroke="var(--primary)" stroke-width="3"/>'
+        +'<text x="'+(x+16)+'" y="169" font-size="10.5" fill="var(--primary)">'+valBot+'</text>';
+    };
+    return '<svg viewBox="0 0 400 210" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="200" y="15" text-anchor="middle" font-size="11.5" font-weight="bold" fill="var(--ink)">'+d("Water's boiling point (top) and freezing point (bottom)","पानी का उबलने का बिंदु (ऊपर) और जमने का बिंदु (नीचे)")+'</text>'
+      +col(55,"K","373 K","273 K")
+      +col(185,"°C","100°C","0°C")
+      +col(315,"°F","212°F","32°F")
+      +'</svg>';
+  },
+  "phase-change-graph": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 500 220" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<line x1="56" y1="190" x2="420" y2="190" stroke="var(--ink)" stroke-width="2"/>'
+      +'<text x="424" y="194" font-size="10.5" fill="var(--ink)">'+d("heat added","जोड़ी गई गर्मी")+'</text>'
+      +'<line x1="56" y1="190" x2="56" y2="20" stroke="var(--ink)" stroke-width="2"/>'
+      +'<text x="56" y="14" text-anchor="middle" font-size="10.5" fill="var(--ink)">'+d("temperature","तापमान")+'</text>'
+      +'<path d="M66,180 L126,120 L236,120 L296,55 L376,55 L426,25" fill="none" stroke="var(--primary)" stroke-width="3"/>'
+      +'<line x1="126" y1="190" x2="126" y2="120" stroke="var(--line-strong)" stroke-width="1" stroke-dasharray="3,2"/>'
+      +'<line x1="56" y1="120" x2="126" y2="120" stroke="var(--line-strong)" stroke-width="1" stroke-dasharray="3,2"/>'
+      +'<text x="50" y="124" text-anchor="end" font-size="10" fill="var(--red)">0°C</text>'
+      +'<line x1="56" y1="55" x2="296" y2="55" stroke="var(--line-strong)" stroke-width="1" stroke-dasharray="3,2"/>'
+      +'<text x="50" y="59" text-anchor="end" font-size="10" fill="var(--red)">100°C</text>'
+      +'<text x="181" y="112" text-anchor="middle" font-size="10" font-weight="bold" fill="var(--amber)">'+d("melting — Lf","गलन — Lf")+'</text>'
+      +'<text x="336" y="47" text-anchor="middle" font-size="10" font-weight="bold" fill="var(--amber)">'+d("boiling — Lv","उबलना — Lv")+'</text>'
+      +'<text x="96" y="205" text-anchor="middle" font-size="9.5" fill="var(--ink-soft)">'+d("ice","बर्फ़")+'</text>'
+      +'<text x="181" y="205" text-anchor="middle" font-size="9.5" fill="var(--ink-soft)">'+d("ice+water","बर्फ़+पानी")+'</text>'
+      +'<text x="266" y="205" text-anchor="middle" font-size="9.5" fill="var(--ink-soft)">'+d("water","पानी")+'</text>'
+      +'<text x="401" y="205" text-anchor="middle" font-size="9.5" fill="var(--ink-soft)">'+d("steam","भाप")+'</text>'
+      +'</svg>';
+  },
+  "conduction-rod": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 420 180" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<defs><marker id="crA" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--amber)"/></marker></defs>'
+      +'<rect x="40" y="60" width="60" height="60" fill="var(--red)" opacity="0.6"/>'
+      +'<text x="70" y="45" text-anchor="middle" font-size="11" font-weight="bold" fill="var(--red)">T_C</text>'
+      +'<rect x="100" y="75" width="220" height="30" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/>'
+      +'<line x1="130" y1="90" x2="170" y2="90" stroke="var(--amber)" stroke-width="3" marker-end="url(#crA)"/>'
+      +'<line x1="200" y1="90" x2="240" y2="90" stroke="var(--amber)" stroke-width="3" marker-end="url(#crA)"/>'
+      +'<line x1="270" y1="90" x2="300" y2="90" stroke="var(--amber)" stroke-width="3" marker-end="url(#crA)"/>'
+      +'<rect x="320" y="55" width="60" height="70" fill="var(--teal)" opacity="0.5"/>'
+      +'<text x="350" y="45" text-anchor="middle" font-size="11" font-weight="bold" fill="var(--teal)">T_D</text>'
+      +'<text x="210" y="65" text-anchor="middle" font-size="10.5" fill="var(--ink)">H = KA(T_C − T_D)/L</text>'
+      +'<line x1="100" y1="140" x2="320" y2="140" stroke="var(--ink-soft)" stroke-width="1"/>'
+      +'<text x="210" y="155" text-anchor="middle" font-size="10" fill="var(--ink-soft)">L</text>'
+      +'<text x="70" y="135" text-anchor="middle" font-size="9.5" fill="var(--ink-soft)">'+d("furnace","भट्टी")+'</text>'
+      +'<text x="350" y="140" text-anchor="middle" font-size="9.5" fill="var(--ink-soft)">'+d("ice","बर्फ़")+'</text>'
+      +'</svg>';
+  },
+  "convection-radiation": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 460 220" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<defs><marker id="cvA" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--primary)"/></marker></defs>'
+      +'<text x="110" y="18" text-anchor="middle" font-size="11.5" font-weight="bold" fill="var(--ink)">'+d("Convection — sea breeze (day)","Convection — समुद्री हवा (दिन)")+'</text>'
+      +'<rect x="20" y="150" width="90" height="30" fill="var(--ink-soft)" opacity="0.5"/>'
+      +'<text x="65" y="195" text-anchor="middle" font-size="9.5" fill="var(--ink-soft)">'+d("land (hot)","ज़मीन (गरम)")+'</text>'
+      +'<rect x="110" y="155" width="100" height="25" fill="var(--teal)" opacity="0.5"/>'
+      +'<text x="160" y="195" text-anchor="middle" font-size="9.5" fill="var(--teal)">'+d("sea (cool)","समुद्र (ठंडा)")+'</text>'
+      +'<path d="M65,150 Q65,90 110,90" fill="none" stroke="var(--primary)" stroke-width="3" marker-end="url(#cvA)"/>'
+      +'<path d="M110,90 Q160,90 160,155" fill="none" stroke="var(--primary)" stroke-width="3" marker-end="url(#cvA)"/>'
+      +'<text x="80" y="80" font-size="9.5" fill="var(--primary)">'+d("warm air rises","गरम हवा उठती है")+'</text>'
+      +'<text x="340" y="18" text-anchor="middle" font-size="11.5" font-weight="bold" fill="var(--ink)">'+d("Radiation — needs no medium","विकिरण — किसी माध्यम की ज़रूरत नहीं")+'</text>'
+      +'<circle cx="270" cy="100" r="22" fill="var(--amber)"/>'
+      +'<text x="270" y="140" text-anchor="middle" font-size="9.5" fill="var(--ink-soft)">'+d("Sun","सूरज")+'</text>'
+      +'<line x1="292" y1="95" x2="400" y2="80" stroke="var(--amber)" stroke-width="2" marker-end="url(#cvA)"/>'
+      +'<line x1="292" y1="105" x2="400" y2="110" stroke="var(--amber)" stroke-width="2" marker-end="url(#cvA)"/>'
+      +'<line x1="292" y1="100" x2="400" y2="140" stroke="var(--amber)" stroke-width="2" marker-end="url(#cvA)"/>'
+      +'<text x="330" y="60" font-size="9.5" fill="var(--ink-soft)">'+d("vacuum of space","अंतरिक्ष का निर्वात")+'</text>'
+      +'<circle cx="410" cy="110" r="16" fill="var(--teal)"/>'
+      +'<text x="410" y="155" text-anchor="middle" font-size="9.5" fill="var(--ink-soft)">'+d("Earth","पृथ्वी")+'</text>'
+      +'</svg>';
   }
 };
 
@@ -2206,6 +2286,75 @@ var INTERACTIVES = {
       +'</svg></div>'
       +'<div class="labout" id="tvOut">Terminal velocity vₜ = 3.07 cm/s</div>'
       +'<div class="labnote">'+d("A bigger ball or thinner fluid reaches a much higher terminal velocity.","बड़ी गेंद या पतला तरल कहीं ज़्यादा अंतिम velocity तक पहुँचता है।")+'</div>';
+  },
+  "gas-law-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Temperature T (K)","तापमान T (K)")+'</label>'
+      +'<input type="range" id="glT" min="100" max="600" step="10" value="300" oninput="glCalc()">'
+      +'<span class="labval" id="glTv">300 K</span></div>'
+      +'<div style="margin-top:8px"><svg viewBox="0 0 300 180" style="width:100%;max-width:320px;display:block;margin:0 auto">'
+      +'<line x1="30" y1="150" x2="280" y2="150" stroke="var(--ink)" stroke-width="2"/>'
+      +'<text x="284" y="154" font-size="9.5" fill="var(--ink)">T</text>'
+      +'<line x1="30" y1="150" x2="30" y2="20" stroke="var(--ink)" stroke-width="2"/>'
+      +'<text x="30" y="14" text-anchor="middle" font-size="9.5" fill="var(--ink)">P</text>'
+      +'<line x1="30" y1="150" x2="260" y2="30" stroke="var(--line-strong)" stroke-width="2" stroke-dasharray="4,3"/>'
+      +'<circle id="glDot" cx="150" cy="90" r="6" fill="var(--primary)"/>'
+      +'</svg></div>'
+      +'<div class="labout" id="glOut">Pressure P = 1.00 × 10⁵ Pa</div>'
+      +'<div class="labnote">'+d("Extend the line back and every low-density gas points to the same absolute zero.","रेखा को पीछे बढ़ाएँ तो हर कम-घनत्व गैस उसी निरपेक्ष शून्य की ओर इशारा करती है।")+'</div>';
+  },
+  "thermal-expansion-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Temperature rise ΔT (°C)","तापमान बढ़ोतरी ΔT (°C)")+'</label>'
+      +'<input type="range" id="teDT" min="0" max="300" step="5" value="190" oninput="teCalc()">'
+      +'<span class="labval" id="teDTv">190°C</span></div>'
+      +'<div class="labrow"><label>'+d("Coefficient α_L (×10⁻⁵ K⁻¹)","गुणांक α_L (×10⁻⁵ K⁻¹)")+'</label>'
+      +'<input type="range" id="teAlpha" min="0.3" max="2.5" step="0.1" value="1.2" oninput="teCalc()">'
+      +'<span class="labval" id="teAlphav">1.2 ×10⁻⁵ K⁻¹ (iron-like)</span></div>'
+      +'<div style="margin-top:8px"><svg viewBox="0 0 220 160" style="width:100%;max-width:220px;display:block;margin:0 auto">'
+      +'<circle id="teRing" cx="110" cy="90" r="60" fill="none" stroke="var(--primary)" stroke-width="6"/>'
+      +'</svg></div>'
+      +'<div class="labout" id="teOut">New diameter = 5.243 m (ΔL = 0.0119 m)</div>'
+      +'<div class="labnote">'+d("This is the blacksmith's trick — heat the ring until it slips over the rim.","यही लोहार की तरकीब है — छल्ले को तब तक गरम कीजिए जब तक वह रिम पर चढ़ न जाए।")+'</div>';
+  },
+  "calorimetry-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Hot metal mass (kg)","गरम धातु का mass (kg)")+'</label>'
+      +'<input type="range" id="caM1" min="0.01" max="0.2" step="0.01" value="0.05" oninput="caCalc()">'
+      +'<span class="labval" id="caM1v">0.05 kg</span></div>'
+      +'<div class="labrow"><label>'+d("Hot metal temperature (°C)","गरम धातु का तापमान (°C)")+'</label>'
+      +'<input type="range" id="caT1" min="50" max="150" step="5" value="100" oninput="caCalc()">'
+      +'<span class="labval" id="caT1v">100°C</span></div>'
+      +'<div class="labrow"><label>'+d("Water mass (kg)","पानी का mass (kg)")+'</label>'
+      +'<input type="range" id="caM2" min="0.05" max="0.5" step="0.01" value="0.2" oninput="caCalc()">'
+      +'<span class="labval" id="caM2v">0.20 kg</span></div>'
+      +'<div class="labrow"><label>'+d("Water temperature (°C)","पानी का तापमान (°C)")+'</label>'
+      +'<input type="range" id="caT2" min="10" max="30" step="1" value="20" oninput="caCalc()">'
+      +'<span class="labval" id="caT2v">20°C</span></div>'
+      +'<div style="margin-top:8px"><svg viewBox="0 0 260 100" style="width:100%;max-width:260px;display:block;margin:0 auto">'
+      +'<rect x="20" y="20" width="220" height="60" fill="var(--teal)" opacity="0.3" stroke="var(--line-strong)" stroke-width="2"/>'
+      +'<rect id="caMeter" x="25" y="70" width="20" height="5" fill="var(--red)"/>'
+      +'</svg></div>'
+      +'<div class="labout" id="caOut">Final temperature ≈ 24.0°C</div>'
+      +'<div class="labnote">'+d("Heat lost by the metal exactly equals heat gained by the water.","धातु से खोई गर्मी ठीक-ठीक पानी की पाई गर्मी के बराबर है।")+'</div>';
+  },
+  "cooling-curve-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Time elapsed (min)","बीता समय (मिनट)")+'</label>'
+      +'<input type="range" id="ccT" min="0" max="30" step="1" value="0" oninput="ccCalc()">'
+      +'<span class="labval" id="ccTv">0 min</span></div>'
+      +'<div style="margin-top:8px"><svg viewBox="0 0 300 160" style="width:100%;max-width:320px;display:block;margin:0 auto">'
+      +'<line x1="30" y1="140" x2="280" y2="140" stroke="var(--ink)" stroke-width="2"/>'
+      +'<text x="284" y="144" font-size="9.5" fill="var(--ink)">t</text>'
+      +'<line x1="30" y1="140" x2="30" y2="20" stroke="var(--ink)" stroke-width="2"/>'
+      +'<text x="30" y="14" text-anchor="middle" font-size="9.5" fill="var(--ink)">T</text>'
+      +'<path id="ccCurve" d="M30,30 Q80,60 150,100 T280,135" fill="none" stroke="var(--primary)" stroke-width="2.5"/>'
+      +'<line x1="30" y1="135" x2="280" y2="135" stroke="var(--ink-soft)" stroke-width="1" stroke-dasharray="3,2"/>'
+      +'<text x="200" y="132" text-anchor="middle" font-size="8.5" fill="var(--ink-soft)">'+d("room temp","कमरे का तापमान")+'</text>'
+      +'<circle id="ccDot" cx="30" cy="30" r="6" fill="var(--red)"/>'
+      +'</svg></div>'
+      +'<div class="labout" id="ccOut">Temperature ≈ 94.0°C · Excess over room = 74.0°C</div>'
+      +'<div class="labnote">'+d("Notice how fast it drops early on, and how slowly near the end.","देखिए शुरुआत में यह कितनी तेज़ी से गिरता है, और आख़िर में कितनी धीमी।")+'</div>';
   }
 };
 var IV_DTS=[2.0,1.0,0.5,0.1,0.01];
@@ -2598,6 +2747,55 @@ function tvCalc(){
   document.getElementById("tvBall").setAttribute("r",ballR.toFixed(1));
   var cy=Math.max(25,Math.min(140,30+Math.min(100,vt*300)));
   document.getElementById("tvBall").setAttribute("cy",cy.toFixed(1));
+}
+function glCalc(){
+  var T=+document.getElementById("glT").value;
+  document.getElementById("glTv").textContent=T.toFixed(0)+" K";
+  var P0=1e5, T0=300;
+  var P=P0*(T/T0);
+  document.getElementById("glOut").textContent="Pressure P = "+(P/1e5).toFixed(2)+" × 10⁵ Pa";
+  var frac=Math.min(1,T/600);
+  document.getElementById("glDot").setAttribute("cx",(30+frac*230).toFixed(1));
+  document.getElementById("glDot").setAttribute("cy",(150-frac*120).toFixed(1));
+}
+function teCalc(){
+  var DT=+document.getElementById("teDT").value;
+  var alphaSlider=+document.getElementById("teAlpha").value;
+  document.getElementById("teDTv").textContent=DT.toFixed(0)+"°C";
+  var label = alphaSlider>2 ? "aluminium-like" : (alphaSlider>0.8 ? "iron-like" : "glass-like");
+  document.getElementById("teAlphav").textContent=alphaSlider.toFixed(1)+" ×10⁻⁵ K⁻¹ ("+label+")";
+  var L0=5.231, alpha=alphaSlider*1e-5;
+  var dL=L0*alpha*DT;
+  document.getElementById("teOut").textContent="New diameter = "+(L0+dL).toFixed(4)+" m (ΔL = "+dL.toFixed(4)+" m)";
+  var r=Math.min(85, 60+dL*800);
+  document.getElementById("teRing").setAttribute("r", r.toFixed(1));
+}
+function caCalc(){
+  var m1=+document.getElementById("caM1").value;
+  var T1=+document.getElementById("caT1").value;
+  var m2=+document.getElementById("caM2").value;
+  var T2=+document.getElementById("caT2").value;
+  document.getElementById("caM1v").textContent=m1.toFixed(2)+" kg";
+  document.getElementById("caT1v").textContent=T1.toFixed(0)+"°C";
+  document.getElementById("caM2v").textContent=m2.toFixed(2)+" kg";
+  document.getElementById("caT2v").textContent=T2.toFixed(0)+"°C";
+  var sAl=900, sw=4186;
+  var Tf=(m1*sAl*T1+m2*sw*T2)/(m1*sAl+m2*sw);
+  document.getElementById("caOut").textContent="Final temperature ≈ "+Tf.toFixed(1)+"°C";
+  var frac=(Tf-10)/(150-10);
+  document.getElementById("caMeter").setAttribute("width",(20+frac*200).toFixed(1));
+}
+function ccCalc(){
+  var t=+document.getElementById("ccT").value;
+  document.getElementById("ccTv").textContent=t.toFixed(0)+" min";
+  var T0=94, Ts=20, K=0.058;
+  var T=Ts+(T0-Ts)*Math.exp(-K*t);
+  document.getElementById("ccOut").textContent="Temperature ≈ "+T.toFixed(1)+"°C · Excess over room = "+(T-Ts).toFixed(1)+"°C";
+  var frac=t/30;
+  var x=30+frac*250;
+  var y=140-(T-Ts)/(T0-Ts)*115;
+  document.getElementById("ccDot").setAttribute("cx",x.toFixed(1));
+  document.getElementById("ccDot").setAttribute("cy",y.toFixed(1));
 }
 
 /* ============ Animations: press Play to watch the physics happen ============
