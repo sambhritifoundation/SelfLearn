@@ -1389,6 +1389,68 @@ var DIAGRAMS = {
       +'<text x="316" y="92" font-size="10" fill="var(--teal)">'+d("support pushes up","सहारा ऊपर धकेलता है")+'</text>'
       +'<text x="300" y="216" text-anchor="middle" font-size="10.5" fill="var(--ink)">'+d("pencil tip","पेंसिल की नोक")+'</text>'
       +'</svg>';
+  },
+  "vector-addition-triangle": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 480 260" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<defs>'
+      +'<marker id="vaPrimary" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="var(--primary)"/></marker>'
+      +'<marker id="vaGreen" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="var(--green)"/></marker>'
+      +'<marker id="vaRed" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="var(--red)"/></marker>'
+      +'</defs>'
+      +'<text x="240" y="24" text-anchor="middle" font-size="12.5" font-weight="bold" fill="var(--ink)">'+d("Triangle law: tail of B meets head of A","Triangle नियम: B की पूँछ, A के सिरे पर")+'</text>'
+      +'<circle cx="60" cy="220" r="4" fill="var(--ink)"/>'
+      +'<text x="50" y="240" font-size="10.5" fill="var(--ink)">'+d("Start","शुरू")+'</text>'
+      +'<line x1="60" y1="220" x2="256" y2="220" stroke="var(--primary)" stroke-width="4" marker-end="url(#vaPrimary)"/>'
+      +'<text x="130" y="240" text-anchor="middle" font-size="12" fill="var(--primary)">'+d("A: 3 km east","A: 3 km पूरब")+'</text>'
+      +'<line x1="260" y1="216" x2="260" y2="104" stroke="var(--green)" stroke-width="4" marker-end="url(#vaGreen)"/>'
+      +'<text x="270" y="160" font-size="12" fill="var(--green)">'+d("B: 4 km north","B: 4 km उत्तर")+'</text>'
+      +'<line x1="60" y1="220" x2="256" y2="106" stroke="var(--red)" stroke-width="3.5" stroke-dasharray="7,5" marker-end="url(#vaRed)"/>'
+      +'<text x="130" y="150" font-size="12" font-weight="bold" fill="var(--red)">'+d("Resultant R = 5 km","परिणामी R = 5 km")+'</text>'
+      +'</svg>';
+  },
+  "vector-resolution": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<defs><marker id="vrAx" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--ink)"/></marker>'
+      +'<marker id="vrA" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="var(--primary)"/></marker></defs>'
+      +'<line x1="60" y1="250" x2="370" y2="250" stroke="var(--ink)" stroke-width="2" marker-end="url(#vrAx)"/>'
+      +'<text x="378" y="254" font-size="12" fill="var(--ink)">x</text>'
+      +'<line x1="60" y1="250" x2="60" y2="30" stroke="var(--ink)" stroke-width="2" marker-end="url(#vrAx)"/>'
+      +'<text x="60" y="22" text-anchor="middle" font-size="12" fill="var(--ink)">y</text>'
+      +'<line x1="60" y1="250" x2="280" y2="90" stroke="var(--primary)" stroke-width="4" marker-end="url(#vrA)"/>'
+      +'<text x="290" y="82" font-size="13" font-weight="bold" fill="var(--primary)">A</text>'
+      +'<path d="M110,250 A50,50 0 0 0 92,215" fill="none" stroke="var(--ink-soft)" stroke-width="1.5"/>'
+      +'<text x="108" y="228" font-size="11" fill="var(--ink-soft)">θ</text>'
+      +'<line x1="280" y1="90" x2="280" y2="250" stroke="var(--line-strong)" stroke-width="1.5" stroke-dasharray="4,3"/>'
+      +'<line x1="280" y1="90" x2="60" y2="90" stroke="var(--line-strong)" stroke-width="1.5" stroke-dasharray="4,3"/>'
+      +'<line x1="60" y1="250" x2="280" y2="250" stroke="var(--green)" stroke-width="4"/>'
+      +'<text x="170" y="270" text-anchor="middle" font-size="12" fill="var(--green)">Aₓ = A cos θ</text>'
+      +'<line x1="60" y1="250" x2="60" y2="90" stroke="var(--amber)" stroke-width="4"/>'
+      +'<text x="14" y="170" font-size="12" fill="#8a5a00" transform="rotate(-90 14 170)">Aᵧ = A sin θ</text>'
+      +'</svg>';
+  },
+  "position-velocity-plane": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 460 260" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<defs><marker id="pvOrigin" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--ink-soft)"/></marker>'
+      +'<marker id="pvVel" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="var(--red)"/></marker></defs>'
+      +'<text x="230" y="20" text-anchor="middle" font-size="12.5" font-weight="bold" fill="var(--ink)">'+d("Velocity is always tangent to the path","Velocity हमेशा रास्ते की स्पर्श रेखा पर होती है")+'</text>'
+      +'<circle cx="70" cy="220" r="4" fill="var(--ink)"/>'
+      +'<text x="55" y="240" font-size="11" fill="var(--ink)">'+d("origin","मूल बिंदु")+'</text>'
+      +'<path d="M70,220 Q150,60 380,90" fill="none" stroke="var(--primary)" stroke-width="3"/>'
+      +'<text x="320" y="66" font-size="11" fill="var(--primary)">'+d("kite’s path","पतंग का रास्ता")+'</text>'
+      +'<circle cx="180" cy="140" r="5" fill="var(--teal)"/>'
+      +'<text x="188" y="135" font-size="10.5" fill="var(--teal)">P₁</text>'
+      +'<line x1="70" y1="220" x2="178" y2="142" stroke="var(--ink-soft)" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#pvOrigin)"/>'
+      +'<text x="100" y="200" font-size="11" fill="var(--ink-soft)">r₁</text>'
+      +'<circle cx="300" cy="95" r="5" fill="var(--amber)"/>'
+      +'<text x="308" y="90" font-size="10.5" fill="#8a5a00">P₂</text>'
+      +'<line x1="70" y1="220" x2="298" y2="97" stroke="var(--ink-soft)" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#pvOrigin)"/>'
+      +'<text x="150" y="178" font-size="11" fill="var(--ink-soft)">r₂</text>'
+      +'<line x1="300" y1="95" x2="360" y2="72" stroke="var(--red)" stroke-width="3.5" marker-end="url(#pvVel)"/>'
+      +'<text x="366" y="66" font-size="12" font-weight="bold" fill="var(--red)">v</text>'
+      +'</svg>';
   }
 };
 
@@ -1550,6 +1612,63 @@ var INTERACTIVES = {
       +'</svg></div>'
       +'<div class="labout" id="soOut">V = 7.67 km/s · T = 92.6 min</div>'
       +'<div class="labnote" id="soNote">'+d("Higher orbits move slower but take a rounder, longer path.","ऊँची कक्षाएँ धीमी चलती हैं पर गोलाकार, लंबा रास्ता तय करती हैं।")+'</div>';
+  },
+  "independence-of-motion-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Horizontal speed of ball 2 (m/s)","गेंद 2 की क्षैतिज speed (m/s)")+'</label>'
+      +'<input type="range" id="imVx" min="0" max="15" step="1" value="8" oninput="imCalc()">'
+      +'<span class="labval" id="imVxv">8 m/s</span></div>'
+      +'<div class="labrow"><label>'+d("Time since release (s)","छोड़ने के बाद समय (s)")+'</label>'
+      +'<input type="range" id="imT" min="0" max="2" step="0.1" value="1" oninput="imCalc()">'
+      +'<span class="labval" id="imTv">1.0 s</span></div>'
+      +'<div style="margin-top:8px"><svg viewBox="0 0 400 236" style="width:100%;max-width:400px;display:block;margin:0 auto">'
+      +'<line x1="20" y1="200" x2="380" y2="200" stroke="var(--line-strong)" stroke-width="2"/>'
+      +'<line x1="90" y1="30" x2="90" y2="200" stroke="var(--line)" stroke-width="1.5" stroke-dasharray="3,3"/>'
+      +'<circle id="imBall1" cx="100" cy="40" r="7" fill="var(--primary)"/>'
+      +'<text x="100" y="26" text-anchor="middle" font-size="10" fill="var(--primary)">'+d("Ball 1: dropped","गेंद 1: गिराई")+'</text>'
+      +'<circle id="imBall2" cx="100" cy="40" r="7" fill="var(--red)"/>'
+      +'<text x="100" y="222" text-anchor="middle" font-size="10" fill="var(--red)">'+d("Ball 2: thrown sideways","गेंद 2: बग़ल में फेंकी")+'</text>'
+      +'</svg></div>'
+      +'<div class="labout" id="imOut">'+d("Both balls have fallen 5.00 m vertically — exactly the same.","दोनों गेंदें बराबर 5.00 m गिरी हैं — बिल्कुल बराबर।")+'</div>'
+      +'<div class="labnote">'+d("Move the time slider — the two balls always stay at the same height, however far apart sideways they are.","समय slider हिलाइए — दोनों गेंदें हमेशा एक ही ऊँचाई पर रहती हैं, चाहे बग़ल में कितनी भी दूर हों।")+'</div>';
+  },
+  "projectile-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Launch speed u (m/s)","फेंकने की speed u (m/s)")+'</label>'
+      +'<input type="range" id="pjU" min="5" max="25" step="1" value="20" oninput="pjCalc()">'
+      +'<span class="labval" id="pjUv">20 m/s</span></div>'
+      +'<div class="labrow"><label>'+d("Launch angle θ","फेंकने का कोण θ")+'</label>'
+      +'<input type="range" id="pjTh" min="15" max="75" step="5" value="30" oninput="pjCalc()">'
+      +'<span class="labval" id="pjThv">30°</span></div>'
+      +'<div style="margin-top:8px"><svg viewBox="0 0 380 210" style="width:100%;max-width:400px;display:block;margin:0 auto">'
+      +'<line x1="20" y1="200" x2="360" y2="200" stroke="var(--line-strong)" stroke-width="2"/>'
+      +'<path id="pjPath" d="M40,200 L40,200" fill="none" stroke="var(--primary)" stroke-width="3"/>'
+      +'</svg></div>'
+      +'<div class="labout" id="pjOut">T = 2.04 s · H = 5.10 m · R = 35.35 m</div>'
+      +'<div class="labnote" id="pjNote">'+d("Try 45° and see the range reach its maximum.","45° आज़माइए और range को अधिकतम होते देखिए।")+'</div>';
+  },
+  "circular-motion-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Speed v (m/s)","Speed v (m/s)")+'</label>'
+      +'<input type="range" id="ucV" min="0.5" max="8" step="0.5" value="3" oninput="ucCalc()">'
+      +'<span class="labval" id="ucVv">3.0 m/s</span></div>'
+      +'<div class="labrow"><label>'+d("Radius r (m)","त्रिज्या r (m)")+'</label>'
+      +'<input type="range" id="ucR" min="0.2" max="2" step="0.1" value="1" oninput="ucCalc()">'
+      +'<span class="labval" id="ucRv">1.0 m</span></div>'
+      +'<div class="labrow"><label>'+d("Move the stone around","पत्थर को घुमाइए")+'</label>'
+      +'<input type="range" id="ucAng" min="0" max="350" step="10" value="0" oninput="ucCalc()">'
+      +'<span class="labval" id="ucAngv">0°</span></div>'
+      +'<div style="margin-top:8px"><svg viewBox="0 0 300 220" style="width:100%;max-width:300px;display:block;margin:0 auto">'
+      +'<defs><marker id="ucMkV" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--primary)"/></marker>'
+      +'<marker id="ucMkA" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--red)"/></marker></defs>'
+      +'<circle cx="150" cy="110" r="3" fill="var(--ink)"/>'
+      +'<circle id="ucCircle" cx="150" cy="110" r="80" fill="none" stroke="var(--line-strong)" stroke-width="2" stroke-dasharray="4,4"/>'
+      +'<circle id="ucDot" cx="150" cy="30" r="7" fill="var(--amber)"/>'
+      +'<line id="ucVel" x1="150" y1="30" x2="150" y2="0" stroke="var(--primary)" stroke-width="3" marker-end="url(#ucMkV)"/>'
+      +'<line id="ucAcc" x1="150" y1="30" x2="150" y2="60" stroke="var(--red)" stroke-width="3" marker-end="url(#ucMkA)"/>'
+      +'</svg></div>'
+      +'<div class="labout" id="ucOut">a_c = 9.00 m/s² · ω = 3.00 rad/s · T = 2.09 s</div>'
+      +'<div class="labnote">'+d("Blue arrow = velocity (tangent). Red arrow = centripetal acceleration (toward center), always.","नीला arrow = velocity (स्पर्श रेखा)। लाल arrow = अभिकेंद्री त्वरण (केंद्र की ओर), हमेशा।")+'</div>';
   }
 };
 var IV_DTS=[2.0,1.0,0.5,0.1,0.01];
@@ -1708,6 +1827,68 @@ function soCalc(){
   var note=document.getElementById("soNote");
   if(h>30000) note.innerHTML=sp("Near geostationary range — period approaches 24 hours here.","भूस्थिर सीमा के पास — यहाँ आवर्तकाल 24 घंटे के क़रीब पहुँचता है।");
   else note.innerHTML=sp("Higher orbits move slower but take a rounder, longer path.","ऊँची कक्षाएँ धीमी चलती हैं पर गोलाकार, लंबा रास्ता तय करती हैं।");
+}
+function imCalc(){
+  var vx=+document.getElementById("imVx").value;
+  var t=+document.getElementById("imT").value;
+  document.getElementById("imVxv").textContent=vx.toFixed(0)+" m/s";
+  document.getElementById("imTv").textContent=t.toFixed(1)+" s";
+  var g=10, fallen=0.5*g*t*t;
+  var scaleY=8, scaleX=9.33;
+  var y=40+Math.min(160, fallen*scaleY);
+  var x2=Math.min(370, 100+vx*t*scaleX);
+  document.getElementById("imBall1").setAttribute("cy",y.toFixed(1));
+  document.getElementById("imBall2").setAttribute("cy",y.toFixed(1));
+  document.getElementById("imBall2").setAttribute("cx",x2.toFixed(1));
+  document.getElementById("imOut").innerHTML=sp("Both balls have fallen "+fallen.toFixed(2)+" m vertically — exactly the same, regardless of horizontal speed.","दोनों गेंदें बराबर "+fallen.toFixed(2)+" m गिरी हैं — बिल्कुल बराबर, क्षैतिज speed चाहे जो हो।");
+}
+function pjCalc(){
+  var u=+document.getElementById("pjU").value;
+  var thDeg=+document.getElementById("pjTh").value;
+  document.getElementById("pjUv").textContent=u.toFixed(0)+" m/s";
+  document.getElementById("pjThv").textContent=thDeg.toFixed(0)+"°";
+  var g=10, th=thDeg*Math.PI/180;
+  var T=2*u*Math.sin(th)/g;
+  var H=u*u*Math.sin(th)*Math.sin(th)/(2*g);
+  var R=u*u*Math.sin(2*th)/g;
+  var scaleX=300/70, scaleY=170/35, x0=40, yGround=200;
+  var pts="";
+  for(var i=0;i<=20;i++){
+    var t=T*i/20;
+    var x=x0+(u*Math.cos(th)*t)*scaleX;
+    var y=yGround-(u*Math.sin(th)*t-0.5*g*t*t)*scaleY;
+    pts+=(i===0?"M":"L")+x.toFixed(1)+","+y.toFixed(1)+" ";
+  }
+  document.getElementById("pjPath").setAttribute("d",pts);
+  document.getElementById("pjOut").textContent="T = "+T.toFixed(2)+" s · H = "+H.toFixed(2)+" m · R = "+R.toFixed(2)+" m";
+  var note=document.getElementById("pjNote");
+  if(thDeg===45) note.innerHTML=sp("45° gives the maximum range for this launch speed.","इस speed के लिए 45° सबसे ज़्यादा range देता है।");
+  else note.innerHTML=sp("Try 45° and see the range reach its maximum.","45° आज़माइए और range को अधिकतम होते देखिए।");
+}
+function ucCalc(){
+  var v=+document.getElementById("ucV").value;
+  var r=+document.getElementById("ucR").value;
+  var angDeg=+document.getElementById("ucAng").value;
+  document.getElementById("ucVv").textContent=v.toFixed(1)+" m/s";
+  document.getElementById("ucRv").textContent=r.toFixed(1)+" m";
+  document.getElementById("ucAngv").textContent=angDeg.toFixed(0)+"°";
+  var ac=v*v/r, omega=v/r, T=2*Math.PI*r/v;
+  document.getElementById("ucOut").textContent="a_c = "+ac.toFixed(2)+" m/s² · ω = "+omega.toFixed(2)+" rad/s · T = "+T.toFixed(2)+" s";
+  var cx0=150, cy0=110, rpx=40+r*40, th=angDeg*Math.PI/180;
+  var sx=cx0+rpx*Math.sin(th), sy=cy0-rpx*Math.cos(th);
+  document.getElementById("ucCircle").setAttribute("r",rpx.toFixed(1));
+  document.getElementById("ucDot").setAttribute("cx",sx.toFixed(1));
+  document.getElementById("ucDot").setAttribute("cy",sy.toFixed(1));
+  var vlen=22+v*3;
+  document.getElementById("ucVel").setAttribute("x1",sx.toFixed(1));
+  document.getElementById("ucVel").setAttribute("y1",sy.toFixed(1));
+  document.getElementById("ucVel").setAttribute("x2",(sx+vlen*Math.cos(th)).toFixed(1));
+  document.getElementById("ucVel").setAttribute("y2",(sy+vlen*Math.sin(th)).toFixed(1));
+  var alen=26;
+  document.getElementById("ucAcc").setAttribute("x1",sx.toFixed(1));
+  document.getElementById("ucAcc").setAttribute("y1",sy.toFixed(1));
+  document.getElementById("ucAcc").setAttribute("x2",(sx-alen*Math.sin(th)).toFixed(1));
+  document.getElementById("ucAcc").setAttribute("y2",(sy+alen*Math.cos(th)).toFixed(1));
 }
 
 /* ============ Animations: press Play to watch the physics happen ============
