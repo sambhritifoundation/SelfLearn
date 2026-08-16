@@ -2449,6 +2449,45 @@ var DIAGRAMS = {
       +'<text x="230" y="200" text-anchor="middle" font-size="9.5" fill="var(--ink-soft)">'+d("Inside: charges cancel. At the two faces: uncancelled bound charge.","अंदर: charges रद्द। दो सतहों पर: बिना-रद्द bound charge।")+'</text>'
       +'<text x="230" y="216" text-anchor="middle" font-size="9" fill="var(--ink-soft)">'+d("The bound-charge field opposes E₀ — but never cancels it fully.","Bound-charge field E₀ का विरोध करता है — पर कभी पूरी तरह रद्द नहीं करता।")+'</text>'
       +'</svg>';
+  },
+  "capacitor-real-world-types": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 460 260" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="105" y="16" text-anchor="middle" font-size="10.5" font-weight="bold" fill="var(--ink)">'+d("Schematic","Schematic")+'</text>'
+      +'<rect x="65" y="40" width="10" height="110" fill="var(--red)"/>'
+      +'<rect x="135" y="40" width="10" height="110" fill="var(--teal)"/>'
+      +'<text x="70" y="34" text-anchor="middle" font-size="10" fill="var(--red)">+Q</text>'
+      +'<text x="140" y="34" text-anchor="middle" font-size="10" fill="var(--teal)">−Q</text>'
+      +'<line x1="30" y1="60" x2="65" y2="60" stroke="var(--ink-soft)" stroke-width="2"/>'
+      +'<line x1="145" y1="60" x2="180" y2="60" stroke="var(--ink-soft)" stroke-width="2"/>'
+      +'<line x1="80" y1="60" x2="130" y2="60" stroke="var(--primary)" stroke-width="1.3" marker-end="url(#ahcrw)"/>'
+      +'<line x1="80" y1="95" x2="130" y2="95" stroke="var(--primary)" stroke-width="1.3" marker-end="url(#ahcrw)"/>'
+      +'<line x1="80" y1="130" x2="130" y2="130" stroke="var(--primary)" stroke-width="1.3" marker-end="url(#ahcrw)"/>'
+      +'<defs><marker id="ahcrw" markerWidth="7" markerHeight="7" refX="5" refY="2.5" orient="auto"><path d="M0,0 L5,2.5 L0,5 Z" fill="var(--primary)"/></marker></defs>'
+      +'<text x="105" y="175" text-anchor="middle" font-size="9" fill="var(--ink-soft)">d</text>'
+      +'<path d="M105,183 L105,190 M65,186 L145,186" stroke="var(--ink-soft)" stroke-width="0.8" fill="none"/>'
+      +'<text x="30" y="100" text-anchor="middle" font-size="9" fill="var(--ink-soft)" transform="rotate(-90 30 100)">A</text>'
+      +'<line x1="105" y1="16" x2="105" y2="240" stroke="var(--line)" stroke-width="1" stroke-dasharray="4,3"/>'
+      +'<text x="330" y="16" text-anchor="middle" font-size="10.5" font-weight="bold" fill="var(--ink)">'+d("What they actually look like","असल में ये कैसे दिखते हैं")+'</text>'
+      +'<ellipse cx="245" cy="70" rx="26" ry="16" fill="var(--amber)" stroke="var(--ink-soft)" stroke-width="1.2"/>'
+      +'<line x1="235" y1="86" x2="230" y2="130" stroke="var(--ink-soft)" stroke-width="2"/>'
+      +'<line x1="255" y1="86" x2="260" y2="130" stroke="var(--ink-soft)" stroke-width="2"/>'
+      +'<text x="245" y="150" text-anchor="middle" font-size="8.5" fill="var(--ink-soft)">'+d("ceramic disc","ceramic disc")+'</text>'
+      +'<rect x="320" y="35" width="46" height="72" rx="8" fill="var(--ink)" stroke="var(--ink-soft)" stroke-width="1"/>'
+      +'<rect x="320" y="35" width="10" height="72" rx="4" fill="var(--card)" opacity="0.25"/>'
+      +'<text x="343" y="55" text-anchor="middle" font-size="12" fill="var(--card)">−</text>'
+      +'<line x1="330" y1="107" x2="325" y2="130" stroke="var(--ink-soft)" stroke-width="2"/>'
+      +'<line x1="356" y1="107" x2="361" y2="130" stroke="var(--ink-soft)" stroke-width="2"/>'
+      +'<text x="343" y="150" text-anchor="middle" font-size="8.5" fill="var(--ink-soft)">'+d("electrolytic","electrolytic")+'</text>'
+      +'<text x="343" y="162" text-anchor="middle" font-size="8" fill="var(--ink-soft)">'+d("(polarised — leads matter!)","(polarised — leads मायने रखते हैं!)")+'</text>'
+      +'<line x1="400" y1="70" x2="420" y2="70" stroke="var(--ink-soft)" stroke-width="2"/>'
+      +'<line x1="440" y1="70" x2="460" y2="70" stroke="var(--ink-soft)" stroke-width="2"/>'
+      +'<line x1="420" y1="52" x2="420" y2="88" stroke="var(--primary)" stroke-width="3"/>'
+      +'<line x1="440" y1="52" x2="440" y2="88" stroke="var(--primary)" stroke-width="3"/>'
+      +'<text x="430" y="150" text-anchor="middle" font-size="8.5" fill="var(--ink-soft)">'+d("circuit symbol","circuit symbol")+'</text>'
+      +'<text x="330" y="205" text-anchor="middle" font-size="9" fill="var(--ink-soft)">'+d("Different shapes, same job:","अलग-अलग आकार, वही काम:")+'</text>'
+      +'<text x="330" y="219" text-anchor="middle" font-size="9" fill="var(--ink-soft)">'+d("two conductors, one insulator between them.","दो conductors, बीच में एक insulator।")+'</text>'
+      +'</svg>';
   }
 };
 
