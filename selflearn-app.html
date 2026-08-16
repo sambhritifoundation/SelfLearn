@@ -1451,6 +1451,86 @@ var DIAGRAMS = {
       +'<line x1="300" y1="95" x2="360" y2="72" stroke="var(--red)" stroke-width="3.5" marker-end="url(#pvVel)"/>'
       +'<text x="366" y="66" font-size="12" font-weight="bold" fill="var(--red)">v</text>'
       +'</svg>';
+  },
+  "inertia-surfaces": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    var lane=function(y,label,stopX,dashed){
+      return '<line x1="30" y1="'+y+'" x2="380" y2="'+y+'" stroke="var(--line-strong)" stroke-width="2"/>'
+        +'<text x="30" y="'+(y-16)+'" font-size="10.5" fill="var(--ink)">'+label+'</text>'
+        +'<circle cx="50" cy="'+(y-10)+'" r="7" fill="var(--primary)"/>'
+        +'<line x1="55" y1="'+(y-10)+'" x2="'+stopX+'" y2="'+(y-10)+'" stroke="var(--red)" stroke-width="2" stroke-dasharray="'+(dashed?"4,4":"0")+'"/>'
+        +(dashed?'':'<circle cx="'+stopX+'" cy="'+(y-10)+'" r="5" fill="var(--ink-soft)"/>');
+    };
+    return '<svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +lane(70,d("Rough table","खुरदुरी मेज़"),110,false)
+      +lane(130,d("Smooth stone","चिकना पत्थर"),220,false)
+      +lane(190,d("Wet ice — keeps sliding…","गीली बर्फ़ — फिसलती रहती है…"),380,true)
+      +'</svg>';
+  },
+  "equilibrium-forces": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 420 200" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<defs>'
+      +'<marker id="eqW" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="var(--red)"/></marker>'
+      +'<marker id="eqT1" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="var(--primary)"/></marker>'
+      +'<marker id="eqT2" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="var(--green)"/></marker>'
+      +'</defs>'
+      +'<text x="210" y="20" text-anchor="middle" font-size="12.5" font-weight="bold" fill="var(--ink)">'+d("Three forces on the lantern — the triangle closes","लालटेन पर तीन बल — triangle बंद हो जाता है")+'</text>'
+      +'<circle cx="120" cy="60" r="4" fill="var(--ink)"/>'
+      +'<line x1="120" y1="60" x2="120" y2="156" stroke="var(--red)" stroke-width="4" marker-end="url(#eqW)"/>'
+      +'<text x="128" y="120" font-size="12" fill="var(--red)">'+d("Weight mg","वज़न mg")+'</text>'
+      +'<line x1="120" y1="156" x2="270" y2="70" stroke="var(--primary)" stroke-width="4" marker-end="url(#eqT1)"/>'
+      +'<text x="205" y="100" font-size="12" fill="var(--primary)">T₁</text>'
+      +'<line x1="270" y1="70" x2="120" y2="60" stroke="var(--green)" stroke-width="4" marker-end="url(#eqT2)"/>'
+      +'<text x="185" y="52" font-size="12" fill="var(--green)">T₂</text>'
+      +'</svg>';
+  },
+  "action-reaction-pairs": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<defs>'
+      +'<marker id="arA" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="var(--primary)"/></marker>'
+      +'<marker id="arB" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="var(--red)"/></marker>'
+      +'</defs>'
+      +'<line x1="20" y1="180" x2="380" y2="180" stroke="var(--line-strong)" stroke-width="2"/>'
+      +'<circle cx="200" cy="90" r="16" fill="var(--ink-soft)"/>'
+      +'<line x1="200" y1="106" x2="200" y2="150" stroke="var(--ink-soft)" stroke-width="4"/>'
+      +'<line x1="200" y1="150" x2="230" y2="178" stroke="var(--ink-soft)" stroke-width="4"/>'
+      +'<line x1="200" y1="150" x2="185" y2="178" stroke="var(--ink-soft)" stroke-width="4"/>'
+      +'<line x1="230" y1="178" x2="280" y2="178" stroke="var(--primary)" stroke-width="4" marker-end="url(#arA)"/>'
+      +'<text x="235" y="168" font-size="10" fill="var(--primary)">'+d("Foot pushes ground back","पैर ज़मीन को पीछे धकेलता")+'</text>'
+      +'<line x1="230" y1="178" x2="180" y2="178" stroke="var(--red)" stroke-width="4" marker-end="url(#arB)"/>'
+      +'<text x="60" y="198" font-size="10" fill="var(--red)">'+d("Ground pushes foot forward","ज़मीन पैर को आगे धकेलती")+'</text>'
+      +'</svg>';
+  },
+  "fbd-examples": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 460 220" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<defs>'
+      +'<marker id="fbN" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--teal)"/></marker>'
+      +'<marker id="fbW" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--red)"/></marker>'
+      +'<marker id="fbF" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--amber)"/></marker>'
+      +'<marker id="fbT" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--primary)"/></marker>'
+      +'</defs>'
+      +'<text x="105" y="20" text-anchor="middle" font-size="12" font-weight="bold" fill="var(--ink)">'+d("Block on an incline","ढलान पर ब्लॉक")+'</text>'
+      +'<line x1="20" y1="180" x2="190" y2="80" stroke="var(--line-strong)" stroke-width="3"/>'
+      +'<rect x="85" y="100" width="36" height="26" fill="var(--card)" stroke="var(--ink)" stroke-width="2" transform="rotate(-30 103 113)"/>'
+      +'<line x1="103" y1="113" x2="103" y2="170" stroke="var(--red)" stroke-width="3" marker-end="url(#fbW)"/>'
+      +'<text x="108" y="150" font-size="10" fill="var(--red)">mg</text>'
+      +'<line x1="103" y1="113" x2="140" y2="83" stroke="var(--teal)" stroke-width="3" marker-end="url(#fbN)"/>'
+      +'<text x="138" y="78" font-size="10" fill="var(--teal)">N</text>'
+      +'<line x1="103" y1="113" x2="60" y2="103" stroke="var(--amber)" stroke-width="3" marker-end="url(#fbF)"/>'
+      +'<text x="30" y="100" font-size="10" fill="#8a5a00">f</text>'
+      +'<text x="345" y="20" text-anchor="middle" font-size="12" font-weight="bold" fill="var(--ink)">'+d("Two connected carts","दो जुड़ी गाड़ियाँ")+'</text>'
+      +'<line x1="240" y1="180" x2="440" y2="180" stroke="var(--line-strong)" stroke-width="2"/>'
+      +'<rect x="255" y="150" width="46" height="28" rx="3" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/>'
+      +'<rect x="345" y="150" width="46" height="28" rx="3" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/>'
+      +'<line x1="301" y1="164" x2="345" y2="164" stroke="var(--ink-soft)" stroke-width="2"/>'
+      +'<line x1="391" y1="164" x2="425" y2="164" stroke="var(--primary)" stroke-width="3" marker-end="url(#fbT)"/>'
+      +'<text x="393" y="150" font-size="10" fill="var(--primary)">'+d("pull","खिंचाव")+'</text>'
+      +'<line x1="301" y1="164" x2="275" y2="164" stroke="var(--primary)" stroke-width="3" marker-end="url(#fbT)"/>'
+      +'<text x="255" y="200" font-size="10" fill="var(--primary)">T</text>'
+      +'</svg>';
   }
 };
 
@@ -1669,6 +1749,58 @@ var INTERACTIVES = {
       +'</svg></div>'
       +'<div class="labout" id="ucOut">a_c = 9.00 m/s² · ω = 3.00 rad/s · T = 2.09 s</div>'
       +'<div class="labnote">'+d("Blue arrow = velocity (tangent). Red arrow = centripetal acceleration (toward center), always.","नीला arrow = velocity (स्पर्श रेखा)। लाल arrow = अभिकेंद्री त्वरण (केंद्र की ओर), हमेशा।")+'</div>';
+  },
+  "impulse-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Mass (kg)","Mass (kg)")+'</label>'
+      +'<input type="range" id="ilM" min="0.1" max="2" step="0.05" value="0.15" oninput="ilCalc()">'
+      +'<span class="labval" id="ilMv">0.15 kg</span></div>'
+      +'<div class="labrow"><label>'+d("Change in speed Δv (m/s)","speed में बदलाव Δv (m/s)")+'</label>'
+      +'<input type="range" id="ilDv" min="5" max="30" step="1" value="30" oninput="ilCalc()">'
+      +'<span class="labval" id="ilDvv">30 m/s</span></div>'
+      +'<div class="labrow"><label>'+d("Contact time Δt (s)","संपर्क समय Δt (s)")+'</label>'
+      +'<input type="range" id="ilDt" min="0.01" max="0.3" step="0.01" value="0.05" oninput="ilCalc()">'
+      +'<span class="labval" id="ilDtv">0.05 s</span></div>'
+      +'<div style="margin-top:8px"><svg viewBox="0 0 380 60" style="width:100%;max-width:400px;display:block;margin:0 auto">'
+      +'<line x1="20" y1="45" x2="360" y2="45" stroke="var(--line-strong)" stroke-width="3"/>'
+      +'<rect id="ilBar" x="20" y="26" width="80" height="18" rx="4" fill="var(--red)"/>'
+      +'</svg></div>'
+      +'<div class="labout" id="ilOut">Impulse = 4.50 kg·m/s · Peak force ≈ 90.0 N</div>'
+      +'<div class="labnote" id="ilNote">'+d("Stretch Δt out and watch the same impulse need far less force.","Δt खींचिए और देखिए वही impulse कहीं कम बल माँगता है।")+'</div>';
+  },
+  "friction-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Applied force F (N) on a 20 kg box, μₛ=0.5, μₖ=0.3","20 kg बक्से पर लगाया बल F (N), μₛ=0.5, μₖ=0.3")+'</label>'
+      +'<input type="range" id="frF" min="0" max="150" step="5" value="40" oninput="frCalc()">'
+      +'<span class="labval" id="frFv">40 N</span></div>'
+      +'<div style="margin-top:8px"><svg viewBox="0 0 380 100" style="width:100%;max-width:400px;display:block;margin:0 auto">'
+      +'<defs><marker id="frMkF" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--primary)"/></marker>'
+      +'<marker id="frMkR" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--red)"/></marker></defs>'
+      +'<line x1="20" y1="80" x2="360" y2="80" stroke="var(--line-strong)" stroke-width="3"/>'
+      +'<rect id="frBox" x="150" y="48" width="50" height="32" rx="4" fill="var(--ink-soft)"/>'
+      +'<line id="frFArrow" x1="200" y1="64" x2="240" y2="64" stroke="var(--primary)" stroke-width="4" marker-end="url(#frMkF)"/>'
+      +'<line id="frFrArrow" x1="150" y1="64" x2="110" y2="64" stroke="var(--red)" stroke-width="4" marker-end="url(#frMkR)"/>'
+      +'</svg></div>'
+      +'<div class="labout" id="frOut">Still. Static friction = 40.0 N (matches applied force, max 100.0 N)</div>'
+      +'<div class="labnote" id="frNote">'+d("Keep increasing the force and watch the box finally break free.","बल बढ़ाते रहिए और देखिए बक्सा आख़िर कब छूटता है।")+'</div>';
+  },
+  "banked-road-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Vehicle speed (m/s)","वाहन की speed (m/s)")+'</label>'
+      +'<input type="range" id="bnV" min="5" max="25" step="1" value="15" oninput="bnCalc()">'
+      +'<span class="labval" id="bnVv">15 m/s</span></div>'
+      +'<div class="labrow"><label>'+d("Bank angle θ","झुकाव कोण θ")+'</label>'
+      +'<input type="range" id="bnTh" min="0" max="30" step="1" value="0" oninput="bnCalc()">'
+      +'<span class="labval" id="bnThv">0°</span></div>'
+      +'<div style="margin-top:8px"><svg viewBox="0 0 300 200" style="width:100%;max-width:300px;display:block;margin:0 auto">'
+      +'<line x1="30" y1="130" x2="270" y2="130" stroke="var(--line)" stroke-width="1.5" stroke-dasharray="4,3"/>'
+      +'<g id="bnRoad" transform="rotate(0 150 130)">'
+      +'<rect x="70" y="122" width="160" height="16" rx="3" fill="var(--ink-soft)"/>'
+      +'<rect x="130" y="98" width="40" height="22" rx="4" fill="var(--primary)"/>'
+      +'</g>'
+      +'</svg></div>'
+      +'<div class="labout" id="bnOut">Ideal frictionless angle for 15 m/s: θ ≈ 27.5° · Flat-road max safe speed (μ=0.3): 12.2 m/s</div>'
+      +'<div class="labnote" id="bnNote">'+d("This banking is too gentle for this speed — friction must supply the rest, up to its limit.","यह झुकाव इस speed के लिए बहुत हल्का है — बाक़ी friction को अपनी सीमा तक देना होगा।")+'</div>';
   }
 };
 var IV_DTS=[2.0,1.0,0.5,0.1,0.01];
@@ -1889,6 +2021,52 @@ function ucCalc(){
   document.getElementById("ucAcc").setAttribute("y1",sy.toFixed(1));
   document.getElementById("ucAcc").setAttribute("x2",(sx-alen*Math.sin(th)).toFixed(1));
   document.getElementById("ucAcc").setAttribute("y2",(sy+alen*Math.cos(th)).toFixed(1));
+}
+function ilCalc(){
+  var m=+document.getElementById("ilM").value;
+  var dv=+document.getElementById("ilDv").value;
+  var dt=+document.getElementById("ilDt").value;
+  document.getElementById("ilMv").textContent=m.toFixed(2)+" kg";
+  document.getElementById("ilDvv").textContent=dv.toFixed(0)+" m/s";
+  document.getElementById("ilDtv").textContent=dt.toFixed(2)+" s";
+  var dp=m*dv, F=dp/dt;
+  document.getElementById("ilOut").textContent="Impulse = "+dp.toFixed(2)+" kg·m/s · Peak force ≈ "+F.toFixed(1)+" N";
+  document.getElementById("ilBar").setAttribute("width", Math.min(340, F*1.2).toFixed(1));
+  var note=document.getElementById("ilNote");
+  if(dt<0.05) note.innerHTML=sp("A short contact time — this is the painful, rigid-hand catch.","छोटा संपर्क समय — यह दर्दनाक, अकड़े हाथ वाली पकड़ है।");
+  else note.innerHTML=sp("A longer contact time — this is the gentle, giving catch: same impulse, far less force.","लंबा संपर्क समय — यह नरम पकड़ है: वही impulse, कहीं कम बल।");
+}
+function frCalc(){
+  var F=+document.getElementById("frF").value;
+  document.getElementById("frFv").textContent=F.toFixed(0)+" N";
+  var m=20,g=10,mus=0.5,muk=0.3;
+  var N=m*g, fsmax=mus*N, fk=muk*N;
+  var moving=F>fsmax, friction=moving?fk:F;
+  var out=document.getElementById("frOut");
+  if(moving) out.textContent="Sliding! Kinetic friction = "+fk.toFixed(1)+" N, net force = "+(F-fk).toFixed(1)+" N";
+  else out.textContent="Still. Static friction = "+friction.toFixed(1)+" N (matches applied force, max "+fsmax.toFixed(1)+" N)";
+  document.getElementById("frFArrow").setAttribute("x2",(200+Math.min(120,F*0.8)).toFixed(1));
+  document.getElementById("frFrArrow").setAttribute("x2",(150-Math.min(120,friction*0.8)).toFixed(1));
+  var note=document.getElementById("frNote");
+  if(moving) note.innerHTML=sp("It's sliding now — kinetic friction is lower than the static maximum was.","अब यह फिसल रहा है — kinetic friction static अधिकतम से कम है।");
+  else note.innerHTML=sp("Still stuck — static friction is silently matching your push, right up to its limit.","अब भी अटका — static friction चुपचाप आपके धक्के को मिला रहा है, अपनी सीमा तक।");
+}
+function bnCalc(){
+  var v=+document.getElementById("bnV").value;
+  var thDeg=+document.getElementById("bnTh").value;
+  document.getElementById("bnVv").textContent=v.toFixed(0)+" m/s";
+  document.getElementById("bnThv").textContent=thDeg.toFixed(0)+"°";
+  var r=50, g=10, mu=0.3;
+  var vFlatMax=Math.sqrt(mu*r*g);
+  var tanNeeded=(v*v)/(r*g);
+  var thNeeded=Math.atan(tanNeeded)*180/Math.PI;
+  document.getElementById("bnOut").textContent="Ideal frictionless angle for "+v.toFixed(0)+" m/s: θ ≈ "+thNeeded.toFixed(1)+"° · Flat-road max safe speed (μ=0.3): "+vFlatMax.toFixed(1)+" m/s";
+  var note=document.getElementById("bnNote");
+  var diff=thDeg-thNeeded;
+  if(Math.abs(diff)<3) note.innerHTML=sp("This banking is close to ideal for this speed — almost no friction needed.","यह झुकाव इस speed के लिए लगभग आदर्श है — लगभग कोई friction नहीं चाहिए।");
+  else if(thDeg<thNeeded) note.innerHTML=sp("This banking is too gentle for this speed — friction must supply the rest, up to its limit.","यह झुकाव इस speed के लिए बहुत हल्का है — बाक़ी friction को अपनी सीमा तक देना होगा।");
+  else note.innerHTML=sp("This banking is steeper than needed for this speed — a slow vehicle here would tend to slide down toward the inside without friction.","यह झुकाव इस speed के लिए ज़रूरत से ज़्यादा है — यहाँ धीमा वाहन बिना friction अंदर की ओर फिसल सकता है।");
+  document.getElementById("bnRoad").setAttribute("transform","rotate("+(-thDeg)+" 150 130)");
 }
 
 /* ============ Animations: press Play to watch the physics happen ============
