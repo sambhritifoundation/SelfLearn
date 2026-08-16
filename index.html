@@ -1662,6 +1662,127 @@ var DIAGRAMS = {
       +'<rect x="235" y="170" width="110" height="14" fill="var(--red)" opacity="0.5"/>'
       +'<text x="290" y="200" text-anchor="middle" font-size="10" fill="var(--red)">'+d("compressive stress — maximum here","दाबीय तनाव — यहाँ अधिकतम")+'</text>'
       +'</svg>';
+  },
+  "pascal-pressure-directions": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    var cx=230, cy=140, r=55;
+    var arrows='';
+    for(var a=0;a<360;a+=45){
+      var rad=a*Math.PI/180;
+      var sx=cx+(r+35)*Math.cos(rad), sy=cy+(r+35)*Math.sin(rad);
+      var ex=cx+(r+4)*Math.cos(rad), ey=cy+(r+4)*Math.sin(rad);
+      arrows+='<line x1="'+sx.toFixed(1)+'" y1="'+sy.toFixed(1)+'" x2="'+ex.toFixed(1)+'" y2="'+ey.toFixed(1)+'" stroke="var(--primary)" stroke-width="3" marker-end="url(#ppdA)"/>';
+    }
+    return '<svg viewBox="0 0 460 260" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<defs><marker id="ppdA" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--primary)"/></marker></defs>'
+      +'<rect x="20" y="30" width="420" height="220" rx="8" fill="var(--card)" stroke="var(--line-strong)" stroke-width="2"/>'
+      +'<text x="230" y="52" text-anchor="middle" font-size="12.5" font-weight="bold" fill="var(--ink)">'+d("Fluid force is always normal to the surface, everywhere","तरल का बल हमेशा सतह के लंबवत, हर जगह")+'</text>'
+      +'<circle cx="'+cx+'" cy="'+cy+'" r="'+r+'" fill="var(--teal)" opacity="0.35" stroke="var(--teal)" stroke-width="2"/>'
+      +arrows
+      +'<text x="230" y="230" text-anchor="middle" font-size="10.5" fill="var(--ink-soft)">'+d("Pressure itself has no direction — only the force it produces does","दबाव की ख़ुद कोई दिशा नहीं — सिर्फ़ उससे बना बल")+'</text>'
+      +'</svg>';
+  },
+  "barometer-depth-pressure": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 460 260" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<defs><marker id="bdpA" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--primary)"/></marker></defs>'
+      +'<text x="110" y="18" text-anchor="middle" font-size="11.5" font-weight="bold" fill="var(--ink)">'+d("Mercury barometer","पारा barometer")+'</text>'
+      +'<rect x="60" y="160" width="100" height="30" fill="var(--teal)" opacity="0.5" stroke="var(--ink)" stroke-width="1.5"/>'
+      +'<rect x="100" y="35" width="20" height="155" fill="var(--teal)" opacity="0.7" stroke="var(--ink)" stroke-width="1.5"/>'
+      +'<rect x="100" y="35" width="20" height="30" fill="none" stroke="var(--ink-soft)" stroke-width="1" stroke-dasharray="2,2"/>'
+      +'<text x="125" y="50" font-size="9.5" fill="var(--ink-soft)">'+d("vacuum","निर्वात")+'</text>'
+      +'<line x1="145" y1="65" x2="145" y2="190" stroke="var(--ink-soft)" stroke-width="1" stroke-dasharray="3,2"/>'
+      +'<text x="150" y="130" font-size="10" fill="var(--ink)">h ≈ 76 cm</text>'
+      +'<line x1="70" y1="175" x2="70" y2="150" stroke="var(--primary)" stroke-width="3" marker-end="url(#bdpA)"/>'
+      +'<text x="40" y="145" font-size="9" fill="var(--primary)">Pₐ</text>'
+      +'<text x="330" y="18" text-anchor="middle" font-size="11.5" font-weight="bold" fill="var(--ink)">'+d("Pressure grows with depth","गहराई के साथ दबाव बढ़ता है")+'</text>'
+      +'<rect x="270" y="35" width="120" height="155" fill="var(--teal)" opacity="0.35" stroke="var(--ink)" stroke-width="1.5"/>'
+      +'<line x1="270" y1="70" x2="390" y2="70" stroke="var(--ink-soft)" stroke-width="1" stroke-dasharray="2,2"/>'
+      +'<circle cx="330" cy="70" r="4" fill="var(--primary)"/>'
+      +'<text x="395" y="73" font-size="9" fill="var(--ink)">P₁</text>'
+      +'<line x1="270" y1="120" x2="390" y2="120" stroke="var(--ink-soft)" stroke-width="1" stroke-dasharray="2,2"/>'
+      +'<circle cx="330" cy="120" r="4" fill="var(--primary)"/>'
+      +'<text x="395" y="123" font-size="9" fill="var(--ink)">P₂</text>'
+      +'<line x1="270" y1="175" x2="390" y2="175" stroke="var(--ink-soft)" stroke-width="1" stroke-dasharray="2,2"/>'
+      +'<circle cx="330" cy="175" r="4" fill="var(--primary)"/>'
+      +'<text x="395" y="178" font-size="9" fill="var(--ink)">P₃</text>'
+      +'<text x="330" y="210" text-anchor="middle" font-size="10" fill="var(--ink-soft)">P₁ &lt; P₂ &lt; P₃</text>'
+      +'</svg>';
+  },
+  "streamline-continuity": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    var topWall='M30,40 L180,40 L250,90 L400,90';
+    var botWall='M30,180 L180,180 L250,130 L400,130';
+    var stream=function(yWide,yNarrow){
+      return '<path d="M30,'+yWide+' L180,'+yWide+' L250,'+yNarrow+' L400,'+yNarrow+'" fill="none" stroke="var(--primary)" stroke-width="2"/>';
+    };
+    var lines = stream(55,95)+stream(80,100)+stream(110,110)+stream(140,120)+stream(165,125);
+    return '<svg viewBox="0 0 440 220" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<defs><marker id="scA" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--red)"/></marker></defs>'
+      +'<text x="220" y="18" text-anchor="middle" font-size="12" font-weight="bold" fill="var(--ink)">'+d("A₁v₁ = A₂v₂ — narrower means faster","A₁v₁ = A₂v₂ — संकरा मतलब तेज़")+'</text>'
+      +'<path d="'+topWall+'" fill="none" stroke="var(--line-strong)" stroke-width="3"/>'
+      +'<path d="'+botWall+'" fill="none" stroke="var(--line-strong)" stroke-width="3"/>'
+      +lines
+      +'<line x1="60" y1="110" x2="100" y2="110" stroke="var(--red)" stroke-width="3" marker-end="url(#scA)"/>'
+      +'<text x="55" y="98" font-size="10.5" fill="var(--red)">v₁</text>'
+      +'<line x1="320" y1="108" x2="380" y2="108" stroke="var(--red)" stroke-width="3" marker-end="url(#scA)"/>'
+      +'<text x="315" y="96" font-size="10.5" fill="var(--red)">v₂</text>'
+      +'<text x="105" y="200" text-anchor="middle" font-size="10.5" fill="var(--ink)">A₁</text>'
+      +'<text x="340" y="200" text-anchor="middle" font-size="10.5" fill="var(--ink)">A₂</text>'
+      +'</svg>';
+  },
+  "magnus-aerofoil": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 460 240" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<defs><marker id="maA" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--ink)"/></marker>'
+      +'<marker id="maF" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="var(--red)"/></marker></defs>'
+      +'<text x="110" y="18" text-anchor="middle" font-size="11.5" font-weight="bold" fill="var(--ink)">'+d("Spinning ball (Magnus effect)","घूमती गेंद (Magnus प्रभाव)")+'</text>'
+      +'<path d="M20,70 L80,70 M20,90 L80,90 M20,110 L200,110 M20,130 L200,130 M20,150 L80,150 M20,170 L80,170" stroke="var(--ink-soft)" stroke-width="1.5" fill="none"/>'
+      +'<circle cx="110" cy="120" r="30" fill="var(--teal)" opacity="0.6" stroke="var(--ink)" stroke-width="2"/>'
+      +'<path d="M96,105 A20,20 0 0 1 124,105" fill="none" stroke="var(--ink)" stroke-width="2" marker-end="url(#maA)"/>'
+      +'<line x1="110" y1="90" x2="110" y2="55" stroke="var(--red)" stroke-width="3.5" marker-end="url(#maF)"/>'
+      +'<text x="118" y="60" font-size="10" fill="var(--red)">'+d("force","बल")+'</text>'
+      +'<text x="30" y="80" font-size="9" fill="var(--ink-soft)">'+d("faster air, low P","तेज़ हवा, कम P")+'</text>'
+      +'<text x="30" y="185" font-size="9" fill="var(--ink-soft)">'+d("slower air, high P","धीमी हवा, ज़्यादा P")+'</text>'
+      +'<text x="340" y="18" text-anchor="middle" font-size="11.5" font-weight="bold" fill="var(--ink)">'+d("Aircraft wing (aerofoil)","हवाई जहाज़ का पंख")+'</text>'
+      +'<path d="M250,110 L440,105 M250,90 L300,80 Q340,68 440,80 M250,150 L440,140" stroke="var(--ink-soft)" stroke-width="1.5" fill="none"/>'
+      +'<path d="M255,115 Q300,95 360,98 Q400,100 430,112 Q390,128 340,125 Q290,122 255,115 Z" fill="var(--primary)" opacity="0.4" stroke="var(--primary)" stroke-width="2"/>'
+      +'<line x1="340" y1="95" x2="340" y2="60" stroke="var(--red)" stroke-width="3.5" marker-end="url(#maF)"/>'
+      +'<text x="348" y="65" font-size="10" fill="var(--red)">'+d("lift","lift")+'</text>'
+      +'</svg>';
+  },
+  "surface-tension-capillary": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    var innerArrows='';
+    var pts=[[0,-1],[0.7,-0.7],[1,0],[0.7,0.7],[0,1],[-0.7,0.7],[-1,0],[-0.7,-0.7]];
+    pts.forEach(function(p){
+      innerArrows+='<line x1="90" y1="90" x2="'+(90+p[0]*26).toFixed(1)+'" y2="'+(90+p[1]*26).toFixed(1)+'" stroke="var(--ink-soft)" stroke-width="1.5" marker-end="url(#stcA)"/>';
+    });
+    var surfArrows='';
+    var pts2=[[0.7,0.7],[0,1],[-0.7,0.7],[1,0.15],[-1,0.15]];
+    pts2.forEach(function(p){
+      surfArrows+='<line x1="200" y1="60" x2="'+(200+p[0]*24).toFixed(1)+'" y2="'+(60+p[1]*24).toFixed(1)+'" stroke="var(--ink-soft)" stroke-width="1.5" marker-end="url(#stcA)"/>';
+    });
+    return '<svg viewBox="0 0 460 240" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<defs><marker id="stcA" markerWidth="7" markerHeight="7" refX="5" refY="2.5" orient="auto"><path d="M0,0 L5,2.5 L0,5 Z" fill="var(--ink-soft)"/></marker></defs>'
+      +'<text x="130" y="18" text-anchor="middle" font-size="11" font-weight="bold" fill="var(--ink)">'+d("Surface molecules have unbalanced pull","सतह के अणुओं पर असंतुलित खिंचाव")+'</text>'
+      +'<line x1="20" y1="60" x2="240" y2="60" stroke="var(--line)" stroke-width="1" stroke-dasharray="3,3"/>'
+      +'<text x="15" y="55" font-size="9" fill="var(--ink-soft)">'+d("surface","सतह")+'</text>'
+      +'<circle cx="90" cy="90" r="6" fill="var(--teal)"/>'
+      +innerArrows
+      +'<text x="90" y="128" text-anchor="middle" font-size="9" fill="var(--ink-soft)">'+d("inside — balanced","अंदर — संतुलित")+'</text>'
+      +'<circle cx="200" cy="60" r="6" fill="var(--amber)"/>'
+      +surfArrows
+      +'<text x="200" y="35" text-anchor="middle" font-size="9" fill="var(--ink-soft)">'+d("surface — pulled inward","सतह — अंदर खिंचती")+'</text>'
+      +'<text x="360" y="18" text-anchor="middle" font-size="11.5" font-weight="bold" fill="var(--ink)">'+d("Capillary rise","Capillary उभार")+'</text>'
+      +'<rect x="250" y="130" width="200" height="16" fill="var(--teal)" opacity="0.4"/>'
+      +'<line x1="345" y1="146" x2="345" y2="70" stroke="var(--ink-soft)" stroke-width="3"/>'
+      +'<line x1="365" y1="146" x2="365" y2="70" stroke="var(--ink-soft)" stroke-width="3"/>'
+      +'<path d="M345,90 Q355,80 365,90" fill="var(--teal)" opacity="0.6" stroke="var(--teal)" stroke-width="2"/>'
+      +'<rect x="347" y="90" width="16" height="56" fill="var(--teal)" opacity="0.6"/>'
+      +'<line x1="330" y1="90" x2="330" y2="146" stroke="var(--ink-soft)" stroke-width="1" stroke-dasharray="3,2"/>'
+      +'<text x="320" y="120" text-anchor="end" font-size="10" fill="var(--ink)">h</text>'
+      +'</svg>';
   }
 };
 
@@ -2028,6 +2149,63 @@ var INTERACTIVES = {
       +'</svg></div>'
       +'<div class="labout" id="epOut">Strain = 2.00e-4 · Energy density u = 4000.0 J/m³</div>'
       +'<div class="labnote">'+d("This is the triangular area under the stress-strain line — same idea as spring energy.","यही stress-strain रेखा के नीचे त्रिकोणीय क्षेत्रफल है — spring ऊर्जा वाला ही विचार।")+'</div>';
+  },
+  "hydraulic-lift-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Input force F₁ (N)","Input बल F₁ (N)")+'</label>'
+      +'<input type="range" id="hlF1" min="20" max="500" step="10" value="200" oninput="hlCalc()">'
+      +'<span class="labval" id="hlF1v">200 N</span></div>'
+      +'<div class="labrow"><label>'+d("Small piston area A₁ (cm²)","छोटे piston का क्षेत्रफल A₁ (cm²)")+'</label>'
+      +'<input type="range" id="hlA1" min="5" max="30" step="1" value="10" oninput="hlCalc()">'
+      +'<span class="labval" id="hlA1v">10 cm²</span></div>'
+      +'<div class="labrow"><label>'+d("Large piston area A₂ (cm²)","बड़े piston का क्षेत्रफल A₂ (cm²)")+'</label>'
+      +'<input type="range" id="hlA2" min="50" max="800" step="10" value="400" oninput="hlCalc()">'
+      +'<span class="labval" id="hlA2v">400 cm²</span></div>'
+      +'<div style="margin-top:8px"><svg viewBox="0 0 380 140" style="width:100%;max-width:400px;display:block;margin:0 auto">'
+      +'<defs><marker id="hlMk" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--ink)"/></marker></defs>'
+      +'<rect x="20" y="100" width="340" height="18" fill="var(--teal)" opacity="0.4"/>'
+      +'<rect id="hlPist1" x="55" y="70" width="16" height="30" fill="var(--primary)"/>'
+      +'<rect id="hlPist2" x="260" y="40" width="60" height="60" fill="var(--red)"/>'
+      +'<line id="hlArr1" x1="63" y1="65" x2="63" y2="30" stroke="var(--primary)" stroke-width="3" marker-end="url(#hlMk)"/>'
+      +'<line id="hlArr2" x1="290" y1="35" x2="290" y2="10" stroke="var(--red)" stroke-width="3" marker-end="url(#hlMk)"/>'
+      +'</svg></div>'
+      +'<div class="labout" id="hlOut">F₂ = 8000.0 N · Mechanical advantage = 40.0×</div>'
+      +'<div class="labnote">'+d("The large piston lifts far more — but moves a proportionally shorter distance.","बड़ा piston कहीं ज़्यादा उठाता है — पर अनुपात में कम दूरी चलता है।")+'</div>';
+  },
+  "bernoulli-venturi-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Inlet speed v₁ (m/s)","Input speed v₁ (m/s)")+'</label>'
+      +'<input type="range" id="bvV1" min="0.5" max="5" step="0.1" value="1" oninput="bvCalc()">'
+      +'<span class="labval" id="bvV1v">1.0 m/s</span></div>'
+      +'<div class="labrow"><label>'+d("Narrowing (A₁/A₂)","संकरापन (A₁/A₂)")+'</label>'
+      +'<input type="range" id="bvRatio" min="1" max="6" step="0.5" value="2" oninput="bvCalc()">'
+      +'<span class="labval" id="bvRatiov">2.0×</span></div>'
+      +'<div style="margin-top:8px"><svg viewBox="0 0 380 130" style="width:100%;max-width:400px;display:block;margin:0 auto">'
+      +'<path d="M20,60 L140,60 L200,90 L360,90" fill="none" stroke="var(--line-strong)" stroke-width="3"/>'
+      +'<path d="M20,120 L140,120 L200,110 L360,110" fill="none" stroke="var(--line-strong)" stroke-width="3"/>'
+      +'<rect id="bvCol1" x="70" y="20" width="14" height="60" fill="var(--primary)" opacity="0.5"/>'
+      +'<rect id="bvCol2" x="260" y="30" width="14" height="70" fill="var(--red)" opacity="0.5"/>'
+      +'</svg></div>'
+      +'<div class="labout" id="bvOut">v₂ = 2.00 m/s · ΔP (drop) = 1500.0 Pa</div>'
+      +'<div class="labnote">'+d("The narrow section is faster and lower pressure — the column there sits lower.","संकरा हिस्सा तेज़ और कम दबाव वाला है — वहाँ का स्तंभ नीचे बैठता है।")+'</div>';
+  },
+  "terminal-velocity-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Ball radius r (mm)","गेंद की त्रिज्या r (mm)")+'</label>'
+      +'<input type="range" id="tvR" min="0.2" max="3" step="0.1" value="1" oninput="tvCalc()">'
+      +'<span class="labval" id="tvRv">1.0 mm</span></div>'
+      +'<div class="labrow"><label>'+d("Fluid viscosity η (Pa·s)","तरल की viscosity η (Pa·s)")+'</label>'
+      +'<input type="range" id="tvEta" min="0.05" max="2" step="0.05" value="0.5" oninput="tvCalc()">'
+      +'<span class="labval" id="tvEtav">0.50 Pa·s</span></div>'
+      +'<div class="labrow"><label>'+d("Density difference ρ−σ (kg/m³)","घनत्व-फ़र्क़ ρ−σ (kg/m³)")+'</label>'
+      +'<input type="range" id="tvDrho" min="500" max="8000" step="100" value="6900" oninput="tvCalc()">'
+      +'<span class="labval" id="tvDrhov">6900 kg/m³</span></div>'
+      +'<div style="margin-top:8px"><svg viewBox="0 0 200 160" style="width:100%;max-width:200px;display:block;margin:0 auto">'
+      +'<rect x="60" y="10" width="80" height="140" fill="var(--teal)" opacity="0.3" stroke="var(--line-strong)" stroke-width="2"/>'
+      +'<circle id="tvBall" cx="100" cy="30" r="8" fill="var(--red)"/>'
+      +'</svg></div>'
+      +'<div class="labout" id="tvOut">Terminal velocity vₜ = 3.07 cm/s</div>'
+      +'<div class="labnote">'+d("A bigger ball or thinner fluid reaches a much higher terminal velocity.","बड़ी गेंद या पतला तरल कहीं ज़्यादा अंतिम velocity तक पहुँचता है।")+'</div>';
   }
 };
 var IV_DTS=[2.0,1.0,0.5,0.1,0.01];
@@ -2372,6 +2550,54 @@ function epCalc(){
   document.getElementById("epLine").setAttribute("x2",(20+strainScaled).toFixed(1));
   document.getElementById("epLine").setAttribute("y2",(120-strainScaled*0.9).toFixed(1));
   document.getElementById("epTri").setAttribute("points","20,120 "+(20+strainScaled).toFixed(1)+",120 "+(20+strainScaled).toFixed(1)+","+(120-strainScaled*0.9).toFixed(1));
+}
+function hlCalc(){
+  var F1=+document.getElementById("hlF1").value;
+  var A1=+document.getElementById("hlA1").value;
+  var A2=+document.getElementById("hlA2").value;
+  document.getElementById("hlF1v").textContent=F1.toFixed(0)+" N";
+  document.getElementById("hlA1v").textContent=A1.toFixed(0)+" cm²";
+  document.getElementById("hlA2v").textContent=A2.toFixed(0)+" cm²";
+  var F2=F1*(A2/A1), MA=A2/A1;
+  document.getElementById("hlOut").textContent="F₂ = "+F2.toFixed(1)+" N · Mechanical advantage = "+MA.toFixed(1)+"×";
+  var w1=Math.max(8,Math.min(30,Math.sqrt(A1)*3));
+  var w2=Math.max(20,Math.min(120,Math.sqrt(A2)*3));
+  document.getElementById("hlPist1").setAttribute("x",(63-w1/2).toFixed(1));
+  document.getElementById("hlPist1").setAttribute("width",w1.toFixed(1));
+  document.getElementById("hlPist2").setAttribute("x",(290-w2/2).toFixed(1));
+  document.getElementById("hlPist2").setAttribute("width",w2.toFixed(1));
+}
+function bvCalc(){
+  var v1=+document.getElementById("bvV1").value;
+  var ratio=+document.getElementById("bvRatio").value;
+  document.getElementById("bvV1v").textContent=v1.toFixed(1)+" m/s";
+  document.getElementById("bvRatiov").textContent=ratio.toFixed(1)+"×";
+  var v2=v1*ratio;
+  var rho=1000;
+  var dP=0.5*rho*(v2*v2-v1*v1);
+  document.getElementById("bvOut").textContent="v₂ = "+v2.toFixed(2)+" m/s · ΔP (drop) = "+dP.toFixed(1)+" Pa";
+  var col1H=60;
+  var drop=Math.min(55, dP/3000*60);
+  var col2H=Math.max(5, col1H-drop);
+  document.getElementById("bvCol1").setAttribute("y",(80-col1H).toFixed(1));
+  document.getElementById("bvCol1").setAttribute("height",col1H.toFixed(1));
+  document.getElementById("bvCol2").setAttribute("y",(100-col2H).toFixed(1));
+  document.getElementById("bvCol2").setAttribute("height",col2H.toFixed(1));
+}
+function tvCalc(){
+  var rmm=+document.getElementById("tvR").value;
+  var eta=+document.getElementById("tvEta").value;
+  var drho=+document.getElementById("tvDrho").value;
+  document.getElementById("tvRv").textContent=rmm.toFixed(1)+" mm";
+  document.getElementById("tvEtav").textContent=eta.toFixed(2)+" Pa·s";
+  document.getElementById("tvDrhov").textContent=drho.toFixed(0)+" kg/m³";
+  var r=rmm/1000, g=10;
+  var vt=2*r*r*drho*g/(9*eta);
+  document.getElementById("tvOut").textContent="Terminal velocity vₜ = "+(vt*100).toFixed(2)+" cm/s";
+  var ballR=Math.max(4,Math.min(20,rmm*6));
+  document.getElementById("tvBall").setAttribute("r",ballR.toFixed(1));
+  var cy=Math.max(25,Math.min(140,30+Math.min(100,vt*300)));
+  document.getElementById("tvBall").setAttribute("cy",cy.toFixed(1));
 }
 
 /* ============ Animations: press Play to watch the physics happen ============
