@@ -1603,6 +1603,65 @@ var DIAGRAMS = {
       +'<line x1="356" y1="115" x2="380" y2="115" stroke="var(--ink-soft)" stroke-width="3" marker-end="url(#ctA)"/>'
       +'<text x="330" y="145" text-anchor="middle" font-size="9.5" fill="var(--ink-soft)">'+d("after — momentum conserved, KE lost to heat","बाद — momentum संरक्षित, KE गर्मी में गँवाई")+'</text>'
       +'</svg>';
+  },
+  "stress-strain-types": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 460 200" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<defs><marker id="sstA" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--primary)"/></marker></defs>'
+      +'<text x="75" y="18" text-anchor="middle" font-size="11" font-weight="bold" fill="var(--ink)">'+d("Tensile","लंबकाय (Tensile)")+'</text>'
+      +'<rect x="45" y="60" width="60" height="20" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/>'
+      +'<line x1="20" y1="70" x2="45" y2="70" stroke="var(--primary)" stroke-width="3" marker-end="url(#sstA)"/>'
+      +'<line x1="105" y1="70" x2="130" y2="70" stroke="var(--primary)" stroke-width="3" marker-end="url(#sstA)"/>'
+      +'<text x="230" y="18" text-anchor="middle" font-size="11" font-weight="bold" fill="var(--ink)">'+d("Shear","कर्तन (Shear)")+'</text>'
+      +'<polygon points="190,80 250,80 265,50 205,50" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/>'
+      +'<line x1="205" y1="50" x2="230" y2="50" stroke="var(--primary)" stroke-width="3" marker-end="url(#sstA)"/>'
+      +'<text x="385" y="18" text-anchor="middle" font-size="11" font-weight="bold" fill="var(--ink)">'+d("Volume (hydraulic)","आयतन (hydraulic)")+'</text>'
+      +'<circle cx="385" cy="65" r="24" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/>'
+      +'<line x1="385" y1="30" x2="385" y2="40" stroke="var(--primary)" stroke-width="3" marker-end="url(#sstA)"/>'
+      +'<line x1="385" y1="100" x2="385" y2="90" stroke="var(--primary)" stroke-width="3" marker-end="url(#sstA)"/>'
+      +'<line x1="350" y1="65" x2="360" y2="65" stroke="var(--primary)" stroke-width="3" marker-end="url(#sstA)"/>'
+      +'<line x1="420" y1="65" x2="410" y2="65" stroke="var(--primary)" stroke-width="3" marker-end="url(#sstA)"/>'
+      +'<text x="75" y="160" text-anchor="middle" font-size="10" fill="var(--ink-soft)">'+d("strain = ΔL/L","विकृति = ΔL/L")+'</text>'
+      +'<text x="230" y="160" text-anchor="middle" font-size="10" fill="var(--ink-soft)">'+d("strain ≈ tan θ","विकृति ≈ tan θ")+'</text>'
+      +'<text x="385" y="160" text-anchor="middle" font-size="10" fill="var(--ink-soft)">'+d("strain = ΔV/V","विकृति = ΔV/V")+'</text>'
+      +'</svg>';
+  },
+  "shear-bulk-diagram": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 440 220" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<defs><marker id="sbA" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--primary)"/></marker></defs>'
+      +'<text x="110" y="20" text-anchor="middle" font-size="12" font-weight="bold" fill="var(--ink)">'+d("Shear modulus G","Shear modulus G")+'</text>'
+      +'<line x1="40" y1="170" x2="180" y2="170" stroke="var(--ink)" stroke-width="2"/>'
+      +'<polygon points="55,170 165,170 195,90 85,90" fill="var(--primary-light)" stroke="var(--primary)" stroke-width="2"/>'
+      +'<line x1="85" y1="90" x2="130" y2="90" stroke="var(--red)" stroke-width="3" marker-end="url(#sbA)"/>'
+      +'<text x="140" y="85" font-size="10" fill="var(--red)">'+d("push","धक्का")+'</text>'
+      +'<path d="M100,140 A40,40 0 0 0 118,105" fill="none" stroke="var(--ink-soft)" stroke-width="1.5"/>'
+      +'<text x="102" y="120" font-size="10" fill="var(--ink-soft)">θ</text>'
+      +'<text x="330" y="20" text-anchor="middle" font-size="12" font-weight="bold" fill="var(--ink)">'+d("Bulk modulus B","Bulk modulus B")+'</text>'
+      +'<circle cx="330" cy="130" r="45" fill="var(--teal)" opacity="0.3" stroke="var(--teal)" stroke-width="2" stroke-dasharray="4,3"/>'
+      +'<circle cx="330" cy="130" r="34" fill="var(--teal)" opacity="0.5" stroke="var(--teal)" stroke-width="2"/>'
+      +'<line x1="330" y1="70" x2="330" y2="90" stroke="var(--primary)" stroke-width="3" marker-end="url(#sbA)"/>'
+      +'<line x1="330" y1="190" x2="330" y2="170" stroke="var(--primary)" stroke-width="3" marker-end="url(#sbA)"/>'
+      +'<line x1="270" y1="130" x2="290" y2="130" stroke="var(--primary)" stroke-width="3" marker-end="url(#sbA)"/>'
+      +'<line x1="390" y1="130" x2="370" y2="130" stroke="var(--primary)" stroke-width="3" marker-end="url(#sbA)"/>'
+      +'<text x="330" y="200" text-anchor="middle" font-size="10" fill="var(--ink-soft)">'+d("pressure from every side","हर तरफ़ से दबाव")+'</text>'
+      +'</svg>';
+  },
+  "engineering-applications": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 440 220" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="110" y="18" text-anchor="middle" font-size="11.5" font-weight="bold" fill="var(--ink)">'+d("Thicker cable → less stress","मोटी केबल → कम तनाव")+'</text>'
+      +'<line x1="80" y1="30" x2="80" y2="120" stroke="var(--ink-soft)" stroke-width="10"/>'
+      +'<rect x="55" y="120" width="50" height="35" rx="4" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/>'
+      +'<text x="80" y="143" text-anchor="middle" font-size="10" fill="var(--ink)">'+d("load","बोझ")+'</text>'
+      +'<line x1="160" y1="30" x2="160" y2="120" stroke="var(--red)" stroke-width="3"/>'
+      +'<rect x="135" y="120" width="50" height="35" rx="4" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/>'
+      +'<text x="160" y="20" text-anchor="middle" font-size="9" fill="var(--red)">'+d("thin — risky","पतली — जोखिम भरी")+'</text>'
+      +'<text x="290" y="18" text-anchor="middle" font-size="11.5" font-weight="bold" fill="var(--ink)">'+d("Mountain: stress builds at the base","पहाड़: तनाव आधार पर बढ़ता है")+'</text>'
+      +'<polygon points="290,30 240,170 340,170" fill="var(--ink-soft)" opacity="0.5" stroke="var(--ink)" stroke-width="2"/>'
+      +'<rect x="235" y="170" width="110" height="14" fill="var(--red)" opacity="0.5"/>'
+      +'<text x="290" y="200" text-anchor="middle" font-size="10" fill="var(--red)">'+d("compressive stress — maximum here","दाबीय तनाव — यहाँ अधिकतम")+'</text>'
+      +'</svg>';
   }
 };
 
@@ -1919,6 +1978,56 @@ var INTERACTIVES = {
       +'<span class="labval" id="pwTv">25 s</span></div>'
       +'<div class="labout" id="pwOut">Work = 10000.0 J · Power = 400.0 W</div>'
       +'<div class="labnote" id="pwNote">'+d("Same work, done faster, always means more power.","वही काम, तेज़ी से किया गया, हमेशा ज़्यादा power का मतलब है।")+'</div>';
+  },
+  "stress-strain-curve-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Stress applied (% of breaking stress)","लगाया तनाव (टूटने वाले तनाव का %)")+'</label>'
+      +'<input type="range" id="ssStress" min="0" max="120" step="2" value="20" oninput="ssCalc()">'
+      +'<span class="labval" id="ssStressv">20%</span></div>'
+      +'<div style="margin-top:8px"><svg viewBox="0 0 340 200" style="width:100%;max-width:360px;display:block;margin:0 auto">'
+      +'<line x1="30" y1="170" x2="320" y2="170" stroke="var(--ink)" stroke-width="2"/>'
+      +'<text x="325" y="174" font-size="10" fill="var(--ink)">'+d("strain","विकृति")+'</text>'
+      +'<line x1="30" y1="170" x2="30" y2="20" stroke="var(--ink)" stroke-width="2"/>'
+      +'<text x="30" y="14" text-anchor="middle" font-size="10" fill="var(--ink)">'+d("stress","तनाव")+'</text>'
+      +'<path d="M30,170 L130,80 Q170,55 190,45 Q230,35 260,50 L280,90" fill="none" stroke="var(--line-strong)" stroke-width="2"/>'
+      +'<circle id="ssDot" cx="30" cy="170" r="7" fill="var(--primary)"/>'
+      +'</svg></div>'
+      +'<div class="labout" id="ssOut">Elastic — the wire will return fully to its original length.</div>'
+      +'<div class="labnote">'+d("Keep increasing stress and watch the wire pass through elastic, plastic, and finally breaking.","तनाव बढ़ाते रहिए और देखिए तार प्रत्यास्थ, प्लास्टिक, और आख़िर टूटने से गुज़रता है।")+'</div>';
+  },
+  "youngs-modulus-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Force F (N)","बल F (N)")+'</label>'
+      +'<input type="range" id="ymF" min="10" max="500" step="10" value="100" oninput="ymCalc()">'
+      +'<span class="labval" id="ymFv">100 N</span></div>'
+      +'<div class="labrow"><label>'+d("Length L (m)","लंबाई L (m)")+'</label>'
+      +'<input type="range" id="ymL" min="0.5" max="5" step="0.5" value="2" oninput="ymCalc()">'
+      +'<span class="labval" id="ymLv">2.0 m</span></div>'
+      +'<div class="labrow"><label>'+d("Area A (×10⁻⁶ m²)","क्षेत्रफल A (×10⁻⁶ m²)")+'</label>'
+      +'<input type="range" id="ymA" min="0.5" max="5" step="0.5" value="1" oninput="ymCalc()">'
+      +'<span class="labval" id="ymAv">1.0 ×10⁻⁶ m²</span></div>'
+      +'<div class="labrow"><label>'+d("Young's modulus Y (×10¹⁰ Pa)","Young's modulus Y (×10¹⁰ Pa)")+'</label>'
+      +'<input type="range" id="ymY" min="0.01" max="25" step="0.01" value="20" oninput="ymCalc()">'
+      +'<span class="labval" id="ymYv">20.0 ×10¹⁰ Pa (steel-like)</span></div>'
+      +'<div class="labout" id="ymOut">Elongation ΔL = 1.000 mm</div>'
+      +'<div class="labnote">'+d("Lower Y (rubber-like) stretches far more for the same force.","कम Y (rubber-जैसा) वही बल के लिए कहीं ज़्यादा खिंचता है।")+'</div>';
+  },
+  "elastic-pe-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Stress (×10⁷ Pa)","तनाव (×10⁷ Pa)")+'</label>'
+      +'<input type="range" id="epStress" min="1" max="10" step="0.5" value="4" oninput="epCalc()">'
+      +'<span class="labval" id="epStressv">4.0 ×10⁷ Pa</span></div>'
+      +'<div class="labrow"><label>'+d("Young's modulus Y (×10¹⁰ Pa)","Young's modulus Y (×10¹⁰ Pa)")+'</label>'
+      +'<input type="range" id="epY" min="1" max="25" step="0.5" value="20" oninput="epCalc()">'
+      +'<span class="labval" id="epYv">20.0 ×10¹⁰ Pa</span></div>'
+      +'<div style="margin-top:8px"><svg viewBox="0 0 200 140" style="width:100%;max-width:200px;display:block;margin:0 auto">'
+      +'<line x1="20" y1="120" x2="180" y2="120" stroke="var(--ink)" stroke-width="1.5"/>'
+      +'<line x1="20" y1="120" x2="20" y2="20" stroke="var(--ink)" stroke-width="1.5"/>'
+      +'<polygon id="epTri" points="20,120 100,120 100,60" fill="var(--primary)" opacity="0.3"/>'
+      +'<line id="epLine" x1="20" y1="120" x2="100" y2="60" stroke="var(--primary)" stroke-width="2.5"/>'
+      +'</svg></div>'
+      +'<div class="labout" id="epOut">Strain = 2.00e-4 · Energy density u = 4000.0 J/m³</div>'
+      +'<div class="labnote">'+d("This is the triangular area under the stress-strain line — same idea as spring energy.","यही stress-strain रेखा के नीचे त्रिकोणीय क्षेत्रफल है — spring ऊर्जा वाला ही विचार।")+'</div>';
   }
 };
 var IV_DTS=[2.0,1.0,0.5,0.1,0.01];
@@ -2220,6 +2329,49 @@ function pwCalc(){
   document.getElementById("pwTv").textContent=t.toFixed(0)+" s";
   var W=m*10*h, P=W/t;
   document.getElementById("pwOut").textContent="Work = "+W.toFixed(1)+" J · Power = "+P.toFixed(1)+" W";
+}
+function ssCalc(){
+  var s=+document.getElementById("ssStress").value;
+  document.getElementById("ssStressv").textContent=s+"%";
+  var frac=Math.min(s,100)/100;
+  var x=30+frac*250;
+  var y=170-Math.min(140, frac*150);
+  var dot=document.getElementById("ssDot");
+  dot.setAttribute("cx",x.toFixed(1));
+  dot.setAttribute("cy",y.toFixed(1));
+  var out=document.getElementById("ssOut");
+  if(s>=100){ out.innerHTML=sp("Broken! Past the breaking stress, the wire has snapped.","टूट गया! टूटने वाले तनाव से आगे, तार टूट चुका है।"); dot.setAttribute("fill","var(--red)"); }
+  else if(s>55){ out.innerHTML=sp("Plastic region — permanently deformed, will not fully return.","प्लास्टिक क्षेत्र — स्थायी रूप से विकृत, पूरी तरह वापस नहीं आएगा।"); dot.setAttribute("fill","var(--amber)"); }
+  else if(s>40){ out.innerHTML=sp("Past the proportional limit, but still elastic if released now.","आनुपातिक सीमा से आगे, पर अभी छोड़ने पर अब भी प्रत्यास्थ।"); dot.setAttribute("fill","var(--teal)"); }
+  else{ out.innerHTML=sp("Elastic — the wire will return fully to its original length.","प्रत्यास्थ — तार पूरी तरह अपनी मूल लंबाई पर लौटेगा।"); dot.setAttribute("fill","var(--primary)"); }
+}
+function ymCalc(){
+  var F=+document.getElementById("ymF").value;
+  var Lm=+document.getElementById("ymL").value;
+  var Aslider=+document.getElementById("ymA").value;
+  var Yslider=+document.getElementById("ymY").value;
+  document.getElementById("ymFv").textContent=F.toFixed(0)+" N";
+  document.getElementById("ymLv").textContent=Lm.toFixed(1)+" m";
+  document.getElementById("ymAv").textContent=Aslider.toFixed(1)+" ×10⁻⁶ m²";
+  var label = Yslider>10 ? "steel-like" : (Yslider>1 ? "wood-like" : "rubber-like");
+  document.getElementById("ymYv").textContent=Yslider.toFixed(2)+" ×10¹⁰ Pa ("+label+")";
+  var A=Aslider*1e-6, Y=Yslider*1e10;
+  var dL=(F*Lm)/(A*Y);
+  document.getElementById("ymOut").textContent="Elongation ΔL = "+(dL*1000).toFixed(3)+" mm";
+}
+function epCalc(){
+  var stressSlider=+document.getElementById("epStress").value;
+  var Yslider=+document.getElementById("epY").value;
+  document.getElementById("epStressv").textContent=stressSlider.toFixed(1)+" ×10⁷ Pa";
+  document.getElementById("epYv").textContent=Yslider.toFixed(1)+" ×10¹⁰ Pa";
+  var stress=stressSlider*1e7, Y=Yslider*1e10;
+  var strain=stress/Y;
+  var u=0.5*stress*strain;
+  document.getElementById("epOut").textContent="Strain = "+strain.toExponential(2)+" · Energy density u = "+u.toFixed(1)+" J/m³";
+  var strainScaled=Math.min(80, strain*3e5);
+  document.getElementById("epLine").setAttribute("x2",(20+strainScaled).toFixed(1));
+  document.getElementById("epLine").setAttribute("y2",(120-strainScaled*0.9).toFixed(1));
+  document.getElementById("epTri").setAttribute("points","20,120 "+(20+strainScaled).toFixed(1)+",120 "+(20+strainScaled).toFixed(1)+","+(120-strainScaled*0.9).toFixed(1));
 }
 
 /* ============ Animations: press Play to watch the physics happen ============
