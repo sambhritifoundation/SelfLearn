@@ -2488,6 +2488,78 @@ var DIAGRAMS = {
       +'<text x="330" y="205" text-anchor="middle" font-size="9" fill="var(--ink-soft)">'+d("Different shapes, same job:","अलग-अलग आकार, वही काम:")+'</text>'
       +'<text x="330" y="219" text-anchor="middle" font-size="9" fill="var(--ink-soft)">'+d("two conductors, one insulator between them.","दो conductors, बीच में एक insulator।")+'</text>'
       +'</svg>';
+  },
+  "electron-drift-motion": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 460 260" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="115" y="16" text-anchor="middle" font-size="10.5" font-weight="bold" fill="var(--ink)">'+d("No field — pure chaos","बिना field — बिल्कुल अफ़रा-तफ़री")+'</text>'
+      +'<path d="M30,60 L70,90 L45,120 L100,105 L75,150 L130,130 L110,170 L170,150" fill="none" stroke="var(--primary)" stroke-width="1.6"/>'
+      +'<circle cx="30" cy="60" r="4" fill="var(--red)"/><text x="30" y="50" text-anchor="middle" font-size="9" fill="var(--red)">A</text>'
+      +'<circle cx="170" cy="150" r="4" fill="var(--teal)"/><text x="182" y="154" font-size="9" fill="var(--teal)">B</text>'
+      +'<text x="100" y="210" text-anchor="middle" font-size="9" fill="var(--ink-soft)">'+d("random collisions, no net motion","random collisions, कोई net motion नहीं")+'</text>'
+      +'<line x1="230" y1="16" x2="230" y2="230" stroke="var(--line)" stroke-width="1" stroke-dasharray="4,3"/>'
+      +'<text x="345" y="16" text-anchor="middle" font-size="10.5" font-weight="bold" fill="var(--ink)">'+d("With field — chaos + drift","Field के साथ — अफ़रा-तफ़री + drift")+'</text>'
+      +'<path d="M260,60 L300,88 L280,116 L335,100 L320,143 L375,122 L365,160 L425,138" fill="none" stroke="var(--primary)" stroke-width="1.6"/>'
+      +'<circle cx="260" cy="60" r="4" fill="var(--red)"/><text x="260" y="50" text-anchor="middle" font-size="9" fill="var(--red)">A</text>'
+      +'<circle cx="425" cy="138" r="4" fill="var(--teal)"/><text x="437" y="142" font-size="9" fill="var(--teal)">B′</text>'
+      +'<line x1="255" y1="185" x2="430" y2="185" stroke="var(--amber)" stroke-width="2.5" marker-end="url(#ahed)"/>'
+      +'<defs><marker id="ahed" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--amber)"/></marker></defs>'
+      +'<text x="342" y="180" text-anchor="middle" font-size="9.5" fill="var(--amber)">'+d("net drift (opposite to E)","net drift (E के उल्टा)")+'</text>'
+      +'<line x1="255" y1="215" x2="430" y2="215" stroke="var(--red)" stroke-width="2" marker-end="url(#aheE)"/>'
+      +'<defs><marker id="aheE" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--red)"/></marker></defs>'
+      +'<text x="342" y="230" text-anchor="middle" font-size="9.5" fill="var(--red)">E</text>'
+      +'</svg>';
+  },
+  "ohms-law-limitations-graphs": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 460 260" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<line x1="35" y1="70" x2="35" y2="10" stroke="var(--line-strong)" stroke-width="1.2"/>'
+      +'<line x1="35" y1="70" x2="130" y2="70" stroke="var(--line-strong)" stroke-width="1.2"/>'
+      +'<line x1="35" y1="65" x2="115" y2="20" stroke="var(--ink-soft)" stroke-width="1.3" stroke-dasharray="3,2"/>'
+      +'<path d="M35,65 Q70,55 90,35 Q105,20 115,12" fill="none" stroke="var(--primary)" stroke-width="2"/>'
+      +'<text x="82" y="86" text-anchor="middle" font-size="9" fill="var(--ink-soft)">'+d("(a) real resistor (curves)","(a) असली resistor (मुड़ता है)")+'</text>'
+      +'<text x="12" y="42" font-size="8.5" fill="var(--ink-soft)">V</text><text x="128" y="82" font-size="8.5" fill="var(--ink-soft)">I</text>'
+      +'<line x1="185" y1="70" x2="185" y2="10" stroke="var(--line-strong)" stroke-width="1.2"/>'
+      +'<line x1="185" y1="70" x2="290" y2="70" stroke="var(--line-strong)" stroke-width="1.2"/>'
+      +'<path d="M235,70 Q255,68 265,55 Q278,35 288,14" fill="none" stroke="var(--primary)" stroke-width="2"/>'
+      +'<path d="M235,70 Q225,71 218,72" fill="none" stroke="var(--primary)" stroke-width="2"/>'
+      +'<text x="237" y="86" text-anchor="middle" font-size="9" fill="var(--ink-soft)">'+d("(b) diode (asymmetric)","(b) diode (असममित)")+'</text>'
+      +'<text x="162" y="42" font-size="8.5" fill="var(--ink-soft)">I</text><text x="288" y="82" font-size="8.5" fill="var(--ink-soft)">V</text>'
+      +'<line x1="335" y1="140" x2="335" y2="20" stroke="var(--line-strong)" stroke-width="1.2"/>'
+      +'<line x1="335" y1="140" x2="440" y2="140" stroke="var(--line-strong)" stroke-width="1.2"/>'
+      +'<path d="M335,135 Q355,90 375,75 Q390,90 400,110 Q412,128 428,25" fill="none" stroke="var(--primary)" stroke-width="2"/>'
+      +'<text x="387" y="156" text-anchor="middle" font-size="9" fill="var(--ink-soft)">'+d("(c) GaAs (non-unique)","(c) GaAs (non-unique)")+'</text>'
+      +'<text x="312" y="112" font-size="8.5" fill="var(--ink-soft)">I</text><text x="438" y="152" font-size="8.5" fill="var(--ink-soft)">V</text>'
+      +'<text x="230" y="200" text-anchor="middle" font-size="9.5" fill="var(--ink-soft)">'+d("R = V/I always exists — Ohm's law is the extra claim that it stays constant.","R = V/I हमेशा मौजूद है — Ohm का नियम अतिरिक्त दावा है कि यह स्थिर रहता है।")+'</text>'
+      +'<text x="230" y="216" text-anchor="middle" font-size="9" fill="var(--ink-soft)">'+d("Dashed line = Ohm's law (straight); solid curves = real devices breaking it.","Dashed रेखा = Ohm का नियम (सीधी); ठोस curves = असली उपकरण इसे तोड़ते हुए।")+'</text>'
+      +'</svg>';
+  },
+  "kirchhoff-rules-diagram": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 460 260" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<defs><marker id="ahkr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--primary)"/></marker></defs>'
+      +'<text x="115" y="16" text-anchor="middle" font-size="10.5" font-weight="bold" fill="var(--ink)">'+d("Junction rule","Junction नियम")+'</text>'
+      +'<circle cx="115" cy="90" r="5" fill="var(--ink)"/>'
+      +'<line x1="40" y1="50" x2="110" y2="86" stroke="var(--primary)" stroke-width="2" marker-end="url(#ahkr)"/>'
+      +'<text x="45" y="42" font-size="10" fill="var(--primary)">I₁</text>'
+      +'<line x1="40" y1="130" x2="110" y2="94" stroke="var(--primary)" stroke-width="2" marker-end="url(#ahkr)"/>'
+      +'<text x="45" y="145" font-size="10" fill="var(--primary)">I₂</text>'
+      +'<line x1="120" y1="90" x2="195" y2="90" stroke="var(--red)" stroke-width="2.5" marker-end="url(#ahkr)"/>'
+      +'<text x="205" y="94" font-size="10" fill="var(--red)">I₃</text>'
+      +'<text x="115" y="180" text-anchor="middle" font-size="11" font-weight="bold" fill="var(--ink)">I₁ + I₂ = I₃</text>'
+      +'<text x="115" y="200" text-anchor="middle" font-size="9" fill="var(--ink-soft)">'+d("current in = current out","अंदर current = बाहर current")+'</text>'
+      +'<line x1="255" y1="16" x2="255" y2="230" stroke="var(--line)" stroke-width="1" stroke-dasharray="4,3"/>'
+      +'<text x="360" y="16" text-anchor="middle" font-size="10.5" font-weight="bold" fill="var(--ink)">'+d("Loop rule","Loop नियम")+'</text>'
+      +'<rect x="300" y="45" width="130" height="90" fill="none" stroke="var(--primary)" stroke-width="2"/>'
+      +'<line x1="300" y1="80" x2="300" y2="100" stroke="var(--ink-soft)" stroke-width="3"/>'
+      +'<line x1="296" y1="83" x2="296" y2="97" stroke="var(--ink-soft)" stroke-width="1.5"/>'
+      +'<text x="285" y="93" text-anchor="end" font-size="9.5" fill="var(--ink-soft)">ε</text>'
+      +'<path d="M355,45 l6,-6 6,12 6,-12 6,12 6,-12 6,6" fill="none" stroke="var(--red)" stroke-width="1.5"/>'
+      +'<text x="378" y="38" text-anchor="middle" font-size="9" fill="var(--red)">R</text>'
+      +'<line x1="360" y1="90" x2="400" y2="90" stroke="var(--primary)" stroke-width="1.5" marker-end="url(#ahkr)"/>'
+      +'<text x="380" y="102" text-anchor="middle" font-size="9" fill="var(--primary)">I</text>'
+      +'<text x="365" y="200" text-anchor="middle" font-size="9.5" fill="var(--ink-soft)">'+d("Around the loop: rises + drops = 0","Loop के इर्द-गिर्द: चढ़ाव + उतार = 0")+'</text>'
+      +'</svg>';
   }
 };
 
@@ -3326,6 +3398,117 @@ var INTERACTIVES = {
       +'<span class="labval" id="cuVv">100 V</span></div>'
       +'<div class="labout" id="cuOut">U = ½CV² = 4.50 × 10⁻⁶ J</div>'
       +'<div class="labnote">'+d("Double V — energy quadruples, since U depends on V².","V दोगुना कीजिए — ऊर्जा चार गुना हो जाती है, क्योंकि U, V² पर निर्भर करता है।")+'</div>';
+  },
+  "current-calc-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Charge q (C)","Charge q (C)")+'</label>'
+      +'<input type="range" id="icQ" min="1" max="50" step="1" value="12" oninput="icCalc()">'
+      +'<span class="labval" id="icQv">12 C</span></div>'
+      +'<div class="labrow"><label>'+d("Time t (s)","समय t (s)")+'</label>'
+      +'<input type="range" id="icT" min="1" max="20" step="1" value="4" oninput="icCalc()">'
+      +'<span class="labval" id="icTv">4 s</span></div>'
+      +'<div class="labout" id="icOut">I = q/t = 3.00 A</div>'
+      +'<div class="labnote">'+d("Same charge over less time means a bigger current — a faster-flowing river.","वही charge कम समय में मतलब बड़ा current — तेज़ बहती नदी।")+'</div>';
+  },
+  "resistance-dimensions-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Length l (m)","लंबाई l (m)")+'</label>'
+      +'<input type="range" id="rdL" min="1" max="30" step="1" value="10" oninput="rdCalc()">'
+      +'<span class="labval" id="rdLv">10 m</span></div>'
+      +'<div class="labrow"><label>'+d("Area A (×10⁻⁷ m²)","क्षेत्रफल A (×10⁻⁷ m²)")+'</label>'
+      +'<input type="range" id="rdA" min="1" max="20" step="0.5" value="5" oninput="rdCalc()">'
+      +'<span class="labval" id="rdAv">5.0 ×10⁻⁷ m²</span></div>'
+      +'<div class="labrow"><label>'+d("Resistivity ρ (×10⁻⁷ Ω·m)","Resistivity ρ (×10⁻⁷ Ω·m)")+'</label>'
+      +'<input type="range" id="rdRho" min="0.5" max="10" step="0.1" value="2" oninput="rdCalc()">'
+      +'<span class="labval" id="rdRhov">2.0 ×10⁻⁷ Ω·m</span></div>'
+      +'<div class="labout" id="rdOut">R = ρl/A = 4.00 Ω</div>'
+      +'<div class="labnote">'+d("Stretch the wire longer or pinch it thinner — both raise resistance.","तार को लंबा खींचिए या पतला कीजिए — दोनों resistance बढ़ाते हैं।")+'</div>';
+  },
+  "drift-velocity-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Current I (A)","Current I (A)")+'</label>'
+      +'<input type="range" id="drI" min="0.5" max="5" step="0.1" value="1.5" oninput="drCalc()">'
+      +'<span class="labval" id="drIv">1.5 A</span></div>'
+      +'<div class="labrow"><label>'+d("Free-electron density n (×10²⁸ m⁻³)","Free-electron density n (×10²⁸ m⁻³)")+'</label>'
+      +'<input type="range" id="drN" min="1" max="15" step="0.1" value="8.5" oninput="drCalc()">'
+      +'<span class="labval" id="drNv">8.5 ×10²⁸ m⁻³</span></div>'
+      +'<div class="labrow"><label>'+d("Area A (×10⁻⁷ m²)","क्षेत्रफल A (×10⁻⁷ m²)")+'</label>'
+      +'<input type="range" id="drA" min="0.5" max="5" step="0.1" value="1" oninput="drCalc()">'
+      +'<span class="labval" id="drAv">1.0 ×10⁻⁷ m²</span></div>'
+      +'<div class="labout" id="drOut">vd = I/(neA) = 1.10 × 10⁻³ m/s</div>'
+      +'<div class="labnote">'+d("Even a big current gives a tiny drift speed — n is enormous.","बड़ा current भी छोटी drift speed देता है — n बहुत बड़ा है।")+'</div>';
+  },
+  "resistance-temp-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Resistance R₀ at T₀ (Ω)","T₀ पर Resistance R₀ (Ω)")+'</label>'
+      +'<input type="range" id="rtR0" min="10" max="500" step="1" value="100" oninput="rtCalc()">'
+      +'<span class="labval" id="rtR0v">100 Ω</span></div>'
+      +'<div class="labrow"><label>'+d("Temperature coefficient α (×10⁻⁴ /°C)","Temperature coefficient α (×10⁻⁴ /°C)")+'</label>'
+      +'<input type="range" id="rtAlpha" min="0.5" max="10" step="0.1" value="1.7" oninput="rtCalc()">'
+      +'<span class="labval" id="rtAlphav">1.7 ×10⁻⁴ /°C</span></div>'
+      +'<div class="labrow"><label>'+d("Temperature rise ΔT (°C)","तापमान बढ़ोतरी ΔT (°C)")+'</label>'
+      +'<input type="range" id="rtDT" min="0" max="1200" step="10" value="1000" oninput="rtCalc()">'
+      +'<span class="labval" id="rtDTv">1000 °C</span></div>'
+      +'<div class="labout" id="rtOut">RT = R₀[1+αΔT] = 117.0 Ω</div>'
+      +'<div class="labnote">'+d("This is exactly how a platinum resistance thermometer measures temperature.","एक platinum resistance thermometer ठीक ऐसे ही तापमान मापता है।")+'</div>';
+  },
+  "power-dissipation-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Current I (A)","Current I (A)")+'</label>'
+      +'<input type="range" id="pnI" min="0.5" max="10" step="0.1" value="4" oninput="pnCalc()">'
+      +'<span class="labval" id="pnIv">4.0 A</span></div>'
+      +'<div class="labrow"><label>'+d("Resistance R (Ω)","Resistance R (Ω)")+'</label>'
+      +'<input type="range" id="pnR" min="0.5" max="20" step="0.5" value="5" oninput="pnCalc()">'
+      +'<span class="labval" id="pnRv">5.0 Ω</span></div>'
+      +'<div class="labout" id="pnOut">P = I²R = 80.0 W</div>'
+      +'<div class="labnote">'+d("Double the current — power quadruples, since P depends on I².","Current दोगुना कीजिए — power चार गुना हो जाता है, क्योंकि P, I² पर निर्भर करता है।")+'</div>';
+  },
+  "cell-terminal-voltage-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("EMF ε (V)","EMF ε (V)")+'</label>'
+      +'<input type="range" id="twE" min="1" max="20" step="0.5" value="10" oninput="twCalc()">'
+      +'<span class="labval" id="twEv">10.0 V</span></div>'
+      +'<div class="labrow"><label>'+d("Internal resistance r (Ω)","Internal resistance r (Ω)")+'</label>'
+      +'<input type="range" id="twR" min="0" max="10" step="0.1" value="3" oninput="twCalc()">'
+      +'<span class="labval" id="twRv">3.0 Ω</span></div>'
+      +'<div class="labrow"><label>'+d("External resistance R (Ω)","बाहरी resistance R (Ω)")+'</label>'
+      +'<input type="range" id="twX" min="0" max="50" step="0.5" value="17" oninput="twCalc()">'
+      +'<span class="labval" id="twXv">17.0 Ω</span></div>'
+      +'<div class="labout" id="twOut">I = 0.500 A · V = ε − Ir = 8.50 V</div>'
+      +'<div class="labnote">'+d("Shrink R toward zero — I climbs toward its maximum, ε/r.","R को शून्य की ओर सिकोड़िए — I अपने अधिकतम, ε/r की ओर चढ़ता है।")+'</div>';
+  },
+  "cells-combination-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Cell 1 — EMF ε1 (V), r1 (Ω)","Cell 1 — EMF ε1 (V), r1 (Ω)")+'</label>'
+      +'<input type="range" id="csE1" min="0.5" max="5" step="0.1" value="1.5" oninput="csCalc()">'
+      +'<span class="labval" id="csE1v">1.5 V</span></div>'
+      +'<div class="labrow"><label>'+d("Cell 2 — EMF ε2 (V)","Cell 2 — EMF ε2 (V)")+'</label>'
+      +'<input type="range" id="csE2" min="0.5" max="5" step="0.1" value="1.5" oninput="csCalc()">'
+      +'<span class="labval" id="csE2v">1.5 V</span></div>'
+      +'<div class="labrow"><label>'+d("r1 = r2 (Ω)","r1 = r2 (Ω)")+'</label>'
+      +'<input type="range" id="csR" min="0.2" max="5" step="0.1" value="1" oninput="csCalc()">'
+      +'<span class="labval" id="csRv">1.0 Ω</span></div>'
+      +'<div class="labrow"><label>'+d("Combination","संयोजन")+'</label>'
+      +'<select id="csMode" onchange="csCalc()" style="padding:6px 8px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink)">'
+      +'<option value="series" selected>'+d("Series","Series")+'</option>'
+      +'<option value="parallel">'+d("Parallel","Parallel")+'</option>'
+      +'</select></div>'
+      +'<div class="labout" id="csOut">εeq = 3.00 V · req = 2.00 Ω</div>'
+      +'<div class="labnote">'+d("Switch to parallel — εeq barely changes, but req drops sharply.","Parallel पर switch कीजिए — εeq बमुश्किल बदलता है, पर req तेज़ी से गिरता है।")+'</div>';
+  },
+  "wheatstone-bridge-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("R1 (Ω)","R1 (Ω)")+'</label>'
+      +'<input type="range" id="wbR1" min="1" max="50" step="1" value="10" oninput="wbCalc()">'
+      +'<span class="labval" id="wbR1v">10 Ω</span></div>'
+      +'<div class="labrow"><label>'+d("R2 (Ω)","R2 (Ω)")+'</label>'
+      +'<input type="range" id="wbR2" min="1" max="50" step="1" value="20" oninput="wbCalc()">'
+      +'<span class="labval" id="wbR2v">20 Ω</span></div>'
+      +'<div class="labrow"><label>'+d("R3 (Ω)","R3 (Ω)")+'</label>'
+      +'<input type="range" id="wbR3" min="1" max="50" step="1" value="15" oninput="wbCalc()">'
+      +'<span class="labval" id="wbR3v">15 Ω</span></div>'
+      +'<div class="labout" id="wbOut">Balanced when R4 = R2R3/R1 = 30.0 Ω</div>'
+      +'<div class="labnote">'+d("This is the one R4 value that gives exactly zero galvanometer current.","यही एक R4 मान है जो बिल्कुल शून्य galvanometer current देता है।")+'</div>';
   }
 };
 var IV_DTS=[2.0,1.0,0.5,0.1,0.01];
@@ -4061,6 +4244,86 @@ function cuCalc(){
   document.getElementById("cuVv").textContent=V.toFixed(0)+" V";
   var U=0.5*(C*1e-12)*V*V;
   document.getElementById("cuOut").textContent="U = ½CV² = "+sciStr(U)+" J";
+}
+function icCalc(){
+  var q=+document.getElementById("icQ").value;
+  var t=+document.getElementById("icT").value;
+  document.getElementById("icQv").textContent=q.toFixed(0)+" C";
+  document.getElementById("icTv").textContent=t.toFixed(0)+" s";
+  var I=q/t;
+  document.getElementById("icOut").textContent="I = q/t = "+I.toFixed(2)+" A";
+}
+function rdCalc(){
+  var l=+document.getElementById("rdL").value;
+  var A=+document.getElementById("rdA").value;
+  var rho=+document.getElementById("rdRho").value;
+  document.getElementById("rdLv").textContent=l.toFixed(0)+" m";
+  document.getElementById("rdAv").textContent=A.toFixed(1)+" ×10⁻⁷ m²";
+  document.getElementById("rdRhov").textContent=rho.toFixed(1)+" ×10⁻⁷ Ω·m";
+  var R=(rho*1e-7*l)/(A*1e-7);
+  document.getElementById("rdOut").textContent="R = ρl/A = "+R.toFixed(2)+" Ω";
+}
+function drCalc(){
+  var I=+document.getElementById("drI").value;
+  var n=+document.getElementById("drN").value;
+  var A=+document.getElementById("drA").value;
+  document.getElementById("drIv").textContent=I.toFixed(1)+" A";
+  document.getElementById("drNv").textContent=n.toFixed(1)+" ×10²⁸ m⁻³";
+  document.getElementById("drAv").textContent=A.toFixed(1)+" ×10⁻⁷ m²";
+  var vd=I/((n*1e28)*1.6e-19*(A*1e-7));
+  document.getElementById("drOut").textContent="vd = I/(neA) = "+sciStr(vd)+" m/s";
+}
+function rtCalc(){
+  var R0=+document.getElementById("rtR0").value;
+  var alpha=+document.getElementById("rtAlpha").value;
+  var dT=+document.getElementById("rtDT").value;
+  document.getElementById("rtR0v").textContent=R0.toFixed(0)+" Ω";
+  document.getElementById("rtAlphav").textContent=alpha.toFixed(1)+" ×10⁻⁴ /°C";
+  document.getElementById("rtDTv").textContent=dT.toFixed(0)+" °C";
+  var RT=R0*(1+(alpha*1e-4)*dT);
+  document.getElementById("rtOut").textContent="RT = R₀[1+αΔT] = "+RT.toFixed(1)+" Ω";
+}
+function pnCalc(){
+  var I=+document.getElementById("pnI").value;
+  var R=+document.getElementById("pnR").value;
+  document.getElementById("pnIv").textContent=I.toFixed(1)+" A";
+  document.getElementById("pnRv").textContent=R.toFixed(1)+" Ω";
+  var P=I*I*R;
+  document.getElementById("pnOut").textContent="P = I²R = "+P.toFixed(1)+" W";
+}
+function twCalc(){
+  var e=+document.getElementById("twE").value;
+  var r=+document.getElementById("twR").value;
+  var R=+document.getElementById("twX").value;
+  document.getElementById("twEv").textContent=e.toFixed(1)+" V";
+  document.getElementById("twRv").textContent=r.toFixed(1)+" Ω";
+  document.getElementById("twXv").textContent=R.toFixed(1)+" Ω";
+  var I=e/(R+r);
+  var V=I*R;
+  document.getElementById("twOut").textContent="I = "+I.toFixed(3)+" A · V = ε − Ir = "+V.toFixed(2)+" V";
+}
+function csCalc(){
+  var e1=+document.getElementById("csE1").value;
+  var e2=+document.getElementById("csE2").value;
+  var r=+document.getElementById("csR").value;
+  var mode=document.getElementById("csMode").value;
+  document.getElementById("csE1v").textContent=e1.toFixed(1)+" V";
+  document.getElementById("csE2v").textContent=e2.toFixed(1)+" V";
+  document.getElementById("csRv").textContent=r.toFixed(1)+" Ω";
+  var eEq, rEq;
+  if(mode==="parallel"){ eEq=(e1*r+e2*r)/(r+r); rEq=(r*r)/(r+r); }
+  else{ eEq=e1+e2; rEq=r+r; }
+  document.getElementById("csOut").textContent="εeq = "+eEq.toFixed(2)+" V · req = "+rEq.toFixed(2)+" Ω";
+}
+function wbCalc(){
+  var R1=+document.getElementById("wbR1").value;
+  var R2=+document.getElementById("wbR2").value;
+  var R3=+document.getElementById("wbR3").value;
+  document.getElementById("wbR1v").textContent=R1.toFixed(0)+" Ω";
+  document.getElementById("wbR2v").textContent=R2.toFixed(0)+" Ω";
+  document.getElementById("wbR3v").textContent=R3.toFixed(0)+" Ω";
+  var R4=(R2*R3)/R1;
+  document.getElementById("wbOut").textContent="Balanced when R4 = R2R3/R1 = "+R4.toFixed(1)+" Ω";
 }
 
 /* ============ Animations: press Play to watch the physics happen ============
