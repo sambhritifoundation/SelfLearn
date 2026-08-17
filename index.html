@@ -3542,6 +3542,128 @@ var DIAGRAMS = {
       +'<circle cx="210" cy="120" r="75" fill="none" stroke="var(--ink-soft)" stroke-width="1" stroke-dasharray="3,3"/>'
       +'<text x="210" y="205" text-anchor="middle" font-size="7.5" fill="var(--ink-soft)">'+d("2πrₙ = nλ — circumference = 4 wavelengths, exactly","2πrₙ = nλ — circumference = बिल्कुल 4 wavelengths")+'</text>'
       +'</svg>';
+  }  ,
+  "nuclear-composition-notation": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 460 220" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="230" y="15" text-anchor="middle" font-size="11" font-weight="bold" fill="var(--ink)">'+d("Nuclear notation, and hydrogen's three isotopes","Nuclear notation, और hydrogen के तीन isotopes")+'</text>'
+      +'<text x="90" y="55" text-anchor="middle" font-size="16" font-weight="bold" fill="var(--ink)">ᴬZX</text>'
+      +'<text x="90" y="72" text-anchor="middle" font-size="8" fill="var(--ink-soft)">'+d("A = protons + neutrons","A = protons + neutrons")+'</text>'
+      +'<text x="90" y="84" text-anchor="middle" font-size="8" fill="var(--ink-soft)">'+d("Z = protons only","Z = सिर्फ़ protons")+'</text>'
+      +'<circle cx="130" cy="120" r="10" fill="var(--red)"/><circle cx="150" cy="120" r="10" fill="var(--ink-soft)"/>'
+      +'<text x="140" y="145" text-anchor="middle" font-size="8" fill="var(--ink-soft)">'+d("¹₁H (proton)","¹₁H (proton)")+'</text>'
+      +'<circle cx="230" cy="115" r="10" fill="var(--red)"/><circle cx="250" cy="115" r="10" fill="var(--ink-soft)"/><circle cx="240" cy="132" r="10" fill="var(--ink-soft)"/>'
+      +'<text x="240" y="155" text-anchor="middle" font-size="8" fill="var(--ink-soft)">'+d("²₁H (deuterium)","²₁H (deuterium)")+'</text>'
+      +'<circle cx="330" cy="110" r="10" fill="var(--red)"/><circle cx="350" cy="110" r="10" fill="var(--ink-soft)"/><circle cx="340" cy="127" r="10" fill="var(--ink-soft)"/><circle cx="340" cy="144" r="10" fill="var(--ink-soft)"/>'
+      +'<text x="340" y="167" text-anchor="middle" font-size="8" fill="var(--ink-soft)">'+d("³₁H (tritium)","³₁H (tritium)")+'</text>'
+      +'<text x="230" y="200" text-anchor="middle" font-size="7.5" fill="var(--ink-soft)">'+d("same Z (1 proton) = isotopes; different N","वही Z (1 proton) = isotopes; अलग N")+'</text>'
+      +'</svg>';
+  },
+  "nuclear-size-density": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 460 220" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="115" y="15" text-anchor="middle" font-size="10.5" font-weight="bold" fill="var(--ink)">'+d("R = R₀A^(1/3)","R = R₀A^(1/3)")+'</text>'
+      +'<circle cx="80" cy="120" r="18" fill="var(--primary)" opacity="0.5" stroke="var(--primary)" stroke-width="1.6"/>'
+      +'<text x="80" y="150" text-anchor="middle" font-size="7.5" fill="var(--ink-soft)">'+d("A=8, small","A=8, छोटा")+'</text>'
+      +'<circle cx="180" cy="115" r="36" fill="var(--primary)" opacity="0.5" stroke="var(--primary)" stroke-width="1.6"/>'
+      +'<text x="180" y="160" text-anchor="middle" font-size="7.5" fill="var(--ink-soft)">'+d("A=64, medium","A=64, medium")+'</text>'
+      +'<text x="230" y="115" font-size="7.5" fill="var(--ink-soft)">'+d("→ radius grows as A^(1/3)","→ radius A^(1/3) जैसे बढ़ता है")+'</text>'
+      +'<line x1="260" y1="20" x2="260" y2="205" stroke="var(--line)" stroke-width="1" stroke-dasharray="3,3"/>'
+      +'<text x="360" y="15" text-anchor="middle" font-size="10.5" font-weight="bold" fill="var(--ink)">'+d("Density comparison","Density तुलना")+'</text>'
+      +'<rect x="290" y="150" width="20" height="10" fill="var(--ink-soft)"/>'
+      +'<text x="300" y="172" text-anchor="middle" font-size="7.5" fill="var(--ink-soft)">'+d("water","water")+'</text>'
+      +'<text x="300" y="184" text-anchor="middle" font-size="7.5" fill="var(--ink-soft)">10³ kg/m³</text>'
+      +'<rect x="330" y="60" width="20" height="100" fill="var(--red)" opacity="0.7"/>'
+      +'<text x="340" y="172" text-anchor="middle" font-size="7.5" fill="var(--ink-soft)">'+d("nuclear matter","nuclear matter")+'</text>'
+      +'<text x="340" y="184" text-anchor="middle" font-size="7.5" fill="var(--ink-soft)">2.3×10¹⁷ kg/m³</text>'
+      +'<text x="360" y="195" text-anchor="middle" font-size="7" fill="var(--ink-soft)">'+d("(bar height not to scale)","(bar height scale पर नहीं)")+'</text>'
+      +'</svg>';
+  },
+  "binding-energy-curve": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 460 240" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="230" y="15" text-anchor="middle" font-size="11" font-weight="bold" fill="var(--ink)">'+d("Binding energy per nucleon vs mass number","Binding energy per nucleon बनाम mass number")+'</text>'
+      +'<line x1="45" y1="200" x2="45" y2="35" stroke="var(--line-strong)" stroke-width="1.6" marker-end="url(#ahdr)"/>'
+      +'<text x="15" y="40" font-size="7.5" fill="var(--ink-soft)">'+d("Ebn (MeV)","Ebn (MeV)")+'</text>'
+      +'<line x1="45" y1="200" x2="430" y2="200" stroke="var(--line-strong)" stroke-width="1.6" marker-end="url(#ahdr)"/>'
+      +'<text x="420" y="215" font-size="7.5" fill="var(--ink-soft)">A</text>'
+      +'<path d="M50,195 L70,90 L110,58 L160,50 L250,48 L340,58 L410,68" fill="none" stroke="var(--primary)" stroke-width="2.4"/>'
+      +'<circle cx="160" cy="50" r="4" fill="var(--red)"/>'
+      +'<text x="160" y="38" text-anchor="middle" font-size="7.5" fill="var(--red)">'+d("A≈56, peak 8.75 MeV","A≈56, चरम 8.75 MeV")+'</text>'
+      +'<text x="70" y="215" text-anchor="middle" font-size="7" fill="var(--ink-soft)">'+d("light","हल्के")+'</text>'
+      +'<text x="200" y="228" text-anchor="middle" font-size="7.5" fill="var(--ink-soft)">'+d("fission ←  flat middle (30<A<170)  → fusion","fission ←  सपाट बीच (30<A<170)  → fusion")+'</text>'
+      +'<text x="400" y="215" text-anchor="middle" font-size="7" fill="var(--ink-soft)">'+d("heavy","भारी")+'</text>'
+      +'<line x1="410" y1="200" x2="410" y2="68" stroke="var(--ink-soft)" stroke-width="1" stroke-dasharray="2,2"/>'
+      +'<text x="410" y="230" text-anchor="middle" font-size="7" fill="var(--ink-soft)">'+d("A≈238","A≈238")+'</text>'
+      +'</svg>';
+  },
+  "nuclear-force-potential": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 420 220" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="210" y="15" text-anchor="middle" font-size="11" font-weight="bold" fill="var(--ink)">'+d("Potential energy between two nucleons","दो nucleons के बीच potential energy")+'</text>'
+      +'<line x1="50" y1="190" x2="50" y2="35" stroke="var(--line-strong)" stroke-width="1.6" marker-end="url(#ahdr)"/>'
+      +'<text x="20" y="40" font-size="7.5" fill="var(--ink-soft)">'+d("PE","PE")+'</text>'
+      +'<line x1="50" y1="120" x2="400" y2="120" stroke="var(--line-strong)" stroke-width="1.4" marker-end="url(#ahdr)"/>'
+      +'<text x="390" y="135" font-size="7.5" fill="var(--ink-soft)">r (fm)</text>'
+      +'<path d="M75,45 C90,90 100,150 130,155 C160,158 200,135 400,122" fill="none" stroke="var(--primary)" stroke-width="2.4"/>'
+      +'<line x1="130" y1="120" x2="130" y2="158" stroke="var(--red)" stroke-width="1.2" stroke-dasharray="2,2"/>'
+      +'<text x="130" y="172" text-anchor="middle" font-size="7.5" fill="var(--red)">'+d("r₀≈0.8 fm","r₀≈0.8 fm")+'</text>'
+      +'<text x="90" y="45" text-anchor="middle" font-size="7.5" fill="var(--ink-soft)">'+d("repulsive","repulsive")+'</text>'
+      +'<text x="260" y="140" text-anchor="middle" font-size="7.5" fill="var(--ink-soft)">'+d("attractive, then → 0","attractive, फिर → 0")+'</text>'
+      +'</svg>';
+  },
+  "radioactive-decay-types": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 460 210" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="230" y="15" text-anchor="middle" font-size="11" font-weight="bold" fill="var(--ink)">'+d("Three types of radioactive decay","Radioactive decay के तीन प्रकार")+'</text>'
+      +'<circle cx="75" cy="100" r="18" fill="var(--primary)" opacity="0.5"/>'
+      +'<circle cx="110" cy="60" r="7" fill="var(--red)"/><circle cx="120" cy="70" r="7" fill="var(--ink-soft)"/>'
+      +'<line x1="80" y1="88" x2="105" y2="65" stroke="var(--ink)" stroke-width="1.4" marker-end="url(#ahdr)"/>'
+      +'<text x="75" y="140" text-anchor="middle" font-size="8" fill="var(--ink-soft)">'+d("α: ⁴₂He emitted","α: ⁴₂He emit हुआ")+'</text>'
+      +'<circle cx="230" cy="100" r="18" fill="var(--primary)" opacity="0.5"/>'
+      +'<circle cx="255" cy="80" r="4" fill="var(--red)"/>'
+      +'<line x1="235" y1="90" x2="252" y2="82" stroke="var(--ink)" stroke-width="1.4" marker-end="url(#ahdr)"/>'
+      +'<text x="230" y="140" text-anchor="middle" font-size="8" fill="var(--ink-soft)">'+d("β: e⁻/e⁺ emitted","β: e⁻/e⁺ emit हुआ")+'</text>'
+      +'<circle cx="380" cy="100" r="18" fill="var(--primary)" opacity="0.5"/>'
+      +'<path d="M400,90 Q408,85 416,90 Q424,95 432,90" fill="none" stroke="var(--red)" stroke-width="2" marker-end="url(#ahdr)"/>'
+      +'<text x="380" y="140" text-anchor="middle" font-size="8" fill="var(--ink-soft)">'+d("γ: high-energy photon","γ: high-energy photon")+'</text>'
+      +'<text x="230" y="180" text-anchor="middle" font-size="7.5" fill="var(--ink-soft)">'+d("Becquerel, 1896 — discovered by accident with a photographic plate","Becquerel, 1896 — एक photographic plate से संयोग से खोजा")+'</text>'
+      +'</svg>';
+  },
+  "fission-reaction-diagram": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 460 210" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="230" y="15" text-anchor="middle" font-size="11" font-weight="bold" fill="var(--ink)">'+d("n + U-235 → Ba + Kr + 3n","n + U-235 → Ba + Kr + 3n")+'</text>'
+      +'<circle cx="40" cy="100" r="5" fill="var(--ink)"/>'
+      +'<line x1="48" y1="100" x2="110" y2="100" stroke="var(--ink)" stroke-width="1.6" marker-end="url(#ahdr)"/>'
+      +'<circle cx="150" cy="100" r="34" fill="var(--primary)" opacity="0.45" stroke="var(--primary)" stroke-width="1.6"/>'
+      +'<text x="150" y="105" text-anchor="middle" font-size="8" fill="var(--ink)">U-235</text>'
+      +'<line x1="184" y1="100" x2="230" y2="100" stroke="var(--ink-soft)" stroke-width="1.4" marker-end="url(#ahdr)"/>'
+      +'<circle cx="280" cy="70" r="22" fill="var(--red)" opacity="0.5" stroke="var(--red)" stroke-width="1.4"/>'
+      +'<text x="280" y="74" text-anchor="middle" font-size="7.5" fill="var(--ink)">Ba</text>'
+      +'<circle cx="280" cy="135" r="18" fill="var(--ink-soft)" opacity="0.5" stroke="var(--ink-soft)" stroke-width="1.4"/>'
+      +'<text x="280" y="139" text-anchor="middle" font-size="7.5" fill="var(--ink)">Kr</text>'
+      +'<circle cx="340" cy="55" r="4" fill="var(--ink)"/><circle cx="355" cy="100" r="4" fill="var(--ink)"/><circle cx="335" cy="150" r="4" fill="var(--ink)"/>'
+      +'<text x="230" y="180" text-anchor="middle" font-size="7.5" fill="var(--ink-soft)">'+d("released neutrons can trigger further fissions — chain reaction","छोड़े neutrons आगे fissions शुरू कर सकते हैं — chain reaction")+'</text>'
+      +'</svg>';
+  },
+  "fusion-sun-diagram": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 460 210" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="230" y="15" text-anchor="middle" font-size="11" font-weight="bold" fill="var(--ink)">'+d("Proton-proton chain — the Sun's fuel cycle","Proton-proton chain — Sun का fuel cycle")+'</text>'
+      +'<circle cx="60" cy="90" r="9" fill="var(--red)"/><circle cx="60" cy="115" r="9" fill="var(--red)"/>'
+      +'<text x="60" y="140" text-anchor="middle" font-size="7.5" fill="var(--ink-soft)">'+d("2 ¹H","2 ¹H")+'</text>'
+      +'<line x1="80" y1="100" x2="130" y2="100" stroke="var(--ink)" stroke-width="1.6" marker-end="url(#ahdr)"/>'
+      +'<circle cx="170" cy="90" r="9" fill="var(--red)"/><circle cx="170" cy="115" r="9" fill="var(--ink-soft)"/>'
+      +'<text x="170" y="140" text-anchor="middle" font-size="7.5" fill="var(--ink-soft)">'+d("²H (deuterium)","²H (deuterium)")+'</text>'
+      +'<line x1="190" y1="100" x2="240" y2="100" stroke="var(--ink)" stroke-width="1.6" marker-end="url(#ahdr)"/>'
+      +'<circle cx="280" cy="80" r="8" fill="var(--red)"/><circle cx="295" cy="95" r="8" fill="var(--red)"/><circle cx="280" cy="110" r="8" fill="var(--ink-soft)"/>'
+      +'<text x="285" y="140" text-anchor="middle" font-size="7.5" fill="var(--ink-soft)">'+d("³He","³He")+'</text>'
+      +'<line x1="310" y1="100" x2="360" y2="100" stroke="var(--ink)" stroke-width="1.6" marker-end="url(#ahdr)"/>'
+      +'<circle cx="395" cy="82" r="8" fill="var(--red)"/><circle cx="410" cy="95" r="8" fill="var(--red)"/><circle cx="395" cy="108" r="8" fill="var(--ink-soft)"/><circle cx="410" cy="112" r="8" fill="var(--ink-soft)"/>'
+      +'<text x="400" y="140" text-anchor="middle" font-size="7.5" fill="var(--ink-soft)">'+d("⁴He + 26.7 MeV","⁴He + 26.7 MeV")+'</text>'
+      +'<text x="230" y="180" text-anchor="middle" font-size="7.5" fill="var(--ink-soft)">'+d("4 hydrogen nuclei → 1 helium nucleus, releasing energy","4 hydrogen nuclei → 1 helium nucleus, energy छोड़ते हुए")+'</text>'
+      +'</svg>';
   }
 };
 
@@ -5237,6 +5359,50 @@ var INTERACTIVES = {
       +'<span class="labval" id="rbNv">4</span></div>'
       +'<div class="labout" id="rbOut">'+d("circumference = 5.33 × 10⁻⁹ m · λ = 1.33 × 10⁻⁹ m","circumference = 5.33 × 10⁻⁹ m · λ = 1.33 × 10⁻⁹ m")+'</div>'
       +'<div class="labnote">'+d("Circumference ÷ n always gives back exactly this λ — the resonance condition holds at every n.","Circumference ÷ n हमेशा बिल्कुल यही λ वापस देता है — resonance शर्त हर n पर सच रहती है।")+'</div>';
+  }  ,
+  "binding-energy-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Nucleus","Nucleus")+'</label>'
+      +'<select id="beNucleus" onchange="beCalc()" style="padding:6px 8px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink)">'
+      +'<option value="O16" selected>'+d("Oxygen-16 (Z=8, A=16)","Oxygen-16 (Z=8, A=16)")+'</option>'
+      +'<option value="Fe56">'+d("Iron-56 (Z=26, A=56)","Iron-56 (Z=26, A=56)")+'</option>'
+      +'<option value="Bi209">'+d("Bismuth-209 (Z=83, A=209)","Bismuth-209 (Z=83, A=209)")+'</option>'
+      +'</select></div>'
+      +'<div class="labout" id="beOut">'+d("ΔM = 0.1369 u · Eb = 127.5 MeV · Ebn = 7.97 MeV/nucleon","ΔM = 0.1369 u · Eb = 127.5 MeV · Ebn = 7.97 MeV/nucleon")+'</div>'
+      +'<div class="labnote">'+d("Switch to iron and watch Ebn climb toward the binding-energy curve's peak.","Iron पर switch कीजिए और Ebn को binding-energy curve के चरम की ओर चढ़ते देखिए।")+'</div>';
+  },
+  "nuclear-size-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Mass number A","Mass number A")+'</label>'
+      +'<input type="range" id="nsA" min="1" max="250" step="1" value="56" oninput="nsCalc()">'
+      +'<span class="labval" id="nsAv">56</span></div>'
+      +'<div class="labout" id="nsOut">'+d("R = 4.59 fm · density = 2.29 × 10¹⁷ kg/m³","R = 4.59 fm · density = 2.29 × 10¹⁷ kg/m³")+'</div>'
+      +'<div class="labnote">'+d("Drag A all the way to 250 — the radius grows a lot, but the density barely moves.","A को पूरी तरह 250 तक खींचिए — radius बहुत बढ़ता है, पर density मुश्किल से हिलती है।")+'</div>';
+  },
+  "fission-energy-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Parent Ebn (MeV, from the curve)","Parent Ebn (MeV, curve से)")+'</label>'
+      +'<input type="range" id="fsEbnP" min="6.0" max="8.5" step="0.1" value="7.6" oninput="fsCalc()">'
+      +'<span class="labval" id="fsEbnPv">7.6 MeV</span></div>'
+      +'<div class="labrow"><label>'+d("Fragment Ebn (MeV, from the curve)","Fragment Ebn (MeV, curve से)")+'</label>'
+      +'<input type="range" id="fsEbnF" min="7.0" max="9.0" step="0.1" value="8.5" oninput="fsCalc()">'
+      +'<span class="labval" id="fsEbnFv">8.5 MeV</span></div>'
+      +'<div class="labrow"><label>'+d("Parent mass number A","Parent mass number A")+'</label>'
+      +'<input type="range" id="fsA" min="150" max="250" step="1" value="240" oninput="fsCalc()">'
+      +'<span class="labval" id="fsAv">240</span></div>'
+      +'<div class="labout" id="fsOut">'+d("Q = +216.0 MeV released","Q = +216.0 MeV छोड़ी गई")+'</div>'
+      +'<div class="labnote">'+d("This is exactly how the ~200 MeV per uranium fission is estimated — straight off the binding-energy curve.","यही बिल्कुल कैसे ~200 MeV प्रति uranium fission का अनुमान लगाया जाता है — सीधे binding-energy curve से।")+'</div>';
+  },
+  "fusion-barrier-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Nuclei pair","Nuclei जोड़ा")+'</label>'
+      +'<select id="fuPair" onchange="fuCalc()" style="padding:6px 8px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink)">'
+      +'<option value="dd" selected>'+d("Deuteron + deuteron (Z=1, r=2.0 fm each)","Deuteron + deuteron (Z=1, r=2.0 fm हर एक)")+'</option>'
+      +'<option value="pp">'+d("Proton + proton (Z=1, r=1.2 fm each)","Proton + proton (Z=1, r=1.2 fm हर एक)")+'</option>'
+      +'<option value="he">'+d("Helium + helium (Z=2, r=1.9 fm each)","Helium + helium (Z=2, r=1.9 fm हर एक)")+'</option>'
+      +'</select></div>'
+      +'<div class="labout" id="fuOut">'+d("Barrier = 360.4 keV · T ≈ 2.79 × 10⁹ K","Barrier = 360.4 keV · T ≈ 2.79 × 10⁹ K")+'</div>'
+      +'<div class="labnote">'+d("Switch to helium-helium and watch the barrier climb — more charge means a much taller wall to overcome.","Helium-helium पर switch कीजिए और barrier को चढ़ते देखिए — ज़्यादा charge मतलब पार करने के लिए कहीं ऊँची दीवार।")+'</div>';
   }
 };
 var IV_DTS=[2.0,1.0,0.5,0.1,0.01];
@@ -6722,6 +6888,60 @@ function rbCalc(){
   var circ=2*Math.PI*r;
   var lam=circ/n;
   document.getElementById("rbOut").textContent="circumference = "+sciStr(circ)+" m · λ = "+sciStr(lam)+" m";
+}
+
+var BE_NUCLEI={
+  O16:{Z:8,A:16,Matomic:15.99493,label:"Oxygen-16"},
+  Fe56:{Z:26,A:56,Matomic:55.934939,label:"Iron-56"},
+  Bi209:{Z:83,A:209,Matomic:208.980388,label:"Bismuth-209"}
+};
+function beCalc(){
+  var key=document.getElementById("beNucleus").value;
+  var nuc=BE_NUCLEI[key];
+  var mp=1.00727, mn=1.00866, me=0.00055;
+  var N=nuc.A-nuc.Z;
+  var expected=nuc.Z*mp+N*mn;
+  var Mnuc=nuc.Matomic-nuc.Z*me;
+  var dM=expected-Mnuc;
+  var Eb=dM*931.5;
+  var Ebn=Eb/nuc.A;
+  document.getElementById("beOut").textContent="ΔM = "+dM.toFixed(4)+" u · Eb = "+Eb.toFixed(1)+" MeV · Ebn = "+Ebn.toFixed(2)+" MeV/nucleon";
+}
+function nsCalc(){
+  var A=+document.getElementById("nsA").value;
+  document.getElementById("nsAv").textContent=A;
+  var R0=1.2e-15;
+  var R=R0*Math.pow(A,1/3);
+  var V=(4/3)*Math.PI*Math.pow(R,3);
+  var u=1.660539e-27;
+  var M=A*u;
+  var density=M/V;
+  document.getElementById("nsOut").textContent="R = "+(R*1e15).toFixed(2)+" fm · density = "+sciStr(density)+" kg/m³";
+}
+function fsCalc(){
+  var EbnP=+document.getElementById("fsEbnP").value;
+  var EbnF=+document.getElementById("fsEbnF").value;
+  var A=+document.getElementById("fsA").value;
+  document.getElementById("fsEbnPv").textContent=EbnP.toFixed(1)+" MeV";
+  document.getElementById("fsEbnFv").textContent=EbnF.toFixed(1)+" MeV";
+  document.getElementById("fsAv").textContent=A;
+  var Q=A*(EbnF-EbnP);
+  document.getElementById("fsOut").textContent="Q = "+(Q>=0?"+":"−")+Math.abs(Q).toFixed(1)+" MeV "+(Q>=0?(LANG==="hi"?"छोड़ी गई":"released"):(LANG==="hi"?"अवशोषित (endothermic)":"absorbed (endothermic)"));
+}
+var FU_PAIRS={
+  dd:{Z:1,r:2.0,label:"Deuteron+Deuteron"},
+  pp:{Z:1,r:1.2,label:"Proton+Proton"},
+  he:{Z:2,r:1.9,label:"Helium+Helium"}
+};
+function fuCalc(){
+  var key=document.getElementById("fuPair").value;
+  var pair=FU_PAIRS[key];
+  var K_COULOMB=9e9, E_CHARGE=1.602e-19;
+  var d=(2*pair.r)*1e-15;
+  var V_J=K_COULOMB*(pair.Z*E_CHARGE)*(pair.Z*E_CHARGE)/d;
+  var V_keV=V_J/E_CHARGE/1000;
+  var T=V_J/(1.5*1.381e-23);
+  document.getElementById("fuOut").textContent="Barrier = "+V_keV.toFixed(1)+" keV · T ≈ "+sciStr(T)+" K";
 }
 
 /* ============ Animations: press Play to watch the physics happen ============
