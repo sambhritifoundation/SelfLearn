@@ -2723,6 +2723,105 @@ var DIAGRAMS = {
     out+='<text x="345" y="222" text-anchor="middle" font-size="9" fill="var(--ink-soft)">'+d("fields add, strong net moment","fields जुड़ते हैं, मज़बूत net moment")+'</text>'
       +'</svg>';
     return out;
+  },
+  "faraday-henry-experiments": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 460 280" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<defs><marker id="fheArrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--primary)"/></marker></defs>'
+      +'<text x="230" y="16" text-anchor="middle" font-size="11.5" font-weight="bold" fill="var(--ink)">'+d("Motion is the key — not the magnet's strength","गति चाभी है — चुंबक की ताक़त नहीं")+'</text>'
+      +'<rect x="45" y="118" width="60" height="24" fill="var(--red)" opacity="0.85"/>'
+      +'<text x="75" y="134" text-anchor="middle" font-size="12" font-weight="bold" fill="var(--card)">N</text>'
+      +'<line x1="110" y1="130" x2="155" y2="130" stroke="var(--primary)" stroke-width="2" marker-end="url(#fheArrow)"/>'
+      +'<text x="132" y="120" text-anchor="middle" font-size="9" fill="var(--primary)">'+d("moving","हिलता")+'</text>'
+      +'<ellipse cx="195" cy="130" rx="18" ry="42" fill="none" stroke="var(--ink)" stroke-width="2"/>'
+      +'<ellipse cx="210" cy="130" rx="18" ry="42" fill="none" stroke="var(--ink)" stroke-width="2"/>'
+      +'<line x1="195" y1="172" x2="195" y2="210" stroke="var(--ink-soft)" stroke-width="1.6"/>'
+      +'<line x1="210" y1="172" x2="210" y2="210" stroke="var(--ink-soft)" stroke-width="1.6"/>'
+      +'<line x1="195" y1="210" x2="150" y2="230" stroke="var(--ink-soft)" stroke-width="1.6"/>'
+      +'<line x1="210" y1="210" x2="255" y2="230" stroke="var(--ink-soft)" stroke-width="1.6"/>'
+      +'<circle cx="200" cy="245" r="22" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/>'
+      +'<line x1="200" y1="245" x2="215" y2="230" stroke="var(--red)" stroke-width="2.5"/>'
+      +'<text x="200" y="250" text-anchor="middle" font-size="10" fill="var(--ink)">G</text>'
+      +'<text x="200" y="200" text-anchor="middle" font-size="9" fill="var(--ink-soft)">'+d("deflects while moving","हिलते वक़्त मुड़ता है")+'</text>'
+      +'<rect x="330" y="118" width="60" height="24" fill="var(--red)" opacity="0.4"/>'
+      +'<text x="360" y="134" text-anchor="middle" font-size="12" font-weight="bold" fill="var(--ink)">N</text>'
+      +'<text x="360" y="105" text-anchor="middle" font-size="9" fill="var(--ink-soft)">'+d("held still","स्थिर पकड़ा")+'</text>'
+      +'<ellipse cx="410" cy="130" rx="16" ry="38" fill="none" stroke="var(--ink-soft)" stroke-width="1.6"/>'
+      +'<circle cx="410" cy="222" r="18" fill="var(--card)" stroke="var(--ink-soft)" stroke-width="1.6"/>'
+      +'<line x1="410" y1="222" x2="410" y2="209" stroke="var(--ink-soft)" stroke-width="2"/>'
+      +'<text x="410" y="226" text-anchor="middle" font-size="8.5" fill="var(--ink-soft)">G</text>'
+      +'<text x="410" y="255" text-anchor="middle" font-size="9" fill="var(--ink-soft)">'+d("zero deflection","शून्य deflection")+'</text>'
+      +'</svg>';
+  },
+  "lenz-law-polarity": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 460 260" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<defs>'
+      +'<marker id="llpArrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--primary)"/></marker>'
+      +'<marker id="llpArrowR" markerWidth="7" markerHeight="7" refX="5" refY="2.5" orient="auto"><path d="M0,0 L5,2.5 L0,5 Z" fill="var(--ink)"/></marker>'
+      +'</defs>'
+      +'<text x="115" y="16" text-anchor="middle" font-size="10.5" font-weight="bold" fill="var(--ink)">'+d("Magnet approaching — flux increasing","पास आता चुंबक — flux बढ़ रहा")+'</text>'
+      +'<rect x="15" y="95" width="45" height="22" fill="var(--red)"/><text x="37" y="110" text-anchor="middle" font-size="10" fill="var(--card)">N</text>'
+      +'<line x1="62" y1="106" x2="95" y2="106" stroke="var(--primary)" stroke-width="1.8" marker-end="url(#llpArrow)"/>'
+      +'<ellipse cx="125" cy="106" rx="30" ry="45" fill="none" stroke="var(--ink)" stroke-width="2"/>'
+      +'<path d="M110,80 A22,22 0 1 1 108,66" fill="none" stroke="var(--teal)" stroke-width="1.8" marker-end="url(#llpArrowR)"/>'
+      +'<text x="125" y="60" text-anchor="middle" font-size="9.5" font-weight="bold" fill="var(--teal)">N</text>'
+      +'<text x="125" y="164" text-anchor="middle" font-size="8.5" fill="var(--ink-soft)">'+d("coil's near face repels","coil का पास वाला चेहरा प्रतिकर्षित करता है")+'</text>'
+      +'<line x1="95" y1="130" x2="65" y2="130" stroke="var(--red)" stroke-width="2" marker-end="url(#llpArrow)"/>'
+      +'<text x="80" y="145" text-anchor="middle" font-size="8.5" fill="var(--red)">'+d("push back","वापस धकेलता")+'</text>'
+      +'<line x1="230" y1="16" x2="230" y2="230" stroke="var(--line)" stroke-width="1" stroke-dasharray="4,3"/>'
+      +'<text x="345" y="16" text-anchor="middle" font-size="10.5" font-weight="bold" fill="var(--ink)">'+d("Magnet receding — flux decreasing","दूर जाता चुंबक — flux घट रहा")+'</text>'
+      +'<rect x="245" y="95" width="45" height="22" fill="var(--red)" opacity="0.5"/><text x="267" y="110" text-anchor="middle" font-size="10" fill="var(--ink)">N</text>'
+      +'<line x1="245" y1="106" x2="212" y2="106" stroke="var(--primary)" stroke-width="1.8" marker-end="url(#llpArrow)"/>'
+      +'<ellipse cx="355" cy="106" rx="30" ry="45" fill="none" stroke="var(--ink)" stroke-width="2"/>'
+      +'<path d="M340,66 A22,22 0 1 0 338,80" fill="none" stroke="var(--amber)" stroke-width="1.8" marker-end="url(#llpArrowR)"/>'
+      +'<text x="355" y="60" text-anchor="middle" font-size="9.5" font-weight="bold" fill="var(--amber)">S</text>'
+      +'<text x="355" y="164" text-anchor="middle" font-size="8.5" fill="var(--ink-soft)">'+d("coil's near face attracts","coil का पास वाला चेहरा आकर्षित करता है")+'</text>'
+      +'<line x1="212" y1="130" x2="245" y2="130" stroke="var(--green)" stroke-width="2" marker-end="url(#llpArrow)"/>'
+      +'<text x="228" y="145" text-anchor="middle" font-size="8.5" fill="var(--green)">'+d("pull back","वापस खींचता")+'</text>'
+      +'</svg>';
+  },
+  "coaxial-solenoids-mutual-inductance": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    var loops='';
+    for(var i=0;i<9;i++){ var x=80+i*33; loops+='<ellipse cx="'+x+'" cy="130" rx="10" ry="70" fill="none" stroke="var(--ink-soft)" stroke-width="1.3"/>'; }
+    var loops2='';
+    for(var j=0;j<7;j++){ var x2=105+j*40; loops2+='<ellipse cx="'+x2+'" cy="130" rx="13" ry="42" fill="none" stroke="var(--primary)" stroke-width="1.6"/>'; }
+    return '<svg viewBox="0 0 460 280" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="230" y="16" text-anchor="middle" font-size="11.5" font-weight="bold" fill="var(--ink)">'+d("Two coaxial solenoids share flux","दो coaxial solenoids flux साझा करते हैं")+'</text>'
+      +loops
+      +loops2
+      +'<line x1="60" y1="60" x2="420" y2="60" stroke="var(--ink-soft)" stroke-width="1" stroke-dasharray="3,3"/>'
+      +'<text x="240" y="52" text-anchor="middle" font-size="9.5" fill="var(--ink-soft)">'+d("outer S₂ (n₂ turns/length, radius r₂)","बाहरी S₂ (n₂ turns/length, त्रिज्या r₂)")+'</text>'
+      +'<line x1="105" y1="200" x2="345" y2="200" stroke="var(--primary)" stroke-width="1" stroke-dasharray="3,3"/>'
+      +'<text x="225" y="215" text-anchor="middle" font-size="9.5" fill="var(--primary)">'+d("inner S₁ (n₁ turns/length, radius r₁)","अंदर S₁ (n₁ turns/length, त्रिज्या r₁)")+'</text>'
+      +'<line x1="80" y1="230" x2="368" y2="230" stroke="var(--ink)" stroke-width="1.4"/>'
+      +'<text x="224" y="244" text-anchor="middle" font-size="9.5" fill="var(--ink)">'+d("both length l","दोनों की लंबाई l")+'</text>'
+      +'<text x="230" y="264" text-anchor="middle" font-size="9" fill="var(--ink-soft)">'+d("Current in either coil links flux with the other —","किसी भी coil में current दूसरे से flux जोड़ता है —")+'</text>'
+      +'<text x="230" y="276" text-anchor="middle" font-size="9" fill="var(--ink-soft)">M₁₂ = M₂₁</text>'
+      +'</svg>';
+  },
+  "ac-generator-construction": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 460 280" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<rect x="40" y="60" width="45" height="130" fill="var(--red)" opacity="0.85"/><text x="62" y="130" text-anchor="middle" font-size="13" font-weight="bold" fill="var(--card)">N</text>'
+      +'<rect x="375" y="60" width="45" height="130" fill="var(--teal)" opacity="0.85"/><text x="397" y="130" text-anchor="middle" font-size="13" font-weight="bold" fill="var(--card)">S</text>'
+      +'<line x1="230" y1="45" x2="230" y2="205" stroke="var(--ink-soft)" stroke-width="1.5" stroke-dasharray="4,3"/>'
+      +'<text x="230" y="38" text-anchor="middle" font-size="9" fill="var(--ink-soft)">'+d("axle","axle")+'</text>'
+      +'<g transform="translate(230,125) rotate(25)">'
+      +'<rect x="-70" y="-42" width="140" height="84" fill="none" stroke="var(--primary)" stroke-width="3"/>'
+      +'</g>'
+      +'<text x="230" y="105" text-anchor="middle" font-size="9.5" font-weight="bold" fill="var(--primary)">'+d("coil (armature)","coil (armature)")+'</text>'
+      +'<line x1="230" y1="205" x2="230" y2="222" stroke="var(--ink)" stroke-width="3"/>'
+      +'<circle cx="215" cy="232" r="10" fill="none" stroke="var(--ink)" stroke-width="2.5"/>'
+      +'<circle cx="245" cy="232" r="10" fill="none" stroke="var(--ink)" stroke-width="2.5"/>'
+      +'<text x="230" y="252" text-anchor="middle" font-size="8.5" fill="var(--ink-soft)">'+d("slip rings","slip rings")+'</text>'
+      +'<rect x="205" y="228" width="10" height="8" fill="var(--amber)"/><rect x="240" y="228" width="10" height="8" fill="var(--amber)"/>'
+      +'<line x1="210" y1="236" x2="180" y2="260" stroke="var(--ink)" stroke-width="1.6"/>'
+      +'<line x1="245" y1="236" x2="280" y2="260" stroke="var(--ink)" stroke-width="1.6"/>'
+      +'<text x="150" y="270" text-anchor="middle" font-size="8.5" fill="var(--ink-soft)">'+d("brushes","brushes")+'</text>'
+      +'<text x="230" y="18" text-anchor="middle" font-size="11.5" font-weight="bold" fill="var(--ink)">'+d("Coil spins between fixed poles — slip rings carry the current out","coil स्थिर poles के बीच घूमता है — slip rings current बाहर ले जाती हैं")+'</text>'
+      +'</svg>';
   }
 };
 
@@ -3866,6 +3965,116 @@ var INTERACTIVES = {
       +'<span class="labval" id="xcHv">1000 A/m</span></div>'
       +'<div class="labout" id="xcOut">χ = −0.5 × 10⁻⁵ · μᵣ = 0.999995 · B ≈ 1.26 × 10⁻³ T</div>'
       +'<div class="labnote">'+d("Switch material — see how many orders of magnitude χ jumps between families.","पदार्थ बदलिए — देखिए परिवारों के बीच χ कितने order of magnitude उछलता है।")+'</div>';
+  },
+  "magnetic-flux-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Field B (T)","Field B (T)")+'</label>'
+      +'<input type="range" id="fxB" min="0.01" max="0.50" step="0.01" value="0.10" oninput="fxCalc()">'
+      +'<span class="labval" id="fxBv">0.10 T</span></div>'
+      +'<div class="labrow"><label>'+d("Area A (m²)","Area A (m²)")+'</label>'
+      +'<input type="range" id="fxA" min="0.001" max="0.050" step="0.001" value="0.010" oninput="fxCalc()">'
+      +'<span class="labval" id="fxAv">0.010 m²</span></div>'
+      +'<div class="labrow"><label>'+d("Angle θ (°)","Angle θ (°)")+'</label>'
+      +'<input type="range" id="fxTh" min="0" max="90" step="1" value="45" oninput="fxCalc()">'
+      +'<span class="labval" id="fxThv">45°</span></div>'
+      +'<div class="labout" id="fxOut">Φ_B = 7.07 × 10⁻⁴ Wb</div>'
+      +'<div class="labnote">'+d("Slide θ toward 90° — the flux falls smoothly to zero even though B and A never change.","θ को 90° की ओर स्लाइड कीजिए — flux चिकनी तरह शून्य तक गिरता है भले ही B और A कभी न बदलें।")+'</div>';
+  },
+  "faradays-law-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Turns N","Turns N")+'</label>'
+      +'<input type="range" id="feN" min="1" max="1000" step="1" value="500" oninput="feCalc()">'
+      +'<span class="labval" id="feNv">500</span></div>'
+      +'<div class="labrow"><label>'+d("Flux change ΔΦ (×10⁻⁶ Wb)","Flux बदलाव ΔΦ (×10⁻⁶ Wb)")+'</label>'
+      +'<input type="range" id="feDphi" min="0.100" max="10.000" step="0.001" value="1.885" oninput="feCalc()">'
+      +'<span class="labval" id="feDphiv">1.885 ×10⁻⁶ Wb</span></div>'
+      +'<div class="labrow"><label>'+d("Time Δt (s)","समय Δt (s)")+'</label>'
+      +'<input type="range" id="feDt" min="0.05" max="2.00" step="0.01" value="0.25" oninput="feCalc()">'
+      +'<span class="labval" id="feDtv">0.25 s</span></div>'
+      +'<div class="labout" id="feOut">ε = 3.77 × 10⁻³ V</div>'
+      +'<div class="labnote">'+d("Make Δt smaller — the same flux change now happens faster, and ε grows.","Δt छोटा कीजिए — वही flux बदलाव अब तेज़ी से होता है, और ε बढ़ता है।")+'</div>';
+  },
+  "motional-emf-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Mode","Mode")+'</label>'
+      +'<select id="meMode" onchange="meCalc()" style="padding:6px 8px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink)">'
+      +'<option value="rotating" selected>'+d("Rotating rod","घूमती rod")+'</option>'
+      +'<option value="sliding">'+d("Sliding rod","फिसलती rod")+'</option>'
+      +'</select></div>'
+      +'<div class="labrow"><label>'+d("Field B (T)","Field B (T)")+'</label>'
+      +'<input type="range" id="meB" min="0.10" max="2.00" step="0.01" value="1.00" oninput="meCalc()">'
+      +'<span class="labval" id="meBv">1.00 T</span></div>'
+      +'<div class="labrow" id="meRotRow"><label>'+d("Length R (m)","लंबाई R (m)")+'</label>'
+      +'<input type="range" id="meR" min="0.10" max="2.00" step="0.01" value="1.00" oninput="meCalc()">'
+      +'<span class="labval" id="meRv">1.00 m</span></div>'
+      +'<div class="labrow" id="meFreqRow"><label>'+d("Frequency (rev/s)","Frequency (rev/s)")+'</label>'
+      +'<input type="range" id="meFreq" min="1" max="100" step="1" value="50" oninput="meCalc()">'
+      +'<span class="labval" id="meFreqv">50 rev/s</span></div>'
+      +'<div class="labrow" id="meLRow" style="display:none"><label>'+d("Length l (m)","लंबाई l (m)")+'</label>'
+      +'<input type="range" id="meL" min="0.05" max="1.00" step="0.01" value="0.10" oninput="meCalc()">'
+      +'<span class="labval" id="meLv">0.10 m</span></div>'
+      +'<div class="labrow" id="meVRow" style="display:none"><label>'+d("Speed v (m/s)","Speed v (m/s)")+'</label>'
+      +'<input type="range" id="meV" min="0.01" max="2.00" step="0.01" value="0.50" oninput="meCalc()">'
+      +'<span class="labval" id="meVv">0.50 m/s</span></div>'
+      +'<div class="labout" id="meOut">ε = 157.08 V</div>'
+      +'<div class="labnote">'+d("Rotating rod needs ½ωBR² since speed varies with r; sliding rod is just Blv, since every point moves the same v.","घूमती rod को ½ωBR² चाहिए चूँकि speed r के साथ बदलता है; फिसलती rod बस Blv है, चूँकि हर बिंदु एक ही v से चलता है।")+'</div>';
+  },
+  "mutual-inductance-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Inner turns/length n₁ (1/m)","Inner turns/length n₁ (1/m)")+'</label>'
+      +'<input type="range" id="miN1" min="100" max="2000" step="10" value="1000" oninput="miCalc()">'
+      +'<span class="labval" id="miN1v">1000 /m</span></div>'
+      +'<div class="labrow"><label>'+d("Outer turns/length n₂ (1/m)","बाहरी turns/length n₂ (1/m)")+'</label>'
+      +'<input type="range" id="miN2" min="100" max="2000" step="10" value="1000" oninput="miCalc()">'
+      +'<span class="labval" id="miN2v">1000 /m</span></div>'
+      +'<div class="labrow"><label>'+d("Inner radius r₁ (m)","अंदर की त्रिज्या r₁ (m)")+'</label>'
+      +'<input type="range" id="miR1" min="0.010" max="0.100" step="0.005" value="0.020" oninput="miCalc()">'
+      +'<span class="labval" id="miR1v">0.020 m</span></div>'
+      +'<div class="labrow"><label>'+d("Length l (m)","लंबाई l (m)")+'</label>'
+      +'<input type="range" id="miL" min="0.10" max="1.00" step="0.01" value="0.30" oninput="miCalc()">'
+      +'<span class="labval" id="miLv">0.30 m</span></div>'
+      +'<div class="labout" id="miOut">M = 4.74 × 10⁻⁴ H</div>'
+      +'<div class="labnote">'+d("Double r₁ and watch M quadruple — it depends on the inner coil's cross-sectional area, not just its radius.","r₁ दोगुना कीजिए और M को चौगुना होते देखिए — यह अंदर वाले coil के cross-sectional area पर निर्भर करता है, सिर्फ़ इसकी त्रिज्या पर नहीं।")+'</div>';
+  },
+  "self-inductance-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Turns/length n (1/m)","Turns/length n (1/m)")+'</label>'
+      +'<input type="range" id="liN" min="100" max="3000" step="10" value="1000" oninput="liCalc()">'
+      +'<span class="labval" id="liNv">1000 /m</span></div>'
+      +'<div class="labrow"><label>'+d("Area A (m²)","Area A (m²)")+'</label>'
+      +'<input type="range" id="liA" min="0.0001" max="0.0100" step="0.0001" value="0.0010" oninput="liCalc()">'
+      +'<span class="labval" id="liAv">0.0010 m²</span></div>'
+      +'<div class="labrow"><label>'+d("Length l (m)","लंबाई l (m)")+'</label>'
+      +'<input type="range" id="liL" min="0.05" max="1.00" step="0.01" value="0.20" oninput="liCalc()">'
+      +'<span class="labval" id="liLv">0.20 m</span></div>'
+      +'<div class="labrow"><label>'+d("Core relative permeability μᵣ","Core relative permeability μᵣ")+'</label>'
+      +'<input type="range" id="liMur" min="1" max="500" step="1" value="1" oninput="liCalc()">'
+      +'<span class="labval" id="liMurv">1</span></div>'
+      +'<div class="labrow"><label>'+d("Current I (A, for energy)","Current I (A, energy के लिए)")+'</label>'
+      +'<input type="range" id="liI" min="0.5" max="10.0" step="0.1" value="2.0" oninput="liCalc()">'
+      +'<span class="labval" id="liIv">2.0 A</span></div>'
+      +'<div class="labout" id="liOut">L = 2.51 × 10⁻⁴ H · W = 5.03 × 10⁻⁴ J</div>'
+      +'<div class="labnote">'+d("Push μᵣ up toward iron's range (hundreds) and watch L — and the stored energy — jump.","μᵣ को iron की रेंज (सैकड़ों) की ओर बढ़ाइए और L — और जमा energy — को उछलते देखिए।")+'</div>';
+  },
+  "ac-generator-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Turns N","Turns N")+'</label>'
+      +'<input type="range" id="agN" min="10" max="1000" step="10" value="100" oninput="agCalc()">'
+      +'<span class="labval" id="agNv">100</span></div>'
+      +'<div class="labrow"><label>'+d("Field B (T)","Field B (T)")+'</label>'
+      +'<input type="range" id="agB" min="0.001" max="0.100" step="0.001" value="0.010" oninput="agCalc()">'
+      +'<span class="labval" id="agBv">0.010 T</span></div>'
+      +'<div class="labrow"><label>'+d("Area A (m²)","Area A (m²)")+'</label>'
+      +'<input type="range" id="agA" min="0.01" max="1.00" step="0.01" value="0.10" oninput="agCalc()">'
+      +'<span class="labval" id="agAv">0.10 m²</span></div>'
+      +'<div class="labrow"><label>'+d("Frequency (rev/s)","Frequency (rev/s)")+'</label>'
+      +'<input type="range" id="agFreq" min="0.1" max="50.0" step="0.1" value="0.5" oninput="agCalc()">'
+      +'<span class="labval" id="agFreqv">0.5 rev/s</span></div>'
+      +'<div class="labrow"><label>'+d("Rotation angle ωt (°)","Rotation angle ωt (°)")+'</label>'
+      +'<input type="range" id="agPhase" min="0" max="360" step="1" value="90" oninput="agCalc()">'
+      +'<span class="labval" id="agPhasev">90°</span></div>'
+      +'<div class="labout" id="agOut">ε₀ = 0.314 V · ε(t) = 0.314 V</div>'
+      +'<div class="labnote">'+d("Slide the rotation angle — ε peaks at 90°/270° (coil parallel to field) and is zero at 0°/180° (coil perpendicular).","घुमाव angle स्लाइड कीजिए — ε 90°/270° पर peak करता है (coil field के समांतर) और 0°/180° पर शून्य होता है (coil लंबवत)।")+'</div>';
   }
 };
 var IV_DTS=[2.0,1.0,0.5,0.1,0.01];
@@ -4834,6 +5043,95 @@ function xcCalc(){
   var B=mur*MU0*H;
   var Bstr = B===0 ? "0" : Math.abs(B)<0.01 ? sciStr(B) : B.toFixed(3);
   document.getElementById("xcOut").textContent="χ = "+chiInfo.str+" · μᵣ = "+mur.toFixed(6)+" · B ≈ "+Bstr+" T";
+}
+function fxCalc(){
+  var B=+document.getElementById("fxB").value;
+  var A=+document.getElementById("fxA").value;
+  var th=+document.getElementById("fxTh").value;
+  document.getElementById("fxBv").textContent=B.toFixed(2)+" T";
+  document.getElementById("fxAv").textContent=A.toFixed(3)+" m²";
+  document.getElementById("fxThv").textContent=th.toFixed(0)+"°";
+  var phi=B*A*Math.cos(th*Math.PI/180);
+  document.getElementById("fxOut").textContent="Φ_B = "+sciStr(phi)+" Wb";
+}
+function feCalc(){
+  var N=+document.getElementById("feN").value;
+  var dphi=+document.getElementById("feDphi").value;
+  var dt=+document.getElementById("feDt").value;
+  document.getElementById("feNv").textContent=N.toFixed(0);
+  document.getElementById("feDphiv").textContent=dphi.toFixed(3)+" ×10⁻⁶ Wb";
+  document.getElementById("feDtv").textContent=dt.toFixed(2)+" s";
+  var emf=N*(dphi*1e-6)/dt;
+  document.getElementById("feOut").textContent="ε = "+sciStr(emf)+" V";
+}
+function meCalc(){
+  var mode=document.getElementById("meMode").value;
+  var B=+document.getElementById("meB").value;
+  document.getElementById("meBv").textContent=B.toFixed(2)+" T";
+  var rotRow=document.getElementById("meRotRow"), freqRow=document.getElementById("meFreqRow");
+  var lRow=document.getElementById("meLRow"), vRow=document.getElementById("meVRow");
+  var emf;
+  if(mode==="rotating"){
+    rotRow.style.display=""; freqRow.style.display=""; lRow.style.display="none"; vRow.style.display="none";
+    var R=+document.getElementById("meR").value;
+    var freq=+document.getElementById("meFreq").value;
+    document.getElementById("meRv").textContent=R.toFixed(2)+" m";
+    document.getElementById("meFreqv").textContent=freq.toFixed(0)+" rev/s";
+    var omega=2*Math.PI*freq;
+    emf=0.5*omega*B*R*R;
+  } else {
+    rotRow.style.display="none"; freqRow.style.display="none"; lRow.style.display=""; vRow.style.display="";
+    var l=+document.getElementById("meL").value;
+    var v=+document.getElementById("meV").value;
+    document.getElementById("meLv").textContent=l.toFixed(2)+" m";
+    document.getElementById("meVv").textContent=v.toFixed(2)+" m/s";
+    emf=B*l*v;
+  }
+  document.getElementById("meOut").textContent="ε = "+(Math.abs(emf)<0.01?sciStr(emf):emf.toFixed(2))+" V";
+}
+function miCalc(){
+  var n1=+document.getElementById("miN1").value;
+  var n2=+document.getElementById("miN2").value;
+  var r1=+document.getElementById("miR1").value;
+  var l=+document.getElementById("miL").value;
+  document.getElementById("miN1v").textContent=n1.toFixed(0)+" /m";
+  document.getElementById("miN2v").textContent=n2.toFixed(0)+" /m";
+  document.getElementById("miR1v").textContent=r1.toFixed(3)+" m";
+  document.getElementById("miLv").textContent=l.toFixed(2)+" m";
+  var MU0=4*Math.PI*1e-7;
+  var M=MU0*n1*n2*Math.PI*r1*r1*l;
+  document.getElementById("miOut").textContent="M = "+sciStr(M)+" H";
+}
+function liCalc(){
+  var n=+document.getElementById("liN").value;
+  var A=+document.getElementById("liA").value;
+  var l=+document.getElementById("liL").value;
+  var mur=+document.getElementById("liMur").value;
+  var I=+document.getElementById("liI").value;
+  document.getElementById("liNv").textContent=n.toFixed(0)+" /m";
+  document.getElementById("liAv").textContent=A.toFixed(4)+" m²";
+  document.getElementById("liLv").textContent=l.toFixed(2)+" m";
+  document.getElementById("liMurv").textContent=mur.toFixed(0);
+  document.getElementById("liIv").textContent=I.toFixed(1)+" A";
+  var MU0=4*Math.PI*1e-7;
+  var Lval=mur*MU0*n*n*A*l;
+  var W=0.5*Lval*I*I;
+  document.getElementById("liOut").textContent="L = "+sciStr(Lval)+" H · W = "+sciStr(W)+" J";
+}
+function agCalc(){
+  var N=+document.getElementById("agN").value;
+  var B=+document.getElementById("agB").value;
+  var A=+document.getElementById("agA").value;
+  var freq=+document.getElementById("agFreq").value;
+  var phase=+document.getElementById("agPhase").value;
+  document.getElementById("agNv").textContent=N.toFixed(0);
+  document.getElementById("agBv").textContent=B.toFixed(3)+" T";
+  document.getElementById("agAv").textContent=A.toFixed(2)+" m²";
+  document.getElementById("agFreqv").textContent=freq.toFixed(1)+" rev/s";
+  document.getElementById("agPhasev").textContent=phase.toFixed(0)+"°";
+  var eps0=N*B*A*2*Math.PI*freq;
+  var epsT=eps0*Math.sin(phase*Math.PI/180);
+  document.getElementById("agOut").textContent="ε₀ = "+(Math.abs(eps0)<0.01?sciStr(eps0):eps0.toFixed(3))+" V · ε(t) = "+(Math.abs(epsT)<0.01?sciStr(epsT):epsT.toFixed(3))+" V";
 }
 
 /* ============ Animations: press Play to watch the physics happen ============
