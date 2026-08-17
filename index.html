@@ -3414,6 +3414,134 @@ var DIAGRAMS = {
       +'<text x="345" y="180" text-anchor="middle" font-size="8" fill="var(--ink-soft)">'+d("resolution set by electron's de Broglie λ (~pm)","resolution electron की de Broglie λ से तय (~pm)")+'</text>'
       +'<text x="345" y="198" text-anchor="middle" font-size="7.5" fill="var(--ink-soft)">'+d("far finer detail — sees individual atoms","कहीं बारीक़ detail — individual atoms देखता है")+'</text>'
       +'</svg>';
+  }  ,
+  "thomson-vs-rutherford-model": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 460 220" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="115" y="15" text-anchor="middle" font-size="10.5" font-weight="bold" fill="var(--ink)">'+d("Thomson: \"plum pudding\"","Thomson: \"plum pudding\"")+'</text>'
+      +'<circle cx="115" cy="110" r="70" fill="var(--primary)" opacity="0.25" stroke="var(--primary)" stroke-width="1.6"/>'
+      +'<circle cx="90" cy="90" r="5" fill="var(--red)"/><circle cx="140" cy="85" r="5" fill="var(--red)"/>'
+      +'<circle cx="105" cy="130" r="5" fill="var(--red)"/><circle cx="145" cy="135" r="5" fill="var(--red)"/>'
+      +'<circle cx="75" cy="120" r="5" fill="var(--red)"/><circle cx="130" cy="110" r="5" fill="var(--red)"/>'
+      +'<text x="115" y="195" text-anchor="middle" font-size="7.5" fill="var(--ink-soft)">'+d("+charge spread evenly, e⁻ embedded","+charge समान फैला, e⁻ जड़े")+'</text>'
+      +'<line x1="225" y1="20" x2="225" y2="205" stroke="var(--line)" stroke-width="1" stroke-dasharray="3,3"/>'
+      +'<text x="345" y="15" text-anchor="middle" font-size="10.5" font-weight="bold" fill="var(--ink)">'+d("Rutherford: nuclear model","Rutherford: nuclear model")+'</text>'
+      +'<circle cx="345" cy="110" r="6" fill="var(--red)"/>'
+      +'<circle cx="345" cy="110" r="35" fill="none" stroke="var(--primary)" stroke-width="1.4" stroke-dasharray="3,2"/>'
+      +'<circle cx="345" cy="110" r="65" fill="none" stroke="var(--primary)" stroke-width="1.4" stroke-dasharray="3,2"/>'
+      +'<circle cx="380" cy="110" r="4" fill="var(--ink)"/>'
+      +'<circle cx="345" cy="45" r="4" fill="var(--ink)"/>'
+      +'<text x="345" y="195" text-anchor="middle" font-size="7.5" fill="var(--ink-soft)">'+d("tiny +nucleus, e⁻ far outside","छोटा +nucleus, e⁻ बहुत बाहर")+'</text>'
+      +'</svg>';
+  },
+  "alpha-scattering-experiment-setup": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 460 230" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="230" y="15" text-anchor="middle" font-size="11" font-weight="bold" fill="var(--ink)">'+d("The Geiger-Marsden experiment","Geiger-Marsden experiment")+'</text>'
+      +'<circle cx="35" cy="115" r="8" fill="var(--red)" opacity="0.8"/>'
+      +'<text x="35" y="100" text-anchor="middle" font-size="7.5" fill="var(--ink-soft)">'+d("α source","α source")+'</text>'
+      +'<rect x="65" y="95" width="8" height="40" fill="var(--ink-soft)"/><rect x="80" y="95" width="8" height="40" fill="var(--ink-soft)"/>'
+      +'<text x="76" y="150" text-anchor="middle" font-size="7" fill="var(--ink-soft)">'+d("lead bricks","lead bricks")+'</text>'
+      +'<line x1="43" y1="115" x2="175" y2="115" stroke="var(--red)" stroke-width="2" marker-end="url(#ahdr)"/>'
+      +'<rect x="180" y="60" width="10" height="110" fill="var(--primary)" opacity="0.6"/>'
+      +'<text x="185" y="185" text-anchor="middle" font-size="7.5" fill="var(--ink-soft)">'+d("gold foil","gold foil")+'</text>'
+      +'<circle cx="185" cy="115" r="3" fill="var(--red)"/>'
+      +'<line x1="185" y1="115" x2="300" y2="55" stroke="var(--ink-soft)" stroke-width="1.4"/>'
+      +'<line x1="185" y1="115" x2="330" y2="90" stroke="var(--ink-soft)" stroke-width="1.4"/>'
+      +'<line x1="185" y1="115" x2="340" y2="115" stroke="var(--ink-soft)" stroke-width="1.4"/>'
+      +'<line x1="185" y1="115" x2="330" y2="140" stroke="var(--ink-soft)" stroke-width="1.4"/>'
+      +'<line x1="185" y1="115" x2="120" y2="175" stroke="var(--red)" stroke-width="2" marker-end="url(#ahdr)"/>'
+      +'<text x="105" y="195" text-anchor="middle" font-size="7" fill="var(--red)">'+d("~1 in 8000: θ>90°","~8000 में 1: θ>90°")+'</text>'
+      +'<path d="M260,40 A110,110 0 0,1 260,190" fill="none" stroke="var(--ink-soft)" stroke-width="1.2" stroke-dasharray="2,2"/>'
+      +'<text x="410" y="115" text-anchor="middle" font-size="7.5" fill="var(--ink-soft)">'+d("ZnS screen","ZnS screen")+'</text>'
+      +'</svg>';
+  },
+  "rutherford-classical-instability": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 460 220" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="115" y="15" text-anchor="middle" font-size="10.5" font-weight="bold" fill="var(--ink)">'+d("Classical prediction: collapse","Classical भविष्यवाणी: collapse")+'</text>'
+      +'<circle cx="115" cy="115" r="6" fill="var(--red)"/>'
+      +'<path d="M115,45 A70,70 0 1,1 45,115 A55,55 0 1,1 115,60 A38,38 0 1,1 78,115 A20,20 0 1,1 115,98" fill="none" stroke="var(--primary)" stroke-width="2"/>'
+      +'<circle cx="115" cy="98" r="3" fill="var(--ink)"/>'
+      +'<text x="115" y="195" text-anchor="middle" font-size="7.5" fill="var(--ink-soft)">'+d("e⁻ radiates, spirals inward","e⁻ radiate करता, अंदर सर्पिल")+'</text>'
+      +'<line x1="225" y1="20" x2="225" y2="205" stroke="var(--line)" stroke-width="1" stroke-dasharray="3,3"/>'
+      +'<text x="345" y="15" text-anchor="middle" font-size="10.5" font-weight="bold" fill="var(--ink)">'+d("Predicted vs observed spectrum","भविष्यवाणी बनाम देखा spectrum")+'</text>'
+      +'<rect x="260" y="55" width="170" height="26" fill="var(--primary)" opacity="0.3"/>'
+      +'<text x="345" y="72" text-anchor="middle" font-size="8" fill="var(--ink)">'+d("classical: continuous smear","classical: continuous smear")+'</text>'
+      +'<rect x="260" y="110" width="170" height="26" fill="var(--card)" stroke="var(--ink-soft)" stroke-width="1"/>'
+      +'<line x1="285" y1="110" x2="285" y2="136" stroke="var(--red)" stroke-width="2"/>'
+      +'<line x1="310" y1="110" x2="310" y2="136" stroke="var(--red)" stroke-width="2"/>'
+      +'<line x1="355" y1="110" x2="355" y2="136" stroke="var(--red)" stroke-width="2"/>'
+      +'<line x1="400" y1="110" x2="400" y2="136" stroke="var(--red)" stroke-width="2"/>'
+      +'<text x="345" y="155" text-anchor="middle" font-size="8" fill="var(--ink)">'+d("observed: sharp discrete lines","देखा: तेज़ discrete lines")+'</text>'
+      +'<text x="345" y="195" text-anchor="middle" font-size="7.5" fill="var(--ink-soft)">'+d("classical theory predicts the wrong kind entirely","classical theory पूरी तरह ग़लत प्रकार भविष्यवाणी करती")+'</text>'
+      +'</svg>';
+  },
+  "bohr-energy-level-diagram": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 420 240" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="210" y="15" text-anchor="middle" font-size="11" font-weight="bold" fill="var(--ink)">'+d("Hydrogen energy levels","Hydrogen energy levels")+'</text>'
+      +'<line x1="60" y1="25" x2="60" y2="200" stroke="var(--line-strong)" stroke-width="1.4" marker-end="url(#ahdr)"/>'
+      +'<text x="30" y="20" font-size="8" fill="var(--ink-soft)">E (eV)</text>'
+      +'<line x1="60" y1="30" x2="390" y2="30" stroke="var(--ink-soft)" stroke-width="1.4"/>'
+      +'<text x="395" y="34" font-size="8" fill="var(--ink-soft)">0</text>'
+      +'<text x="35" y="34" text-anchor="end" font-size="7.5" fill="var(--ink-soft)">n=∞</text>'
+      +'<line x1="60" y1="60" x2="390" y2="60" stroke="var(--primary)" stroke-width="1.6"/>'
+      +'<text x="35" y="64" text-anchor="end" font-size="7.5" fill="var(--ink-soft)">−0.85</text>'
+      +'<text x="395" y="64" font-size="7" fill="var(--ink-soft)">n=4</text>'
+      +'<line x1="60" y1="80" x2="390" y2="80" stroke="var(--primary)" stroke-width="1.6"/>'
+      +'<text x="35" y="84" text-anchor="end" font-size="7.5" fill="var(--ink-soft)">−1.51</text>'
+      +'<text x="395" y="84" font-size="7" fill="var(--ink-soft)">n=3</text>'
+      +'<line x1="60" y1="110" x2="390" y2="110" stroke="var(--primary)" stroke-width="1.6"/>'
+      +'<text x="35" y="114" text-anchor="end" font-size="7.5" fill="var(--ink-soft)">−3.40</text>'
+      +'<text x="395" y="114" font-size="7" fill="var(--ink-soft)">n=2</text>'
+      +'<line x1="60" y1="195" x2="390" y2="195" stroke="var(--red)" stroke-width="2.2"/>'
+      +'<text x="35" y="199" text-anchor="end" font-size="7.5" fill="var(--red)">−13.6</text>'
+      +'<text x="395" y="199" font-size="7" fill="var(--red)">n=1</text>'
+      +'<line x1="150" y1="110" x2="150" y2="195" stroke="var(--ink)" stroke-width="1.4" marker-end="url(#ahdr)"/>'
+      +'<text x="158" y="155" font-size="7.5" fill="var(--ink)">'+d("10.2 eV","10.2 eV")+'</text>'
+      +'<text x="210" y="222" text-anchor="middle" font-size="7.5" fill="var(--ink-soft)">'+d("ground state most negative; levels crowd near 0","ground state सबसे ऋणात्मक; levels 0 के पास भीड़ते")+'</text>'
+      +'</svg>';
+  },
+  "hydrogen-spectral-series": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 460 220" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="230" y="15" text-anchor="middle" font-size="11" font-weight="bold" fill="var(--ink)">'+d("Hydrogen spectral series — transitions and lines","Hydrogen spectral series — transitions और lines")+'</text>'
+      +'<circle cx="60" cy="185" r="4" fill="var(--ink)"/><text x="60" y="200" text-anchor="middle" font-size="7.5" fill="var(--ink-soft)">n=1</text>'
+      +'<circle cx="60" cy="140" r="4" fill="var(--ink)"/><text x="60" y="128" text-anchor="middle" font-size="7.5" fill="var(--ink-soft)">n=2</text>'
+      +'<circle cx="60" cy="100" r="4" fill="var(--ink)"/><text x="60" y="88" text-anchor="middle" font-size="7.5" fill="var(--ink-soft)">n=3</text>'
+      +'<circle cx="60" cy="65" r="4" fill="var(--ink)"/><text x="60" y="53" text-anchor="middle" font-size="7.5" fill="var(--ink-soft)">n=4</text>'
+      +'<line x1="60" y1="140" x2="60" y2="185" stroke="var(--red)" stroke-width="1.6" marker-end="url(#ahdr)"/>'
+      +'<line x1="60" y1="100" x2="60" y2="185" stroke="var(--red)" stroke-width="1.6" marker-end="url(#ahdr)"/>'
+      +'<text x="20" y="165" text-anchor="middle" font-size="7" fill="var(--red)">'+d("Lyman (UV)","Lyman (UV)")+'</text>'
+      +'<line x1="90" y1="100" x2="90" y2="140" stroke="var(--primary)" stroke-width="1.6" marker-end="url(#ahdr)"/>'
+      +'<line x1="90" y1="65" x2="90" y2="140" stroke="var(--primary)" stroke-width="1.6" marker-end="url(#ahdr)"/>'
+      +'<text x="105" y="115" font-size="7" fill="var(--primary)">'+d("Balmer (visible)","Balmer (visible)")+'</text>'
+      +'<line x1="150" y1="65" x2="150" y2="100" stroke="var(--ink-soft)" stroke-width="1.6" marker-end="url(#ahdr)"/>'
+      +'<text x="158" y="85" font-size="7" fill="var(--ink-soft)">'+d("Paschen (IR)","Paschen (IR)")+'</text>'
+      +'<line x1="230" y1="30" x2="230" y2="205" stroke="var(--line)" stroke-width="1" stroke-dasharray="3,3"/>'
+      +'<rect x="250" y="90" width="180" height="30" fill="var(--card)" stroke="var(--ink-soft)" stroke-width="1"/>'
+      +'<line x1="270" y1="90" x2="270" y2="120" stroke="#9b30ff" stroke-width="2"/>'
+      +'<line x1="295" y1="90" x2="295" y2="120" stroke="var(--primary)" stroke-width="2"/>'
+      +'<line x1="330" y1="90" x2="330" y2="120" stroke="var(--red)" stroke-width="2"/>'
+      +'<line x1="390" y1="90" x2="390" y2="120" stroke="#8a2be2" stroke-width="1"/>'
+      +'<text x="270" y="80" text-anchor="middle" font-size="6.5" fill="var(--ink-soft)">410</text>'
+      +'<text x="295" y="80" text-anchor="middle" font-size="6.5" fill="var(--ink-soft)">434</text>'
+      +'<text x="330" y="80" text-anchor="middle" font-size="6.5" fill="var(--ink-soft)">486</text>'
+      +'<text x="390" y="80" text-anchor="middle" font-size="6.5" fill="var(--ink-soft)">656 nm</text>'
+      +'<text x="340" y="140" text-anchor="middle" font-size="7.5" fill="var(--ink-soft)">'+d("visible Balmer lines (nm)","visible Balmer lines (nm)")+'</text>'
+      +'</svg>';
+  },
+  "de-broglie-standing-wave-orbit": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 420 220" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="210" y="15" text-anchor="middle" font-size="11" font-weight="bold" fill="var(--ink)">'+d("A standing wave around a circular orbit (n=4)","एक circular orbit के इर्द-गिर्द standing wave (n=4)")+'</text>'
+      +'<circle cx="210" cy="120" r="6" fill="var(--red)"/>'
+      +'<text x="210" y="140" text-anchor="middle" font-size="7.5" fill="var(--ink-soft)">'+d("nucleus","nucleus")+'</text>'
+      +'<path d="M210,45 C240,55 240,75 210,80 C180,85 180,105 210,110 C240,115 240,135 210,140 C180,145 180,165 210,170 C240,175 240,155 260,155 C280,150 280,130 260,120 C280,110 280,90 260,85 C280,75 270,55 240,50 C230,45 220,45 210,45" fill="var(--primary)" opacity="0.28" stroke="var(--primary)" stroke-width="1.6"/>'
+      +'<circle cx="210" cy="120" r="75" fill="none" stroke="var(--ink-soft)" stroke-width="1" stroke-dasharray="3,3"/>'
+      +'<text x="210" y="205" text-anchor="middle" font-size="7.5" fill="var(--ink-soft)">'+d("2πrₙ = nλ — circumference = 4 wavelengths, exactly","2πrₙ = nλ — circumference = बिल्कुल 4 wavelengths")+'</text>'
+      +'</svg>';
   }
 };
 
@@ -5067,6 +5195,48 @@ var INTERACTIVES = {
       +'<span class="labval" id="dbExpv">×10⁶</span></div>'
       +'<div class="labout" id="dbOut">'+d("p = 4.92 × 10⁻²⁴ kg·m/s · λ = 1.35 × 10⁻¹⁰ m","p = 4.92 × 10⁻²⁴ kg·m/s · λ = 1.35 × 10⁻¹⁰ m")+'</div>'
       +'<div class="labnote">'+d("Switch to the ball and watch λ collapse to a value no instrument could ever measure.","Ball पर switch कीजिए और λ को एक ऐसे मान तक गिरते देखिए जो कोई instrument कभी माप नहीं सकता।")+'</div>';
+  }  ,
+  "closest-approach-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Alpha particle kinetic energy K (MeV)","Alpha particle kinetic energy K (MeV)")+'</label>'
+      +'<input type="range" id="acK" min="1.0" max="10.0" step="0.1" value="7.7" oninput="acCalc()">'
+      +'<span class="labval" id="acKv">7.7 MeV</span></div>'
+      +'<div class="labrow"><label>'+d("Foil material (Z)","Foil material (Z)")+'</label>'
+      +'<select id="acZ" onchange="acCalc()" style="padding:6px 8px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink)">'
+      +'<option value="79" selected>'+d("Gold, Z=79","Gold, Z=79")+'</option>'
+      +'<option value="47">'+d("Silver, Z=47","Silver, Z=47")+'</option>'
+      +'<option value="29">'+d("Copper, Z=29","Copper, Z=29")+'</option>'
+      +'<option value="13">'+d("Aluminium, Z=13","Aluminium, Z=13")+'</option>'
+      +'</select></div>'
+      +'<div class="labout" id="acOut">'+d("d = 29.6 fm","d = 29.6 fm")+'</div>'
+      +'<div class="labnote">'+d("Higher energy or a lighter nucleus both bring the alpha particle closer before it turns back.","ज़्यादा energy या हल्का nucleus दोनों alpha particle को पलटने से पहले पास लाते हैं।")+'</div>';
+  },
+  "bohr-orbit-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Principal quantum number n","Principal quantum number n")+'</label>'
+      +'<input type="range" id="bhN" min="1" max="6" step="1" value="1" oninput="bhCalc()">'
+      +'<span class="labval" id="bhNv">1</span></div>'
+      +'<div class="labout" id="bhOut">'+d("r = 5.30 × 10⁻¹¹ m · E = −13.60 eV · v = 2.20 × 10⁶ m/s","r = 5.30 × 10⁻¹¹ m · E = −13.60 eV · v = 2.20 × 10⁶ m/s")+'</div>'
+      +'<div class="labnote">'+d("Radius grows as n² while speed shrinks as 1/n — a highly excited electron orbits far out and slowly.","Radius n² जैसे बढ़ता है जबकि speed 1/n जैसे सिकुड़ती है — एक बेहद excited electron दूर और धीरे orbit करता है।")+'</div>';
+  },
+  "hydrogen-transition-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Initial level nᵢ","शुरुआती level nᵢ")+'</label>'
+      +'<input type="range" id="trNi" min="2" max="6" step="1" value="4" oninput="trCalc()">'
+      +'<span class="labval" id="trNiv">4</span></div>'
+      +'<div class="labrow"><label>'+d("Final level n_f","अंतिम level n_f")+'</label>'
+      +'<input type="range" id="trNf" min="1" max="5" step="1" value="2" oninput="trCalc()">'
+      +'<span class="labval" id="trNfv">2</span></div>'
+      +'<div class="labout" id="trOut">'+d("ΔE = 2.55 eV · λ = 486.6 nm · Balmer series","ΔE = 2.55 eV · λ = 486.6 nm · Balmer series")+'</div>'
+      +'<div class="labnote">'+d("The final level n_f decides the series name — Lyman (1), Balmer (2) or Paschen (3).","अंतिम level n_f series का नाम तय करता है — Lyman (1), Balmer (2) या Paschen (3)।")+'</div>';
+  },
+  "de-broglie-orbit-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Orbit number n","Orbit number n")+'</label>'
+      +'<input type="range" id="rbN" min="1" max="6" step="1" value="4" oninput="rbCalc()">'
+      +'<span class="labval" id="rbNv">4</span></div>'
+      +'<div class="labout" id="rbOut">'+d("circumference = 5.33 × 10⁻⁹ m · λ = 1.33 × 10⁻⁹ m","circumference = 5.33 × 10⁻⁹ m · λ = 1.33 × 10⁻⁹ m")+'</div>'
+      +'<div class="labnote">'+d("Circumference ÷ n always gives back exactly this λ — the resonance condition holds at every n.","Circumference ÷ n हमेशा बिल्कुल यही λ वापस देता है — resonance शर्त हर n पर सच रहती है।")+'</div>';
   }
 };
 var IV_DTS=[2.0,1.0,0.5,0.1,0.01];
@@ -6506,6 +6676,52 @@ function dbCalc(){
   var p=m*v;
   var lambda=H_PLANCK/p;
   document.getElementById("dbOut").textContent="p = "+sciStr(p)+" kg·m/s · λ = "+sciStr(lambda)+" m";
+}
+
+function acCalc(){
+  var K=+document.getElementById("acK").value;
+  var Z=+document.getElementById("acZ").value;
+  document.getElementById("acKv").textContent=K.toFixed(1)+" MeV";
+  var E_CHARGE=1.602e-19, K_COULOMB=9e9;
+  var K_J=K*1e6*E_CHARGE;
+  var d=(2*Z*E_CHARGE*E_CHARGE*K_COULOMB)/K_J;
+  var d_fm=d*1e15;
+  document.getElementById("acOut").textContent="d = "+d_fm.toFixed(1)+" fm";
+}
+var BOHR_A0=5.3e-11, BOHR_V1=2.2e6;
+function bhCalc(){
+  var n=+document.getElementById("bhN").value;
+  document.getElementById("bhNv").textContent=n;
+  var r=BOHR_A0*n*n;
+  var E=-13.6/(n*n);
+  var v=BOHR_V1/n;
+  document.getElementById("bhOut").textContent="r = "+sciStr(r)+" m · E = −"+Math.abs(E).toFixed(2)+" eV · v = "+sciStr(v)+" m/s";
+}
+function trCalc(){
+  var ni=+document.getElementById("trNi").value;
+  var nf=+document.getElementById("trNf").value;
+  document.getElementById("trNiv").textContent=ni;
+  document.getElementById("trNfv").textContent=nf;
+  if(nf>=ni){
+    document.getElementById("trOut").textContent="Invalid — n_f must be less than nᵢ (photon emitted going to a LOWER level)";
+    return;
+  }
+  var H_PLANCK=6.626e-34, E_CHARGE=1.602e-19, C_LIGHT=3e8;
+  var Ei=-13.6/(ni*ni), Ef=-13.6/(nf*nf);
+  var dE=Ei-Ef;
+  var dE_J=dE*E_CHARGE;
+  var freq=dE_J/H_PLANCK;
+  var lam=C_LIGHT/freq;
+  var series = nf===1 ? "Lyman" : (nf===2 ? "Balmer" : (nf===3 ? "Paschen" : "unnamed"));
+  document.getElementById("trOut").textContent="ΔE = "+dE.toFixed(2)+" eV · λ = "+(lam*1e9).toFixed(1)+" nm · "+series+" series";
+}
+function rbCalc(){
+  var n=+document.getElementById("rbN").value;
+  document.getElementById("rbNv").textContent=n;
+  var r=BOHR_A0*n*n;
+  var circ=2*Math.PI*r;
+  var lam=circ/n;
+  document.getElementById("rbOut").textContent="circumference = "+sciStr(circ)+" m · λ = "+sciStr(lam)+" m";
 }
 
 /* ============ Animations: press Play to watch the physics happen ============
