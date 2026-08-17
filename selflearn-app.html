@@ -3069,6 +3069,202 @@ var DIAGRAMS = {
       +'<text x="200" y="248" text-anchor="middle" font-size="9" fill="var(--ink-soft)">'+d("tube length = fo + fe","tube length = fo + fe")+'</text>'
       +'<text x="230" y="185" text-anchor="middle" font-size="9" fill="var(--ink-soft)">'+d("angle magnified, m ≈ fo/fe","angle बड़ा किया, m ≈ fo/fe")+'</text>'
       +'</svg>';
+  }  ,
+  "wavefront-huygens-construction": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 460 220" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="112" y="16" text-anchor="middle" font-size="11" font-weight="bold" fill="var(--ink)">'+d("Spherical wavefronts from a point source","एक point source से spherical wavefronts")+'</text>'
+      +'<circle cx="108" cy="120" r="30" fill="none" stroke="var(--primary)" stroke-width="1.6"/>'
+      +'<circle cx="108" cy="120" r="55" fill="none" stroke="var(--primary)" stroke-width="1.6"/>'
+      +'<circle cx="108" cy="120" r="80" fill="none" stroke="var(--primary)" stroke-width="1.6"/>'
+      +'<circle cx="108" cy="120" r="3.5" fill="var(--red)"/>'
+      +'<text x="108" y="140" text-anchor="middle" font-size="8.5" fill="var(--red)">'+d("source","source")+'</text>'
+      +'<line x1="108" y1="120" x2="150" y2="63" stroke="var(--ink)" stroke-width="1.6" marker-end="url(#ahdr)"/>'
+      +'<line x1="108" y1="120" x2="176" y2="105" stroke="var(--ink)" stroke-width="1.6" marker-end="url(#ahdr)"/>'
+      +'<line x1="108" y1="120" x2="150" y2="177" stroke="var(--ink)" stroke-width="1.6" marker-end="url(#ahdr)"/>'
+      +'<text x="10" y="205" font-size="8.5" fill="var(--ink-soft)">'+d("rays ⊥ wavefronts, always","rays हमेशा wavefronts के perpendicular")+'</text>'
+      +'<line x1="222" y1="20" x2="222" y2="205" stroke="var(--line)" stroke-width="1" stroke-dasharray="3,3"/>'
+      +'<text x="340" y="16" text-anchor="middle" font-size="11" font-weight="bold" fill="var(--ink)">'+d("Huygens' construction","Huygens का construction")+'</text>'
+      +'<line x1="280" y1="35" x2="280" y2="195" stroke="var(--primary)" stroke-width="2.2"/>'
+      +'<text x="280" y="28" text-anchor="middle" font-size="8" fill="var(--primary)">'+d("F₁F₂ (t=0)","F₁F₂ (t=0)")+'</text>'
+      +'<circle cx="280" cy="55" r="15" fill="none" stroke="var(--ink-soft)" stroke-width="1.1" stroke-dasharray="2,2"/>'
+      +'<circle cx="280" cy="90" r="15" fill="none" stroke="var(--ink-soft)" stroke-width="1.1" stroke-dasharray="2,2"/>'
+      +'<circle cx="280" cy="125" r="15" fill="none" stroke="var(--ink-soft)" stroke-width="1.1" stroke-dasharray="2,2"/>'
+      +'<circle cx="280" cy="160" r="15" fill="none" stroke="var(--ink-soft)" stroke-width="1.1" stroke-dasharray="2,2"/>'
+      +'<circle cx="280" cy="185" r="15" fill="none" stroke="var(--ink-soft)" stroke-width="1.1" stroke-dasharray="2,2"/>'
+      +'<line x1="295" y1="35" x2="295" y2="205" stroke="var(--red)" stroke-width="2.2"/>'
+      +'<text x="298" y="28" text-anchor="start" font-size="8" fill="var(--red)">'+d("G₁G₂ (t=τ)","G₁G₂ (t=τ)")+'</text>'
+      +'<line x1="280" y1="120" x2="295" y2="120" stroke="var(--ink)" stroke-width="1.4" marker-end="url(#ahdr)"/>'
+      +'<text x="287" y="112" text-anchor="middle" font-size="8" fill="var(--ink)">vτ</text>'
+      +'<text x="340" y="205" text-anchor="middle" font-size="8.2" fill="var(--ink-soft)">'+d("secondary wavelets → envelope","secondary wavelets → envelope")+'</text>'
+      +'</svg>';
+  },
+  "huygens-refraction-critical-angle": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 460 240" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="115" y="16" text-anchor="middle" font-size="9.2" font-weight="bold" fill="var(--ink)">'+d("Into a denser medium — bends toward normal","एक denser medium में — normal की ओर मुड़ती है")+'</text>'
+      +'<line x1="20" y1="120" x2="210" y2="120" stroke="var(--line-strong)" stroke-width="1.6"/>'
+      +'<line x1="115" y1="40" x2="115" y2="200" stroke="var(--ink-soft)" stroke-width="1" stroke-dasharray="3,3"/>'
+      +'<text x="118" y="45" font-size="8" fill="var(--ink-soft)">'+d("normal","normal")+'</text>'
+      +'<text x="30" y="112" font-size="8" fill="var(--ink-soft)">'+d("medium 1 (v₁)","medium 1 (v₁)")+'</text>'
+      +'<text x="30" y="135" font-size="8" fill="var(--ink-soft)">'+d("medium 2 (v₂<v₁)","medium 2 (v₂<v₁)")+'</text>'
+      +'<line x1="60" y1="55" x2="115" y2="120" stroke="var(--primary)" stroke-width="2.2" marker-end="url(#ahdr)"/>'
+      +'<line x1="115" y1="120" x2="150" y2="200" stroke="var(--red)" stroke-width="2.2" marker-end="url(#ahdr)"/>'
+      +'<text x="95" y="75" font-size="8" fill="var(--primary)">i</text>'
+      +'<text x="128" y="170" font-size="8" fill="var(--red)">r</text>'
+      +'<text x="60" y="222" text-anchor="middle" font-size="8" fill="var(--ink-soft)">r < i</text>'
+      +'<line x1="230" y1="20" x2="230" y2="235" stroke="var(--line)" stroke-width="1" stroke-dasharray="3,3"/>'
+      +'<text x="345" y="16" text-anchor="middle" font-size="9.2" font-weight="bold" fill="var(--ink)">'+d("Into a rarer medium — critical angle","एक rarer medium में — critical angle")+'</text>'
+      +'<line x1="250" y1="120" x2="440" y2="120" stroke="var(--line-strong)" stroke-width="1.6"/>'
+      +'<line x1="345" y1="40" x2="345" y2="200" stroke="var(--ink-soft)" stroke-width="1" stroke-dasharray="3,3"/>'
+      +'<text x="348" y="45" font-size="8" fill="var(--ink-soft)">'+d("normal","normal")+'</text>'
+      +'<text x="258" y="112" font-size="8" fill="var(--ink-soft)">'+d("medium 1 (denser)","medium 1 (denser)")+'</text>'
+      +'<text x="258" y="135" font-size="8" fill="var(--ink-soft)">'+d("medium 2 (rarer)","medium 2 (rarer)")+'</text>'
+      +'<line x1="300" y1="80" x2="345" y2="120" stroke="var(--primary)" stroke-width="2.2" marker-end="url(#ahdr)"/>'
+      +'<line x1="345" y1="120" x2="440" y2="120" stroke="var(--red)" stroke-width="2.2" marker-end="url(#ahdr)"/>'
+      +'<text x="318" y="92" font-size="8" fill="var(--primary)">i꜀</text>'
+      +'<text x="390" y="112" font-size="8" fill="var(--red)">r=90°</text>'
+      +'<text x="345" y="222" text-anchor="middle" font-size="8" fill="var(--ink-soft)">'+d("sin i꜀ = n₂/n₁ — grazes the surface","sin i꜀ = n₂/n₁ — surface के साथ सरकती है")+'</text>'
+      +'</svg>';
+  },
+  "wavefront-reflection-instruments": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 460 230" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="230" y="15" text-anchor="middle" font-size="11" font-weight="bold" fill="var(--ink)">'+d("A plane wavefront curves to a focus through a prism, lens and mirror","एक plane wavefront prism, lens और mirror से होकर focus तक मुड़ती है")+'</text>'
+      +'<text x="70" y="35" text-anchor="middle" font-size="8.5" fill="var(--ink-soft)">'+d("prism","prism")+'</text>'
+      +'<line x1="20" y1="70" x2="20" y2="150" stroke="var(--primary)" stroke-width="2"/>'
+      +'<polygon points="55,60 55,160 90,110" fill="var(--card)" stroke="var(--ink-soft)" stroke-width="1.4"/>'
+      +'<line x1="105" y1="65" x2="130" y2="140" stroke="var(--red)" stroke-width="2"/>'
+      +'<text x="70" y="200" text-anchor="middle" font-size="7.5" fill="var(--ink-soft)">'+d("thick end delays more → tilts","मोटा सिरा ज़्यादा delay → झुकती है")+'</text>'
+      +'<text x="230" y="35" text-anchor="middle" font-size="8.5" fill="var(--ink-soft)">'+d("convex lens","convex lens")+'</text>'
+      +'<line x1="185" y1="70" x2="185" y2="150" stroke="var(--primary)" stroke-width="2"/>'
+      +'<ellipse cx="230" cy="110" rx="14" ry="52" fill="var(--card)" stroke="var(--ink-soft)" stroke-width="1.4"/>'
+      +'<path d="M255,58 Q272,110 255,162" fill="none" stroke="var(--red)" stroke-width="2"/>'
+      +'<circle cx="300" cy="110" r="3" fill="var(--ink)"/>'
+      +'<text x="300" y="128" text-anchor="middle" font-size="8" fill="var(--ink)">F</text>'
+      +'<text x="230" y="200" text-anchor="middle" font-size="7.5" fill="var(--ink-soft)">'+d("centre delays most → curves to F","केंद्र सबसे ज़्यादा delay → F तक मुड़ती है")+'</text>'
+      +'<text x="390" y="35" text-anchor="middle" font-size="8.5" fill="var(--ink-soft)">'+d("concave mirror","concave mirror")+'</text>'
+      +'<line x1="345" y1="70" x2="345" y2="150" stroke="var(--primary)" stroke-width="2"/>'
+      +'<path d="M370,60 Q400,110 370,160" fill="none" stroke="var(--ink-soft)" stroke-width="2"/>'
+      +'<path d="M365,65 Q385,110 365,155" fill="none" stroke="var(--red)" stroke-width="2"/>'
+      +'<circle cx="325" cy="110" r="3" fill="var(--ink)"/>'
+      +'<text x="325" y="128" text-anchor="middle" font-size="8" fill="var(--ink)">F</text>'
+      +'<text x="390" y="200" text-anchor="middle" font-size="7.5" fill="var(--ink-soft)">'+d("reflects to spherical wavefront","परावर्तित होकर spherical wavefront")+'</text>'
+      +'</svg>';
+  },
+  "coherent-superposition-pattern": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 420 230" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="210" y="16" text-anchor="middle" font-size="11" font-weight="bold" fill="var(--ink)">'+d("Two coherent sources — where crests meet crests, and where they cancel","दो coherent sources — जहाँ crests crests से मिलते हैं, और जहाँ cancel होते हैं")+'</text>'
+      +'<circle cx="150" cy="60" r="4" fill="var(--red)"/><text x="150" y="48" text-anchor="middle" font-size="8.5" fill="var(--red)">S₁</text>'
+      +'<circle cx="150" cy="170" r="4" fill="var(--red)"/><text x="150" y="188" text-anchor="middle" font-size="8.5" fill="var(--red)">S₂</text>'
+      +'<circle cx="150" cy="60" r="30" fill="none" stroke="var(--primary)" stroke-width="1" opacity="0.55"/>'
+      +'<circle cx="150" cy="60" r="55" fill="none" stroke="var(--primary)" stroke-width="1" opacity="0.55"/>'
+      +'<circle cx="150" cy="60" r="80" fill="none" stroke="var(--primary)" stroke-width="1" opacity="0.55"/>'
+      +'<circle cx="150" cy="60" r="105" fill="none" stroke="var(--primary)" stroke-width="1" opacity="0.55"/>'
+      +'<circle cx="150" cy="170" r="30" fill="none" stroke="var(--ink)" stroke-width="1" opacity="0.55"/>'
+      +'<circle cx="150" cy="170" r="55" fill="none" stroke="var(--ink)" stroke-width="1" opacity="0.55"/>'
+      +'<circle cx="150" cy="170" r="80" fill="none" stroke="var(--ink)" stroke-width="1" opacity="0.55"/>'
+      +'<circle cx="150" cy="170" r="105" fill="none" stroke="var(--ink)" stroke-width="1" opacity="0.55"/>'
+      +'<circle cx="330" cy="115" r="5" fill="var(--red)"/><text x="330" y="100" text-anchor="middle" font-size="8" fill="var(--red)">Q</text>'
+      +'<text x="330" y="132" text-anchor="middle" font-size="7.5" fill="var(--red)">'+d("bright (path diff = nλ)","bright (path diff = nλ)")+'</text>'
+      +'<circle cx="280" cy="55" r="5" fill="var(--ink)"/><text x="280" y="42" text-anchor="middle" font-size="8" fill="var(--ink)">R</text>'
+      +'<text x="280" y="30" text-anchor="middle" font-size="7.5" fill="var(--ink)">'+d("dark (path diff = (n+½)λ)","dark (path diff = (n+½)λ)")+'</text>'
+      +'<text x="210" y="215" text-anchor="middle" font-size="8" fill="var(--ink-soft)">'+d("solid = crest, gap = trough — every ring is one wavelength apart","ठोस = crest, gap = trough — हर ring एक wavelength दूर है")+'</text>'
+      +'</svg>';
+  },
+  "youngs-double-slit-setup": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 460 230" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="230" y="15" text-anchor="middle" font-size="11" font-weight="bold" fill="var(--ink)">'+d("Young's setup: one pinhole locks the phase of two more","Young का setup: एक pinhole दो और की phase लॉक करती है")+'</text>'
+      +'<circle cx="40" cy="115" r="3.5" fill="var(--ink)"/><text x="40" y="103" text-anchor="middle" font-size="8" fill="var(--ink-soft)">S</text>'
+      +'<line x1="40" y1="115" x2="140" y2="90" stroke="var(--ink-soft)" stroke-width="1.2"/>'
+      +'<line x1="40" y1="115" x2="140" y2="140" stroke="var(--ink-soft)" stroke-width="1.2"/>'
+      +'<rect x="140" y="60" width="6" height="110" fill="var(--ink-soft)"/>'
+      +'<rect x="140" y="86" width="6" height="8" fill="var(--card)"/>'
+      +'<rect x="140" y="126" width="6" height="8" fill="var(--card)"/>'
+      +'<text x="150" y="88" font-size="7.5" fill="var(--primary)">S₁</text>'
+      +'<text x="150" y="138" font-size="7.5" fill="var(--primary)">S₂</text>'
+      +'<line x1="146" y1="90" x2="380" y2="55" stroke="var(--primary)" stroke-width="1.4"/>'
+      +'<line x1="146" y1="90" x2="380" y2="115" stroke="var(--primary)" stroke-width="1.4"/>'
+      +'<line x1="146" y1="130" x2="380" y2="115" stroke="var(--red)" stroke-width="1.4"/>'
+      +'<line x1="146" y1="130" x2="380" y2="175" stroke="var(--red)" stroke-width="1.4"/>'
+      +'<rect x="380" y="40" width="10" height="150" fill="var(--card)" stroke="var(--ink-soft)" stroke-width="1.4"/>'
+      +'<rect x="382" y="48" width="6" height="10" fill="var(--ink)"/>'
+      +'<rect x="382" y="70" width="6" height="10" fill="var(--card)"/>'
+      +'<rect x="382" y="92" width="6" height="10" fill="var(--ink)"/>'
+      +'<rect x="382" y="114" width="6" height="10" fill="var(--card)"/>'
+      +'<rect x="382" y="136" width="6" height="10" fill="var(--ink)"/>'
+      +'<rect x="382" y="158" width="6" height="10" fill="var(--card)"/>'
+      +'<rect x="382" y="176" width="6" height="8" fill="var(--ink)"/>'
+      +'<text x="390" y="200" text-anchor="middle" font-size="7.5" fill="var(--ink-soft)">'+d("screen: bright/dark fringes","screen: bright/dark fringes")+'</text>'
+      +'<line x1="146" y1="215" x2="380" y2="215" stroke="var(--ink-soft)" stroke-width="1" marker-end="url(#ahdr)"/>'
+      +'<text x="263" y="227" text-anchor="middle" font-size="7.5" fill="var(--ink-soft)">D</text>'
+      +'<line x1="120" y1="90" x2="120" y2="130" stroke="var(--ink-soft)" stroke-width="1"/>'
+      +'<text x="108" y="113" text-anchor="middle" font-size="7.5" fill="var(--ink-soft)">d</text>'
+      +'</svg>';
+  },
+  "single-slit-diffraction-real-world": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 440 230" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="150" y="16" text-anchor="middle" font-size="10.5" font-weight="bold" fill="var(--ink)">'+d("Single-slit intensity pattern","Single-slit intensity pattern")+'</text>'
+      +'<line x1="20" y1="120" x2="290" y2="120" stroke="var(--line-strong)" stroke-width="1.4"/>'
+      +'<polygon points="145,40 152,120 138,120" fill="var(--primary)" opacity="0.75"/>'
+      +'<polygon points="90,100 105,120 75,120" fill="var(--primary)" opacity="0.4"/>'
+      +'<polygon points="195,100 210,120 180,120" fill="var(--primary)" opacity="0.4"/>'
+      +'<polygon points="50,112 62,120 38,120" fill="var(--primary)" opacity="0.22"/>'
+      +'<polygon points="228,112 240,120 216,120" fill="var(--primary)" opacity="0.22"/>'
+      +'<line x1="62" y1="35" x2="62" y2="205" stroke="var(--ink-soft)" stroke-width="1" stroke-dasharray="2,2"/>'
+      +'<line x1="228" y1="35" x2="228" y2="205" stroke="var(--ink-soft)" stroke-width="1" stroke-dasharray="2,2"/>'
+      +'<text x="62" y="215" text-anchor="middle" font-size="7.5" fill="var(--ink-soft)">−λ/a</text>'
+      +'<text x="228" y="215" text-anchor="middle" font-size="7.5" fill="var(--ink-soft)">+λ/a</text>'
+      +'<text x="150" y="30" text-anchor="middle" font-size="7.5" fill="var(--ink-soft)">'+d("central max","central max")+'</text>'
+      +'<line x1="300" y1="20" x2="300" y2="220" stroke="var(--line)" stroke-width="1" stroke-dasharray="3,3"/>'
+      +'<text x="370" y="16" text-anchor="middle" font-size="10.5" font-weight="bold" fill="var(--ink)">'+d("You can see this tonight","आज रात यह देखा जा सकता है")+'</text>'
+      +'<rect x="325" y="70" width="10" height="80" fill="var(--ink-soft)" transform="rotate(-6 330 110)"/>'
+      +'<rect x="345" y="70" width="10" height="80" fill="var(--ink-soft)" transform="rotate(6 350 110)"/>'
+      +'<text x="340" y="165" text-anchor="middle" font-size="7.5" fill="var(--ink-soft)">'+d("two razor blades","दो razor blades")+'</text>'
+      +'<circle cx="405" cy="105" r="16" fill="none" stroke="var(--red)" stroke-width="2"/>'
+      +'<line x1="405" y1="80" x2="405" y2="130" stroke="var(--red)" stroke-width="1.5"/>'
+      +'<text x="405" y="165" text-anchor="middle" font-size="7.5" fill="var(--ink-soft)">'+d("bulb filament","bulb filament")+'</text>'
+      +'<text x="370" y="195" text-anchor="middle" font-size="7.5" fill="var(--ink-soft)">'+d("→ narrow adjustable slit","→ संकरी adjustable slit")+'</text>'
+      +'</svg>';
+  },
+  "polarisation-real-world": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 460 230" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="230" y="15" text-anchor="middle" font-size="11" font-weight="bold" fill="var(--ink)">'+d("Polaroids, unpolarised → polarised, and where you meet them daily","Polaroids, unpolarised → polarised, और आप इन्हें रोज़ कहाँ मिलते हैं")+'</text>'
+      +'<line x1="20" y1="115" x2="70" y2="90" stroke="var(--ink-soft)" stroke-width="1.2"/>'
+      +'<line x1="20" y1="115" x2="70" y2="140" stroke="var(--ink-soft)" stroke-width="1.2"/>'
+      +'<line x1="20" y1="115" x2="70" y2="115" stroke="var(--ink-soft)" stroke-width="1.2"/>'
+      +'<line x1="20" y1="115" x2="60" y2="70" stroke="var(--ink-soft)" stroke-width="1.2"/>'
+      +'<line x1="20" y1="115" x2="60" y2="160" stroke="var(--ink-soft)" stroke-width="1.2"/>'
+      +'<text x="30" y="60" font-size="7.5" fill="var(--ink-soft)">'+d("unpolarised","unpolarised")+'</text>'
+      +'<rect x="95" y="65" width="14" height="100" fill="var(--card)" stroke="var(--ink)" stroke-width="1.6"/>'
+      +'<line x1="98" y1="70" x2="98" y2="160" stroke="var(--ink)" stroke-width="1"/>'
+      +'<line x1="102" y1="70" x2="102" y2="160" stroke="var(--ink)" stroke-width="1"/>'
+      +'<line x1="106" y1="70" x2="106" y2="160" stroke="var(--ink)" stroke-width="1"/>'
+      +'<text x="102" y="180" text-anchor="middle" font-size="7.5" fill="var(--ink-soft)">P₁</text>'
+      +'<line x1="120" y1="115" x2="200" y2="115" stroke="var(--primary)" stroke-width="2.4"/>'
+      +'<line x1="150" y1="100" x2="150" y2="130" stroke="var(--primary)" stroke-width="2"/>'
+      +'<text x="160" y="100" font-size="7.5" fill="var(--primary)">'+d("plane polarised","plane polarised")+'</text>'
+      +'<rect x="210" y="65" width="14" height="100" fill="var(--card)" stroke="var(--red)" stroke-width="1.6" transform="rotate(45 217 115)"/>'
+      +'<text x="217" y="180" text-anchor="middle" font-size="7.5" fill="var(--ink-soft)">P₂ (θ)</text>'
+      +'<line x1="235" y1="115" x2="270" y2="115" stroke="var(--red)" stroke-width="1.6" stroke-dasharray="4,3"/>'
+      +'<text x="252" y="105" text-anchor="middle" font-size="7.5" fill="var(--red)">I₀cos²θ</text>'
+      +'<line x1="290" y1="30" x2="290" y2="215" stroke="var(--line)" stroke-width="1" stroke-dasharray="3,3"/>'
+      +'<circle cx="330" cy="70" r="16" fill="none" stroke="var(--ink-soft)" stroke-width="2"/>'
+      +'<circle cx="360" cy="70" r="16" fill="none" stroke="var(--ink-soft)" stroke-width="2"/>'
+      +'<text x="345" y="100" text-anchor="middle" font-size="7.5" fill="var(--ink-soft)">'+d("sunglasses","sunglasses")+'</text>'
+      +'<rect x="315" y="120" width="40" height="26" rx="3" fill="var(--card)" stroke="var(--ink-soft)" stroke-width="1.6"/>'
+      +'<text x="335" y="155" text-anchor="middle" font-size="7.5" fill="var(--ink-soft)">'+d("LCD screen","LCD screen")+'</text>'
+      +'<circle cx="400" cy="70" r="16" fill="none" stroke="var(--primary)" stroke-width="2"/>'
+      +'<circle cx="400" cy="70" r="16" fill="none" stroke="var(--red)" stroke-width="2" stroke-dasharray="3,2"/>'
+      +'<text x="400" y="100" text-anchor="middle" font-size="7.5" fill="var(--ink-soft)">'+d("3D glasses","3D glasses")+'</text>'
+      +'<circle cx="400" cy="130" r="12" fill="none" stroke="var(--ink-soft)" stroke-width="2"/>'
+      +'<line x1="392" y1="122" x2="408" y2="138" stroke="var(--ink-soft)" stroke-width="1.4"/>'
+      +'<text x="400" y="155" text-anchor="middle" font-size="7.5" fill="var(--ink-soft)">'+d("camera filter","camera filter")+'</text>'
+      +'</svg>';
   }
 };
 
@@ -4602,6 +4798,78 @@ var INTERACTIVES = {
       +'<span class="labval" id="tsFev">1.0 cm</span></div>'
       +'<div class="labout" id="tsOut">m = 100.0 · tube length = 101.0 cm</div>'
       +'<div class="labnote">'+d("Grow the objective's focal length — magnification climbs, but so does the telescope's physical length.","Objective का focal length बढ़ाइए — magnification चढ़ता है, पर telescope की भौतिक लंबाई भी।")+'</div>';
+  }  ,
+  "wavelength-medium-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Vacuum wavelength λ₀ (nm)","Vacuum wavelength λ₀ (nm)")+'</label>'
+      +'<input type="range" id="wmLam0" min="400" max="700" step="10" value="600" oninput="wmCalc()">'
+      +'<span class="labval" id="wmLam0v">600 nm</span></div>'
+      +'<div class="labrow"><label>'+d("Medium refractive index n₂","Medium का refractive index n₂")+'</label>'
+      +'<input type="range" id="wmN2" min="1.00" max="2.50" step="0.01" value="1.50" oninput="wmCalc()">'
+      +'<span class="labval" id="wmN2v">1.50</span></div>'
+      +'<div class="labout" id="wmOut">'+d("ν = 5.00 × 10¹⁴ Hz · v₂ = 2.00 × 10⁸ m/s · λ₂ = 400 nm","ν = 5.00 × 10¹⁴ Hz · v₂ = 2.00 × 10⁸ m/s · λ₂ = 400 nm")+'</div>'
+      +'<div class="labnote">'+d("Frequency never moves — only speed and wavelength shrink together as n₂ grows.","Frequency कभी नहीं हिलती — n₂ बढ़ने पर सिर्फ़ speed और wavelength साथ में सिकुड़ते हैं।")+'</div>';
+  },
+  "critical-angle-wave-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Denser medium n₁","Denser medium n₁")+'</label>'
+      +'<input type="range" id="cwN1" min="1.10" max="2.50" step="0.01" value="1.50" oninput="cwCalc()">'
+      +'<span class="labval" id="cwN1v">1.50</span></div>'
+      +'<div class="labrow"><label>'+d("Rarer medium n₂","Rarer medium n₂")+'</label>'
+      +'<input type="range" id="cwN2" min="1.00" max="2.00" step="0.01" value="1.00" oninput="cwCalc()">'
+      +'<span class="labval" id="cwN2v">1.00</span></div>'
+      +'<div class="labout" id="cwOut">'+d("ic = 41.81°","ic = 41.81°")+'</div>'
+      +'<div class="labnote">'+d("Push n₂ up to or past n₁ and see why total internal reflection only ever goes one way.","n₂ को n₁ के बराबर या ऊपर धकेलिए और देखिए total internal reflection सिर्फ़ एक दिशा में क्यों जाता है।")+'</div>';
+  },
+  "superposition-phase-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Path difference (in units of λ)","Path difference (λ की इकाइयों में)")+'</label>'
+      +'<input type="range" id="phRatio" min="0" max="2" step="0.05" value="0.25" oninput="phCalc()">'
+      +'<span class="labval" id="phRatiov">0.25λ</span></div>'
+      +'<div class="labout" id="phOut">'+d("Δ = 0.25λ · φ = 90.0° · I = 2.00 I₀","Δ = 0.25λ · φ = 90.0° · I = 2.00 I₀")+'</div>'
+      +'<div class="labnote">'+d("Δ=0, λ, 2λ… gives the brightest fringes (I=4I₀); Δ=0.5λ, 1.5λ… gives total darkness.","Δ=0, λ, 2λ… सबसे चमकीली fringes देता है (I=4I₀); Δ=0.5λ, 1.5λ… पूरा अंधेरा देता है।")+'</div>';
+  },
+  "youngs-fringe-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Wavelength λ (nm)","Wavelength λ (nm)")+'</label>'
+      +'<input type="range" id="yfLam" min="400" max="700" step="10" value="500" oninput="yfCalc()">'
+      +'<span class="labval" id="yfLamv">500 nm</span></div>'
+      +'<div class="labrow"><label>'+d("Slit separation d (mm)","Slit separation d (mm)")+'</label>'
+      +'<input type="range" id="yfD" min="0.1" max="2.0" step="0.1" value="0.5" oninput="yfCalc()">'
+      +'<span class="labval" id="yfDv">0.5 mm</span></div>'
+      +'<div class="labrow"><label>'+d("Screen distance D (m)","Screen distance D (m)")+'</label>'
+      +'<input type="range" id="yfL" min="0.5" max="3.0" step="0.1" value="1.0" oninput="yfCalc()">'
+      +'<span class="labval" id="yfLv">1.0 m</span></div>'
+      +'<div class="labrow"><label>'+d("Fringe order n","Fringe order n")+'</label>'
+      +'<input type="range" id="yfN" min="1" max="10" step="1" value="4" oninput="yfCalc()">'
+      +'<span class="labval" id="yfNv">4</span></div>'
+      +'<div class="labout" id="yfOut">'+d("β = 1.00 mm · x (n=4) = 4.00 mm","β = 1.00 mm · x (n=4) = 4.00 mm")+'</div>'
+      +'<div class="labnote">'+d("Shrink d and watch the fringes spread wider apart, not closer together.","d को छोटा कीजिए और देखिए fringes पास नहीं, ज़्यादा दूर फैलती हैं।")+'</div>';
+  },
+  "single-slit-diffraction-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Wavelength λ (nm)","Wavelength λ (nm)")+'</label>'
+      +'<input type="range" id="dnLam" min="400" max="700" step="10" value="500" oninput="dnCalc()">'
+      +'<span class="labval" id="dnLamv">500 nm</span></div>'
+      +'<div class="labrow"><label>'+d("Slit width a (μm)","Slit width a (μm)")+'</label>'
+      +'<input type="range" id="dnA" min="10" max="200" step="5" value="50" oninput="dnCalc()">'
+      +'<span class="labval" id="dnAv">50 μm</span></div>'
+      +'<div class="labrow"><label>'+d("Screen distance D (m)","Screen distance D (m)")+'</label>'
+      +'<input type="range" id="dnL" min="0.5" max="3.0" step="0.1" value="1.0" oninput="dnCalc()">'
+      +'<span class="labval" id="dnLv">1.0 m</span></div>'
+      +'<div class="labrow"><label>'+d("Minimum order n","Minimum order n")+'</label>'
+      +'<input type="range" id="dnN" min="1" max="5" step="1" value="1" oninput="dnCalc()">'
+      +'<span class="labval" id="dnNv">1</span></div>'
+      +'<div class="labout" id="dnOut">'+d("θ (n=1) = 0.57° · y = 10.0 mm","θ (n=1) = 0.57° · y = 10.0 mm")+'</div>'
+      +'<div class="labnote">'+d("Narrow the slit and the whole pattern spreads wider — widen it and the pattern shrinks back toward a sharp shadow.","Slit संकरी कीजिए और पूरा pattern ज़्यादा फैलता है — इसे चौड़ा कीजिए तो pattern वापस एक तेज़ shadow की ओर सिकुड़ता है।")+'</div>';
+  },
+  "malus-law-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Angle between polaroid pass-axes θ","Polaroid pass-axes के बीच angle θ")+'</label>'
+      +'<input type="range" id="mlTheta" min="0" max="180" step="5" value="45" oninput="mlCalc()">'
+      +'<span class="labval" id="mlThetav">45°</span></div>'
+      +'<div class="labout" id="mlOut">'+d("I = 0.50 I₀","I = 0.50 I₀")+'</div>'
+      +'<div class="labnote">'+d("θ=0° passes everything, θ=90° (crossed) blocks everything — 180° brings it back to full transmission.","θ=0° सब कुछ पास करता है, θ=90° (crossed) सब कुछ रोकता है — 180° इसे वापस पूरे transmission पर लाता है।")+'</div>';
   }
 };
 var IV_DTS=[2.0,1.0,0.5,0.1,0.01];
@@ -5920,6 +6188,75 @@ function tsCalc(){
   var m=fo/fe;
   var tube=fo+fe;
   document.getElementById("tsOut").textContent="m = "+m.toFixed(1)+" · tube length = "+tube.toFixed(1)+" cm";
+}
+
+function wmCalc(){
+  var lam0=+document.getElementById("wmLam0").value;
+  var n2=+document.getElementById("wmN2").value;
+  document.getElementById("wmLam0v").textContent=lam0.toFixed(0)+" nm";
+  document.getElementById("wmN2v").textContent=n2.toFixed(2);
+  var c=3e8;
+  var lam0m=lam0*1e-9;
+  var nu=c/lam0m;
+  var v2=c/n2;
+  var lam2=lam0/n2;
+  document.getElementById("wmOut").textContent="ν = "+sciStr(nu)+" Hz · v₂ = "+sciStr(v2)+" m/s · λ₂ = "+lam2.toFixed(0)+" nm";
+}
+function cwCalc(){
+  var n1=+document.getElementById("cwN1").value;
+  var n2=+document.getElementById("cwN2").value;
+  document.getElementById("cwN1v").textContent=n1.toFixed(2);
+  document.getElementById("cwN2v").textContent=n2.toFixed(2);
+  if(n2>=n1){
+    document.getElementById("cwOut").textContent="No critical angle — needs a denser medium (n1) going into a rarer one (n2 < n1).";
+    return;
+  }
+  var ic=Math.asin(n2/n1)*180/Math.PI;
+  document.getElementById("cwOut").textContent="ic = "+ic.toFixed(2)+"°";
+}
+function phCalc(){
+  var ratio=+document.getElementById("phRatio").value;
+  document.getElementById("phRatiov").textContent=ratio.toFixed(2)+"λ";
+  var phi=2*Math.PI*ratio;
+  var phiDeg=phi*180/Math.PI;
+  var I=4*Math.pow(Math.cos(phi/2),2);
+  document.getElementById("phOut").textContent="Δ = "+ratio.toFixed(2)+"λ · φ = "+phiDeg.toFixed(1)+"° · I = "+I.toFixed(2)+" I₀";
+}
+function yfCalc(){
+  var lam=+document.getElementById("yfLam").value;
+  var d=+document.getElementById("yfD").value;
+  var Lm=+document.getElementById("yfL").value;
+  var norder=+document.getElementById("yfN").value;
+  document.getElementById("yfLamv").textContent=lam.toFixed(0)+" nm";
+  document.getElementById("yfDv").textContent=d.toFixed(1)+" mm";
+  document.getElementById("yfLv").textContent=Lm.toFixed(1)+" m";
+  document.getElementById("yfNv").textContent=norder.toFixed(0);
+  var lamM=lam*1e-9, dM=d*1e-3;
+  var beta=lamM*Lm/dM;
+  var betaMM=beta*1000;
+  var xn=norder*betaMM;
+  document.getElementById("yfOut").textContent="β = "+betaMM.toFixed(2)+" mm · x (n="+norder+") = "+xn.toFixed(2)+" mm";
+}
+function dnCalc(){
+  var lam=+document.getElementById("dnLam").value;
+  var a=+document.getElementById("dnA").value;
+  var Lm=+document.getElementById("dnL").value;
+  var norder=+document.getElementById("dnN").value;
+  document.getElementById("dnLamv").textContent=lam.toFixed(0)+" nm";
+  document.getElementById("dnAv").textContent=a.toFixed(0)+" μm";
+  document.getElementById("dnLv").textContent=Lm.toFixed(1)+" m";
+  document.getElementById("dnNv").textContent=norder.toFixed(0);
+  var lamM=lam*1e-9, aM=a*1e-6;
+  var thetaRad=norder*lamM/aM;
+  var thetaDeg=thetaRad*180/Math.PI;
+  var y=norder*lamM*Lm/aM;
+  document.getElementById("dnOut").textContent="θ (n="+norder+") = "+thetaDeg.toFixed(2)+"° · y = "+(y*1000).toFixed(1)+" mm";
+}
+function mlCalc(){
+  var theta=+document.getElementById("mlTheta").value;
+  document.getElementById("mlThetav").textContent=theta.toFixed(0)+"°";
+  var I=Math.pow(Math.cos(theta*Math.PI/180),2);
+  document.getElementById("mlOut").textContent="I = "+I.toFixed(2)+" I₀";
 }
 
 /* ============ Animations: press Play to watch the physics happen ============
