@@ -2910,6 +2910,88 @@ var DIAGRAMS = {
       +'<text x="390" y="85" text-anchor="middle" font-size="10" font-weight="bold" fill="var(--red)">'+d("Secondary Ns","Secondary Ns")+'</text>'
       +'<text x="230" y="240" text-anchor="middle" font-size="9" fill="var(--ink-soft)">'+d("Alternating flux in the core links both coils by mutual induction","Core में alternating flux mutual induction से दोनों coils जोड़ता है")+'</text>'
       +'</svg>';
+  },
+  "maxwells-equations-symmetry": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    var box=function(x,y,w,h,title,eq,c){
+      return '<rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="8" fill="var(--card)" stroke="'+c+'" stroke-width="1.8"/>'
+        +'<text x="'+(x+w/2)+'" y="'+(y+22)+'" text-anchor="middle" font-size="9.5" font-weight="bold" fill="'+c+'">'+title+'</text>'
+        +'<text x="'+(x+w/2)+'" y="'+(y+42)+'" text-anchor="middle" font-size="10.5" fill="var(--ink)">'+eq+'</text>';
+    };
+    return '<svg viewBox="0 0 460 260" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<defs><marker id="mesArrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--primary)"/></marker></defs>'
+      +'<text x="230" y="16" text-anchor="middle" font-size="11" font-weight="bold" fill="var(--ink)">'+d("Four equations, nearly symmetric","चार समीकरण, लगभग symmetric")+'</text>'
+      +box(20,30,195,55,d("Gauss (electricity)","Gauss (electricity)"),"∮E·dA = Q/ε₀","var(--primary)")
+      +box(245,30,195,55,d("Gauss (magnetism)","Gauss (magnetism)"),"∮B·dA = 0","var(--teal)")
+      +box(20,150,195,55,d("Faraday's law","Faraday का नियम"),"∮E·dl = −dΦ_B/dt","var(--primary)")
+      +box(245,150,195,55,d("Ampere−Maxwell","Ampere−Maxwell"),"∮B·dl = μ₀i+μ₀ε₀dΦ_E/dt","var(--red)")
+      +'<line x1="117" y1="150" x2="117" y2="90" stroke="var(--ink-soft)" stroke-width="1.4" marker-end="url(#mesArrow)"/>'
+      +'<line x1="342" y1="90" x2="342" y2="150" stroke="var(--ink-soft)" stroke-width="1.4" marker-end="url(#mesArrow)"/>'
+      +'<text x="230" y="118" text-anchor="middle" font-size="9" fill="var(--ink-soft)">'+d("changing B → E  ·  changing E → B","बदलता B → E  ·  बदलता E → B")+'</text>'
+      +'<text x="230" y="228" text-anchor="middle" font-size="9" fill="var(--ink-soft)">'+d("Only asymmetry: no known magnetic monopoles","सिर्फ़ असंगति: कोई ज्ञात magnetic monopoles नहीं")+'</text>'
+      +'</svg>';
+  },
+  "oscillating-charge-em-wave": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 460 260" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<defs><marker id="ocwArrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--primary)"/></marker></defs>'
+      +'<text x="230" y="16" text-anchor="middle" font-size="11" font-weight="bold" fill="var(--ink)">'+d("An oscillating charge regenerates E and B outward","एक oscillating charge E और B बाहर की ओर फिर बनाता है")+'</text>'
+      +'<circle cx="45" cy="130" r="9" fill="var(--red)"/>'
+      +'<line x1="45" y1="115" x2="45" y2="145" stroke="var(--ink-soft)" stroke-width="1.2" stroke-dasharray="2,3"/>'
+      +'<text x="45" y="160" text-anchor="middle" font-size="8.5" fill="var(--ink-soft)">'+d("oscillating charge","oscillating charge")+'</text>'
+      +'<path d="M65,130 Q100,80 135,130 T205,130 T275,130 T345,130 T415,130" fill="none" stroke="var(--primary)" stroke-width="1.8"/>'
+      +'<text x="120" y="75" text-anchor="middle" font-size="9" fill="var(--primary)">E</text>'
+      +'<path d="M65,145 Q100,165 135,145 T205,145 T275,145 T345,145 T415,145" fill="none" stroke="var(--teal)" stroke-width="1.6"/>'
+      +'<text x="120" y="185" text-anchor="middle" font-size="9" fill="var(--teal)">B</text>'
+      +'<line x1="65" y1="130" x2="425" y2="130" stroke="var(--ink-soft)" stroke-width="1" stroke-dasharray="3,3" marker-end="url(#ocwArrow)"/>'
+      +'<text x="410" y="120" text-anchor="middle" font-size="8.5" fill="var(--ink-soft)">z</text>'
+      +'<text x="230" y="220" text-anchor="middle" font-size="9" fill="var(--ink-soft)">'+d("E creates B (Ampere-Maxwell), B creates E (Faraday) — the wave propagates on its own","E, B बनाता है (Ampere-Maxwell), B, E बनाता है (Faraday) — wave अपने आप प्रसारित होता है")+'</text>'
+      +'</svg>';
+  },
+  "em-spectrum-chart": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    var bands=[
+      {name:d("Gamma","Gamma"),c:"var(--red)"},
+      {name:d("X-ray","X-ray"),c:"var(--amber)"},
+      {name:d("UV","UV"),c:"var(--primary)"},
+      {name:d("Visible","Visible"),c:"var(--green)"},
+      {name:d("IR","IR"),c:"var(--teal)"},
+      {name:d("Microwave","Microwave"),c:"var(--primary)"},
+      {name:d("Radio","Radio"),c:"var(--ink-soft)"}
+    ];
+    var out='<svg viewBox="0 0 460 220" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="230" y="16" text-anchor="middle" font-size="11" font-weight="bold" fill="var(--ink)">'+d("The electromagnetic spectrum — increasing wavelength →","Electromagnetic spectrum — बढ़ती wavelength →")+'</text>';
+    var x=20, w=60;
+    for(var i=0;i<bands.length;i++){
+      out+='<rect x="'+x+'" y="60" width="'+(w-4)+'" height="60" fill="'+bands[i].c+'" opacity="0.8"/>'
+        +'<text x="'+(x+(w-4)/2)+'" y="95" text-anchor="middle" font-size="8.5" font-weight="bold" fill="var(--card)">'+bands[i].name+'</text>';
+      x+=w;
+    }
+    out+='<text x="20" y="140" font-size="8.5" fill="var(--ink-soft)">&lt;10⁻¹⁰ m</text>'
+      +'<text x="400" y="140" text-anchor="end" font-size="8.5" fill="var(--ink-soft)">&gt;0.1 m</text>'
+      +'<line x1="20" y1="130" x2="440" y2="130" stroke="var(--ink-soft)" stroke-width="1" stroke-dasharray="3,3"/>'
+      +'<text x="230" y="170" text-anchor="middle" font-size="9.5" fill="var(--ink-soft)">'+d("No sharp boundaries — same speed c everywhere, wildly different behaviour with matter","कोई तीखी सीमा नहीं — हर जगह वही speed c, पदार्थ के साथ बेहद अलग व्यवहार")+'</text>'
+      +'<text x="230" y="192" text-anchor="middle" font-size="9" fill="var(--ink-soft)">'+d("visible: only 700–400 nm of this entire chart","visible: इस पूरे chart का सिर्फ़ 700–400 nm")+'</text>'
+      +'</svg>';
+    return out;
+  },
+  "em-wave-real-world-uses": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    var card=function(x,y,emoji,label,c){
+      return '<rect x="'+x+'" y="'+y+'" width="100" height="70" rx="10" fill="var(--card)" stroke="'+c+'" stroke-width="1.6"/>'
+        +'<text x="'+(x+50)+'" y="'+(y+38)+'" text-anchor="middle" font-size="24">'+emoji+'</text>'
+        +'<text x="'+(x+50)+'" y="'+(y+58)+'" text-anchor="middle" font-size="8.5" fill="var(--ink)">'+label+'</text>';
+    };
+    return '<svg viewBox="0 0 460 260" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="230" y="16" text-anchor="middle" font-size="11" font-weight="bold" fill="var(--ink)">'+d("Everyday devices, sorted by EM band","रोज़मर्रा के devices, EM band के हिसाब से")+'</text>'
+      +card(15,35,"📡",d("Radio — antenna","Radio — antenna"),"var(--ink-soft)")
+      +card(125,35,"🍲",d("Microwave — oven","Microwave — oven"),"var(--primary)")
+      +card(235,35,"📺",d("Infrared — remote","Infrared — remote"),"var(--teal)")
+      +card(345,35,"💡",d("Visible — bulb","Visible — bulb"),"var(--green)")
+      +card(70,150,"🕶️",d("Ultraviolet — sunglasses","Ultraviolet — धूप का चश्मा"),"var(--primary)")
+      +card(180,150,"🩻",d("X-ray — medical scan","X-ray — medical scan"),"var(--amber)")
+      +card(290,150,"☢️",d("Gamma — cancer therapy","Gamma — cancer therapy"),"var(--red)")
+      +'</svg>';
   }
 };
 
@@ -4270,6 +4352,57 @@ var INTERACTIVES = {
       +'<span class="labval" id="tfIpv">10.0 A</span></div>'
       +'<div class="labout" id="tfOut">Vs = 440.0 V · Is = 5.00 A · Power in = out = 2200 W</div>'
       +'<div class="labnote">'+d("Whatever factor multiplies voltage divides current by that same factor — power in always equals power out.","जो भी गुणक voltage को गुणा करता है वही current को उसी गुणक से भाग देता है — अंदर आई power हमेशा बाहर गई power के बराबर होती है।")+'</div>';
+  },
+  "displacement-current-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Plate radius r (cm)","Plate त्रिज्या r (cm)")+'</label>'
+      +'<input type="range" id="dqR" min="1.0" max="30.0" step="0.5" value="12.0" oninput="dqCalc()">'
+      +'<span class="labval" id="dqRv">12.0 cm</span></div>'
+      +'<div class="labrow"><label>'+d("Plate separation d (cm)","Plate अलगाव d (cm)")+'</label>'
+      +'<input type="range" id="dqD" min="0.5" max="20.0" step="0.5" value="5.0" oninput="dqCalc()">'
+      +'<span class="labval" id="dqDv">5.0 cm</span></div>'
+      +'<div class="labrow"><label>'+d("Charging current I (A)","Charging current I (A)")+'</label>'
+      +'<input type="range" id="dqI" min="0.01" max="2.00" step="0.01" value="0.15" oninput="dqCalc()">'
+      +'<span class="labval" id="dqIv">0.15 A</span></div>'
+      +'<div class="labout" id="dqOut">C = 8.01 × 10⁻¹² F · dV/dt = 1.87 × 10¹⁰ V/s · i_d = 0.150 A</div>'
+      +'<div class="labnote">'+d("i_d always exactly equals the conduction current you set — that consistency is the whole point of Maxwell's fix.","i_d हमेशा आपके सेट किए conduction current के बिल्कुल बराबर है — यही consistency Maxwell के सुधार का पूरा मक़सद है।")+'</div>';
+  },
+  "em-wave-relations-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Electric field amplitude E₀ (V/m)","Electric field amplitude E₀ (V/m)")+'</label>'
+      +'<input type="range" id="ewE0" min="0.1" max="200.0" step="0.1" value="6.3" oninput="ewCalc()">'
+      +'<span class="labval" id="ewE0v">6.3 V/m</span></div>'
+      +'<div class="labrow"><label>'+d("Frequency (MHz)","Frequency (MHz)")+'</label>'
+      +'<input type="range" id="ewFreq" min="1" max="1000" step="1" value="25" oninput="ewCalc()">'
+      +'<span class="labval" id="ewFreqv">25 MHz</span></div>'
+      +'<div class="labout" id="ewOut">B₀ = 2.10 × 10⁻⁸ T · λ = 12.00 m · k = 0.524 rad/m · ω = 1.57 × 10⁸ rad/s</div>'
+      +'<div class="labnote">'+d("Raise the frequency — wavelength shrinks, k and ω grow, but B₀/E₀ never changes.","Frequency बढ़ाइए — wavelength सिकुड़ती है, k और ω बढ़ते हैं, पर B₀/E₀ कभी नहीं बदलता।")+'</div>';
+  },
+  "spectrum-band-lookup-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Wavelength mantissa","Wavelength mantissa")+'</label>'
+      +'<input type="range" id="sqMant" min="1.0" max="9.9" step="0.1" value="6.8" oninput="sqCalc()">'
+      +'<span class="labval" id="sqMantv">6.8</span></div>'
+      +'<div class="labrow"><label>'+d("Wavelength ×10^exponent (m)","Wavelength ×10^exponent (m)")+'</label>'
+      +'<input type="range" id="sqExp" min="-14" max="6" step="1" value="-7" oninput="sqCalc()">'
+      +'<span class="labval" id="sqExpv">−7</span></div>'
+      +'<div class="labout" id="sqOut">λ = 6.80 × 10⁻⁷ m · Band: Visible · ν = 4.41 × 10¹⁴ Hz</div>'
+      +'<div class="labnote">'+d("Slide the exponent across the full range — watch the band jump from gamma to radio.","exponent को पूरी रेंज में स्लाइड कीजिए — band को gamma से radio तक उछलते देखिए।")+'</div>';
+  },
+  "photon-energy-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("EM band","EM band")+'</label>'
+      +'<select id="peBand" onchange="peCalc()" style="padding:6px 8px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink)">'
+      +'<option value="radio">'+d("Radio (λ≈10 m)","Radio (λ≈10 m)")+'</option>'
+      +'<option value="microwave">'+d("Microwave (λ≈1 cm)","Microwave (λ≈1 cm)")+'</option>'
+      +'<option value="infrared">'+d("Infrared (λ≈10 μm)","Infrared (λ≈10 μm)")+'</option>'
+      +'<option value="visible" selected>'+d("Visible (λ≈500 nm)","Visible (λ≈500 nm)")+'</option>'
+      +'<option value="uv">'+d("Ultraviolet (λ≈200 nm)","Ultraviolet (λ≈200 nm)")+'</option>'
+      +'<option value="xray">'+d("X-ray (λ≈0.1 nm)","X-ray (λ≈0.1 nm)")+'</option>'
+      +'<option value="gamma">'+d("Gamma ray (λ≈10⁻¹⁴ m)","Gamma ray (λ≈10⁻¹⁴ m)")+'</option>'
+      +'</select></div>'
+      +'<div class="labout" id="peOut">λ = 5.00 × 10⁻⁷ m · ν = 6.00 × 10¹⁴ Hz · E = 2.48 eV</div>'
+      +'<div class="labnote">'+d("Step from radio to gamma — photon energy leaps by many orders of magnitude, tracking each band's production mechanism.","Radio से gamma तक क़दम बढ़ाइए — photon energy कई order of magnitude उछलती है, हर band के बनाने के तंत्र को track करते हुए।")+'</div>';
   }
 };
 var IV_DTS=[2.0,1.0,0.5,0.1,0.01];
@@ -5421,6 +5554,61 @@ function tfCalc(){
   var Is=(Np/Ns)*Ip;
   var power=Vp*Ip;
   document.getElementById("tfOut").textContent="Vs = "+Vs.toFixed(1)+" V · Is = "+Is.toFixed(2)+" A · Power in = out = "+power.toFixed(0)+" W";
+}
+function dqCalc(){
+  var r=+document.getElementById("dqR").value;
+  var dd=+document.getElementById("dqD").value;
+  var I=+document.getElementById("dqI").value;
+  document.getElementById("dqRv").textContent=r.toFixed(1)+" cm";
+  document.getElementById("dqDv").textContent=dd.toFixed(1)+" cm";
+  document.getElementById("dqIv").textContent=I.toFixed(2)+" A";
+  var EPS0=8.85e-12;
+  var rM=r/100, dM=dd/100;
+  var C=EPS0*Math.PI*rM*rM/dM;
+  var dVdt=I/C;
+  document.getElementById("dqOut").textContent="C = "+sciStr(C)+" F · dV/dt = "+sciStr(dVdt)+" V/s · i_d = "+I.toFixed(3)+" A";
+}
+function ewCalc(){
+  var E0=+document.getElementById("ewE0").value;
+  var freqMHz=+document.getElementById("ewFreq").value;
+  document.getElementById("ewE0v").textContent=E0.toFixed(1)+" V/m";
+  document.getElementById("ewFreqv").textContent=freqMHz.toFixed(0)+" MHz";
+  var C_LIGHT=3e8;
+  var freq=freqMHz*1e6;
+  var B0=E0/C_LIGHT;
+  var lambda=C_LIGHT/freq;
+  var k=2*Math.PI/lambda;
+  var omega=2*Math.PI*freq;
+  document.getElementById("ewOut").textContent="B₀ = "+sciStr(B0)+" T · λ = "+lambda.toFixed(2)+" m · k = "+k.toFixed(3)+" rad/m · ω = "+sciStr(omega)+" rad/s";
+}
+function sqCalc(){
+  var mant=+document.getElementById("sqMant").value;
+  var exp=+document.getElementById("sqExp").value;
+  document.getElementById("sqMantv").textContent=mant.toFixed(1);
+  document.getElementById("sqExpv").textContent=(exp>=0?"+":"−")+Math.abs(exp);
+  var C_LIGHT=3e8;
+  var lambda=mant*Math.pow(10,exp);
+  var band;
+  if(lambda<1e-12) band="Gamma";
+  else if(lambda<1e-9) band="X-ray";
+  else if(lambda<4e-7) band="UV";
+  else if(lambda<7e-7) band="Visible";
+  else if(lambda<1e-3) band="Infrared";
+  else if(lambda<0.1) band="Microwave";
+  else band="Radio";
+  var freq=C_LIGHT/lambda;
+  document.getElementById("sqOut").textContent="λ = "+sciStr(lambda)+" m · Band: "+band+" · ν = "+sciStr(freq)+" Hz";
+}
+function peCalc(){
+  var band=document.getElementById("peBand").value;
+  var lambdas={radio:10,microwave:1e-2,infrared:1e-5,visible:5e-7,uv:2e-7,xray:1e-10,gamma:1e-14};
+  var lambda=lambdas[band];
+  var C_LIGHT=3e8, H_PLANCK=6.626e-34, E_CHARGE=1.602e-19;
+  var freq=C_LIGHT/lambda;
+  var E_J=H_PLANCK*freq;
+  var E_eV=E_J/E_CHARGE;
+  var Estr = E_eV>=1000||E_eV<0.001 ? sciStr(E_eV) : E_eV.toFixed(2);
+  document.getElementById("peOut").textContent="λ = "+sciStr(lambda)+" m · ν = "+sciStr(freq)+" Hz · E = "+Estr+" eV";
 }
 
 /* ============ Animations: press Play to watch the physics happen ============
