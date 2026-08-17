@@ -2992,6 +2992,83 @@ var DIAGRAMS = {
       +card(180,150,"🩻",d("X-ray — medical scan","X-ray — medical scan"),"var(--amber)")
       +card(290,150,"☢️",d("Gamma — cancer therapy","Gamma — cancer therapy"),"var(--red)")
       +'</svg>';
+  },
+  "mirror-sign-convention-focus": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 460 260" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<defs><marker id="mscArrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--ink)"/></marker></defs>'
+      +'<text x="230" y="16" text-anchor="middle" font-size="11" font-weight="bold" fill="var(--ink)">'+d("Cartesian sign convention","Cartesian sign convention")+'</text>'
+      +'<line x1="20" y1="130" x2="440" y2="130" stroke="var(--ink)" stroke-width="1.5" marker-end="url(#mscArrow)"/>'
+      +'<line x1="230" y1="220" x2="230" y2="50" stroke="var(--ink)" stroke-width="1.5" marker-end="url(#mscArrow)"/>'
+      +'<text x="120" y="120" text-anchor="middle" font-size="9" fill="var(--red)">'+d("negative (against incident light)","ऋणात्मक (incident light के ख़िलाफ़)")+'</text>'
+      +'<text x="340" y="120" text-anchor="middle" font-size="9" fill="var(--green)">'+d("positive (along incident light)","धनात्मक (incident light के साथ)")+'</text>'
+      +'<text x="248" y="65" font-size="9" fill="var(--green)">'+d("heights + up","ऊँचाई + ऊपर")+'</text>'
+      +'<text x="248" y="210" font-size="9" fill="var(--red)">'+d("heights − down","ऊँचाई − नीचे")+'</text>'
+      +'<path d="M300,90 A60,60 0 0 1 300,170" fill="none" stroke="var(--primary)" stroke-width="3"/>'
+      +'<line x1="80" y1="130" x2="240" y2="130" stroke="var(--teal)" stroke-width="1.6"/>'
+      +'<circle cx="240" cy="130" r="3" fill="var(--primary)"/>'
+      +'<text x="240" y="145" text-anchor="middle" font-size="9" fill="var(--primary)">F</text>'
+      +'<circle cx="300" cy="130" r="2.5" fill="var(--ink)"/>'
+      +'<text x="300" y="145" text-anchor="middle" font-size="9" fill="var(--ink-soft)">'+d("Pole","Pole")+'</text>'
+      +'<text x="185" y="250" text-anchor="middle" font-size="9" fill="var(--ink-soft)">'+d("All distances measured from the pole, along the principal axis","सारी दूरियाँ pole से, principal axis के साथ मापी जाती हैं")+'</text>'
+      +'</svg>';
+  },
+  "optical-fibre-prism-uses": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 460 260" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<defs><marker id="ofpArrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--primary)"/></marker></defs>'
+      +'<text x="115" y="16" text-anchor="middle" font-size="10.5" font-weight="bold" fill="var(--ink)">'+d("Prism — 90° bend via TIR","Prism — TIR से 90° मोड़")+'</text>'
+      +'<polygon points="45,90 45,190 145,190" fill="var(--card)" stroke="var(--ink-soft)" stroke-width="1.6"/>'
+      +'<line x1="10" y1="130" x2="45" y2="130" stroke="var(--primary)" stroke-width="1.8" marker-end="url(#ofpArrow)"/>'
+      +'<line x1="45" y1="130" x2="95" y2="190" stroke="var(--primary)" stroke-width="1.8" marker-end="url(#ofpArrow)"/>'
+      +'<text x="70" y="145" font-size="8.5" fill="var(--ink-soft)">45°</text>'
+      +'<text x="115" y="215" text-anchor="middle" font-size="9" fill="var(--ink-soft)">'+d("crown/flint glass, ic<45°","crown/flint glass, ic<45°")+'</text>'
+      +'<line x1="230" y1="16" x2="230" y2="230" stroke="var(--line)" stroke-width="1" stroke-dasharray="4,3"/>'
+      +'<text x="345" y="16" text-anchor="middle" font-size="10.5" font-weight="bold" fill="var(--ink)">'+d("Optical fibre — repeated TIR","Optical fibre — बार-बार TIR")+'</text>'
+      +'<rect x="255" y="115" width="180" height="30" rx="15" fill="var(--card)" stroke="var(--teal)" stroke-width="1.6"/>'
+      +'<path d="M260,130 L285,118 L310,142 L335,118 L360,142 L385,118 L410,130" fill="none" stroke="var(--primary)" stroke-width="1.8" marker-end="url(#ofpArrow)"/>'
+      +'<text x="345" y="165" text-anchor="middle" font-size="8.5" fill="var(--ink-soft)">'+d("core (high n)","core (उच्च n)")+'</text>'
+      +'<text x="345" y="105" text-anchor="middle" font-size="8.5" fill="var(--ink-soft)">'+d("cladding (low n)","cladding (कम n)")+'</text>'
+      +'<text x="345" y="200" text-anchor="middle" font-size="9" fill="var(--ink-soft)">'+d("used in endoscopes and internet cables","endoscopes और internet cables में इस्तेमाल")+'</text>'
+      +'</svg>';
+  },
+  "microscope-real-world": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 460 260" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="230" y="16" text-anchor="middle" font-size="11" font-weight="bold" fill="var(--ink)">'+d("A compound microscope — what it looks like","एक compound microscope — यह कैसा दिखता है")+'</text>'
+      +'<rect x="200" y="40" width="18" height="120" fill="var(--ink-soft)" opacity="0.3" transform="rotate(15,209,100)"/>'
+      +'<ellipse cx="243" cy="63" rx="16" ry="9" fill="var(--card)" stroke="var(--primary)" stroke-width="2" transform="rotate(15,243,63)"/>'
+      +'<text x="270" y="55" font-size="9" fill="var(--primary)">'+d("eyepiece","eyepiece")+'</text>'
+      +'<ellipse cx="178" cy="140" rx="13" ry="8" fill="var(--card)" stroke="var(--red)" stroke-width="2" transform="rotate(15,178,140)"/>'
+      +'<text x="120" y="150" font-size="9" fill="var(--red)">'+d("objective","objective")+'</text>'
+      +'<rect x="150" y="175" width="90" height="14" rx="4" fill="var(--ink-soft)" opacity="0.5" transform="rotate(15,195,182)"/>'
+      +'<rect x="120" y="195" width="160" height="16" rx="6" fill="var(--ink-soft)" opacity="0.5"/>'
+      +'<circle cx="150" cy="211" r="9" fill="var(--ink-soft)"/><circle cx="250" cy="211" r="9" fill="var(--ink-soft)"/>'
+      +'<circle cx="165" cy="185" r="4" fill="var(--amber)"/>'
+      +'<text x="165" y="230" text-anchor="middle" font-size="8.5" fill="var(--ink-soft)">'+d("sample slide + light source","sample slide + light स्रोत")+'</text>'
+      +'<text x="345" y="60" text-anchor="middle" font-size="9" fill="var(--ink-soft)">'+d("short fo, short fe →","छोटा fo, छोटा fe →")+'</text>'
+      +'<text x="345" y="76" text-anchor="middle" font-size="9" fill="var(--ink-soft)">'+d("very high magnification","बहुत उच्च magnification")+'</text>'
+      +'<text x="230" y="248" text-anchor="middle" font-size="9" fill="var(--ink-soft)">'+d("Objective near the sample, eyepiece near the eye","Objective sample के पास, eyepiece आँख के पास")+'</text>'
+      +'</svg>';
+  },
+  "telescope-real-world": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 460 260" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="230" y="16" text-anchor="middle" font-size="11" font-weight="bold" fill="var(--ink)">'+d("A refracting telescope — what it looks like","एक refracting telescope — यह कैसा दिखता है")+'</text>'
+      +'<rect x="60" y="118" width="280" height="30" rx="6" fill="var(--card)" stroke="var(--ink-soft)" stroke-width="2"/>'
+      +'<ellipse cx="60" cy="133" rx="10" ry="16" fill="none" stroke="var(--primary)" stroke-width="2.5"/>'
+      +'<text x="60" y="105" text-anchor="middle" font-size="9" fill="var(--primary)">'+d("objective (large fo)","objective (बड़ा fo)")+'</text>'
+      +'<ellipse cx="340" cy="133" rx="6" ry="10" fill="none" stroke="var(--red)" stroke-width="2.5"/>'
+      +'<text x="340" y="105" text-anchor="middle" font-size="9" fill="var(--red)">'+d("eyepiece (small fe)","eyepiece (छोटा fe)")+'</text>'
+      +'<line x1="10" y1="120" x2="55" y2="130" stroke="var(--ink-soft)" stroke-width="1.4" stroke-dasharray="3,3"/>'
+      +'<line x1="10" y1="146" x2="55" y2="136" stroke="var(--ink-soft)" stroke-width="1.4" stroke-dasharray="3,3"/>'
+      +'<text x="25" y="105" font-size="8.5" fill="var(--ink-soft)">'+d("distant star","दूर तारा")+'</text>'
+      +'<rect x="190" y="150" width="16" height="60" fill="var(--ink-soft)" opacity="0.5"/>'
+      +'<rect x="150" y="205" width="96" height="14" rx="5" fill="var(--ink-soft)" opacity="0.5"/>'
+      +'<circle cx="170" cy="220" r="8" fill="var(--ink-soft)"/><circle cx="226" cy="220" r="8" fill="var(--ink-soft)"/>'
+      +'<text x="200" y="248" text-anchor="middle" font-size="9" fill="var(--ink-soft)">'+d("tube length = fo + fe","tube length = fo + fe")+'</text>'
+      +'<text x="230" y="185" text-anchor="middle" font-size="9" fill="var(--ink-soft)">'+d("angle magnified, m ≈ fo/fe","angle बड़ा किया, m ≈ fo/fe")+'</text>'
+      +'</svg>';
   }
 };
 
@@ -4403,6 +4480,128 @@ var INTERACTIVES = {
       +'</select></div>'
       +'<div class="labout" id="peOut">λ = 5.00 × 10⁻⁷ m · ν = 6.00 × 10¹⁴ Hz · E = 2.48 eV</div>'
       +'<div class="labnote">'+d("Step from radio to gamma — photon energy leaps by many orders of magnitude, tracking each band's production mechanism.","Radio से gamma तक क़दम बढ़ाइए — photon energy कई order of magnitude उछलती है, हर band के बनाने के तंत्र को track करते हुए।")+'</div>';
+  },
+  "mirror-equation-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Mirror type","Mirror प्रकार")+'</label>'
+      +'<select id="mrType" onchange="mrCalc()" style="padding:6px 8px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink)">'
+      +'<option value="concave" selected>'+d("Concave","Concave")+'</option>'
+      +'<option value="convex">'+d("Convex","Convex")+'</option>'
+      +'</select></div>'
+      +'<div class="labrow"><label>'+d("Radius of curvature R (cm)","Radius of curvature R (cm)")+'</label>'
+      +'<input type="range" id="mrR" min="5" max="100" step="1" value="15" oninput="mrCalc()">'
+      +'<span class="labval" id="mrRv">15 cm</span></div>'
+      +'<div class="labrow"><label>'+d("Object distance u (cm, in front)","Object distance u (cm, सामने)")+'</label>'
+      +'<input type="range" id="mrU" min="1" max="200" step="1" value="10" oninput="mrCalc()">'
+      +'<span class="labval" id="mrUv">10 cm</span></div>'
+      +'<div class="labout" id="mrOut">f = −7.5 cm · v = −30.0 cm · m = −3.00</div>'
+      +'<div class="labnote">'+d("Move the object inside the focus — watch v and m flip sign, switching to a virtual, erect image.","Object को focus के अंदर लाइए — v और m को sign पलटते देखिए, एक virtual, erect image में बदलते हुए।")+'</div>';
+  },
+  "refraction-snell-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Medium 1 refractive index n₁","Medium 1 refractive index n₁")+'</label>'
+      +'<input type="range" id="rfN1" min="1.00" max="2.50" step="0.01" value="1.00" oninput="rfCalc()">'
+      +'<span class="labval" id="rfN1v">1.00</span></div>'
+      +'<div class="labrow"><label>'+d("Medium 2 refractive index n₂","Medium 2 refractive index n₂")+'</label>'
+      +'<input type="range" id="rfN2" min="1.00" max="2.50" step="0.01" value="1.50" oninput="rfCalc()">'
+      +'<span class="labval" id="rfN2v">1.50</span></div>'
+      +'<div class="labrow"><label>'+d("Angle of incidence i (°)","Incidence का angle i (°)")+'</label>'
+      +'<input type="range" id="rfI" min="0" max="89" step="1" value="60" oninput="rfCalc()">'
+      +'<span class="labval" id="rfIv">60°</span></div>'
+      +'<div class="labout" id="rfOut">r = 35.3°</div>'
+      +'<div class="labnote">'+d("Raise n₂ above n₁ — the ray bends toward the normal, r stays smaller than i.","n₂ को n₁ से ऊपर बढ़ाइए — ray normal की ओर मुड़ती है, r, i से छोटा रहता है।")+'</div>';
+  },
+  "critical-angle-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Denser medium refractive index n","Denser माध्यम refractive index n")+'</label>'
+      +'<input type="range" id="xaN" min="1.01" max="3.00" step="0.01" value="1.33" oninput="xaCalc()">'
+      +'<span class="labval" id="xaNv">1.33</span></div>'
+      +'<div class="labout" id="xaOut">ic = 48.75°</div>'
+      +'<div class="labnote">'+d("Raise n toward diamond's 2.42 — watch the critical angle shrink sharply.","n को diamond के 2.42 की ओर बढ़ाइए — critical angle को तेज़ी से सिकुड़ते देखिए।")+'</div>';
+  },
+  "spherical-refraction-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Medium 1 index n₁","Medium 1 index n₁")+'</label>'
+      +'<input type="range" id="srN1" min="1.00" max="2.50" step="0.01" value="1.00" oninput="srCalc()">'
+      +'<span class="labval" id="srN1v">1.00</span></div>'
+      +'<div class="labrow"><label>'+d("Medium 2 index n₂","Medium 2 index n₂")+'</label>'
+      +'<input type="range" id="srN2" min="1.00" max="2.50" step="0.01" value="1.50" oninput="srCalc()">'
+      +'<span class="labval" id="srN2v">1.50</span></div>'
+      +'<div class="labrow"><label>'+d("Radius of curvature R (cm)","Radius of curvature R (cm)")+'</label>'
+      +'<input type="range" id="srR" min="5" max="100" step="1" value="20" oninput="srCalc()">'
+      +'<span class="labval" id="srRv">20 cm</span></div>'
+      +'<div class="labrow"><label>'+d("Object distance u (cm, in front)","Object distance u (cm, सामने)")+'</label>'
+      +'<input type="range" id="srU" min="10" max="300" step="1" value="100" oninput="srCalc()">'
+      +'<span class="labval" id="srUv">100 cm</span></div>'
+      +'<div class="labout" id="srOut">v = +100.0 cm</div>'
+      +'<div class="labnote">'+d("This single relation, applied twice at a lens's two faces, becomes the lens maker's formula next.","यह अकेला रिश्ता, एक lens के दो चेहरों पर दो बार लगाया गया, अगला lens maker's formula बनता है।")+'</div>';
+  },
+  "lens-maker-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Refractive index n","Refractive index n")+'</label>'
+      +'<input type="range" id="lmN" min="1.10" max="2.00" step="0.01" value="1.50" oninput="lmCalc()">'
+      +'<span class="labval" id="lmNv">1.50</span></div>'
+      +'<div class="labrow"><label>'+d("R₁ (cm)","R₁ (cm)")+'</label>'
+      +'<input type="range" id="lmR1" min="-50" max="50" step="1" value="10" oninput="lmCalc()">'
+      +'<span class="labval" id="lmR1v">10 cm</span></div>'
+      +'<div class="labrow"><label>'+d("R₂ (cm)","R₂ (cm)")+'</label>'
+      +'<input type="range" id="lmR2" min="-50" max="50" step="1" value="-15" oninput="lmCalc()">'
+      +'<span class="labval" id="lmR2v">−15 cm</span></div>'
+      +'<div class="labrow"><label>'+d("Object distance u (cm, in front)","Object distance u (cm, सामने)")+'</label>'
+      +'<input type="range" id="lmU" min="5" max="200" step="1" value="30" oninput="lmCalc()">'
+      +'<span class="labval" id="lmUv">30 cm</span></div>'
+      +'<div class="labout" id="lmOut">f = +12.0 cm · v = +20.0 cm · m = −0.67</div>'
+      +'<div class="labnote">'+d("Flip R₁ and R₂'s signs to turn this into a concave lens — f becomes negative automatically.","R₁ और R₂ के signs पलटिए इसे एक concave lens में बदलने के लिए — f अपने आप ऋणात्मक बनता है।")+'</div>';
+  },
+  "lens-combo-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Lens 1 focal length f₁ (cm)","Lens 1 focal length f₁ (cm)")+'</label>'
+      +'<input type="range" id="lbF1" min="-100" max="100" step="1" value="30" oninput="lbCalc()">'
+      +'<span class="labval" id="lbF1v">30 cm</span></div>'
+      +'<div class="labrow"><label>'+d("Lens 2 focal length f₂ (cm)","Lens 2 focal length f₂ (cm)")+'</label>'
+      +'<input type="range" id="lbF2" min="-100" max="100" step="1" value="-20" oninput="lbCalc()">'
+      +'<span class="labval" id="lbF2v">−20 cm</span></div>'
+      +'<div class="labout" id="lbOut">f = −60.0 cm · P = −1.67 D</div>'
+      +'<div class="labnote">'+d("Powers simply add — a converging and a diverging lens can net out to either type, or exactly zero.","Powers बस जुड़ते हैं — एक converging और एक diverging lens दोनों में से किसी में, या बिल्कुल शून्य में, शुद्ध हो सकते हैं।")+'</div>';
+  },
+  "prism-deviation-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Apex angle A (°)","Apex angle A (°)")+'</label>'
+      +'<input type="range" id="pzA" min="10" max="90" step="1" value="60" oninput="pzCalc()">'
+      +'<span class="labval" id="pzAv">60°</span></div>'
+      +'<div class="labrow"><label>'+d("Refractive index n","Refractive index n")+'</label>'
+      +'<input type="range" id="pzN" min="1.100" max="2.000" step="0.001" value="1.532" oninput="pzCalc()">'
+      +'<span class="labval" id="pzNv">1.532</span></div>'
+      +'<div class="labout" id="pzOut">Dm = 40.0° · i = e = 50.0° · r₁ = r₂ = 30.0°</div>'
+      +'<div class="labnote">'+d("Measure A and Dm in a real prism, and this same formula gives you the glass's refractive index.","एक असली prism में A और Dm मापिए, और यही formula आपको काँच का refractive index देता है।")+'</div>';
+  },
+  "compound-microscope-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Objective focal length fo (cm)","Objective focal length fo (cm)")+'</label>'
+      +'<input type="range" id="cnFo" min="0.5" max="10.0" step="0.1" value="1.0" oninput="cnCalc()">'
+      +'<span class="labval" id="cnFov">1.0 cm</span></div>'
+      +'<div class="labrow"><label>'+d("Eyepiece focal length fe (cm)","Eyepiece focal length fe (cm)")+'</label>'
+      +'<input type="range" id="cnFe" min="0.5" max="10.0" step="0.1" value="2.0" oninput="cnCalc()">'
+      +'<span class="labval" id="cnFev">2.0 cm</span></div>'
+      +'<div class="labrow"><label>'+d("Tube length L (cm)","Tube length L (cm)")+'</label>'
+      +'<input type="range" id="cnL" min="5" max="50" step="1" value="20" oninput="cnCalc()">'
+      +'<span class="labval" id="cnLv">20 cm</span></div>'
+      +'<div class="labrow"><label>'+d("Near point D (cm)","Near point D (cm)")+'</label>'
+      +'<input type="range" id="cnD" min="20" max="30" step="1" value="25" oninput="cnCalc()">'
+      +'<span class="labval" id="cnDv">25 cm</span></div>'
+      +'<div class="labout" id="cnOut">mo = 20.0 · me = 12.5 · m = 250.0</div>'
+      +'<div class="labnote">'+d("Shrink either focal length — total magnification grows, since both factors in the product benefit.","किसी भी focal length को सिकोड़िए — कुल magnification बढ़ता है, चूँकि गुणनफल में दोनों गुणक फ़ायदा उठाते हैं।")+'</div>';
+  },
+  "telescope-lab": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<div class="labrow"><label>'+d("Objective focal length fo (cm)","Objective focal length fo (cm)")+'</label>'
+      +'<input type="range" id="tsFo" min="10" max="500" step="1" value="100" oninput="tsCalc()">'
+      +'<span class="labval" id="tsFov">100 cm</span></div>'
+      +'<div class="labrow"><label>'+d("Eyepiece focal length fe (cm)","Eyepiece focal length fe (cm)")+'</label>'
+      +'<input type="range" id="tsFe" min="0.5" max="20.0" step="0.1" value="1.0" oninput="tsCalc()">'
+      +'<span class="labval" id="tsFev">1.0 cm</span></div>'
+      +'<div class="labout" id="tsOut">m = 100.0 · tube length = 101.0 cm</div>'
+      +'<div class="labnote">'+d("Grow the objective's focal length — magnification climbs, but so does the telescope's physical length.","Objective का focal length बढ़ाइए — magnification चढ़ता है, पर telescope की भौतिक लंबाई भी।")+'</div>';
   }
 };
 var IV_DTS=[2.0,1.0,0.5,0.1,0.01];
@@ -5609,6 +5808,118 @@ function peCalc(){
   var E_eV=E_J/E_CHARGE;
   var Estr = E_eV>=1000||E_eV<0.001 ? sciStr(E_eV) : E_eV.toFixed(2);
   document.getElementById("peOut").textContent="λ = "+sciStr(lambda)+" m · ν = "+sciStr(freq)+" Hz · E = "+Estr+" eV";
+}
+function mrCalc(){
+  var type=document.getElementById("mrType").value;
+  var R=+document.getElementById("mrR").value;
+  var uMag=+document.getElementById("mrU").value;
+  document.getElementById("mrRv").textContent=R.toFixed(0)+" cm";
+  document.getElementById("mrUv").textContent=uMag.toFixed(0)+" cm";
+  var f=(type==="concave"?-1:1)*R/2;
+  var u=-uMag;
+  var v=1/(1/f-1/u);
+  var m=-v/u;
+  document.getElementById("mrOut").textContent="f = "+(f>=0?"+":"−")+Math.abs(f).toFixed(1)+" cm · v = "+(v>=0?"+":"−")+Math.abs(v).toFixed(1)+" cm · m = "+(m>=0?"+":"−")+Math.abs(m).toFixed(2);
+}
+function rfCalc(){
+  var n1=+document.getElementById("rfN1").value;
+  var n2=+document.getElementById("rfN2").value;
+  var i=+document.getElementById("rfI").value;
+  document.getElementById("rfN1v").textContent=n1.toFixed(2);
+  document.getElementById("rfN2v").textContent=n2.toFixed(2);
+  document.getElementById("rfIv").textContent=i.toFixed(0)+"°";
+  var sinR=n1*Math.sin(i*Math.PI/180)/n2;
+  var out;
+  if(Math.abs(sinR)>1){ out="total internal reflection (no refraction)"; }
+  else { var r=Math.asin(sinR)*180/Math.PI; out="r = "+r.toFixed(1)+"°"; }
+  document.getElementById("rfOut").textContent=out;
+}
+function xaCalc(){
+  var n=+document.getElementById("xaN").value;
+  document.getElementById("xaNv").textContent=n.toFixed(2);
+  var ic=Math.asin(1/n)*180/Math.PI;
+  document.getElementById("xaOut").textContent="ic = "+ic.toFixed(2)+"°";
+}
+function srCalc(){
+  var n1=+document.getElementById("srN1").value;
+  var n2=+document.getElementById("srN2").value;
+  var R=+document.getElementById("srR").value;
+  var uMag=+document.getElementById("srU").value;
+  document.getElementById("srN1v").textContent=n1.toFixed(2);
+  document.getElementById("srN2v").textContent=n2.toFixed(2);
+  document.getElementById("srRv").textContent=R.toFixed(0)+" cm";
+  document.getElementById("srUv").textContent=uMag.toFixed(0)+" cm";
+  var u=-uMag;
+  var rhs=(n2-n1)/R+n1/u;
+  var v=n2/rhs;
+  document.getElementById("srOut").textContent="v = "+(v>=0?"+":"−")+Math.abs(v).toFixed(1)+" cm";
+}
+function lmCalc(){
+  var n=+document.getElementById("lmN").value;
+  var R1=+document.getElementById("lmR1").value;
+  var R2=+document.getElementById("lmR2").value;
+  var uMag=+document.getElementById("lmU").value;
+  document.getElementById("lmNv").textContent=n.toFixed(2);
+  document.getElementById("lmR1v").textContent=(R1>=0?"":"−")+Math.abs(R1).toFixed(0)+" cm";
+  document.getElementById("lmR2v").textContent=(R2>=0?"":"−")+Math.abs(R2).toFixed(0)+" cm";
+  document.getElementById("lmUv").textContent=uMag.toFixed(0)+" cm";
+  var invF=(n-1)*(1/R1-1/R2);
+  var f=1/invF;
+  if(!isFinite(f)){
+    document.getElementById("lmOut").textContent="f = ∞ (R₁ = R₂ gives a flat, non-converging lens)";
+    return;
+  }
+  var u=-uMag;
+  var v=1/(1/f+1/u);
+  var m=v/u;
+  document.getElementById("lmOut").textContent="f = "+(f>=0?"+":"−")+Math.abs(f).toFixed(1)+" cm · v = "+(v>=0?"+":"−")+Math.abs(v).toFixed(1)+" cm · m = "+(m>=0?"+":"−")+Math.abs(m).toFixed(2);
+}
+function lbCalc(){
+  var f1=+document.getElementById("lbF1").value;
+  var f2=+document.getElementById("lbF2").value;
+  document.getElementById("lbF1v").textContent=(f1>=0?"":"−")+Math.abs(f1).toFixed(0)+" cm";
+  document.getElementById("lbF2v").textContent=(f2>=0?"":"−")+Math.abs(f2).toFixed(0)+" cm";
+  var f=1/(1/f1+1/f2);
+  var P=100/f;
+  document.getElementById("lbOut").textContent="f = "+(f>=0?"+":"−")+Math.abs(f).toFixed(1)+" cm · P = "+(P>=0?"+":"−")+Math.abs(P).toFixed(2)+" D";
+}
+function pzCalc(){
+  var A=+document.getElementById("pzA").value;
+  var n=+document.getElementById("pzN").value;
+  document.getElementById("pzAv").textContent=A.toFixed(0)+"°";
+  document.getElementById("pzNv").textContent=n.toFixed(3);
+  var r=A/2;
+  var sinTerm=n*Math.sin(A*Math.PI/360);
+  if(sinTerm>1){
+    document.getElementById("pzOut").textContent="No minimum-deviation ray path exists for this A, n combination (light cannot exit the second face) · r₁ = r₂ = "+r.toFixed(1)+"°";
+    return;
+  }
+  var Dm=2*Math.asin(sinTerm)*180/Math.PI-A;
+  var i=(A+Dm)/2;
+  document.getElementById("pzOut").textContent="Dm = "+Dm.toFixed(1)+"° · i = e = "+i.toFixed(1)+"° · r₁ = r₂ = "+r.toFixed(1)+"°";
+}
+function cnCalc(){
+  var fo=+document.getElementById("cnFo").value;
+  var fe=+document.getElementById("cnFe").value;
+  var Lt=+document.getElementById("cnL").value;
+  var D=+document.getElementById("cnD").value;
+  document.getElementById("cnFov").textContent=fo.toFixed(1)+" cm";
+  document.getElementById("cnFev").textContent=fe.toFixed(1)+" cm";
+  document.getElementById("cnLv").textContent=Lt.toFixed(0)+" cm";
+  document.getElementById("cnDv").textContent=D.toFixed(0)+" cm";
+  var mo=Lt/fo;
+  var me=D/fe;
+  var m=mo*me;
+  document.getElementById("cnOut").textContent="mo = "+mo.toFixed(1)+" · me = "+me.toFixed(1)+" · m = "+m.toFixed(1);
+}
+function tsCalc(){
+  var fo=+document.getElementById("tsFo").value;
+  var fe=+document.getElementById("tsFe").value;
+  document.getElementById("tsFov").textContent=fo.toFixed(0)+" cm";
+  document.getElementById("tsFev").textContent=fe.toFixed(1)+" cm";
+  var m=fo/fe;
+  var tube=fo+fe;
+  document.getElementById("tsOut").textContent="m = "+m.toFixed(1)+" · tube length = "+tube.toFixed(1)+" cm";
 }
 
 /* ============ Animations: press Play to watch the physics happen ============
