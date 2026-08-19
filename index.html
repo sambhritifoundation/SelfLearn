@@ -221,6 +221,49 @@
   .den.masked{display:inline-block;font-weight:700;color:var(--accent);background:var(--bg);
     border:1px dashed var(--accent);border-radius:8px;padding:4px 9px;cursor:pointer;font-size:.9rem}
   .den.masked:hover{background:var(--accent-light)}
+  /* ---- mathematics rendering ---- */
+  .math{display:inline-block;vertical-align:middle;line-height:1.15;
+    font-family:"Cambria Math","Latin Modern Math","STIX Two Math",Georgia,"Times New Roman",serif;
+    font-size:1.06em;white-space:nowrap}
+  .mathdisplay{display:block;text-align:center;margin:14px 0;font-size:1.18em;
+    overflow-x:auto;overflow-y:hidden;max-width:100%;padding:2px 0}
+  .mrow{display:inline-block;vertical-align:middle}
+  .mvar{font-style:italic;padding:0 .5px}
+  .mnum{font-style:normal}
+  .mop{font-style:normal;padding:0 .18em}
+  .mtext{font-style:normal;font-family:inherit;padding:0 .15em}
+  /* fractions */
+  .mfrac{display:inline-flex;flex-direction:column;vertical-align:middle;
+    text-align:center;margin:0 .18em;font-size:.96em}
+  .mfrac .mnumer{display:block;padding:0 .35em 1px;border-bottom:1.3px solid currentColor}
+  .mfrac .mdenom{display:block;padding:1px .35em 0}
+  .mbinom{margin:0}
+  .mbinom .mnumer{border-bottom:0;padding-bottom:0}
+  /* superscripts and subscripts, stacked so both can sit on one base */
+  .mscript{display:inline-block;vertical-align:middle}
+  .mscripts{display:inline-flex;flex-direction:column;vertical-align:middle;
+    font-size:.7em;line-height:1;text-align:left}
+  .msup{display:block;min-height:.62em;margin-bottom:.12em}
+  .msub{display:block;min-height:.62em}
+  /* big operators with bounds above and below */
+  .mbigop{font-size:1.5em;font-style:normal;line-height:.9;padding:0 .06em}
+  .munderover{display:inline-flex;flex-direction:column;align-items:center;
+    vertical-align:middle;margin:0 .2em}
+  .munderover .mover,.munderover .munder{display:block;font-size:.62em;line-height:1.1}
+  .munderover .mbigop{font-size:1.35em}
+  /* radicals */
+  .msqrt{display:inline-block;vertical-align:middle;position:relative;margin:0 .1em}
+  .msqrt .mradical{font-size:1.15em}
+  .msqrt .mroot{font-size:.6em;vertical-align:.9em;margin-right:-.45em}
+  .munderbar{border-top:1.3px solid currentColor;padding:1px .2em 0 .1em;margin-left:-.1em}
+  .moverline{border-top:1.3px solid currentColor;padding-top:1px;display:inline-block}
+  .mvec{display:inline-block;position:relative;padding-top:.1em}
+  .mvec::before{content:"→";position:absolute;top:-.62em;left:50%;transform:translateX(-50%);font-size:.62em}
+  .mdelim.mbig{font-size:1.28em;font-style:normal;padding:0 .04em}
+  .mathraw{background:var(--bg);border-radius:5px;padding:1px 5px;font-size:.92em}
+  /* a long display formula scrolls inside itself rather than breaking the page */
+  .notes .mathdisplay::-webkit-scrollbar{height:5px}
+  .notes .mathdisplay::-webkit-scrollbar-thumb{background:var(--line);border-radius:3px}
   .drillbox{border:2px dashed var(--line);border-radius:11px;padding:12px;margin-top:10px;background:var(--card)}
   .repdots{display:flex;gap:6px;margin:10px 0}
   .repdots i{width:14px;height:14px;border-radius:50%;background:var(--line);display:block}
@@ -280,8 +323,243 @@ function sp(en, hi){ return '<span class="en">'+en+'</span><span class="hi">'+(h
 function t(obj){ return obj ? (obj[LANG] || obj.en || "") : ""; }
 function esc(s){ return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
 /* Lightweight markdown for topic notes: **bold**, *italic*, | tables | */
+/* ================= mathematics rendering =================
+   Maths needs stacked fractions, limits with the arrow underneath, sums with
+   bounds above and below, radicals with a bar. Inline Unicode cannot do any of
+   that, and unreadable notation to an already-frightened student is fatal.
+
+   Three options were tested. MathML does not stack reliably (a fraction renders
+   at the same height as plain text). KaTeX renders beautifully but needs a CDN
+   at runtime, so every formula in the course would break offline — unacceptable
+   for the same reason the speech engine was built offline-first. So this is a
+   small purpose-built renderer: a LaTeX subset covering exactly what Class 8-11
+   needs, HTML + CSS, no dependency, no network, works everywhere.
+
+   Authoring: $...$ inline, $$...$$ display. */
+var MATH_SYMBOL = {
+  alpha:"α", beta:"β", gamma:"γ", delta:"δ", Delta:"Δ", epsilon:"ε", theta:"θ", Theta:"Θ",
+  lambda:"λ", mu:"μ", pi:"π", Pi:"Π", rho:"ρ", sigma:"σ", Sigma:"Σ", phi:"φ", omega:"ω", Omega:"Ω",
+  times:"×", div:"÷", cdot:"·", pm:"±", mp:"∓", leq:"≤", le:"≤", geq:"≥", ge:"≥",
+  neq:"≠", ne:"≠", approx:"≈", equiv:"≡", to:"→", rightarrow:"→", leftarrow:"←",
+  Rightarrow:"⇒", Leftrightarrow:"⇔", implies:"⇒", iff:"⇔", infty:"∞", propto:"∝",
+  in:"∈", notin:"∉", subset:"⊂", subseteq:"⊆", supset:"⊃", supseteq:"⊇",
+  cup:"∪", cap:"∩", emptyset:"∅", setminus:"∖", forall:"∀", exists:"∃", neg:"¬",
+  angle:"∠", degree:"°", perp:"⊥", parallel:"∥", triangle:"△", therefore:"∴", because:"∵",
+  ldots:"…", cdots:"⋯", prime:"′", circ:"∘", sim:"∼", cong:"≅", ast:"∗", bullet:"•"
+};
+var MATH_BB = { R:"ℝ", N:"ℕ", Z:"ℤ", Q:"ℚ", C:"ℂ" };
+/* Operators that take their bounds above and below rather than as sub/superscript. */
+var MATH_BIGOP = { sum:"∑", prod:"∏", lim:"lim", max:"max", min:"min", bigcup:"⋃", bigcap:"⋂" };
+var MATH_FUNC = ["sin","cos","tan","cot","sec","cosec","csc","log","ln","exp","det","gcd","lcm",
+                 "arcsin","arccos","arctan","sinh","cosh","tanh"];
+
+function mathTokens(src){
+  var t = [], i = 0;
+  while(i < src.length){
+    var c = src[i];
+    if(c === "\\"){
+      var m = /^\\([a-zA-Z]+)/.exec(src.slice(i));
+      if(m){ t.push({k:"cmd", v:m[1]}); i += m[0].length; }
+      else { t.push({k:"chr", v:src[i+1] || ""}); i += 2; }
+    }
+    else if(c === "{"){ t.push({k:"{"}); i++; }
+    else if(c === "}"){ t.push({k:"}"}); i++; }
+    else if(c === "^"){ t.push({k:"^"}); i++; }
+    else if(c === "_"){ t.push({k:"_"}); i++; }
+    else if(c === " "){ i++; }
+    else { t.push({k:"chr", v:c}); i++; }
+  }
+  return t;
+}
+/* Parse a run of tokens until a closing brace (or the end), returning nodes. */
+function mathParse(t, pos, stopAtBrace){
+  var out = [];
+  while(pos.i < t.length){
+    var tk = t[pos.i];
+    if(tk.k === "}"){ if(stopAtBrace){ pos.i++; } break; }
+    if(tk.k === "{"){ pos.i++; out.push({n:"row", c:mathParse(t, pos, true)}); continue; }
+    if(tk.k === "^" || tk.k === "_"){
+      pos.i++;
+      var script = mathAtom(t, pos);
+      var prev = out.pop() || {n:"row", c:[]};
+      /* a^2_1 and a_1^2 both attach to the same base */
+      if(prev.n === "script"){
+        if(tk.k === "^") prev.sup = script; else prev.sub = script;
+        out.push(prev);
+      } else {
+        out.push({n:"script", base:prev, sup:tk.k === "^" ? script : null, sub:tk.k === "_" ? script : null});
+      }
+      continue;
+    }
+    out.push(mathAtom(t, pos));
+  }
+  return out;
+}
+function mathAtom(t, pos){
+  var tk = t[pos.i];
+  if(!tk) return {n:"txt", v:""};
+  if(tk.k === "{"){ pos.i++; return {n:"row", c:mathParse(t, pos, true)}; }
+  if(tk.k === "chr"){ pos.i++; return {n:"chr", v:tk.v}; }
+  if(tk.k === "cmd"){
+    var name = tk.v; pos.i++;
+    if(name === "frac" || name === "dfrac" || name === "tfrac")
+      return {n:"frac", num:mathAtom(t,pos), den:mathAtom(t,pos)};
+    if(name === "binom")
+      return {n:"binom", top:mathAtom(t,pos), bot:mathAtom(t,pos)};
+    if(name === "sqrt"){
+      var idx = null;
+      /* \sqrt[3]{x} — the optional index arrives as literal [ 3 ] characters */
+      if(t[pos.i] && t[pos.i].k === "chr" && t[pos.i].v === "["){
+        pos.i++; var ic = [];
+        while(t[pos.i] && !(t[pos.i].k === "chr" && t[pos.i].v === "]")){ ic.push(mathAtom(t,pos)); }
+        if(t[pos.i]) pos.i++;
+        idx = {n:"row", c:ic};
+      }
+      return {n:"sqrt", idx:idx, body:mathAtom(t,pos)};
+    }
+    if(name === "text" || name === "mathrm" || name === "operatorname"){
+      var b = mathAtom(t,pos);
+      return {n:"text", c:[b]};
+    }
+    if(name === "overline" || name === "bar") return {n:"overline", body:mathAtom(t,pos)};
+    if(name === "vec") return {n:"vec", body:mathAtom(t,pos)};
+    if(name === "mathbb"){
+      var bb = mathAtom(t,pos);
+      var letter = (bb.n === "chr") ? bb.v : (bb.c && bb.c[0] && bb.c[0].v) || "";
+      return {n:"chr", v: MATH_BB[letter] || letter};
+    }
+    if(name === "left" || name === "right"){
+      var d = t[pos.i]; if(d){ pos.i++; }
+      var ch = d ? (d.k === "chr" ? d.v : (d.v === "lbrace" ? "{" : d.v === "rbrace" ? "}" : "")) : "";
+      if(ch === ".") ch = "";
+      return {n:"delim", v:ch, side:name};
+    }
+    if(MATH_BIGOP[name]) return {n:"bigop", v:MATH_BIGOP[name]};
+    if(name === "int") return {n:"chr", v:"∫", big:true};
+    if(MATH_FUNC.indexOf(name) > -1) return {n:"text", c:[{n:"chr", v:name}]};
+    if(MATH_SYMBOL[name]) return {n:"chr", v:MATH_SYMBOL[name]};
+    if(name === "quad") return {n:"space", w:"1em"};
+    if(name === "qquad") return {n:"space", w:"2em"};
+    return {n:"chr", v:name};
+  }
+  pos.i++;
+  return {n:"txt", v:""};
+}
+function mathRender(nodes){
+  var h = "";
+  for(var i = 0; i < nodes.length; i++){
+    var d = nodes[i];
+    switch(d.n){
+      case "row":   h += '<span class="mrow">' + mathRender(d.c) + '</span>'; break;
+      case "chr":
+        var v = esc(d.v);
+        var cls = /^[a-zA-Z]$/.test(d.v) ? "mvar" : (/^[0-9.]$/.test(d.v) ? "mnum" : "mop");
+        if(d.big) cls = "mbig";
+        h += '<span class="' + cls + '">' + v + '</span>';
+        break;
+      case "txt":   h += esc(d.v); break;
+      case "text":  h += '<span class="mtext">' + mathRender(d.c) + '</span>'; break;
+      case "space": h += '<span style="display:inline-block;width:' + d.w + '"></span>'; break;
+      case "frac":
+        h += '<span class="mfrac"><span class="mnumer">' + mathRender([d.num])
+           + '</span><span class="mdenom">' + mathRender([d.den]) + '</span></span>';
+        break;
+      case "binom":
+        h += '<span class="mdelim mbig">(</span><span class="mfrac mbinom"><span class="mnumer">'
+           + mathRender([d.top]) + '</span><span class="mdenom">' + mathRender([d.bot])
+           + '</span></span><span class="mdelim mbig">)</span>';
+        break;
+      case "sqrt":
+        h += '<span class="msqrt">'
+           + (d.idx ? '<span class="mroot">' + mathRender([d.idx]) + '</span>' : '')
+           + '<span class="mradical">√</span><span class="munderbar">' + mathRender([d.body]) + '</span></span>';
+        break;
+      case "overline":
+        h += '<span class="moverline">' + mathRender([d.body]) + '</span>'; break;
+      case "vec":
+        h += '<span class="mvec">' + mathRender([d.body]) + '</span>'; break;
+      case "delim":
+        h += '<span class="mdelim mbig">' + esc(d.v) + '</span>'; break;
+      case "bigop":
+        h += '<span class="mbigop">' + esc(d.v) + '</span>'; break;
+      case "script":
+        var base = d.base;
+        /* A big operator takes its bounds above and below, not beside. */
+        if(base && base.n === "bigop"){
+          h += '<span class="munderover">'
+             + (d.sup ? '<span class="mover">' + mathRender([d.sup]) + '</span>' : '')
+             + '<span class="mbigop">' + esc(base.v) + '</span>'
+             + (d.sub ? '<span class="munder">' + mathRender([d.sub]) + '</span>' : '')
+             + '</span>';
+        } else {
+          h += '<span class="mscript">' + mathRender([base])
+             + '<span class="mscripts">'
+             + '<span class="msup">' + (d.sup ? mathRender([d.sup]) : "") + '</span>'
+             + '<span class="msub">' + (d.sub ? mathRender([d.sub]) : "") + '</span>'
+             + '</span></span>';
+        }
+        break;
+    }
+  }
+  return h;
+}
+function renderMath(src, display){
+  try{
+    var t = mathTokens(String(src));
+    var nodes = mathParse(t, {i:0}, false);
+    return '<span class="math' + (display ? " mathdisplay" : "") + '">' + mathRender(nodes) + '</span>';
+  }catch(e){
+    /* Never lose the content to a parser bug — fall back to the raw source. */
+    return '<code class="mathraw">' + esc(src) + '</code>';
+  }
+}
+/* Math has to be pulled out BEFORE the text is HTML-escaped and put back after,
+   or an inequality inside a formula gets escaped twice and renders as "&lt;".
+   Both helpers below use the same placeholder trick. */
+var MATH_MARK = " M";
+function mathExtract(s, store){
+  return String(s == null ? "" : s)
+    .replace(/\$\$([^$]+)\$\$/g, function(_, m){ store.push(renderMath(m, true));  return MATH_MARK + (store.length-1) + " "; })
+    .replace(/\$([^$\n]+)\$/g,   function(_, m){ store.push(renderMath(m, false)); return MATH_MARK + (store.length-1) + " "; });
+}
+function mathRestore(s, store){
+  if(!store.length) return s;
+  return s.replace(/ M(\d+) /g, function(_, i){ return store[+i] || ""; });
+}
+/* Escape a one-line string, rendering any $...$ inside it. Use this anywhere a
+   question prompt, option or explanation is put on screen. */
+function fmtInline(s){
+  var store = [];
+  var out = mathExtract(s, store);
+  return mathRestore(esc(out), store);
+}
+/* A <select><option> cannot contain markup, so sort categories and match choices
+   cannot use the rendered form. This degrades a formula to readable plain text
+   instead: superscript digits where possible, a slash for a fraction. */
+var MATH_SUP = {"0":"⁰","1":"¹","2":"²","3":"³","4":"⁴","5":"⁵","6":"⁶","7":"⁷","8":"⁸","9":"⁹","n":"ⁿ","+":"⁺","-":"⁻"};
+var MATH_SUB = {"0":"₀","1":"₁","2":"₂","3":"₃","4":"₄","5":"₅","6":"₆","7":"₇","8":"₈","9":"₉","n":"ₙ","i":"ᵢ","r":"ᵣ"};
+function mathPlain(s){
+  return String(s == null ? "" : s).replace(/\$\$?([^$]+)\$\$?/g, function(_, m){
+    var x = m;
+    x = x.replace(/\\d?frac\{([^{}]*)\}\{([^{}]*)\}/g, "($1)/($2)");
+    x = x.replace(/\\sqrt\{([^{}]*)\}/g, "√($1)");
+    x = x.replace(/\\text\{([^{}]*)\}/g, "$1");
+    x = x.replace(/\\mathbb\{([A-Z])\}/g, function(_, l){ return MATH_BB[l] || l; });
+    x = x.replace(/\\([a-zA-Z]+)/g, function(_, n){ return MATH_SYMBOL[n] || MATH_BIGOP[n] || n; });
+    x = x.replace(/\^\{?([0-9n+-]+)\}?/g, function(_, g){
+      return g.split("").map(function(ch){ return MATH_SUP[ch] || ("^" + ch); }).join("");
+    });
+    x = x.replace(/_\{?([0-9nir]+)\}?/g, function(_, g){
+      return g.split("").map(function(ch){ return MATH_SUB[ch] || ("_" + ch); }).join("");
+    });
+    return x.replace(/[{}]/g, "").replace(/\s+/g, " ").trim();
+  });
+}
+
 function fmtNotes(txt, images){
-  var lines = esc(txt).split("\n"), out = [], i = 0;
+  /* Pull the maths out before escaping, put it back at the very end. */
+  var mathStore = [];
+  var lines = esc(mathExtract(txt, mathStore)).split("\n"), out = [], i = 0;
   function cells(row){ return row.replace(/^\s*\|/,"").replace(/\|\s*$/,"").split("|").map(function(c){ return c.trim(); }); }
   while(i < lines.length){
     /* {{diagram:key}} / {{image:N}} on their own line drop that visual inline, right
@@ -309,11 +587,11 @@ function fmtNotes(txt, images){
         + '</tr></thead><tbody>' + rows.map(function(r){ return '<tr>'+r.map(function(c){ return '<td>'+c+'</td>'; }).join("")+'</tr>'; }).join("") + '</tbody></table>');
     } else { out.push(lines[i]); i++; }
   }
-  return out.join("\n").replace(/\n?(<table>)/g,"$1").replace(/(<\/table>)\n?/g,"$1")
+  return mathRestore(out.join("\n").replace(/\n?(<table>)/g,"$1").replace(/(<\/table>)\n?/g,"$1")
     .replace(/`([^`\n]+)`/g,"<code>$1</code>")
     /* wide tables scroll inside their own box instead of widening the page on phones */
     .replace(/<table>/g,'<div class="tablewrap"><table>').replace(/<\/table>/g,"</table></div>")
-    .replace(/\*\*([^*\n]+)\*\*/g,"<b>$1</b>").replace(/\*([^*\n]+)\*/g,"<i>$1</i>");
+    .replace(/\*\*([^*\n]+)\*\*/g,"<b>$1</b>").replace(/\*([^*\n]+)\*/g,"<i>$1</i>"), mathStore);
 }
 /* Inline SVG diagram registry — theme-aware (CSS vars) and bilingual (rebuilt on language toggle). */
 var DIAGRAMS = {
@@ -8352,7 +8630,7 @@ function vQuiz(){
     + '<div class="sub" style="margin-bottom:8px">'+esc(QUIZ.title)+'</div>'
     + '<div class="card">'
     + '<span class="chip">'+q.type.toUpperCase()+'</span><span class="chip amber">'+sp(q.diff,{easy:"आसान",medium:"मध्यम",hard:"कठिन"}[q.diff]||q.diff)+'</span>'
-    + '<h2 style="margin-top:10px">'+esc(t(q.q))+'</h2><div style="margin-top:12px" id="qbody">';
+    + '<h2 style="margin-top:10px">'+fmtInline(t(q.q))+'</h2><div style="margin-top:12px" id="qbody">';
   if(q.type==="mcq"){
     var letters=["A","B","C","D"];
     var opts = q.opts[LANG]||q.opts.en;
@@ -8364,15 +8642,15 @@ function vQuiz(){
     if(!positional) order = shuffle(order);
     QUIZ.optOrder = order;
     order.forEach(function(origIdx, displayIdx){
-      h += '<button class="option" id="opt'+displayIdx+'" onclick="answerMcq('+displayIdx+')"><b>'+letters[displayIdx]+'.</b> '+esc(opts[origIdx])+'</button>';
+      h += '<button class="option" id="opt'+displayIdx+'" onclick="answerMcq('+displayIdx+')"><b>'+letters[displayIdx]+'.</b> '+fmtInline(opts[origIdx])+'</button>';
     });
   } else if(q.type==="tf"){
     h += '<button class="option" id="optT" onclick="answerTf(true)"><b>'+sp("TRUE","सही")+'</b></button>'
        + '<button class="option" id="optF" onclick="answerTf(false)"><b>'+sp("FALSE","गलत")+'</b></button>';
   } else if(q.type==="sort"){
-    var catOpts = q.cats.map(function(c){ return '<option value="'+c.k+'">'+esc(t(c))+'</option>'; }).join("");
+    var catOpts = q.cats.map(function(c){ return '<option value="'+c.k+'">'+esc(mathPlain(t(c)))+'</option>'; }).join("");
     h += q.items.map(function(it,idx){
-      return '<div class="sortrow" id="sr'+idx+'"><span class="lbl">'+esc(t(it))+'</span>'
+      return '<div class="sortrow" id="sr'+idx+'"><span class="lbl">'+fmtInline(t(it))+'</span>'
         + '<select id="ss'+idx+'"><option value="">'+(LANG==="hi"?"चुनें…":"choose…")+'</option>'+catOpts+'</select></div>';
     }).join("");
     h += '<button class="btn" style="margin-top:8px" onclick="answerSort()">'+sp("Check","जाँचें")+'</button>';
@@ -8395,7 +8673,7 @@ function vQuiz(){
         var orderL = shuffle(optsL.map(function(_,k){ return k; }));
         QUIZ.optOrder = orderL;
         orderL.forEach(function(origIdx, displayIdx){
-          h += '<button class="option" id="opt'+displayIdx+'" onclick="answerMcq('+displayIdx+')"><b>'+lettersL[displayIdx]+'.</b> '+esc(optsL[origIdx])+'</button>';
+          h += '<button class="option" id="opt'+displayIdx+'" onclick="answerMcq('+displayIdx+')"><b>'+lettersL[displayIdx]+'.</b> '+fmtInline(optsL[origIdx])+'</button>';
         });
       } else {
         h += '<input class="shortinput" id="shortAns" placeholder="'+(LANG==="hi"?"जो सुना वह लिखिए…":"Type what you heard…")+'" onkeydown="if(event.key===\'Enter\')answerShort()">'
@@ -8422,9 +8700,9 @@ function vQuiz(){
       + '</div>';
   } else if(q.type==="match"){
     var rights = shuffle(q.pairs.map(function(p,idx){ return {idx:idx, txt:t(p.r)}; }));
-    var rOpts = rights.map(function(r){ return '<option value="'+r.idx+'">'+esc(r.txt)+'</option>'; }).join("");
+    var rOpts = rights.map(function(r){ return '<option value="'+r.idx+'">'+esc(mathPlain(r.txt))+'</option>'; }).join("");
     h += q.pairs.map(function(p,idx){
-      return '<div class="matchrow" id="mr'+idx+'"><span class="lbl">'+esc(t(p.l))+'</span>'
+      return '<div class="matchrow" id="mr'+idx+'"><span class="lbl">'+fmtInline(t(p.l))+'</span>'
         + '<select id="ms'+idx+'"><option value="">'+(LANG==="hi"?"चुनें…":"choose…")+'</option>'+rOpts+'</select></div>';
     }).join("");
     h += '<button class="btn" style="margin-top:8px" onclick="answerMatch()">'+sp("Check","जाँचें")+'</button>';
@@ -8442,7 +8720,7 @@ function vQuiz(){
 function showExplanation(ok, q, extra){
   var el = document.getElementById("exp");
   el.innerHTML = '<div class="explain '+(ok?"ok":"no")+'"><b>'+(ok?(LANG==="hi"?"✅ सही!":"✅ Correct!"):(LANG==="hi"?"❌ सही नहीं।":"❌ Not quite."))+'</b> '
-    + (extra||"") + esc(t(q.exp)) + '</div>';
+    + (extra||"") + fmtInline(t(q.exp)) + '</div>';
   var nb = document.getElementById("nextBtn");
   nb.style.display = "inline-block";
   nb.innerHTML = QUIZ.i === QUIZ.qs.length-1 ? (LANG==="hi"?"परिणाम देखें →":"See results →") : (LANG==="hi"?"अगला →":"Next →");
@@ -8558,7 +8836,7 @@ function answerSort(){
     var row=document.getElementById("sr"+idx), sel=document.getElementById("ss"+idx);
     var ok = sels[idx]===it.k; if(!ok) allOk=false;
     row.classList.add(ok?"correct":"wrong"); sel.disabled=true;
-    if(!ok){ var cat=q.cats.find(function(c){ return c.k===it.k; }); row.insertAdjacentHTML("beforeend",'<span class="sub" style="color:var(--red);margin-left:6px">→ '+esc(t(cat))+'</span>'); }
+    if(!ok){ var cat=q.cats.find(function(c){ return c.k===it.k; }); row.insertAdjacentHTML("beforeend",'<span class="sub" style="color:var(--red);margin-left:6px">→ '+fmtInline(t(cat))+'</span>'); }
   });
   settle(allOk, q);
 }
@@ -8572,7 +8850,7 @@ function answerMatch(){
     var row=document.getElementById("mr"+idx), sel=document.getElementById("ms"+idx);
     var ok = String(sels[idx])===String(idx); if(!ok) allOk=false;
     row.classList.add(ok?"correct":"wrong"); sel.disabled=true;
-    if(!ok){ row.insertAdjacentHTML("beforeend",'<span class="sub" style="color:var(--red);margin-left:6px">→ '+esc(t(p.r))+'</span>'); }
+    if(!ok){ row.insertAdjacentHTML("beforeend",'<span class="sub" style="color:var(--red);margin-left:6px">→ '+fmtInline(t(p.r))+'</span>'); }
   });
   settle(allOk, q);
 }
@@ -8692,7 +8970,7 @@ function vResult(){
   }
   h += '<div class="card" style="margin-top:16px"><h2>'+sp("Question review","प्रश्न समीक्षा")+'</h2><table><tr><th>#</th><th>'+sp("Question","प्रश्न")+'</th><th>'+sp("Result","परिणाम")+'</th></tr>';
   QUIZ.qs.forEach(function(q,k){
-    h += '<tr><td>'+(k+1)+'</td><td>'+esc(t(q.q))+'</td><td><span class="chip '+(QUIZ.results[k]?"green":"red")+'">'+(QUIZ.results[k]?"✓":"✗")+'</span></td></tr>';
+    h += '<tr><td>'+(k+1)+'</td><td>'+fmtInline(t(q.q))+'</td><td><span class="chip '+(QUIZ.results[k]?"green":"red")+'">'+(QUIZ.results[k]?"✓":"✗")+'</span></td></tr>';
   });
   h += '</table></div>';
   if(QUIZ.scope==="assessment"){
