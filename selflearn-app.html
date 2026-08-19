@@ -182,6 +182,39 @@
   .sortrow.correct,.matchrow.correct{border-color:var(--green);background:var(--green-light)}
   .sortrow.wrong,.matchrow.wrong{border-color:var(--red);background:var(--red-light)}
   .lvl{font-size:.72rem;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);font-weight:800;margin:14px 0 6px}
+  /* ---- learner profiles (shared-device support) ---- */
+  .profile-chip{font-family:inherit;font-size:.78rem;font-weight:700;padding:6px 10px;margin-right:8px;border:2px solid var(--line);
+    border-radius:999px;background:var(--card);color:var(--ink);cursor:pointer;white-space:nowrap;max-width:130px;overflow:hidden;text-overflow:ellipsis}
+  .profile-chip:hover{border-color:var(--primary)}
+  .reflink.active{border-color:var(--primary);background:var(--primary-light)}
+  /* ---- language learning: audio, chunks, dialogue, drills ---- */
+  .say{font-family:inherit;font-size:.95rem;line-height:1;padding:6px 9px;border:2px solid var(--line);border-radius:9px;
+    background:var(--card);color:var(--ink);cursor:pointer;flex:0 0 auto;min-width:38px;min-height:34px}
+  .say:hover{border-color:var(--primary)}
+  .say.playing{border-color:var(--primary);background:var(--primary-light)}
+  .say[disabled]{opacity:.45;cursor:not-allowed}
+  .chunkgrid{display:grid;grid-template-columns:1fr;gap:9px;margin-top:10px}
+  @media(min-width:620px){.chunkgrid{grid-template-columns:1fr 1fr}}
+  .chunkcard{border:2px solid var(--line);border-radius:11px;padding:10px 11px;background:var(--card)}
+  .chunkcard .cc-top{display:flex;align-items:center;gap:9px}
+  .chunkcard .cc-en{font-weight:700;font-size:.98rem;flex:1}
+  .chunkcard .cc-hi{font-size:.9rem;color:var(--muted);margin-top:5px}
+  .chunkcard .cc-note{font-size:.82rem;color:var(--muted);margin-top:5px;font-style:italic}
+  .dline{display:flex;align-items:flex-start;gap:9px;padding:9px 0;border-bottom:1px solid var(--line)}
+  .dline:last-child{border-bottom:0}
+  .dline .who{font-size:.74rem;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:var(--primary);min-width:52px;padding-top:6px}
+  .dline .dtxt{flex:1}
+  .dline .den{font-size:.98rem;font-weight:600}
+  .dline .dhi{font-size:.88rem;color:var(--muted);margin-top:3px}
+  .dline.on{background:var(--primary-light);border-radius:8px}
+  .drillbox{border:2px dashed var(--line);border-radius:11px;padding:12px;margin-top:10px;background:var(--card)}
+  .repdots{display:flex;gap:6px;margin:10px 0}
+  .repdots i{width:14px;height:14px;border-radius:50%;background:var(--line);display:block}
+  .repdots i.done{background:var(--green)}
+  .heard{font-size:.95rem;padding:9px 10px;border-radius:9px;background:var(--bg);margin-top:9px;min-height:20px;word-break:break-word}
+  .heard .w-ok{color:var(--green);font-weight:700}
+  .heard .w-no{color:var(--red);font-weight:700;text-decoration:line-through}
+  .micnote{font-size:.82rem;color:var(--muted);margin-top:8px}
 </style>
 </head>
 <body>
@@ -192,6 +225,7 @@
     <button onclick="go('dashboard')"><span class="en">My Progress</span><span class="hi">मेरी प्रगति</span></button>
     <!-- Admin nav hidden until role-based access control exists; show only to admin-role users then. Route/vAdmin() left intact below. -->
   </div>
+  <button id="profileChip" class="profile-chip" onclick="go('profiles')" aria-label="Current learner">👤</button>
   <div class="lang-switch" role="group" aria-label="Language">
     <button id="btnEn" class="active" aria-label="English" onclick="setLang('en')">EN</button>
     <button id="btnHi" aria-label="हिंदी" onclick="setLang('hi')">हिं</button>
@@ -7351,6 +7385,118 @@ function toast(msg){
 function todayStr(){ var d = new Date(); return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0"); }
 function shuffle(a){ a = a.slice(); for(var i=a.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var tmp=a[i]; a[i]=a[j]; a[j]=tmp; } return a; }
 
+/* ================= learner profiles =================
+   A rural learner usually shares one phone with the whole family. Without this,
+   every learner writes into the same sl_progress key and silently overwrites the
+   others. Each profile namespaces its own progress keys; the first/default
+   profile keeps the original un-suffixed key names so existing saved progress
+   from before this feature carries over untouched. */
+var PROFILE = localStorage.getItem("sl_profile") || "";
+function profileList(){
+  try{ var l = JSON.parse(localStorage.getItem("sl_profiles")||"[]"); return Array.isArray(l)?l:[]; }catch(e){ return []; }
+}
+function saveProfileList(l){ localStorage.setItem("sl_profiles", JSON.stringify(l)); }
+/* "" (the default profile) maps to the original key, so old data is never orphaned. */
+function PK(base){ return PROFILE ? base+"__"+PROFILE : base; }
+function profileLabel(){ return PROFILE || (LANG==="hi"?"डिफ़ॉल्ट":"Default"); }
+function switchProfile(name){
+  PROFILE = name || "";
+  localStorage.setItem("sl_profile", PROFILE);
+  renderProfileChip();
+  go("home");
+  toast((LANG==="hi"?"प्रोफ़ाइल: ":"Profile: ")+profileLabel());
+}
+function addProfile(){
+  var name = (prompt(LANG==="hi"?"नया नाम लिखिए (सिर्फ़ इस फ़ोन पर सहेजा जाएगा):":"Enter a name (saved on this phone only):")||"").trim();
+  if(!name) return;
+  name = name.slice(0,20).replace(/[^A-Za-z0-9ऀ-ॿ ._-]/g,"");
+  if(!name) return;
+  var l = profileList();
+  if(l.indexOf(name)===-1){ l.push(name); saveProfileList(l); }
+  switchProfile(name);
+}
+function renderProfileChip(){
+  var el = document.getElementById("profileChip");
+  if(!el) return;
+  el.textContent = "👤 " + profileLabel();
+  el.setAttribute("aria-label", (LANG==="hi"?"वर्तमान शिक्षार्थी: ":"Current learner: ")+profileLabel());
+}
+function vProfiles(){
+  var l = profileList();
+  var h = '<div class="crumb"><a onclick="go(\'home\')">'+sp("Home","मुख्य")+'</a> › <b>'+sp("Who is learning?","कौन सीख रहा है?")+'</b></div>';
+  h += '<div class="card"><h1 style="margin:0 0 6px">'+sp("Who is learning?","कौन सीख रहा है?")+'</h1>'
+    + '<div class="sub">'+sp("Sharing this phone? Pick your name so your progress stays yours. Nothing is sent anywhere — names are saved only on this phone.","क्या यह फ़ोन साझा है? अपना नाम चुनिए ताकि आपकी प्रगति आपकी ही रहे। कुछ भी कहीं नहीं भेजा जाता — नाम सिर्फ़ इसी फ़ोन पर सहेजे जाते हैं।")+'</div></div>';
+  h += '<div class="card" style="margin-top:14px"><div class="linkwrap">';
+  h += '<button class="reflink'+(PROFILE===""?" active":"")+'" onclick="switchProfile(\'\')"><span class="ico">👤</span><span>'
+     + sp("Default","डिफ़ॉल्ट")+(PROFILE===""?" ✓":"")+'</span></button>';
+  l.forEach(function(n){
+    h += '<button class="reflink'+(PROFILE===n?" active":"")+'" onclick="switchProfile('+JSON.stringify(n).replace(/"/g,"&quot;")+')">'
+       + '<span class="ico">👤</span><span>'+esc(n)+(PROFILE===n?" ✓":"")+'</span></button>';
+  });
+  h += '</div><button class="btn" style="margin-top:12px" onclick="addProfile()">+ '+sp("Add a learner","शिक्षार्थी जोड़ें")+'</button></div>';
+  return h;
+}
+
+/* ================= speech: text-to-speech =================
+   A communication course has to be heard, not just read. This uses the browser's
+   own speechSynthesis engine rather than recorded audio files: it costs zero
+   hosted bytes (decisive on a metered rural data plan), works offline once the
+   device's voice pack is installed, and needs no backend — which matters because
+   the whole site is static GitHub Pages. Supported on Chrome 33+ including
+   Android, which is the device reality for these learners. */
+var TTS_OK = (typeof window !== "undefined" && "speechSynthesis" in window);
+var _slVoices = [];
+function _loadVoices(){ try{ _slVoices = window.speechSynthesis.getVoices() || []; }catch(e){ _slVoices = []; } }
+if(TTS_OK){
+  _loadVoices();
+  /* Android/Chrome populate the voice list asynchronously, so re-read on the event. */
+  try{ window.speechSynthesis.onvoiceschanged = _loadVoices; }catch(e){}
+}
+/* Indian English first — it is the accent these learners will actually hear and
+   be understood in locally. Fall back through other English voices, never to a
+   non-English voice (which would mangle the pronunciation entirely). */
+function _pickVoice(){
+  if(!_slVoices.length) _loadVoices();
+  var order = ["en-IN","en_IN","en-GB","en_GB","en-US","en_US"];
+  for(var i=0;i<order.length;i++){
+    var v = _slVoices.find(function(x){ return x.lang && x.lang.replace("_","-").toLowerCase()===order[i].replace("_","-").toLowerCase(); });
+    if(v) return v;
+  }
+  return _slVoices.find(function(x){ return x.lang && /^en/i.test(x.lang); }) || null;
+}
+function speak(text, rate, btn){
+  if(!TTS_OK){ toast(LANG==="hi"?"इस browser में आवाज़ उपलब्ध नहीं है":"Audio is not available in this browser"); return; }
+  if(!text) return;
+  try{
+    window.speechSynthesis.cancel();          /* never let two lines overlap */
+    var u = new SpeechSynthesisUtterance(String(text));
+    var v = _pickVoice();
+    if(v){ u.voice = v; u.lang = v.lang; } else { u.lang = "en-IN"; }
+    u.rate = rate || 1;
+    u.pitch = 1;
+    if(btn){
+      btn.classList.add("playing");
+      u.onend = u.onerror = function(){ btn.classList.remove("playing"); };
+    }
+    window.speechSynthesis.speak(u);
+  }catch(e){ if(btn) btn.classList.remove("playing"); }
+}
+/* Build a speak button. The phrase rides in a data- attribute rather than inside
+   an onclick string, so apostrophes and quotes in natural English ("What's your
+   name?") can never break the generated markup. */
+function sayBtn(text, rate, label){
+  if(!TTS_OK) return "";
+  return '<button class="say" type="button" data-say="'+esc(text)+'"'
+    + (rate ? ' data-rate="'+rate+'"' : '')
+    + ' aria-label="'+esc((LANG==="hi"?"सुनिए: ":"Listen: ")+text)+'">'+(label||"🔊")+'</button>';
+}
+/* One delegated listener serves every speak button on every screen. */
+document.addEventListener("click", function(ev){
+  var b = ev.target.closest && ev.target.closest("[data-say]");
+  if(!b) return;
+  speak(b.getAttribute("data-say"), parseFloat(b.getAttribute("data-rate"))||1, b);
+});
+
 /* ================= data access ================= */
 var SUBJECTS = (window.SL_DATA && window.SL_DATA.subjects) || [];
 function customQuestions(){ try{ return JSON.parse(localStorage.getItem("sl_custom_questions")||"[]"); }catch(e){ return []; } }
@@ -7396,8 +7542,8 @@ function qForTopic(code){ return pubQuestions().filter(function(q){ return q.top
 function qForChapter(sc, no){ return pubQuestions().filter(function(q){ return q.subject===sc && q.chapter==no; }); }
 
 /* ================= progress ================= */
-function P(){ try{ return JSON.parse(localStorage.getItem("sl_progress")||"{}"); }catch(e){ return {}; } }
-function saveP(p){ localStorage.setItem("sl_progress", JSON.stringify(p)); }
+function P(){ try{ return JSON.parse(localStorage.getItem(PK("sl_progress"))||"{}"); }catch(e){ return {}; } }
+function saveP(p){ localStorage.setItem(PK("sl_progress"), JSON.stringify(p)); }
 function record(q, ok){
   var p = P();
   p.attempts = p.attempts || {}; p.topics = p.topics || {}; p.days = p.days || {};
@@ -7435,8 +7581,8 @@ function weakTopics(){
   out.sort(function(x,y){ return x.acc-y.acc; });
   return out;
 }
-function lastVisited(){ try{ return JSON.parse(localStorage.getItem("sl_last")||"null"); }catch(e){ return null; } }
-function setLastVisited(o){ localStorage.setItem("sl_last", JSON.stringify(o)); }
+function lastVisited(){ try{ return JSON.parse(localStorage.getItem(PK("sl_last"))||"null"); }catch(e){ return null; } }
+function setLastVisited(o){ localStorage.setItem(PK("sl_last"), JSON.stringify(o)); }
 /* ---- badges ---- */
 var BADGES = {
   "story-explorer":  { icon:"🧭", en:"Story Explorer",       hi:"कहानी खोजी",      de:"Read every micro-topic of a chapter",        dh:"अध्याय का हर सूक्ष्म-विषय पढ़ा" },
@@ -7444,9 +7590,9 @@ var BADGES = {
   "assignment-done": { icon:"📝", en:"Assignment Completed",  hi:"असाइनमेंट पूर्ण",  de:"Completed an End-of-Chapter Assignment",     dh:"अध्याय-अंत असाइनमेंट पूर्ण" },
   "chapter-champion":{ icon:"🏆", en:"Chapter Champion",      hi:"अध्याय चैंपियन",   de:"Scored 80%+ in a Chapter Assignment",        dh:"अध्याय असाइनमेंट में 80%+" }
 };
-function earnedBadges(){ try{ return JSON.parse(localStorage.getItem("sl_badges")||"{}"); }catch(e){ return {}; } }
+function earnedBadges(){ try{ return JSON.parse(localStorage.getItem(PK("sl_badges"))||"{}"); }catch(e){ return {}; } }
 function hasBadge(id){ return !!earnedBadges()[id]; }
-function awardBadge(id){ var b=earnedBadges(); if(!b[id]){ b[id]=Date.now(); localStorage.setItem("sl_badges", JSON.stringify(b)); return true; } return false; }
+function awardBadge(id){ var b=earnedBadges(); if(!b[id]){ b[id]=Date.now(); localStorage.setItem(PK("sl_badges"), JSON.stringify(b)); return true; } return false; }
 function markVisited(code){ var p=P(); p.visited=p.visited||{}; if(!p.visited[code]){ p.visited[code]=Date.now(); saveP(p); } }
 function isVisited(code){ var p=P(); return !!(p.visited&&p.visited[code]); }
 function checkChapterBadges(chapter){
@@ -7478,8 +7624,8 @@ function progressStrip(subject, chapter, topicIdx){
 function badgeChips(ids, highlight){
   return ids.map(function(id){ var b=BADGES[id]; if(!b) return ""; return '<span class="badge'+(highlight?" badge-new":"")+'" title="'+esc(LANG==="hi"?b.dh:b.de)+'"><span class="badge-ic" aria-hidden="true">'+b.icon+'</span> '+esc(LANG==="hi"?b.hi:b.en)+'</span>'; }).join(" ");
 }
-function sessions(){ try{ return JSON.parse(localStorage.getItem("sl_sessions")||"[]"); }catch(e){ return []; } }
-function saveSession(s){ var l=sessions(); l.push(s); localStorage.setItem("sl_sessions", JSON.stringify(l)); }
+function sessions(){ try{ return JSON.parse(localStorage.getItem(PK("sl_sessions"))||"[]"); }catch(e){ return []; } }
+function saveSession(s){ var l=sessions(); l.push(s); localStorage.setItem(PK("sl_sessions"), JSON.stringify(l)); }
 
 /* ================= router ================= */
 var VIEW = { name:"home" };
@@ -7498,11 +7644,13 @@ function render(){
   else if(v==="quiz") el.innerHTML = vQuiz();
   else if(v==="result") el.innerHTML = vResult();
   else if(v==="dashboard") el.innerHTML = vDashboard();
+  else if(v==="profiles") el.innerHTML = vProfiles();
   else if(v==="admin") el.innerHTML = vAdmin();
   document.body.classList.toggle("lang-hi", LANG==="hi");
   updateOverallBar();
   enhanceA11y();
   initLabs();
+  renderProfileChip();
 }
 /* Re-sync any interactive widget on the page with its current slider values. */
 function initLabs(){
@@ -7614,6 +7762,225 @@ function vSubject(code){
 }
 
 /* ================= TOPIC ================= */
+/* ================= language-learning blocks =================
+   These render the four beats a communication unit needs that a physics topic
+   never did: hear it, learn the phrase, drill the phrase, say it back. */
+
+/* --- Beat 2: "Listen first" — a dialogue the learner hears before being asked
+   to produce anything. Speakers are distinguished by pitch, because a device
+   usually ships only one English voice. --- */
+var _DLG = [];
+var _dlgStop = false;
+function vDialogue(tp){
+  var d = tp.dialogue; if(!d || !d.length) return "";
+  _DLG = d.map(function(L){ return { en: L.en, who: L.who || "" }; });
+  var h = '<div class="card" style="margin-top:14px"><h3 style="margin:0 0 4px">🎧 '+sp("Listen first","पहले सुनिए")+'</h3>'
+    + '<div class="sub" style="margin-bottom:10px">'
+    + sp("Just listen. Do not try to speak yet — understanding comes first.","बस सुनिए। अभी बोलने की कोशिश मत कीजिए — पहले समझ आना ज़रूरी है।")+'</div>';
+  h += '<div class="rowflex" style="margin-bottom:8px;gap:8px">'
+    + '<button class="btn sm" type="button" onclick="playDialogue(1)">▶︎ '+sp("Play all","पूरा सुनें")+'</button>'
+    + '<button class="btn ghost sm" type="button" onclick="playDialogue(0.7)">🐢 '+sp("Play slowly","धीरे सुनें")+'</button>'
+    + '<button class="btn ghost sm" type="button" onclick="stopDialogue()">■ '+sp("Stop","रोकें")+'</button>'
+    + '</div>';
+  d.forEach(function(L, i){
+    h += '<div class="dline" id="dl'+i+'"><span class="who">'+esc(t({en:L.who||"", hi:L.whoHi||L.who||""}))+'</span>'
+      + '<span class="dtxt"><span class="den">'+esc(L.en)+'</span>'
+      + (L.hi ? '<span class="dhi">'+esc(L.hi)+'</span>' : '')+'</span>'
+      + sayBtn(L.en, 1) + '</div>';
+  });
+  h += '</div>';
+  return h;
+}
+function stopDialogue(){
+  _dlgStop = true;
+  try{ window.speechSynthesis.cancel(); }catch(e){}
+  _DLG.forEach(function(_,i){ var el=document.getElementById("dl"+i); if(el) el.classList.remove("on"); });
+}
+function playDialogue(rate){
+  if(!TTS_OK){ toast(LANG==="hi"?"इस browser में आवाज़ उपलब्ध नहीं है":"Audio is not available in this browser"); return; }
+  stopDialogue(); _dlgStop = false;
+  var i = 0;
+  function step(){
+    if(_dlgStop || i>=_DLG.length) return;
+    var prev = document.getElementById("dl"+(i-1)); if(prev) prev.classList.remove("on");
+    var el = document.getElementById("dl"+i); if(el) el.classList.add("on");
+    try{
+      var u = new SpeechSynthesisUtterance(_DLG[i].en);
+      var v = _pickVoice(); if(v){ u.voice=v; u.lang=v.lang; } else { u.lang="en-IN"; }
+      u.rate = rate || 1;
+      u.pitch = (i % 2 === 0) ? 1.05 : 0.85;   /* alternate speakers by pitch */
+      u.onend = function(){ if(el) el.classList.remove("on"); i++; setTimeout(step, 320); };
+      u.onerror = function(){ if(el) el.classList.remove("on"); i++; setTimeout(step, 320); };
+      window.speechSynthesis.speak(u);
+    }catch(e){ i++; step(); }
+  }
+  step();
+}
+
+/* --- Beat 3: "The chunks" — whole phrases with a Hindi gloss. Learners retrieve
+   formulaic sequences far faster than they assemble sentences word by word, so
+   these are the real unit of learning here. --- */
+function vChunks(tp){
+  var cs = tp.chunks; if(!cs || !cs.length) return "";
+  var h = '<div class="card" style="margin-top:14px"><h3 style="margin:0 0 4px">🗣️ '+sp("The phrases to keep","याद रखने वाले वाक्यांश")+'</h3>'
+    + '<div class="sub" style="margin-bottom:4px">'
+    + sp("Learn each one as a whole phrase — do not translate it word by word.","हर एक को पूरे वाक्यांश की तरह सीखिए — शब्द-दर-शब्द अनुवाद मत कीजिए।")+'</div>'
+    + '<div class="chunkgrid">';
+  cs.forEach(function(c){
+    h += '<div class="chunkcard"><div class="cc-top"><span class="cc-en">'+esc(c.en)+'</span>'+sayBtn(c.en,1)+sayBtn(c.en,0.6,"🐢")+'</div>'
+      + (c.hi ? '<div class="cc-hi">'+esc(c.hi)+'</div>' : '')
+      + (c.note ? '<div class="cc-note">'+esc(t(c.note))+'</div>' : '')
+      + '</div>';
+  });
+  h += '</div></div>';
+  return h;
+}
+
+/* --- Beat 4: "Shadow it" — hear a line and repeat it immediately, matching the
+   rhythm and stress. The research is specific that this needs 3-5 repetitions of
+   the SAME line to build an automatic response, so the counter targets 5 and the
+   learner cannot advance by simply pressing next. --- */
+var _SHD = {lines:[], i:0, reps:0};
+var SHADOW_TARGET_REPS = 5;
+function vShadow(tp){
+  var lines = tp.shadow && tp.shadow.length ? tp.shadow.slice()
+            : (tp.chunks && tp.chunks.length ? tp.chunks.map(function(c){ return c.en; }) : []);
+  if(!lines.length) return "";
+  _SHD = {lines:lines, i:0, reps:0};
+  var h = '<div class="card" style="margin-top:14px"><h3 style="margin:0 0 4px">🔁 '+sp("Shadow it","साथ-साथ बोलिए")+'</h3>'
+    + '<div class="sub" style="margin-bottom:6px">'
+    + sp("Play the line, then say it out loud straight away — copy the speed and the music of it, not just the words. Five times each.",
+         "पंक्ति चलाइए, फिर तुरंत ज़ोर से बोलिए — सिर्फ़ शब्द नहीं, रफ़्तार और सुर भी नकल कीजिए। हर एक पाँच बार।")+'</div>'
+    + '<div class="drillbox" id="shdBox">'+shadowInner()+'</div></div>';
+  return h;
+}
+function shadowInner(){
+  if(!_SHD.lines.length) return "";
+  var line = _SHD.lines[_SHD.i];
+  var dots = "";
+  for(var k=0;k<SHADOW_TARGET_REPS;k++) dots += '<i class="'+(k<_SHD.reps?"done":"")+'"></i>';
+  var done = _SHD.reps>=SHADOW_TARGET_REPS;
+  var last = _SHD.i>=_SHD.lines.length-1;
+  var h = '<div class="sub">'+sp("Line","पंक्ति")+' '+(_SHD.i+1)+' / '+_SHD.lines.length+'</div>'
+    + '<div style="font-size:1.06rem;font-weight:700;margin:8px 0 4px">'+esc(line)+'</div>'
+    + '<div class="rowflex" style="gap:8px;justify-content:flex-start">'
+    + sayBtn(line,1) + sayBtn(line,0.6,"🐢")
+    + '<button class="btn sm" type="button" onclick="shadowRep()">'+sp("I said it","मैंने बोला")+'</button>'
+    + '</div><div class="repdots">'+dots+'</div>';
+  if(done){
+    h += '<div class="explain ok" style="margin-bottom:8px"><b>'+sp("Nicely done.","बढ़िया।")+'</b> '
+       + sp("That phrase should feel automatic now.","अब यह वाक्यांश अपने आप निकलना चाहिए।")+'</div>';
+    h += last
+      ? '<button class="btn" type="button" onclick="shadowRestart()">'+sp("Practise again from the start","शुरू से दोबारा अभ्यास करें")+'</button>'
+      : '<button class="btn" type="button" onclick="shadowNext()">'+sp("Next line","अगली पंक्ति")+' →</button>';
+  }
+  return h;
+}
+function _shdPaint(){ var b=document.getElementById("shdBox"); if(b) b.innerHTML = shadowInner(); }
+function shadowRep(){ if(_SHD.reps<SHADOW_TARGET_REPS){ _SHD.reps++; _shdPaint(); } }
+function shadowNext(){ if(_SHD.i<_SHD.lines.length-1){ _SHD.i++; _SHD.reps=0; _shdPaint(); } }
+function shadowRestart(){ _SHD.i=0; _SHD.reps=0; _shdPaint(); }
+
+/* --- Beat 6: "Your turn" — say it and get feedback. Uses the browser's speech
+   recognition where available. Two deliberate limits: it needs a network round
+   trip (Chrome sends audio to Google), and accent scoring on Indian English is
+   imperfect — so a failed match never blocks progress, and the learner's own
+   judgement is always offered alongside the machine's. The research also found
+   peer/self feedback plus ASR beats ASR alone. --- */
+var ASR_OK = (typeof window!=="undefined") && (("webkitSpeechRecognition" in window) || ("SpeechRecognition" in window));
+var _asr = null;
+function _normWords(s){
+  return String(s||"").toLowerCase().replace(/[^a-z0-9\s']/g," ").split(/\s+/).filter(Boolean);
+}
+function vSpeakCheck(tp){
+  var task = tp.speakTask; if(!task || !task.target) return "";
+  var h = '<div class="card" style="margin-top:14px"><h3 style="margin:0 0 4px">🎤 '+sp("Your turn","अब आपकी बारी")+'</h3>'
+    + '<div class="sub" style="margin-bottom:8px">'+esc(t(task.prompt||{en:"",hi:""}))+'</div>'
+    + '<div class="drillbox">'
+    + '<div style="font-size:1.06rem;font-weight:700;margin-bottom:8px">'+esc(task.target)+'</div>'
+    + '<div class="rowflex" style="gap:8px;justify-content:flex-start">'+sayBtn(task.target,1)+sayBtn(task.target,0.6,"🐢");
+  if(ASR_OK){
+    h += '<button class="btn sm" type="button" id="micBtn" onclick="speakCheck('+JSON.stringify(task.target).replace(/"/g,"&quot;")+')">🎤 '
+       + sp("Tap and speak","दबाइए और बोलिए")+'</button>';
+  }
+  h += '</div><div class="heard" id="heardBox"></div>';
+  if(!ASR_OK){
+    h += '<div class="micnote">'+sp("This browser cannot listen to you. Say the sentence aloud anyway, then compare with the audio above — that still works.",
+      "यह browser आपको सुन नहीं सकता। फिर भी वाक्य ज़ोर से बोलिए और ऊपर की आवाज़ से मिलाइए — इससे भी अभ्यास होता है।")+'</div>';
+  }
+  h += '<div class="rowflex" style="gap:8px;justify-content:flex-start;margin-top:10px">'
+    + '<button class="btn ghost sm" type="button" onclick="speakSelf(true)">👍 '+sp("I said it well","मैंने ठीक बोला")+'</button>'
+    + '<button class="btn ghost sm" type="button" onclick="speakSelf(false)">🔁 '+sp("Let me try again","फिर कोशिश करूँ")+'</button>'
+    + '</div></div></div>';
+  return h;
+}
+function speakSelf(ok){
+  var box = document.getElementById("heardBox"); if(!box) return;
+  box.innerHTML = ok
+    ? '<span class="w-ok">'+sp("Good — trust that. Move on when it feels easy.","बढ़िया — इसी पर भरोसा कीजिए। जब आसान लगे तब आगे बढ़िए।")+'</span>'
+    : '<span>'+sp("Play it once more, then say it with the audio, not after it.","एक बार फिर चलाइए, फिर आवाज़ के बाद नहीं, साथ-साथ बोलिए।")+'</span>';
+}
+function speakCheck(target){
+  if(!ASR_OK) return;
+  var box = document.getElementById("heardBox");
+  var btn = document.getElementById("micBtn");
+  try{ window.speechSynthesis.cancel(); }catch(e){}
+  try{
+    var Rec = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if(_asr){ try{ _asr.abort(); }catch(e){} }
+    _asr = new Rec();
+    _asr.lang = "en-IN";
+    _asr.interimResults = false;
+    _asr.maxAlternatives = 3;
+    if(btn){ btn.classList.add("playing"); btn.textContent = "● "+(LANG==="hi"?"सुन रहे हैं…":"Listening…"); }
+    if(box) box.textContent = LANG==="hi" ? "बोलिए…" : "Speak now…";
+    _asr.onresult = function(ev){
+      var alts = [];
+      for(var i=0;i<ev.results[0].length;i++) alts.push(ev.results[0][i].transcript);
+      var want = _normWords(target);
+      /* Take whichever alternative the recogniser offered that matches best —
+         Indian-English ASR often puts the right words in a lower-ranked guess. */
+      var best = null, bestScore = -1;
+      alts.forEach(function(a){
+        var got = _normWords(a);
+        var n = 0, pool = got.slice();
+        want.forEach(function(w){ var k = pool.indexOf(w); if(k>-1){ n++; pool.splice(k,1); } });
+        if(n > bestScore){ bestScore = n; best = got; }
+      });
+      var pool2 = best.slice();
+      var marks = want.map(function(w){
+        var k = pool2.indexOf(w);
+        if(k>-1){ pool2.splice(k,1); return '<span class="w-ok">'+esc(w)+'</span>'; }
+        return '<span class="w-no">'+esc(w)+'</span>';
+      });
+      var pct = want.length ? Math.round(100*bestScore/want.length) : 0;
+      if(box){
+        box.innerHTML = '<div><b>'+(LANG==="hi"?"हमने सुना: ":"We heard: ")+'</b>'+esc(best.join(" ")||"—")+'</div>'
+          + '<div style="margin-top:6px">'+marks.join(" ")+'</div>'
+          + '<div style="margin-top:6px" class="sub">'+pct+'% '+(LANG==="hi"?"शब्द मिले":"of the words matched")
+          + (pct>=70 ? ' — '+(LANG==="hi"?"बहुत अच्छे।":"well done.") : ' — '+(LANG==="hi"?"एक बार और।":"try once more."))+'</div>';
+      }
+    };
+    _asr.onerror = function(ev){
+      if(!box) return;
+      var e = ev && ev.error;
+      box.innerHTML = '<span class="sub">'+esc(
+          e==="not-allowed" ? (LANG==="hi"?"माइक की अनुमति नहीं मिली। सेटिंग में अनुमति दीजिए, या नीचे ख़ुद जाँचिए।":"Microphone permission was refused. Allow it in settings, or judge it yourself below.")
+        : e==="no-speech"   ? (LANG==="hi"?"कुछ सुनाई नहीं दिया। दोबारा दबाकर बोलिए।":"Nothing was heard. Tap and speak again.")
+        : e==="network"     ? (LANG==="hi"?"सुनने के लिए internet चाहिए। बिना internet नीचे ख़ुद जाँचिए।":"Listening needs internet. Without it, judge it yourself below.")
+        :                     (LANG==="hi"?"अभी सुन नहीं पाए। नीचे ख़ुद जाँचिए।":"Could not listen just now. Judge it yourself below.")
+      )+'</span>';
+    };
+    _asr.onend = function(){
+      if(btn){ btn.classList.remove("playing"); btn.innerHTML = "🎤 "+(LANG==="hi"?"दबाइए और बोलिए":"Tap and speak"); }
+    };
+    _asr.start();
+  }catch(e){
+    if(box) box.innerHTML = '<span class="sub">'+(LANG==="hi"?"अभी सुन नहीं पाए। नीचे ख़ुद जाँचिए।":"Could not listen just now. Judge it yourself below.")+'</span>';
+    if(btn){ btn.classList.remove("playing"); btn.innerHTML = "🎤 "+(LANG==="hi"?"दबाइए और बोलिए":"Tap and speak"); }
+  }
+}
+
 function vTopic(code){
   var info = topicByCode(code); if(!info) return "Not found";
   setLastVisited({topic:code});
@@ -7633,6 +8000,13 @@ function vTopic(code){
     + (a2!==null ? '<span class="chip '+(a2>=80?"green":(a2>=60?"amber":"red"))+'">'+sp("Your accuracy: ","आपकी शुद्धता: ")+a2+'%</span>' : '')
     + '</div><h1 style="margin:10px 0 12px">'+t(tp.name)+'</h1>'
     + '<div class="notes">'+fmtNotes(t(tp.notes), tp.images)+'</div></div>';
+  /* Language units follow a fixed four-skill loop: hear it, learn the phrases,
+     drill them aloud, then say them back. Deliberately NOT wired to inline
+     {{...}} tokens — that token family has repeatedly been mis-typed into notes,
+     so these render in fixed order and simply no-op when the fields are absent. */
+  h += vDialogue(tp);
+  h += vChunks(tp);
+  h += vShadow(tp);
   /* Topics whose notes place {{diagram:...}} / {{image:N}} inline (right next to the
      explanation they belong to) skip the old after-all-the-text rendering below, so
      nothing shows twice. Older topics with no inline tokens render exactly as before. */
@@ -7685,6 +8059,7 @@ function vTopic(code){
     });
     h += '</div></div>';
   }
+  h += vSpeakCheck(tp);
   h += '<div class="card rowflex" style="margin-top:14px"><div>'
     + '<h3>'+(qn ? sp("Practise this concept now","अभी इस अवधारणा का अभ्यास करें") : sp("No questions yet for this topic","इस विषय हेतु अभी प्रश्न नहीं हैं"))+'</h3>'
     + (qn ? '<div class="sub">'+Math.min(qn,8)+' '+sp("questions · instant explanations","प्रश्न · तुरंत व्याख्या")+'</div>' : '')
@@ -7899,6 +8274,50 @@ function vQuiz(){
         + '<select id="ss'+idx+'"><option value="">'+(LANG==="hi"?"चुनें…":"choose…")+'</option>'+catOpts+'</select></div>';
     }).join("");
     h += '<button class="btn" style="margin-top:8px" onclick="answerSort()">'+sp("Check","जाँचें")+'</button>';
+  } else if(q.type==="listen"){
+    /* Listening assessed with zero hosted audio: the phrase is spoken by the
+       device. The text is never shown until after the answer, or it would be a
+       reading question wearing a listening question's clothes. */
+    if(!TTS_OK){
+      h += '<div class="explain no">'+sp("This browser cannot play audio, so this listening question has to be skipped.",
+        "यह browser आवाज़ नहीं चला सकता, इसलिए यह सुनने वाला प्रश्न छोड़ना पड़ेगा।")+'</div>'
+        + '<button class="btn" style="margin-top:8px" onclick="skipQ()">'+sp("Skip","छोड़ें")+'</button>';
+    } else {
+      h += '<div class="rowflex" style="gap:8px;justify-content:flex-start;margin-bottom:12px">'
+        + '<button class="btn" type="button" data-say="'+esc(q.audio||q.correct)+'">▶︎ '+sp("Play","सुनें")+'</button>'
+        + '<button class="btn ghost" type="button" data-say="'+esc(q.audio||q.correct)+'" data-rate="0.6">🐢 '+sp("Play slowly","धीरे सुनें")+'</button>'
+        + '</div>';
+      if(q.opts){
+        var lettersL=["A","B","C","D"];
+        var optsL = q.opts[LANG]||q.opts.en;
+        var orderL = shuffle(optsL.map(function(_,k){ return k; }));
+        QUIZ.optOrder = orderL;
+        orderL.forEach(function(origIdx, displayIdx){
+          h += '<button class="option" id="opt'+displayIdx+'" onclick="answerMcq('+displayIdx+')"><b>'+lettersL[displayIdx]+'.</b> '+esc(optsL[origIdx])+'</button>';
+        });
+      } else {
+        h += '<input class="shortinput" id="shortAns" placeholder="'+(LANG==="hi"?"जो सुना वह लिखिए…":"Type what you heard…")+'" onkeydown="if(event.key===\'Enter\')answerShort()">'
+           + '<button class="btn" style="margin-top:10px" onclick="answerShort()">'+sp("Check","जाँचें")+'</button>';
+      }
+    }
+  } else if(q.type==="speak"){
+    /* Speaking is scored by the browser recogniser where available, but a low
+       score never blocks the learner — accent scoring on Indian English is not
+       reliable enough to gate progress on, and self-judgement plus machine
+       feedback outperforms machine feedback alone. */
+    h += '<div style="font-size:1.1rem;font-weight:700;margin-bottom:10px">'+esc(q.correct)+'</div>'
+      + '<div class="rowflex" style="gap:8px;justify-content:flex-start;margin-bottom:10px">'
+      + sayBtn(q.correct,1) + sayBtn(q.correct,0.6,"🐢")
+      + (ASR_OK ? '<button class="btn" type="button" id="micBtn" onclick="answerSpeak()">🎤 '+sp("Tap and speak","दबाइए और बोलिए")+'</button>' : '')
+      + '</div><div class="heard" id="heardBox"></div>';
+    if(!ASR_OK){
+      h += '<div class="micnote">'+sp("This browser cannot listen. Say it aloud, compare with the audio, then mark yourself honestly.",
+        "यह browser सुन नहीं सकता। ज़ोर से बोलिए, आवाज़ से मिलाइए, फिर ईमानदारी से ख़ुद को आँकिए।")+'</div>';
+    }
+    h += '<div class="rowflex" style="gap:8px;justify-content:flex-start;margin-top:10px">'
+      + '<button class="btn ghost sm" type="button" onclick="settleSpeak(true)">👍 '+sp("I said it well","मैंने ठीक बोला")+'</button>'
+      + '<button class="btn ghost sm" type="button" onclick="settleSpeak(false)">🔁 '+sp("Not yet","अभी नहीं")+'</button>'
+      + '</div>';
   } else if(q.type==="match"){
     var rights = shuffle(q.pairs.map(function(p,idx){ return {idx:idx, txt:t(p.r)}; }));
     var rOpts = rights.map(function(r){ return '<option value="'+r.idx+'">'+esc(r.txt)+'</option>'; }).join("");
@@ -7967,6 +8386,66 @@ function answerShort(){
   var extra = ok ? "" : '<b>'+(LANG==="hi"?"स्वीकृत उत्तर: ":"Accepted answer: ")+'</b>'+esc(String(q.correct).split("|")[0])+'. ';
   settle(ok, q, extra);
 }
+/* A listening question is unanswerable without audio, so it is skipped rather
+   than marked wrong — a browser limitation must never cost the learner a score. */
+function skipQ(){
+  if(QUIZ.answered) return;
+  QUIZ.results[QUIZ.i] = null; QUIZ.answered = true;
+  var nb = document.getElementById("nextBtn");
+  if(nb){ nb.style.display="inline-block";
+    nb.innerHTML = QUIZ.i === QUIZ.qs.length-1 ? (LANG==="hi"?"परिणाम देखें →":"See results →") : (LANG==="hi"?"अगला →":"Next →"); }
+}
+function settleSpeak(ok){
+  if(QUIZ.answered) return;
+  settle(ok, QUIZ.qs[QUIZ.i]);
+}
+function answerSpeak(){
+  if(QUIZ.answered) return;
+  if(!ASR_OK) return;
+  var q = QUIZ.qs[QUIZ.i];
+  var target = q.correct;
+  var box = document.getElementById("heardBox");
+  var btn = document.getElementById("micBtn");
+  try{ window.speechSynthesis.cancel(); }catch(e){}
+  try{
+    var Rec = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if(_asr){ try{ _asr.abort(); }catch(e){} }
+    _asr = new Rec();
+    _asr.lang = "en-IN"; _asr.interimResults = false; _asr.maxAlternatives = 3;
+    if(btn){ btn.classList.add("playing"); btn.textContent = "● "+(LANG==="hi"?"सुन रहे हैं…":"Listening…"); }
+    if(box) box.textContent = LANG==="hi" ? "बोलिए…" : "Speak now…";
+    _asr.onresult = function(ev){
+      var alts=[]; for(var i=0;i<ev.results[0].length;i++) alts.push(ev.results[0][i].transcript);
+      var want=_normWords(target), best=null, bestScore=-1;
+      alts.forEach(function(a){
+        var got=_normWords(a), n=0, pool=got.slice();
+        want.forEach(function(w){ var k=pool.indexOf(w); if(k>-1){ n++; pool.splice(k,1); } });
+        if(n>bestScore){ bestScore=n; best=got; }
+      });
+      var pool2=best.slice();
+      var marks = want.map(function(w){
+        var k=pool2.indexOf(w);
+        if(k>-1){ pool2.splice(k,1); return '<span class="w-ok">'+esc(w)+'</span>'; }
+        return '<span class="w-no">'+esc(w)+'</span>';
+      });
+      var pct = want.length ? Math.round(100*bestScore/want.length) : 0;
+      if(box){
+        box.innerHTML = '<div><b>'+(LANG==="hi"?"हमने सुना: ":"We heard: ")+'</b>'+esc(best.join(" ")||"—")+'</div>'
+          + '<div style="margin-top:6px">'+marks.join(" ")+'</div>'
+          + '<div style="margin-top:6px" class="sub">'+pct+'% '+(LANG==="hi"?"शब्द मिले":"of the words matched")+'</div>';
+      }
+      settle(pct >= (q.threshold||70), q,
+        '<b>'+pct+'% '+(LANG==="hi"?"शब्द मिले। ":"of the words matched. ")+'</b>');
+    };
+    _asr.onerror = function(){
+      if(box) box.innerHTML = '<span class="sub">'+(LANG==="hi"?"सुन नहीं पाए — नीचे ख़ुद को आँकिए।":"Could not listen — mark yourself below.")+'</span>';
+    };
+    _asr.onend = function(){ if(btn){ btn.classList.remove("playing"); btn.innerHTML="🎤 "+(LANG==="hi"?"दबाइए और बोलिए":"Tap and speak"); } };
+    _asr.start();
+  }catch(e){
+    if(box) box.innerHTML = '<span class="sub">'+(LANG==="hi"?"सुन नहीं पाए — नीचे ख़ुद को आँकिए।":"Could not listen — mark yourself below.")+'</span>';
+  }
+}
 function answerSort(){
   if(QUIZ.answered) return;
   var q = QUIZ.qs[QUIZ.i];
@@ -7995,18 +8474,25 @@ function answerMatch(){
   });
   settle(allOk, q);
 }
+/* Questions skipped because the device could not play audio are excluded from the
+   denominator — a browser limitation must not read as a wrong answer. */
+function quizScore(){
+  var seen = [];
+  for(var i=0;i<QUIZ.qs.length;i++){ var r=QUIZ.results[i]; if(r===true||r===false) seen.push(r); }
+  return { score: seen.filter(Boolean).length, total: seen.length || QUIZ.qs.length };
+}
 function nextQ(){
   if(QUIZ.i < QUIZ.qs.length-1){ QUIZ.i++; QUIZ.answered=false; render(); window.scrollTo(0,0); }
   else {
-    var score = QUIZ.results.filter(function(r){ return r; }).length;
+    var sc0 = quizScore(); var score = sc0.score;
     if(QUIZ.scope==="checkpoint"){
-      if(QUIZ.phase==="pre"){ try{ localStorage.setItem("sl_pre_"+QUIZ.ckKey, JSON.stringify({score:score, total:QUIZ.qs.length, date:Date.now()})); }catch(e){} }
+      if(QUIZ.phase==="pre"){ try{ localStorage.setItem(PK("sl_pre_"+QUIZ.ckKey), JSON.stringify({score:score, total:sc0.total, date:Date.now()})); }catch(e){} }
     } else {
-      saveSession({date:Date.now(), key:QUIZ.key, score:score, total:QUIZ.qs.length});
+      saveSession({date:Date.now(), key:QUIZ.key, score:score, total:sc0.total});
     }
     if(QUIZ.scope==="assessment"){
       var newB=[]; if(awardBadge("assignment-done")) newB.push("assignment-done");
-      if(Math.round(100*score/QUIZ.qs.length)>=80 && awardBadge("chapter-champion")) newB.push("chapter-champion");
+      if(Math.round(100*score/sc0.total)>=80 && awardBadge("chapter-champion")) newB.push("chapter-champion");
       QUIZ._newBadges=newB;
     }
     go("result");
@@ -8021,8 +8507,9 @@ function quitQuiz(){
 /* ================= RESULT ================= */
 function vResult(){
   if(!QUIZ) return vHome();
-  var score = QUIZ.results.filter(function(r){ return r; }).length;
-  var total = QUIZ.qs.length;
+  var _sc = quizScore();
+  var score = _sc.score;
+  var total = _sc.total;
   var pct = Math.round(100*score/total);
   var secs = Math.round((Date.now()-QUIZ.t0)/1000);
   var mins = Math.floor(secs/60)+":"+String(secs%60).padStart(2,"0");
@@ -8052,7 +8539,7 @@ function vResult(){
         + '<h2>🧭 '+sp("Starting point saved","प्रारंभिक स्थिति सहेजी गई")+'</h2>'
         + '<p class="sub">'+sp("This marks where you begin — "+pct+"%. It is fine to score low; you have not studied the chapter yet. Study the topics, then take the Exit ticket to measure how much you have grown.","यह आपकी शुरुआत दर्शाता है — "+pct+"%। कम अंक ठीक है; आपने अभी अध्याय नहीं पढ़ा। विषय पढ़ें, फिर एग्ज़िट टिकट से देखें कि आप कितना आगे बढ़े।")+'</p></div>';
     } else {
-      var preRec=null; try{ preRec=JSON.parse(localStorage.getItem("sl_pre_"+QUIZ.ckKey)||"null"); }catch(e){}
+      var preRec=null; try{ preRec=JSON.parse(localStorage.getItem(PK("sl_pre_"+QUIZ.ckKey))||"null"); }catch(e){}
       if(preRec){
         var prePct=Math.round(100*preRec.score/preRec.total), delta=pct-prePct;
         var badge = delta>0 ? '<span class="chip green">▲ +'+delta+'%</span>' : (delta<0 ? '<span class="chip amber">▼ '+delta+'%</span>' : '<span class="chip">= '+sp("no change","कोई बदलाव नहीं")+'</span>');
