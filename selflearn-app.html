@@ -261,6 +261,35 @@
   .mvec::before{content:"→";position:absolute;top:-.62em;left:50%;transform:translateX(-50%);font-size:.62em}
   .mdelim.mbig{font-size:1.28em;font-style:normal;padding:0 .04em}
   .mathraw{background:var(--bg);border-radius:5px;padding:1px 5px;font-size:.92em}
+  /* ---- worked examples ---- */
+  .wkproblem{background:var(--bg);border-radius:9px;padding:9px 11px;margin-bottom:10px;font-size:.97rem}
+  .wkstep{border-left:3px solid var(--line);padding:2px 0 2px 10px;margin:8px 0}
+  .wkstep.open{border-left-color:var(--primary)}
+  .wkhead{display:flex;align-items:flex-start;gap:9px}
+  .wknum{flex:0 0 auto;width:22px;height:22px;border-radius:50%;background:var(--primary);color:#fff;
+    font-size:.76rem;font-weight:800;display:flex;align-items:center;justify-content:center;margin-top:2px}
+  .wkstep:not(.open) .wknum{background:var(--line-strong)}
+  .wkbody{flex:1;font-size:.97rem}
+  .wkbody.wkhidden{color:var(--muted);font-style:italic}
+  .wkwhy{margin:6px 0 0 31px;font-size:.9rem;background:var(--primary-light);border-radius:8px;padding:7px 10px}
+  .wkanswer{margin-top:10px;background:var(--green-light);border-radius:8px;padding:8px 11px;font-size:1rem}
+  .wknote{margin-top:8px;font-size:.9rem;color:var(--muted)}
+  /* ---- practice ladder ---- */
+  .tierrow{display:flex;align-items:center;gap:10px;width:100%;text-align:left;font-family:inherit;
+    background:var(--card);border:2px solid var(--line);border-radius:11px;padding:9px 11px;margin-bottom:7px;
+    cursor:pointer;color:var(--ink)}
+  .tierrow:hover{border-color:var(--primary)}
+  .tierbadge{flex:0 0 auto;width:34px;height:34px;border-radius:9px;display:flex;align-items:center;
+    justify-content:center;font-weight:800;font-size:.82rem;color:#fff}
+  .tiertxt{flex:1;display:flex;flex-direction:column;line-height:1.25}
+  .tiertxt .sub{font-size:.8rem}
+  .tiern{flex:0 0 auto;font-size:.8rem;color:var(--muted);font-weight:700;white-space:nowrap}
+  .tierbadge.t1,.tierchip.t1{background:var(--green)}
+  .tierbadge.t2,.tierchip.t2{background:var(--teal)}
+  .tierbadge.t3,.tierchip.t3{background:var(--accent)}
+  .tierbadge.t4,.tierchip.t4{background:var(--primary)}
+  .tierbadge.t5,.tierchip.t5{background:var(--red)}
+  .chip.tierchip{color:#fff;border:0}
   /* a long display formula scrolls inside itself rather than breaking the page */
   .notes .mathdisplay::-webkit-scrollbar{height:5px}
   .notes .mathdisplay::-webkit-scrollbar-thumb{background:var(--line);border-radius:3px}
@@ -307,6 +336,7 @@
 
 <script src="data-accountancy.js"></script>
 <script src="data-english.js"></script>
+<script src="data-math.js"></script>
 <script src="data-physics.js"></script>
 <script src="data-physics12.js"></script>
 <script>
@@ -353,6 +383,10 @@ var MATH_BIGOP = { sum:"∑", prod:"∏", lim:"lim", max:"max", min:"min", bigcu
 var MATH_FUNC = ["sin","cos","tan","cot","sec","cosec","csc","log","ln","exp","det","gcd","lcm",
                  "arcsin","arccos","arctan","sinh","cosh","tanh"];
 
+/* LaTeX spacing macros written as a backslash plus punctuation. \! is a negative
+   thin space in real LaTeX; here it collapses to nothing, which is close enough
+   and far better than printing an exclamation mark. */
+var MATH_SPACE = { ",":"0.17em", ":":"0.22em", ";":"0.28em", "!":"0", " ":"0.25em" };
 function mathTokens(src){
   var t = [], i = 0;
   while(i < src.length){
@@ -360,6 +394,12 @@ function mathTokens(src){
     if(c === "\\"){
       var m = /^\\([a-zA-Z]+)/.exec(src.slice(i));
       if(m){ t.push({k:"cmd", v:m[1]}); i += m[0].length; }
+      else if(MATH_SPACE[src[i+1]] !== undefined){
+        /* LaTeX's punctuation spacing macros. Without this branch \; falls
+           through to the escaped-character case and prints a literal semicolon,
+           which is what a set-builder like {x : x in N, \; x < 6} would show. */
+        t.push({k:"cmd", v:"__sp" + src[i+1]}); i += 2;
+      }
       else { t.push({k:"chr", v:src[i+1] || ""}); i += 2; }
     }
     else if(c === "{"){ t.push({k:"{"}); i++; }
@@ -440,6 +480,7 @@ function mathAtom(t, pos){
     if(MATH_SYMBOL[name]) return {n:"chr", v:MATH_SYMBOL[name]};
     if(name === "quad") return {n:"space", w:"1em"};
     if(name === "qquad") return {n:"space", w:"2em"};
+    if(name.slice(0,4) === "__sp") return {n:"space", w:MATH_SPACE[name.charAt(4)]};
     return {n:"chr", v:name};
   }
   pos.i++;
@@ -7804,6 +7845,11 @@ function allQuestions(){
 function pubQuestions(){ return allQuestions().filter(function(q){ return q.status === "published"; }); }
 function subj(code){ return SUBJECTS.find(function(s){ return s.code===code; }); }
 function chapter(s, no){ return s.chapters.find(function(c){ return c.no==no; }); }
+/* c.no stays sequential within a subject because every lookup keys on it. But a
+   subject that mixes tracks — a foundation ladder ahead of the NCERT chapters —
+   has chapters whose real identity is not their position, so an optional label
+   overrides the display. Without one, nothing changes. */
+function chapLabel(c){ return c.label ? t(c.label) : sp("Chapter "+c.no, "अध्याय "+c.no); }
 function topicByCode(code){
   for(var i=0;i<SUBJECTS.length;i++) for(var j=0;j<SUBJECTS[i].chapters.length;j++){
     var tt = SUBJECTS[i].chapters[j].topics.find(function(x){ return x.code===code; });
@@ -7842,6 +7888,12 @@ function record(q, ok){
   var a = p.attempts[q.id] || {n:0,c:0}; a.n++; if(ok) a.c++; p.attempts[q.id]=a;
   var key = q.topic || (q.subject+"-ch"+q.chapter);
   var tp = p.topics[key] || {n:0,c:0}; tp.n++; if(ok) tp.c++; tp.last=Date.now(); p.topics[key]=tp;
+  /* A tier run also records against its own rung, so the ladder can show which
+     rungs are solid without conflating them with the topic as a whole. */
+  if(QUIZ && QUIZ.tierKey){
+    var tk = p.topics[QUIZ.tierKey] || {n:0,c:0};
+    tk.n++; if(ok) tk.c++; tk.last=Date.now(); p.topics[QUIZ.tierKey]=tk;
+  }
   p.days[todayStr()] = (p.days[todayStr()]||0)+1;
   saveP(p);
   var info=topicByCode(q.topic); if(info) checkChapterBadges(info.chapter);
@@ -8035,7 +8087,7 @@ function vSubject(code){
     var qn = qForChapter(s.code, c.no).length;
     var done = c.topics.filter(function(tp){ var st=topicStats(tp.code); return st&&st.n>0; }).length;
     h += '<div class="card rowflex" style="margin-bottom:10px"><div style="flex:1;min-width:250px">'
-      + '<h3>'+sp("Chapter "+c.no,"अध्याय "+c.no)+': '+t(c.name)+'</h3>'
+      + '<h3>'+chapLabel(c)+': '+t(c.name)+'</h3>'
       + '<div class="sub">'+c.topics.length+' '+sp("micro-topics","सूक्ष्म-विषय")+' · '+qn+' '+sp("questions","प्रश्न")+' · '+done+'/'+c.topics.length+' '+sp("practised","अभ्यास किया")+'</div>'
       + '<div style="margin-top:8px">';
     c.topics.forEach(function(tp){
@@ -8361,6 +8413,116 @@ function speakCheck(target, n){
   }
 }
 
+/* ================= worked examples =================
+   Cognitive load theory is unambiguous for novices: studying a fully worked
+   example beats attempting the equivalent problem unaided, because unguided
+   problem-solving floods working memory and nothing reaches long-term memory.
+   But a worked example read passively teaches very little, so each step is
+   hidden until the learner has committed to a guess, and each carries a WHY —
+   self-explanation has the largest effect of any of these techniques on
+   transfer, which is precisely the skill an unfamiliar exam question tests.
+
+   A step marked fade:true is a completion problem: the learner must produce it
+   themselves before revealing. Example -> faded -> solo is the ladder. */
+var _WK = {};
+function vWorked(tp){
+  var list = tp.worked ? (Array.isArray(tp.worked) ? tp.worked : [tp.worked]) : [];
+  if(!list.length) return "";
+  _WK = {};
+  var h = "";
+  list.forEach(function(ex, ei){
+    _WK[ei] = { shown: 0 };
+    h += '<div class="card worked" style="margin-top:14px" id="wk'+ei+'">' + workedInner(ex, ei) + '</div>';
+  });
+  return h;
+}
+function workedInner(ex, ei){
+  var st = _WK[ei] || { shown:0 };
+  var steps = ex.steps || [];
+  var faded = steps.some(function(s){ return s.fade; });
+  var h = '<h3 style="margin:0 0 4px">'+(faded ? "✏️ " : "📝 ")
+    + (faded ? sp("Your turn — fill the gaps","अब आपकी बारी — ख़ाली जगह भरिए")
+             : sp("Worked example","हल किया हुआ उदाहरण"))
+    + (ex.title ? ' — ' + fmtInline(t(ex.title)) : '') + '</h3>'
+    + '<div class="sub" style="margin-bottom:8px">'
+    + (faded ? sp("Some steps are missing. Work each one out before you reveal it.",
+                  "कुछ चरण ग़ायब हैं। दिखाने से पहले हर एक ख़ुद हल कीजिए।")
+             : sp("Do not just read it. Before each step, decide what you would do next — then reveal.",
+                  "इसे सिर्फ़ पढ़िए मत। हर चरण से पहले तय कीजिए कि आप आगे क्या करेंगे — फिर दिखाइए।"))
+    + '</div>'
+    + '<div class="wkproblem">' + fmtNotes(t(ex.problem)) + '</div>';
+  steps.forEach(function(s, si){
+    var open = si < st.shown;
+    h += '<div class="wkstep'+(open?" open":"")+'">'
+      + '<div class="wkhead"><span class="wknum">'+(si+1)+'</span>';
+    if(open){
+      h += '<div class="wkbody">' + fmtNotes(t(s.do)) + '</div></div>';
+      if(s.why) h += '<div class="wkwhy"><b>'+sp("Why this works","यह क्यों काम करता है")+':</b> ' + fmtNotes(t(s.why)) + '</div>';
+    } else {
+      h += '<div class="wkbody wkhidden">'
+        + (s.ask ? fmtInline(t(s.ask))
+                 : (s.fade ? sp("Work out this step yourself, then check.","यह चरण ख़ुद हल कीजिए, फिर जाँचिए।")
+                           : sp("What would you do next?","आप आगे क्या करेंगे?")))
+        + '</div></div>';
+    }
+  });
+  if(st.shown < steps.length){
+    h += '<button class="btn sm" type="button" onclick="wkNext('+ei+')">'
+       + (st.shown===0 ? sp("Show step 1","चरण 1 दिखाइए") : sp("Show the next step","अगला चरण दिखाइए"))
+       + '</button>';
+  } else {
+    if(ex.answer) h += '<div class="wkanswer"><b>'+sp("Answer","उत्तर")+':</b> ' + fmtInline(t(ex.answer)) + '</div>';
+    if(ex.note) h += '<div class="wknote">💡 ' + fmtNotes(t(ex.note)) + '</div>';
+    h += '<button class="btn ghost sm" type="button" onclick="wkReset('+ei+')">↺ '
+       + sp("Hide the steps and try again","चरण छिपाकर दोबारा कीजिए")+'</button>';
+  }
+  return h;
+}
+function wkFind(ei){
+  var info = topicByCode(VIEW.code);
+  if(!info) return null;
+  var list = info.topic.worked ? (Array.isArray(info.topic.worked) ? info.topic.worked : [info.topic.worked]) : [];
+  return list[ei] || null;
+}
+function wkPaint(ei){
+  var ex = wkFind(ei), box = document.getElementById("wk"+ei);
+  if(ex && box) box.innerHTML = workedInner(ex, ei);
+}
+function wkNext(ei){ _WK[ei] = _WK[ei] || {shown:0}; _WK[ei].shown++; wkPaint(ei); }
+function wkReset(ei){ _WK[ei] = {shown:0}; wkPaint(ei); }
+
+/* ================= difficulty ladder =================
+   Five visible tiers. A learner who only ever reaches T2 has still genuinely
+   learned something, so the ladder must never read as failure below the top. */
+var TIERS = [
+  { n:1, en:"Warm-up",  hi:"शुरुआत",       sub:{en:"Can you do the step at all?", hi:"क्या आप यह चरण कर पाते हैं?"} },
+  { n:2, en:"Standard", hi:"सामान्य",       sub:{en:"The textbook question", hi:"पाठ्यपुस्तक वाला सवाल"} },
+  { n:3, en:"Board+",   hi:"बोर्ड+",        sub:{en:"Multi-step, familiar shape", hi:"कई चरण, जाना-पहचाना ढाँचा"} },
+  { n:4, en:"JEE Main", hi:"JEE Main",     sub:{en:"Unfamiliar dressing, known tools", hi:"नया लिबास, वही औज़ार"} },
+  { n:5, en:"Advanced", hi:"उन्नत",         sub:{en:"Two ideas combined, or an insight", hi:"दो विचार जुड़े, या कोई सूझ"} }
+];
+function tierLabel(n){ var x = TIERS[n-1]; return x ? sp("T"+n+" "+x.en, "T"+n+" "+x.hi) : "T"+n; }
+function qForTier(code, tier){ return qForTopic(code).filter(function(q){ return (q.tier||2) === tier; }); }
+function vTierLadder(code){
+  var any = qForTopic(code).some(function(q){ return q.tier; });
+  if(!any) return "";
+  var h = '<div class="card" style="margin-top:14px"><h3 style="margin:0 0 4px">🪜 '
+    + sp("Practice ladder","अभ्यास की सीढ़ी")+'</h3>'
+    + '<div class="sub" style="margin-bottom:10px">'
+    + sp("Start at the bottom. Getting to T2 is a real result — the top rungs are for later, not for today.",
+         "सबसे नीचे से शुरू कीजिए। T2 तक पहुँचना भी असली उपलब्धि है — ऊपर की सीढ़ियाँ बाद के लिए हैं, आज के लिए नहीं।")+'</div>';
+  TIERS.forEach(function(x){
+    var n = qForTier(code, x.n).length;
+    if(!n) return;
+    var st = topicStats(code+"::t"+x.n); var a = acc(st);
+    h += '<button class="tierrow" type="button" onclick="startQuiz(\'tier\',\''+code+'\','+x.n+')">'
+      + '<span class="tierbadge t'+x.n+'">T'+x.n+'</span>'
+      + '<span class="tiertxt"><b>'+sp(x.en,x.hi)+'</b><span class="sub">'+t(x.sub)+'</span></span>'
+      + '<span class="tiern">'+n+' '+sp("Q","प्रश्न")+(a!==null?" · "+a+"%":"")+' →</span></button>';
+  });
+  return h + '</div>';
+}
+
 function vTopic(code){
   var info = topicByCode(code); if(!info) return "Not found";
   setLastVisited({topic:code});
@@ -8439,7 +8601,9 @@ function vTopic(code){
     });
     h += '</div></div>';
   }
+  h += vWorked(tp);
   h += vSpeakCheck(tp);
+  h += vTierLadder(code);
   h += '<div class="card rowflex" style="margin-top:14px"><div>'
     + '<h3>'+(qn ? sp("Practise this concept now","अभी इस अवधारणा का अभ्यास करें") : sp("No questions yet for this topic","इस विषय हेतु अभी प्रश्न नहीं हैं"))+'</h3>'
     + (qn ? '<div class="sub">'+Math.min(qn,8)+' '+sp("questions · instant explanations","प्रश्न · तुरंत व्याख्या")+'</div>' : '')
@@ -8465,7 +8629,7 @@ function vAssignment(code, chNo){
   h += '<div class="card"><div>'
     + '<span class="chip amber">📋 '+sp("Practical Activity","व्यावहारिक गतिविधि")+'</span>'
     + '<span class="chip">'+sp("Use a spreadsheet","स्प्रेडशीट का उपयोग करें")+'</span>'
-    + '</div><h1 style="margin:10px 0 12px">'+sp("Chapter "+c.no+" Assignment","अध्याय "+c.no+" असाइनमेंट")+': '+t(c.name)+'</h1>'
+    + '</div><h1 style="margin:10px 0 12px">'+chapLabel(c)+' '+sp("Assignment","असाइनमेंट")+': '+t(c.name)+'</h1>'
     + '<div class="notes">'+fmtNotes(t(c.assignment))+'</div></div>';
   h += '<div class="card" style="margin-top:16px"><div class="resultnav-row">'
     + '<button class="btn ghost" onclick="go(\'topic\',{code:\''+c.topics[0].code+'\'})">← '+sp("Revise Topics","विषय दोहराएँ")+'</button>'
@@ -8482,13 +8646,22 @@ function startQuiz(scope, a, b){
   if(scope==="topic"){
     qs = qForTopic(a);
     var info = topicByCode(a); title = info ? t(info.topic.name) : a; backTopic = a;
+  } else if(scope==="tier"){
+    /* One rung of the practice ladder. Accuracy is tracked per tier so a learner
+       can see that T2 is solid before T3 is attempted. */
+    qs = qForTier(a, b);
+    var ti = topicByCode(a);
+    title = (ti ? t(ti.topic.name) : a) + " · T" + b;
+    backTopic = a;
   } else {
     qs = qForChapter(a, b);
     var s = subj(a); var c = s && chapter(s,b);
     title = c ? (t(s.name)+" · "+t(c.name)) : a;
   }
   if(!qs.length){ toast(LANG==="hi"?"अभी प्रश्न उपलब्ध नहीं":"No questions available yet"); return; }
-  QUIZ = { scope:scope, key: scope==="topic"?a:(a+"-ch"+b), title:title, backTopic:backTopic,
+  QUIZ = { scope:scope, key: scope==="topic"?a:(scope==="tier"?(a+"::t"+b):(a+"-ch"+b)),
+           tierKey: scope==="tier" ? (a+"::t"+b) : null,
+           title:title, backTopic:backTopic,
            qs: shuffle(qs).slice(0,8), i:0, results:[], answered:false, t0:Date.now() };
   go("quiz");
 }
@@ -8630,6 +8803,7 @@ function vQuiz(){
     + '<div class="sub" style="margin-bottom:8px">'+esc(QUIZ.title)+'</div>'
     + '<div class="card">'
     + '<span class="chip">'+q.type.toUpperCase()+'</span><span class="chip amber">'+sp(q.diff,{easy:"आसान",medium:"मध्यम",hard:"कठिन"}[q.diff]||q.diff)+'</span>'
+    + (q.tier ? '<span class="chip tierchip t'+q.tier+'">'+tierLabel(q.tier)+'</span>' : '')
     + '<h2 style="margin-top:10px">'+fmtInline(t(q.q))+'</h2><div style="margin-top:12px" id="qbody">';
   if(q.type==="mcq"){
     var letters=["A","B","C","D"];
