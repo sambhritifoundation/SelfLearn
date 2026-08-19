@@ -207,6 +207,20 @@
   .dline .den{font-size:.98rem;font-weight:600}
   .dline .dhi{font-size:.88rem;color:var(--muted);margin-top:3px}
   .dline.on{background:var(--primary-light);border-radius:8px}
+  /* ---- dialogue role-play ---- */
+  .rolerow{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-bottom:6px}
+  .rolelabel{font-size:.8rem;font-weight:700;color:var(--muted);margin-right:2px}
+  .rolebtn{font-family:inherit;font-size:.8rem;font-weight:700;padding:5px 10px;border:2px solid var(--line);
+    border-radius:999px;background:var(--card);color:var(--ink);cursor:pointer}
+  .rolebtn:hover{border-color:var(--primary)}
+  .rolebtn.on{border-color:var(--primary);background:var(--primary);color:#fff}
+  .rolebtn.clear{border-style:dashed;color:var(--muted)}
+  .rolehint{font-size:.82rem;color:var(--muted);background:var(--bg);border-radius:8px;padding:7px 9px;margin-bottom:4px}
+  .dline.mine{background:var(--accent-light);border-radius:8px;padding-left:6px}
+  .dline.waiting{outline:2px dashed var(--accent);outline-offset:2px}
+  .den.masked{display:inline-block;font-weight:700;color:var(--accent);background:var(--bg);
+    border:1px dashed var(--accent);border-radius:8px;padding:4px 9px;cursor:pointer;font-size:.9rem}
+  .den.masked:hover{background:var(--accent-light)}
   .drillbox{border:2px dashed var(--line);border-radius:11px;padding:12px;margin-top:10px;background:var(--card)}
   .repdots{display:flex;gap:6px;margin:10px 0}
   .repdots i{width:14px;height:14px;border-radius:50%;background:var(--line);display:block}
@@ -7771,30 +7785,87 @@ function vSubject(code){
    usually ships only one English voice. --- */
 var _DLG = [];
 var _dlgStop = false;
-function vDialogue(tp){
-  var d = tp.dialogue; if(!d || !d.length) return "";
-  _DLG = d.map(function(L){ return { en: L.en, who: L.who || "" }; });
-  var h = '<div class="card" style="margin-top:14px"><h3 style="margin:0 0 4px">🎧 '+sp("Listen first","पहले सुनिए")+'</h3>'
-    + '<div class="sub" style="margin-bottom:10px">'
-    + sp("Just listen. Do not try to speak yet — understanding comes first.","बस सुनिए। अभी बोलने की कोशिश मत कीजिए — पहले समझ आना ज़रूरी है।")+'</div>';
-  h += '<div class="rowflex" style="margin-bottom:8px;gap:8px">'
+/* Role-play turns a dialogue from something you listen to into something you are
+   in. Pick a character and their English is covered — the Hindi stays as your
+   cue, so you have to produce the line yourself before revealing it. Play-all
+   then leaves a silent gap on your turns instead of speaking them. This is the
+   single biggest difference between a learner who replays a dialogue twice and
+   one who replays it ten times. */
+var _RP = { role: null, revealed: {} };
+var _DLG_FULL = [];
+function dialogueRoles(d){
+  var seen = [], out = [];
+  d.forEach(function(L){ var w = L.who || ""; if(w && seen.indexOf(w)===-1){ seen.push(w); out.push(L); } });
+  return out;
+}
+function setRole(who){
+  _RP.role = (_RP.role === who) ? null : who;
+  _RP.revealed = {};
+  stopDialogue();
+  var box = document.getElementById("dlgBox");
+  if(box) box.innerHTML = dialogueInner();
+}
+function revealLine(i){
+  _RP.revealed[i] = true;
+  var box = document.getElementById("dlgBox");
+  if(box) box.innerHTML = dialogueInner();
+  var L = _DLG_FULL[i];
+  if(L) speak(L.en, 1);
+}
+function dialogueInner(){
+  var d = _DLG_FULL, h = "";
+  var roles = dialogueRoles(d);
+  if(roles.length > 1){
+    h += '<div class="rolerow"><span class="rolelabel">🎭 '+sp("Play a part:","कोई किरदार निभाइए:")+'</span>';
+    roles.forEach(function(L){
+      var w = L.who;
+      h += '<button class="rolebtn'+(_RP.role===w?" on":"")+'" type="button" onclick="setRole('+JSON.stringify(w).replace(/"/g,"&quot;")+')">'
+         + esc(t({en:w, hi:L.whoHi||w}))+'</button>';
+    });
+    if(_RP.role) h += '<button class="rolebtn clear" type="button" onclick="setRole(null)">✕ '+sp("Just listen","सिर्फ़ सुनें")+'</button>';
+    h += '</div>';
+    if(_RP.role){
+      h += '<div class="rolehint">'+sp(
+        "Your lines are covered. Read the Hindi, say the English out loud, then tap the line to check.",
+        "आपकी पंक्तियाँ ढकी हुई हैं। हिंदी पढ़िए, अंग्रेज़ी ज़ोर से बोलिए, फिर जाँचने के लिए पंक्ति पर दबाइए।")+'</div>';
+    }
+  }
+  h += '<div class="rowflex" style="margin:8px 0;gap:8px">'
     + '<button class="btn sm" type="button" onclick="playDialogue(1)">▶︎ '+sp("Play all","पूरा सुनें")+'</button>'
     + '<button class="btn ghost sm" type="button" onclick="playDialogue(0.7)">🐢 '+sp("Play slowly","धीरे सुनें")+'</button>'
     + '<button class="btn ghost sm" type="button" onclick="stopDialogue()">■ '+sp("Stop","रोकें")+'</button>'
     + '</div>';
   d.forEach(function(L, i){
-    h += '<div class="dline" id="dl'+i+'"><span class="who">'+esc(t({en:L.who||"", hi:L.whoHi||L.who||""}))+'</span>'
-      + '<span class="dtxt"><span class="den">'+esc(L.en)+'</span>'
-      + (L.hi ? '<span class="dhi">'+esc(L.hi)+'</span>' : '')+'</span>'
-      + sayBtn(L.en, 1) + '</div>';
+    var mine = _RP.role && L.who === _RP.role;
+    var hidden = mine && !_RP.revealed[i];
+    h += '<div class="dline'+(mine?" mine":"")+'" id="dl'+i+'">'
+      + '<span class="who">'+esc(t({en:L.who||"", hi:L.whoHi||L.who||""}))+'</span>'
+      + '<span class="dtxt">';
+    if(hidden){
+      h += '<span class="den masked" onclick="revealLine('+i+')">🎭 '+sp("your line — tap to check","आपकी पंक्ति — जाँचने के लिए दबाइए")+'</span>';
+    } else {
+      h += '<span class="den">'+esc(L.en)+'</span>';
+    }
+    h += (L.hi ? '<span class="dhi">'+esc(L.hi)+'</span>' : '')+'</span>'
+      + (hidden ? '' : sayBtn(L.en, 1)) + '</div>';
   });
-  h += '</div>';
   return h;
+}
+function vDialogue(tp){
+  var d = tp.dialogue; if(!d || !d.length) return "";
+  _DLG_FULL = d;
+  _DLG = d.map(function(L){ return { en: L.en, who: L.who || "" }; });
+  _RP = { role: null, revealed: {} };
+  return '<div class="card" style="margin-top:14px"><h3 style="margin:0 0 4px">🎧 '+sp("Listen first","पहले सुनिए")+'</h3>'
+    + '<div class="sub" style="margin-bottom:6px">'
+    + sp("Listen right through first. Then pick a part and say those lines yourself.",
+         "पहले पूरा सुन लीजिए। फिर कोई किरदार चुनिए और उसकी पंक्तियाँ ख़ुद बोलिए।")+'</div>'
+    + '<div id="dlgBox">'+dialogueInner()+'</div></div>';
 }
 function stopDialogue(){
   _dlgStop = true;
   try{ window.speechSynthesis.cancel(); }catch(e){}
-  _DLG.forEach(function(_,i){ var el=document.getElementById("dl"+i); if(el) el.classList.remove("on"); });
+  _DLG.forEach(function(_,i){ var el=document.getElementById("dl"+i); if(el) el.classList.remove("on","waiting"); });
 }
 function playDialogue(rate){
   if(!TTS_OK){ toast(LANG==="hi"?"इस browser में आवाज़ उपलब्ध नहीं है":"Audio is not available in this browser"); return; }
@@ -7802,8 +7873,22 @@ function playDialogue(rate){
   var i = 0;
   function step(){
     if(_dlgStop || i>=_DLG.length) return;
-    var prev = document.getElementById("dl"+(i-1)); if(prev) prev.classList.remove("on");
+    var prev = document.getElementById("dl"+(i-1)); if(prev) prev.classList.remove("on","waiting");
     var el = document.getElementById("dl"+i); if(el) el.classList.add("on");
+    /* In role-play, the learner's own lines are not spoken — the player leaves a
+       silent gap sized to the line so they can say it themselves and still stay
+       in rhythm with the scene. */
+    if(_RP.role && _DLG[i].who === _RP.role){
+      if(el) el.classList.add("waiting");
+      var words = String(_DLG[i].en).split(/\s+/).length;
+      var gap = Math.min(6000, Math.max(1600, words * 380 / (rate || 1)));
+      setTimeout(function(){
+        if(_dlgStop) return;
+        if(el) el.classList.remove("on","waiting");
+        i++; step();
+      }, gap);
+      return;
+    }
     try{
       var u = new SpeechSynthesisUtterance(_DLG[i].en);
       var v = _pickVoice(); if(v){ u.voice=v; u.lang=v.lang; } else { u.lang="en-IN"; }
