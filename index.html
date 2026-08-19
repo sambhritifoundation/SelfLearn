@@ -7977,38 +7977,55 @@ var _asr = null;
 function _normWords(s){
   return String(s||"").toLowerCase().replace(/[^a-z0-9\s']/g," ").split(/\s+/).filter(Boolean);
 }
-function vSpeakCheck(tp){
-  var task = tp.speakTask; if(!task || !task.target) return "";
-  var h = '<div class="card" style="margin-top:14px"><h3 style="margin:0 0 4px">🎤 '+sp("Your turn","अब आपकी बारी")+'</h3>'
-    + '<div class="sub" style="margin-bottom:8px">'+esc(t(task.prompt||{en:"",hi:""}))+'</div>'
-    + '<div class="drillbox">'
+/* A unit may carry one speaking task or several. Several is better: one line to
+   say is a demonstration, four is practice. Each block owns indexed element ids
+   so they never collide on the page. */
+function speakBlock(task, n){
+  var mic = "micBtn" + n, box = "heardBox" + n;
+  var h = '<div class="drillbox" style="margin-top:10px">'
+    + (task.prompt ? '<div class="sub" style="margin-bottom:6px">'+esc(t(task.prompt))+'</div>' : '')
     + '<div style="font-size:1.06rem;font-weight:700;margin-bottom:8px">'+esc(task.target)+'</div>'
     + '<div class="rowflex" style="gap:8px;justify-content:flex-start">'+sayBtn(task.target,1)+sayBtn(task.target,0.6,"🐢");
   if(ASR_OK){
-    h += '<button class="btn sm" type="button" id="micBtn" onclick="speakCheck('+JSON.stringify(task.target).replace(/"/g,"&quot;")+')">🎤 '
+    h += '<button class="btn sm" type="button" id="'+mic+'" onclick="speakCheck('
+       + JSON.stringify(task.target).replace(/"/g,"&quot;")+','+n+')">🎤 '
        + sp("Tap and speak","दबाइए और बोलिए")+'</button>';
   }
-  h += '</div><div class="heard" id="heardBox"></div>';
+  h += '</div><div class="heard" id="'+box+'"></div>';
   if(!ASR_OK){
     h += '<div class="micnote">'+sp("This browser cannot listen to you. Say the sentence aloud anyway, then compare with the audio above — that still works.",
       "यह browser आपको सुन नहीं सकता। फिर भी वाक्य ज़ोर से बोलिए और ऊपर की आवाज़ से मिलाइए — इससे भी अभ्यास होता है।")+'</div>';
   }
   h += '<div class="rowflex" style="gap:8px;justify-content:flex-start;margin-top:10px">'
-    + '<button class="btn ghost sm" type="button" onclick="speakSelf(true)">👍 '+sp("I said it well","मैंने ठीक बोला")+'</button>'
-    + '<button class="btn ghost sm" type="button" onclick="speakSelf(false)">🔁 '+sp("Let me try again","फिर कोशिश करूँ")+'</button>'
-    + '</div></div></div>';
+    + '<button class="btn ghost sm" type="button" onclick="speakSelf(true,'+n+')">👍 '+sp("I said it well","मैंने ठीक बोला")+'</button>'
+    + '<button class="btn ghost sm" type="button" onclick="speakSelf(false,'+n+')">🔁 '+sp("Let me try again","फिर कोशिश करूँ")+'</button>'
+    + '</div></div>';
   return h;
 }
-function speakSelf(ok){
-  var box = document.getElementById("heardBox"); if(!box) return;
+function vSpeakCheck(tp){
+  var tasks = tp.speakTask ? (Array.isArray(tp.speakTask) ? tp.speakTask : [tp.speakTask]) : [];
+  tasks = tasks.filter(function(x){ return x && x.target; });
+  if(!tasks.length) return "";
+  var h = '<div class="card" style="margin-top:14px"><h3 style="margin:0 0 4px">🎤 '+sp("Your turn","अब आपकी बारी")+'</h3>'
+    + '<div class="sub">'
+    + (tasks.length > 1
+        ? sp("Work through all of them. Say each one out loud before you tap.","सभी को बारी-बारी कीजिए। दबाने से पहले हर एक ज़ोर से बोलिए।")
+        : sp("Say it out loud before you tap.","दबाने से पहले ज़ोर से बोलिए।"))
+    + '</div>';
+  tasks.forEach(function(task, i){ h += speakBlock(task, i); });
+  return h + '</div>';
+}
+function speakSelf(ok, n){
+  var box = document.getElementById("heardBox" + (n===undefined ? "" : n)); if(!box) return;
   box.innerHTML = ok
     ? '<span class="w-ok">'+sp("Good — trust that. Move on when it feels easy.","बढ़िया — इसी पर भरोसा कीजिए। जब आसान लगे तब आगे बढ़िए।")+'</span>'
     : '<span>'+sp("Play it once more, then say it with the audio, not after it.","एक बार फिर चलाइए, फिर आवाज़ के बाद नहीं, साथ-साथ बोलिए।")+'</span>';
 }
-function speakCheck(target){
+function speakCheck(target, n){
   if(!ASR_OK) return;
-  var box = document.getElementById("heardBox");
-  var btn = document.getElementById("micBtn");
+  var sfx = (n===undefined ? "" : n);
+  var box = document.getElementById("heardBox" + sfx);
+  var btn = document.getElementById("micBtn" + sfx);
   try{ window.speechSynthesis.cancel(); }catch(e){}
   try{
     var Rec = window.SpeechRecognition || window.webkitSpeechRecognition;
