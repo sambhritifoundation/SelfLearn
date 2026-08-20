@@ -776,25 +776,26 @@ var DIAGRAMS = {
   },
   "fruit-baskets": function(L){
     var d=function(a,b){return L==="hi"?b:a;};
-    var h='<svg viewBox="0 0 460 250" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
-      +'<text x="230" y="20" text-anchor="middle" font-size="17" font-weight="bold" fill="var(--primary)">'+d("Two baskets — before any maths","दो टोकरियाँ — गणित से पहले")+'</text>';
+    var h='<svg viewBox="0 0 460 340" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="230" y="24" text-anchor="middle" font-size="17" font-weight="bold" fill="var(--primary)">'+d("Two baskets — before any maths","दो टोकरियाँ — गणित से पहले")+'</text>';
     function basket(x,y,label,items,tint){
-      var g='<rect x="'+x+'" y="'+y+'" width="122" height="76" rx="12" fill="'+tint+'" stroke="var(--line-strong)" stroke-width="2"/>'
-        +'<text x="'+(x+61)+'" y="'+(y-8)+'" text-anchor="middle" font-size="15" font-weight="bold" fill="var(--ink)">'+label+'</text>';
+      var g='<text x="'+(x+61)+'" y="'+y+'" text-anchor="middle" font-size="15" font-weight="bold" fill="var(--ink)">'+label+'</text>'
+        +'<rect x="'+x+'" y="'+(y+10)+'" width="122" height="76" rx="12" fill="'+tint+'" stroke="var(--line-strong)" stroke-width="2"/>';
       items.forEach(function(it,i){
-        g+='<text x="'+(x+30+ (i%2)*58)+'" y="'+(y+30+Math.floor(i/2)*30)+'" text-anchor="middle" font-size="22">'+it+'</text>';
+        g+='<text x="'+(x+30+ (i%2)*58)+'" y="'+(y+48+Math.floor(i/2)*30)+'" text-anchor="middle" font-size="22">'+it+'</text>';
       });
       return g;
     }
-    h+= basket(24, 62, d("Your basket","आपकी टोकरी"), ["🍎","🍌"], "var(--primary-light)")
-      + basket(170, 62, d("Friend's basket","दोस्त की टोकरी"), ["🍎","🍊"], "var(--green-light)")
-      +'<text x="316" y="72" font-size="15" font-weight="bold" fill="var(--ink)">'+d("Union — tip both in","Union — दोनों उँडेल दीजिए")+'</text>'
-      +'<rect x="316" y="82" width="122" height="40" rx="10" fill="var(--accent-light)" stroke="var(--line-strong)" stroke-width="2"/>'
-      +'<text x="377" y="109" text-anchor="middle" font-size="21">🍎 🍌 🍊</text>'
-      +'<text x="316" y="152" font-size="15" font-weight="bold" fill="var(--ink)">'+d("Intersection — in both","Intersection — दोनों में")+'</text>'
-      +'<rect x="316" y="162" width="122" height="40" rx="10" fill="var(--accent-light)" stroke="var(--line-strong)" stroke-width="2"/>'
-      +'<text x="377" y="189" text-anchor="middle" font-size="21">🍎</text>'
-      +'<text x="230" y="232" text-anchor="middle" font-size="15" fill="var(--muted)">'+d("Apple was in both baskets, so it is written ONCE in the union","सेब दोनों टोकरियों में था, तो union में एक ही बार लिखा जाता है")+'</text>'
+    function row(y,label,tag,items){
+      return '<text x="30" y="'+y+'" font-size="15" font-weight="bold" fill="var(--ink)">'+label+'<tspan font-size="15" font-weight="normal" fill="var(--muted)"> '+tag+'</tspan></text>'
+        +'<rect x="30" y="'+(y+10)+'" width="400" height="42" rx="10" fill="var(--accent-light)" stroke="var(--line-strong)" stroke-width="2"/>'
+        +'<text x="230" y="'+(y+37)+'" text-anchor="middle" font-size="22">'+items+'</text>';
+    }
+    h+= basket(24, 56, d("Your basket","आपकी टोकरी"), ["🍎","🍌"], "var(--primary-light)")
+      + basket(314, 56, d("Friend's basket","दोस्त की टोकरी"), ["🍎","🍊"], "var(--green-light)")
+      + row(190, d("Union","Union"), d("— tip both in","— दोनों उँडेल दीजिए"), "🍎 🍌 🍊")
+      + row(264, d("Intersection","Intersection"), d("— in both","— दोनों में"), "🍎")
+      +'<text x="230" y="322" text-anchor="middle" font-size="15" fill="var(--muted)">'+d("Apple was in both baskets, so it is written ONCE in the union","सेब दोनों टोकरियों में था, तो union में एक ही बार लिखा जाता है")+'</text>'
       +'</svg>';
     return h;
   },
