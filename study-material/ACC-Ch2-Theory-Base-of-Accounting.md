@@ -1,5 +1,5 @@
 # Chapter 2 — Theory Base of Accounting
-**CBSE Class 11 Accountancy | Source: NCERT keac102.pdf (Reprint 2026-27)**
+**CBSE Class 11 Accountancy**
 **SelfLearn study material — Sambhriti Foundation**
 
 ---
@@ -19,7 +19,7 @@ This is exactly why accounting needs **common rules that everyone follows** — 
 Key points:
 - They evolved over centuries from **experience, customs, professional bodies and government regulations** — nobody "invented" them in one day.
 - They are **not static** — they change as law, society and business change.
-- Books use many words for them — *principles, concepts, conventions, postulates, assumptions* — NCERT treats them all as one family: **Basic Accounting Concepts**.
+- Books use many words for them — *principles, concepts, conventions, postulates, assumptions* — all treated as one family: **Basic Accounting Concepts**.
 - In India, the **ICAI (Institute of Chartered Accountants of India)** is the regulatory body that issues **Accounting Standards**.
 
 **Why it matters:** two comparisons become possible — **inter-firm** (Meena vs Suresh) and **inter-period** (Meena this year vs Meena last year).
@@ -42,7 +42,7 @@ Key points:
 
 **Simple words:** Record only what can be expressed in **rupees**, and record it in rupees — not in physical units.
 
-**NCERT's brilliant example:** a firm owns 2 acres of land, a 10-room building, 30 computers, 20 tons of raw material, 100 cartons of finished goods. Can you add *acres + rooms + computers + tons + cartons*? No! But convert everything to money — land ₹2 crore + building ₹1 crore + computers ₹15 lakh + furniture ₹2 lakh + raw material ₹33 lakh + finished goods ₹4 lakh — and you get one meaningful total: **₹3.59 crore**. Money is the common language that lets us add unlike things.
+**A brilliant example:** a firm owns 2 acres of land, a 10-room building, 30 computers, 20 tons of raw material, 100 cartons of finished goods. Can you add *acres + rooms + computers + tons + cartons*? No! But convert everything to money — land ₹2 crore + building ₹1 crore + computers ₹15 lakh + furniture ₹2 lakh + raw material ₹33 lakh + finished goods ₹4 lakh — and you get one meaningful total: **₹3.59 crore**. Money is the common language that lets us add unlike things.
 
 **Limitation (exam favourite):** the value of the rupee itself keeps falling due to rising prices. A building bought in 1995 for ₹2 crore and a plant bought in 2005 for ₹1 crore are added together as if a 1995-rupee equals a 2005-rupee — which is not true. So the books may not show a "true and fair" picture during inflation.
 
@@ -78,7 +78,7 @@ Key points:
 
 **Simple words:** Record every asset at its **purchase cost** — including everything spent to make it ready for use — and keep that figure year after year.
 
-**NCERT's data example (learn the addition!):** Shiva Enterprise bought an old plant:
+**Worked example (learn the addition!):** Shiva Enterprise bought an old plant:
 
 | Item | ₹ |
 |---|---|
@@ -97,7 +97,7 @@ Key points:
 
 **Simple words:** **Every transaction has two effects**, and both must be recorded. This is the foundation of the entire double entry system.
 
-Three NCERT examples:
+Three examples:
 1. Ram invests ₹50,00,000 → **cash (asset) ↑** and **capital ↑**
 2. Goods bought for cash ₹10,00,000 → **stock ↑** and **cash ↓** (one asset swaps for another)
 3. Machine bought on credit ₹30,00,000 from Reliable Industries → **machinery (asset) ↑** and **creditor (liability) ↑**
@@ -165,7 +165,7 @@ Five concepts that keep accountants honest and careful:
 | Reliability | Accurate; frauds/errors can be detected; trial balance possible | Incomplete, unsystematic, unreliable |
 | Who uses | Big and small organisations | Very small firms (simple and flexible) |
 
-NCERT's blunt verdict on single entry: *"this is not a system but a lack of system."* It is politely called **incomplete records**.
+The blunt verdict on single entry: *"this is not a system but a lack of system."* It is politely called **incomplete records**.
 
 ---
 
@@ -190,7 +190,7 @@ NCERT's blunt verdict on single entry: *"this is not a system but a lack of syst
   - **CGST** — Centre's share (replaced central excise, central sales tax, etc.)
   - **SGST** — State's share (replaced VAT, entertainment tax, luxury tax, entry tax, octroi)
   - **IGST** — on **inter-state** sales and imports; collected by Centre, then shared.
-- **Worked example (NCERT):** Ramesh in Punjab sells to Seema in Punjab for ₹10,000, GST 18% → **CGST 9% = ₹900 to Centre + SGST 9% = ₹900 to Punjab**. But a sale from Madhya Pradesh to Rajasthan → **IGST 18%** on the invoice value.
+- **Worked example:** Ramesh in Punjab sells to Seema in Punjab for ₹10,000, GST 18% → **CGST 9% = ₹900 to Centre + SGST 9% = ₹900 to Punjab**. But a sale from Madhya Pradesh to Rajasthan → **IGST 18%** on the invoice value.
 - Removes the old **cascading effect** ("tax on tax"), widens the tax base, and keeps rates few.
 
 **Memory line:** *Within the state — split the cake (CGST+SGST); across states — one integrated slice (IGST).*
@@ -231,7 +231,7 @@ Section A: Objective (Q1–Q6, 1 mark each) · Section B: Short answer (Q7–Q8,
 
 **Q9.** "Every transaction has a two-fold effect." Explain the dual aspect concept and the fundamental accounting equation. Show the effect of the following on the equation: (i) Started business with cash ₹2,00,000; (ii) Purchased goods for cash ₹60,000; (iii) Purchased machinery on credit from Reliable Industries ₹1,00,000. (5 marks)
 
-**Q10. (Case-based, adapted from NCERT Activity 1):**
+**Q10. (Case-based):**
 Ruchica's father owns 'Friends Gifts'. When the accountant fell ill, Ruchica prepared the financial statements herself for a ₹5 lakh bank loan. The banker refused to rely on her statements after finding:
  (i) A building bought a few years ago for ₹7 lakh was shown at its present market value of ₹20 lakh.
  (ii) The method of stock valuation was changed from last year, making stock about 15% higher.
@@ -277,4 +277,4 @@ Identify the accounting concept violated in **each** of the four cases, and stat
  (½ mark for naming the concept, ½ mark for the reason, 1 mark for correct treatment — per part.)
 
 ---
-*Prepared from NCERT Class 11 Accountancy, Chapter 2 (keac102.pdf). Previous: Chapter 1 — Introduction to Accounting. Next: Chapter 3 — Recording of Transactions I.*
+*Class 11 Accountancy, Chapter 2. Previous: Chapter 1 — Introduction to Accounting. Next: Chapter 3 — Recording of Transactions I.*

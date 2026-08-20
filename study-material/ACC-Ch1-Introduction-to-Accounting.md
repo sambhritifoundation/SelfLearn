@@ -1,5 +1,5 @@
 # Chapter 1 — Introduction to Accounting
-**CBSE Class 11 Accountancy | Source: NCERT keac101.pdf (Reprint 2026-27)**
+**CBSE Class 11 Accountancy**
 **SelfLearn study material — Sambhriti Foundation**
 
 ---
@@ -210,7 +210,7 @@ Four main objectives — all four are literally why Meena didi keeps her noteboo
 
 1. **Maintain systematic records** — no human memory can hold hundreds of transactions. Records also act as **evidence**.
 2. **Calculate profit or loss** — Profit = Revenue − Expenses.
-   *NCERT's own example:* Revenue ₹6,00,000 − Expenses ₹5,40,000 = **Profit ₹60,000**. If expenses were higher, the difference would be a loss.
+   *Example:* Revenue ₹6,00,000 − Expenses ₹5,40,000 = **Profit ₹60,000**. If expenses were higher, the difference would be a loss.
 3. **Show the financial position** — a **Balance Sheet** lists what the business *owns* (assets) and what it *owes* (liabilities) on a date. It is the business's "health check-up report."
 4. **Provide information to users** — reports, statements, charts for both internal and external users.
 
@@ -229,7 +229,7 @@ Meena wants a ₹1 lakh bank loan to add a refrigerator section. Match each requ
 
 ## Micro-topic 9: Role and Limitations of Accounting
 
-Accounting plays five roles (Box 4 of NCERT — frequent exam question):
+Accounting plays five roles (a frequent exam question):
 
 - **A language** — the language of business.
 - **A historical record** — chronological record of actual transactions at actual amounts.
@@ -398,9 +398,9 @@ It is 31 March, the shop's financial year-end. Using everything from this chapte
 | **Evaluate** | Competency case (D); Q8 and Q9 of the summative assessment |
 | **Create** | Performance task (E); Chapter Challenge (G) |
 
-## NCERT Learning Objectives — self-check alignment
+## Learning Objectives — self-check alignment
 
-| NCERT objective (from the chapter opener) | Addressed in |
+| Learning objective (from the chapter opener) | Addressed in |
 |---|---|
 | State the meaning and need of accounting | Micro-topic 1 |
 | Discuss accounting as a source of information | Micro-topic 4 |
@@ -471,7 +471,7 @@ Section A: Objective (Q1–Q6, 1 mark each) · Section B: Short answer (Q7–Q8,
 
 **Q9.** Explain the four qualitative characteristics of accounting information which make it useful for decision-making. (5 marks)
 
-**Q10. (Case-based, like NCERT Test Your Understanding V):**
+**Q10. (Case-based):**
 Mr. Aman started a mobile-accessories business with ₹4,00,000 as initial investment. Out of this he paid ₹80,000 for furniture and ₹2,00,000 for buying accessories (goods). He employed a salesperson and paid ₹6,000 as salary for the month. He sold accessories for ₹1,20,000 in cash and accessories worth ₹90,000 on credit to Mr. Bharat. He then bought more accessories worth ₹1,00,000 on credit from M/s Chetan Traders. Due to a short-circuit, accessories worth ₹25,000 were destroyed. He sold his old scooter (personal decision to use business funds is not involved; the scooter belonged to the business, costing ₹30,000) for ₹34,000.
 
 From the above, answer: (1 × 8 = 8 marks)
@@ -572,4 +572,4 @@ Assess against the rubric provided. There is no single correct set of figures; l
 3. Any valid non-quantifiable factor: goodwill, employee morale, customer trust, brand reputation, environmental impact, and so on.
 
 ---
-*Prepared from NCERT Class 11 Accountancy, Chapter 1 (keac101.pdf). Next: Chapter 2 — Theory Base of Accounting.*
+*Class 11 Accountancy, Chapter 1. Next: Chapter 2 — Theory Base of Accounting.*

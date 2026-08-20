@@ -17,8 +17,8 @@ See the [LICENSE](LICENSE) file for the full terms.
 
 - **Publisher / Copyright holder:** Sambhriti Foundation for Education
 - **Website:** https://sambhriti.in
-- **Curriculum reference:** NCERT / CBSE — these names are used only to indicate curriculum
-  alignment; the respective official materials remain the property of their owners.
+- **Curriculum reference:** CBSE — this name is used only to indicate curriculum
+  alignment; the official materials remain the property of their owner.
 
 ### Learner data & privacy
 
