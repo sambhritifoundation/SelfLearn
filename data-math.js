@@ -1387,75 +1387,55 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "cats": [
    {
     "k": "n",
-    "label": {
-     "en": "Natural",
-     "hi": "प्राकृत"
-    }
+    "en": "Natural",
+    "hi": "प्राकृत"
    },
    {
     "k": "z",
-    "label": {
-     "en": "Integer, not natural",
-     "hi": "पूर्णांक, प्राकृत नहीं"
-    }
+    "en": "Integer, not natural",
+    "hi": "पूर्णांक, प्राकृत नहीं"
    },
    {
     "k": "q",
-    "label": {
-     "en": "Rational, not integer",
-     "hi": "परिमेय, पूर्णांक नहीं"
-    }
+    "en": "Rational, not integer",
+    "hi": "परिमेय, पूर्णांक नहीं"
    },
    {
     "k": "i",
-    "label": {
-     "en": "Irrational",
-     "hi": "अपरिमेय"
-    }
+    "en": "Irrational",
+    "hi": "अपरिमेय"
    }
   ],
   "items": [
    {
     "k": "n",
-    "label": {
-     "en": "$7$",
-     "hi": "$7$"
-    }
+    "en": "$7$",
+    "hi": "$7$"
    },
    {
     "k": "z",
-    "label": {
-     "en": "$-4$",
-     "hi": "$-4$"
-    }
+    "en": "$-4$",
+    "hi": "$-4$"
    },
    {
     "k": "q",
-    "label": {
-     "en": "$0.75$",
-     "hi": "$0.75$"
-    }
+    "en": "$0.75$",
+    "hi": "$0.75$"
    },
    {
     "k": "i",
-    "label": {
-     "en": "$\\pi$",
-     "hi": "$\\pi$"
-    }
+    "en": "$\\pi$",
+    "hi": "$\\pi$"
    },
    {
     "k": "n",
-    "label": {
-     "en": "$\\sqrt{25}$",
-     "hi": "$\\sqrt{25}$"
-    }
+    "en": "$\\sqrt{25}$",
+    "hi": "$\\sqrt{25}$"
    },
    {
     "k": "q",
-    "label": {
-     "en": "$\\frac{2}{3}$",
-     "hi": "$\\frac{2}{3}$"
-    }
+    "en": "$\\frac{2}{3}$",
+    "hi": "$\\frac{2}{3}$"
    }
   ],
   "exp": {
@@ -2294,68 +2274,50 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "cats": [
    {
     "k": "n",
-    "label": {
-     "en": "Natural $\\mathbb{N}$",
-     "hi": "प्राकृत $\\mathbb{N}$"
-    }
+    "en": "Natural $\\mathbb{N}$",
+    "hi": "प्राकृत $\\mathbb{N}$"
    },
    {
     "k": "z",
-    "label": {
-     "en": "Integer $\\mathbb{Z}$ only",
-     "hi": "सिर्फ़ पूर्णांक $\\mathbb{Z}$"
-    }
+    "en": "Integer $\\mathbb{Z}$ only",
+    "hi": "सिर्फ़ पूर्णांक $\\mathbb{Z}$"
    },
    {
     "k": "q",
-    "label": {
-     "en": "Rational $\\mathbb{Q}$ only",
-     "hi": "सिर्फ़ परिमेय $\\mathbb{Q}$"
-    }
+    "en": "Rational $\\mathbb{Q}$ only",
+    "hi": "सिर्फ़ परिमेय $\\mathbb{Q}$"
    }
   ],
   "items": [
    {
     "k": "n",
-    "label": {
-     "en": "$3$",
-     "hi": "$3$"
-    }
+    "en": "$3$",
+    "hi": "$3$"
    },
    {
     "k": "z",
-    "label": {
-     "en": "$-11$",
-     "hi": "$-11$"
-    }
+    "en": "$-11$",
+    "hi": "$-11$"
    },
    {
     "k": "q",
-    "label": {
-     "en": "$\\frac{5}{8}$",
-     "hi": "$\\frac{5}{8}$"
-    }
+    "en": "$\\frac{5}{8}$",
+    "hi": "$\\frac{5}{8}$"
    },
    {
     "k": "n",
-    "label": {
-     "en": "$\\sqrt{49}$",
-     "hi": "$\\sqrt{49}$"
-    }
+    "en": "$\\sqrt{49}$",
+    "hi": "$\\sqrt{49}$"
    },
    {
     "k": "z",
-    "label": {
-     "en": "$0$",
-     "hi": "$0$"
-    }
+    "en": "$0$",
+    "hi": "$0$"
    },
    {
     "k": "q",
-    "label": {
-     "en": "$-2.5$",
-     "hi": "$-2.5$"
-    }
+    "en": "$-2.5$",
+    "hi": "$-2.5$"
    }
   ],
   "exp": {
