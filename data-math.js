@@ -22,7 +22,7 @@ window.SL_DATA.subjects.push({
  "levelled": true,
  "intro": {
   "en": "Class 11 mathematics, built so that a shaky Class 10 is not a life sentence. Level 0 rebuilds the arithmetic and algebra Class 11 assumes; every Class 11 chapter then opens with a Bridge naming exactly what it needs, and a practice ladder that runs from a genuine warm-up to JEE Advanced.",
-  "hi": "कक्षा 11 का गणित, इस तरह बनाया गया कि कमज़ोर कक्षा 10 उम्र भर की सज़ा न बने। स्तर 0 वही अंकगणित और बीजगणित दोबारा खड़ा करता है जिसे कक्षा 11 मान लेती है; फिर कक्षा 11 का हर अध्याय एक पुल से खुलता है जो ठीक-ठीक बताता है कि उसे क्या चाहिए, और एक अभ्यास की सीढ़ी से जो असली शुरुआत से लेकर JEE Advanced तक जाती है।"
+  "hi": "कक्षा 11 का गणित, इस तरह बनाया गया कि कमज़ोर कक्षा 10 उम्र भर की सज़ा न बने। स्तर 0 वही arithmetic और algebra दोबारा खड़ा करता है जिसे कक्षा 11 मान लेती है; फिर कक्षा 11 का हर अध्याय एक पुल से खुलता है जो ठीक-ठीक बताता है कि उसे क्या चाहिए, और एक अभ्यास की सीढ़ी से जो असली शुरुआत से लेकर JEE Advanced तक जाती है।"
  },
  "chapters": [
   {
@@ -37,22 +37,22 @@ window.SL_DATA.subjects.push({
    },
    "summary": {
     "en": "The number line, the families that live on it, negatives without the panic, and fractions. Nothing here is new — it is the Class 8-10 arithmetic that Class 11 assumes and never re-teaches. If maths has gone badly for you, the missing brick is usually in this chapter.",
-    "hi": "संख्या रेखा, उस पर बसे परिवार, बिना घबराहट के ऋणात्मक संख्याएँ, और भिन्न। यहाँ कुछ भी नया नहीं है — यह कक्षा 8-10 का वही अंकगणित है जिसे कक्षा 11 मान लेती है और दोबारा कभी नहीं पढ़ाती। अगर गणित ठीक नहीं गया, तो छूटी हुई ईंट आमतौर पर इसी अध्याय में है।"
+    "hi": "number line, उस पर बसे परिवार, बिना घबराहट के negative संख्याएँ, और fraction। यहाँ कुछ भी नया नहीं है — यह कक्षा 8-10 का वही arithmetic है जिसे कक्षा 11 मान लेती है और दोबारा कभी नहीं पढ़ाती। अगर गणित ठीक नहीं गया, तो छूटी हुई ईंट आमतौर पर इसी अध्याय में है।"
    },
    "assignment": {
     "en": "📋 **Practical activity — a number line you can hold**\n\n**Part A.** Take a strip of paper about 40 cm long. Mark 0 in the middle, then mark every whole number from $-5$ to $5$ at equal spacing. Now mark, as accurately as you can: $\\frac{1}{2}$, $-\\frac{3}{2}$, $2.75$, $-4.2$, and $\\sqrt{2}$ (about 1.414).\n\n**Part B.** Using only your strip, answer without calculating: which is larger, $-\\frac{3}{2}$ or $-1$? Which is closer to zero, $-4.2$ or $2.75$? Write one sentence explaining how you knew.\n\n**Part C — the shop receipt.** Find any real shopping bill at home. Pick one item and work out: what fraction of the total it was, that fraction as a decimal, and as a percentage. Show all three, and check they agree.\n\n**Part D — the sign audit.** Write out these five and mark each right or wrong: $-2^2 = -4$; $(-2)^2 = 4$; $5 - (-3) = 2$; $-3 \\times -4 = 12$; $\\frac{1}{2} + \\frac{1}{3} = \\frac{2}{5}$. Two are wrong. For each wrong one, write the correct answer AND one line saying what the mistake was.\n\n✍️ **Submit:** the paper strip, your Part B sentence, the three matching forms from Part C, and the two corrections from Part D.",
-    "hi": "📋 **व्यावहारिक गतिविधि — हाथ में पकड़ी जा सकने वाली संख्या रेखा**\n\n**भाग क।** क़रीब 40 सेमी लंबी कागज़ की पट्टी लीजिए। बीच में 0 लगाइए, फिर $-5$ से $5$ तक हर पूर्णांक बराबर दूरी पर लगाइए। अब जितना सटीक हो सके, ये लगाइए: $\\frac{1}{2}$, $-\\frac{3}{2}$, $2.75$, $-4.2$, और $\\sqrt{2}$ (लगभग 1.414)।\n\n**भाग ख।** सिर्फ़ अपनी पट्टी से, बिना हिसाब लगाए बताइए: कौन बड़ी है, $-\\frac{3}{2}$ या $-1$? शून्य के ज़्यादा पास कौन है, $-4.2$ या $2.75$? एक वाक्य में लिखिए कि आपको कैसे पता चला।\n\n**भाग ग — दुकान की रसीद।** घर में कोई भी असली ख़रीदारी का बिल ढूँढिए। एक चीज़ चुनिए और निकालिए: वह कुल का कौन-सा भिन्न थी, वही भिन्न दशमलव में, और प्रतिशत में। तीनों दिखाइए, और जाँचिए कि तीनों मेल खाते हैं।\n\n**भाग घ — चिह्नों की जाँच।** ये पाँच लिखिए और हर एक पर सही या ग़लत लगाइए: $-2^2 = -4$; $(-2)^2 = 4$; $5 - (-3) = 2$; $-3 \\times -4 = 12$; $\\frac{1}{2} + \\frac{1}{3} = \\frac{2}{5}$। दो ग़लत हैं। हर ग़लत के लिए सही जवाब **और** एक पंक्ति लिखिए कि ग़लती क्या थी।\n\n✍️ **जमा कीजिए:** कागज़ की पट्टी, भाग ख का वाक्य, भाग ग के तीनों मेल खाते रूप, और भाग घ के दो सुधार।"
+    "hi": "📋 **व्यावहारिक गतिविधि — हाथ में पकड़ी जा सकने वाली number line**\n\n**भाग क।** क़रीब 40 सेमी लंबी कागज़ की पट्टी लीजिए। बीच में 0 लगाइए, फिर $-5$ से $5$ तक हर integer बराबर दूरी पर लगाइए। अब जितना सटीक हो सके, ये लगाइए: $\\frac{1}{2}$, $-\\frac{3}{2}$, $2.75$, $-4.2$, और $\\sqrt{2}$ (लगभग 1.414)।\n\n**भाग ख।** सिर्फ़ अपनी पट्टी से, बिना हिसाब लगाए बताइए: कौन बड़ी है, $-\\frac{3}{2}$ या $-1$? शून्य के ज़्यादा पास कौन है, $-4.2$ या $2.75$? एक वाक्य में लिखिए कि आपको कैसे पता चला।\n\n**भाग ग — दुकान की रसीद।** घर में कोई भी असली ख़रीदारी का बिल ढूँढिए। एक चीज़ चुनिए और निकालिए: वह कुल का कौन-सा fraction थी, वही fraction decimal में, और percent में। तीनों दिखाइए, और जाँचिए कि तीनों मेल खाते हैं।\n\n**भाग घ — signs की जाँच।** ये पाँच लिखिए और हर एक पर सही या ग़लत लगाइए: $-2^2 = -4$; $(-2)^2 = 4$; $5 - (-3) = 2$; $-3 \\times -4 = 12$; $\\frac{1}{2} + \\frac{1}{3} = \\frac{2}{5}$। दो ग़लत हैं। हर ग़लत के लिए सही जवाब **और** एक पंक्ति लिखिए कि ग़लती क्या थी।\n\n✍️ **जमा कीजिए:** कागज़ की पट्टी, भाग ख का वाक्य, भाग ग के तीनों मेल खाते रूप, और भाग घ के दो सुधार।"
    },
    "topics": [
     {
      "code": "MTH-1-1",
      "name": {
       "en": "The number line, and why it is the whole picture",
-      "hi": "संख्या रेखा, और यही पूरी तस्वीर क्यों है"
+      "hi": "number line, और यही पूरी तस्वीर क्यों है"
      },
      "notes": {
       "en": "> 📌 **Before anything else.** If maths has gone badly for you so far, that is almost never about ability. It is almost always about one missing brick low down in the wall. This level finds the missing bricks. Nothing here is new — it is the maths that Class 11 assumes you already have.\n\n**Start with something you definitely know**\nYou know a bus route number. You know ₹50 is more than ₹20. You know that if you owe someone ₹30, you have less than nothing. That last one is the whole idea of a negative number, and you already had it before anyone taught you.\n\n**Everything lives on one line**\n\n$$\\cdots \\; -3 \\;\\; -2 \\;\\; -1 \\;\\; 0 \\;\\; 1 \\;\\; 2 \\;\\; 3 \\; \\cdots$$\n\nLeft is smaller. Right is bigger. That is the only rule, and it never changes for the rest of maths.\n\n💡 **This is why $-5 < -2$.** Not because of a rule you memorised — because $-5$ sits further left. Owing ₹5 leaves you worse off than owing ₹2. Picture the line and you never have to remember the rule.\n\n**The families of numbers, in the order humans invented them**\n\n| Name | Symbol | What it holds | Why it was invented |\n|---|---|---|---|\n| Natural | $\\mathbb{N}$ | $1, 2, 3, \\ldots$ | counting goats |\n| Whole | — | $0, 1, 2, \\ldots$ | counting nothing |\n| Integers | $\\mathbb{Z}$ | $\\ldots -2, -1, 0, 1, 2 \\ldots$ | owing money |\n| Rational | $\\mathbb{Q}$ | anything $\\frac{p}{q}$, $q \\neq 0$ | sharing a roti |\n| Real | $\\mathbb{R}$ | every point on the line | measuring a diagonal |\n\n⚠️ **Each family sits inside the next.** Every natural number is an integer. Every integer is rational ($5 = \\frac{5}{1}$). Every rational is real. So when a question says \"for all real $x$\", it is including everything you have ever counted with.\n\n**The one that surprises people**\nIs $0.5$ rational? Yes — $0.5 = \\frac{1}{2}$. Is $7$ rational? Yes — $7 = \\frac{7}{1}$. Almost every number you meet is rational. $\\sqrt{2}$ and $\\pi$ are the famous exceptions, and they are exactly why $\\mathbb{R}$ had to be invented.\n\n**Where this is going**\nClass 11 opens with Sets, and the very first examples are $\\mathbb{N}$, $\\mathbb{Z}$, $\\mathbb{Q}$, $\\mathbb{R}$. If those five symbols mean something to you, Chapter 1 of Class 11 starts easy instead of starting frightening.",
-      "hi": "> 📌 **सबसे पहले एक बात।** अगर अब तक गणित ठीक नहीं गया, तो यह लगभग कभी क्षमता की बात नहीं होती। यह लगभग हमेशा दीवार में नीचे कहीं एक ईंट छूट जाने की बात होती है। यह स्तर वही छूटी हुई ईंटें ढूँढता है। यहाँ कुछ भी नया नहीं है — यह वही गणित है जो कक्षा 11 मान लेती है कि आपको आता है।\n\n**कुछ ऐसा जो आपको पक्का आता है, वहीं से शुरू**\nआपको बस का नंबर पता है। आपको पता है ₹50, ₹20 से ज़्यादा है। आपको पता है कि अगर किसी का ₹30 उधार है, तो आपके पास शून्य से भी कम है। यही आख़िरी बात ही ऋणात्मक संख्या का पूरा विचार है, और यह आपको किसी के सिखाने से पहले ही आता था।\n\n**सब कुछ एक ही रेखा पर रहता है**\n\n$$\\cdots \\; -3 \\;\\; -2 \\;\\; -1 \\;\\; 0 \\;\\; 1 \\;\\; 2 \\;\\; 3 \\; \\cdots$$\n\nबाएँ छोटा। दाएँ बड़ा। बस यही एक नियम है, और आगे पूरे गणित में यह कभी नहीं बदलता।\n\n💡 **इसीलिए $-5 < -2$ होता है।** किसी रटे हुए नियम की वजह से नहीं — क्योंकि $-5$ और बाईं तरफ़ बैठा है। ₹5 का उधार, ₹2 के उधार से ज़्यादा बुरा है। रेखा की तस्वीर याद रखिए, नियम याद रखने की ज़रूरत ही नहीं पड़ेगी।\n\n**संख्याओं के परिवार, उसी क्रम में जिसमें इंसान ने इन्हें बनाया**\n\n| नाम | चिह्न | इसमें क्या है | क्यों बनी |\n|---|---|---|---|\n| प्राकृत | $\\mathbb{N}$ | $1, 2, 3, \\ldots$ | बकरियाँ गिनने के लिए |\n| पूर्ण | — | $0, 1, 2, \\ldots$ | शून्य गिनने के लिए |\n| पूर्णांक | $\\mathbb{Z}$ | $\\ldots -2, -1, 0, 1, 2 \\ldots$ | उधार के लिए |\n| परिमेय | $\\mathbb{Q}$ | कोई भी $\\frac{p}{q}$, $q \\neq 0$ | रोटी बाँटने के लिए |\n| वास्तविक | $\\mathbb{R}$ | रेखा का हर बिंदु | विकर्ण नापने के लिए |\n\n⚠️ **हर परिवार अगले के अंदर बैठा है।** हर प्राकृत संख्या पूर्णांक है। हर पूर्णांक परिमेय है ($5 = \\frac{5}{1}$)। हर परिमेय वास्तविक है। तो जब सवाल कहता है \"सभी वास्तविक $x$ के लिए\", तो उसमें वह सब शामिल है जिससे आपने कभी गिनती की है।\n\n**वह बात जो लोगों को चौंकाती है**\nक्या $0.5$ परिमेय है? हाँ — $0.5 = \\frac{1}{2}$। क्या $7$ परिमेय है? हाँ — $7 = \\frac{7}{1}$। आप जिन संख्याओं से मिलते हैं उनमें से लगभग हर एक परिमेय है। $\\sqrt{2}$ और $\\pi$ मशहूर अपवाद हैं, और ठीक इन्हीं की वजह से $\\mathbb{R}$ बनाना पड़ा।\n\n**यह कहाँ ले जा रहा है**\nकक्षा 11 की शुरुआत समुच्चय (Sets) से होती है, और सबसे पहले उदाहरण ही $\\mathbb{N}$, $\\mathbb{Z}$, $\\mathbb{Q}$, $\\mathbb{R}$ हैं। अगर ये पाँच चिह्न आपके लिए कुछ मायने रखते हैं, तो कक्षा 11 का अध्याय 1 डरावना नहीं, आसान शुरू होगा।"
+      "hi": "> 📌 **सबसे पहले एक बात।** अगर अब तक गणित ठीक नहीं गया, तो यह लगभग कभी क्षमता की बात नहीं होती। यह लगभग हमेशा दीवार में नीचे कहीं एक ईंट छूट जाने की बात होती है। यह स्तर वही छूटी हुई ईंटें ढूँढता है। यहाँ कुछ भी नया नहीं है — यह वही गणित है जो कक्षा 11 मान लेती है कि आपको आता है।\n\n**कुछ ऐसा जो आपको पक्का आता है, वहीं से शुरू**\nआपको बस का नंबर पता है। आपको पता है ₹50, ₹20 से ज़्यादा है। आपको पता है कि अगर किसी का ₹30 उधार है, तो आपके पास शून्य से भी कम है। यही आख़िरी बात ही negative संख्या का पूरा विचार है, और यह आपको किसी के सिखाने से पहले ही आता था।\n\n**सब कुछ एक ही रेखा पर रहता है**\n\n$$\\cdots \\; -3 \\;\\; -2 \\;\\; -1 \\;\\; 0 \\;\\; 1 \\;\\; 2 \\;\\; 3 \\; \\cdots$$\n\nबाएँ छोटा। दाएँ बड़ा। बस यही एक नियम है, और आगे पूरे गणित में यह कभी नहीं बदलता।\n\n💡 **इसीलिए $-5 < -2$ होता है।** किसी रटे हुए नियम की वजह से नहीं — क्योंकि $-5$ और बाईं तरफ़ बैठा है। ₹5 का उधार, ₹2 के उधार से ज़्यादा बुरा है। रेखा की तस्वीर याद रखिए, नियम याद रखने की ज़रूरत ही नहीं पड़ेगी।\n\n**संख्याओं के परिवार, उसी क्रम में जिसमें इंसान ने इन्हें बनाया**\n\n| नाम | sign | इसमें क्या है | क्यों बनी |\n|---|---|---|---|\n| natural | $\\mathbb{N}$ | $1, 2, 3, \\ldots$ | बकरियाँ गिनने के लिए |\n| पूर्ण | — | $0, 1, 2, \\ldots$ | शून्य गिनने के लिए |\n| integer | $\\mathbb{Z}$ | $\\ldots -2, -1, 0, 1, 2 \\ldots$ | उधार के लिए |\n| rational | $\\mathbb{Q}$ | कोई भी $\\frac{p}{q}$, $q \\neq 0$ | रोटी बाँटने के लिए |\n| real | $\\mathbb{R}$ | रेखा का हर बिंदु | diagonal नापने के लिए |\n\n⚠️ **हर परिवार अगले के अंदर बैठा है।** हर natural number integer है। हर integer rational है ($5 = \\frac{5}{1}$)। हर rational real है। तो जब सवाल कहता है \"सभी real $x$ के लिए\", तो उसमें वह सब शामिल है जिससे आपने कभी गिनती की है।\n\n**वह बात जो लोगों को चौंकाती है**\nक्या $0.5$ rational है? हाँ — $0.5 = \\frac{1}{2}$। क्या $7$ rational है? हाँ — $7 = \\frac{7}{1}$। आप जिन संख्याओं से मिलते हैं उनमें से लगभग हर एक rational है। $\\sqrt{2}$ और $\\pi$ मशहूर अपवाद हैं, और ठीक इन्हीं की वजह से $\\mathbb{R}$ बनाना पड़ा।\n\n**यह कहाँ ले जा रहा है**\nकक्षा 11 की शुरुआत set (Sets) से होती है, और सबसे पहले उदाहरण ही $\\mathbb{N}$, $\\mathbb{Z}$, $\\mathbb{Q}$, $\\mathbb{R}$ हैं। अगर ये पाँच sign आपके लिए कुछ मायने रखते हैं, तो कक्षा 11 का अध्याय 1 डरावना नहीं, आसान शुरू होगा।"
      },
      "worked": [
       {
@@ -62,13 +62,13 @@ window.SL_DATA.subjects.push({
        },
        "problem": {
         "en": "Say whether $-7$, $\\frac{3}{4}$, $\\sqrt{9}$ and $\\sqrt{2}$ are natural, integer, rational or real.",
-        "hi": "बताइए कि $-7$, $\\frac{3}{4}$, $\\sqrt{9}$ और $\\sqrt{2}$ प्राकृत, पूर्णांक, परिमेय या वास्तविक हैं।"
+        "hi": "बताइए कि $-7$, $\\frac{3}{4}$, $\\sqrt{9}$ और $\\sqrt{2}$ natural, integer, rational या real हैं।"
        },
        "steps": [
         {
          "do": {
           "en": "$-7$ — it is a whole amount but it is below zero, so it is an **integer**. It is also rational, because $-7 = \\frac{-7}{1}$, and therefore also real.",
-          "hi": "$-7$ — यह पूरी मात्रा है पर शून्य से नीचे है, तो यह **पूर्णांक** है। यह परिमेय भी है, क्योंकि $-7 = \\frac{-7}{1}$, और इसलिए वास्तविक भी।"
+          "hi": "$-7$ — यह पूरी मात्रा है पर शून्य से नीचे है, तो यह **integer** है। यह rational भी है, क्योंकि $-7 = \\frac{-7}{1}$, और इसलिए real भी।"
          },
          "why": {
           "en": "Being in one family does not remove you from the bigger ones. Ask the smallest family it fits, then remember it belongs to every family above that.",
@@ -78,37 +78,37 @@ window.SL_DATA.subjects.push({
         {
          "do": {
           "en": "$\\frac{3}{4}$ — already written as $\\frac{p}{q}$ with $q \\neq 0$, so it is **rational**, and real. It is not an integer, because it does not land on a whole mark on the line.",
-          "hi": "$\\frac{3}{4}$ — पहले से ही $\\frac{p}{q}$ रूप में है, $q \\neq 0$, तो यह **परिमेय** है, और वास्तविक। यह पूर्णांक नहीं है, क्योंकि यह रेखा के किसी पूरे निशान पर नहीं गिरती।"
+          "hi": "$\\frac{3}{4}$ — पहले से ही $\\frac{p}{q}$ रूप में है, $q \\neq 0$, तो यह **rational** है, और real। यह integer नहीं है, क्योंकि यह रेखा के किसी पूरे निशान पर नहीं गिरती।"
          },
          "why": {
           "en": "Rational means only that it CAN be written as one whole number over another. That is a lower bar than most students assume.",
-          "hi": "परिमेय का मतलब सिर्फ़ इतना है कि इसे एक पूर्णांक बटा दूसरा पूर्णांक लिखा जा *सकता* है। यह उतनी कड़ी शर्त नहीं है जितनी ज़्यादातर विद्यार्थी मान लेते हैं।"
+          "hi": "rational का मतलब सिर्फ़ इतना है कि इसे एक integer बटा दूसरा integer लिखा जा *सकता* है। यह उतनी कड़ी शर्त नहीं है जितनी ज़्यादातर विद्यार्थी मान लेते हैं।"
          }
         },
         {
          "do": {
           "en": "$\\sqrt{9}$ — do not stop at the root sign. $\\sqrt{9} = 3$, which is **natural**, and therefore integer, rational and real too.",
-          "hi": "$\\sqrt{9}$ — मूल के चिह्न पर रुक मत जाइए। $\\sqrt{9} = 3$, जो **प्राकृत** है, और इसलिए पूर्णांक, परिमेय और वास्तविक भी।"
+          "hi": "$\\sqrt{9}$ — root के sign पर रुक मत जाइए। $\\sqrt{9} = 3$, जो **natural** है, और इसलिए integer, rational और real भी।"
          },
          "why": {
           "en": "Always simplify before you classify. A root sign is a question, not an answer — and here the answer is an ordinary counting number.",
-          "hi": "वर्गीकरण से पहले हमेशा सरल कीजिए। मूल का चिह्न सवाल है, जवाब नहीं — और यहाँ जवाब एक साधारण गिनती की संख्या है।"
+          "hi": "classify करने से पहले हमेशा सरल कीजिए। root का sign सवाल है, जवाब नहीं — और यहाँ जवाब एक साधारण गिनती की संख्या है।"
          }
         },
         {
          "do": {
           "en": "$\\sqrt{2}$ — this one genuinely cannot be written as $\\frac{p}{q}$. It is **irrational**, and real. It sits on the line at about $1.414\\ldots$, between $1$ and $2$.",
-          "hi": "$\\sqrt{2}$ — इसे सचमुच $\\frac{p}{q}$ रूप में नहीं लिखा जा सकता। यह **अपरिमेय** है, और वास्तविक। यह रेखा पर लगभग $1.414\\ldots$ पर, $1$ और $2$ के बीच बैठती है।"
+          "hi": "$\\sqrt{2}$ — इसे सचमुच $\\frac{p}{q}$ रूप में नहीं लिखा जा सकता। यह **irrational** है, और real। यह रेखा पर लगभग $1.414\\ldots$ पर, $1$ और $2$ के बीच बैठती है।"
          },
          "why": {
           "en": "It is still a real number — it is a genuine point on the line, the diagonal of a 1×1 square. Irrational does not mean unreal or unusable.",
-          "hi": "यह फिर भी वास्तविक संख्या है — रेखा का एक असली बिंदु, 1×1 वर्ग का विकर्ण। अपरिमेय का मतलब अवास्तविक या बेकार नहीं है।"
+          "hi": "यह फिर भी real संख्या है — रेखा का एक असली बिंदु, 1×1 square का diagonal। irrational का मतलब unreal या बेकार नहीं है।"
          }
         }
        ],
        "answer": {
         "en": "$-7$: integer · $\\frac{3}{4}$: rational · $\\sqrt{9}=3$: natural · $\\sqrt{2}$: irrational. All four are real.",
-        "hi": "$-7$: पूर्णांक · $\\frac{3}{4}$: परिमेय · $\\sqrt{9}=3$: प्राकृत · $\\sqrt{2}$: अपरिमेय। चारों वास्तविक हैं।"
+        "hi": "$-7$: integer · $\\frac{3}{4}$: rational · $\\sqrt{9}=3$: natural · $\\sqrt{2}$: irrational। चारों real हैं।"
        },
        "note": {
         "en": "The method is always the same: simplify first, then ask what is the smallest family this fits into.",
@@ -129,7 +129,7 @@ window.SL_DATA.subjects.push({
          "fade": true,
          "ask": {
           "en": "First, turn the fractions into decimals so they are easy to place. What are $\\frac{1}{2}$ and $-\\frac{5}{2}$ as decimals?",
-          "hi": "पहले भिन्नों को दशमलव में बदलिए ताकि जगह देना आसान हो। $\\frac{1}{2}$ और $-\\frac{5}{2}$ दशमलव में क्या हैं?"
+          "hi": "पहले fractions को decimal में बदलिए ताकि जगह देना आसान हो। $\\frac{1}{2}$ और $-\\frac{5}{2}$ decimal में क्या हैं?"
          },
          "do": {
           "en": "$\\frac{1}{2} = 0.5$ and $-\\frac{5}{2} = -2.5$.",
@@ -137,7 +137,7 @@ window.SL_DATA.subjects.push({
          },
          "why": {
           "en": "Decimals are easier to place on the line than fractions. Converting is not cheating — it is choosing the easier picture.",
-          "hi": "भिन्नों की तुलना में दशमलव को रेखा पर रखना आसान है। बदल लेना बेईमानी नहीं — यह आसान तस्वीर चुनना है।"
+          "hi": "fractions की तुलना में decimal को रेखा पर रखना आसान है। बदल लेना बेईमानी नहीं — यह आसान तस्वीर चुनना है।"
          }
         },
         {
@@ -152,7 +152,7 @@ window.SL_DATA.subjects.push({
          },
          "why": {
           "en": "With negatives, the bigger-looking number is the smaller one. $-2.5$ is less than $-2$ because it is further from zero on the left.",
-          "hi": "ऋणात्मक में जो संख्या बड़ी दिखती है वही छोटी होती है। $-2.5$, $-2$ से कम है क्योंकि वह बाईं तरफ़ शून्य से और दूर है।"
+          "hi": "negative में जो संख्या बड़ी दिखती है वही छोटी होती है। $-2.5$, $-2$ से कम है क्योंकि वह बाईं तरफ़ शून्य से और दूर है।"
          }
         },
         {
@@ -182,17 +182,17 @@ window.SL_DATA.subjects.push({
      "code": "MTH-1-2",
      "name": {
       "en": "Negative numbers without the panic",
-      "hi": "बिना घबराहट के ऋणात्मक संख्याएँ"
+      "hi": "बिना घबराहट के negative संख्याएँ"
      },
      "notes": {
       "en": "More marks are lost to a mishandled minus sign than to any hard idea in Class 11. Not because it is difficult — because it was learned as four separate rules instead of one picture.\n\n**One picture instead of four rules**\nOn the number line: **adding moves you right, subtracting moves you left.** A negative number just means \"start by facing left\".\n\n> $3 - 5$: start at $3$, move $5$ left, land on $-2$.\n> $-3 + 5$: start at $-3$, move $5$ right, land on $2$.\n\nThat is it. You never need to ask which number is bigger or which sign to keep.\n\n**The two rules that actually need memorising**\n\n| | Result |\n|---|---|\n| $(-) \\times (-)$ | $+$ |\n| $(-) \\times (+)$ | $-$ |\n\n💡 **Why two negatives multiply to a positive.** Think of it as *taking away a debt*. If I remove three debts of ₹20 each from your account, you are ₹60 better off:\n$$-3 \\times (-20) = +60$$\nRemoving something bad is good. That is not a trick — it is what the minus sign has always meant.\n\n**The mistake examiners rely on**\n\n⚠️ $-3^2$ and $(-3)^2$ are **different**.\n- $(-3)^2 = (-3) \\times (-3) = 9$\n- $-3^2 = -(3 \\times 3) = -9$\n\nThe power binds tighter than the minus. Without brackets, the minus is applied *last*. This single confusion costs marks in Class 11 quadratics, in trigonometry and in limits — every year.\n\n**Subtracting a negative**\n$$7 - (-4) = 7 + 4 = 11$$\nTwo minus signs next to each other cancel. Again, \"taking away a debt\".\n\n**A check that always works**\nAfter any calculation with negatives, ask: *should this answer be bigger or smaller than what I started with?* If you subtracted something and got a bigger answer, you have lost a sign somewhere.",
-      "hi": "कक्षा 11 में किसी कठिन विचार से ज़्यादा नंबर एक ग़लत सँभाले गए ऋण चिह्न से जाते हैं। इसलिए नहीं कि यह कठिन है — बल्कि इसलिए कि इसे एक तस्वीर की जगह चार अलग नियमों की तरह सीखा गया।\n\n**चार नियमों की जगह एक तस्वीर**\nसंख्या रेखा पर: **जोड़ने से दाएँ जाते हैं, घटाने से बाएँ।** ऋणात्मक संख्या का मतलब बस इतना है कि \"शुरुआत बाईं ओर मुँह करके कीजिए\"।\n\n> $3 - 5$: $3$ से शुरू, $5$ बाएँ चलिए, $-2$ पर पहुँचे।\n> $-3 + 5$: $-3$ से शुरू, $5$ दाएँ चलिए, $2$ पर पहुँचे।\n\nबस इतना ही। कौन-सी संख्या बड़ी है या कौन-सा चिह्न रखना है — यह पूछने की ज़रूरत ही नहीं।\n\n**वे दो नियम जिन्हें सचमुच याद रखना है**\n\n| | नतीजा |\n|---|---|\n| $(-) \\times (-)$ | $+$ |\n| $(-) \\times (+)$ | $-$ |\n\n💡 **दो ऋण गुणा करने पर धन क्यों आता है।** इसे *उधार हटाना* समझिए। अगर मैं आपके खाते से ₹20 के तीन उधार हटा दूँ, तो आप ₹60 बेहतर स्थिति में हैं:\n$$-3 \\times (-20) = +60$$\nकोई बुरी चीज़ हटाना अच्छा होता है। यह कोई तरकीब नहीं — ऋण चिह्न का हमेशा से यही मतलब रहा है।\n\n**वह ग़लती जिस पर परीक्षक भरोसा करते हैं**\n\n⚠️ $-3^2$ और $(-3)^2$ **अलग** हैं।\n- $(-3)^2 = (-3) \\times (-3) = 9$\n- $-3^2 = -(3 \\times 3) = -9$\n\nघात, ऋण चिह्न से ज़्यादा कसकर बँधती है। बिना कोष्ठक के ऋण चिह्न *सबसे आख़िर* में लगता है। यही एक उलझन कक्षा 11 में द्विघात, त्रिकोणमिति और सीमा — हर जगह, हर साल नंबर कटवाती है।\n\n**ऋणात्मक को घटाना**\n$$7 - (-4) = 7 + 4 = 11$$\nअगल-बगल दो ऋण चिह्न कट जाते हैं। फिर वही बात — \"उधार हटाना\"।\n\n**एक जाँच जो हमेशा काम करती है**\nऋणात्मक के साथ कोई भी गणना करने के बाद पूछिए: *क्या यह जवाब शुरुआत से बड़ा होना चाहिए या छोटा?* अगर आपने घटाया और जवाब बड़ा आ गया, तो कहीं कोई चिह्न छूट गया है।"
+      "hi": "कक्षा 11 में किसी कठिन विचार से ज़्यादा नंबर एक ग़लत सँभाले गए ऋण sign से जाते हैं। इसलिए नहीं कि यह कठिन है — बल्कि इसलिए कि इसे एक तस्वीर की जगह चार अलग नियमों की तरह सीखा गया।\n\n**चार नियमों की जगह एक तस्वीर**\nnumber line पर: **जोड़ने से दाएँ जाते हैं, घटाने से बाएँ।** negative संख्या का मतलब बस इतना है कि \"शुरुआत बाईं ओर मुँह करके कीजिए\"।\n\n> $3 - 5$: $3$ से शुरू, $5$ बाएँ चलिए, $-2$ पर पहुँचे।\n> $-3 + 5$: $-3$ से शुरू, $5$ दाएँ चलिए, $2$ पर पहुँचे।\n\nबस इतना ही। कौन-सी संख्या बड़ी है या कौन-सा sign रखना है — यह पूछने की ज़रूरत ही नहीं।\n\n**वे दो नियम जिन्हें सचमुच याद रखना है**\n\n| | नतीजा |\n|---|---|\n| $(-) \\times (-)$ | $+$ |\n| $(-) \\times (+)$ | $-$ |\n\n💡 **दो ऋण गुणा करने पर धन क्यों आता है।** इसे *उधार हटाना* समझिए। अगर मैं आपके खाते से ₹20 के तीन उधार हटा दूँ, तो आप ₹60 बेहतर स्थिति में हैं:\n$$-3 \\times (-20) = +60$$\nकोई बुरी चीज़ हटाना अच्छा होता है। यह कोई तरकीब नहीं — ऋण sign का हमेशा से यही मतलब रहा है।\n\n**वह ग़लती जिस पर परीक्षक भरोसा करते हैं**\n\n⚠️ $-3^2$ और $(-3)^2$ **अलग** हैं।\n- $(-3)^2 = (-3) \\times (-3) = 9$\n- $-3^2 = -(3 \\times 3) = -9$\n\npower, ऋण sign से ज़्यादा कसकर बँधती है। बिना bracket के ऋण sign *सबसे आख़िर* में लगता है। यही एक उलझन कक्षा 11 में quadratic, trigonometry और limit — हर जगह, हर साल नंबर कटवाती है।\n\n**negative को घटाना**\n$$7 - (-4) = 7 + 4 = 11$$\nअगल-बगल दो ऋण sign कट जाते हैं। फिर वही बात — \"उधार हटाना\"।\n\n**एक जाँच जो हमेशा काम करती है**\nnegative के साथ कोई भी गणना करने के बाद पूछिए: *क्या यह जवाब शुरुआत से बड़ा होना चाहिए या छोटा?* अगर आपने घटाया और जवाब बड़ा आ गया, तो कहीं कोई sign छूट गया है।"
      },
      "worked": [
       {
        "title": {
         "en": "The sign trap, seen clearly",
-        "hi": "चिह्न का जाल, साफ़-साफ़"
+        "hi": "sign का जाल, साफ़-साफ़"
        },
        "problem": {
         "en": "Evaluate $-4^2 + (-4)^2 - (-8)$.",
@@ -202,27 +202,27 @@ window.SL_DATA.subjects.push({
         {
          "do": {
           "en": "$-4^2$ — no brackets, so the power acts on $4$ alone and the minus is applied last: $-(4 \\times 4) = -16$.",
-          "hi": "$-4^2$ — कोष्ठक नहीं है, तो घात सिर्फ़ $4$ पर लगती है और ऋण चिह्न आख़िर में: $-(4 \\times 4) = -16$।"
+          "hi": "$-4^2$ — bracket नहीं है, तो power सिर्फ़ $4$ पर लगती है और ऋण sign आख़िर में: $-(4 \\times 4) = -16$।"
          },
          "why": {
           "en": "This is the whole trap. Read the brackets, not the shape of the expression.",
-          "hi": "पूरा जाल यही है। अभिव्यक्ति का आकार नहीं, कोष्ठक पढ़िए।"
+          "hi": "पूरा जाल यही है। अभिव्यक्ति का आकार नहीं, bracket पढ़िए।"
          }
         },
         {
          "do": {
           "en": "$(-4)^2$ — here the brackets put the minus inside, so it is squared too: $(-4) \\times (-4) = +16$.",
-          "hi": "$(-4)^2$ — यहाँ कोष्ठक ने ऋण चिह्न को अंदर कर दिया, तो उसका भी वर्ग होगा: $(-4) \\times (-4) = +16$।"
+          "hi": "$(-4)^2$ — यहाँ bracket ने ऋण sign को अंदर कर दिया, तो उसका भी square होगा: $(-4) \\times (-4) = +16$।"
          },
          "why": {
           "en": "Negative times negative is positive — the debt-removal idea. The bracket is what changed the answer by 32.",
-          "hi": "ऋण गुणा ऋण धन होता है — वही उधार हटाने वाली बात। कोष्ठक ने ही जवाब 32 बदल दिया।"
+          "hi": "ऋण गुणा ऋण धन होता है — वही उधार हटाने वाली बात। bracket ने ही जवाब 32 बदल दिया।"
          }
         },
         {
          "do": {
           "en": "$-(-8) = +8$ — two minus signs together cancel.",
-          "hi": "$-(-8) = +8$ — साथ-साथ दो ऋण चिह्न कट जाते हैं।"
+          "hi": "$-(-8) = +8$ — साथ-साथ दो ऋण sign कट जाते हैं।"
          },
          "why": {
           "en": "Taking away a debt of 8 leaves you 8 better off.",
@@ -246,7 +246,7 @@ window.SL_DATA.subjects.push({
        },
        "note": {
         "en": "If you got $-8$ or $24$, you have found your missing brick. Go back to the two lines about brackets and read them once more — that one habit will earn you marks for the next two years.",
-        "hi": "अगर आपका जवाब $-8$ या $24$ आया, तो आपकी छूटी हुई ईंट मिल गई। कोष्ठक वाली दो पंक्तियाँ दोबारा पढ़िए — यही एक आदत आपको अगले दो साल नंबर दिलाएगी।"
+        "hi": "अगर आपका जवाब $-8$ या $24$ आया, तो आपकी छूटी हुई ईंट मिल गई। bracket वाली दो पंक्तियाँ दोबारा पढ़िए — यही एक आदत आपको अगले दो साल नंबर दिलाएगी।"
        }
       }
      ]
@@ -255,17 +255,17 @@ window.SL_DATA.subjects.push({
      "code": "MTH-1-3",
      "name": {
       "en": "Fractions, decimals and percentages are one thing",
-      "hi": "भिन्न, दशमलव और प्रतिशत — तीनों एक ही चीज़ हैं"
+      "hi": "fraction, decimal और percent — तीनों एक ही चीज़ हैं"
      },
      "notes": {
       "en": "Students treat these as three separate topics and fear all three. They are three ways of writing the same number, and you already move between them daily.\n\n**The same number, three coats**\n\n| Fraction | Decimal | Percentage | Where you meet it |\n|---|---|---|---|\n| $\\frac{1}{2}$ | $0.5$ | $50\\%$ | half a discount |\n| $\\frac{1}{4}$ | $0.25$ | $25\\%$ | quarter kilo |\n| $\\frac{3}{4}$ | $0.75$ | $75\\%$ | three-quarters full |\n| $\\frac{1}{5}$ | $0.2$ | $20\\%$ | a fifth off |\n\n**Moving between them**\n- Fraction → decimal: **divide the top by the bottom**. $\\frac{3}{4} = 3 \\div 4 = 0.75$.\n- Decimal → percentage: **multiply by 100**. $0.75 \\to 75\\%$.\n- Percentage → fraction: **put it over 100 and cancel**. $40\\% = \\frac{40}{100} = \\frac{2}{5}$.\n\n💡 **Per cent literally means \"per hundred\".** $\\frac{40}{100}$ *is* forty per cent — it is not a conversion, it is a rewriting.\n\n**The one operation people get wrong**\nAdding fractions needs a common denominator; multiplying does not.\n\n$$\\frac{1}{2} + \\frac{1}{3} = \\frac{3}{6} + \\frac{2}{6} = \\frac{5}{6}\n\\qquad \\text{but} \\qquad \\frac{1}{2} \\times \\frac{1}{3} = \\frac{1}{6}$$\n\n⚠️ $\\frac{1}{2} + \\frac{1}{3}$ is **not** $\\frac{2}{5}$. Sense-check it: half a roti plus a third of a roti is clearly more than half, and $\\frac{2}{5}$ is less than half. **Every fraction answer can be sense-checked this way** — and doing so catches most errors before the examiner does.\n\n**Dividing by a fraction**\n$$\\frac{3}{4} \\div \\frac{1}{2} = \\frac{3}{4} \\times \\frac{2}{1} = \\frac{3}{2}$$\nFlip the second one and multiply. **Why:** \"how many half-rotis fit into three-quarters of a roti?\" One and a half of them. Dividing by something smaller than 1 makes the answer *bigger*, which feels wrong until you picture it.\n\n**Where this is going**\nClass 11 probability is entirely fractions. Trigonometric ratios are fractions. The derivative is a fraction. If fractions are shaky, four different Class 11 chapters feel impossible for the same one reason.",
-      "hi": "विद्यार्थी इन्हें तीन अलग विषय मानते हैं और तीनों से डरते हैं। ये एक ही संख्या लिखने के तीन तरीक़े हैं, और आप रोज़ इनके बीच आते-जाते हैं।\n\n**वही संख्या, तीन लिबास**\n\n| भिन्न | दशमलव | प्रतिशत | कहाँ मिलती है |\n|---|---|---|---|\n| $\\frac{1}{2}$ | $0.5$ | $50\\%$ | आधी छूट |\n| $\\frac{1}{4}$ | $0.25$ | $25\\%$ | पाव किलो |\n| $\\frac{3}{4}$ | $0.75$ | $75\\%$ | तीन-चौथाई भरा |\n| $\\frac{1}{5}$ | $0.2$ | $20\\%$ | पाँचवाँ हिस्सा छूट |\n\n**एक से दूसरे में जाना**\n- भिन्न → दशमलव: **ऊपर वाले को नीचे वाले से भाग दीजिए**। $\\frac{3}{4} = 3 \\div 4 = 0.75$।\n- दशमलव → प्रतिशत: **100 से गुणा**। $0.75 \\to 75\\%$।\n- प्रतिशत → भिन्न: **100 के नीचे रखकर सरल कीजिए**। $40\\% = \\frac{40}{100} = \\frac{2}{5}$।\n\n💡 **प्रतिशत का शाब्दिक अर्थ ही है \"प्रति सौ\"।** $\\frac{40}{100}$ *ही* चालीस प्रतिशत है — यह बदलना नहीं, दोबारा लिखना है।\n\n**वह एक क्रिया जिसमें लोग ग़लती करते हैं**\nभिन्न जोड़ने के लिए हर समान चाहिए; गुणा के लिए नहीं।\n\n$$\\frac{1}{2} + \\frac{1}{3} = \\frac{3}{6} + \\frac{2}{6} = \\frac{5}{6}\n\\qquad \\text{पर} \\qquad \\frac{1}{2} \\times \\frac{1}{3} = \\frac{1}{6}$$\n\n⚠️ $\\frac{1}{2} + \\frac{1}{3}$, $\\frac{2}{5}$ **नहीं** होता। समझ से जाँचिए: आधी रोटी और एक-तिहाई रोटी मिलकर आधी से साफ़ तौर पर ज़्यादा है, जबकि $\\frac{2}{5}$ आधे से कम है। **भिन्न का हर जवाब इसी तरह जाँचा जा सकता है** — और ऐसा करने से ज़्यादातर ग़लतियाँ परीक्षक से पहले पकड़ में आ जाती हैं।\n\n**भिन्न से भाग देना**\n$$\\frac{3}{4} \\div \\frac{1}{2} = \\frac{3}{4} \\times \\frac{2}{1} = \\frac{3}{2}$$\nदूसरी को उलटिए और गुणा कीजिए। **क्यों:** \"तीन-चौथाई रोटी में आधी-आधी रोटी के कितने टुकड़े आएँगे?\" डेढ़। 1 से छोटी संख्या से भाग देने पर जवाब *बड़ा* हो जाता है, जो तस्वीर देखने तक ग़लत लगता है।\n\n**यह कहाँ ले जा रहा है**\nकक्षा 11 की प्रायिकता पूरी तरह भिन्नों पर है। त्रिकोणमितीय अनुपात भिन्न हैं। अवकलज एक भिन्न है। अगर भिन्न कमज़ोर हैं, तो कक्षा 11 के चार अलग अध्याय एक ही वजह से नामुमकिन लगते हैं।"
+      "hi": "विद्यार्थी इन्हें तीन अलग विषय मानते हैं और तीनों से डरते हैं। ये एक ही संख्या लिखने के तीन तरीक़े हैं, और आप रोज़ इनके बीच आते-जाते हैं।\n\n**वही संख्या, तीन लिबास**\n\n| fraction | decimal | percent | कहाँ मिलती है |\n|---|---|---|---|\n| $\\frac{1}{2}$ | $0.5$ | $50\\%$ | आधी छूट |\n| $\\frac{1}{4}$ | $0.25$ | $25\\%$ | पाव किलो |\n| $\\frac{3}{4}$ | $0.75$ | $75\\%$ | तीन-चौथाई भरा |\n| $\\frac{1}{5}$ | $0.2$ | $20\\%$ | पाँचवाँ हिस्सा छूट |\n\n**एक से दूसरे में जाना**\n- fraction → decimal: **ऊपर वाले को नीचे वाले से भाग दीजिए**। $\\frac{3}{4} = 3 \\div 4 = 0.75$।\n- decimal → percent: **100 से गुणा**। $0.75 \\to 75\\%$।\n- percent → fraction: **100 के नीचे रखकर सरल कीजिए**। $40\\% = \\frac{40}{100} = \\frac{2}{5}$।\n\n💡 **percent का शाब्दिक अर्थ ही है \"प्रति सौ\"।** $\\frac{40}{100}$ *ही* चालीस percent है — यह बदलना नहीं, दोबारा लिखना है।\n\n**वह एक क्रिया जिसमें लोग ग़लती करते हैं**\nfraction जोड़ने के लिए denominator समान चाहिए; गुणा के लिए नहीं।\n\n$$\\frac{1}{2} + \\frac{1}{3} = \\frac{3}{6} + \\frac{2}{6} = \\frac{5}{6}\n\\qquad \\text{पर} \\qquad \\frac{1}{2} \\times \\frac{1}{3} = \\frac{1}{6}$$\n\n⚠️ $\\frac{1}{2} + \\frac{1}{3}$, $\\frac{2}{5}$ **नहीं** होता। समझ से जाँचिए: आधी रोटी और एक-तिहाई रोटी मिलकर आधी से साफ़ तौर पर ज़्यादा है, जबकि $\\frac{2}{5}$ आधे से कम है। **fraction का हर जवाब इसी तरह जाँचा जा सकता है** — और ऐसा करने से ज़्यादातर ग़लतियाँ परीक्षक से पहले पकड़ में आ जाती हैं।\n\n**fraction से भाग देना**\n$$\\frac{3}{4} \\div \\frac{1}{2} = \\frac{3}{4} \\times \\frac{2}{1} = \\frac{3}{2}$$\nदूसरी को उलटिए और गुणा कीजिए। **क्यों:** \"तीन-चौथाई रोटी में आधी-आधी रोटी के कितने टुकड़े आएँगे?\" डेढ़। 1 से छोटी संख्या से भाग देने पर जवाब *बड़ा* हो जाता है, जो तस्वीर देखने तक ग़लत लगता है।\n\n**यह कहाँ ले जा रहा है**\nकक्षा 11 की probability पूरी तरह fractions पर है। त्रिकोणमितीय अनुपात fraction हैं। derivative एक fraction है। अगर fraction कमज़ोर हैं, तो कक्षा 11 के चार अलग अध्याय एक ही वजह से नामुमकिन लगते हैं।"
      },
      "worked": [
       {
        "title": {
         "en": "A shop problem that is really a fraction problem",
-        "hi": "दुकान का सवाल जो असल में भिन्न का सवाल है"
+        "hi": "दुकान का सवाल जो असल में fraction का सवाल है"
        },
        "problem": {
         "en": "A shirt costs ₹800. The shop offers $25\\%$ off, then another $10\\%$ off the reduced price. What do you pay?",
@@ -279,7 +279,7 @@ window.SL_DATA.subjects.push({
          },
          "why": {
           "en": "Turning $25\\%$ into $\\frac{1}{4}$ makes it arithmetic you can do in your head. Percentages are just fractions wearing a hat.",
-          "hi": "$25\\%$ को $\\frac{1}{4}$ बना लेने से यह मन ही मन हो जाने वाला हिसाब बन जाता है। प्रतिशत बस टोपी पहने हुए भिन्न है।"
+          "hi": "$25\\%$ को $\\frac{1}{4}$ बना लेने से यह मन ही मन हो जाने वाला हिसाब बन जाता है। percent बस टोपी पहने हुए fraction है।"
          }
         },
         {
@@ -289,7 +289,7 @@ window.SL_DATA.subjects.push({
          },
          "why": {
           "en": "This is the entire trick of the question. Successive discounts apply to what is left, never to the original. Read whose price the second percentage is taken from.",
-          "hi": "सवाल की पूरी चाल यही है। लगातार छूट बची हुई रक़म पर लगती है, मूल दाम पर कभी नहीं। पढ़िए कि दूसरा प्रतिशत किस दाम पर लिया जा रहा है।"
+          "hi": "सवाल की पूरी चाल यही है। लगातार छूट बची हुई रक़म पर लगती है, मूल दाम पर कभी नहीं। पढ़िए कि दूसरा percent किस दाम पर लिया जा रहा है।"
          }
         },
         {
@@ -340,15 +340,15 @@ window.SL_DATA.subjects.push({
    },
    "name": {
     "en": "Algebra without fear",
-    "hi": "बिना डर के बीजगणित"
+    "hi": "बिना डर के algebra"
    },
    "summary": {
     "en": "What a letter actually stands for, why an equation is a balanced scale, expanding brackets, and factorising as the same skill run backwards. Every Class 11 chapter uses this — a student who cannot factorise will believe limits are impossible, when the real gap is here.",
-    "hi": "अक्षर असल में किसके लिए है, समीकरण संतुलित तराज़ू क्यों है, कोष्ठक खोलना, और गुणनखंड — वही कौशल उल्टी दिशा में। कक्षा 11 का हर अध्याय इसी का इस्तेमाल करता है — जिसे गुणनखंड नहीं आता वह समझेगा कि सीमाएँ नामुमकिन हैं, जबकि असली कमी यहाँ है।"
+    "hi": "अक्षर असल में किसके लिए है, equation संतुलित तराज़ू क्यों है, bracket खोलना, और factor — वही कौशल उल्टी दिशा में। कक्षा 11 का हर अध्याय इसी का इस्तेमाल करता है — जिसे factor नहीं आता वह समझेगा कि limits नामुमकिन हैं, जबकि असली कमी यहाँ है।"
    },
    "assignment": {
     "en": "📋 **Practical activity — algebra you can see**\n\n**Part A — the rectangle proof.** On squared paper, draw a rectangle of width $(x+2)$ and height $(x+3)$, treating $x$ as 4 squares. Cut it into four pieces along the natural lines: an $x$-by-$x$ square, two rectangles, and a small rectangle. Write the area of each piece. Add them. You should get $x^2 + 5x + 6$ — and you have just proved the expansion with scissors rather than symbols.\n\n**Part B — reverse it.** Now take 1 big square, 5 strips and 6 unit squares, and arrange them into a single rectangle. The side lengths you end up with ARE the factors. Draw what you made.\n\n**Part C — a real formula.** Find any formula you actually use — mobile data cost, electricity bill slabs, a recipe scaled up. Write it algebraically, then use it to answer one question that needs rearranging (for example: if the bill was ₹X, how many units were used?). Show the rearranging step by step.\n\n**Part D — build your own error list.** Go through your last maths test. Write down every mistake that was an algebra slip rather than a concept gap. Sort them into: sign errors, bracket errors, combining unlike terms. Count each group. Whichever group is biggest is your single highest-value thing to fix.\n\n✍️ **Submit:** photos or drawings of Parts A and B, your Part C rearrangement, and your Part D tally.",
-    "hi": "📋 **व्यावहारिक गतिविधि — बीजगणित जो दिख सके**\n\n**भाग क — आयत वाला सबूत।** चौकोर कागज़ पर $(x+2)$ चौड़ा और $(x+3)$ ऊँचा आयत बनाइए, $x$ को 4 ख़ाने मानकर। इसे प्राकृतिक रेखाओं पर चार टुकड़ों में काटिए: एक $x$-गुणा-$x$ वर्ग, दो आयत, और एक छोटा आयत। हर टुकड़े का क्षेत्रफल लिखिए। जोड़िए। $x^2 + 5x + 6$ मिलना चाहिए — और आपने अभी चिह्नों से नहीं, कैंची से यह प्रसार सिद्ध कर दिया।\n\n**भाग ख — उल्टा कीजिए।** अब 1 बड़ा वर्ग, 5 पट्टियाँ और 6 इकाई वर्ग लीजिए, और इन्हें जमाकर एक ही आयत बनाइए। जो भुजाएँ बनें, वही गुणनखंड **हैं**। जो बनाया वह बनाकर दिखाइए।\n\n**भाग ग — कोई असली सूत्र।** कोई भी सूत्र ढूँढिए जो आप सचमुच इस्तेमाल करते हैं — मोबाइल डेटा का ख़र्च, बिजली बिल के स्लैब, नुस्ख़े की मात्रा बढ़ाना। उसे बीजगणित में लिखिए, फिर उससे ऐसा एक सवाल हल कीजिए जिसमें फेरबदल करनी पड़े (जैसे: बिल ₹X आया तो कितनी यूनिट लगीं?)। फेरबदल चरण-दर-चरण दिखाइए।\n\n**भाग घ — अपनी ग़लतियों की सूची बनाइए।** अपना पिछला गणित का पेपर देखिए। हर वह ग़लती लिखिए जो अवधारणा की कमी नहीं, बीजगणित की चूक थी। इन्हें बाँटिए: चिह्न की ग़लतियाँ, कोष्ठक की ग़लतियाँ, असमान पद जोड़ना। हर समूह गिनिए। जो समूह सबसे बड़ा है, उसे ठीक करना आपके लिए सबसे ज़्यादा फ़ायदे का काम है।\n\n✍️ **जमा कीजिए:** भाग क और ख की तस्वीरें या चित्र, भाग ग की फेरबदल, और भाग घ की गिनती।"
+    "hi": "📋 **व्यावहारिक गतिविधि — algebra जो दिख सके**\n\n**भाग क — rectangle वाला सबूत।** चौकोर कागज़ पर $(x+2)$ चौड़ा और $(x+3)$ ऊँचा rectangle बनाइए, $x$ को 4 ख़ाने मानकर। इसे naturalिक रेखाओं पर चार टुकड़ों में काटिए: एक $x$-गुणा-$x$ square, दो rectangle, और एक छोटा rectangle। हर टुकड़े का area लिखिए। जोड़िए। $x^2 + 5x + 6$ मिलना चाहिए — और आपने अभी signs से नहीं, कैंची से यह प्रसार सिद्ध कर दिया।\n\n**भाग ख — उल्टा कीजिए।** अब 1 बड़ा square, 5 strips और 6 इकाई square लीजिए, और इन्हें जमाकर एक ही rectangle बनाइए। जो भुजाएँ बनें, वही factor **हैं**। जो बनाया वह बनाकर दिखाइए।\n\n**भाग ग — कोई असली सूत्र।** कोई भी सूत्र ढूँढिए जो आप सचमुच इस्तेमाल करते हैं — मोबाइल डेटा का ख़र्च, बिजली बिल के स्लैब, नुस्ख़े की मात्रा बढ़ाना। उसे algebra में लिखिए, फिर उससे ऐसा एक सवाल हल कीजिए जिसमें फेरबदल करनी पड़े (जैसे: बिल ₹X आया तो कितनी यूनिट लगीं?)। फेरबदल चरण-दर-चरण दिखाइए।\n\n**भाग घ — अपनी ग़लतियों की सूची बनाइए।** अपना पिछला गणित का पेपर देखिए। हर वह ग़लती लिखिए जो अवधारणा की कमी नहीं, algebra की चूक थी। इन्हें बाँटिए: sign की ग़लतियाँ, bracket की ग़लतियाँ, असमान पद जोड़ना। हर समूह गिनिए। जो समूह सबसे बड़ा है, उसे ठीक करना आपके लिए सबसे ज़्यादा फ़ायदे का काम है।\n\n✍️ **जमा कीजिए:** भाग क और ख की तस्वीरें या चित्र, भाग ग की फेरबदल, और भाग घ की गिनती।"
    },
    "topics": [
     {
@@ -359,7 +359,7 @@ window.SL_DATA.subjects.push({
      },
      "notes": {
       "en": "Algebra frightens people because nobody ever said plainly what the letter is *for*. It is not a code to crack. **A letter is a box that holds a number you do not know yet.**\n\n**You have done algebra since you were small**\n> \"I had some money, spent ₹30, and now I have ₹70. How much did I start with?\"\n\nYou solved that without algebra. Writing it as $x - 30 = 70$ does not make it harder — it makes it *writable*, so the same method works when the numbers get ugly.\n\n**The one rule of equations**\nAn equation is a balanced scale. $=$ means both sides weigh the same.\n\n**Whatever you do to one side, do to the other, and it stays balanced.**\n\n$$x - 30 = 70 \\;\\;\\Rightarrow\\;\\; x - 30 + 30 = 70 + 30 \\;\\;\\Rightarrow\\;\\; x = 100$$\n\n💡 **\"Take it to the other side and change the sign\" is the same thing, said badly.** It is a shortcut for \"add 30 to both sides\". Knowing the real reason means you never mis-apply it — which is what happens the moment an equation gets more complicated.\n\n**Terms that can and cannot be combined**\nYou can add ₹5 to ₹3. You cannot add 5 goats to 3 chairs and call it 8 of anything.\n\n- $3x + 5x = 8x$ ✅ (same box)\n- $3x + 5y$ stays $3x + 5y$ ✅ (different boxes)\n- $3x + 5x^2$ stays as it is ✅ — $x$ and $x^2$ are different boxes\n\n⚠️ This is the single most common Class 11 algebra error: combining $x$ with $x^2$. They are as different as goats and chairs.\n\n**Multiplying out brackets**\n$$a(b + c) = ab + ac$$\n**Why:** 3 packets each holding a pen and a pencil is 3 pens and 3 pencils. The multiplier reaches *everything* inside.\n\n$$(x+2)(x+3) = x^2 + 3x + 2x + 6 = x^2 + 5x + 6$$\nEvery term in the first bracket meets every term in the second. Four multiplications, always.\n\n**Where this is going**\nEvery single Class 11 chapter uses this. Binomial theorem is this rule applied $n$ times. Limits need you to factorise. Conic sections are equations rearranged. There is no chapter where shaky algebra does not hurt.",
-      "hi": "बीजगणित लोगों को इसलिए डराता है क्योंकि किसी ने साफ़-साफ़ बताया ही नहीं कि अक्षर होता *किसलिए* है। यह कोई गुप्त कूट नहीं है। **अक्षर एक डिब्बा है जिसमें वह संख्या रखी है जो आपको अभी पता नहीं।**\n\n**आप बचपन से बीजगणित कर रहे हैं**\n> \"मेरे पास कुछ पैसे थे, ₹30 ख़र्च किए, अब ₹70 बचे हैं। शुरू में कितने थे?\"\n\nआपने यह बिना बीजगणित के हल कर लिया। इसे $x - 30 = 70$ लिखने से यह कठिन नहीं होता — *लिखने लायक़* हो जाता है, ताकि संख्याएँ बदसूरत होने पर भी वही तरीक़ा चले।\n\n**समीकरण का एक ही नियम**\nसमीकरण एक संतुलित तराज़ू है। $=$ का मतलब है दोनों पलड़ों का वज़न बराबर है।\n\n**एक तरफ़ जो कीजिए, दूसरी तरफ़ भी कीजिए, संतुलन बना रहेगा।**\n\n$$x - 30 = 70 \\;\\;\\Rightarrow\\;\\; x - 30 + 30 = 70 + 30 \\;\\;\\Rightarrow\\;\\; x = 100$$\n\n💡 **\"दूसरी तरफ़ ले जाओ और चिह्न बदल दो\" यही बात है, बस ख़राब ढंग से कही गई।** यह \"दोनों तरफ़ 30 जोड़िए\" का छोटा रास्ता है। असली वजह पता होने पर आप इसे कभी ग़लत जगह नहीं लगाएँगे — और समीकरण जटिल होते ही यही होता है।\n\n**कौन-से पद जुड़ सकते हैं, कौन-से नहीं**\nआप ₹5 में ₹3 जोड़ सकते हैं। पर 5 बकरियों में 3 कुर्सियाँ जोड़कर 8 \"कुछ\" नहीं कह सकते।\n\n- $3x + 5x = 8x$ ✅ (एक ही डिब्बा)\n- $3x + 5y$ वैसा ही रहेगा ✅ (अलग डिब्बे)\n- $3x + 5x^2$ वैसा ही रहेगा ✅ — $x$ और $x^2$ अलग डिब्बे हैं\n\n⚠️ कक्षा 11 की बीजगणित की सबसे आम ग़लती यही है: $x$ को $x^2$ के साथ जोड़ देना। ये उतने ही अलग हैं जितने बकरी और कुर्सी।\n\n**कोष्ठक खोलना**\n$$a(b + c) = ab + ac$$\n**क्यों:** 3 पैकेट, हर एक में एक पेन और एक पेंसिल — यानी 3 पेन और 3 पेंसिल। गुणा करने वाला अंदर की *हर* चीज़ तक पहुँचता है।\n\n$$(x+2)(x+3) = x^2 + 3x + 2x + 6 = x^2 + 5x + 6$$\nपहले कोष्ठक का हर पद दूसरे के हर पद से मिलता है। हमेशा चार गुणा।\n\n**यह कहाँ ले जा रहा है**\nकक्षा 11 का हर एक अध्याय इसी का इस्तेमाल करता है। द्विपद प्रमेय यही नियम $n$ बार लगाया गया है। सीमा में गुणनखंड करने पड़ते हैं। शांकव परिच्छेद समीकरणों को दोबारा जमाना ही हैं। ऐसा कोई अध्याय नहीं जहाँ कमज़ोर बीजगणित नुक़सान न करे।"
+      "hi": "algebra लोगों को इसलिए डराता है क्योंकि किसी ने साफ़-साफ़ बताया ही नहीं कि अक्षर होता *किसलिए* है। यह कोई गुप्त कूट नहीं है। **अक्षर एक डिब्बा है जिसमें वह संख्या रखी है जो आपको अभी पता नहीं।**\n\n**आप बचपन से algebra कर रहे हैं**\n> \"मेरे पास कुछ पैसे थे, ₹30 ख़र्च किए, अब ₹70 बचे हैं। शुरू में कितने थे?\"\n\nआपने यह बिना algebra के हल कर लिया। इसे $x - 30 = 70$ लिखने से यह कठिन नहीं होता — *लिखने लायक़* हो जाता है, ताकि संख्याएँ बदसूरत होने पर भी वही तरीक़ा चले।\n\n**equation का एक ही नियम**\nequation एक संतुलित तराज़ू है। $=$ का मतलब है दोनों पलड़ों का वज़न बराबर है।\n\n**एक तरफ़ जो कीजिए, दूसरी तरफ़ भी कीजिए, संतुलन बना रहेगा।**\n\n$$x - 30 = 70 \\;\\;\\Rightarrow\\;\\; x - 30 + 30 = 70 + 30 \\;\\;\\Rightarrow\\;\\; x = 100$$\n\n💡 **\"दूसरी तरफ़ ले जाओ और sign बदल दो\" यही बात है, बस ख़राब ढंग से कही गई।** यह \"दोनों तरफ़ 30 जोड़िए\" का छोटा रास्ता है। असली वजह पता होने पर आप इसे कभी ग़लत जगह नहीं लगाएँगे — और equation जटिल होते ही यही होता है।\n\n**कौन-से पद जुड़ सकते हैं, कौन-से नहीं**\nआप ₹5 में ₹3 जोड़ सकते हैं। पर 5 बकरियों में 3 कुर्सियाँ जोड़कर 8 \"कुछ\" नहीं कह सकते।\n\n- $3x + 5x = 8x$ ✅ (एक ही डिब्बा)\n- $3x + 5y$ वैसा ही रहेगा ✅ (अलग डिब्बे)\n- $3x + 5x^2$ वैसा ही रहेगा ✅ — $x$ और $x^2$ अलग डिब्बे हैं\n\n⚠️ कक्षा 11 की algebra की सबसे आम ग़लती यही है: $x$ को $x^2$ के साथ जोड़ देना। ये उतने ही अलग हैं जितने बकरी और कुर्सी।\n\n**bracket खोलना**\n$$a(b + c) = ab + ac$$\n**क्यों:** 3 पैकेट, हर एक में एक पेन और एक पेंसिल — यानी 3 पेन और 3 पेंसिल। गुणा करने वाला अंदर की *हर* चीज़ तक पहुँचता है।\n\n$$(x+2)(x+3) = x^2 + 3x + 2x + 6 = x^2 + 5x + 6$$\nपहले bracket का हर पद दूसरे के हर पद से मिलता है। हमेशा चार गुणा।\n\n**यह कहाँ ले जा रहा है**\nकक्षा 11 का हर एक अध्याय इसी का इस्तेमाल करता है। binomial theorem यही नियम $n$ बार लगाया गया है। limit में factor करने पड़ते हैं। conic sections equations को दोबारा जमाना ही हैं। ऐसा कोई अध्याय नहीं जहाँ कमज़ोर algebra नुक़सान न करे।"
      },
      "worked": [
       {
@@ -375,7 +375,7 @@ window.SL_DATA.subjects.push({
         {
          "do": {
           "en": "Expand the first bracket: $2(x+3) = 2x + 6$.",
-          "hi": "पहला कोष्ठक खोलिए: $2(x+3) = 2x + 6$।"
+          "hi": "पहला bracket खोलिए: $2(x+3) = 2x + 6$।"
          },
          "why": {
           "en": "The 2 reaches both terms inside — 2 packets each holding an $x$ and a 3.",
@@ -389,7 +389,7 @@ window.SL_DATA.subjects.push({
          },
          "why": {
           "en": "$x \\times x = x^2$, and $x \\times (-1) = -x$. The minus sign travels with the 1.",
-          "hi": "$x \\times x = x^2$, और $x \\times (-1) = -x$। ऋण चिह्न 1 के साथ जाता है।"
+          "hi": "$x \\times x = x^2$, और $x \\times (-1) = -x$। ऋण sign 1 के साथ जाता है।"
          }
         },
         {
@@ -419,7 +419,7 @@ window.SL_DATA.subjects.push({
        },
        "note": {
         "en": "Write the answer in descending powers — $x^2$ first, then $x$, then the number. Every textbook does, and it makes checking far easier.",
-        "hi": "जवाब घटती घातों में लिखिए — पहले $x^2$, फिर $x$, फिर संख्या। हर पाठ्यपुस्तक ऐसा ही करती है, और जाँचना बहुत आसान हो जाता है।"
+        "hi": "जवाब घटती powers में लिखिए — पहले $x^2$, फिर $x$, फिर संख्या। हर पाठ्यपुस्तक ऐसा ही करती है, और जाँचना बहुत आसान हो जाता है।"
        }
       },
       {
@@ -436,7 +436,7 @@ window.SL_DATA.subjects.push({
          "fade": true,
          "ask": {
           "en": "Every term in the first bracket meets every term in the second. Write all four products.",
-          "hi": "पहले कोष्ठक का हर पद दूसरे के हर पद से मिलता है। चारों गुणनफल लिखिए।"
+          "hi": "पहले bracket का हर पद दूसरे के हर पद से मिलता है। चारों गुणनफल लिखिए।"
          },
          "do": {
           "en": "$x \\times x = x^2$, $x \\times (-2) = -2x$, $4 \\times x = 4x$, $4 \\times (-2) = -8$.",
@@ -459,7 +459,7 @@ window.SL_DATA.subjects.push({
          },
          "why": {
           "en": "Only the two $x$ terms are the same box. Watch the signs — one was negative.",
-          "hi": "सिर्फ़ दोनों $x$ वाले पद एक ही डिब्बे के हैं। चिह्नों पर नज़र रखिए — एक ऋणात्मक था।"
+          "hi": "सिर्फ़ दोनों $x$ वाले पद एक ही डिब्बे के हैं। signs पर नज़र रखिए — एक negative था।"
          }
         }
        ],
@@ -474,27 +474,27 @@ window.SL_DATA.subjects.push({
      "code": "MTH-2-2",
      "name": {
       "en": "Factorising — expanding, run backwards",
-      "hi": "गुणनखंड — खोलने की उल्टी क्रिया"
+      "hi": "factor — खोलने की उल्टी क्रिया"
      },
      "notes": {
       "en": "Factorising is not a new skill. It is the previous topic read right to left.\n\n$$\\text{expanding: } (x+2)(x+3) \\;\\to\\; x^2+5x+6$$\n$$\\text{factorising: } x^2+5x+6 \\;\\to\\; (x+2)(x+3)$$\n\n**The method for $x^2 + bx + c$**\nFind two numbers that **multiply to $c$** and **add to $b$**.\n\nFor $x^2 + 5x + 6$: two numbers multiplying to $6$ and adding to $5$. Try the pairs of 6: $(1,6)$ adds to 7; $(2,3)$ adds to 5. ✅ So $(x+2)(x+3)$.\n\n💡 **Why multiply-to-$c$ and add-to-$b$?** Expand $(x+p)(x+q)$ and look:\n$$(x+p)(x+q) = x^2 + qx + px + pq = x^2 + (p+q)x + pq$$\nThe middle coefficient *is* $p+q$ and the constant *is* $pq$. The rule is not a trick — it is what expanding produces.\n\n**Always take out a common factor first**\n$$2x^2 + 10x + 12 = 2(x^2 + 5x + 6) = 2(x+2)(x+3)$$\n⚠️ Students who skip this end up hunting for numbers multiplying to 12 and adding to 10, find none that work nicely, and conclude they cannot do factorising. The factor of 2 was the problem, not them.\n\n**The three patterns worth recognising instantly**\n\n| Pattern | Factorised |\n|---|---|\n| $a^2 - b^2$ | $(a-b)(a+b)$ |\n| $a^2 + 2ab + b^2$ | $(a+b)^2$ |\n| $a^2 - 2ab + b^2$ | $(a-b)^2$ |\n\n**Why $a^2 - b^2 = (a-b)(a+b)$:** expand the right side — $a^2 + ab - ab - b^2$. The middle terms cancel exactly. That cancellation is the whole reason the pattern exists.\n\n**Where this is going**\nLimits in Class 11 are mostly factorise-and-cancel. $\\lim_{x \\to 1} \\frac{x^2-1}{x-1}$ looks impossible until you see $x^2 - 1 = (x-1)(x+1)$, cancel, and the answer falls out. A student who cannot factorise cannot do limits — and will believe the problem is calculus.",
-      "hi": "गुणनखंड कोई नया कौशल नहीं है। यह पिछला विषय ही है, दाएँ से बाएँ पढ़ा हुआ।\n\n$$\\text{खोलना: } (x+2)(x+3) \\;\\to\\; x^2+5x+6$$\n$$\\text{गुणनखंड: } x^2+5x+6 \\;\\to\\; (x+2)(x+3)$$\n\n**$x^2 + bx + c$ का तरीक़ा**\nऐसी दो संख्याएँ ढूँढिए जिनका **गुणनफल $c$** हो और **योग $b$**।\n\n$x^2 + 5x + 6$ के लिए: गुणनफल $6$, योग $5$। 6 के जोड़े देखिए: $(1,6)$ का योग 7; $(2,3)$ का योग 5। ✅ तो $(x+2)(x+3)$।\n\n💡 **गुणनफल $c$ और योग $b$ ही क्यों?** $(x+p)(x+q)$ खोलकर देखिए:\n$$(x+p)(x+q) = x^2 + qx + px + pq = x^2 + (p+q)x + pq$$\nबीच वाला गुणांक *है ही* $p+q$ और अचर *है ही* $pq$। नियम कोई तरकीब नहीं — खोलने से यही निकलता है।\n\n**पहले उभयनिष्ठ गुणनखंड ज़रूर निकालिए**\n$$2x^2 + 10x + 12 = 2(x^2 + 5x + 6) = 2(x+2)(x+3)$$\n⚠️ जो विद्यार्थी यह छोड़ देते हैं, वे 12 गुणनफल और 10 योग वाली संख्याएँ ढूँढते रह जाते हैं, कुछ ठीक नहीं मिलता, और मान लेते हैं कि उन्हें गुणनखंड आता ही नहीं। दिक़्क़त 2 वाला गुणनखंड था, वे नहीं।\n\n**तीन पैटर्न जो तुरंत पहचानने लायक़ हैं**\n\n| पैटर्न | गुणनखंड |\n|---|---|\n| $a^2 - b^2$ | $(a-b)(a+b)$ |\n| $a^2 + 2ab + b^2$ | $(a+b)^2$ |\n| $a^2 - 2ab + b^2$ | $(a-b)^2$ |\n\n**$a^2 - b^2 = (a-b)(a+b)$ क्यों:** दाईं तरफ़ खोलिए — $a^2 + ab - ab - b^2$। बीच के पद ठीक-ठीक कट जाते हैं। यही कटना ही इस पैटर्न के होने की पूरी वजह है।\n\n**यह कहाँ ले जा रहा है**\nकक्षा 11 की सीमाएँ ज़्यादातर गुणनखंड-करो-और-काटो हैं। $\\lim_{x \\to 1} \\frac{x^2-1}{x-1}$ तब तक नामुमकिन लगती है जब तक आप $x^2 - 1 = (x-1)(x+1)$ न देख लें, काटिए, और जवाब अपने आप निकल आता है। जिसे गुणनखंड नहीं आता उसे सीमा नहीं आएगी — और वह समझेगा कि दिक़्क़त कैलकुलस में है।"
+      "hi": "factor कोई नया कौशल नहीं है। यह पिछला विषय ही है, दाएँ से बाएँ पढ़ा हुआ।\n\n$$\\text{खोलना: } (x+2)(x+3) \\;\\to\\; x^2+5x+6$$\n$$\\text{factor: } x^2+5x+6 \\;\\to\\; (x+2)(x+3)$$\n\n**$x^2 + bx + c$ का तरीक़ा**\nऐसी दो संख्याएँ ढूँढिए जिनका **गुणनफल $c$** हो और **योग $b$**।\n\n$x^2 + 5x + 6$ के लिए: गुणनफल $6$, योग $5$। 6 के जोड़े देखिए: $(1,6)$ का योग 7; $(2,3)$ का योग 5। ✅ तो $(x+2)(x+3)$।\n\n💡 **गुणनफल $c$ और योग $b$ ही क्यों?** $(x+p)(x+q)$ खोलकर देखिए:\n$$(x+p)(x+q) = x^2 + qx + px + pq = x^2 + (p+q)x + pq$$\nबीच वाला coefficient *है ही* $p+q$ और constant *है ही* $pq$। नियम कोई तरकीब नहीं — खोलने से यही निकलता है।\n\n**पहले उभयनिष्ठ factor ज़रूर निकालिए**\n$$2x^2 + 10x + 12 = 2(x^2 + 5x + 6) = 2(x+2)(x+3)$$\n⚠️ जो विद्यार्थी यह छोड़ देते हैं, वे 12 गुणनफल और 10 योग वाली संख्याएँ ढूँढते रह जाते हैं, कुछ ठीक नहीं मिलता, और मान लेते हैं कि उन्हें factor आता ही नहीं। दिक़्क़त 2 वाला factor था, वे नहीं।\n\n**तीन पैटर्न जो तुरंत पहचानने लायक़ हैं**\n\n| पैटर्न | factor |\n|---|---|\n| $a^2 - b^2$ | $(a-b)(a+b)$ |\n| $a^2 + 2ab + b^2$ | $(a+b)^2$ |\n| $a^2 - 2ab + b^2$ | $(a-b)^2$ |\n\n**$a^2 - b^2 = (a-b)(a+b)$ क्यों:** दाईं तरफ़ खोलिए — $a^2 + ab - ab - b^2$। बीच के पद ठीक-ठीक कट जाते हैं। यही कटना ही इस पैटर्न के होने की पूरी वजह है।\n\n**यह कहाँ ले जा रहा है**\nकक्षा 11 की limits ज़्यादातर factor-करो-और-काटो हैं। $\\lim_{x \\to 1} \\frac{x^2-1}{x-1}$ तब तक नामुमकिन लगती है जब तक आप $x^2 - 1 = (x-1)(x+1)$ न देख लें, काटिए, और जवाब अपने आप निकल आता है। जिसे factor नहीं आता उसे limit नहीं आएगी — और वह समझेगा कि दिक़्क़त कैलकुलस में है।"
      },
      "worked": [
       {
        "title": {
         "en": "Factorise, then use it",
-        "hi": "गुणनखंड कीजिए, फिर इस्तेमाल कीजिए"
+        "hi": "factor कीजिए, फिर इस्तेमाल कीजिए"
        },
        "problem": {
         "en": "Factorise $3x^2 - 12$, and hence simplify $\\frac{3x^2-12}{x-2}$.",
-        "hi": "$3x^2 - 12$ के गुणनखंड कीजिए, और उससे $\\frac{3x^2-12}{x-2}$ को सरल कीजिए।"
+        "hi": "$3x^2 - 12$ के factor कीजिए, और उससे $\\frac{3x^2-12}{x-2}$ को सरल कीजिए।"
        },
        "steps": [
         {
          "do": {
           "en": "Common factor first: $3x^2 - 12 = 3(x^2 - 4)$.",
-          "hi": "पहले उभयनिष्ठ गुणनखंड: $3x^2 - 12 = 3(x^2 - 4)$।"
+          "hi": "पहले उभयनिष्ठ factor: $3x^2 - 12 = 3(x^2 - 4)$।"
          },
          "why": {
           "en": "Always look for this before anything else. It makes what remains much easier to recognise.",
@@ -504,31 +504,31 @@ window.SL_DATA.subjects.push({
         {
          "do": {
           "en": "$x^2 - 4$ is a difference of two squares: $x^2 - 2^2 = (x-2)(x+2)$. So $3x^2-12 = 3(x-2)(x+2)$.",
-          "hi": "$x^2 - 4$ दो वर्गों का अंतर है: $x^2 - 2^2 = (x-2)(x+2)$। तो $3x^2-12 = 3(x-2)(x+2)$।"
+          "hi": "$x^2 - 4$ दो squares का अंतर है: $x^2 - 2^2 = (x-2)(x+2)$। तो $3x^2-12 = 3(x-2)(x+2)$।"
          },
          "why": {
           "en": "Recognising $4$ as $2^2$ is the whole step. Difference of squares is worth spotting on sight, because it appears constantly in limits.",
-          "hi": "$4$ को $2^2$ पहचान लेना ही पूरा चरण है। वर्गों का अंतर देखते ही पहचानने लायक़ है, क्योंकि यह सीमाओं में लगातार आता है।"
+          "hi": "$4$ को $2^2$ पहचान लेना ही पूरा चरण है। squares का अंतर देखते ही पहचानने लायक़ है, क्योंकि यह limits में लगातार आता है।"
          }
         },
         {
          "do": {
           "en": "Now the fraction: $\\frac{3(x-2)(x+2)}{x-2}$. The $(x-2)$ cancels top and bottom, leaving $3(x+2)$.",
-          "hi": "अब भिन्न: $\\frac{3(x-2)(x+2)}{x-2}$। $(x-2)$ ऊपर-नीचे कट जाता है, बचता है $3(x+2)$।"
+          "hi": "अब fraction: $\\frac{3(x-2)(x+2)}{x-2}$। $(x-2)$ ऊपर-नीचे कट जाता है, बचता है $3(x+2)$।"
          },
          "why": {
           "en": "You may only cancel a whole factor, never a single term. This is legal because $(x-2)$ is multiplying everything above it.",
-          "hi": "आप सिर्फ़ पूरा गुणनखंड काट सकते हैं, अकेला पद कभी नहीं। यह इसलिए जायज़ है क्योंकि $(x-2)$ ऊपर की हर चीज़ से गुणा हो रहा है।"
+          "hi": "आप सिर्फ़ पूरा factor काट सकते हैं, अकेला पद कभी नहीं। यह इसलिए जायज़ है क्योंकि $(x-2)$ ऊपर की हर चीज़ से गुणा हो रहा है।"
          }
         },
         {
          "do": {
           "en": "State the restriction: this holds for $x \\neq 2$, because the original fraction is undefined there.",
-          "hi": "शर्त लिखिए: यह $x \\neq 2$ के लिए है, क्योंकि मूल भिन्न वहाँ अपरिभाषित है।"
+          "hi": "शर्त लिखिए: यह $x \\neq 2$ के लिए है, क्योंकि मूल fraction वहाँ अपरिभाषित है।"
          },
          "why": {
           "en": "This is exactly what a limit question is built on. The simplified form works everywhere except the one point that was causing the trouble — and the limit asks what happens as you approach it.",
-          "hi": "सीमा वाला सवाल ठीक इसी पर बना होता है। सरल रूप हर जगह चलता है सिवाय उस एक बिंदु के जो दिक़्क़त कर रहा था — और सीमा पूछती है कि उसके पास पहुँचने पर क्या होता है।"
+          "hi": "limit वाला सवाल ठीक इसी पर बना होता है। सरल रूप हर जगह चलता है सिवाय उस एक बिंदु के जो दिक़्क़त कर रहा था — और limit पूछती है कि उसके पास पहुँचने पर क्या होता है।"
          }
         }
        ],
@@ -538,7 +538,7 @@ window.SL_DATA.subjects.push({
        },
        "note": {
         "en": "You have just done the core move of a Class 11 limits question, in Foundation. That is not an accident — it is why this topic is here.",
-        "hi": "आपने अभी नींव के स्तर पर ही कक्षा 11 की सीमा वाले सवाल की मुख्य चाल कर ली। यह संयोग नहीं — इसी वजह से यह विषय यहाँ रखा गया है।"
+        "hi": "आपने अभी नींव के स्तर पर ही कक्षा 11 की limit वाले सवाल की मुख्य चाल कर ली। यह संयोग नहीं — इसी वजह से यह विषय यहाँ रखा गया है।"
        }
       }
      ]
@@ -569,11 +569,11 @@ window.SL_DATA.subjects.push({
    },
    "name": {
     "en": "Sets",
-    "hi": "समुच्चय"
+    "hi": "Sets — समुच्चय"
    },
    "summary": {
     "en": "A set is a clearly described collection. That single idea gives mathematics the vocabulary to say exactly which numbers a statement is about — and it is the reason every later chapter can begin with 'for all real x' and mean something precise. This chapter builds the language, then uses it to count things that are genuinely hard to count by hand.",
-    "hi": "समुच्चय एक स्पष्ट रूप से बताया गया संग्रह है। यही एक विचार गणित को वह भाषा देता है जिससे ठीक-ठीक कहा जा सके कि कोई कथन किन संख्याओं के बारे में है — और इसी वजह से आगे का हर अध्याय 'सभी वास्तविक x के लिए' कहकर कुछ सटीक कह पाता है। यह अध्याय पहले भाषा बनाता है, फिर उससे वे चीज़ें गिनता है जिन्हें हाथ से गिनना सचमुच कठिन है।"
+    "hi": "set एक स्पष्ट रूप से बताया गया संग्रह है। यही एक विचार गणित को वह भाषा देता है जिससे ठीक-ठीक कहा जा सके कि कोई कथन किन संख्याओं के बारे में है — और इसी वजह से आगे का हर अध्याय 'सभी real x के लिए' कहकर कुछ सटीक कह पाता है। यह अध्याय पहले भाषा बनाता है, फिर उससे वे चीज़ें गिनता है जिन्हें हाथ से गिनना सचमुच कठिन है।"
    },
    "checkpoint": {
     "en": "**Bridge gate.** Before topic 1, do the Bridge (topic 0) and its check. If you score below 6 out of 8 there, do not push on — go back to Level 0 Foundation Chapter 1. It costs you one evening and saves you the whole chapter.",
@@ -581,7 +581,7 @@ window.SL_DATA.subjects.push({
    },
    "assignment": {
     "en": "📋 **Practical activity — the set of your own life**\n\nSets stop feeling abstract the moment they describe something real. Do this on paper, not in your head.\n\n**Part A — build three sets from your own class**\n1. $A$ = students in your class who travel by bus\n2. $B$ = students who bring a tiffin from home\n3. $C$ = students who play any sport\n\nAsk around and actually list the names. Then:\n- Draw a Venn diagram of all three inside a rectangle (the universal set = your whole class).\n- Fill in every one of the eight regions with real names.\n- Now answer: $n(A \\cap B)$, $n(A \\cup C)$, $n(A' \\cap B')$.\n\n**Part B — verify De Morgan with your own data**\nCount $n((A \\cup B)')$ and count $n(A' \\cap B')$ separately, from your lists. They must come out equal. If they do not, one of your regions has a name in the wrong place — find it. This is the honest version of 'proving' De Morgan: you have checked it on a case you built yourself.\n\n**Part C — the counting formula, earned**\nCount $n(A)$, $n(B)$ and $n(A \\cap B)$ from your lists. Now compute $n(A) + n(B) - n(A \\cap B)$ and compare it with the number of names you can see in $A \\cup B$. Write one sentence explaining, in your own words, why the subtraction is there.\n\n**Part D — a real spreadsheet, if you have one available**\nPut the names in a spreadsheet with three TRUE/FALSE columns. Use COUNTIFS to get $n(A \\cap B)$ directly. Every database query you will ever meet is set theory wearing different clothes; this is the shortest route to seeing that.\n\n✍️ **Submit:** the Venn diagram with all eight regions filled, your De Morgan check, and the one sentence from Part C.",
-    "hi": "📋 **व्यावहारिक गतिविधि — आपके अपने जीवन का समुच्चय**\n\nसमुच्चय उसी पल अमूर्त लगना बंद कर देते हैं जब वे कुछ असली बताने लगते हैं। यह कागज़ पर कीजिए, दिमाग़ में नहीं।\n\n**भाग क — अपनी ही कक्षा से तीन समुच्चय बनाइए**\n1. $A$ = आपकी कक्षा के वे विद्यार्थी जो बस से आते हैं\n2. $B$ = वे जो घर से टिफ़िन लाते हैं\n3. $C$ = वे जो कोई भी खेल खेलते हैं\n\nपूछ-ताछ करके सचमुच नाम लिखिए। फिर:\n- एक आयत (सार्वत्रिक समुच्चय = पूरी कक्षा) के अंदर तीनों का वेन आरेख बनाइए।\n- आठों क्षेत्रों में असली नाम भरिए।\n- अब बताइए: $n(A \\cap B)$, $n(A \\cup C)$, $n(A' \\cap B')$।\n\n**भाग ख — अपने ही आँकड़ों से डी मॉर्गन जाँचिए**\nअपनी सूचियों से $n((A \\cup B)')$ और $n(A' \\cap B')$ अलग-अलग गिनिए। दोनों बराबर आने ही चाहिए। अगर नहीं आते, तो किसी क्षेत्र में कोई नाम ग़लत जगह है — उसे ढूँढिए। डी मॉर्गन को 'सिद्ध' करने का यही ईमानदार तरीक़ा है: आपने इसे अपने बनाए हुए उदाहरण पर जाँचा है।\n\n**भाग ग — गिनती का सूत्र, कमाकर**\nअपनी सूचियों से $n(A)$, $n(B)$ और $n(A \\cap B)$ गिनिए। अब $n(A) + n(B) - n(A \\cap B)$ निकालिए और $A \\cup B$ में दिख रहे नामों की संख्या से मिलाइए। एक वाक्य में अपने शब्दों में लिखिए कि घटाना क्यों ज़रूरी है।\n\n**भाग घ — असली स्प्रेडशीट, अगर उपलब्ध हो**\nनामों को स्प्रेडशीट में तीन TRUE/FALSE स्तंभों के साथ रखिए। $n(A \\cap B)$ सीधे निकालने के लिए COUNTIFS का इस्तेमाल कीजिए। आप जीवन में जितनी भी डेटाबेस क्वेरी देखेंगे, वे सब अलग कपड़ों में समुच्चय सिद्धांत ही हैं; इसे देखने का सबसे छोटा रास्ता यही है।\n\n✍️ **जमा कीजिए:** आठों क्षेत्र भरा हुआ वेन आरेख, आपकी डी मॉर्गन जाँच, और भाग ग वाला एक वाक्य।"
+    "hi": "📋 **व्यावहारिक गतिविधि — आपके अपने जीवन का set**\n\nset उसी पल अमूर्त लगना बंद कर देते हैं जब वे कुछ असली बताने लगते हैं। यह कागज़ पर कीजिए, दिमाग़ में नहीं।\n\n**भाग क — अपनी ही कक्षा से तीन set बनाइए**\n1. $A$ = आपकी कक्षा के वे विद्यार्थी जो बस से आते हैं\n2. $B$ = वे जो घर से टिफ़िन लाते हैं\n3. $C$ = वे जो कोई भी खेल खेलते हैं\n\nपूछ-ताछ करके सचमुच नाम लिखिए। फिर:\n- एक rectangle (universal set = पूरी कक्षा) के अंदर तीनों का Venn diagram बनाइए।\n- आठों regions में असली नाम भरिए।\n- अब बताइए: $n(A \\cap B)$, $n(A \\cup C)$, $n(A' \\cap B')$।\n\n**भाग ख — अपने ही आँकड़ों से डी मॉर्गन जाँचिए**\nअपनी सूचियों से $n((A \\cup B)')$ और $n(A' \\cap B')$ अलग-अलग गिनिए। दोनों बराबर आने ही चाहिए। अगर नहीं आते, तो किसी region में कोई नाम ग़लत जगह है — उसे ढूँढिए। डी मॉर्गन को 'सिद्ध' करने का यही ईमानदार तरीक़ा है: आपने इसे अपने बनाए हुए उदाहरण पर जाँचा है।\n\n**भाग ग — गिनती का सूत्र, कमाकर**\nअपनी सूचियों से $n(A)$, $n(B)$ और $n(A \\cap B)$ गिनिए। अब $n(A) + n(B) - n(A \\cap B)$ निकालिए और $A \\cup B$ में दिख रहे नामों की संख्या से मिलाइए। एक वाक्य में अपने शब्दों में लिखिए कि घटाना क्यों ज़रूरी है।\n\n**भाग घ — असली स्प्रेडशीट, अगर उपलब्ध हो**\nनामों को स्प्रेडशीट में तीन TRUE/FALSE स्तंभों के साथ रखिए। $n(A \\cap B)$ सीधे निकालने के लिए COUNTIFS का इस्तेमाल कीजिए। आप जीवन में जितनी भी डेटाबेस क्वेरी देखेंगे, वे सब अलग कपड़ों में set सिद्धांत ही हैं; इसे देखने का सबसे छोटा रास्ता यही है।\n\n✍️ **जमा कीजिए:** आठों region भरा हुआ Venn diagram, आपकी डी मॉर्गन जाँच, और भाग ग वाला एक वाक्य।"
    },
    "ncert": 1,
    "topics": [
@@ -589,27 +589,27 @@ window.SL_DATA.subjects.push({
      "code": "MTH11-1-0",
      "name": {
       "en": "Bridge — what you need before Sets",
-      "hi": "पुल — समुच्चय से पहले क्या चाहिए"
+      "hi": "पुल — set से पहले क्या चाहिए"
      },
      "notes": {
-      "en": "> 🌉 **This is the Bridge.** Every chapter in this course starts with one. It is not revision for its own sake — it is precisely the earlier material this chapter is about to assume without telling you. Twenty minutes here, and Chapter 1 starts easy.\n\n**What Sets actually assumes**\nSurprisingly little. Sets is the gentlest chapter in Class 11, which is exactly why NCERT put it first. You need three things.\n\n**1. The number families and their symbols**\n\n| Symbol | Name | Members |\n|---|---|---|\n| $\\mathbb{N}$ | natural | $1, 2, 3, \\ldots$ |\n| $\\mathbb{W}$ | whole | $0, 1, 2, \\ldots$ |\n| $\\mathbb{Z}$ | integers | $\\ldots, -1, 0, 1, \\ldots$ |\n| $\\mathbb{Q}$ | rational | $\\frac{p}{q}$, $q \\neq 0$ |\n| $\\mathbb{R}$ | real | every point on the number line |\n\n⚠️ Note $\\mathbb{N}$ starts at $1$, not $0$. NCERT is consistent about this, and questions exploit it.\n\n**2. Factors, multiples and primes**\n- A **factor** of 12 divides it exactly: $1, 2, 3, 4, 6, 12$.\n- A **multiple** of 3 is 3 times something: $3, 6, 9, 12, \\ldots$\n- A **prime** has exactly two factors, itself and 1: $2, 3, 5, 7, 11, \\ldots$\n\n💡 $1$ is **not** prime — it has only one factor. This appears in set questions every year, usually as an option designed to catch you.\n\n**3. Solving a simple equation**\nSet-builder notation constantly says things like $\\{x : x^2 = 4\\}$. You must see immediately that this means $x = 2$ **or** $x = -2$ — both, because squaring destroys the sign.\n\n$$x^2 = 4 \\Rightarrow x = \\pm 2$$\n\n⚠️ Writing only $x = 2$ loses half the set. This is the most common Bridge failure for this chapter.\n\n**One more thing: reading an interval**\n\n$$[2, 5] \\text{ includes 2 and 5} \\qquad (2, 5) \\text{ excludes both}$$\n\nA square bracket is a closed door — the endpoint is in. A round bracket is an open door — the endpoint is out. You met this with inequalities in Class 10.\n\n**Now check yourself.** Do the Bridge questions below before topic 1. Six out of eight or better and you are ready. Below that, go to Level 0 Foundation Chapter 1 first — that is not a setback, it is the shortest route.",
-      "hi": "> 🌉 **यह पुल है।** इस पाठ्यक्रम का हर अध्याय एक पुल से शुरू होता है। यह यूँ ही दोहराई नहीं है — यह ठीक वही पुरानी सामग्री है जिसे यह अध्याय आपको बताए बिना मान लेने वाला है। बीस मिनट यहाँ, और अध्याय 1 आसान शुरू होगा।\n\n**समुच्चय असल में क्या मान लेता है**\nहैरानी की बात है, बहुत कम। समुच्चय कक्षा 11 का सबसे नरम अध्याय है, इसीलिए NCERT ने इसे पहले रखा है। तीन चीज़ें चाहिए।\n\n**1. संख्याओं के परिवार और उनके चिह्न**\n\n| चिह्न | नाम | सदस्य |\n|---|---|---|\n| $\\mathbb{N}$ | प्राकृत | $1, 2, 3, \\ldots$ |\n| $\\mathbb{W}$ | पूर्ण | $0, 1, 2, \\ldots$ |\n| $\\mathbb{Z}$ | पूर्णांक | $\\ldots, -1, 0, 1, \\ldots$ |\n| $\\mathbb{Q}$ | परिमेय | $\\frac{p}{q}$, $q \\neq 0$ |\n| $\\mathbb{R}$ | वास्तविक | संख्या रेखा का हर बिंदु |\n\n⚠️ ध्यान दीजिए $\\mathbb{N}$ की शुरुआत $1$ से होती है, $0$ से नहीं। NCERT इस बारे में एकरूप है, और सवाल इसका फ़ायदा उठाते हैं।\n\n**2. गुणनखंड, गुणज और अभाज्य**\n- 12 का **गुणनखंड** उसे पूरा-पूरा विभाजित करता है: $1, 2, 3, 4, 6, 12$।\n- 3 का **गुणज** 3 गुणा कुछ होता है: $3, 6, 9, 12, \\ldots$\n- **अभाज्य** के ठीक दो गुणनखंड होते हैं, ख़ुद और 1: $2, 3, 5, 7, 11, \\ldots$\n\n💡 $1$ अभाज्य **नहीं** है — इसका सिर्फ़ एक गुणनखंड है। यह हर साल समुच्चय के सवालों में आता है, अक्सर आपको फँसाने के लिए बनाए गए विकल्प के रूप में।\n\n**3. एक सरल समीकरण हल करना**\nसमुच्चय-निर्माण संकेतन बार-बार $\\{x : x^2 = 4\\}$ जैसी बात कहता है। आपको तुरंत दिखना चाहिए कि इसका मतलब $x = 2$ **या** $x = -2$ है — दोनों, क्योंकि वर्ग करने से चिह्न मिट जाता है।\n\n$$x^2 = 4 \\Rightarrow x = \\pm 2$$\n\n⚠️ सिर्फ़ $x = 2$ लिखने से आधा समुच्चय चला जाता है। इस अध्याय के पुल पर सबसे आम चूक यही है।\n\n**एक बात और: अंतराल पढ़ना**\n\n$$[2, 5] \\text{ में 2 और 5 शामिल} \\qquad (2, 5) \\text{ में दोनों बाहर}$$\n\nचौकोर कोष्ठक बंद दरवाज़ा है — सिरा अंदर। गोल कोष्ठक खुला दरवाज़ा है — सिरा बाहर। यह आप कक्षा 10 में असमिकाओं के साथ मिल चुके हैं।\n\n**अब ख़ुद को जाँचिए।** विषय 1 से पहले नीचे के पुल-प्रश्न कीजिए। आठ में से छह या ज़्यादा, तो आप तैयार हैं। उससे कम, तो पहले स्तर 0 नींव अध्याय 1 पर जाइए — यह पीछे हटना नहीं, सबसे छोटा रास्ता है।"
+      "en": "> 🌉 **This is the Bridge.** Every chapter in this course starts with one. It is not revision for its own sake — it is precisely the earlier material this chapter is about to assume without telling you. Twenty minutes here, and Chapter 1 starts easy.\n\n**What Sets actually assumes**\nSurprisingly little. Sets is the gentlest chapter in Class 11, which is exactly why NCERT put it first. You need three things.\n\n**1. The number families and their symbols**\n\n| Symbol | Name | Members |\n|---|---|---|\n| $\\mathbb{N}$ | natural | $1, 2, 3, \\ldots$ |\n| $\\mathbb{W}$ | whole | $0, 1, 2, \\ldots$ |\n| $\\mathbb{Z}$ | integers | $\\ldots, -1, 0, 1, \\ldots$ |\n| $\\mathbb{Q}$ | rational | $\\frac{p}{q}$, $q \\neq 0$ |\n| $\\mathbb{R}$ | real | every point on the number line |\n\n⚠️ Note $\\mathbb{N}$ starts at $1$, not $0$. NCERT is consistent about this, and questions exploit it.\n\n**2. Factors, multiples and primes**\n- A **factor** of 12 divides it exactly: $1, 2, 3, 4, 6, 12$.\n- A **multiple** of 3 is 3 times something: $3, 6, 9, 12, \\ldots$\n- A **prime** has exactly two factors, itself and 1: $2, 3, 5, 7, 11, \\ldots$\n\n💡 $1$ is **not** prime — it has only one factor. This appears in set questions every year, usually as an option designed to catch you.\n\n**3. Solving a simple equation**\nSet-builder notation constantly says things like $\\{x : x^2 = 4\\}$. You must see immediately that this means $x = 2$ **or** $x = -2$ — both, because squaring destroys the sign.\n\n$$x^2 = 4 \\Rightarrow x = \\pm 2$$\n\n⚠️ Writing only $x = 2$ loses half the set. This is the most common Bridge failure for this chapter.\n\n**One more thing: reading an interval**\n\n$$[2, 5] \\text{ includes 2 and 5} \\qquad (2, 5) \\text{ excludes both}$$\n\nA square bracket is a closed door — the endpoint is in. A round bracket is an open door — the endpoint is out. You met this with inequalities in Class 10.\n\n**One more thing — the words your Hindi exam paper uses**\n\nThese notes say *set*, *union*, *intersection*, because that is what people actually say out loud. A Hindi question paper writes them the NCERT way. Learn both and no paper can surprise you.\n\n| We say | Hindi paper writes |\n|---|---|\n| set | समुच्चय |\n| member / element | अवयव / सदस्य |\n| subset | उपसमुच्चय |\n| power set | घात समुच्चय |\n| union | सम्मिलन |\n| intersection | सर्वनिष्ठ |\n| complement | पूरक |\n| empty set | रिक्त समुच्चय |\n| universal set | सार्वत्रिक समुच्चय |\n| finite / infinite | परिमित / अनंत |\n| disjoint | असंयुक्त |\n| interval | अंतराल |\n\n**Now check yourself.** Do the Bridge questions below before topic 1. Six out of eight or better and you are ready. Below that, go to Level 0 Foundation Chapter 1 first — that is not a setback, it is the shortest route.",
+      "hi": "> 🌉 **यह पुल है।** इस पाठ्यक्रम का हर अध्याय एक पुल से शुरू होता है। यह यूँ ही दोहराई नहीं है — यह ठीक वही पुरानी सामग्री है जिसे यह अध्याय आपको बताए बिना मान लेने वाला है। बीस मिनट यहाँ, और अध्याय 1 आसान शुरू होगा।\n\n**set असल में क्या मान लेता है**\nहैरानी की बात है, बहुत कम। set कक्षा 11 का सबसे नरम अध्याय है, इसीलिए NCERT ने इसे पहले रखा है। तीन चीज़ें चाहिए।\n\n**1. संख्याओं के परिवार और उनके sign**\n\n| sign | नाम | member |\n|---|---|---|\n| $\\mathbb{N}$ | natural | $1, 2, 3, \\ldots$ |\n| $\\mathbb{W}$ | पूर्ण | $0, 1, 2, \\ldots$ |\n| $\\mathbb{Z}$ | integer | $\\ldots, -1, 0, 1, \\ldots$ |\n| $\\mathbb{Q}$ | rational | $\\frac{p}{q}$, $q \\neq 0$ |\n| $\\mathbb{R}$ | real | number line का हर बिंदु |\n\n⚠️ ध्यान दीजिए $\\mathbb{N}$ की शुरुआत $1$ से होती है, $0$ से नहीं। NCERT इस बारे में एकरूप है, और सवाल इसका फ़ायदा उठाते हैं।\n\n**2. factor, multiple और prime**\n- 12 का **factor** उसे पूरा-पूरा विभाजित करता है: $1, 2, 3, 4, 6, 12$।\n- 3 का **multiple** 3 गुणा कुछ होता है: $3, 6, 9, 12, \\ldots$\n- **prime** के ठीक दो factor होते हैं, ख़ुद और 1: $2, 3, 5, 7, 11, \\ldots$\n\n💡 $1$ prime **नहीं** है — इसका सिर्फ़ एक factor है। यह हर साल set के सवालों में आता है, अक्सर आपको फँसाने के लिए बनाए गए विकल्प के रूप में।\n\n**3. एक सरल equation हल करना**\nset-builder संकेतन बार-बार $\\{x : x^2 = 4\\}$ जैसी बात कहता है। आपको तुरंत दिखना चाहिए कि इसका मतलब $x = 2$ **या** $x = -2$ है — दोनों, क्योंकि square करने से sign मिट जाता है।\n\n$$x^2 = 4 \\Rightarrow x = \\pm 2$$\n\n⚠️ सिर्फ़ $x = 2$ लिखने से आधा set चला जाता है। इस अध्याय के पुल पर सबसे आम चूक यही है।\n\n**एक बात और: interval पढ़ना**\n\n$$[2, 5] \\text{ में 2 और 5 शामिल} \\qquad (2, 5) \\text{ में दोनों बाहर}$$\n\nचौकोर bracket बंद दरवाज़ा है — सिरा अंदर। गोल bracket खुला दरवाज़ा है — सिरा बाहर। यह आप कक्षा 10 में inequalities के साथ मिल चुके हैं।\n\n**एक बात और — जो शब्द आपका हिंदी पेपर लिखेगा**\n\nये notes *set*, *union*, *intersection* बोलते हैं, क्योंकि बोलचाल में सब यही कहते हैं। हिंदी का पेपर इन्हें NCERT वाले शब्दों में लिखता है। दोनों याद रखिए, फिर कोई पेपर चौंका नहीं पाएगा।\n\n| हम बोलते हैं | हिंदी पेपर लिखता है |\n|---|---|\n| set | समुच्चय |\n| member / element | अवयव / सदस्य |\n| subset | उपसमुच्चय |\n| power set | घात समुच्चय |\n| union | सम्मिलन |\n| intersection | सर्वनिष्ठ |\n| complement | पूरक |\n| empty set | रिक्त समुच्चय |\n| universal set | सार्वत्रिक समुच्चय |\n| finite / infinite | परिमित / अनंत |\n| disjoint | असंयुक्त |\n| interval | अंतराल |\n\n**अब ख़ुद को जाँचिए।** विषय 1 से पहले नीचे के पुल-प्रश्न कीजिए। आठ में से छह या ज़्यादा, तो आप तैयार हैं। उससे कम, तो पहले स्तर 0 नींव अध्याय 1 पर जाइए — यह पीछे हटना नहीं, सबसे छोटा रास्ता है।"
      },
      "worked": [
       {
        "title": {
         "en": "Reading a set-builder description correctly",
-        "hi": "समुच्चय-निर्माण विवरण सही पढ़ना"
+        "hi": "set-builder विवरण सही पढ़ना"
        },
        "problem": {
         "en": "List the members of $\\{x : x \\in \\mathbb{Z}, x^2 = 9\\}$ and of $\\{x : x \\in \\mathbb{N}, x^2 = 9\\}$.",
-        "hi": "$\\{x : x \\in \\mathbb{Z}, x^2 = 9\\}$ और $\\{x : x \\in \\mathbb{N}, x^2 = 9\\}$ के सदस्य लिखिए।"
+        "hi": "$\\{x : x \\in \\mathbb{Z}, x^2 = 9\\}$ और $\\{x : x \\in \\mathbb{N}, x^2 = 9\\}$ के member लिखिए।"
        },
        "steps": [
         {
          "do": {
           "en": "Read the colon as **such that**. The first says: all $x$ such that $x$ is an integer and $x^2 = 9$.",
-          "hi": "अपूर्ण विराम को **ऐसा कि** पढ़िए। पहला कहता है: वे सभी $x$ ऐसा कि $x$ पूर्णांक है और $x^2 = 9$।"
+          "hi": "अपूर्ण विराम को **ऐसा कि** पढ़िए। पहला कहता है: वे सभी $x$ ऐसा कि $x$ integer है और $x^2 = 9$।"
          },
          "why": {
           "en": "There are always two conditions: which family $x$ comes from, and what property it must have. Missing either one is where marks go.",
@@ -623,13 +623,13 @@ window.SL_DATA.subjects.push({
          },
          "why": {
           "en": "Both, always. $(-3)^2$ is also 9. Squaring destroys the sign, so undoing it must restore both possibilities.",
-          "hi": "हमेशा दोनों। $(-3)^2$ भी 9 है। वर्ग करने से चिह्न मिट जाता है, तो उसे उलटने पर दोनों संभावनाएँ लौटनी ही चाहिए।"
+          "hi": "हमेशा दोनों। $(-3)^2$ भी 9 है। square करने से sign मिट जाता है, तो उसे उलटने पर दोनों संभावनाएँ लौटनी ही चाहिए।"
          }
         },
         {
          "do": {
           "en": "First set: $\\mathbb{Z}$ contains negatives, so both survive — $\\{-3, 3\\}$.",
-          "hi": "पहला समुच्चय: $\\mathbb{Z}$ में ऋणात्मक हैं, तो दोनों बचते हैं — $\\{-3, 3\\}$।"
+          "hi": "पहला set: $\\mathbb{Z}$ में negative हैं, तो दोनों बचते हैं — $\\{-3, 3\\}$।"
          },
          "why": {
           "en": "The family clause is a filter applied after solving. Solve first, then filter.",
@@ -639,11 +639,11 @@ window.SL_DATA.subjects.push({
         {
          "do": {
           "en": "Second set: $\\mathbb{N}$ starts at 1, so $-3$ is rejected — $\\{3\\}$.",
-          "hi": "दूसरा समुच्चय: $\\mathbb{N}$ 1 से शुरू होता है, तो $-3$ बाहर — $\\{3\\}$।"
+          "hi": "दूसरा set: $\\mathbb{N}$ 1 से शुरू होता है, तो $-3$ बाहर — $\\{3\\}$।"
          },
          "why": {
           "en": "Same equation, different answer, because the family changed. This is precisely why NCERT insists you name the family every time.",
-          "hi": "वही समीकरण, अलग जवाब, क्योंकि परिवार बदल गया। ठीक इसीलिए NCERT हर बार परिवार बताने पर ज़ोर देता है।"
+          "hi": "वही equation, अलग जवाब, क्योंकि परिवार बदल गया। ठीक इसीलिए NCERT हर बार परिवार बताने पर ज़ोर देता है।"
          }
         }
        ],
@@ -653,7 +653,7 @@ window.SL_DATA.subjects.push({
        },
        "note": {
         "en": "Two sets that look identical on paper can have different members. Always read the family clause before you write anything down.",
-        "hi": "कागज़ पर एक जैसे दिखने वाले दो समुच्चयों के सदस्य अलग हो सकते हैं। कुछ भी लिखने से पहले हमेशा परिवार वाली शर्त पढ़िए।"
+        "hi": "कागज़ पर एक जैसे दिखने वाले दो sets के member अलग हो सकते हैं। कुछ भी लिखने से पहले हमेशा परिवार वाली शर्त पढ़िए।"
        }
       }
      ]
@@ -662,27 +662,27 @@ window.SL_DATA.subjects.push({
      "code": "MTH11-1-1",
      "name": {
       "en": "What a set is, and why anyone bothered",
-      "hi": "समुच्चय है क्या, और किसी ने इसकी परवाह क्यों की"
+      "hi": "set है क्या, और किसी ने इसकी परवाह क्यों की"
      },
      "notes": {
       "en": "**Start with something you already do**\nYour phone has a contacts list. Your school has a list of students in Class 11-B. A shop has a list of items in stock. In each case there is a rule that decides, for anything you point at, whether it is in the list or not.\n\nThat is a set. **A set is a well-defined collection of objects.**\n\n**Well-defined is the entire idea**\nIt means: for any object, the answer to *is it in?* is a clear yes or no, with no argument.\n\n| Collection | A set? | Why |\n|---|---|---|\n| Vowels in English | ✅ yes | Anyone can check: is it a, e, i, o or u? |\n| Prime numbers below 20 | ✅ yes | Divisibility is decidable |\n| Rivers of India | ✅ yes | Checkable against a list |\n| Tall students in your class | ❌ no | Tall compared to whom? No agreed cut-off |\n| Good films | ❌ no | Pure opinion |\n| Students taller than 170 cm | ✅ yes | Now there is a rule, so now it is a set |\n\n💡 **Notice what fixed the bad examples.** *Tall* became a set the moment a number was attached. Mathematics is not being fussy — it is refusing to build on a foundation where two careful people can disagree about the facts.\n\n**Notation, all of it**\n- Sets get **capital letters**: $A$, $B$, $V$.\n- Members go in **curly brackets**: $V = \\{a, e, i, o, u\\}$.\n- $\\in$ means **is a member of**: $a \\in V$.\n- $\\notin$ means **is not a member of**: $b \\notin V$.\n\nRead $\\in$ as *belongs to*. It is a stylised Greek epsilon, for the Greek *esti*, meaning *is*.\n\n**Two rules that surprise people**\n\n⚠️ **Order does not matter.** $\\{1, 2, 3\\}$ and $\\{3, 1, 2\\}$ are the **same set**. A set records membership, not arrangement.\n\n⚠️ **Repetition does not count.** The set of letters in SCHOOL is $\\{S, C, H, O, L\\}$ — five members, not six. Writing O twice does not make it more of a member.\n\n**Why this was worth inventing**\nBefore sets, mathematics had no precise way to say which numbers a statement covered. Once you can write $\\{x \\in \\mathbb{R} : x > 0\\}$, you can state a theorem exactly and know whether a given case is included. Every *for all $x$* you read for the next two years rests on this chapter.\n\nAnd outside mathematics: every database query, every filter on a shopping site, every SQL WHERE clause is a set-builder description. You are learning the notation the whole computing world runs on.",
-      "hi": "**कुछ ऐसा जो आप पहले से करते हैं, वहीं से शुरू**\nआपके फ़ोन में संपर्कों की सूची है। आपके स्कूल में कक्षा 11-ब के विद्यार्थियों की सूची है। दुकान में स्टॉक की सूची है। हर हाल में एक नियम है जो तय करता है कि आप जिस भी चीज़ की ओर इशारा करें, वह सूची में है या नहीं।\n\nयही समुच्चय है। **समुच्चय वस्तुओं का सुपरिभाषित संग्रह है।**\n\n**सुपरिभाषित ही पूरा विचार है**\nइसका मतलब: किसी भी वस्तु के लिए *क्या यह अंदर है?* का जवाब साफ़ हाँ या ना हो, कोई बहस नहीं।\n\n| संग्रह | समुच्चय? | क्यों |\n|---|---|---|\n| अंग्रेज़ी के स्वर | ✅ हाँ | कोई भी जाँच सकता है: a, e, i, o या u है? |\n| 20 से कम अभाज्य संख्याएँ | ✅ हाँ | विभाज्यता तय की जा सकती है |\n| भारत की नदियाँ | ✅ हाँ | सूची से मिलाई जा सकती हैं |\n| आपकी कक्षा के लंबे विद्यार्थी | ❌ नहीं | किसकी तुलना में लंबे? कोई तय सीमा नहीं |\n| अच्छी फ़िल्में | ❌ नहीं | विशुद्ध राय |\n| 170 सेमी से लंबे विद्यार्थी | ✅ हाँ | अब नियम है, तो अब समुच्चय है |\n\n💡 **ध्यान दीजिए कि ख़राब उदाहरणों को किसने ठीक किया।** *लंबा* उसी पल समुच्चय बन गया जब उससे एक संख्या जुड़ी। गणित नख़रे नहीं कर रहा — वह ऐसी नींव पर बनाने से मना कर रहा है जहाँ दो सावधान लोग तथ्यों पर असहमत हो सकें।\n\n**संकेतन, पूरा का पूरा**\n- समुच्चय को **बड़े अक्षर** मिलते हैं: $A$, $B$, $V$।\n- सदस्य **मझले कोष्ठक** में: $V = \\{a, e, i, o, u\\}$।\n- $\\in$ का अर्थ **का सदस्य है**: $a \\in V$।\n- $\\notin$ का अर्थ **का सदस्य नहीं है**: $b \\notin V$।\n\n$\\in$ को *से संबंधित है* पढ़िए। यह सजाया हुआ यूनानी एप्सिलॉन है, यूनानी *esti* यानी *है* के लिए।\n\n**दो नियम जो लोगों को चौंकाते हैं**\n\n⚠️ **क्रम से फ़र्क़ नहीं पड़ता।** $\\{1, 2, 3\\}$ और $\\{3, 1, 2\\}$ **एक ही समुच्चय** हैं। समुच्चय सदस्यता दर्ज करता है, तरतीब नहीं।\n\n⚠️ **दोहराव नहीं गिना जाता।** SCHOOL के अक्षरों का समुच्चय $\\{S, C, H, O, L\\}$ है — पाँच सदस्य, छह नहीं। O दो बार लिखने से वह ज़्यादा सदस्य नहीं हो जाता।\n\n**यह बनाने लायक़ क्यों था**\nसमुच्चय से पहले गणित के पास यह कहने का कोई सटीक तरीक़ा नहीं था कि कोई कथन किन संख्याओं पर लागू है। जैसे ही आप $\\{x \\in \\mathbb{R} : x > 0\\}$ लिख सकते हैं, आप प्रमेय ठीक-ठीक कह सकते हैं और जान सकते हैं कि कोई ख़ास स्थिति उसमें आती है या नहीं। अगले दो साल आप जितने भी *सभी $x$ के लिए* पढ़ेंगे, वे सब इसी अध्याय पर टिके हैं।\n\nऔर गणित के बाहर: हर डेटाबेस क्वेरी, ख़रीदारी की साइट का हर फ़िल्टर, हर SQL WHERE खंड एक समुच्चय-निर्माण विवरण ही है। आप वह संकेतन सीख रहे हैं जिस पर पूरी कंप्यूटर दुनिया चलती है।"
+      "hi": "**कुछ ऐसा जो आप पहले से करते हैं, वहीं से शुरू**\nआपके फ़ोन में संपर्कों की सूची है। आपके स्कूल में कक्षा 11-ब के विद्यार्थियों की सूची है। दुकान में स्टॉक की सूची है। हर हाल में एक नियम है जो तय करता है कि आप जिस भी चीज़ की ओर इशारा करें, वह सूची में है या नहीं।\n\nयही set है। **set वस्तुओं का well-defined संग्रह है।**\n\n**well-defined ही पूरा विचार है**\nइसका मतलब: किसी भी वस्तु के लिए *क्या यह अंदर है?* का जवाब साफ़ हाँ या ना हो, कोई बहस नहीं।\n\n| संग्रह | set? | क्यों |\n|---|---|---|\n| अंग्रेज़ी के स्वर | ✅ हाँ | कोई भी जाँच सकता है: a, e, i, o या u है? |\n| 20 से कम prime संख्याएँ | ✅ हाँ | विभाज्यता तय की जा सकती है |\n| भारत की नदियाँ | ✅ हाँ | सूची से मिलाई जा सकती हैं |\n| आपकी कक्षा के लंबे विद्यार्थी | ❌ नहीं | किसकी तुलना में लंबे? कोई तय limit नहीं |\n| अच्छी फ़िल्में | ❌ नहीं | विशुद्ध राय |\n| 170 सेमी से लंबे विद्यार्थी | ✅ हाँ | अब नियम है, तो अब set है |\n\n💡 **ध्यान दीजिए कि ख़राब उदाहरणों को किसने ठीक किया।** *लंबा* उसी पल set बन गया जब उससे एक संख्या जुड़ी। गणित नख़रे नहीं कर रहा — वह ऐसी नींव पर बनाने से मना कर रहा है जहाँ दो सावधान लोग तथ्यों पर असहमत हो सकें।\n\n**संकेतन, पूरा का पूरा**\n- set को **बड़े अक्षर** मिलते हैं: $A$, $B$, $V$।\n- member **मझले bracket** में: $V = \\{a, e, i, o, u\\}$।\n- $\\in$ का अर्थ **का member है**: $a \\in V$।\n- $\\notin$ का अर्थ **का member नहीं है**: $b \\notin V$।\n\n$\\in$ को *से संबंधित है* पढ़िए। यह सजाया हुआ यूनानी एप्सिलॉन है, यूनानी *esti* यानी *है* के लिए।\n\n**दो नियम जो लोगों को चौंकाते हैं**\n\n⚠️ **क्रम से फ़र्क़ नहीं पड़ता।** $\\{1, 2, 3\\}$ और $\\{3, 1, 2\\}$ **एक ही set** हैं। set membership दर्ज करता है, तरतीब नहीं।\n\n⚠️ **दोहराव नहीं गिना जाता।** SCHOOL के अक्षरों का set $\\{S, C, H, O, L\\}$ है — पाँच member, छह नहीं। O दो बार लिखने से वह ज़्यादा member नहीं हो जाता।\n\n**यह बनाने लायक़ क्यों था**\nset से पहले गणित के पास यह कहने का कोई सटीक तरीक़ा नहीं था कि कोई कथन किन संख्याओं पर लागू है। जैसे ही आप $\\{x \\in \\mathbb{R} : x > 0\\}$ लिख सकते हैं, आप theorem ठीक-ठीक कह सकते हैं और जान सकते हैं कि कोई ख़ास स्थिति उसमें आती है या नहीं। अगले दो साल आप जितने भी *सभी $x$ के लिए* पढ़ेंगे, वे सब इसी अध्याय पर टिके हैं।\n\nऔर गणित के बाहर: हर डेटाबेस क्वेरी, ख़रीदारी की साइट का हर फ़िल्टर, हर SQL WHERE खंड एक set-builder विवरण ही है। आप वह संकेतन सीख रहे हैं जिस पर पूरी कंप्यूटर दुनिया चलती है।"
      },
      "worked": [
       {
        "title": {
         "en": "Is it a set?",
-        "hi": "क्या यह समुच्चय है?"
+        "hi": "क्या यह set है?"
        },
        "problem": {
         "en": "Which of these are sets? (a) the months with 31 days, (b) the difficult chapters in this book, (c) the solutions of $x^2 - 5x + 6 = 0$, (d) the interesting numbers below 100.",
-        "hi": "इनमें से कौन समुच्चय हैं? (क) 31 दिन वाले महीने, (ख) इस किताब के कठिन अध्याय, (ग) $x^2 - 5x + 6 = 0$ के हल, (घ) 100 से कम रोचक संख्याएँ।"
+        "hi": "इनमें से कौन set हैं? (क) 31 दिन वाले महीने, (ख) इस किताब के कठिन अध्याय, (ग) $x^2 - 5x + 6 = 0$ के हल, (घ) 100 से कम रोचक संख्याएँ।"
        },
        "steps": [
         {
          "do": {
           "en": "(a) ✅ A set. Hand anyone a calendar and they produce the same seven months, every time.",
-          "hi": "(क) ✅ समुच्चय है। किसी को भी कैलेंडर दीजिए, वह हर बार वही सात महीने निकालेगा।"
+          "hi": "(क) ✅ set है। किसी को भी कैलेंडर दीजिए, वह हर बार वही सात महीने निकालेगा।"
          },
          "why": {
           "en": "The test is not *is it about numbers*. The test is whether two careful people must agree.",
@@ -692,37 +692,37 @@ window.SL_DATA.subjects.push({
         {
          "do": {
           "en": "(b) ❌ Not a set. Difficult for whom? Your answer and your friend's will differ.",
-          "hi": "(ख) ❌ समुच्चय नहीं। किसके लिए कठिन? आपका और आपके दोस्त का जवाब अलग होगा।"
+          "hi": "(ख) ❌ set नहीं। किसके लिए कठिन? आपका और आपके दोस्त का जवाब अलग होगा।"
          },
          "why": {
           "en": "Any word hiding a personal judgement — difficult, tall, good, best — breaks well-definedness.",
-          "hi": "कोई भी शब्द जिसमें निजी राय छिपी हो — कठिन, लंबा, अच्छा, सबसे बढ़िया — सुपरिभाषितता तोड़ देता है।"
+          "hi": "कोई भी शब्द जिसमें निजी राय छिपी हो — कठिन, लंबा, अच्छा, सबसे बढ़िया — well-defined होना तोड़ देता है।"
          }
         },
         {
          "do": {
           "en": "(c) ✅ A set. Factorise: $(x-2)(x-3) = 0$, so the set is $\\{2, 3\\}$.",
-          "hi": "(ग) ✅ समुच्चय है। गुणनखंड कीजिए: $(x-2)(x-3) = 0$, तो समुच्चय $\\{2, 3\\}$ है।"
+          "hi": "(ग) ✅ set है। factor कीजिए: $(x-2)(x-3) = 0$, तो set $\\{2, 3\\}$ है।"
          },
          "why": {
           "en": "Two numbers multiplying to 6 and adding to $-5$ are $-2$ and $-3$ — the Foundation factorising rule, used the moment Class 11 begins.",
-          "hi": "गुणनफल 6 और योग $-5$ वाली दो संख्याएँ $-2$ और $-3$ हैं — नींव वाला गुणनखंड नियम, कक्षा 11 शुरू होते ही काम आ गया।"
+          "hi": "गुणनफल 6 और योग $-5$ वाली दो संख्याएँ $-2$ और $-3$ हैं — नींव वाला factor नियम, कक्षा 11 शुरू होते ही काम आ गया।"
          }
         },
         {
          "do": {
           "en": "(d) ❌ Not a set. *Interesting* has no rule behind it.",
-          "hi": "(घ) ❌ समुच्चय नहीं। *रोचक* के पीछे कोई नियम नहीं है।"
+          "hi": "(घ) ❌ set नहीं। *रोचक* के पीछे कोई नियम नहीं है।"
          },
          "why": {
           "en": "Note that (d) could be repaired: *numbers below 100 divisible by 7* is a perfectly good set. The fix is always to replace the opinion with a rule.",
-          "hi": "ध्यान दीजिए कि (घ) को सुधारा जा सकता है: *100 से कम, 7 से विभाज्य संख्याएँ* बिल्कुल ठीक समुच्चय है। सुधार हमेशा यही है — राय की जगह नियम रख दीजिए।"
+          "hi": "ध्यान दीजिए कि (घ) को सुधारा जा सकता है: *100 से कम, 7 से विभाज्य संख्याएँ* बिल्कुल ठीक set है। सुधार हमेशा यही है — राय की जगह नियम रख दीजिए।"
          }
         }
        ],
        "answer": {
         "en": "(a) and (c) are sets. (b) and (d) are not.",
-        "hi": "(क) और (ग) समुच्चय हैं। (ख) और (घ) नहीं।"
+        "hi": "(क) और (ग) set हैं। (ख) और (घ) नहीं।"
        }
       }
      ]
@@ -731,11 +731,11 @@ window.SL_DATA.subjects.push({
      "code": "MTH11-1-2",
      "name": {
       "en": "Two ways to write a set",
-      "hi": "समुच्चय लिखने के दो तरीक़े"
+      "hi": "set लिखने के दो तरीक़े"
      },
      "notes": {
       "en": "There are exactly two ways, and the choice is always about which is shorter.\n\n**1. Roster form — list the members**\n\n$$V = \\{a, e, i, o, u\\} \\qquad A = \\{1, 2, 3, 4, 5\\}$$\n\nStraightforward. Use three dots when the pattern is obvious and the list is long:\n\n$$\\{1, 2, 3, \\ldots, 100\\} \\qquad \\mathbb{N} = \\{1, 2, 3, \\ldots\\}$$\n\n**2. Set-builder form — state the rule**\n\n$$A = \\{x : x \\in \\mathbb{N}, x < 6\\}$$\n\nRead aloud: *A is the set of all $x$ such that $x$ is a natural number and $x$ is less than 6.*\n\nThe colon means **such that**. Some books use a vertical bar for the same thing; they are interchangeable.\n\n💡 **The structure never changes.** Every set-builder expression has three parts: the thing ($x$), which family it comes from ($x \\in \\mathbb{N}$), and what property it must have ($x < 6$). Find those three and the notation stops being frightening.\n\n**When to use which**\n- Roster when the list is short or has no pattern: $\\{2, 3, 5, 7\\}$.\n- Set-builder when the list is long, infinite, or the rule is the point: $\\{x \\in \\mathbb{R} : x > 0\\}$ cannot be listed at all.\n\n⚠️ Some sets **must** be set-builder. You cannot roster the real numbers between 0 and 1 — there are infinitely many, with no next one to write down.\n\n**Converting, both directions**\n\n> **Roster → builder.** $\\{2, 4, 6, 8, 10\\}$. What is the pattern? Even, and at most 10. So $\\{x : x \\in \\mathbb{N}, x \\text{ even}, x \\leq 10\\}$, or more compactly $\\{2n : n \\in \\mathbb{N}, n \\leq 5\\}$.\n\n> **Builder → roster.** $\\{x : x \\in \\mathbb{Z}, -2 \\leq x < 3\\}$. Walk the integers from $-2$ upward, stopping before 3: $\\{-2, -1, 0, 1, 2\\}$.\n\n⚠️ Watch the endpoints. $-2 \\leq x$ includes $-2$; $x < 3$ excludes 3. Getting one endpoint wrong changes the set — and examiners choose these deliberately.\n\n**The compact form is worth learning**\n$\\{2n : n \\in \\mathbb{N}\\}$ says *all numbers of the form $2n$* — the even numbers. This shape appears throughout sequences, the binomial theorem and calculus, so meeting it here, in the easiest possible setting, is a gift.",
-      "hi": "ठीक दो तरीक़े हैं, और चुनाव हमेशा इसी बात का है कि कौन-सा छोटा पड़ेगा।\n\n**1. तालिका रूप — सदस्य गिना दीजिए**\n\n$$V = \\{a, e, i, o, u\\} \\qquad A = \\{1, 2, 3, 4, 5\\}$$\n\nसीधी बात। जब पैटर्न साफ़ हो और सूची लंबी हो तो तीन बिंदु लगाइए:\n\n$$\\{1, 2, 3, \\ldots, 100\\} \\qquad \\mathbb{N} = \\{1, 2, 3, \\ldots\\}$$\n\n**2. समुच्चय-निर्माण रूप — नियम बता दीजिए**\n\n$$A = \\{x : x \\in \\mathbb{N}, x < 6\\}$$\n\nज़ोर से पढ़िए: *A उन सभी $x$ का समुच्चय है ऐसा कि $x$ प्राकृत संख्या है और $x$, 6 से कम है।*\n\nअपूर्ण विराम का अर्थ है **ऐसा कि**। कुछ किताबें इसी के लिए खड़ी लकीर इस्तेमाल करती हैं; दोनों एक ही हैं।\n\n💡 **ढाँचा कभी नहीं बदलता।** हर समुच्चय-निर्माण व्यंजक में तीन हिस्से होते हैं: कौन-सी चीज़ ($x$), कौन-सा परिवार ($x \\in \\mathbb{N}$), और कौन-सा गुण ($x < 6$)। ये तीन ढूँढ लीजिए, संकेतन डरावना लगना बंद कर देगा।\n\n**कब कौन-सा**\n- तालिका, जब सूची छोटी हो या उसमें कोई पैटर्न न हो: $\\{2, 3, 5, 7\\}$।\n- निर्माण रूप, जब सूची लंबी हो, अनंत हो, या नियम ही असली बात हो: $\\{x \\in \\mathbb{R} : x > 0\\}$ को गिनाया ही नहीं जा सकता।\n\n⚠️ कुछ समुच्चय **मजबूरन** निर्माण रूप में ही लिखे जाएँगे। 0 और 1 के बीच की वास्तविक संख्याओं की तालिका नहीं बन सकती — वे अनंत हैं, और किसी के बाद अगली लिखी ही नहीं जा सकती।\n\n**दोनों दिशाओं में बदलना**\n\n> **तालिका → निर्माण।** $\\{2, 4, 6, 8, 10\\}$। पैटर्न क्या है? सम, और अधिकतम 10। तो $\\{x : x \\in \\mathbb{N}, x \\text{ सम}, x \\leq 10\\}$, या और छोटा $\\{2n : n \\in \\mathbb{N}, n \\leq 5\\}$।\n\n> **निर्माण → तालिका।** $\\{x : x \\in \\mathbb{Z}, -2 \\leq x < 3\\}$। $-2$ से ऊपर की ओर पूर्णांक चलिए, 3 से पहले रुकिए: $\\{-2, -1, 0, 1, 2\\}$।\n\n⚠️ सिरों पर नज़र रखिए। $-2 \\leq x$ में $-2$ शामिल है; $x < 3$ में 3 बाहर है। एक भी सिरा ग़लत हुआ तो समुच्चय बदल जाता है — और परीक्षक ये जान-बूझकर चुनते हैं।\n\n**छोटा रूप सीखने लायक़ है**\n$\\{2n : n \\in \\mathbb{N}\\}$ कहता है *$2n$ रूप की सभी संख्याएँ* — यानी सम संख्याएँ। यह ढाँचा अनुक्रम, द्विपद प्रमेय और कैलकुलस — हर जगह आता है, तो इसे यहाँ, सबसे आसान हालात में मिल लेना एक तोहफ़ा है।"
+      "hi": "ठीक दो तरीक़े हैं, और चुनाव हमेशा इसी बात का है कि कौन-सा छोटा पड़ेगा।\n\n**1. roster form — member गिना दीजिए**\n\n$$V = \\{a, e, i, o, u\\} \\qquad A = \\{1, 2, 3, 4, 5\\}$$\n\nसीधी बात। जब पैटर्न साफ़ हो और सूची लंबी हो तो तीन बिंदु लगाइए:\n\n$$\\{1, 2, 3, \\ldots, 100\\} \\qquad \\mathbb{N} = \\{1, 2, 3, \\ldots\\}$$\n\n**2. set-builder form — नियम बता दीजिए**\n\n$$A = \\{x : x \\in \\mathbb{N}, x < 6\\}$$\n\nज़ोर से पढ़िए: *A उन सभी $x$ का set है ऐसा कि $x$ natural number है और $x$, 6 से कम है।*\n\nअपूर्ण विराम का अर्थ है **ऐसा कि**। कुछ किताबें इसी के लिए खड़ी लकीर इस्तेमाल करती हैं; दोनों एक ही हैं।\n\n💡 **ढाँचा कभी नहीं बदलता।** हर set-builder expression में तीन हिस्से होते हैं: कौन-सी चीज़ ($x$), कौन-सा परिवार ($x \\in \\mathbb{N}$), और कौन-सा गुण ($x < 6$)। ये तीन ढूँढ लीजिए, संकेतन डरावना लगना बंद कर देगा।\n\n**कब कौन-सा**\n- तालिका, जब सूची छोटी हो या उसमें कोई पैटर्न न हो: $\\{2, 3, 5, 7\\}$।\n- set-builder form, जब सूची लंबी हो, infinite हो, या नियम ही असली बात हो: $\\{x \\in \\mathbb{R} : x > 0\\}$ को गिनाया ही नहीं जा सकता।\n\n⚠️ कुछ set **मजबूरन** set-builder form में ही लिखे जाएँगे। 0 और 1 के बीच की real संख्याओं की तालिका नहीं बन सकती — वे infinite हैं, और किसी के बाद अगली लिखी ही नहीं जा सकती।\n\n**दोनों दिशाओं में बदलना**\n\n> **तालिका → निर्माण।** $\\{2, 4, 6, 8, 10\\}$। पैटर्न क्या है? सम, और अधिकतम 10। तो $\\{x : x \\in \\mathbb{N}, x \\text{ सम}, x \\leq 10\\}$, या और छोटा $\\{2n : n \\in \\mathbb{N}, n \\leq 5\\}$।\n\n> **निर्माण → तालिका।** $\\{x : x \\in \\mathbb{Z}, -2 \\leq x < 3\\}$। $-2$ से ऊपर की ओर integer चलिए, 3 से पहले रुकिए: $\\{-2, -1, 0, 1, 2\\}$।\n\n⚠️ सिरों पर नज़र रखिए। $-2 \\leq x$ में $-2$ शामिल है; $x < 3$ में 3 बाहर है। एक भी सिरा ग़लत हुआ तो set बदल जाता है — और परीक्षक ये जान-बूझकर चुनते हैं।\n\n**छोटा रूप सीखने लायक़ है**\n$\\{2n : n \\in \\mathbb{N}\\}$ कहता है *$2n$ रूप की सभी संख्याएँ* — यानी सम संख्याएँ। यह ढाँचा sequence, binomial theorem और कैलकुलस — हर जगह आता है, तो इसे यहाँ, सबसे आसान हालात में मिल लेना एक तोहफ़ा है।"
      },
      "worked": [
       {
@@ -745,7 +745,7 @@ window.SL_DATA.subjects.push({
        },
        "problem": {
         "en": "(a) Write $\\{x : x \\in \\mathbb{Z}, x^2 \\leq 9\\}$ in roster form. (b) Write $\\{1, 4, 9, 16, 25\\}$ in set-builder form.",
-        "hi": "(क) $\\{x : x \\in \\mathbb{Z}, x^2 \\leq 9\\}$ को तालिका रूप में लिखिए। (ख) $\\{1, 4, 9, 16, 25\\}$ को समुच्चय-निर्माण रूप में लिखिए।"
+        "hi": "(क) $\\{x : x \\in \\mathbb{Z}, x^2 \\leq 9\\}$ को roster form में लिखिए। (ख) $\\{1, 4, 9, 16, 25\\}$ को set-builder form में लिखिए।"
        },
        "steps": [
         {
@@ -755,7 +755,7 @@ window.SL_DATA.subjects.push({
          },
          "why": {
           "en": "Squaring makes everything positive, so a small square means the number is near zero — on both sides. Forgetting the negative half is the classic error here.",
-          "hi": "वर्ग करने से सब धनात्मक हो जाता है, तो वर्ग का छोटा होना यानी संख्या शून्य के पास है — दोनों तरफ़। ऋणात्मक आधा भूल जाना यहाँ की चिरपरिचित ग़लती है।"
+          "hi": "square करने से सब positive हो जाता है, तो square का छोटा होना यानी संख्या शून्य के पास है — दोनों तरफ़। negative आधा भूल जाना यहाँ की चिरपरिचित ग़लती है।"
          }
         },
         {
@@ -765,17 +765,17 @@ window.SL_DATA.subjects.push({
          },
          "why": {
           "en": "Had it said $\\mathbb{R}$, no roster would be possible — infinitely many decimals satisfy it. The family clause is what makes listing possible at all.",
-          "hi": "अगर $\\mathbb{R}$ लिखा होता, तो तालिका बन ही नहीं सकती थी — अनंत दशमलव इसे संतुष्ट करते हैं। परिवार वाली शर्त ही तालिका को मुमकिन बनाती है।"
+          "hi": "अगर $\\mathbb{R}$ लिखा होता, तो तालिका बन ही नहीं सकती थी — infinite decimal इसे संतुष्ट करते हैं। परिवार वाली शर्त ही तालिका को मुमकिन बनाती है।"
          }
         },
         {
          "do": {
           "en": "(b) $1, 4, 9, 16, 25$ are $1^2, 2^2, 3^2, 4^2, 5^2$ — the first five perfect squares.",
-          "hi": "(ख) $1, 4, 9, 16, 25$ यानी $1^2, 2^2, 3^2, 4^2, 5^2$ — पहले पाँच पूर्ण वर्ग।"
+          "hi": "(ख) $1, 4, 9, 16, 25$ यानी $1^2, 2^2, 3^2, 4^2, 5^2$ — पहले पाँच perfect square।"
          },
          "why": {
           "en": "Always look for the pattern before you write. Squares, evens, multiples and primes cover almost every set-builder question you will see.",
-          "hi": "लिखने से पहले हमेशा पैटर्न ढूँढिए। वर्ग, सम, गुणज और अभाज्य — इन्हीं से लगभग हर समुच्चय-निर्माण वाला सवाल बनता है।"
+          "hi": "लिखने से पहले हमेशा पैटर्न ढूँढिए। square, सम, multiple और prime — इन्हीं से लगभग हर set-builder वाला सवाल बनता है।"
          }
         },
         {
@@ -785,7 +785,7 @@ window.SL_DATA.subjects.push({
          },
          "why": {
           "en": "Note what sits before the colon: not $x$, but $n^2$ — the shape the members take. Whatever describes a member goes there; it need not be a bare letter.",
-          "hi": "ध्यान दीजिए अपूर्ण विराम से पहले क्या है: $x$ नहीं, बल्कि $n^2$ — वह रूप जो सदस्य लेते हैं। वहाँ वही आता है जो सदस्य का वर्णन करे; ज़रूरी नहीं कि अकेला अक्षर हो।"
+          "hi": "ध्यान दीजिए अपूर्ण विराम से पहले क्या है: $x$ नहीं, बल्कि $n^2$ — वह रूप जो member लेते हैं। वहाँ वही आता है जो member का वर्णन करे; ज़रूरी नहीं कि अकेला अक्षर हो।"
          }
         }
        ],
@@ -801,14 +801,14 @@ window.SL_DATA.subjects.push({
        },
        "problem": {
         "en": "Write $\\{x : x \\in \\mathbb{N}, x \\text{ is a factor of } 12\\}$ in roster form.",
-        "hi": "$\\{x : x \\in \\mathbb{N}, x, 12 \\text{ का गुणनखंड है}\\}$ को तालिका रूप में लिखिए।"
+        "hi": "$\\{x : x \\in \\mathbb{N}, x, 12 \\text{ का factor है}\\}$ को roster form में लिखिए।"
        },
        "steps": [
         {
          "fade": true,
          "ask": {
           "en": "Find the factors in pairs — that way you cannot miss one. Which pairs multiply to 12?",
-          "hi": "गुणनखंड जोड़ों में ढूँढिए — इस तरह कोई छूटेगा नहीं। कौन-से जोड़े गुणा करके 12 देते हैं?"
+          "hi": "factor जोड़ों में ढूँढिए — इस तरह कोई छूटेगा नहीं। कौन-से जोड़े गुणा करके 12 देते हैं?"
          },
          "do": {
           "en": "$1 \\times 12$, $2 \\times 6$, $3 \\times 4$.",
@@ -823,7 +823,7 @@ window.SL_DATA.subjects.push({
          "fade": true,
          "ask": {
           "en": "Now write them in order inside curly brackets.",
-          "hi": "अब इन्हें क्रम से मझले कोष्ठक में लिखिए।"
+          "hi": "अब इन्हें क्रम से मझले bracket में लिखिए।"
          },
          "do": {
           "en": "$\\{1, 2, 3, 4, 6, 12\\}$",
@@ -831,7 +831,7 @@ window.SL_DATA.subjects.push({
          },
          "why": {
           "en": "Order does not affect what the set is, but writing it in order is how you check nothing is missing or repeated.",
-          "hi": "क्रम से यह नहीं बदलता कि समुच्चय है क्या, पर क्रम से लिखने पर ही आप जाँच पाते हैं कि कुछ छूटा या दोहराया तो नहीं।"
+          "hi": "क्रम से यह नहीं बदलता कि set है क्या, पर क्रम से लिखने पर ही आप जाँच पाते हैं कि कुछ छूटा या दोहराया तो नहीं।"
          }
         }
        ],
@@ -846,38 +846,38 @@ window.SL_DATA.subjects.push({
      "code": "MTH11-1-3",
      "name": {
       "en": "Empty, finite, infinite, equal",
-      "hi": "रिक्त, परिमित, अनंत, बराबर"
+      "hi": "empty, finite, infinite, बराबर"
      },
      "diagram": "sets-regions",
      "notes": {
       "en": "Four names. Three are easy. The fourth catches almost everyone.\n\n**The empty set**\nA set with nothing in it. We write it $\\emptyset$ or $\\{\\;\\}$.\n\nThink of your school bag on a Sunday. It is still a bag. It just has nothing inside.\n\n$$\\{x \\in \\mathbb{N} : x < 1\\} = \\emptyset$$\n\nNo counting number is smaller than 1, so nothing is picked. The answer is the empty set.\n\n💡 **Why give a name to nothing?** Because sometimes a rule picks nothing, and we still need an answer to write down. It is like zero. If you have no goats, *zero goats* is still a real answer.\n\n⚠️ **The trap.** These three look alike but are different:\n\n| We write | What is inside | How many |\n|---|---|---|\n| $\\emptyset$ | nothing | 0 |\n| $\\{0\\}$ | the number zero | 1 |\n| $\\{\\emptyset\\}$ | one empty set | 1 |\n\nThink of boxes:\n- $\\emptyset$ = no box at all\n- $\\{0\\}$ = a box with a zero inside\n- $\\{\\emptyset\\}$ = a big box with a small **empty** box inside it\n\nThe big box is not empty. There is a small box in it.\n\n**Finite and infinite**\nA set is **finite** if you could finish counting it one day.\n\n> The students in your school — finite.\n> Grains of rice in a sack — finite. Very many, but they would end.\n\nA set is **infinite** if the counting never ends.\n\n> $\\mathbb{N} = \\{1, 2, 3, \\ldots\\}$ — after every number there is a next one. It never stops.\n\n⚠️ **Big is not the same as infinite.** All the sand on earth is a huge amount, but you could finish counting it. That set is finite.\n\nWe write $n(A)$ for **how many members** are in set $A$.\n\n$$n(\\{a, e, i, o, u\\}) = 5 \\qquad n(\\emptyset) = 0$$\n\n**Equal sets**\nTwo sets are **equal** when they have exactly the same members. Nothing else matters.\n\n$$\\{1, 2, 3\\} = \\{3, 2, 1\\} = \\{1, 1, 2, 3, 3\\}$$\n\nAll three are the same set. Order was never written down. Repeats were never written down. So neither can change anything.\n\n**Equal and equivalent are different**\n- **Equal** ($A = B$): the same members.\n- **Equivalent**: the same *number* of members.\n\n$\\{1, 2, 3\\}$ and $\\{a, b, c\\}$ are **equivalent** — both have 3 members. But they are **not equal** — 1 is not the same thing as $a$.\n\n> Three cows and three chairs. Same number. Not the same thing.\n\nExam papers ask this every year, because students answer from habit instead of checking the meaning.",
-      "hi": "चार नाम। तीन आसान हैं। चौथा लगभग सबको पकड़ता है।\n\n**रिक्त समुच्चय**\nऐसा समुच्चय जिसमें कुछ भी नहीं है। इसे $\\emptyset$ या $\\{\\;\\}$ लिखते हैं।\n\nरविवार को अपने स्कूल बैग के बारे में सोचिए। वह अब भी बैग है। बस अंदर कुछ नहीं है।\n\n$$\\{x \\in \\mathbb{N} : x < 1\\} = \\emptyset$$\n\nकोई भी गिनती की संख्या 1 से छोटी नहीं है, तो कुछ भी नहीं चुना गया। जवाब है रिक्त समुच्चय।\n\n💡 **कुछ न होने को नाम क्यों दें?** क्योंकि कभी-कभी नियम कुछ भी नहीं चुनता, और फिर भी हमें कोई जवाब लिखना होता है। यह शून्य जैसा ही है। अगर आपके पास कोई बकरी नहीं है, तो *शून्य बकरी* भी एक असली जवाब है।\n\n⚠️ **जाल।** ये तीन एक जैसे दिखते हैं पर अलग हैं:\n\n| हम लिखते हैं | अंदर क्या है | कितने |\n|---|---|---|\n| $\\emptyset$ | कुछ नहीं | 0 |\n| $\\{0\\}$ | शून्य संख्या | 1 |\n| $\\{\\emptyset\\}$ | एक रिक्त समुच्चय | 1 |\n\nडिब्बों की तरह सोचिए:\n- $\\emptyset$ = कोई डिब्बा ही नहीं\n- $\\{0\\}$ = डिब्बा जिसमें शून्य रखा है\n- $\\{\\emptyset\\}$ = बड़ा डिब्बा जिसके अंदर एक छोटा **ख़ाली** डिब्बा रखा है\n\nबड़ा डिब्बा ख़ाली नहीं है। उसमें एक छोटा डिब्बा रखा है।\n\n**परिमित और अनंत**\nसमुच्चय **परिमित** है अगर आप उसे कभी न कभी गिनकर पूरा कर सकें।\n\n> आपके स्कूल के विद्यार्थी — परिमित।\n> बोरी में चावल के दाने — परिमित। बहुत सारे, पर कभी तो ख़त्म होंगे।\n\nसमुच्चय **अनंत** है अगर गिनती कभी ख़त्म ही न हो।\n\n> $\\mathbb{N} = \\{1, 2, 3, \\ldots\\}$ — हर संख्या के बाद एक और संख्या है। यह कभी नहीं रुकता।\n\n⚠️ **बड़ा होना और अनंत होना एक बात नहीं है।** धरती की सारी रेत बहुत ज़्यादा है, पर आप उसे गिनकर पूरा कर सकते हैं। वह समुच्चय परिमित है।\n\nसमुच्चय $A$ में **कितने सदस्य हैं**, इसे $n(A)$ लिखते हैं।\n\n$$n(\\{a, e, i, o, u\\}) = 5 \\qquad n(\\emptyset) = 0$$\n\n**बराबर समुच्चय**\nदो समुच्चय **बराबर** तब हैं जब उनके सदस्य बिल्कुल वही हों। और किसी बात से फ़र्क़ नहीं पड़ता।\n\n$$\\{1, 2, 3\\} = \\{3, 2, 1\\} = \\{1, 1, 2, 3, 3\\}$$\n\nतीनों एक ही समुच्चय हैं। क्रम कभी लिखा ही नहीं गया। दोहराव कभी लिखा ही नहीं गया। तो इनमें से कोई कुछ बदल ही नहीं सकता।\n\n**बराबर और तुल्य अलग हैं**\n- **बराबर** ($A = B$): सदस्य वही।\n- **तुल्य**: सदस्यों की *संख्या* वही।\n\n$\\{1, 2, 3\\}$ और $\\{a, b, c\\}$ **तुल्य** हैं — दोनों में 3 सदस्य हैं। पर ये **बराबर नहीं** हैं — 1 और $a$ एक चीज़ नहीं हैं।\n\n> तीन गाय और तीन कुर्सियाँ। संख्या वही। चीज़ वही नहीं।\n\nपरीक्षा में यह हर साल पूछा जाता है, क्योंकि विद्यार्थी मतलब देखने के बजाय आदत से जवाब दे देते हैं।"
+      "hi": "चार नाम। तीन आसान हैं। चौथा लगभग सबको पकड़ता है।\n\n**empty set**\nऐसा set जिसमें कुछ भी नहीं है। इसे $\\emptyset$ या $\\{\\;\\}$ लिखते हैं।\n\nरविवार को अपने स्कूल बैग के बारे में सोचिए। वह अब भी बैग है। बस अंदर कुछ नहीं है।\n\n$$\\{x \\in \\mathbb{N} : x < 1\\} = \\emptyset$$\n\nकोई भी गिनती की संख्या 1 से छोटी नहीं है, तो कुछ भी नहीं चुना गया। जवाब है empty set।\n\n💡 **कुछ न होने को नाम क्यों दें?** क्योंकि कभी-कभी नियम कुछ भी नहीं चुनता, और फिर भी हमें कोई जवाब लिखना होता है। यह शून्य जैसा ही है। अगर आपके पास कोई बकरी नहीं है, तो *शून्य बकरी* भी एक असली जवाब है।\n\n⚠️ **जाल।** ये तीन एक जैसे दिखते हैं पर अलग हैं:\n\n| हम लिखते हैं | अंदर क्या है | कितने |\n|---|---|---|\n| $\\emptyset$ | कुछ नहीं | 0 |\n| $\\{0\\}$ | शून्य संख्या | 1 |\n| $\\{\\emptyset\\}$ | एक empty set | 1 |\n\nडिब्बों की तरह सोचिए:\n- $\\emptyset$ = कोई डिब्बा ही नहीं\n- $\\{0\\}$ = डिब्बा जिसमें शून्य रखा है\n- $\\{\\emptyset\\}$ = बड़ा डिब्बा जिसके अंदर एक छोटा **ख़ाली** डिब्बा रखा है\n\nबड़ा डिब्बा ख़ाली नहीं है। उसमें एक छोटा डिब्बा रखा है।\n\n**finite और infinite**\nset **finite** है अगर आप उसे कभी न कभी गिनकर पूरा कर सकें।\n\n> आपके स्कूल के विद्यार्थी — finite।\n> बोरी में चावल के दाने — finite। बहुत सारे, पर कभी तो ख़त्म होंगे।\n\nset **infinite** है अगर गिनती कभी ख़त्म ही न हो।\n\n> $\\mathbb{N} = \\{1, 2, 3, \\ldots\\}$ — हर संख्या के बाद एक और संख्या है। यह कभी नहीं रुकता।\n\n⚠️ **बड़ा होना और infinite होना एक बात नहीं है।** धरती की सारी रेत बहुत ज़्यादा है, पर आप उसे गिनकर पूरा कर सकते हैं। वह set finite है।\n\nset $A$ में **कितने member हैं**, इसे $n(A)$ लिखते हैं।\n\n$$n(\\{a, e, i, o, u\\}) = 5 \\qquad n(\\emptyset) = 0$$\n\n**बराबर set**\nदो set **बराबर** तब हैं जब उनके member बिल्कुल वही हों। और किसी बात से फ़र्क़ नहीं पड़ता।\n\n$$\\{1, 2, 3\\} = \\{3, 2, 1\\} = \\{1, 1, 2, 3, 3\\}$$\n\nतीनों एक ही set हैं। क्रम कभी लिखा ही नहीं गया। दोहराव कभी लिखा ही नहीं गया। तो इनमें से कोई कुछ बदल ही नहीं सकता।\n\n**बराबर और equivalent अलग हैं**\n- **बराबर** ($A = B$): member वही।\n- **equivalent**: members की *संख्या* वही।\n\n$\\{1, 2, 3\\}$ और $\\{a, b, c\\}$ **equivalent** हैं — दोनों में 3 member हैं। पर ये **बराबर नहीं** हैं — 1 और $a$ एक चीज़ नहीं हैं।\n\n> तीन गाय और तीन कुर्सियाँ। संख्या वही। चीज़ वही नहीं।\n\nपरीक्षा में यह हर साल पूछा जाता है, क्योंकि विद्यार्थी मतलब देखने के बजाय आदत से जवाब दे देते हैं।"
      },
      "worked": [
       {
        "title": {
         "en": "Empty or not?",
-        "hi": "रिक्त है या नहीं?"
+        "hi": "empty है या नहीं?"
        },
        "problem": {
         "en": "Which of these are empty? (a) $\\{x \\in \\mathbb{R} : x^2 + 1 = 0\\}$, (b) $\\{x \\in \\mathbb{N} : 2 < x < 3\\}$, (c) $\\{x \\in \\mathbb{R} : 2 < x < 3\\}$, (d) $\\{\\emptyset\\}$.",
-        "hi": "इनमें से कौन रिक्त हैं? (क) $\\{x \\in \\mathbb{R} : x^2 + 1 = 0\\}$, (ख) $\\{x \\in \\mathbb{N} : 2 < x < 3\\}$, (ग) $\\{x \\in \\mathbb{R} : 2 < x < 3\\}$, (घ) $\\{\\emptyset\\}$।"
+        "hi": "इनमें से कौन empty हैं? (क) $\\{x \\in \\mathbb{R} : x^2 + 1 = 0\\}$, (ख) $\\{x \\in \\mathbb{N} : 2 < x < 3\\}$, (ग) $\\{x \\in \\mathbb{R} : 2 < x < 3\\}$, (घ) $\\{\\emptyset\\}$।"
        },
        "steps": [
         {
          "do": {
           "en": "(a) $x^2 + 1 = 0$ needs $x^2 = -1$. But a number times itself is never negative. So nothing fits. **Empty.**",
-          "hi": "(क) $x^2 + 1 = 0$ के लिए $x^2 = -1$ चाहिए। पर कोई संख्या ख़ुद से गुणा होकर ऋणात्मक नहीं होती। तो कुछ भी फ़िट नहीं बैठता। **रिक्त।**"
+          "hi": "(क) $x^2 + 1 = 0$ के लिए $x^2 = -1$ चाहिए। पर कोई संख्या ख़ुद से गुणा होकर negative नहीं होती। तो कुछ भी फ़िट नहीं बैठता। **empty।**"
          },
          "why": {
           "en": "$2 \\times 2 = 4$ and $(-2) \\times (-2) = 4$ too. Both give a plus. So a square is never below zero.",
-          "hi": "$2 \\times 2 = 4$ और $(-2) \\times (-2) = 4$ भी। दोनों धन देते हैं। तो वर्ग कभी शून्य से नीचे नहीं जाता।"
+          "hi": "$2 \\times 2 = 4$ और $(-2) \\times (-2) = 4$ भी। दोनों धन देते हैं। तो square कभी शून्य से नीचे नहीं जाता।"
          }
         },
         {
          "do": {
           "en": "(b) Counting numbers between 2 and 3 — there are none. **Empty.**",
-          "hi": "(ख) 2 और 3 के बीच गिनती की संख्याएँ — कोई नहीं। **रिक्त।**"
+          "hi": "(ख) 2 और 3 के बीच गिनती की संख्याएँ — कोई नहीं। **empty।**"
          },
          "why": {
           "en": "Counting numbers jump in whole steps: 1, 2, 3. There is no stop between 2 and 3.",
@@ -887,7 +887,7 @@ window.SL_DATA.subjects.push({
         {
          "do": {
           "en": "(c) Same question, but now over $\\mathbb{R}$. Here $2.5$ fits. So do $2.1$, $2.9$, $2.55$. **Not empty** — in fact endless.",
-          "hi": "(ग) वही सवाल, पर अब $\\mathbb{R}$ में। यहाँ $2.5$ फ़िट बैठता है। $2.1$, $2.9$, $2.55$ भी। **रिक्त नहीं** — बल्कि अनंत।"
+          "hi": "(ग) वही सवाल, पर अब $\\mathbb{R}$ में। यहाँ $2.5$ फ़िट बैठता है। $2.1$, $2.9$, $2.55$ भी। **empty नहीं** — बल्कि infinite।"
          },
          "why": {
           "en": "(b) and (c) ask the same thing but from different families, and the answers are opposite. This is why the family must always be written.",
@@ -897,17 +897,17 @@ window.SL_DATA.subjects.push({
         {
          "do": {
           "en": "(d) $\\{\\emptyset\\}$ has one thing inside — an empty set. **Not empty**, $n = 1$.",
-          "hi": "(घ) $\\{\\emptyset\\}$ के अंदर एक चीज़ है — एक रिक्त समुच्चय। **रिक्त नहीं**, $n = 1$।"
+          "hi": "(घ) $\\{\\emptyset\\}$ के अंदर एक चीज़ है — एक empty set। **empty नहीं**, $n = 1$।"
          },
          "why": {
           "en": "A box with an empty box inside is not an empty box. Count what is inside the outer brackets: one thing.",
-          "hi": "जिस डिब्बे में ख़ाली डिब्बा रखा हो, वह ख़ाली डिब्बा नहीं होता। बाहरी कोष्ठक के अंदर गिनिए: एक चीज़।"
+          "hi": "जिस डिब्बे में ख़ाली डिब्बा रखा हो, वह ख़ाली डिब्बा नहीं होता। बाहरी bracket के अंदर गिनिए: एक चीज़।"
          }
         }
        ],
        "answer": {
         "en": "(a) and (b) are empty. (c) is endless, (d) has one member.",
-        "hi": "(क) और (ख) रिक्त हैं। (ग) अनंत है, (घ) में एक सदस्य है।"
+        "hi": "(क) और (ख) empty हैं। (ग) infinite है, (घ) में एक member है।"
        }
       }
      ]
@@ -916,7 +916,7 @@ window.SL_DATA.subjects.push({
      "code": "MTH11-1-4",
      "name": {
       "en": "Subsets, power set and intervals",
-      "hi": "उपसमुच्चय, घात समुच्चय और अंतराल"
+      "hi": "subset, power set और interval"
      },
      "diagram": "sets-subset",
      "derivations": [
@@ -924,13 +924,13 @@ window.SL_DATA.subjects.push({
      ],
      "notes": {
       "en": "**Subset — the idea in one line**\n$A \\subseteq B$ means **every member of $A$ is also in $B$**.\n\nEvery student in Class 11-B is a student in your school. So the Class 11-B set sits inside the school set.\n\n{{diagram:sets-subset}}\n\nThe small circle is fully inside the big one. Nothing pokes out. That is what $\\subseteq$ means.\n\n$$\\{1, 2\\} \\subseteq \\{1, 2, 3\\} \\qquad \\mathbb{N} \\subseteq \\mathbb{Z} \\subseteq \\mathbb{Q} \\subseteq \\mathbb{R}$$\n\nThat second line is the number family table, written in one row.\n\n⚠️ **$\\in$ and $\\subseteq$ are not the same.**\n- $\\in$ joins **one member** to a set.\n- $\\subseteq$ joins **a whole set** to a set.\n\n$$2 \\in \\{1,2,3\\} \\;\\;✅ \\qquad \\{2\\} \\subseteq \\{1,2,3\\} \\;\\;✅$$\n$$2 \\subseteq \\{1,2,3\\} \\;\\;❌ \\qquad \\{2\\} \\in \\{1,2,3\\} \\;\\;❌$$\n\nThe curly brackets make all the difference. $2$ is a number. $\\{2\\}$ is a set holding that number. One mango is not the same as a basket with one mango in it.\n\n**Two subsets that every set has**\n1. **Itself.** $A \\subseteq A$. Every member of $A$ is in $A$. Obviously true.\n2. **The empty set.** $\\emptyset \\subseteq A$, always.\n\n💡 **Why is $\\emptyset$ inside everything?** To show it is wrong, you would have to find a member of $\\emptyset$ that is missing from $A$. But $\\emptyset$ has no members at all. So you can never find one. The rule can never be broken, so we say it is true.\n\n**Proper subset**\n$A \\subset B$ means $A$ is inside $B$ **and** $A$ is not the whole of $B$. Something is left out.\n\n**Power set — all the subsets, put together**\n$P(A)$ is the set of **every** subset of $A$.\n\nTo build a subset, walk down the members and answer one question each time: *in or out?*\n\n{{diagram:sets-powerset}}\n\nFor $A = \\{a, b\\}$ there are 2 choices for $a$ and 2 for $b$, so $2 \\times 2 = 4$ subsets:\n\n$$P(A) = \\{\\; \\emptyset, \\; \\{a\\}, \\; \\{b\\}, \\; \\{a,b\\} \\;\\}$$\n\n**The rule**\n\n$$n(P(A)) = 2^{n(A)}$$\n\nOne yes/no choice per member. $n$ members means $n$ choices, each with 2 answers, so $2 \\times 2 \\times \\cdots = 2^n$.\n\nThe two extreme cases give the two subsets you already knew: all *no* gives $\\emptyset$, all *yes* gives $A$ itself.\n\n**Intervals — a short way to write a piece of the number line**\n\n| We write | It means | In set form |\n|---|---|---|\n| $[a, b]$ | ends are IN | $\\{x : a \\leq x \\leq b\\}$ |\n| $(a, b)$ | ends are OUT | $\\{x : a < x < b\\}$ |\n| $[a, b)$ | left in, right out | $\\{x : a \\leq x < b\\}$ |\n| $(a, \\infty)$ | everything above $a$ | $\\{x : x > a\\}$ |\n\n💡 **How to remember it.** A square bracket is a **closed door** — the end point stays inside. A round bracket is an **open door** — the end point walks out.\n\n⚠️ Infinity always gets a round bracket. You can never arrive at $\\infty$, so it can never be included. It is a direction, not a place.",
-      "hi": "**उपसमुच्चय — एक पंक्ति में विचार**\n$A \\subseteq B$ का मतलब है **$A$ का हर सदस्य $B$ में भी है**।\n\nकक्षा 11-ब का हर विद्यार्थी आपके स्कूल का विद्यार्थी है। तो कक्षा 11-ब वाला समुच्चय स्कूल वाले समुच्चय के अंदर बैठता है।\n\n{{diagram:sets-subset}}\n\nछोटा वृत्त पूरी तरह बड़े के अंदर है। कुछ भी बाहर नहीं निकला। $\\subseteq$ का यही मतलब है।\n\n$$\\{1, 2\\} \\subseteq \\{1, 2, 3\\} \\qquad \\mathbb{N} \\subseteq \\mathbb{Z} \\subseteq \\mathbb{Q} \\subseteq \\mathbb{R}$$\n\nदूसरी पंक्ति संख्या परिवारों की तालिका ही है, एक ही लाइन में लिखी हुई।\n\n⚠️ **$\\in$ और $\\subseteq$ एक नहीं हैं।**\n- $\\in$ **एक सदस्य** को समुच्चय से जोड़ता है।\n- $\\subseteq$ **पूरे समुच्चय** को समुच्चय से जोड़ता है।\n\n$$2 \\in \\{1,2,3\\} \\;\\;✅ \\qquad \\{2\\} \\subseteq \\{1,2,3\\} \\;\\;✅$$\n$$2 \\subseteq \\{1,2,3\\} \\;\\;❌ \\qquad \\{2\\} \\in \\{1,2,3\\} \\;\\;❌$$\n\nपूरा फ़र्क़ मझले कोष्ठक का है। $2$ एक संख्या है। $\\{2\\}$ वह समुच्चय है जिसमें वह संख्या रखी है। एक आम और एक आम वाली टोकरी एक बात नहीं है।\n\n**हर समुच्चय के दो उपसमुच्चय**\n1. **ख़ुद वह।** $A \\subseteq A$। $A$ का हर सदस्य $A$ में है। ज़ाहिर सी बात है।\n2. **रिक्त समुच्चय।** $\\emptyset \\subseteq A$, हमेशा।\n\n💡 **$\\emptyset$ हर चीज़ के अंदर क्यों है?** इसे ग़लत दिखाने के लिए आपको $\\emptyset$ का कोई ऐसा सदस्य ढूँढना पड़ेगा जो $A$ में न हो। पर $\\emptyset$ में कोई सदस्य है ही नहीं। तो आप कभी ढूँढ ही नहीं पाएँगे। नियम कभी टूट ही नहीं सकता, इसलिए हम इसे सही मानते हैं।\n\n**उचित उपसमुच्चय**\n$A \\subset B$ का मतलब है $A$, $B$ के अंदर है **और** $A$ पूरा $B$ नहीं है। कुछ न कुछ छूट जाता है।\n\n**घात समुच्चय — सारे उपसमुच्चय, एक जगह**\n$P(A)$ वह समुच्चय है जिसमें $A$ का **हर** उपसमुच्चय रखा है।\n\nउपसमुच्चय बनाने के लिए सदस्यों पर चलते जाइए और हर बार एक सवाल का जवाब दीजिए: *अंदर या बाहर?*\n\n{{diagram:sets-powerset}}\n\n$A = \\{a, b\\}$ के लिए $a$ पर 2 विकल्प और $b$ पर 2, तो $2 \\times 2 = 4$ उपसमुच्चय:\n\n$$P(A) = \\{\\; \\emptyset, \\; \\{a\\}, \\; \\{b\\}, \\; \\{a,b\\} \\;\\}$$\n\n**नियम**\n\n$$n(P(A)) = 2^{n(A)}$$\n\nहर सदस्य पर एक हाँ/ना। $n$ सदस्य यानी $n$ फ़ैसले, हर एक के 2 जवाब, तो $2 \\times 2 \\times \\cdots = 2^n$।\n\nदोनों चरम स्थितियाँ वही दो उपसमुच्चय देती हैं जो आप पहले से जानते थे: सब *ना* यानी $\\emptyset$, सब *हाँ* यानी ख़ुद $A$।\n\n**अंतराल — संख्या रेखा का टुकड़ा लिखने का छोटा तरीक़ा**\n\n| हम लिखते हैं | मतलब | समुच्चय रूप में |\n|---|---|---|\n| $[a, b]$ | सिरे **अंदर** | $\\{x : a \\leq x \\leq b\\}$ |\n| $(a, b)$ | सिरे **बाहर** | $\\{x : a < x < b\\}$ |\n| $[a, b)$ | बायाँ अंदर, दायाँ बाहर | $\\{x : a \\leq x < b\\}$ |\n| $(a, \\infty)$ | $a$ से ऊपर सब कुछ | $\\{x : x > a\\}$ |\n\n💡 **याद रखने का तरीक़ा।** चौकोर कोष्ठक **बंद दरवाज़ा** है — सिरा अंदर ही रहता है। गोल कोष्ठक **खुला दरवाज़ा** है — सिरा बाहर निकल जाता है।\n\n⚠️ अनंत को हमेशा गोल कोष्ठक मिलता है। आप $\\infty$ तक कभी पहुँच ही नहीं सकते, तो उसे शामिल भी नहीं कर सकते। यह दिशा है, कोई जगह नहीं।"
+      "hi": "**subset — एक पंक्ति में विचार**\n$A \\subseteq B$ का मतलब है **$A$ का हर member $B$ में भी है**।\n\nकक्षा 11-ब का हर विद्यार्थी आपके स्कूल का विद्यार्थी है। तो कक्षा 11-ब वाला set स्कूल वाले set के अंदर बैठता है।\n\n{{diagram:sets-subset}}\n\nछोटा circle पूरी तरह बड़े के अंदर है। कुछ भी बाहर नहीं निकला। $\\subseteq$ का यही मतलब है।\n\n$$\\{1, 2\\} \\subseteq \\{1, 2, 3\\} \\qquad \\mathbb{N} \\subseteq \\mathbb{Z} \\subseteq \\mathbb{Q} \\subseteq \\mathbb{R}$$\n\nदूसरी पंक्ति संख्या परिवारों की तालिका ही है, एक ही लाइन में लिखी हुई।\n\n⚠️ **$\\in$ और $\\subseteq$ एक नहीं हैं।**\n- $\\in$ **एक member** को set से जोड़ता है।\n- $\\subseteq$ **पूरे set** को set से जोड़ता है।\n\n$$2 \\in \\{1,2,3\\} \\;\\;✅ \\qquad \\{2\\} \\subseteq \\{1,2,3\\} \\;\\;✅$$\n$$2 \\subseteq \\{1,2,3\\} \\;\\;❌ \\qquad \\{2\\} \\in \\{1,2,3\\} \\;\\;❌$$\n\nपूरा फ़र्क़ मझले bracket का है। $2$ एक संख्या है। $\\{2\\}$ वह set है जिसमें वह संख्या रखी है। एक आम और एक आम वाली टोकरी एक बात नहीं है।\n\n**हर set के दो subset**\n1. **ख़ुद वह।** $A \\subseteq A$। $A$ का हर member $A$ में है। ज़ाहिर सी बात है।\n2. **empty set।** $\\emptyset \\subseteq A$, हमेशा।\n\n💡 **$\\emptyset$ हर चीज़ के अंदर क्यों है?** इसे ग़लत दिखाने के लिए आपको $\\emptyset$ का कोई ऐसा member ढूँढना पड़ेगा जो $A$ में न हो। पर $\\emptyset$ में कोई member है ही नहीं। तो आप कभी ढूँढ ही नहीं पाएँगे। नियम कभी टूट ही नहीं सकता, इसलिए हम इसे सही मानते हैं।\n\n**proper subset**\n$A \\subset B$ का मतलब है $A$, $B$ के अंदर है **और** $A$ पूरा $B$ नहीं है। कुछ न कुछ छूट जाता है।\n\n**power set — सारे subset, एक जगह**\n$P(A)$ वह set है जिसमें $A$ का **हर** subset रखा है।\n\nsubset बनाने के लिए members पर चलते जाइए और हर बार एक सवाल का जवाब दीजिए: *अंदर या बाहर?*\n\n{{diagram:sets-powerset}}\n\n$A = \\{a, b\\}$ के लिए $a$ पर 2 विकल्प और $b$ पर 2, तो $2 \\times 2 = 4$ subset:\n\n$$P(A) = \\{\\; \\emptyset, \\; \\{a\\}, \\; \\{b\\}, \\; \\{a,b\\} \\;\\}$$\n\n**नियम**\n\n$$n(P(A)) = 2^{n(A)}$$\n\nहर member पर एक हाँ/ना। $n$ member यानी $n$ फ़ैसले, हर एक के 2 जवाब, तो $2 \\times 2 \\times \\cdots = 2^n$।\n\nदोनों चरम स्थितियाँ वही दो subset देती हैं जो आप पहले से जानते थे: सब *ना* यानी $\\emptyset$, सब *हाँ* यानी ख़ुद $A$।\n\n**interval — number line का टुकड़ा लिखने का छोटा तरीक़ा**\n\n| हम लिखते हैं | मतलब | set रूप में |\n|---|---|---|\n| $[a, b]$ | सिरे **अंदर** | $\\{x : a \\leq x \\leq b\\}$ |\n| $(a, b)$ | सिरे **बाहर** | $\\{x : a < x < b\\}$ |\n| $[a, b)$ | बायाँ अंदर, दायाँ बाहर | $\\{x : a \\leq x < b\\}$ |\n| $(a, \\infty)$ | $a$ से ऊपर सब कुछ | $\\{x : x > a\\}$ |\n\n💡 **याद रखने का तरीक़ा।** चौकोर bracket **बंद दरवाज़ा** है — सिरा अंदर ही रहता है। गोल bracket **खुला दरवाज़ा** है — सिरा बाहर निकल जाता है।\n\n⚠️ infinite को हमेशा गोल bracket मिलता है। आप $\\infty$ तक कभी पहुँच ही नहीं सकते, तो उसे शामिल भी नहीं कर सकते। यह दिशा है, कोई जगह नहीं।"
      },
      "worked": [
       {
        "title": {
         "en": "Power set, counted two ways",
-        "hi": "घात समुच्चय, दो तरीक़ों से गिना हुआ"
+        "hi": "power set, दो तरीक़ों से गिना हुआ"
        },
        "problem": {
         "en": "Write $P(A)$ for $A = \\{a, b, c\\}$ and check the count against the rule.",
@@ -950,11 +950,11 @@ window.SL_DATA.subjects.push({
         {
          "do": {
           "en": "Size 1: $\\{a\\}, \\{b\\}, \\{c\\}$ — three, one for each member.",
-          "hi": "आकार 1: $\\{a\\}, \\{b\\}, \\{c\\}$ — तीन, हर सदस्य के लिए एक।"
+          "hi": "आकार 1: $\\{a\\}, \\{b\\}, \\{c\\}$ — तीन, हर member के लिए एक।"
          },
          "why": {
           "en": "Each member gives exactly one one-member subset, so this row always has $n$ of them.",
-          "hi": "हर सदस्य से ठीक एक एक-सदस्यीय उपसमुच्चय बनता है, तो इस पंक्ति में हमेशा $n$ होंगे।"
+          "hi": "हर member से ठीक एक एक-member वाला subset बनता है, तो इस पंक्ति में हमेशा $n$ होंगे।"
          }
         },
         {
@@ -970,11 +970,11 @@ window.SL_DATA.subjects.push({
         {
          "do": {
           "en": "Size 3: $\\{a,b,c\\}$ — the set itself. Total: $1 + 3 + 3 + 1 = 8$.",
-          "hi": "आकार 3: $\\{a,b,c\\}$ — ख़ुद वह समुच्चय। कुल: $1 + 3 + 3 + 1 = 8$।"
+          "hi": "आकार 3: $\\{a,b,c\\}$ — ख़ुद वह set। कुल: $1 + 3 + 3 + 1 = 8$।"
          },
          "why": {
           "en": "Those counts $1, 3, 3, 1$ come back in Chapter 7. Sets and counting are the same idea seen twice.",
-          "hi": "ये गिनतियाँ $1, 3, 3, 1$ अध्याय 7 में लौटेंगी। समुच्चय और गिनती एक ही विचार को दो बार देखना है।"
+          "hi": "ये गिनतियाँ $1, 3, 3, 1$ अध्याय 7 में लौटेंगी। set और गिनती एक ही विचार को दो बार देखना है।"
          }
         },
         {
@@ -984,7 +984,7 @@ window.SL_DATA.subjects.push({
          },
          "why": {
           "en": "When the set is small, list AND count. When they agree, you can trust the rule for a set too big to list.",
-          "hi": "जब समुच्चय छोटा हो, सूची भी बनाइए और गिनिए भी। दोनों मिल जाएँ तो उस बड़े समुच्चय पर भी नियम पर भरोसा किया जा सकता है जिसकी सूची बन ही नहीं सकती।"
+          "hi": "जब set छोटा हो, सूची भी बनाइए और गिनिए भी। दोनों मिल जाएँ तो उस बड़े set पर भी नियम पर भरोसा किया जा सकता है जिसकी सूची बन ही नहीं सकती।"
          }
         }
        ],
@@ -994,7 +994,7 @@ window.SL_DATA.subjects.push({
        },
        "note": {
         "en": "The number of **proper** subsets is $2^n - 1$ — all of them except $A$ itself. Read the question carefully; that difference of one is a full mark.",
-        "hi": "**उचित** उपसमुच्चयों की संख्या $2^n - 1$ है — ख़ुद $A$ को छोड़कर सब। सवाल ध्यान से पढ़िए; एक का यह फ़र्क़ पूरा एक नंबर है।"
+        "hi": "**उचित** subsets की संख्या $2^n - 1$ है — ख़ुद $A$ को छोड़कर सब। सवाल ध्यान से पढ़िए; एक का यह फ़र्क़ पूरा एक नंबर है।"
        }
       }
      ]
@@ -1003,12 +1003,12 @@ window.SL_DATA.subjects.push({
      "code": "MTH11-1-5",
      "name": {
       "en": "Union, intersection and Venn diagrams",
-      "hi": "सम्मिलन, सर्वनिष्ठ और वेन आरेख"
+      "hi": "union, intersection और Venn diagram"
      },
      "diagram": "sets-regions",
      "notes": {
       "en": "Two sets. Two ways to join them. The English words give it away: **union is OR**, **intersection is AND**.\n\n**Union — put both together**\n\nThink of two lists. Cricket players and football players. Put both lists on one page and cross out any name written twice. That is the union.\n\n{{diagram:sets-union}}\n\nThe whole shaded part is $A \\cup B$. Nothing is left out.\n\n$$A \\cup B = \\{x : x \\in A \\text{ or } x \\in B\\}$$\n\n$$\\{1,2,3\\} \\cup \\{3,4\\} = \\{1,2,3,4\\}$$\n\n⚠️ The 3 is written **once**, not twice. A set never records repeats.\n\n**Intersection — keep only what is shared**\n\nSame two lists. Now keep only the names that appear on **both**.\n\n{{diagram:sets-intersection}}\n\nOnly the middle slice is shaded. That slice is $A \\cap B$.\n\n$$A \\cap B = \\{x : x \\in A \\text{ and } x \\in B\\}$$\n\n$$\\{1,2,3\\} \\cap \\{3,4\\} = \\{3\\}$$\n\n💡 **Which symbol is which?**\n- $\\cup$ looks like a **cup**. A cup holds everything you pour in. Union.\n- $\\cap$ looks like a **cap**. A cap fits only one head. Intersection.\n\nAlso: $\\cup$ is the **U** in **U**nion.\n\n**When nothing is shared**\n\n{{diagram:sets-disjoint}}\n\nIf $A \\cap B = \\emptyset$, the two sets share nothing. We call them **disjoint**. Odd numbers and even numbers are disjoint — no number is both.\n\n**The universal set and the complement**\n\n$U$ is **everything we are talking about** in that question. The whole class. Or all of $\\mathbb{R}$. Or all 52 playing cards. We draw it as the box around everything.\n\n$A'$ (say *A dash*, or *A complement*) is **everything in $U$ that is not in $A$**.\n\n{{diagram:sets-complement}}\n\n$$A' = \\{x \\in U : x \\notin A\\}$$\n\n⚠️ **The complement makes no sense without $U$.** The opposite of *even numbers* is odd numbers if $U$ is all integers. But if $U$ is all real numbers, the answer is very different — it would include $0.5$ and $\\pi$ too. So the question must tell you $U$.\n\n**In A but not in B**\n\n{{diagram:sets-difference}}\n\nTake circle $A$, then remove the shared middle. What is left is in $A$ only.\n\n**Venn diagrams — the whole picture**\n\nA box for $U$, one circle for each set. Two circles cut the box into **four** parts, and every single member of $U$ falls into exactly one of them.\n\n{{diagram:sets-regions}}\n\n💡 **Always fill the middle first.** In any Venn question, work out the *both* number before anything else, then subtract outwards to get the *only* numbers. Filling from the outside in causes double counting almost every time.\n\n**Three rules you can see in the picture**\n- $A \\cup B = B \\cup A$ — it does not matter which list you pick up first.\n- $(A \\cup B) \\cup C = A \\cup (B \\cup C)$ — so writing $A \\cup B \\cup C$ is safe.\n- $A \\cap (B \\cup C) = (A \\cap B) \\cup (A \\cap C)$ — draw this one before you believe it.",
-      "hi": "दो समुच्चय। जोड़ने के दो तरीक़े। शब्द ही राज़ खोल देते हैं: **सम्मिलन यानी या**, **सर्वनिष्ठ यानी और**।\n\n**सम्मिलन — दोनों को मिला दीजिए**\n\nदो सूचियों के बारे में सोचिए। क्रिकेट खेलने वाले और फ़ुटबॉल खेलने वाले। दोनों सूचियाँ एक ही पन्ने पर लिख दीजिए और जो नाम दो बार आया हो उसे एक बार काट दीजिए। यही सम्मिलन है।\n\n{{diagram:sets-union}}\n\nपूरा रंगा हुआ हिस्सा $A \\cup B$ है। कुछ भी छूटा नहीं।\n\n$$A \\cup B = \\{x : x \\in A \\text{ या } x \\in B\\}$$\n\n$$\\{1,2,3\\} \\cup \\{3,4\\} = \\{1,2,3,4\\}$$\n\n⚠️ 3 **एक बार** लिखा गया, दो बार नहीं। समुच्चय दोहराव कभी दर्ज नहीं करता।\n\n**सर्वनिष्ठ — सिर्फ़ साझा वाला रखिए**\n\nवही दो सूचियाँ। अब सिर्फ़ वे नाम रखिए जो **दोनों** में हों।\n\n{{diagram:sets-intersection}}\n\nसिर्फ़ बीच का हिस्सा रंगा है। वही $A \\cap B$ है।\n\n$$A \\cap B = \\{x : x \\in A \\text{ और } x \\in B\\}$$\n\n$$\\{1,2,3\\} \\cap \\{3,4\\} = \\{3\\}$$\n\n💡 **कौन-सा चिह्न कौन-सा है?**\n- $\\cup$ **प्याले** जैसा दिखता है। प्याले में जो डालिए सब समा जाता है। सम्मिलन।\n- $\\cap$ **टोपी** जैसा दिखता है। टोपी सिर्फ़ एक सिर पर बैठती है। सर्वनिष्ठ।\n\nयह भी: $\\cup$ अंग्रेज़ी **U**nion का **U** है।\n\n**जब कुछ भी साझा न हो**\n\n{{diagram:sets-disjoint}}\n\nअगर $A \\cap B = \\emptyset$ हो, तो दोनों समुच्चयों में कुछ भी साझा नहीं है। इन्हें **असंयुक्त** कहते हैं। विषम और सम संख्याएँ असंयुक्त हैं — कोई संख्या दोनों नहीं होती।\n\n**सार्वत्रिक समुच्चय और पूरक**\n\n$U$ वह सब है जिसकी उस सवाल में **बात हो रही है**। पूरी कक्षा। या पूरा $\\mathbb{R}$। या ताश के सारे 52 पत्ते। इसे हम सबके चारों ओर का डिब्बा बनाते हैं।\n\n$A'$ (बोलिए *A डैश*, या *A का पूरक*) वह सब है जो **$U$ में है पर $A$ में नहीं**।\n\n{{diagram:sets-complement}}\n\n$$A' = \\{x \\in U : x \\notin A\\}$$\n\n⚠️ **$U$ के बिना पूरक का कोई मतलब नहीं।** *सम संख्याओं* का उल्टा विषम संख्याएँ हैं, अगर $U$ सारे पूर्णांक हों। पर अगर $U$ सारी वास्तविक संख्याएँ हों, तो जवाब बहुत अलग होगा — उसमें $0.5$ और $\\pi$ भी आ जाएँगे। इसलिए सवाल को $U$ बताना ही होगा।\n\n**A में पर B में नहीं**\n\n{{diagram:sets-difference}}\n\nवृत्त $A$ लीजिए, फिर साझा बीच वाला हिस्सा हटा दीजिए। जो बचा वह सिर्फ़ $A$ में है।\n\n**वेन आरेख — पूरी तस्वीर**\n\n$U$ के लिए एक डिब्बा, हर समुच्चय के लिए एक वृत्त। दो वृत्त डिब्बे को **चार** हिस्सों में काटते हैं, और $U$ का हर एक सदस्य इनमें से ठीक एक में गिरता है।\n\n{{diagram:sets-regions}}\n\n💡 **हमेशा बीच वाला पहले भरिए।** किसी भी वेन सवाल में सबसे पहले *दोनों* वाली संख्या निकालिए, फिर बाहर की ओर घटाते जाइए ताकि *सिर्फ़* वाली संख्याएँ मिलें। बाहर से अंदर भरने पर लगभग हर बार दोहरी गिनती हो जाती है।\n\n**तीन नियम जो तस्वीर में दिख जाते हैं**\n- $A \\cup B = B \\cup A$ — पहले कौन-सी सूची उठाई, इससे फ़र्क़ नहीं पड़ता।\n- $(A \\cup B) \\cup C = A \\cup (B \\cup C)$ — इसलिए $A \\cup B \\cup C$ लिखना सुरक्षित है।\n- $A \\cap (B \\cup C) = (A \\cap B) \\cup (A \\cap C)$ — इस पर यक़ीन करने से पहले इसे बनाकर देखिए।"
+      "hi": "दो set। जोड़ने के दो तरीक़े। शब्द ही राज़ खोल देते हैं: **union यानी या**, **intersection यानी और**।\n\n**union — दोनों को मिला दीजिए**\n\nदो सूचियों के बारे में सोचिए। क्रिकेट खेलने वाले और फ़ुटबॉल खेलने वाले। दोनों सूचियाँ एक ही पन्ने पर लिख दीजिए और जो नाम दो बार आया हो उसे एक बार काट दीजिए। यही union है।\n\n{{diagram:sets-union}}\n\nपूरा रंगा हुआ हिस्सा $A \\cup B$ है। कुछ भी छूटा नहीं।\n\n$$A \\cup B = \\{x : x \\in A \\text{ या } x \\in B\\}$$\n\n$$\\{1,2,3\\} \\cup \\{3,4\\} = \\{1,2,3,4\\}$$\n\n⚠️ 3 **एक बार** लिखा गया, दो बार नहीं। set दोहराव कभी दर्ज नहीं करता।\n\n**intersection — सिर्फ़ साझा वाला रखिए**\n\nवही दो सूचियाँ। अब सिर्फ़ वे नाम रखिए जो **दोनों** में हों।\n\n{{diagram:sets-intersection}}\n\nसिर्फ़ बीच का हिस्सा रंगा है। वही $A \\cap B$ है।\n\n$$A \\cap B = \\{x : x \\in A \\text{ और } x \\in B\\}$$\n\n$$\\{1,2,3\\} \\cap \\{3,4\\} = \\{3\\}$$\n\n💡 **कौन-सा sign कौन-सा है?**\n- $\\cup$ **प्याले** जैसा दिखता है। प्याले में जो डालिए सब समा जाता है। union।\n- $\\cap$ **टोपी** जैसा दिखता है। टोपी सिर्फ़ एक सिर पर बैठती है। intersection।\n\nयह भी: $\\cup$ अंग्रेज़ी **U**nion का **U** है।\n\n**जब कुछ भी साझा न हो**\n\n{{diagram:sets-disjoint}}\n\nअगर $A \\cap B = \\emptyset$ हो, तो दोनों sets में कुछ भी साझा नहीं है। इन्हें **disjoint** कहते हैं। विषम और सम संख्याएँ disjoint हैं — कोई संख्या दोनों नहीं होती।\n\n**universal set और complement**\n\n$U$ वह सब है जिसकी उस सवाल में **बात हो रही है**। पूरी कक्षा। या पूरा $\\mathbb{R}$। या ताश के सारे 52 पत्ते। इसे हम सबके चारों ओर का डिब्बा बनाते हैं।\n\n$A'$ (बोलिए *A डैश*, या *A का complement*) वह सब है जो **$U$ में है पर $A$ में नहीं**।\n\n{{diagram:sets-complement}}\n\n$$A' = \\{x \\in U : x \\notin A\\}$$\n\n⚠️ **$U$ के बिना complement का कोई मतलब नहीं।** *सम संख्याओं* का उल्टा विषम संख्याएँ हैं, अगर $U$ सारे integer हों। पर अगर $U$ सारी real संख्याएँ हों, तो जवाब बहुत अलग होगा — उसमें $0.5$ और $\\pi$ भी आ जाएँगे। इसलिए सवाल को $U$ बताना ही होगा।\n\n**A में पर B में नहीं**\n\n{{diagram:sets-difference}}\n\ncircle $A$ लीजिए, फिर साझा बीच वाला हिस्सा हटा दीजिए। जो बचा वह सिर्फ़ $A$ में है।\n\n**Venn diagram — पूरी तस्वीर**\n\n$U$ के लिए एक डिब्बा, हर set के लिए एक circle। दो circle डिब्बे को **चार** हिस्सों में काटते हैं, और $U$ का हर एक member इनमें से ठीक एक में गिरता है।\n\n{{diagram:sets-regions}}\n\n💡 **हमेशा बीच वाला पहले भरिए।** किसी भी वेन सवाल में सबसे पहले *दोनों* वाली संख्या निकालिए, फिर बाहर की ओर घटाते जाइए ताकि *सिर्फ़* वाली संख्याएँ मिलें। बाहर से अंदर भरने पर लगभग हर बार दोहरी गिनती हो जाती है।\n\n**तीन नियम जो तस्वीर में दिख जाते हैं**\n- $A \\cup B = B \\cup A$ — पहले कौन-सी सूची उठाई, इससे फ़र्क़ नहीं पड़ता।\n- $(A \\cup B) \\cup C = A \\cup (B \\cup C)$ — इसलिए $A \\cup B \\cup C$ लिखना सुरक्षित है।\n- $A \\cap (B \\cup C) = (A \\cap B) \\cup (A \\cap C)$ — इस पर यक़ीन करने से पहले इसे बनाकर देखिए।"
      },
      "worked": [
       {
@@ -1024,7 +1024,7 @@ window.SL_DATA.subjects.push({
         {
          "do": {
           "en": "Write down what you know: $U = 40$, $n(C) = 25$, $n(F) = 20$, $n(C \\cap F) = 8$. Draw the box and two circles.",
-          "hi": "जो पता है वह लिखिए: $U = 40$, $n(C) = 25$, $n(F) = 20$, $n(C \\cap F) = 8$। डिब्बा और दो वृत्त बनाइए।"
+          "hi": "जो पता है वह लिखिए: $U = 40$, $n(C) = 25$, $n(F) = 20$, $n(C \\cap F) = 8$। डिब्बा और दो circle बनाइए।"
          },
          "why": {
           "en": "Never do a Venn question in your head. The picture keeps count for you.",
@@ -1054,7 +1054,7 @@ window.SL_DATA.subjects.push({
         {
          "do": {
           "en": "Inside the circles: $17 + 8 + 12 = 37$. Neither $= 40 - 37 = 3$.",
-          "hi": "वृत्तों के अंदर: $17 + 8 + 12 = 37$। कोई नहीं $= 40 - 37 = 3$।"
+          "hi": "circles के अंदर: $17 + 8 + 12 = 37$। कोई नहीं $= 40 - 37 = 3$।"
          },
          "why": {
           "en": "All four parts must add up to 40. That is your check. If they do not, something is wrong.",
@@ -1083,7 +1083,7 @@ window.SL_DATA.subjects.push({
      "code": "MTH11-1-6",
      "name": {
       "en": "De Morgan, and counting with sets",
-      "hi": "डी मॉर्गन, और समुच्चयों से गिनती"
+      "hi": "डी मॉर्गन, और sets से गिनती"
      },
      "diagram": "sets-counting",
      "derivations": [
@@ -1092,7 +1092,7 @@ window.SL_DATA.subjects.push({
      ],
      "notes": {
       "en": "Two results that turn sets from words into a tool you can use.\n\n**De Morgan's laws**\n\n$$(A \\cup B)' = A' \\cap B' \\qquad (A \\cap B)' = A' \\cup B'$$\n\nIn plain words: **saying NOT flips the joining word.** OR becomes AND. AND becomes OR.\n\n💡 **See it with tea and coffee.**\n\n> *I had neither tea nor coffee.*\n\nIf that is true, then I had **no tea** AND I had **no coffee**. Both must be missing. So *not (tea or coffee)* = *no tea and no coffee*. That is the first law.\n\n> *It is not true that I had both tea and coffee.*\n\nThen at least one is missing. Maybe the tea. Maybe the coffee. Maybe both. So *not (tea and coffee)* = *no tea or no coffee*. That is the second law.\n\n⚠️ **The common mistake** is keeping the same word: writing $(A \\cup B)' = A' \\cup B'$. Test it on the tea sentence and you will see it is wrong straight away.\n\nThese are not only set rules. The same two laws run computer chips, database searches, and every `if` statement in every program. Learn them here once and you have them for life.\n\n**Counting: add, then take back the double count**\n\n$$n(A \\cup B) = n(A) + n(B) - n(A \\cap B)$$\n\n💡 **Why do we subtract?** Look at the picture.\n\n{{diagram:sets-counting}}\n\n25 play cricket. 20 play football. Add them and you get 45. But there are only 37 children! The 8 who play both got counted **twice** — once with the cricket group, once with the football group. Take those 8 away once and everybody is counted exactly one time.\n\nThe rule is not something to memorise. It is just careful counting.\n\n⚠️ If the two sets share nothing, then $n(A \\cap B) = 0$ and the rule becomes $n(A \\cup B) = n(A) + n(B)$ — which is what you would have said anyway. A good rule should turn back into common sense in the easy case.\n\n**Three sets**\n\n$$n(A \\cup B \\cup C) = n(A) + n(B) + n(C) - n(A \\cap B) - n(B \\cap C) - n(A \\cap C) + n(A \\cap B \\cap C)$$\n\nIt looks frightening. It is the same careful counting, done once more:\n- Add the three singles. The middle bit where all three meet is now counted 3 times.\n- Take away the three pairs. That middle bit gets removed 3 times, so now it is counted 0 times.\n- Add it back once. Now it is right.\n\nPlus, minus, plus. That is why it is called **inclusion and exclusion** — putting in and taking out.\n\n**Where sets are really used**\n- **Probability (Chapter 14):** $P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$. The same rule, divided by $n(U)$.\n- **Surveys:** how many people use soap A but not soap B.\n- **Computers:** a database search is a set-builder rule. Joining two tables is an intersection.\n\nSo when someone asks *where will I ever use this* — you use it every time a computer answers a search for you.",
-      "hi": "दो नतीजे जो समुच्चय को शब्दों से बदलकर काम का औज़ार बना देते हैं।\n\n**डी मॉर्गन के नियम**\n\n$$(A \\cup B)' = A' \\cap B' \\qquad (A \\cap B)' = A' \\cup B'$$\n\nसीधे शब्दों में: **'नहीं' कहने से जोड़ने वाला शब्द पलट जाता है।** या बन जाता है और। और बन जाता है या।\n\n💡 **चाय और कॉफ़ी से देखिए।**\n\n> *मैंने न चाय ली न कॉफ़ी।*\n\nअगर यह सच है, तो मैंने **चाय नहीं** ली **और** **कॉफ़ी नहीं** ली। दोनों का न होना ज़रूरी है। तो *(चाय या कॉफ़ी) नहीं* = *चाय नहीं और कॉफ़ी नहीं*। यही पहला नियम है।\n\n> *यह सच नहीं कि मैंने चाय और कॉफ़ी दोनों लीं।*\n\nतब कम से कम एक छूटी। शायद चाय। शायद कॉफ़ी। शायद दोनों। तो *(चाय और कॉफ़ी) नहीं* = *चाय नहीं या कॉफ़ी नहीं*। यही दूसरा नियम है।\n\n⚠️ **आम ग़लती** है वही शब्द रख देना: $(A \\cup B)' = A' \\cup B'$ लिख देना। चाय वाले वाक्य पर जाँचिए, तुरंत दिख जाएगा कि यह ग़लत है।\n\nये सिर्फ़ समुच्चय के नियम नहीं हैं। यही दो नियम कंप्यूटर की चिप, डेटाबेस की खोज, और हर प्रोग्राम के हर `if` को चलाते हैं। इन्हें यहाँ एक बार सीख लीजिए, ज़िंदगी भर के लिए हो गए।\n\n**गिनती: जोड़िए, फिर दोहरी गिनती वापस हटाइए**\n\n$$n(A \\cup B) = n(A) + n(B) - n(A \\cap B)$$\n\n💡 **घटाते क्यों हैं?** तस्वीर देखिए।\n\n{{diagram:sets-counting}}\n\n25 क्रिकेट खेलते हैं। 20 फ़ुटबॉल। जोड़िए तो 45 आता है। पर बच्चे तो सिर्फ़ 37 हैं! जो 8 दोनों खेलते हैं वे **दो बार** गिने गए — एक बार क्रिकेट वालों के साथ, एक बार फ़ुटबॉल वालों के साथ। उन 8 को एक बार हटा दीजिए और हर कोई ठीक एक बार गिना जाएगा।\n\nयह नियम रटने की चीज़ नहीं है। यह बस ध्यान से की गई गिनती है।\n\n⚠️ अगर दोनों समुच्चयों में कुछ साझा न हो, तो $n(A \\cap B) = 0$ और नियम बन जाता है $n(A \\cup B) = n(A) + n(B)$ — यानी वही जो आप वैसे भी कहते। अच्छे नियम को आसान स्थिति में सामान्य समझ पर लौट आना चाहिए।\n\n**तीन समुच्चय**\n\n$$n(A \\cup B \\cup C) = n(A) + n(B) + n(C) - n(A \\cap B) - n(B \\cap C) - n(A \\cap C) + n(A \\cap B \\cap C)$$\n\nदेखने में डरावना है। यह वही ध्यान से की गई गिनती है, एक बार और:\n- तीनों अकेले जोड़िए। जहाँ तीनों मिलते हैं वह बीच वाला हिस्सा अब 3 बार गिना गया।\n- तीनों जोड़े हटाइए। वह बीच वाला हिस्सा 3 बार हट गया, तो अब 0 बार गिना है।\n- उसे एक बार वापस जोड़िए। अब सही है।\n\nजोड़, घटाव, जोड़। इसीलिए इसे **समावेश और अपवर्जन** कहते हैं — डालना और निकालना।\n\n**समुच्चय असल में कहाँ काम आते हैं**\n- **प्रायिकता (अध्याय 14):** $P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$। वही नियम, $n(U)$ से भाग देकर।\n- **सर्वेक्षण:** कितने लोग साबुन A इस्तेमाल करते हैं पर साबुन B नहीं।\n- **कंप्यूटर:** डेटाबेस की खोज एक समुच्चय-निर्माण नियम ही है। दो तालिकाएँ जोड़ना सर्वनिष्ठ है।\n\nतो जब कोई पूछे *यह कभी काम आएगा भी* — जब भी कोई कंप्यूटर आपकी खोज का जवाब देता है, आप यही इस्तेमाल कर रहे होते हैं।"
+      "hi": "दो नतीजे जो set को शब्दों से बदलकर काम का औज़ार बना देते हैं।\n\n**डी मॉर्गन के नियम**\n\n$$(A \\cup B)' = A' \\cap B' \\qquad (A \\cap B)' = A' \\cup B'$$\n\nसीधे शब्दों में: **'नहीं' कहने से जोड़ने वाला शब्द पलट जाता है।** या बन जाता है और। और बन जाता है या।\n\n💡 **चाय और कॉफ़ी से देखिए।**\n\n> *मैंने न चाय ली न कॉफ़ी।*\n\nअगर यह सच है, तो मैंने **चाय नहीं** ली **और** **कॉफ़ी नहीं** ली। दोनों का न होना ज़रूरी है। तो *(चाय या कॉफ़ी) नहीं* = *चाय नहीं और कॉफ़ी नहीं*। यही पहला नियम है।\n\n> *यह सच नहीं कि मैंने चाय और कॉफ़ी दोनों लीं।*\n\nतब कम से कम एक छूटी। शायद चाय। शायद कॉफ़ी। शायद दोनों। तो *(चाय और कॉफ़ी) नहीं* = *चाय नहीं या कॉफ़ी नहीं*। यही दूसरा नियम है।\n\n⚠️ **आम ग़लती** है वही शब्द रख देना: $(A \\cup B)' = A' \\cup B'$ लिख देना। चाय वाले वाक्य पर जाँचिए, तुरंत दिख जाएगा कि यह ग़लत है।\n\nये सिर्फ़ set के नियम नहीं हैं। यही दो नियम कंप्यूटर की चिप, डेटाबेस की खोज, और हर प्रोग्राम के हर `if` को चलाते हैं। इन्हें यहाँ एक बार सीख लीजिए, ज़िंदगी भर के लिए हो गए।\n\n**गिनती: जोड़िए, फिर दोहरी गिनती वापस हटाइए**\n\n$$n(A \\cup B) = n(A) + n(B) - n(A \\cap B)$$\n\n💡 **घटाते क्यों हैं?** तस्वीर देखिए।\n\n{{diagram:sets-counting}}\n\n25 क्रिकेट खेलते हैं। 20 फ़ुटबॉल। जोड़िए तो 45 आता है। पर बच्चे तो सिर्फ़ 37 हैं! जो 8 दोनों खेलते हैं वे **दो बार** गिने गए — एक बार क्रिकेट वालों के साथ, एक बार फ़ुटबॉल वालों के साथ। उन 8 को एक बार हटा दीजिए और हर कोई ठीक एक बार गिना जाएगा।\n\nयह नियम रटने की चीज़ नहीं है। यह बस ध्यान से की गई गिनती है।\n\n⚠️ अगर दोनों sets में कुछ साझा न हो, तो $n(A \\cap B) = 0$ और नियम बन जाता है $n(A \\cup B) = n(A) + n(B)$ — यानी वही जो आप वैसे भी कहते। अच्छे नियम को आसान स्थिति में सामान्य समझ पर लौट आना चाहिए।\n\n**तीन set**\n\n$$n(A \\cup B \\cup C) = n(A) + n(B) + n(C) - n(A \\cap B) - n(B \\cap C) - n(A \\cap C) + n(A \\cap B \\cap C)$$\n\nदेखने में डरावना है। यह वही ध्यान से की गई गिनती है, एक बार और:\n- तीनों अकेले जोड़िए। जहाँ तीनों मिलते हैं वह बीच वाला हिस्सा अब 3 बार गिना गया।\n- तीनों जोड़े हटाइए। वह बीच वाला हिस्सा 3 बार हट गया, तो अब 0 बार गिना है।\n- उसे एक बार वापस जोड़िए। अब सही है।\n\nजोड़, घटाव, जोड़। इसीलिए इसे **समावेश और अपवर्जन** कहते हैं — डालना और निकालना।\n\n**set असल में कहाँ काम आते हैं**\n- **probability (अध्याय 14):** $P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$। वही नियम, $n(U)$ से भाग देकर।\n- **सर्वेक्षण:** कितने लोग साबुन A इस्तेमाल करते हैं पर साबुन B नहीं।\n- **कंप्यूटर:** डेटाबेस की खोज एक set-builder नियम ही है। दो तालिकाएँ जोड़ना intersection है।\n\nतो जब कोई पूछे *यह कभी काम आएगा भी* — जब भी कोई कंप्यूटर आपकी खोज का जवाब देता है, आप यही इस्तेमाल कर रहे होते हैं।"
      },
      "worked": [
       {
@@ -1112,7 +1112,7 @@ window.SL_DATA.subjects.push({
          },
          "why": {
           "en": "*Neither* means outside both circles. Take that away from 60 and what is left is inside the circles — the union.",
-          "hi": "*कोई नहीं* का मतलब है दोनों वृत्तों के बाहर। उसे 60 में से हटाइए और जो बचा वह वृत्तों के अंदर है — यानी सम्मिलन।"
+          "hi": "*कोई नहीं* का मतलब है दोनों circles के बाहर। उसे 60 में से हटाइए और जो बचा वह circles के अंदर है — यानी union।"
          }
         },
         {
@@ -1122,7 +1122,7 @@ window.SL_DATA.subjects.push({
          },
          "why": {
           "en": "The rule works in both directions. Here you know the union and want the middle, so it becomes an equation to solve.",
-          "hi": "नियम दोनों दिशाओं में चलता है। यहाँ सम्मिलन पता है और बीच वाला चाहिए, तो यह हल करने वाला समीकरण बन जाता है।"
+          "hi": "नियम दोनों दिशाओं में चलता है। यहाँ union पता है और बीच वाला चाहिए, तो यह हल करने वाला equation बन जाता है।"
          }
         },
         {
@@ -1132,7 +1132,7 @@ window.SL_DATA.subjects.push({
          },
          "why": {
           "en": "Do the same thing to both sides — the balanced scale rule from Foundation. Class 11 questions are often Class 8 algebra in new clothes.",
-          "hi": "दोनों तरफ़ वही कीजिए — नींव वाला संतुलित तराज़ू नियम। कक्षा 11 के सवाल अक्सर नए कपड़ों में कक्षा 8 की बीजगणित होते हैं।"
+          "hi": "दोनों तरफ़ वही कीजिए — नींव वाला संतुलित तराज़ू नियम। कक्षा 11 के सवाल अक्सर नए कपड़ों में कक्षा 8 की algebra होते हैं।"
          }
         },
         {
@@ -1177,7 +1177,7 @@ window.SL_DATA.subjects.push({
          },
          "why": {
           "en": "Work from the inside out. Do the bracket first, the dash last. Taking the dash too early is where this goes wrong.",
-          "hi": "अंदर से बाहर चलिए। पहले कोष्ठक, आख़िर में डैश। डैश जल्दी ले लेना ही वह जगह है जहाँ यह बिगड़ता है।"
+          "hi": "अंदर से बाहर चलिए। पहले bracket, आख़िर में डैश। डैश जल्दी ले लेना ही वह जगह है जहाँ यह बिगड़ता है।"
          }
         },
         {
@@ -1207,7 +1207,7 @@ window.SL_DATA.subjects.push({
          },
          "why": {
           "en": "Be honest about what one example shows: it checks the law here. It does not prove it for every set. The full proof is the tea and coffee argument above.",
-          "hi": "एक उदाहरण क्या दिखाता है, इस बारे में ईमानदार रहिए: यह नियम को यहाँ जाँचता है। हर समुच्चय के लिए सिद्ध नहीं करता। पूरा सबूत ऊपर वाला चाय-कॉफ़ी का तर्क है।"
+          "hi": "एक उदाहरण क्या दिखाता है, इस बारे में ईमानदार रहिए: यह नियम को यहाँ जाँचता है। हर set के लिए सिद्ध नहीं करता। पूरा सबूत ऊपर वाला चाय-कॉफ़ी का तर्क है।"
          }
         }
        ],
@@ -1224,11 +1224,11 @@ window.SL_DATA.subjects.push({
      "key": "powerset",
      "title": {
       "en": "Why a set with n members has exactly 2^n subsets",
-      "hi": "n सदस्यों वाले समुच्चय के ठीक 2^n उपसमुच्चय क्यों होते हैं"
+      "hi": "n members वाले set के ठीक 2^n subset क्यों होते हैं"
      },
      "body": {
       "en": "**What we want to show**\n\n$$n(P(A)) = 2^{n(A)}$$\n\n**The idea**\nMaking a subset is just a set of yes/no answers. One answer per member. Nothing more.\n\n**The reasoning**\nLet $A = \\{a_1, a_2, \\ldots, a_n\\}$. To make a subset $S$, walk down the list and answer one question at each name: *is this one in $S$?*\n\n- For $a_1$: 2 choices — in, or out.\n- For $a_2$: 2 choices again. And this choice does not depend at all on what you said for $a_1$.\n- Keep going to $a_n$.\n\nWhen each choice is free, you multiply the number of choices:\n\n$$\\underbrace{2 \\times 2 \\times \\cdots \\times 2}_{n \\text{ times}} = 2^n$$\n\nEvery different set of answers gives a different subset. Every subset comes from exactly one set of answers. So subsets and answer-sheets match one to one. Therefore $n(P(A)) = 2^n$.\n\n**Quick checks**\n- $n = 0$: the empty set. $2^0 = 1$, and indeed $P(\\emptyset) = \\{\\emptyset\\}$ — one subset. ✅\n- $n = 1$: $A = \\{a\\}$ gives $\\emptyset$ and $\\{a\\}$. $2^1 = 2$. ✅\n- $n = 3$: listed by size, $1 + 3 + 3 + 1 = 8 = 2^3$. ✅\n\n**Where this comes back**\nThose counts $1, 3, 3, 1$ are the numbers $^3C_0, {}^3C_1, {}^3C_2, {}^3C_3$ from Chapter 7. So counting subsets by size and adding gives\n\n$$\\sum_{r=0}^{n} \\binom{n}{r} = 2^n$$\n\nChapter 1, Chapter 6 and Chapter 7 are three views of one fact. Remember that when Chapter 7 arrives and looks new.",
-      "hi": "**हम क्या दिखाना चाहते हैं**\n\n$$n(P(A)) = 2^{n(A)}$$\n\n**विचार**\nउपसमुच्चय बनाना बस हाँ/ना जवाबों का एक सेट है। हर सदस्य पर एक जवाब। इससे ज़्यादा कुछ नहीं।\n\n**तर्क**\nमान लीजिए $A = \\{a_1, a_2, \\ldots, a_n\\}$। उपसमुच्चय $S$ बनाने के लिए सूची पर चलिए और हर नाम पर एक सवाल का जवाब दीजिए: *क्या यह $S$ में है?*\n\n- $a_1$ पर: 2 विकल्प — अंदर, या बाहर।\n- $a_2$ पर: फिर 2 विकल्प। और यह चुनाव इस बात पर बिल्कुल निर्भर नहीं करता कि $a_1$ पर आपने क्या कहा था।\n- ऐसे ही $a_n$ तक चलते जाइए।\n\nजब हर चुनाव आज़ाद हो, तो विकल्पों की संख्याएँ गुणा होती हैं:\n\n$$\\underbrace{2 \\times 2 \\times \\cdots \\times 2}_{n \\text{ बार}} = 2^n$$\n\nहर अलग जवाब-सेट अलग उपसमुच्चय देता है। हर उपसमुच्चय ठीक एक जवाब-सेट से बनता है। तो उपसमुच्चय और जवाब-पर्चियाँ एक-से-एक मिलते हैं। इसलिए $n(P(A)) = 2^n$।\n\n**झटपट जाँच**\n- $n = 0$: रिक्त समुच्चय। $2^0 = 1$, और सचमुच $P(\\emptyset) = \\{\\emptyset\\}$ — एक उपसमुच्चय। ✅\n- $n = 1$: $A = \\{a\\}$ से $\\emptyset$ और $\\{a\\}$। $2^1 = 2$। ✅\n- $n = 3$: आकार से गिनने पर $1 + 3 + 3 + 1 = 8 = 2^3$। ✅\n\n**यह कहाँ लौटेगा**\nवे गिनतियाँ $1, 3, 3, 1$ अध्याय 7 की संख्याएँ $^3C_0, {}^3C_1, {}^3C_2, {}^3C_3$ हैं। तो उपसमुच्चयों को आकार से गिनकर जोड़ने पर मिलता है\n\n$$\\sum_{r=0}^{n} \\binom{n}{r} = 2^n$$\n\nअध्याय 1, अध्याय 6 और अध्याय 7 एक ही तथ्य के तीन नज़ारे हैं। यह याद रखिए जब अध्याय 7 आएगा और नया लगेगा।"
+      "hi": "**हम क्या दिखाना चाहते हैं**\n\n$$n(P(A)) = 2^{n(A)}$$\n\n**विचार**\nsubset बनाना बस हाँ/ना जवाबों का एक सेट है। हर member पर एक जवाब। इससे ज़्यादा कुछ नहीं।\n\n**तर्क**\nमान लीजिए $A = \\{a_1, a_2, \\ldots, a_n\\}$। subset $S$ बनाने के लिए सूची पर चलिए और हर नाम पर एक सवाल का जवाब दीजिए: *क्या यह $S$ में है?*\n\n- $a_1$ पर: 2 विकल्प — अंदर, या बाहर।\n- $a_2$ पर: फिर 2 विकल्प। और यह चुनाव इस बात पर बिल्कुल निर्भर नहीं करता कि $a_1$ पर आपने क्या कहा था।\n- ऐसे ही $a_n$ तक चलते जाइए।\n\nजब हर चुनाव आज़ाद हो, तो विकल्पों की संख्याएँ गुणा होती हैं:\n\n$$\\underbrace{2 \\times 2 \\times \\cdots \\times 2}_{n \\text{ बार}} = 2^n$$\n\nहर अलग जवाब-सेट अलग subset देता है। हर subset ठीक एक जवाब-सेट से बनता है। तो subset और जवाब-पर्चियाँ एक-से-एक मिलते हैं। इसलिए $n(P(A)) = 2^n$।\n\n**झटपट जाँच**\n- $n = 0$: empty set। $2^0 = 1$, और सचमुच $P(\\emptyset) = \\{\\emptyset\\}$ — एक subset। ✅\n- $n = 1$: $A = \\{a\\}$ से $\\emptyset$ और $\\{a\\}$। $2^1 = 2$। ✅\n- $n = 3$: आकार से गिनने पर $1 + 3 + 3 + 1 = 8 = 2^3$। ✅\n\n**यह कहाँ लौटेगा**\nवे गिनतियाँ $1, 3, 3, 1$ अध्याय 7 की संख्याएँ $^3C_0, {}^3C_1, {}^3C_2, {}^3C_3$ हैं। तो subsets को आकार से गिनकर जोड़ने पर मिलता है\n\n$$\\sum_{r=0}^{n} \\binom{n}{r} = 2^n$$\n\nअध्याय 1, अध्याय 6 और अध्याय 7 एक ही तथ्य के तीन नज़ारे हैं। यह याद रखिए जब अध्याय 7 आएगा और नया लगेगा।"
      }
     },
     {
@@ -1239,7 +1239,7 @@ window.SL_DATA.subjects.push({
      },
      "body": {
       "en": "**What we want to show**\n\n$$(A \\cup B)' = A' \\cap B'$$\n\n**How you show two sets are equal**\nShow each one sits inside the other. If $A$ is inside $B$ and $B$ is inside $A$, they must be the same set. This is the standard way to prove any set rule, so it is worth learning here where the sets are simple.\n\n**Step 1 — show $(A \\cup B)'$ sits inside $A' \\cap B'$**\n\nTake any $x$ in $(A \\cup B)'$. By what the dash means, $x$ is **not** in $A \\cup B$.\n\nNow $A \\cup B$ holds everything that is in $A$ or in $B$. If $x$ were in $A$, it would be in $A \\cup B$ — but it is not. So $x$ is not in $A$. The same reasoning gives: $x$ is not in $B$.\n\nSo $x$ is in $A'$, and $x$ is in $B'$. That means $x$ is in $A' \\cap B'$.\n\n**Step 2 — show $A' \\cap B'$ sits inside $(A \\cup B)'$**\n\nTake any $x$ in $A' \\cap B'$. Then $x$ is not in $A$, and $x$ is not in $B$.\n\nFor $x$ to be in $A \\cup B$, it would have to be in at least one of them. It is in neither. So $x$ is not in $A \\cup B$, which means $x$ is in $(A \\cup B)'$.\n\n**Done**\nEach set holds the other, so they are the same set. $\\blacksquare$\n\n**The second law**\n$(A \\cap B)' = A' \\cup B'$ works the same way, in two steps. Try writing it yourself. If you can copy the shape above with the words changed, you have understood the method — not just remembered the answer.\n\n**The quick version, for the exam hall**\n- *Not (in A or in B)* means *not in A, and not in B*. For an **or** to fail, both must fail.\n- *Not (in A and in B)* means *not in A, or not in B*. For an **and** to fail, only one needs to fail.\n\nIf you ever forget which way it goes, test it on a sentence about tea and coffee. Five seconds, and it has never let anyone down.",
-      "hi": "**हम क्या दिखाना चाहते हैं**\n\n$$(A \\cup B)' = A' \\cap B'$$\n\n**दो समुच्चय बराबर हैं, यह कैसे दिखाते हैं**\nदिखाइए कि हर एक दूसरे के अंदर बैठता है। अगर $A$, $B$ के अंदर है और $B$, $A$ के अंदर है, तो दोनों एक ही समुच्चय होंगे। किसी भी समुच्चय नियम को सिद्ध करने का यही मानक तरीक़ा है, तो इसे यहीं सीख लेना ठीक है जहाँ समुच्चय आसान हैं।\n\n**चरण 1 — दिखाइए कि $(A \\cup B)'$, $A' \\cap B'$ के अंदर है**\n\n$(A \\cup B)'$ में से कोई भी $x$ लीजिए। डैश के मतलब से, $x$, $A \\cup B$ में **नहीं** है।\n\nअब $A \\cup B$ में वह सब है जो $A$ में या $B$ में है। अगर $x$, $A$ में होता, तो वह $A \\cup B$ में होता — पर वह है नहीं। तो $x$, $A$ में नहीं है। इसी तर्क से: $x$, $B$ में भी नहीं है।\n\nतो $x$, $A'$ में है, और $x$, $B'$ में है। यानी $x$, $A' \\cap B'$ में है।\n\n**चरण 2 — दिखाइए कि $A' \\cap B'$, $(A \\cup B)'$ के अंदर है**\n\n$A' \\cap B'$ में से कोई भी $x$ लीजिए। तब $x$, $A$ में नहीं है, और $B$ में भी नहीं है।\n\n$x$ को $A \\cup B$ में होने के लिए कम से कम किसी एक में होना पड़ता। वह किसी में नहीं है। तो $x$, $A \\cup B$ में नहीं है, यानी $x$, $(A \\cup B)'$ में है।\n\n**हो गया**\nहर समुच्चय दूसरे को समाए हुए है, तो दोनों एक ही हैं। $\\blacksquare$\n\n**दूसरा नियम**\n$(A \\cap B)' = A' \\cup B'$ भी इसी तरह, दो चरणों में चलता है। इसे ख़ुद लिखकर देखिए। अगर आप ऊपर वाला ढाँचा शब्द बदलकर दोहरा पाएँ, तो आपने तरीक़ा समझा है — सिर्फ़ जवाब याद नहीं किया।\n\n**परीक्षा हॉल के लिए झटपट रूप**\n- *(A में या B में) नहीं* का मतलब *A में नहीं, और B में नहीं*। **या** के ग़लत होने के लिए दोनों का ग़लत होना ज़रूरी है।\n- *(A में और B में) नहीं* का मतलब *A में नहीं, या B में नहीं*। **और** के ग़लत होने के लिए सिर्फ़ एक का ग़लत होना काफ़ी है।\n\nअगर कभी भूल जाएँ कि नियम किस तरफ़ जाता है, तो उसे चाय और कॉफ़ी वाले वाक्य पर जाँच लीजिए। पाँच सेकंड, और इसने आज तक किसी को धोखा नहीं दिया।"
+      "hi": "**हम क्या दिखाना चाहते हैं**\n\n$$(A \\cup B)' = A' \\cap B'$$\n\n**दो set बराबर हैं, यह कैसे दिखाते हैं**\nदिखाइए कि हर एक दूसरे के अंदर बैठता है। अगर $A$, $B$ के अंदर है और $B$, $A$ के अंदर है, तो दोनों एक ही set होंगे। किसी भी set नियम को सिद्ध करने का यही मानक तरीक़ा है, तो इसे यहीं सीख लेना ठीक है जहाँ set आसान हैं।\n\n**चरण 1 — दिखाइए कि $(A \\cup B)'$, $A' \\cap B'$ के अंदर है**\n\n$(A \\cup B)'$ में से कोई भी $x$ लीजिए। डैश के मतलब से, $x$, $A \\cup B$ में **नहीं** है।\n\nअब $A \\cup B$ में वह सब है जो $A$ में या $B$ में है। अगर $x$, $A$ में होता, तो वह $A \\cup B$ में होता — पर वह है नहीं। तो $x$, $A$ में नहीं है। इसी तर्क से: $x$, $B$ में भी नहीं है।\n\nतो $x$, $A'$ में है, और $x$, $B'$ में है। यानी $x$, $A' \\cap B'$ में है।\n\n**चरण 2 — दिखाइए कि $A' \\cap B'$, $(A \\cup B)'$ के अंदर है**\n\n$A' \\cap B'$ में से कोई भी $x$ लीजिए। तब $x$, $A$ में नहीं है, और $B$ में भी नहीं है।\n\n$x$ को $A \\cup B$ में होने के लिए कम से कम किसी एक में होना पड़ता। वह किसी में नहीं है। तो $x$, $A \\cup B$ में नहीं है, यानी $x$, $(A \\cup B)'$ में है।\n\n**हो गया**\nहर set दूसरे को समाए हुए है, तो दोनों एक ही हैं। $\\blacksquare$\n\n**दूसरा नियम**\n$(A \\cap B)' = A' \\cup B'$ भी इसी तरह, दो चरणों में चलता है। इसे ख़ुद लिखकर देखिए। अगर आप ऊपर वाला ढाँचा शब्द बदलकर दोहरा पाएँ, तो आपने तरीक़ा समझा है — सिर्फ़ जवाब याद नहीं किया।\n\n**परीक्षा हॉल के लिए झटपट रूप**\n- *(A में या B में) नहीं* का मतलब *A में नहीं, और B में नहीं*। **या** के ग़लत होने के लिए दोनों का ग़लत होना ज़रूरी है।\n- *(A में और B में) नहीं* का मतलब *A में नहीं, या B में नहीं*। **और** के ग़लत होने के लिए सिर्फ़ एक का ग़लत होना काफ़ी है।\n\nअगर कभी भूल जाएँ कि नियम किस तरफ़ जाता है, तो उसे चाय और कॉफ़ी वाले वाक्य पर जाँच लीजिए। पाँच सेकंड, और इसने आज तक किसी को धोखा नहीं दिया।"
      }
     },
     {
@@ -1250,7 +1250,7 @@ window.SL_DATA.subjects.push({
      },
      "body": {
       "en": "**What we want to show**\n\n$$n(A \\cup B) = n(A) + n(B) - n(A \\cap B)$$\n\n**The idea**\nCount every person exactly once. That is all this rule does.\n\n**The reasoning**\nCut $A \\cup B$ into three parts that do not overlap:\n\n1. in $A$ only — call its size $p$\n2. in both — call its size $q$, so $q = n(A \\cap B)$\n3. in $B$ only — call its size $r$\n\nEvery member of $A \\cup B$ lands in exactly one part, so\n\n$$n(A \\cup B) = p + q + r$$\n\nNow write the given numbers using the same three parts:\n\n$$n(A) = p + q \\qquad n(B) = q + r$$\n\nAdd them:\n\n$$n(A) + n(B) = p + q + q + r = (p + q + r) + q$$\n\nThe middle part $q$ has been counted **twice** — once inside $n(A)$, once inside $n(B)$. Take it away once:\n\n$$n(A) + n(B) - q = p + q + r = n(A \\cup B) \\quad \\blacksquare$$\n\n**Why understand it instead of memorising it**\nBecause the same reasoning keeps working. For three sets, adding the three singles counts the middle bit 3 times. Taking away the three pairs removes it 3 times, leaving it counted 0 times. So it must be added back once:\n\n$$n(A \\cup B \\cup C) = \\sum n(A) - \\sum n(A \\cap B) + n(A \\cap B \\cap C)$$\n\nA student who only memorised the two-set rule finds the three-set version strange and frightening. A student who understood the double counting can work it out on the side of the page.\n\n**Where it comes back**\nDivide every term by $n(U)$ and you have the probability rule from Chapter 14:\n\n$$P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$$\n\nSame rule. Same reason. Different chapter.",
-      "hi": "**हम क्या दिखाना चाहते हैं**\n\n$$n(A \\cup B) = n(A) + n(B) - n(A \\cap B)$$\n\n**विचार**\nहर व्यक्ति को ठीक एक बार गिनिए। यह नियम बस इतना ही करता है।\n\n**तर्क**\n$A \\cup B$ को तीन ऐसे हिस्सों में काटिए जो आपस में न मिलें:\n\n1. सिर्फ़ $A$ में — इसका आकार $p$ मान लीजिए\n2. दोनों में — आकार $q$, यानी $q = n(A \\cap B)$\n3. सिर्फ़ $B$ में — आकार $r$\n\n$A \\cup B$ का हर सदस्य ठीक एक हिस्से में गिरता है, तो\n\n$$n(A \\cup B) = p + q + r$$\n\nअब दी गई संख्याओं को उन्हीं तीन हिस्सों में लिखिए:\n\n$$n(A) = p + q \\qquad n(B) = q + r$$\n\nजोड़िए:\n\n$$n(A) + n(B) = p + q + q + r = (p + q + r) + q$$\n\nबीच वाला हिस्सा $q$ **दो बार** गिना गया — एक बार $n(A)$ के अंदर, एक बार $n(B)$ के अंदर। उसे एक बार हटा दीजिए:\n\n$$n(A) + n(B) - q = p + q + r = n(A \\cup B) \\quad \\blacksquare$$\n\n**रटने के बजाय समझना क्यों बेहतर है**\nक्योंकि यही तर्क आगे भी चलता रहता है। तीन समुच्चयों में तीनों अकेले जोड़ने पर बीच वाला हिस्सा 3 बार गिना जाता है। तीनों जोड़े हटाने पर वह 3 बार हट जाता है, यानी 0 बार गिना रह जाता है। तो उसे एक बार वापस जोड़ना पड़ेगा:\n\n$$n(A \\cup B \\cup C) = \\sum n(A) - \\sum n(A \\cap B) + n(A \\cap B \\cap C)$$\n\nजिसने सिर्फ़ दो-समुच्चय वाला नियम रटा है, उसे तीन-समुच्चय वाला रूप अजीब और डरावना लगता है। जिसने दोहरी गिनती समझी है, वह उसे पन्ने के किनारे पर ही निकाल लेता है।\n\n**यह कहाँ लौटेगा**\nहर पद को $n(U)$ से भाग दीजिए और अध्याय 14 का प्रायिकता नियम मिल जाएगा:\n\n$$P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$$\n\nवही नियम। वही वजह। अलग अध्याय।"
+      "hi": "**हम क्या दिखाना चाहते हैं**\n\n$$n(A \\cup B) = n(A) + n(B) - n(A \\cap B)$$\n\n**विचार**\nहर व्यक्ति को ठीक एक बार गिनिए। यह नियम बस इतना ही करता है।\n\n**तर्क**\n$A \\cup B$ को तीन ऐसे हिस्सों में काटिए जो आपस में न मिलें:\n\n1. सिर्फ़ $A$ में — इसका आकार $p$ मान लीजिए\n2. दोनों में — आकार $q$, यानी $q = n(A \\cap B)$\n3. सिर्फ़ $B$ में — आकार $r$\n\n$A \\cup B$ का हर member ठीक एक हिस्से में गिरता है, तो\n\n$$n(A \\cup B) = p + q + r$$\n\nअब दी गई संख्याओं को उन्हीं तीन हिस्सों में लिखिए:\n\n$$n(A) = p + q \\qquad n(B) = q + r$$\n\nजोड़िए:\n\n$$n(A) + n(B) = p + q + q + r = (p + q + r) + q$$\n\nबीच वाला हिस्सा $q$ **दो बार** गिना गया — एक बार $n(A)$ के अंदर, एक बार $n(B)$ के अंदर। उसे एक बार हटा दीजिए:\n\n$$n(A) + n(B) - q = p + q + r = n(A \\cup B) \\quad \\blacksquare$$\n\n**रटने के बजाय समझना क्यों बेहतर है**\nक्योंकि यही तर्क आगे भी चलता रहता है। तीन sets में तीनों अकेले जोड़ने पर बीच वाला हिस्सा 3 बार गिना जाता है। तीनों जोड़े हटाने पर वह 3 बार हट जाता है, यानी 0 बार गिना रह जाता है। तो उसे एक बार वापस जोड़ना पड़ेगा:\n\n$$n(A \\cup B \\cup C) = \\sum n(A) - \\sum n(A \\cap B) + n(A \\cap B \\cap C)$$\n\nजिसने सिर्फ़ दो-set वाला नियम रटा है, उसे तीन-set वाला रूप अजीब और डरावना लगता है। जिसने दोहरी गिनती समझी है, वह उसे पन्ने के किनारे पर ही निकाल लेता है।\n\n**यह कहाँ लौटेगा**\nहर पद को $n(U)$ से भाग दीजिए और अध्याय 14 का probability नियम मिल जाएगा:\n\n$$P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$$\n\nवही नियम। वही वजह। अलग अध्याय।"
      }
     }
    ],
@@ -1289,7 +1289,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "mcq",
   "q": {
    "en": "Which symbol stands for the set of integers?",
-   "hi": "पूर्णांकों के समुच्चय के लिए कौन-सा चिह्न है?"
+   "hi": "integers के set के लिए कौन-सा sign है?"
   },
   "opts": {
    "en": [
@@ -1308,7 +1308,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "$\\mathbb{Z}$ is for integers — from the German *Zahlen*, meaning numbers. $\\mathbb{N}$ is natural, $\\mathbb{Q}$ is rational (quotient), $\\mathbb{R}$ is real.",
-   "hi": "$\\mathbb{Z}$ पूर्णांकों के लिए है — जर्मन *Zahlen* यानी संख्याएँ से। $\\mathbb{N}$ प्राकृत, $\\mathbb{Q}$ परिमेय (quotient), $\\mathbb{R}$ वास्तविक।"
+   "hi": "$\\mathbb{Z}$ integers के लिए है — जर्मन *Zahlen* यानी संख्याएँ से। $\\mathbb{N}$ natural, $\\mathbb{Q}$ rational (quotient), $\\mathbb{R}$ real।"
   }
  },
  {
@@ -1331,7 +1331,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "FALSE",
   "exp": {
    "en": "$-8$ sits further LEFT on the number line, so it is smaller. Owing ₹8 leaves you worse off than owing ₹3. Whenever negatives confuse you, picture the line.",
-   "hi": "$-8$ संख्या रेखा पर और बाईं तरफ़ है, तो वह छोटा है। ₹8 का उधार, ₹3 के उधार से बुरा है। जब भी ऋणात्मक उलझाएँ, रेखा की तस्वीर देखिए।"
+   "hi": "$-8$ number line पर और बाईं तरफ़ है, तो वह छोटा है। ₹8 का उधार, ₹3 के उधार से बुरा है। जब भी negative उलझाएँ, रेखा की तस्वीर देखिए।"
   }
  },
  {
@@ -1359,16 +1359,16 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
     "Irrational"
    ],
    "hi": [
-    "प्राकृत संख्याएँ",
-    "पूर्णांक पर प्राकृत नहीं",
-    "परिमेय पर पूर्णांक नहीं",
-    "अपरिमेय"
+    "natural numbers",
+    "integer पर natural नहीं",
+    "rational पर integer नहीं",
+    "irrational"
    ]
   },
   "correct": "A",
   "exp": {
    "en": "Simplify before you classify: $\\sqrt{16} = 4$, an ordinary counting number. The root sign is a question, not an answer — students who stop at the sign guess *irrational* and lose the mark.",
-   "hi": "वर्गीकरण से पहले सरल कीजिए: $\\sqrt{16} = 4$, साधारण गिनती की संख्या। मूल का चिह्न सवाल है, जवाब नहीं — जो चिह्न पर रुक जाते हैं वे *अपरिमेय* कहकर नंबर गँवाते हैं।"
+   "hi": "classify करने से पहले सरल कीजिए: $\\sqrt{16} = 4$, साधारण गिनती की संख्या। root का sign सवाल है, जवाब नहीं — जो sign पर रुक जाते हैं वे *irrational* कहकर नंबर गँवाते हैं।"
   }
  },
  {
@@ -1392,22 +1392,22 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
    {
     "k": "n",
     "en": "Natural",
-    "hi": "प्राकृत"
+    "hi": "natural"
    },
    {
     "k": "z",
     "en": "Integer, not natural",
-    "hi": "पूर्णांक, प्राकृत नहीं"
+    "hi": "integer, natural नहीं"
    },
    {
     "k": "q",
     "en": "Rational, not integer",
-    "hi": "परिमेय, पूर्णांक नहीं"
+    "hi": "rational, integer नहीं"
    },
    {
     "k": "i",
     "en": "Irrational",
-    "hi": "अपरिमेय"
+    "hi": "irrational"
    }
   ],
   "items": [
@@ -1444,7 +1444,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   ],
   "exp": {
    "en": "$\\sqrt{25} = 5$, so it is natural — always simplify first. $0.75 = \\frac{3}{4}$ and $\\frac{2}{3}$ are rational but land between whole marks. $\\pi$ cannot be written as $\\frac{p}{q}$ at all.",
-   "hi": "$\\sqrt{25} = 5$, तो यह प्राकृत है — हमेशा पहले सरल कीजिए। $0.75 = \\frac{3}{4}$ और $\\frac{2}{3}$ परिमेय हैं पर पूरे निशानों के बीच गिरती हैं। $\\pi$ को $\\frac{p}{q}$ रूप में लिखा ही नहीं जा सकता।"
+   "hi": "$\\sqrt{25} = 5$, तो यह natural है — हमेशा पहले सरल कीजिए। $0.75 = \\frac{3}{4}$ और $\\frac{2}{3}$ rational हैं पर पूरे निशानों के बीच गिरती हैं। $\\pi$ को $\\frac{p}{q}$ रूप में लिखा ही नहीं जा सकता।"
   }
  },
  {
@@ -1472,16 +1472,16 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
     "Every irrational number is real"
    ],
    "hi": [
-    "हर परिमेय संख्या पूर्णांक है",
-    "हर पूर्णांक परिमेय है",
-    "हर प्राकृत संख्या वास्तविक है",
-    "हर अपरिमेय संख्या वास्तविक है"
+    "हर rational संख्या integer है",
+    "हर integer rational है",
+    "हर natural number real है",
+    "हर irrational संख्या real है"
    ]
   },
   "correct": "A",
   "exp": {
    "en": "$\\frac{1}{2}$ is rational but not an integer, so A fails. The containment runs one way only: $\\mathbb{N} \\subseteq \\mathbb{Z} \\subseteq \\mathbb{Q} \\subseteq \\mathbb{R}$. Reading that chain backwards is the classic error.",
-   "hi": "$\\frac{1}{2}$ परिमेय है पर पूर्णांक नहीं, तो A ग़लत है। समावेश एक ही दिशा में चलता है: $\\mathbb{N} \\subseteq \\mathbb{Z} \\subseteq \\mathbb{Q} \\subseteq \\mathbb{R}$। इस शृंखला को उल्टा पढ़ना ही चिरपरिचित ग़लती है।"
+   "hi": "$\\frac{1}{2}$ rational है पर integer नहीं, तो A ग़लत है। समावेश एक ही दिशा में चलता है: $\\mathbb{N} \\subseteq \\mathbb{Z} \\subseteq \\mathbb{Q} \\subseteq \\mathbb{R}$। इस शृंखला को उल्टा पढ़ना ही चिरपरिचित ग़लती है।"
   }
  },
  {
@@ -1509,7 +1509,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   ],
   "exp": {
    "en": "Convert to decimals first: $-3.5$, $-3$, $0.5$, $-0.25$. Now read left to right along the line. $-3.5$ is furthest left despite *looking* biggest — that is exactly the trap negatives set.",
-   "hi": "पहले दशमलव में बदलिए: $-3.5$, $-3$, $0.5$, $-0.25$। अब रेखा पर बाएँ से दाएँ पढ़िए। $-3.5$ सबसे बाईं तरफ़ है, भले ही *दिखने* में सबसे बड़ी लगे — ऋणात्मक संख्याओं का जाल यही है।"
+   "hi": "पहले decimal में बदलिए: $-3.5$, $-3$, $0.5$, $-0.25$। अब रेखा पर बाएँ से दाएँ पढ़िए। $-3.5$ सबसे बाईं तरफ़ है, भले ही *दिखने* में सबसे बड़ी लगे — negative संख्याओं का जाल यही है।"
   }
  },
  {
@@ -1546,7 +1546,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "Two minus signs together cancel: $7 - (-3) = 7 + 3 = 10$. Taking away a debt of 3 leaves you 3 better off.",
-   "hi": "साथ-साथ दो ऋण चिह्न कट जाते हैं: $7 - (-3) = 7 + 3 = 10$। 3 का उधार हटाने से आप 3 बेहतर हो जाते हैं।"
+   "hi": "साथ-साथ दो ऋण sign कट जाते हैं: $7 - (-3) = 7 + 3 = 10$। 3 का उधार हटाने से आप 3 बेहतर हो जाते हैं।"
   }
  },
  {
@@ -1583,7 +1583,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "No brackets, so the power binds tighter than the minus: $-(5 \\times 5) = -25$. Compare $(-5)^2 = +25$, where the bracket puts the minus inside. This one bracket is worth marks in quadratics, trigonometry and limits for the next two years.",
-   "hi": "कोष्ठक नहीं है, तो घात ऋण चिह्न से ज़्यादा कसकर बँधती है: $-(5 \\times 5) = -25$। तुलना कीजिए $(-5)^2 = +25$ से, जहाँ कोष्ठक ऋण चिह्न को अंदर कर देता है। यही एक कोष्ठक अगले दो साल द्विघात, त्रिकोणमिति और सीमा में नंबर दिलाएगा।"
+   "hi": "bracket नहीं है, तो power ऋण sign से ज़्यादा कसकर बँधती है: $-(5 \\times 5) = -25$। तुलना कीजिए $(-5)^2 = +25$ से, जहाँ bracket ऋण sign को अंदर कर देता है। यही एक bracket अगले दो साल quadratic, trigonometry और limit में नंबर दिलाएगा।"
   }
  },
  {
@@ -1601,12 +1601,12 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "tf",
   "q": {
    "en": "$(-4)^3$ is positive.",
-   "hi": "$(-4)^3$ धनात्मक है।"
+   "hi": "$(-4)^3$ positive है।"
   },
   "correct": "FALSE",
   "exp": {
    "en": "$(-4)^3 = (-4)(-4)(-4)$. The first pair gives $+16$, then $\\times(-4)$ gives $-64$. An ODD power of a negative stays negative; an even power turns positive. Count the minus signs, not the digits.",
-   "hi": "$(-4)^3 = (-4)(-4)(-4)$। पहला जोड़ा $+16$ देता है, फिर $\\times(-4)$ से $-64$। ऋणात्मक की विषम घात ऋणात्मक रहती है; सम घात धनात्मक हो जाती है। ऋण चिह्न गिनिए, अंक नहीं।"
+   "hi": "$(-4)^3 = (-4)(-4)(-4)$। पहला जोड़ा $+16$ देता है, फिर $\\times(-4)$ से $-64$। negative की विषम power negative रहती है; सम power positive हो जाती है। ऋण sign गिनिए, अंक नहीं।"
   }
  },
  {
@@ -1629,7 +1629,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "6",
   "exp": {
    "en": "Term by term: $-3^2 = -9$ (no bracket, minus applied last); $(-3)^2 = +9$ (bracket includes the minus); $-2(-3) = +6$. Total $-9 + 9 + 6 = 6$. The first two cancel — the question was built to catch anyone treating them as equal.",
-   "hi": "एक-एक पद: $-3^2 = -9$ (कोष्ठक नहीं, ऋण चिह्न आख़िर में); $(-3)^2 = +9$ (कोष्ठक में ऋण चिह्न शामिल); $-2(-3) = +6$। कुल $-9 + 9 + 6 = 6$। पहले दो कट जाते हैं — सवाल उन्हीं को पकड़ने के लिए बना है जो इन्हें बराबर समझते हैं।"
+   "hi": "एक-एक पद: $-3^2 = -9$ (bracket नहीं, ऋण sign आख़िर में); $(-3)^2 = +9$ (bracket में ऋण sign शामिल); $-2(-3) = +6$। कुल $-9 + 9 + 6 = 6$। पहले दो कट जाते हैं — सवाल उन्हीं को पकड़ने के लिए बना है जो इन्हें बराबर समझते हैं।"
   }
  },
  {
@@ -1647,7 +1647,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "mcq",
   "q": {
    "en": "$40\\%$ written as a fraction in lowest terms is:",
-   "hi": "$40\\%$ को सरलतम भिन्न रूप में लिखने पर:"
+   "hi": "$40\\%$ को सरलतम fraction रूप में लिखने पर:"
   },
   "opts": {
    "en": [
@@ -1666,7 +1666,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "Per cent means per hundred, so $40\\% = \\frac{40}{100}$. Divide top and bottom by 20: $\\frac{2}{5}$. Option B is right but not in lowest terms — read what the question asked for.",
-   "hi": "प्रतिशत यानी प्रति सौ, तो $40\\% = \\frac{40}{100}$। ऊपर-नीचे 20 से भाग दीजिए: $\\frac{2}{5}$। विकल्प B सही है पर सरलतम रूप में नहीं — सवाल ने क्या माँगा, वह पढ़िए।"
+   "hi": "percent यानी प्रति सौ, तो $40\\% = \\frac{40}{100}$। ऊपर-नीचे 20 से भाग दीजिए: $\\frac{2}{5}$। विकल्प B सही है पर सरलतम रूप में नहीं — सवाल ने क्या माँगा, वह पढ़िए।"
   }
  },
  {
@@ -1703,7 +1703,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "Common denominator 12: $\\frac{4}{12} + \\frac{3}{12} = \\frac{7}{12}$. Option B is the classic error of adding tops and bottoms — sense-check it: a third plus a quarter must be MORE than a third, but $\\frac{2}{7}$ is less.",
-   "hi": "हर 12 लीजिए: $\\frac{4}{12} + \\frac{3}{12} = \\frac{7}{12}$। विकल्प B वही चिरपरिचित ग़लती है जिसमें ऊपर-ऊपर और नीचे-नीचे जोड़ दिया जाता है — समझ से जाँचिए: एक-तिहाई और एक-चौथाई मिलकर एक-तिहाई से ज़्यादा ही होंगे, पर $\\frac{2}{7}$ कम है।"
+   "hi": "denominator 12 लीजिए: $\\frac{4}{12} + \\frac{3}{12} = \\frac{7}{12}$। विकल्प B वही चिरपरिचित ग़लती है जिसमें ऊपर-ऊपर और नीचे-नीचे जोड़ दिया जाता है — समझ से जाँचिए: एक-तिहाई और एक-चौथाई मिलकर एक-तिहाई से ज़्यादा ही होंगे, पर $\\frac{2}{7}$ कम है।"
   }
  },
  {
@@ -1721,7 +1721,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "tf",
   "q": {
    "en": "Dividing a positive number by $\\frac{1}{2}$ makes it smaller.",
-   "hi": "किसी धनात्मक संख्या को $\\frac{1}{2}$ से भाग देने पर वह छोटी हो जाती है।"
+   "hi": "किसी positive संख्या को $\\frac{1}{2}$ से भाग देने पर वह छोटी हो जाती है।"
   },
   "correct": "FALSE",
   "exp": {
@@ -1809,7 +1809,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "FALSE",
   "exp": {
    "en": "$x$ and $x^2$ are different boxes — as different as goats and chairs. They cannot be combined at all, so $3x + 2x^2$ is already fully simplified. This is the most common algebra error in Class 11.",
-   "hi": "$x$ और $x^2$ अलग डिब्बे हैं — बकरी और कुर्सी जितने अलग। इन्हें जोड़ा ही नहीं जा सकता, तो $3x + 2x^2$ पहले से पूरी तरह सरल है। कक्षा 11 की सबसे आम बीजगणित ग़लती यही है।"
+   "hi": "$x$ और $x^2$ अलग डिब्बे हैं — बकरी और कुर्सी जितने अलग। इन्हें जोड़ा ही नहीं जा सकता, तो $3x + 2x^2$ पहले से पूरी तरह सरल है। कक्षा 11 की सबसे आम algebra ग़लती यही है।"
   }
  },
  {
@@ -1869,7 +1869,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "7",
   "exp": {
    "en": "Add 7 to both sides: $3x = 21$. Divide both sides by 3: $x = 7$. Check by substituting: $3(7) - 7 = 21 - 7 = 14$ ✅. Always substitute back — it costs five seconds and catches every sign slip.",
-   "hi": "दोनों तरफ़ 7 जोड़िए: $3x = 21$। दोनों तरफ़ 3 से भाग दीजिए: $x = 7$। रखकर जाँचिए: $3(7) - 7 = 21 - 7 = 14$ ✅। हमेशा वापस रखकर देखिए — पाँच सेकंड लगते हैं और हर चिह्न की चूक पकड़ में आ जाती है।"
+   "hi": "दोनों तरफ़ 7 जोड़िए: $3x = 21$। दोनों तरफ़ 3 से भाग दीजिए: $x = 7$। रखकर जाँचिए: $3(7) - 7 = 21 - 7 = 14$ ✅। हमेशा वापस रखकर देखिए — पाँच सेकंड लगते हैं और हर sign की चूक पकड़ में आ जाती है।"
   }
  },
  {
@@ -1897,7 +1897,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   ],
   "exp": {
    "en": "$3(2x-1) = 6x - 3$. For the second bracket the multiplier is $-2$, so BOTH terms change sign: $-2(x-4) = -2x + 8$. Total: $6x - 2x = 4x$ and $-3 + 8 = 5$, giving $4x + 5$. Forgetting that the minus reaches the $-4$ as well is where nearly everyone slips.",
-   "hi": "$3(2x-1) = 6x - 3$। दूसरे कोष्ठक में गुणा करने वाला $-2$ है, तो **दोनों** पदों का चिह्न बदलेगा: $-2(x-4) = -2x + 8$। कुल: $6x - 2x = 4x$ और $-3 + 8 = 5$, यानी $4x + 5$। यह भूल जाना कि ऋण चिह्न $-4$ तक भी पहुँचता है — यहीं लगभग सब फिसलते हैं।"
+   "hi": "$3(2x-1) = 6x - 3$। दूसरे bracket में गुणा करने वाला $-2$ है, तो **दोनों** पदों का sign बदलेगा: $-2(x-4) = -2x + 8$। कुल: $6x - 2x = 4x$ और $-3 + 8 = 5$, यानी $4x + 5$। यह भूल जाना कि ऋण sign $-4$ तक भी पहुँचता है — यहीं लगभग सब फिसलते हैं।"
   }
  },
  {
@@ -1915,7 +1915,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "mcq",
   "q": {
    "en": "Factorise $x^2 - 9$.",
-   "hi": "$x^2 - 9$ के गुणनखंड कीजिए।"
+   "hi": "$x^2 - 9$ के factor कीजिए।"
   },
   "opts": {
    "en": [
@@ -1934,7 +1934,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "This is a difference of two squares: $x^2 - 3^2 = (x-3)(x+3)$. Check by expanding: $x^2 + 3x - 3x - 9$ — the middle terms cancel exactly, which is the whole reason the pattern works.",
-   "hi": "यह दो वर्गों का अंतर है: $x^2 - 3^2 = (x-3)(x+3)$। खोलकर जाँचिए: $x^2 + 3x - 3x - 9$ — बीच के पद ठीक-ठीक कट जाते हैं, और यही इस पैटर्न के चलने की पूरी वजह है।"
+   "hi": "यह दो squares का अंतर है: $x^2 - 3^2 = (x-3)(x+3)$। खोलकर जाँचिए: $x^2 + 3x - 3x - 9$ — बीच के पद ठीक-ठीक कट जाते हैं, और यही इस पैटर्न के चलने की पूरी वजह है।"
   }
  },
  {
@@ -1952,7 +1952,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "mcq",
   "q": {
    "en": "Factorise $x^2 + 7x + 12$.",
-   "hi": "$x^2 + 7x + 12$ के गुणनखंड कीजिए।"
+   "hi": "$x^2 + 7x + 12$ के factor कीजिए।"
   },
   "opts": {
    "en": [
@@ -1989,7 +1989,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "short",
   "q": {
    "en": "Factorise completely: $2x^2 - 8$.",
-   "hi": "पूरी तरह गुणनखंड कीजिए: $2x^2 - 8$।"
+   "hi": "पूरी तरह factor कीजिए: $2x^2 - 8$।"
   },
   "correct": "2(x-2)(x+2)",
   "accept": [
@@ -1997,7 +1997,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   ],
   "exp": {
    "en": "Take out the common factor first: $2(x^2 - 4)$. Now $x^2 - 4$ is a difference of squares: $2(x-2)(x+2)$. Students who skip the common factor hunt for numbers multiplying to $-8$ and get stuck — the 2 was the obstacle, not the algebra.",
-   "hi": "पहले उभयनिष्ठ गुणनखंड निकालिए: $2(x^2 - 4)$। अब $x^2 - 4$ वर्गों का अंतर है: $2(x-2)(x+2)$। जो उभयनिष्ठ गुणनखंड छोड़ देते हैं वे $-8$ गुणनफल वाली संख्याएँ ढूँढते अटक जाते हैं — रुकावट 2 था, बीजगणित नहीं।"
+   "hi": "पहले उभयनिष्ठ factor निकालिए: $2(x^2 - 4)$। अब $x^2 - 4$ squares का अंतर है: $2(x-2)(x+2)$। जो उभयनिष्ठ factor छोड़ देते हैं वे $-8$ गुणनफल वाली संख्याएँ ढूँढते अटक जाते हैं — रुकावट 2 था, algebra नहीं।"
   }
  },
  {
@@ -2034,7 +2034,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "Factorise the top: $x^2 - 16 = (x-4)(x+4)$. The $(x-4)$ cancels with the bottom, leaving $x+4$. You have just done the core move of a Class 11 limits question — this is exactly why factorising sits in Foundation.",
-   "hi": "ऊपर वाले के गुणनखंड कीजिए: $x^2 - 16 = (x-4)(x+4)$। $(x-4)$ नीचे वाले से कट जाता है, बचता है $x+4$। आपने अभी कक्षा 11 की सीमा वाले सवाल की मुख्य चाल कर ली — गुणनखंड को नींव में रखने की वजह ठीक यही है।"
+   "hi": "ऊपर वाले के factor कीजिए: $x^2 - 16 = (x-4)(x+4)$। $(x-4)$ नीचे वाले से कट जाता है, बचता है $x+4$। आपने अभी कक्षा 11 की limit वाले सवाल की मुख्य चाल कर ली — factor को नींव में रखने की वजह ठीक यही है।"
   }
  },
  {
@@ -2052,7 +2052,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "match",
   "q": {
    "en": "Match each expression with its factorised form.",
-   "hi": "हर व्यंजक को उसके गुणनखंड रूप से मिलाइए।"
+   "hi": "हर expression को उसके factor रूप से मिलाइए।"
   },
   "pairs": [
    {
@@ -2098,7 +2098,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   ],
   "exp": {
    "en": "The first three are the standard patterns: difference of squares, and the two perfect squares (the sign in the bracket copies the sign of the middle term). The last is an ordinary factorisation — two numbers multiplying to $-5$ and adding to $-4$, namely $-5$ and $+1$.",
-   "hi": "पहले तीन मानक पैटर्न हैं: वर्गों का अंतर, और दो पूर्ण वर्ग (कोष्ठक का चिह्न बीच वाले पद का चिह्न ही होता है)। आख़िरी साधारण गुणनखंड है — गुणनफल $-5$ और योग $-4$ वाली दो संख्याएँ, यानी $-5$ और $+1$।"
+   "hi": "पहले तीन मानक पैटर्न हैं: squares का अंतर, और दो perfect square (bracket का sign बीच वाले पद का sign ही होता है)। आख़िरी साधारण factor है — गुणनफल $-5$ और योग $-4$ वाली दो संख्याएँ, यानी $-5$ और $+1$।"
   }
  },
  {
@@ -2135,7 +2135,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "$-5$ sits furthest LEFT on the number line, so it is smallest. Many pick $-2$ or $0$ because $5$ looks like a big number — but the minus sign puts it far to the left, not far up.",
-   "hi": "$-5$ संख्या रेखा पर सबसे बाईं तरफ़ है, तो वही सबसे छोटी है। कई लोग $-2$ या $0$ चुन लेते हैं क्योंकि $5$ बड़ी संख्या लगती है — पर ऋण चिह्न उसे बहुत बाईं तरफ़ ले जाता है, ऊपर नहीं।"
+   "hi": "$-5$ number line पर सबसे बाईं तरफ़ है, तो वही सबसे छोटी है। कई लोग $-2$ या $0$ चुन लेते हैं क्योंकि $5$ बड़ी संख्या लगती है — पर ऋण sign उसे बहुत बाईं तरफ़ ले जाता है, ऊपर नहीं।"
   }
  },
  {
@@ -2153,12 +2153,12 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "tf",
   "q": {
    "en": "$0$ is a natural number.",
-   "hi": "$0$ एक प्राकृत संख्या है।"
+   "hi": "$0$ एक natural number है।"
   },
   "correct": "FALSE",
   "exp": {
    "en": "$\\mathbb{N}$ starts at 1. Zero is a WHOLE number, not a natural one. This is not a technicality — it decides the answer to set questions like $\\{x \\in \\mathbb{N} : x < 1\\}$, which is empty.",
-   "hi": "$\\mathbb{N}$ की शुरुआत 1 से होती है। शून्य पूर्ण संख्या है, प्राकृत नहीं। यह कोई तकनीकी बारीक़ी नहीं — इसी से $\\{x \\in \\mathbb{N} : x < 1\\}$ जैसे समुच्चय के सवाल का जवाब तय होता है, जो रिक्त है।"
+   "hi": "$\\mathbb{N}$ की शुरुआत 1 से होती है। शून्य whole number है, natural नहीं। यह कोई तकनीकी बारीक़ी नहीं — इसी से $\\{x \\in \\mathbb{N} : x < 1\\}$ जैसे set के सवाल का जवाब तय होता है, जो empty है।"
   }
  },
  {
@@ -2176,7 +2176,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "mcq",
   "q": {
    "en": "Which symbol stands for the real numbers?",
-   "hi": "वास्तविक संख्याओं के लिए कौन-सा चिह्न है?"
+   "hi": "real संख्याओं के लिए कौन-सा sign है?"
   },
   "opts": {
    "en": [
@@ -2195,7 +2195,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "$\\mathbb{R}$ for real — every single point on the number line, including $\\sqrt{2}$ and $\\pi$. $\\mathbb{Q}$ is rational (from *quotient*), $\\mathbb{Z}$ integers, $\\mathbb{N}$ natural.",
-   "hi": "$\\mathbb{R}$ वास्तविक के लिए — संख्या रेखा का हर एक बिंदु, $\\sqrt{2}$ और $\\pi$ समेत। $\\mathbb{Q}$ परिमेय (*quotient* से), $\\mathbb{Z}$ पूर्णांक, $\\mathbb{N}$ प्राकृत।"
+   "hi": "$\\mathbb{R}$ real के लिए — number line का हर एक बिंदु, $\\sqrt{2}$ और $\\pi$ समेत। $\\mathbb{Q}$ rational (*quotient* से), $\\mathbb{Z}$ integer, $\\mathbb{N}$ natural।"
   }
  },
  {
@@ -2223,16 +2223,16 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
     "Integer, not natural"
    ],
    "hi": [
-    "प्राकृत",
-    "परिमेय, पूर्णांक नहीं",
-    "अपरिमेय",
-    "पूर्णांक, प्राकृत नहीं"
+    "natural",
+    "rational, integer नहीं",
+    "irrational",
+    "integer, natural नहीं"
    ]
   },
   "correct": "A",
   "exp": {
    "en": "$\\sqrt{36} = 6$, an ordinary counting number. The root sign tempts you to answer *irrational* — but always simplify BEFORE you classify. A root is only irrational when the number under it is not a perfect square.",
-   "hi": "$\\sqrt{36} = 6$, एक साधारण गिनती की संख्या। मूल का चिह्न *अपरिमेय* कहने को उकसाता है — पर वर्गीकरण से **पहले** हमेशा सरल कीजिए। मूल तभी अपरिमेय होता है जब उसके नीचे की संख्या पूर्ण वर्ग न हो।"
+   "hi": "$\\sqrt{36} = 6$, एक साधारण गिनती की संख्या। root का sign *irrational* कहने को उकसाता है — पर classify करने से **पहले** हमेशा सरल कीजिए। मूल तभी irrational होता है जब उसके नीचे की संख्या perfect square न हो।"
   }
  },
  {
@@ -2250,12 +2250,12 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "tf",
   "q": {
    "en": "$-\\frac{7}{2}$ is an integer.",
-   "hi": "$-\\frac{7}{2}$ एक पूर्णांक है।"
+   "hi": "$-\\frac{7}{2}$ एक integer है।"
   },
   "correct": "FALSE",
   "exp": {
    "en": "$-\\frac{7}{2} = -3.5$, which lands between $-4$ and $-3$ on the line, not on a whole mark. It IS rational (it is one whole number over another) and real — but not an integer. Being negative has nothing to do with it.",
-   "hi": "$-\\frac{7}{2} = -3.5$, जो रेखा पर $-4$ और $-3$ के बीच गिरती है, किसी पूरे निशान पर नहीं। यह परिमेय **है** (एक पूर्णांक बटा दूसरा) और वास्तविक भी — पर पूर्णांक नहीं। ऋणात्मक होने से इसका कोई लेना-देना नहीं।"
+   "hi": "$-\\frac{7}{2} = -3.5$, जो रेखा पर $-4$ और $-3$ के बीच गिरती है, किसी पूरे निशान पर नहीं। यह rational **है** (एक integer बटा दूसरा) और real भी — पर integer नहीं। negative होने से इसका कोई लेना-देना नहीं।"
   }
  },
  {
@@ -2292,7 +2292,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "Distance from zero ignores the sign, so compare 9, 7, 4 and 5 — and $-9$ wins. Careful: furthest from zero is a different question from largest. $-9$ is the SMALLEST of these four, and simultaneously the furthest from zero.",
-   "hi": "शून्य से दूरी में चिह्न नहीं देखा जाता, तो 9, 7, 4 और 5 की तुलना कीजिए — $-9$ जीतती है। ध्यान: शून्य से सबसे दूर होना और सबसे बड़ा होना अलग सवाल हैं। इन चारों में $-9$ सबसे **छोटी** है, और साथ ही शून्य से सबसे दूर भी।"
+   "hi": "शून्य से दूरी में sign नहीं देखा जाता, तो 9, 7, 4 और 5 की तुलना कीजिए — $-9$ जीतती है। ध्यान: शून्य से सबसे दूर होना और सबसे बड़ा होना अलग सवाल हैं। इन चारों में $-9$ सबसे **छोटी** है, और साथ ही शून्य से सबसे दूर भी।"
   }
  },
  {
@@ -2310,12 +2310,12 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "tf",
   "q": {
    "en": "Every integer is a rational number.",
-   "hi": "हर पूर्णांक एक परिमेय संख्या है।"
+   "hi": "हर integer एक rational संख्या है।"
   },
   "correct": "TRUE",
   "exp": {
    "en": "Any integer $n$ can be written $\\frac{n}{1}$, which is one whole number over another with a non-zero bottom — exactly the definition of rational. So $\\mathbb{Z} \\subseteq \\mathbb{Q}$. The reverse fails: $\\frac{1}{2}$ is rational but not an integer.",
-   "hi": "किसी भी पूर्णांक $n$ को $\\frac{n}{1}$ लिखा जा सकता है, यानी एक पूर्णांक बटा दूसरा जिसका हर शून्य नहीं — परिमेय की ठीक यही परिभाषा है। तो $\\mathbb{Z} \\subseteq \\mathbb{Q}$। उल्टा नहीं चलता: $\\frac{1}{2}$ परिमेय है पर पूर्णांक नहीं।"
+   "hi": "किसी भी integer $n$ को $\\frac{n}{1}$ लिखा जा सकता है, यानी एक integer बटा दूसरा जिसका denominator शून्य नहीं — rational की ठीक यही परिभाषा है। तो $\\mathbb{Z} \\subseteq \\mathbb{Q}$। उल्टा नहीं चलता: $\\frac{1}{2}$ rational है पर integer नहीं।"
   }
  },
  {
@@ -2333,7 +2333,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "mcq",
   "q": {
    "en": "Which of these is irrational?",
-   "hi": "इनमें से कौन अपरिमेय है?"
+   "hi": "इनमें से कौन irrational है?"
   },
   "opts": {
    "en": [
@@ -2352,7 +2352,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "3 is not a perfect square, so $\\sqrt{3}$ cannot be written as $\\frac{p}{q}$. $\\sqrt{16} = 4$. $\\frac{22}{7}$ is a fraction, so rational — it is only an APPROXIMATION of $\\pi$, not $\\pi$ itself, and that trap catches many. $0.333\\ldots = \\frac{1}{3}$: a repeating decimal is always rational.",
-   "hi": "3 पूर्ण वर्ग नहीं है, तो $\\sqrt{3}$ को $\\frac{p}{q}$ रूप में नहीं लिखा जा सकता। $\\sqrt{16} = 4$। $\\frac{22}{7}$ भिन्न है, तो परिमेय — यह $\\pi$ का सिर्फ़ **सन्निकट मान** है, ख़ुद $\\pi$ नहीं, और यही जाल कई लोगों को पकड़ता है। $0.333\\ldots = \\frac{1}{3}$: आवर्ती दशमलव हमेशा परिमेय होता है।"
+   "hi": "3 perfect square नहीं है, तो $\\sqrt{3}$ को $\\frac{p}{q}$ रूप में नहीं लिखा जा सकता। $\\sqrt{16} = 4$। $\\frac{22}{7}$ fraction है, तो rational — यह $\\pi$ का सिर्फ़ **सन्निकट मान** है, ख़ुद $\\pi$ नहीं, और यही जाल कई लोगों को पकड़ता है। $0.333\\ldots = \\frac{1}{3}$: आवर्ती decimal हमेशा rational होता है।"
   }
  },
  {
@@ -2380,7 +2380,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   ],
   "exp": {
    "en": "Convert first: $-\\frac{1}{2} = -0.5$. Now walk the line left to right: $-2$, then $-0.9$, then $-0.5$, then $0.3$. The trap is $-0.9$ versus $-0.5$: $0.9 > 0.5$, but with the minus in front the order reverses, because $-0.9$ is further left.",
-   "hi": "पहले बदलिए: $-\\frac{1}{2} = -0.5$। अब रेखा पर बाएँ से दाएँ चलिए: $-2$, फिर $-0.9$, फिर $-0.5$, फिर $0.3$। जाल है $-0.9$ बनाम $-0.5$: $0.9 > 0.5$ है, पर आगे ऋण चिह्न लगते ही क्रम उलट जाता है, क्योंकि $-0.9$ और बाईं तरफ़ है।"
+   "hi": "पहले बदलिए: $-\\frac{1}{2} = -0.5$। अब रेखा पर बाएँ से दाएँ चलिए: $-2$, फिर $-0.9$, फिर $-0.5$, फिर $0.3$। जाल है $-0.9$ बनाम $-0.5$: $0.9 > 0.5$ है, पर आगे ऋण sign लगते ही क्रम उलट जाता है, क्योंकि $-0.9$ और बाईं तरफ़ है।"
   }
  },
  {
@@ -2454,7 +2454,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "Negative times negative is positive: $15$. Think of removing three debts of ₹5 each — you end up ₹15 better off. Removing something bad is good.",
-   "hi": "ऋणात्मक गुणा ऋणात्मक धनात्मक होता है: $15$। ₹5 के तीन उधार हटाने की तरह सोचिए — आप ₹15 बेहतर स्थिति में आ जाते हैं। कोई बुरी चीज़ हटाना अच्छा होता है।"
+   "hi": "negative गुणा negative positive होता है: $15$। ₹5 के तीन उधार हटाने की तरह सोचिए — आप ₹15 बेहतर स्थिति में आ जाते हैं। कोई बुरी चीज़ हटाना अच्छा होता है।"
   }
  },
  {
@@ -2514,7 +2514,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "Four minus signs pair up: $(-2)(-2) = 4$, then $(-2)(-2) = 4$, and $4 \\times 4 = 16$. An EVEN power of a negative is positive; an odd power stays negative. Count the minus signs, not the digits.",
-   "hi": "चार ऋण चिह्न जोड़ों में कट जाते हैं: $(-2)(-2) = 4$, फिर $(-2)(-2) = 4$, और $4 \\times 4 = 16$। ऋणात्मक की **सम** घात धनात्मक होती है; विषम घात ऋणात्मक रहती है। ऋण चिह्न गिनिए, अंक नहीं।"
+   "hi": "चार ऋण sign जोड़ों में कट जाते हैं: $(-2)(-2) = 4$, फिर $(-2)(-2) = 4$, और $4 \\times 4 = 16$। negative की **सम** power positive होती है; विषम power negative रहती है। ऋण sign गिनिए, अंक नहीं।"
   }
  },
  {
@@ -2537,7 +2537,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "0",
   "exp": {
    "en": "$\\frac{-12}{-4} = 3$ — negative divided by negative is positive, exactly as with multiplication. Then $3 + (-3) = 0$. Adding a negative is the same as subtracting.",
-   "hi": "$\\frac{-12}{-4} = 3$ — ऋणात्मक बटा ऋणात्मक धनात्मक होता है, ठीक गुणा की तरह। फिर $3 + (-3) = 0$। ऋणात्मक जोड़ना, घटाने के ही बराबर है।"
+   "hi": "$\\frac{-12}{-4} = 3$ — negative बटा negative positive होता है, ठीक गुणा की तरह। फिर $3 + (-3) = 0$। negative जोड़ना, घटाने के ही बराबर है।"
   }
  },
  {
@@ -2560,7 +2560,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "FALSE",
   "exp": {
    "en": "$-4^2 = -16$ (no bracket, so the power acts on 4 alone and the minus is applied last), but $(-4)^2 = +16$ (the bracket puts the minus inside, so it gets squared too). A difference of 32 from one pair of brackets.",
-   "hi": "$-4^2 = -16$ (कोष्ठक नहीं, तो घात सिर्फ़ 4 पर लगती है और ऋण चिह्न आख़िर में), पर $(-4)^2 = +16$ (कोष्ठक ऋण चिह्न को अंदर कर देता है, तो उसका भी वर्ग होता है)। एक जोड़ी कोष्ठक से 32 का फ़र्क़।"
+   "hi": "$-4^2 = -16$ (bracket नहीं, तो power सिर्फ़ 4 पर लगती है और ऋण sign आख़िर में), पर $(-4)^2 = +16$ (bracket ऋण sign को अंदर कर देता है, तो उसका भी square होता है)। एक जोड़ी bracket से 32 का फ़र्क़।"
   }
  },
  {
@@ -2583,7 +2583,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "-2",
   "exp": {
    "en": "$(-2)^3 = -8$ (odd power stays negative), $(-2)^2 = +4$ (even power turns positive), $-(-2) = +2$. Total: $-8 + 4 + 2 = -2$. Getting $+14$ means you made the cube positive; getting $-10$ means you dropped the double-negative.",
-   "hi": "$(-2)^3 = -8$ (विषम घात ऋणात्मक रहती है), $(-2)^2 = +4$ (सम घात धनात्मक हो जाती है), $-(-2) = +2$। कुल: $-8 + 4 + 2 = -2$। $+14$ आया तो आपने घन को धनात्मक कर दिया; $-10$ आया तो दोहरा ऋण चिह्न छूट गया।"
+   "hi": "$(-2)^3 = -8$ (विषम power negative रहती है), $(-2)^2 = +4$ (सम power positive हो जाती है), $-(-2) = +2$। कुल: $-8 + 4 + 2 = -2$। $+14$ आया तो आपने घन को positive कर दिया; $-10$ आया तो दोहरा ऋण sign छूट गया।"
   }
  },
  {
@@ -2638,18 +2638,18 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "sort",
   "q": {
    "en": "Sort each expression by its sign.",
-   "hi": "हर व्यंजक को उसके चिह्न के अनुसार बाँटिए।"
+   "hi": "हर expression को उसके sign के अनुसार बाँटिए।"
   },
   "cats": [
    {
     "k": "p",
     "en": "Positive",
-    "hi": "धनात्मक"
+    "hi": "positive"
    },
    {
     "k": "n",
     "en": "Negative",
-    "hi": "ऋणात्मक"
+    "hi": "negative"
    }
   ],
   "items": [
@@ -2686,7 +2686,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   ],
   "exp": {
    "en": "Two separate rules are being tested. Brackets: $-5^2 = -25$ but $(-5)^2 = +25$. Parity of the power: an odd power of a negative stays negative ($(-3)^3$), an even power turns positive ($(-3)^4$). Then $-2 \\times -6 = +12$ and $\\frac{-8}{2} = -4$.",
-   "hi": "यहाँ दो अलग नियम जाँचे जा रहे हैं। कोष्ठक: $-5^2 = -25$ पर $(-5)^2 = +25$। घात की सम-विषमता: ऋणात्मक की विषम घात ऋणात्मक रहती है ($(-3)^3$), सम घात धनात्मक हो जाती है ($(-3)^4$)। फिर $-2 \\times -6 = +12$ और $\\frac{-8}{2} = -4$।"
+   "hi": "यहाँ दो अलग नियम जाँचे जा रहे हैं। bracket: $-5^2 = -25$ पर $(-5)^2 = +25$। power की सम-विषमता: negative की विषम power negative रहती है ($(-3)^3$), सम power positive हो जाती है ($(-3)^4$)। फिर $-2 \\times -6 = +12$ और $\\frac{-8}{2} = -4$।"
   }
  },
  {
@@ -2704,7 +2704,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "mcq",
   "q": {
    "en": "$\\frac{3}{4}$ as a decimal is:",
-   "hi": "दशमलव में $\\frac{3}{4}$ है:"
+   "hi": "decimal में $\\frac{3}{4}$ है:"
   },
   "opts": {
    "en": [
@@ -2723,7 +2723,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "Divide the top by the bottom: $3 \\div 4 = 0.75$. Not $0.34$ — the digits of the fraction are not the digits of the decimal. If you divided the wrong way round you would get $1.33$, which is what $\\frac{4}{3}$ gives.",
-   "hi": "ऊपर वाले को नीचे वाले से भाग दीजिए: $3 \\div 4 = 0.75$। $0.34$ नहीं — भिन्न के अंक दशमलव के अंक नहीं होते। उल्टा भाग दिया होता तो $1.33$ मिलता, जो $\\frac{4}{3}$ का मान है।"
+   "hi": "ऊपर वाले को नीचे वाले से भाग दीजिए: $3 \\div 4 = 0.75$। $0.34$ नहीं — fraction के अंक decimal के अंक नहीं होते। उल्टा भाग दिया होता तो $1.33$ मिलता, जो $\\frac{4}{3}$ का मान है।"
   }
  },
  {
@@ -2760,7 +2760,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "$25\\% = \\frac{1}{4}$, and a quarter of 800 is 200. Turning the percentage into a simple fraction first makes this mental arithmetic instead of a calculation.",
-   "hi": "$25\\% = \\frac{1}{4}$, और 800 का चौथाई 200 है। प्रतिशत को पहले सरल भिन्न बना लेने से यह हिसाब नहीं, मन ही मन का काम बन जाता है।"
+   "hi": "$25\\% = \\frac{1}{4}$, और 800 का चौथाई 200 है। percent को पहले सरल fraction बना लेने से यह हिसाब नहीं, मन ही मन का काम बन जाता है।"
   }
  },
  {
@@ -2783,7 +2783,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "TRUE",
   "exp": {
    "en": "Three coats on one number. $\\frac{1}{2} = 1 \\div 2 = 0.5$, and $0.5 \\times 100 = 50\\%$. Fractions, decimals and percentages are not three topics — they are three notations for the same thing.",
-   "hi": "एक ही संख्या के तीन लिबास। $\\frac{1}{2} = 1 \\div 2 = 0.5$, और $0.5 \\times 100 = 50\\%$। भिन्न, दशमलव और प्रतिशत तीन विषय नहीं — एक ही चीज़ के तीन संकेतन हैं।"
+   "hi": "एक ही संख्या के तीन लिबास। $\\frac{1}{2} = 1 \\div 2 = 0.5$, और $0.5 \\times 100 = 50\\%$। fraction, decimal और percent तीन विषय नहीं — एक ही चीज़ के तीन संकेतन हैं।"
   }
  },
  {
@@ -2838,7 +2838,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "short",
   "q": {
    "en": "$\\frac{5}{6} - \\frac{1}{3} = ?$ Give your answer as a fraction in lowest terms.",
-   "hi": "$\\frac{5}{6} - \\frac{1}{3} = ?$ जवाब सरलतम भिन्न में दीजिए।"
+   "hi": "$\\frac{5}{6} - \\frac{1}{3} = ?$ जवाब सरलतम fraction में दीजिए।"
   },
   "correct": "1/2",
   "accept": [
@@ -2847,7 +2847,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   ],
   "exp": {
    "en": "Common denominator 6: $\\frac{5}{6} - \\frac{2}{6} = \\frac{3}{6} = \\frac{1}{2}$. Sense-check: $\\frac{5}{6}$ is nearly a whole and you removed a third, so a half is about right.",
-   "hi": "हर 6 लीजिए: $\\frac{5}{6} - \\frac{2}{6} = \\frac{3}{6} = \\frac{1}{2}$। समझ से जाँच: $\\frac{5}{6}$ लगभग पूरा है और आपने एक-तिहाई हटाया, तो आधा आना ठीक बैठता है।"
+   "hi": "denominator 6 लीजिए: $\\frac{5}{6} - \\frac{2}{6} = \\frac{3}{6} = \\frac{1}{2}$। समझ से जाँच: $\\frac{5}{6}$ लगभग पूरा है और आपने एक-तिहाई हटाया, तो आधा आना ठीक बैठता है।"
   }
  },
  {
@@ -2865,7 +2865,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "mcq",
   "q": {
    "en": "A shirt marked ₹1200 is sold at $15\\%$ off. The selling price is:",
-   "hi": "₹1200 अंकित मूल्य वाली क़मीज़ $15\\%$ छूट पर बिकती है। विक्रय मूल्य है:"
+   "hi": "₹1200 marked price वाली क़मीज़ $15\\%$ छूट पर बिकती है। selling price है:"
   },
   "opts": {
    "en": [
@@ -2902,7 +2902,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "short",
   "q": {
    "en": "$\\frac{2}{3} \\div \\frac{4}{9} = ?$ Give your answer as a fraction in lowest terms.",
-   "hi": "$\\frac{2}{3} \\div \\frac{4}{9} = ?$ जवाब सरलतम भिन्न में दीजिए।"
+   "hi": "$\\frac{2}{3} \\div \\frac{4}{9} = ?$ जवाब सरलतम fraction में दीजिए।"
   },
   "correct": "3/2",
   "accept": [
@@ -2948,7 +2948,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "Take ₹100. Up $20\\%$ gives 120. Down $20\\%$ of **120** is 24, giving 96 — that is $4\\%$ below the start. Most people answer *the same*, because the two percentages look like they cancel. They do not: the rise was calculated on 100 and the fall on the larger 120.",
-   "hi": "₹100 लीजिए। $20\\%$ बढ़ने पर 120। **120** का $20\\%$ यानी 24 घटने पर 96 — जो शुरुआत से $4\\%$ कम है। ज़्यादातर लोग *वही* कहते हैं, क्योंकि दोनों प्रतिशत कटते हुए लगते हैं। कटते नहीं: बढ़त 100 पर लगी और गिरावट बड़ी रक़म 120 पर।"
+   "hi": "₹100 लीजिए। $20\\%$ बढ़ने पर 120। **120** का $20\\%$ यानी 24 घटने पर 96 — जो शुरुआत से $4\\%$ कम है। ज़्यादातर लोग *वही* कहते हैं, क्योंकि दोनों percent कटते हुए लगते हैं। कटते नहीं: बढ़त 100 पर लगी और गिरावट बड़ी रक़म 120 पर।"
   }
  },
  {
@@ -2966,7 +2966,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "short",
   "q": {
    "en": "A student scored 34 out of 40. What percentage is that?",
-   "hi": "एक विद्यार्थी को 40 में से 34 अंक मिले। यह कितने प्रतिशत हुआ?"
+   "hi": "एक विद्यार्थी को 40 में से 34 अंक मिले। यह कितने percent हुआ?"
   },
   "correct": "85",
   "accept": [
@@ -2975,7 +2975,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   ],
   "exp": {
    "en": "$\\frac{34}{40} = 0.85$, and $0.85 \\times 100 = 85\\%$. The route is always the same: make the fraction, turn it into a decimal, multiply by 100. Sense-check: 34 is well over three-quarters of 40, and $85 > 75$ ✅.",
-   "hi": "$\\frac{34}{40} = 0.85$, और $0.85 \\times 100 = 85\\%$। रास्ता हमेशा वही है: भिन्न बनाइए, दशमलव में बदलिए, 100 से गुणा कीजिए। समझ से जाँच: 34, 40 के तीन-चौथाई से काफ़ी ज़्यादा है, और $85 > 75$ ✅।"
+   "hi": "$\\frac{34}{40} = 0.85$, और $0.85 \\times 100 = 85\\%$। रास्ता हमेशा वही है: fraction बनाइए, decimal में बदलिए, 100 से गुणा कीजिए। समझ से जाँच: 34, 40 के तीन-चौथाई से काफ़ी ज़्यादा है, और $85 > 75$ ✅।"
   }
  },
  {
@@ -3012,7 +3012,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "Same box, so subtract the numbers and keep the letter: $5a$. The letter never disappears and never gains a power when you add or subtract like terms.",
-   "hi": "एक ही डिब्बा, तो संख्याएँ घटाइए और अक्षर वैसा ही रखिए: $5a$। समान पद जोड़ने-घटाने पर अक्षर न ग़ायब होता है, न उस पर घात आती है।"
+   "hi": "एक ही डिब्बा, तो संख्याएँ घटाइए और अक्षर वैसा ही रखिए: $5a$। समान पद जोड़ने-घटाने पर अक्षर न ग़ायब होता है, न उस पर power आती है।"
   }
  },
  {
@@ -3132,7 +3132,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "Four products: $x^2$, $-4x$, $-3x$, and $(-3)(-4) = +12$. The last one is where marks go — two negatives multiply to a POSITIVE, so the constant is $+12$, not $-12$. Middle: $-4x - 3x = -7x$.",
-   "hi": "चार गुणनफल: $x^2$, $-4x$, $-3x$, और $(-3)(-4) = +12$। आख़िरी पर ही नंबर कटते हैं — दो ऋणात्मक गुणा करके **धनात्मक** देते हैं, तो अचर $+12$ है, $-12$ नहीं। बीच वाला: $-4x - 3x = -7x$।"
+   "hi": "चार गुणनफल: $x^2$, $-4x$, $-3x$, और $(-3)(-4) = +12$। आख़िरी पर ही नंबर कटते हैं — दो negative गुणा करके **positive** देते हैं, तो constant $+12$ है, $-12$ नहीं। बीच वाला: $-4x - 3x = -7x$।"
   }
  },
  {
@@ -3169,7 +3169,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "$y = 3(-2) - 2 = -6 - 2 = -8$. Substitute in brackets to protect the sign: writing $3 \\times -2$ without them is how people end up with $-4$ or $+4$.",
-   "hi": "$y = 3(-2) - 2 = -6 - 2 = -8$। चिह्न बचाने के लिए कोष्ठक में रखिए: बिना कोष्ठक $3 \\times -2$ लिखने से ही लोग $-4$ या $+4$ पर पहुँच जाते हैं।"
+   "hi": "$y = 3(-2) - 2 = -6 - 2 = -8$। sign बचाने के लिए bracket में रखिए: बिना bracket $3 \\times -2$ लिखने से ही लोग $-4$ या $+4$ पर पहुँच जाते हैं।"
   }
  },
  {
@@ -3197,7 +3197,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   ],
   "exp": {
    "en": "$4(x+2) = 4x + 8$. The second multiplier is $-3$, so BOTH signs inside flip: $-3(x-1) = -3x + 3$. Then $4x - 3x = x$ and $8 + 3 = 11$, giving $x + 11$. Answering $x + 5$ means you forgot the minus reaches the $-1$ as well.",
-   "hi": "$4(x+2) = 4x + 8$। दूसरा गुणक $-3$ है, तो अंदर के **दोनों** चिह्न पलटेंगे: $-3(x-1) = -3x + 3$। फिर $4x - 3x = x$ और $8 + 3 = 11$, यानी $x + 11$। $x + 5$ आया तो आप भूल गए कि ऋण चिह्न $-1$ तक भी पहुँचता है।"
+   "hi": "$4(x+2) = 4x + 8$। दूसरा गुणक $-3$ है, तो अंदर के **दोनों** sign पलटेंगे: $-3(x-1) = -3x + 3$। फिर $4x - 3x = x$ और $8 + 3 = 11$, यानी $x + 11$। $x + 5$ आया तो आप भूल गए कि ऋण sign $-1$ तक भी पहुँचता है।"
   }
  },
  {
@@ -3220,7 +3220,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "13",
   "exp": {
    "en": "Write it as $2x - 7 = 19$. Add 7: $2x = 26$. Divide by 2: $x = 13$. Check: $2(13) - 7 = 19$ ✅. Turning the sentence into an equation is the whole skill — the algebra afterwards is easy.",
-   "hi": "इसे $2x - 7 = 19$ लिखिए। 7 जोड़िए: $2x = 26$। 2 से भाग दीजिए: $x = 13$। जाँच: $2(13) - 7 = 19$ ✅। वाक्य को समीकरण में बदलना ही पूरा कौशल है — उसके बाद की बीजगणित आसान है।"
+   "hi": "इसे $2x - 7 = 19$ लिखिए। 7 जोड़िए: $2x = 26$। 2 से भाग दीजिए: $x = 13$। जाँच: $2(13) - 7 = 19$ ✅। वाक्य को equation में बदलना ही पूरा कौशल है — उसके बाद की algebra आसान है।"
   }
  },
  {
@@ -3243,7 +3243,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "FALSE",
   "exp": {
    "en": "$(x+3)^2$ means $(x+3)(x+3) = x^2 + 3x + 3x + 9 = x^2 + 6x + 9$. The middle term $6x$ is missing from the claim. Squaring a bracket is NOT squaring each piece — this is one of the most expensive errors in all of Class 11.",
-   "hi": "$(x+3)^2$ का मतलब है $(x+3)(x+3) = x^2 + 3x + 3x + 9 = x^2 + 6x + 9$। दावे में बीच वाला पद $6x$ ग़ायब है। कोष्ठक का वर्ग करना, हर टुकड़े का वर्ग करना **नहीं** है — कक्षा 11 की सबसे महँगी ग़लतियों में से एक यही है।"
+   "hi": "$(x+3)^2$ का मतलब है $(x+3)(x+3) = x^2 + 3x + 3x + 9 = x^2 + 6x + 9$। दावे में बीच वाला पद $6x$ ग़ायब है। bracket का square करना, हर टुकड़े का square करना **नहीं** है — कक्षा 11 की सबसे महँगी ग़लतियों में से एक यही है।"
   }
  },
  {
@@ -3261,7 +3261,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "mcq",
   "q": {
    "en": "Factorise $6x + 9$.",
-   "hi": "$6x + 9$ के गुणनखंड कीजिए।"
+   "hi": "$6x + 9$ के factor कीजिए।"
   },
   "opts": {
    "en": [
@@ -3280,7 +3280,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "The largest number dividing both 6 and 9 is 3. Take it out: $6x \\div 3 = 2x$ and $9 \\div 3 = 3$. Check by expanding: $3(2x+3) = 6x + 9$ ✅. Always expand your answer back — factorising is the one place a check is instant.",
-   "hi": "6 और 9 दोनों को विभाजित करने वाली सबसे बड़ी संख्या 3 है। उसे बाहर निकालिए: $6x \\div 3 = 2x$ और $9 \\div 3 = 3$। खोलकर जाँचिए: $3(2x+3) = 6x + 9$ ✅। जवाब को हमेशा वापस खोलकर देखिए — गुणनखंड ही वह जगह है जहाँ जाँच तुरंत हो जाती है।"
+   "hi": "6 और 9 दोनों को विभाजित करने वाली सबसे बड़ी संख्या 3 है। उसे बाहर निकालिए: $6x \\div 3 = 2x$ और $9 \\div 3 = 3$। खोलकर जाँचिए: $3(2x+3) = 6x + 9$ ✅। जवाब को हमेशा वापस खोलकर देखिए — factor ही वह जगह है जहाँ जाँच तुरंत हो जाती है।"
   }
  },
  {
@@ -3298,7 +3298,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "mcq",
   "q": {
    "en": "Factorise $x^2 - 1$.",
-   "hi": "$x^2 - 1$ के गुणनखंड कीजिए।"
+   "hi": "$x^2 - 1$ के factor कीजिए।"
   },
   "opts": {
    "en": [
@@ -3317,7 +3317,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "A difference of two squares, since $1 = 1^2$: $x^2 - 1^2 = (x-1)(x+1)$. This exact expression appears in the very first limit you will meet, $\\lim_{x \\to 1} \\frac{x^2-1}{x-1}$ — recognising it now saves you later.",
-   "hi": "दो वर्गों का अंतर, क्योंकि $1 = 1^2$: $x^2 - 1^2 = (x-1)(x+1)$। यही व्यंजक उस पहली सीमा में आता है जो आप देखेंगे, $\\lim_{x \\to 1} \\frac{x^2-1}{x-1}$ — इसे अभी पहचान लेना आगे काम आएगा।"
+   "hi": "दो squares का अंतर, क्योंकि $1 = 1^2$: $x^2 - 1^2 = (x-1)(x+1)$। यही expression उस पहली limit में आता है जो आप देखेंगे, $\\lim_{x \\to 1} \\frac{x^2-1}{x-1}$ — इसे अभी पहचान लेना आगे काम आएगा।"
   }
  },
  {
@@ -3335,12 +3335,12 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "tf",
   "q": {
    "en": "$x^2 + 4$ factorises to $(x+2)(x+2)$.",
-   "hi": "$x^2 + 4$ के गुणनखंड $(x+2)(x+2)$ होते हैं।"
+   "hi": "$x^2 + 4$ के factor $(x+2)(x+2)$ होते हैं।"
   },
   "correct": "FALSE",
   "exp": {
    "en": "Expand the claim: $(x+2)(x+2) = x^2 + 4x + 4$, which has an extra $4x$. A SUM of two squares does not factorise over real numbers at all — only a DIFFERENCE does. $x^2 - 4$ works; $x^2 + 4$ does not.",
-   "hi": "दावे को खोलिए: $(x+2)(x+2) = x^2 + 4x + 4$, जिसमें अतिरिक्त $4x$ है। दो वर्गों का **योग** वास्तविक संख्याओं में गुणनखंडित होता ही नहीं — सिर्फ़ **अंतर** होता है। $x^2 - 4$ चलता है; $x^2 + 4$ नहीं।"
+   "hi": "दावे को खोलिए: $(x+2)(x+2) = x^2 + 4x + 4$, जिसमें extra $4x$ है। दो squares का **योग** real संख्याओं में factorise होता ही नहीं — सिर्फ़ **अंतर** होता है। $x^2 - 4$ चलता है; $x^2 + 4$ नहीं।"
   }
  },
  {
@@ -3358,7 +3358,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "mcq",
   "q": {
    "en": "Factorise $x^2 - x - 6$.",
-   "hi": "$x^2 - x - 6$ के गुणनखंड कीजिए।"
+   "hi": "$x^2 - x - 6$ के factor कीजिए।"
   },
   "opts": {
    "en": [
@@ -3377,7 +3377,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "Two numbers multiplying to $-6$ and adding to $-1$: they must have opposite signs, and $-3$ with $+2$ works. Option B has the signs the wrong way round — it gives $+x$ in the middle. Always check BOTH the product and the sum.",
-   "hi": "गुणनफल $-6$ और योग $-1$ वाली दो संख्याएँ: इनके चिह्न विपरीत होने चाहिए, और $-3$ के साथ $+2$ काम करता है। विकल्प B में चिह्न उलटे हैं — उससे बीच में $+x$ आता है। हमेशा गुणनफल **और** योग दोनों जाँचिए।"
+   "hi": "गुणनफल $-6$ और योग $-1$ वाली दो संख्याएँ: इनके sign विपरीत होने चाहिए, और $-3$ के साथ $+2$ काम करता है। विकल्प B में sign उलटे हैं — उससे बीच में $+x$ आता है। हमेशा गुणनफल **और** योग दोनों जाँचिए।"
   }
  },
  {
@@ -3395,7 +3395,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "short",
   "q": {
    "en": "Factorise $x^2 + 8x + 16$.",
-   "hi": "$x^2 + 8x + 16$ के गुणनखंड कीजिए।"
+   "hi": "$x^2 + 8x + 16$ के factor कीजिए।"
   },
   "correct": "(x+4)^2",
   "accept": [
@@ -3404,7 +3404,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   ],
   "exp": {
    "en": "Two numbers multiplying to 16 and adding to 8 are 4 and 4, so $(x+4)(x+4) = (x+4)^2$. Spot it faster: 16 is a perfect square, and $8 = 2 \\times 4$, which is the signature of $a^2 + 2ab + b^2$.",
-   "hi": "गुणनफल 16 और योग 8 वाली दो संख्याएँ 4 और 4 हैं, तो $(x+4)(x+4) = (x+4)^2$। तेज़ी से पहचानिए: 16 पूर्ण वर्ग है, और $8 = 2 \\times 4$, जो $a^2 + 2ab + b^2$ की पहचान है।"
+   "hi": "गुणनफल 16 और योग 8 वाली दो संख्याएँ 4 और 4 हैं, तो $(x+4)(x+4) = (x+4)^2$। तेज़ी से पहचानिए: 16 perfect square है, और $8 = 2 \\times 4$, जो $a^2 + 2ab + b^2$ की पहचान है।"
   }
  },
  {
@@ -3422,7 +3422,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "mcq",
   "q": {
    "en": "Factorise $5x^2 - 20$.",
-   "hi": "$5x^2 - 20$ के गुणनखंड कीजिए।"
+   "hi": "$5x^2 - 20$ के factor कीजिए।"
   },
   "opts": {
    "en": [
@@ -3441,7 +3441,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "Common factor 5 first: $5(x^2 - 4)$. Then $x^2 - 4$ is a difference of squares: $5(x-2)(x+2)$. Option C stopped halfway — *factorise* means go all the way. Option D used 4 instead of $\\sqrt{4} = 2$.",
-   "hi": "पहले उभयनिष्ठ गुणनखंड 5: $5(x^2 - 4)$। फिर $x^2 - 4$ वर्गों का अंतर है: $5(x-2)(x+2)$। विकल्प C आधे में रुक गया — *गुणनखंड कीजिए* का मतलब है पूरा कीजिए। विकल्प D ने $\\sqrt{4} = 2$ की जगह 4 ले लिया।"
+   "hi": "पहले उभयनिष्ठ factor 5: $5(x^2 - 4)$। फिर $x^2 - 4$ squares का अंतर है: $5(x-2)(x+2)$। विकल्प C आधे में रुक गया — *factor कीजिए* का मतलब है पूरा कीजिए। विकल्प D ने $\\sqrt{4} = 2$ की जगह 4 ले लिया।"
   }
  },
  {
@@ -3469,7 +3469,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   ],
   "exp": {
    "en": "Factorise the top: two numbers multiplying to 6 and adding to 5 are 2 and 3, giving $(x+2)(x+3)$. Cancel the $(x+2)$: the answer is $x+3$. You may only cancel a whole FACTOR — never a single term out of a sum.",
-   "hi": "ऊपर वाले के गुणनखंड कीजिए: गुणनफल 6 और योग 5 वाली संख्याएँ 2 और 3 हैं, तो $(x+2)(x+3)$। $(x+2)$ काटिए: जवाब $x+3$। आप सिर्फ़ पूरा **गुणनखंड** काट सकते हैं — योग में से अकेला पद कभी नहीं।"
+   "hi": "ऊपर वाले के factor कीजिए: गुणनफल 6 और योग 5 वाली संख्याएँ 2 और 3 हैं, तो $(x+2)(x+3)$। $(x+2)$ काटिए: जवाब $x+3$। आप सिर्फ़ पूरा **factor** काट सकते हैं — योग में से अकेला पद कभी नहीं।"
   }
  },
  {
@@ -3487,7 +3487,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "mcq",
   "q": {
    "en": "Which is a factor of $x^2 - 9x + 20$?",
-   "hi": "$x^2 - 9x + 20$ का एक गुणनखंड कौन है?"
+   "hi": "$x^2 - 9x + 20$ का एक factor कौन है?"
   },
   "opts": {
    "en": [
@@ -3506,7 +3506,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "Product 20, sum $-9$: both numbers negative, namely $-4$ and $-5$. So $x^2 - 9x + 20 = (x-4)(x-5)$, and $x-5$ is a factor. A positive constant with a negative middle term always means BOTH brackets carry a minus.",
-   "hi": "गुणनफल 20, योग $-9$: दोनों संख्याएँ ऋणात्मक, यानी $-4$ और $-5$। तो $x^2 - 9x + 20 = (x-4)(x-5)$, और $x-5$ एक गुणनखंड है। धनात्मक अचर के साथ ऋणात्मक बीच वाला पद हमेशा यही बताता है कि **दोनों** कोष्ठकों में ऋण चिह्न है।"
+   "hi": "गुणनफल 20, योग $-9$: दोनों संख्याएँ negative, यानी $-4$ और $-5$। तो $x^2 - 9x + 20 = (x-4)(x-5)$, और $x-5$ एक factor है। positive constant के साथ negative बीच वाला पद हमेशा यही बताता है कि **दोनों** brackets में ऋण sign है।"
   }
  },
  {
@@ -3524,7 +3524,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "match",
   "q": {
    "en": "Match each expression with its fully factorised form.",
-   "hi": "हर व्यंजक को उसके पूर्ण गुणनखंड रूप से मिलाइए।"
+   "hi": "हर expression को उसके पूर्ण factor रूप से मिलाइए।"
   },
   "pairs": [
    {
@@ -3570,7 +3570,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   ],
   "exp": {
    "en": "Every one starts by looking for a common factor. $2x^2-18 = 2(x^2-9)$ then difference of squares. $3x^2+9x$ shares $3x$, and taking out a LETTER as well as a number is the step most often missed. The middle two are the standard patterns.",
-   "hi": "हर एक की शुरुआत उभयनिष्ठ गुणनखंड ढूँढने से होती है। $2x^2-18 = 2(x^2-9)$ फिर वर्गों का अंतर। $3x^2+9x$ में $3x$ साझा है, और संख्या के साथ **अक्षर** भी बाहर निकालना वह चरण है जो सबसे ज़्यादा छूटता है। बीच के दो मानक पैटर्न हैं।"
+   "hi": "हर एक की शुरुआत उभयनिष्ठ factor ढूँढने से होती है। $2x^2-18 = 2(x^2-9)$ फिर squares का अंतर। $3x^2+9x$ में $3x$ साझा है, और संख्या के साथ **अक्षर** भी बाहर निकालना वह चरण है जो सबसे ज़्यादा छूटता है। बीच के दो मानक पैटर्न हैं।"
   }
  },
  {
@@ -3588,7 +3588,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "mcq",
   "q": {
    "en": "Which of these is NOT a natural number?",
-   "hi": "इनमें से कौन प्राकृत संख्या नहीं है?"
+   "hi": "इनमें से कौन natural number नहीं है?"
   },
   "opts": {
    "en": [
@@ -3607,7 +3607,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "$\\mathbb{N}$ starts at 1. Zero is a WHOLE number but not a natural one. NCERT is consistent about this, and set questions use it deliberately — $\\{x \\in \\mathbb{N} : x < 1\\}$ is empty for exactly this reason.",
-   "hi": "$\\mathbb{N}$ की शुरुआत 1 से होती है। शून्य पूर्ण संख्या है, प्राकृत नहीं। NCERT इस बारे में एकरूप है, और समुच्चय के सवाल इसका जान-बूझकर इस्तेमाल करते हैं — ठीक इसी वजह से $\\{x \\in \\mathbb{N} : x < 1\\}$ रिक्त है।"
+   "hi": "$\\mathbb{N}$ की शुरुआत 1 से होती है। शून्य whole number है, natural नहीं। NCERT इस बारे में एकरूप है, और set के सवाल इसका जान-बूझकर इस्तेमाल करते हैं — ठीक इसी वजह से $\\{x \\in \\mathbb{N} : x < 1\\}$ empty है।"
   }
  },
  {
@@ -3625,12 +3625,12 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "tf",
   "q": {
    "en": "$1$ is a prime number.",
-   "hi": "$1$ एक अभाज्य संख्या है।"
+   "hi": "$1$ एक prime संख्या है।"
   },
   "correct": "FALSE",
   "exp": {
    "en": "A prime has EXACTLY two factors. $1$ has only one factor — itself. The primes begin at 2. Every year some students list 1 as prime in a set question and lose the mark.",
-   "hi": "अभाज्य के **ठीक** दो गुणनखंड होते हैं। $1$ का सिर्फ़ एक गुणनखंड है — ख़ुद वह। अभाज्य 2 से शुरू होती हैं। हर साल कुछ विद्यार्थी समुच्चय के सवाल में 1 को अभाज्य लिखकर नंबर गँवाते हैं।"
+   "hi": "prime के **ठीक** दो factor होते हैं। $1$ का सिर्फ़ एक factor है — ख़ुद वह। prime 2 से शुरू होती हैं। हर साल कुछ विद्यार्थी set के सवाल में 1 को prime लिखकर नंबर गँवाते हैं।"
   }
  },
  {
@@ -3648,7 +3648,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "mcq",
   "q": {
    "en": "The factors of 18 are:",
-   "hi": "18 के गुणनखंड हैं:"
+   "hi": "18 के factor हैं:"
   },
   "opts": {
    "en": [
@@ -3667,7 +3667,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "Work in pairs so nothing is missed: $1\\times18$, $2\\times9$, $3\\times6$. That gives six factors. Option B drops the 6 — pairing is what stops that happening.",
-   "hi": "जोड़ों में काम कीजिए ताकि कुछ छूटे नहीं: $1\\times18$, $2\\times9$, $3\\times6$। यानी छह गुणनखंड। विकल्प B में 6 छूट गया — जोड़े बनाने से यही रुकता है।"
+   "hi": "जोड़ों में काम कीजिए ताकि कुछ छूटे नहीं: $1\\times18$, $2\\times9$, $3\\times6$। यानी छह factor। विकल्प B में 6 छूट गया — जोड़े बनाने से यही रुकता है।"
   }
  },
  {
@@ -3685,7 +3685,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "mcq",
   "q": {
    "en": "The solutions of $x^2 = 25$ over the integers are:",
-   "hi": "पूर्णांकों में $x^2 = 25$ के हल हैं:"
+   "hi": "integers में $x^2 = 25$ के हल हैं:"
   },
   "opts": {
    "en": [
@@ -3704,7 +3704,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "Both, always: $5^2 = 25$ and $(-5)^2 = 25$. Squaring destroys the sign, so undoing a square must restore both possibilities. Writing only $5$ throws away half of every set defined this way — the single commonest Bridge failure for this chapter.",
-   "hi": "हमेशा दोनों: $5^2 = 25$ और $(-5)^2 = 25$। वर्ग करने से चिह्न मिट जाता है, तो वर्ग को उलटने पर दोनों संभावनाएँ लौटनी चाहिए। सिर्फ़ $5$ लिखने से इस तरह बने हर समुच्चय का आधा हिस्सा चला जाता है — इस अध्याय के पुल पर यही सबसे आम चूक है।"
+   "hi": "हमेशा दोनों: $5^2 = 25$ और $(-5)^2 = 25$। square करने से sign मिट जाता है, तो square को उलटने पर दोनों संभावनाएँ लौटनी चाहिए। सिर्फ़ $5$ लिखने से इस तरह बने हर set का आधा हिस्सा चला जाता है — इस अध्याय के पुल पर यही सबसे आम चूक है।"
   }
  },
  {
@@ -3722,12 +3722,12 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "tf",
   "q": {
    "en": "The interval $[2, 7)$ contains the number 7.",
-   "hi": "अंतराल $[2, 7)$ में संख्या 7 शामिल है।"
+   "hi": "interval $[2, 7)$ में संख्या 7 शामिल है।"
   },
   "correct": "FALSE",
   "exp": {
    "en": "A round bracket is an open door — the endpoint stays out. So $[2,7)$ contains 2 but not 7; in set-builder that is $\\{x : 2 \\leq x < 7\\}$. Square is closed, round is open, and infinity always gets a round bracket because you can never reach it.",
-   "hi": "गोल कोष्ठक खुला दरवाज़ा है — सिरा बाहर रहता है। तो $[2,7)$ में 2 है पर 7 नहीं; निर्माण रूप में $\\{x : 2 \\leq x < 7\\}$। चौकोर बंद, गोल खुला, और अनंत को हमेशा गोल कोष्ठक मिलता है क्योंकि वहाँ पहुँचा ही नहीं जा सकता।"
+   "hi": "गोल bracket खुला दरवाज़ा है — सिरा बाहर रहता है। तो $[2,7)$ में 2 है पर 7 नहीं; set-builder form में $\\{x : 2 \\leq x < 7\\}$। चौकोर बंद, गोल खुला, और infinite को हमेशा गोल bracket मिलता है क्योंकि वहाँ पहुँचा ही नहीं जा सकता।"
   }
  },
  {
@@ -3751,17 +3751,17 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
    {
     "k": "n",
     "en": "Natural $\\mathbb{N}$",
-    "hi": "प्राकृत $\\mathbb{N}$"
+    "hi": "natural $\\mathbb{N}$"
    },
    {
     "k": "z",
     "en": "Integer $\\mathbb{Z}$ only",
-    "hi": "सिर्फ़ पूर्णांक $\\mathbb{Z}$"
+    "hi": "सिर्फ़ integer $\\mathbb{Z}$"
    },
    {
     "k": "q",
     "en": "Rational $\\mathbb{Q}$ only",
-    "hi": "सिर्फ़ परिमेय $\\mathbb{Q}$"
+    "hi": "सिर्फ़ rational $\\mathbb{Q}$"
    }
   ],
   "items": [
@@ -3798,7 +3798,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   ],
   "exp": {
    "en": "$\\sqrt{49} = 7$, so simplify before classifying. $0$ is an integer but not natural, since $\\mathbb{N}$ begins at 1. $-2.5 = -\\frac{5}{2}$, rational but not a whole mark on the line.",
-   "hi": "$\\sqrt{49} = 7$, तो वर्गीकरण से पहले सरल कीजिए। $0$ पूर्णांक है पर प्राकृत नहीं, क्योंकि $\\mathbb{N}$ 1 से शुरू होता है। $-2.5 = -\\frac{5}{2}$, परिमेय है पर रेखा का कोई पूरा निशान नहीं।"
+   "hi": "$\\sqrt{49} = 7$, तो classify करने से पहले सरल कीजिए। $0$ integer है पर natural नहीं, क्योंकि $\\mathbb{N}$ 1 से शुरू होता है। $-2.5 = -\\frac{5}{2}$, rational है पर रेखा का कोई पूरा निशान नहीं।"
   }
  },
  {
@@ -3816,12 +3816,12 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "short",
   "q": {
    "en": "How many multiples of 4 are there between 1 and 30 inclusive?",
-   "hi": "1 से 30 तक (दोनों शामिल) 4 के कितने गुणज हैं?"
+   "hi": "1 से 30 तक (दोनों शामिल) 4 के कितने multiple हैं?"
   },
   "correct": "7",
   "exp": {
    "en": "$4, 8, 12, 16, 20, 24, 28$ — seven of them. Shortcut: $30 \\div 4 = 7.5$, and you take the whole-number part, 7. This counting-by-division idea returns immediately in the union and intersection questions later in the chapter.",
-   "hi": "$4, 8, 12, 16, 20, 24, 28$ — सात। छोटा रास्ता: $30 \\div 4 = 7.5$, और पूर्णांक भाग लीजिए, यानी 7। भाग देकर गिनने का यही विचार आगे इसी अध्याय के सम्मिलन-सर्वनिष्ठ वाले सवालों में तुरंत लौटेगा।"
+   "hi": "$4, 8, 12, 16, 20, 24, 28$ — सात। छोटा रास्ता: $30 \\div 4 = 7.5$, और integer भाग लीजिए, यानी 7। भाग देकर गिनने का यही विचार आगे इसी अध्याय के union-intersection वाले सवालों में तुरंत लौटेगा।"
   }
  },
  {
@@ -3839,7 +3839,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "short",
   "q": {
    "en": "Solve $x^2 - 7x + 12 = 0$. Write both roots separated by a comma.",
-   "hi": "$x^2 - 7x + 12 = 0$ हल कीजिए। दोनों मूल अल्पविराम से अलग करके लिखिए।"
+   "hi": "$x^2 - 7x + 12 = 0$ हल कीजिए। दोनों roots अल्पविराम से अलग करके लिखिए।"
   },
   "correct": "3, 4",
   "accept": [
@@ -3849,7 +3849,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   ],
   "exp": {
    "en": "Two numbers multiplying to 12 and adding to $-7$: both must be negative, so $-3$ and $-4$. That factorises to $(x-3)(x-4) = 0$, giving $x = 3$ or $x = 4$. You will need exactly this to list sets defined by quadratic conditions.",
-   "hi": "गुणनफल 12 और योग $-7$ वाली दो संख्याएँ: दोनों ऋणात्मक होंगी, यानी $-3$ और $-4$। गुणनखंड $(x-3)(x-4) = 0$, तो $x = 3$ या $x = 4$। द्विघात शर्तों से बने समुच्चयों की तालिका बनाने के लिए आपको ठीक यही चाहिए।"
+   "hi": "गुणनफल 12 और योग $-7$ वाली दो संख्याएँ: दोनों negative होंगी, यानी $-3$ और $-4$। factor $(x-3)(x-4) = 0$, तो $x = 3$ या $x = 4$। quadratic शर्तों से बने sets की तालिका बनाने के लिए आपको ठीक यही चाहिए।"
   }
  },
  {
@@ -3867,7 +3867,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "mcq",
   "q": {
    "en": "Which of these is a well-defined set?",
-   "hi": "इनमें से कौन सुपरिभाषित समुच्चय है?"
+   "hi": "इनमें से कौन well-defined set है?"
   },
   "opts": {
    "en": [
@@ -3886,7 +3886,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "Hand the vowel rule to any two people and they produce the same five letters. *Best*, *tall* and *interesting* all hide a personal judgement, so two careful people can disagree — and that is exactly what well-defined forbids.",
-   "hi": "स्वर वाला नियम किन्हीं दो लोगों को दीजिए, दोनों वही पाँच अक्षर निकालेंगे। *सर्वश्रेष्ठ*, *लंबे* और *रोचक* — तीनों में निजी राय छिपी है, तो दो सावधान लोग असहमत हो सकते हैं — और सुपरिभाषित होने की मनाही ठीक इसी की है।"
+   "hi": "स्वर वाला नियम किन्हीं दो लोगों को दीजिए, दोनों वही पाँच अक्षर निकालेंगे। *सर्वश्रेष्ठ*, *लंबे* और *रोचक* — तीनों में निजी राय छिपी है, तो दो सावधान लोग असहमत हो सकते हैं — और well-defined होने की मनाही ठीक इसी की है।"
   }
  },
  {
@@ -3904,12 +3904,12 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "tf",
   "q": {
    "en": "$\\{1, 2, 3\\}$ and $\\{3, 2, 1\\}$ are different sets.",
-   "hi": "$\\{1, 2, 3\\}$ और $\\{3, 2, 1\\}$ अलग समुच्चय हैं।"
+   "hi": "$\\{1, 2, 3\\}$ और $\\{3, 2, 1\\}$ अलग set हैं।"
   },
   "correct": "FALSE",
   "exp": {
    "en": "A set records only WHICH things are members, never the order they were written in. Both have exactly the members 1, 2 and 3, so they are the same set.",
-   "hi": "समुच्चय सिर्फ़ यह दर्ज करता है कि सदस्य **कौन** हैं, यह कभी नहीं कि उन्हें किस क्रम में लिखा गया। दोनों के सदस्य ठीक 1, 2 और 3 हैं, तो दोनों एक ही समुच्चय हैं।"
+   "hi": "set सिर्फ़ यह दर्ज करता है कि member **कौन** हैं, यह कभी नहीं कि उन्हें किस क्रम में लिखा गया। दोनों के member ठीक 1, 2 और 3 हैं, तो दोनों एक ही set हैं।"
   }
  },
  {
@@ -3927,7 +3927,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "mcq",
   "q": {
    "en": "How many members has the set of letters in the word MATHEMATICS?",
-   "hi": "MATHEMATICS शब्द के अक्षरों के समुच्चय में कितने सदस्य हैं?"
+   "hi": "MATHEMATICS शब्द के अक्षरों के set में कितने member हैं?"
   },
   "opts": {
    "en": [
@@ -3946,7 +3946,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "The distinct letters are M, A, T, H, E, I, C, S — eight. The word has 11 letters, but M, A and T repeat, and repetition is never recorded in a set. Option B is the count of letters, not of members.",
-   "hi": "अलग-अलग अक्षर हैं M, A, T, H, E, I, C, S — आठ। शब्द में 11 अक्षर हैं, पर M, A और T दोहराए गए हैं, और समुच्चय में दोहराव कभी दर्ज नहीं होता। विकल्प B अक्षरों की गिनती है, सदस्यों की नहीं।"
+   "hi": "अलग-अलग अक्षर हैं M, A, T, H, E, I, C, S — आठ। शब्द में 11 अक्षर हैं, पर M, A और T दोहराए गए हैं, और set में दोहराव कभी दर्ज नहीं होता। विकल्प B अक्षरों की गिनती है, members की नहीं।"
   }
  },
  {
@@ -3983,7 +3983,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "Count what sits directly inside the outer brackets: the number 1, the SET $\\{2,3\\}$, and the number 4 — three members. $\\{2,3\\}$ is one member even though it contains two things, the same way a box of two pens is one item on a shelf.",
-   "hi": "बाहरी कोष्ठक के अंदर सीधे जो है, वह गिनिए: संख्या 1, **समुच्चय** $\\{2,3\\}$, और संख्या 4 — तीन सदस्य। $\\{2,3\\}$ एक सदस्य है, भले उसमें दो चीज़ें हों — जैसे दो पेन का डिब्बा शेल्फ़ पर एक ही वस्तु है।"
+   "hi": "बाहरी bracket के अंदर सीधे जो है, वह गिनिए: संख्या 1, **set** $\\{2,3\\}$, और संख्या 4 — तीन member। $\\{2,3\\}$ एक member है, भले उसमें दो चीज़ें हों — जैसे दो पेन का डिब्बा शेल्फ़ पर एक ही वस्तु है।"
   }
  },
  {
@@ -4006,7 +4006,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "FALSE",
   "exp": {
    "en": "The members of $A$ are 1, 2 and the set $\\{3\\}$. The bare number 3 is NOT a member — $\\{3\\} \\in A$ is true, but $3 \\in A$ is false. The curly brackets are the whole difference, and this distinction quietly costs marks all through Class 11.",
-   "hi": "$A$ के सदस्य हैं 1, 2 और समुच्चय $\\{3\\}$। अकेली संख्या 3 सदस्य **नहीं** है — $\\{3\\} \\in A$ सही है, पर $3 \\in A$ ग़लत। पूरा फ़र्क़ मझले कोष्ठक का है, और यह भेद कक्षा 11 भर चुपचाप नंबर काटता रहता है।"
+   "hi": "$A$ के member हैं 1, 2 और set $\\{3\\}$। अकेली संख्या 3 member **नहीं** है — $\\{3\\} \\in A$ सही है, पर $3 \\in A$ ग़लत। पूरा फ़र्क़ मझले bracket का है, और यह भेद कक्षा 11 भर चुपचाप नंबर काटता रहता है।"
   }
  },
  {
@@ -4024,7 +4024,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "mcq",
   "q": {
    "en": "$\\{x : x \\in \\mathbb{N}, x < 5\\}$ in roster form is:",
-   "hi": "तालिका रूप में $\\{x : x \\in \\mathbb{N}, x < 5\\}$ है:"
+   "hi": "roster form में $\\{x : x \\in \\mathbb{N}, x < 5\\}$ है:"
   },
   "opts": {
    "en": [
@@ -4043,7 +4043,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "Two conditions: natural (so start at 1, not 0) and strictly less than 5 (so 5 is out). Option B includes 0, which is not natural; option C includes 5, which $<$ excludes. Both traps are deliberate.",
-   "hi": "दो शर्तें: प्राकृत (तो 1 से शुरू, 0 से नहीं) और 5 से कड़ाई से कम (तो 5 बाहर)। विकल्प B में 0 है, जो प्राकृत नहीं; विकल्प C में 5 है, जिसे $<$ बाहर करता है। दोनों जाल जान-बूझकर हैं।"
+   "hi": "दो शर्तें: natural (तो 1 से शुरू, 0 से नहीं) और 5 से कड़ाई से कम (तो 5 बाहर)। विकल्प B में 0 है, जो natural नहीं; विकल्प C में 5 है, जिसे $<$ बाहर करता है। दोनों जाल जान-बूझकर हैं।"
   }
  },
  {
@@ -4061,7 +4061,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "mcq",
   "q": {
    "en": "Which set-builder form describes $\\{2, 4, 6, 8\\}$?",
-   "hi": "$\\{2, 4, 6, 8\\}$ को कौन-सा निर्माण रूप बताता है?"
+   "hi": "$\\{2, 4, 6, 8\\}$ को कौन-सा set-builder form बताता है?"
   },
   "opts": {
    "en": [
@@ -4080,7 +4080,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "$n = 1,2,3,4$ gives $2,4,6,8$ ✅. Option B has no upper limit, so it is every even number — an infinite set. A set-builder form must capture the STOP as well as the pattern.",
-   "hi": "$n = 1,2,3,4$ से $2,4,6,8$ मिलता है ✅। विकल्प B में ऊपरी सीमा नहीं है, तो वह हर सम संख्या है — अनंत समुच्चय। निर्माण रूप को पैटर्न के साथ **रुकने की जगह** भी पकड़नी होती है।"
+   "hi": "$n = 1,2,3,4$ से $2,4,6,8$ मिलता है ✅। विकल्प B में ऊपरी limit नहीं है, तो वह हर सम संख्या है — infinite set। set-builder form को पैटर्न के साथ **रुकने की जगह** भी पकड़नी होती है।"
   }
  },
  {
@@ -4098,7 +4098,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "short",
   "q": {
    "en": "Write $\\{x : x \\in \\mathbb{Z}, -3 < x \\leq 2\\}$ in roster form.",
-   "hi": "$\\{x : x \\in \\mathbb{Z}, -3 < x \\leq 2\\}$ को तालिका रूप में लिखिए।"
+   "hi": "$\\{x : x \\in \\mathbb{Z}, -3 < x \\leq 2\\}$ को roster form में लिखिए।"
   },
   "correct": "{-2,-1,0,1,2}",
   "accept": [
@@ -4108,7 +4108,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   ],
   "exp": {
    "en": "$-3 < x$ excludes $-3$ (strict), while $x \\leq 2$ includes 2. So start at $-2$ and finish at 2. Mixing up which endpoint is included is the error this question is built to expose — read each inequality symbol separately.",
-   "hi": "$-3 < x$ में $-3$ बाहर है (कड़ा चिह्न), जबकि $x \\leq 2$ में 2 शामिल है। तो $-2$ से शुरू और 2 पर ख़त्म। कौन-सा सिरा शामिल है यह गड़बड़ाना ही वह ग़लती है जिसे यह सवाल पकड़ने के लिए बना है — हर असमिका चिह्न अलग-अलग पढ़िए।"
+   "hi": "$-3 < x$ में $-3$ बाहर है (कड़ा sign), जबकि $x \\leq 2$ में 2 शामिल है। तो $-2$ से शुरू और 2 पर ख़त्म। कौन-सा सिरा शामिल है यह गड़बड़ाना ही वह ग़लती है जिसे यह सवाल पकड़ने के लिए बना है — हर inequality sign अलग-अलग पढ़िए।"
   }
  },
  {
@@ -4126,7 +4126,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "mcq",
   "q": {
    "en": "The set $\\{x \\in \\mathbb{R} : x^2 - 3x + 2 = 0\\}$ in roster form is:",
-   "hi": "तालिका रूप में समुच्चय $\\{x \\in \\mathbb{R} : x^2 - 3x + 2 = 0\\}$ है:"
+   "hi": "roster form में set $\\{x \\in \\mathbb{R} : x^2 - 3x + 2 = 0\\}$ है:"
   },
   "opts": {
    "en": [
@@ -4145,7 +4145,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "Factorise: two numbers multiplying to 2 and adding to $-3$ are $-1$ and $-2$, so $(x-1)(x-2) = 0$ and $x = 1$ or $2$. Option B is the classic sign slip — the numbers INSIDE the brackets are negative, so the roots come out positive.",
-   "hi": "गुणनखंड कीजिए: गुणनफल 2 और योग $-3$ वाली संख्याएँ $-1$ और $-2$ हैं, तो $(x-1)(x-2) = 0$ और $x = 1$ या $2$। विकल्प B वही चिरपरिचित चिह्न-चूक है — कोष्ठक के **अंदर** की संख्याएँ ऋणात्मक हैं, तो मूल धनात्मक निकलते हैं।"
+   "hi": "factor कीजिए: गुणनफल 2 और योग $-3$ वाली संख्याएँ $-1$ और $-2$ हैं, तो $(x-1)(x-2) = 0$ और $x = 1$ या $2$। विकल्प B वही चिरपरिचित sign-चूक है — bracket के **अंदर** की संख्याएँ negative हैं, तो roots positive निकलते हैं।"
   }
  },
  {
@@ -4163,7 +4163,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "mcq",
   "q": {
    "en": "Which of these sets is infinite?",
-   "hi": "इनमें से कौन-सा समुच्चय अनंत है?"
+   "hi": "इनमें से कौन-सा set infinite है?"
   },
   "opts": {
    "en": [
@@ -4182,7 +4182,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "Between any two rationals there is always another, so A never runs out. B is huge but finishable — large is not the same as infinite. C is $\\{-9,\\ldots,9\\}$, nineteen members. D is the factors of 360, twenty-four of them. The interval in A is small on the number line and yet the only infinite one, which is exactly the point.",
-   "hi": "किन्हीं दो परिमेय संख्याओं के बीच हमेशा एक और होती है, तो A कभी ख़त्म नहीं होता। B बहुत बड़ा है पर ख़त्म होने लायक़ — बड़ा और अनंत एक बात नहीं। C यानी $\\{-9,\\ldots,9\\}$, उन्नीस सदस्य। D यानी 360 के गुणनखंड, चौबीस। A का अंतराल संख्या रेखा पर छोटा है फिर भी अकेला अनंत है — असली बात यही है।"
+   "hi": "किन्हीं दो rational संख्याओं के बीच हमेशा एक और होती है, तो A कभी ख़त्म नहीं होता। B बहुत बड़ा है पर ख़त्म होने लायक़ — बड़ा और infinite एक बात नहीं। C यानी $\\{-9,\\ldots,9\\}$, उन्नीस member। D यानी 360 के factor, चौबीस। A का interval number line पर छोटा है फिर भी अकेला infinite है — असली बात यही है।"
   }
  },
  {
@@ -4200,7 +4200,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "mcq",
   "q": {
    "en": "Which set is empty?",
-   "hi": "कौन-सा समुच्चय रिक्त है?"
+   "hi": "कौन-सा set empty है?"
   },
   "opts": {
    "en": [
@@ -4219,7 +4219,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "No natural number lies strictly between 1 and 2 — naturals move in whole steps. $\\{0\\}$ has one member; $\\{\\emptyset\\}$ has one member (the empty set); and over $\\mathbb{R}$ there are infinitely many, such as 1.5. Same inequality, opposite answers, because the family changed.",
-   "hi": "1 और 2 के ठीक बीच कोई प्राकृत संख्या नहीं होती — प्राकृत संख्याएँ पूरे क़दमों में चलती हैं। $\\{0\\}$ में एक सदस्य है; $\\{\\emptyset\\}$ में भी एक (रिक्त समुच्चय); और $\\mathbb{R}$ में तो अनंत हैं, जैसे 1.5। वही असमिका, उल्टे जवाब, क्योंकि परिवार बदल गया।"
+   "hi": "1 और 2 के ठीक बीच कोई natural number नहीं होती — natural numbers पूरे क़दमों में चलती हैं। $\\{0\\}$ में एक member है; $\\{\\emptyset\\}$ में भी एक (empty set); और $\\mathbb{R}$ में तो infinite हैं, जैसे 1.5। वही inequality, उल्टे जवाब, क्योंकि परिवार बदल गया।"
   }
  },
  {
@@ -4256,7 +4256,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "Count what is directly inside: the empty set, and the set containing the empty set. Two distinct members. Think of boxes — an empty box and a box containing an empty box are two different objects, and neither of them is *nothing*.",
-   "hi": "सीधे अंदर जो है वह गिनिए: रिक्त समुच्चय, और रिक्त समुच्चय वाला समुच्चय। दो अलग सदस्य। डिब्बों की तरह सोचिए — एक ख़ाली डिब्बा और एक ऐसा डिब्बा जिसमें ख़ाली डिब्बा रखा है, दो अलग चीज़ें हैं, और इनमें से कोई भी *कुछ नहीं* नहीं है।"
+   "hi": "सीधे अंदर जो है वह गिनिए: empty set, और empty set वाला set। दो अलग member। डिब्बों की तरह सोचिए — एक ख़ाली डिब्बा और एक ऐसा डिब्बा जिसमें ख़ाली डिब्बा रखा है, दो अलग चीज़ें हैं, और इनमें से कोई भी *कुछ नहीं* नहीं है।"
   }
  },
  {
@@ -4274,12 +4274,12 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "tf",
   "q": {
    "en": "$\\{1, 2, 3\\}$ and $\\{a, b, c\\}$ are equal sets.",
-   "hi": "$\\{1, 2, 3\\}$ और $\\{a, b, c\\}$ बराबर समुच्चय हैं।"
+   "hi": "$\\{1, 2, 3\\}$ और $\\{a, b, c\\}$ बराबर set हैं।"
   },
   "correct": "FALSE",
   "exp": {
    "en": "They are EQUIVALENT (same size, $n = 3$) but not EQUAL (equal needs the same members). Every equal pair is equivalent; the reverse fails. Examiners test this distinction constantly because it is answered from habit rather than definition.",
-   "hi": "ये **तुल्य** हैं (आकार वही, $n = 3$) पर **बराबर** नहीं (बराबर के लिए सदस्य वही होने चाहिए)। हर बराबर जोड़ा तुल्य होता है; उल्टा नहीं। परीक्षक यह भेद लगातार पूछते हैं क्योंकि इसका जवाब परिभाषा से नहीं, आदत से दिया जाता है।"
+   "hi": "ये **equivalent** हैं (आकार वही, $n = 3$) पर **बराबर** नहीं (बराबर के लिए member वही होने चाहिए)। हर बराबर जोड़ा equivalent होता है; उल्टा नहीं। परीक्षक यह भेद लगातार पूछते हैं क्योंकि इसका जवाब परिभाषा से नहीं, आदत से दिया जाता है।"
   }
  },
  {
@@ -4297,7 +4297,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "mcq",
   "q": {
    "en": "Which pair of sets is EQUAL?",
-   "hi": "समुच्चयों का कौन-सा जोड़ा **बराबर** है?"
+   "hi": "sets का कौन-सा जोड़ा **बराबर** है?"
   },
   "opts": {
    "en": [
@@ -4316,7 +4316,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "Over $\\mathbb{Z}$, $x^2 = 4$ gives both $2$ and $-2$, matching exactly. Option C fails because $\\mathbb{N}$ excludes 0, so the left set is $\\{1,2\\}$. Option D fails because $\\emptyset$ has no members while $\\{0\\}$ has one. Three of the four traps in this question are the three Bridge warnings.",
-   "hi": "$\\mathbb{Z}$ में $x^2 = 4$ से $2$ और $-2$ दोनों मिलते हैं, ठीक मेल। विकल्प C ग़लत है क्योंकि $\\mathbb{N}$ में 0 नहीं है, तो बायाँ समुच्चय $\\{1,2\\}$ है। विकल्प D ग़लत है क्योंकि $\\emptyset$ का कोई सदस्य नहीं जबकि $\\{0\\}$ का एक है। इस सवाल के चार में से तीन जाल वही तीन चेतावनियाँ हैं जो पुल में थीं।"
+   "hi": "$\\mathbb{Z}$ में $x^2 = 4$ से $2$ और $-2$ दोनों मिलते हैं, ठीक मेल। विकल्प C ग़लत है क्योंकि $\\mathbb{N}$ में 0 नहीं है, तो बायाँ set $\\{1,2\\}$ है। विकल्प D ग़लत है क्योंकि $\\emptyset$ का कोई member नहीं जबकि $\\{0\\}$ का एक है। इस सवाल के चार में से तीन जाल वही तीन चेतावनियाँ हैं जो पुल में थीं।"
   }
  },
  {
@@ -4334,7 +4334,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "mcq",
   "q": {
    "en": "If $n(A) = 4$, how many subsets does $A$ have?",
-   "hi": "यदि $n(A) = 4$ है, तो $A$ के कितने उपसमुच्चय हैं?"
+   "hi": "यदि $n(A) = 4$ है, तो $A$ के कितने subset हैं?"
   },
   "opts": {
    "en": [
@@ -4353,7 +4353,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "$2^{n} = 2^4 = 16$. Each member gets an independent in-or-out decision, so four members give $2\\times2\\times2\\times2$ decision-sequences. Option D, 15, is the number of PROPER subsets — read which the question asked for.",
-   "hi": "$2^{n} = 2^4 = 16$। हर सदस्य पर अंदर-या-बाहर का स्वतंत्र फ़ैसला होता है, तो चार सदस्यों से $2\\times2\\times2\\times2$ फ़ैसला-शृंखलाएँ बनती हैं। विकल्प D, यानी 15, **उचित** उपसमुच्चयों की संख्या है — सवाल ने क्या पूछा वह पढ़िए।"
+   "hi": "$2^{n} = 2^4 = 16$। हर member पर अंदर-या-बाहर का स्वतंत्र फ़ैसला होता है, तो चार members से $2\\times2\\times2\\times2$ फ़ैसला-शृंखलाएँ बनती हैं। विकल्प D, यानी 15, **उचित** subsets की संख्या है — सवाल ने क्या पूछा वह पढ़िए।"
   }
  },
  {
@@ -4371,12 +4371,12 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "tf",
   "q": {
    "en": "$\\emptyset \\subseteq A$ for every set $A$.",
-   "hi": "हर समुच्चय $A$ के लिए $\\emptyset \\subseteq A$।"
+   "hi": "हर set $A$ के लिए $\\emptyset \\subseteq A$।"
   },
   "correct": "TRUE",
   "exp": {
    "en": "To break it you would have to produce a member of $\\emptyset$ that is missing from $A$ — and you cannot produce a member of $\\emptyset$ at all. The claim cannot fail, so it holds. Mathematicians call this vacuously true.",
-   "hi": "इसे तोड़ने के लिए आपको $\\emptyset$ का कोई ऐसा सदस्य दिखाना पड़ेगा जो $A$ में न हो — और आप $\\emptyset$ का कोई सदस्य दिखा ही नहीं सकते। दावा ग़लत हो ही नहीं सकता, इसलिए सही है। गणितज्ञ इसे रिक्ततः सत्य कहते हैं।"
+   "hi": "इसे तोड़ने के लिए आपको $\\emptyset$ का कोई ऐसा member दिखाना पड़ेगा जो $A$ में न हो — और आप $\\emptyset$ का कोई member दिखा ही नहीं सकते। दावा ग़लत हो ही नहीं सकता, इसलिए सही है। गणितज्ञ इसे vacuously true (यानी इसे तोड़ा ही नहीं जा सकता) कहते हैं।"
   }
  },
  {
@@ -4413,7 +4413,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "$\\subseteq$ joins a SET to a set, $\\in$ joins a MEMBER to a set. $\\{2\\}$ is a set, so it takes $\\subseteq$. Correct alternatives would be $2 \\in A$ or $\\{2\\} \\subseteq A$. Options B and C have the two symbols swapped — the commonest error in this chapter.",
-   "hi": "$\\subseteq$ **समुच्चय** को समुच्चय से जोड़ता है, $\\in$ **सदस्य** को समुच्चय से। $\\{2\\}$ समुच्चय है, तो उस पर $\\subseteq$ लगेगा। सही विकल्प $2 \\in A$ या $\\{2\\} \\subseteq A$ होते। विकल्प B और C में दोनों चिह्न आपस में बदले हुए हैं — इस अध्याय की सबसे आम ग़लती।"
+   "hi": "$\\subseteq$ **set** को set से जोड़ता है, $\\in$ **member** को set से। $\\{2\\}$ set है, तो उस पर $\\subseteq$ लगेगा। सही विकल्प $2 \\in A$ या $\\{2\\} \\subseteq A$ होते। विकल्प B और C में दोनों sign आपस में बदले हुए हैं — इस अध्याय की सबसे आम ग़लती।"
   }
  },
  {
@@ -4431,7 +4431,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "short",
   "q": {
    "en": "Write the power set of $A = \\{p, q\\}$. (Use { } for the empty set.)",
-   "hi": "$A = \\{p, q\\}$ का घात समुच्चय लिखिए। (रिक्त समुच्चय के लिए { } लिखिए।)"
+   "hi": "$A = \\{p, q\\}$ का power set लिखिए। (empty set के लिए { } लिखिए।)"
   },
   "correct": "{ }, {p}, {q}, {p,q}",
   "accept": [
@@ -4441,7 +4441,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   ],
   "exp": {
    "en": "Organise by size: none, then each single, then both. Four subsets, matching $2^2 = 4$. Listing by size is how you avoid missing one — random listing almost always drops the empty set.",
-   "hi": "आकार से जमाइए: कोई नहीं, फिर हर अकेला, फिर दोनों। चार उपसमुच्चय, यानी $2^2 = 4$ से मेल। आकार से सूची बनाना ही वह तरीक़ा है जिससे कोई छूटता नहीं — बेतरतीब सूची में लगभग हमेशा रिक्त समुच्चय छूट जाता है।"
+   "hi": "आकार से जमाइए: कोई नहीं, फिर हर अकेला, फिर दोनों। चार subset, यानी $2^2 = 4$ से मेल। आकार से सूची बनाना ही वह तरीक़ा है जिससे कोई छूटता नहीं — बेतरतीब सूची में लगभग हमेशा empty set छूट जाता है।"
   }
  },
  {
@@ -4459,7 +4459,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "mcq",
   "q": {
    "en": "$\\{x \\in \\mathbb{R} : 1 \\leq x < 4\\}$ written as an interval is:",
-   "hi": "अंतराल रूप में $\\{x \\in \\mathbb{R} : 1 \\leq x < 4\\}$ है:"
+   "hi": "interval रूप में $\\{x \\in \\mathbb{R} : 1 \\leq x < 4\\}$ है:"
   },
   "opts": {
    "en": [
@@ -4478,7 +4478,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "$1 \\leq x$ means 1 is included, so a square bracket. $x < 4$ means 4 is excluded, so a round bracket. Square = closed door, round = open door. Read the two inequality symbols separately and the bracket follows automatically.",
-   "hi": "$1 \\leq x$ यानी 1 शामिल है, तो चौकोर कोष्ठक। $x < 4$ यानी 4 बाहर है, तो गोल कोष्ठक। चौकोर = बंद दरवाज़ा, गोल = खुला दरवाज़ा। दोनों असमिका चिह्न अलग-अलग पढ़िए और कोष्ठक अपने आप तय हो जाएगा।"
+   "hi": "$1 \\leq x$ यानी 1 शामिल है, तो चौकोर bracket। $x < 4$ यानी 4 बाहर है, तो गोल bracket। चौकोर = बंद दरवाज़ा, गोल = खुला दरवाज़ा। दोनों inequality sign अलग-अलग पढ़िए और bracket अपने आप तय हो जाएगा।"
   }
  },
  {
@@ -4496,12 +4496,12 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "short",
   "q": {
    "en": "A set has 63 proper subsets. How many members does it have?",
-   "hi": "किसी समुच्चय के 63 उचित उपसमुच्चय हैं। उसमें कितने सदस्य हैं?"
+   "hi": "किसी set के 63 proper subset हैं। उसमें कितने member हैं?"
   },
   "correct": "6",
   "exp": {
    "en": "Proper subsets number $2^n - 1$, so $2^n - 1 = 63$ gives $2^n = 64$ and $n = 6$. The question runs the formula backwards, which exams do constantly. If you answered 7, you used $2^n = 63$ and forgot to add the excluded set back.",
-   "hi": "उचित उपसमुच्चयों की संख्या $2^n - 1$ होती है, तो $2^n - 1 = 63$ से $2^n = 64$ और $n = 6$। सवाल सूत्र को उल्टा चला रहा है, जो परीक्षाएँ लगातार करती हैं। अगर आपका जवाब 7 आया, तो आपने $2^n = 63$ लिया और छोड़ा गया समुच्चय वापस जोड़ना भूल गए।"
+   "hi": "proper subsets की संख्या $2^n - 1$ होती है, तो $2^n - 1 = 63$ से $2^n = 64$ और $n = 6$। सवाल सूत्र को उल्टा चला रहा है, जो परीक्षाएँ लगातार करती हैं। अगर आपका जवाब 7 आया, तो आपने $2^n = 63$ लिया और छोड़ा गया set वापस जोड़ना भूल गए।"
   }
  },
  {
@@ -4519,7 +4519,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "mcq",
   "q": {
    "en": "If $n(A) = 5$, how many subsets of $A$ contain at least two members?",
-   "hi": "यदि $n(A) = 5$ है, तो $A$ के कितने उपसमुच्चयों में कम से कम दो सदस्य हैं?"
+   "hi": "यदि $n(A) = 5$ है, तो $A$ के कितने subsets में कम से कम दो member हैं?"
   },
   "opts": {
    "en": [
@@ -4538,7 +4538,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "Total subsets $2^5 = 32$. Remove the ones that are too small: 1 empty subset and 5 single-member subsets, so $32 - 1 - 5 = 26$. Counting the complement is almost always faster than counting sizes 2, 3, 4 and 5 directly — a habit worth forming now, because it is the core tactic of Chapter 6 and of probability.",
-   "hi": "कुल उपसमुच्चय $2^5 = 32$। जो बहुत छोटे हैं वे हटाइए: 1 रिक्त और 5 एक-सदस्यीय, तो $32 - 1 - 5 = 26$। पूरक गिनना लगभग हमेशा आकार 2, 3, 4 और 5 अलग-अलग गिनने से तेज़ होता है — यह आदत अभी बना लेने लायक़ है, क्योंकि अध्याय 6 और प्रायिकता की मुख्य रणनीति यही है।"
+   "hi": "कुल subset $2^5 = 32$। जो बहुत छोटे हैं वे हटाइए: 1 empty और 5 एक-member वाला, तो $32 - 1 - 5 = 26$। complement गिनना लगभग हमेशा आकार 2, 3, 4 और 5 अलग-अलग गिनने से तेज़ होता है — यह आदत अभी बना लेने लायक़ है, क्योंकि अध्याय 6 और probability की मुख्य रणनीति यही है।"
   }
  },
  {
@@ -4575,7 +4575,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "Intersection keeps only what is in BOTH lists, and 3 is the only shared member. Option B is the union — $\\cup$ is a cup that holds everything, $\\cap$ is a cap that fits only one head.",
-   "hi": "सर्वनिष्ठ सिर्फ़ वही रखता है जो **दोनों** सूचियों में हो, और 3 ही अकेला साझा सदस्य है। विकल्प B सम्मिलन है — $\\cup$ प्याला है जिसमें सब समाता है, $\\cap$ टोपी है जो सिर्फ़ एक सिर पर बैठती है।"
+   "hi": "intersection सिर्फ़ वही रखता है जो **दोनों** सूचियों में हो, और 3 ही अकेला साझा member है। विकल्प B union है — $\\cup$ प्याला है जिसमें सब समाता है, $\\cap$ टोपी है जो सिर्फ़ एक सिर पर बैठती है।"
   }
  },
  {
@@ -4612,7 +4612,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "Pool both lists, then drop the repeat — 3 appears once, not twice, because repetition is never recorded in a set. Option B is what you get if you forget that rule from topic 1.",
-   "hi": "दोनों सूचियाँ मिलाइए, फिर दोहराव हटाइए — 3 एक बार आएगा, दो बार नहीं, क्योंकि समुच्चय में दोहराव कभी दर्ज नहीं होता। विषय 1 का वह नियम भूलने पर विकल्प B मिलता है।"
+   "hi": "दोनों सूचियाँ मिलाइए, फिर दोहराव हटाइए — 3 एक बार आएगा, दो बार नहीं, क्योंकि set में दोहराव कभी दर्ज नहीं होता। विषय 1 का वह नियम भूलने पर विकल्प B मिलता है।"
   }
  },
  {
@@ -4630,7 +4630,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "match",
   "q": {
    "en": "Match each Venn region with its set expression.",
-   "hi": "हर वेन क्षेत्र को उसके समुच्चय व्यंजक से मिलाइए।"
+   "hi": "हर वेन region को उसके set expression से मिलाइए।"
   },
   "pairs": [
    {
@@ -4676,7 +4676,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   ],
   "exp": {
    "en": "Two overlapping circles cut the rectangle into exactly four regions, and every element of $U$ lands in exactly one. Note the last: *in neither* is $(A \\cup B)'$, which De Morgan also lets you write as $A' \\cap B'$ — the same region, two names.",
-   "hi": "दो अतिव्यापी वृत्त आयत को ठीक चार क्षेत्रों में काटते हैं, और $U$ का हर अवयव ठीक एक में गिरता है। आख़िरी पर ध्यान दीजिए: *किसी में नहीं* यानी $(A \\cup B)'$, जिसे डी मॉर्गन की मदद से $A' \\cap B'$ भी लिखा जा सकता है — एक ही क्षेत्र, दो नाम।"
+   "hi": "दो अतिव्यापी circle rectangle को ठीक चार regions में काटते हैं, और $U$ का हर element ठीक एक में गिरता है। आख़िरी पर ध्यान दीजिए: *किसी में नहीं* यानी $(A \\cup B)'$, जिसे डी मॉर्गन की मदद से $A' \\cap B'$ भी लिखा जा सकता है — एक ही region, दो नाम।"
   }
  },
  {
@@ -4699,7 +4699,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "TRUE",
   "exp": {
    "en": "If every member of $A$ is already in $B$, then everything $A$ and $B$ share is simply the whole of $A$. Draw it: the $A$ circle sits entirely inside the $B$ circle, and the overlap IS $A$. The companion result is $A \\cup B = B$.",
-   "hi": "अगर $A$ का हर सदस्य पहले से $B$ में है, तो $A$ और $B$ में जो साझा है वह पूरा $A$ ही है। बनाकर देखिए: $A$ का वृत्त पूरी तरह $B$ के वृत्त के अंदर बैठता है, और अतिव्यापी हिस्सा $A$ **ही** है। साथ का नतीजा है $A \\cup B = B$।"
+   "hi": "अगर $A$ का हर member पहले से $B$ में है, तो $A$ और $B$ में जो साझा है वह पूरा $A$ ही है। बनाकर देखिए: $A$ का circle पूरी तरह $B$ के circle के अंदर बैठता है, और अतिव्यापी हिस्सा $A$ **ही** है। साथ का नतीजा है $A \\cup B = B$।"
   }
  },
  {
@@ -4782,7 +4782,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "De Morgan: the complement FLIPS the operation. Test it in words — *I had neither tea nor coffee* means *no tea AND no coffee*. Both must fail for the *or* to fail. Option B keeps the union, which is the error the law exists to correct.",
-   "hi": "डी मॉर्गन: पूरक लेने से क्रिया **पलट** जाती है। शब्दों में जाँचिए — *मैंने न चाय ली न कॉफ़ी* का मतलब है *चाय नहीं **और** कॉफ़ी नहीं*। *या* के ग़लत होने के लिए दोनों का ग़लत होना ज़रूरी है। विकल्प B सम्मिलन वैसा ही रख देता है, और यही वह ग़लती है जिसे सुधारने के लिए यह नियम है।"
+   "hi": "डी मॉर्गन: complement लेने से क्रिया **पलट** जाती है। शब्दों में जाँचिए — *मैंने न चाय ली न कॉफ़ी* का मतलब है *चाय नहीं **और** कॉफ़ी नहीं*। *या* के ग़लत होने के लिए दोनों का ग़लत होना ज़रूरी है। विकल्प B union वैसा ही रख देता है, और यही वह ग़लती है जिसे सुधारने के लिए यह नियम है।"
   }
  },
  {
@@ -4819,7 +4819,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "The complement is everything in $U$ that is NOT in $A$ — here, the odd numbers. Note this depends entirely on $U$: if $U$ had been all of $\\mathbb{Z}$, the answer would include negatives too. Complement is meaningless until $U$ is stated.",
-   "hi": "पूरक $U$ का वह सब है जो $A$ में **नहीं** है — यहाँ विषम संख्याएँ। ध्यान दीजिए यह पूरी तरह $U$ पर निर्भर है: अगर $U$ पूरा $\\mathbb{Z}$ होता, तो जवाब में ऋणात्मक भी आतीं। $U$ बताए बिना पूरक का कोई मतलब नहीं।"
+   "hi": "complement $U$ का वह सब है जो $A$ में **नहीं** है — यहाँ विषम संख्याएँ। ध्यान दीजिए यह पूरी तरह $U$ पर निर्भर है: अगर $U$ पूरा $\\mathbb{Z}$ होता, तो जवाब में negative भी आतीं। $U$ बताए बिना complement का कोई मतलब नहीं।"
   }
  },
  {
@@ -4842,7 +4842,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "FALSE",
   "exp": {
    "en": "The correct law is $(A \\cap B)' = A' \\cup B'$ — intersection flips to union. In words: *it is not true that I had both tea and coffee* means at least one was missing, not that both were. Test any De Morgan doubt on the tea sentence; it takes five seconds and has never been wrong.",
-   "hi": "सही नियम है $(A \\cap B)' = A' \\cup B'$ — सर्वनिष्ठ पलटकर सम्मिलन बनता है। शब्दों में: *यह सच नहीं कि मैंने चाय और कॉफ़ी दोनों लीं* का मतलब है कम से कम एक छूटी, यह नहीं कि दोनों छूटीं। डी मॉर्गन पर कोई भी शक चाय वाले वाक्य पर जाँच लीजिए; पाँच सेकंड लगते हैं और यह आज तक ग़लत नहीं हुआ।"
+   "hi": "सही नियम है $(A \\cap B)' = A' \\cup B'$ — intersection पलटकर union बनता है। शब्दों में: *यह सच नहीं कि मैंने चाय और कॉफ़ी दोनों लीं* का मतलब है कम से कम एक छूटी, यह नहीं कि दोनों छूटीं। डी मॉर्गन पर कोई भी शक चाय वाले वाक्य पर जाँच लीजिए; पाँच सेकंड लगते हैं और यह आज तक ग़लत नहीं हुआ।"
   }
  },
  {
@@ -4865,7 +4865,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "12",
   "exp": {
    "en": "Rearrange: $n(A \\cap B) = n(A) + n(B) - n(A \\cup B) = 20 + 28 - 36 = 12$. Sanity check: the overlap can never exceed the smaller set, and $12 < 20$ ✅. If your answer had come out above 20, you would know at once that something was wrong.",
-   "hi": "पुनर्व्यवस्थित कीजिए: $n(A \\cap B) = n(A) + n(B) - n(A \\cup B) = 20 + 28 - 36 = 12$। समझ-जाँच: अतिव्यापी हिस्सा छोटे समुच्चय से बड़ा हो ही नहीं सकता, और $12 < 20$ ✅। अगर जवाब 20 से ऊपर आता, तो आपको तुरंत पता चल जाता कि कुछ ग़लत है।"
+   "hi": "पुनर्व्यवस्थित कीजिए: $n(A \\cap B) = n(A) + n(B) - n(A \\cup B) = 20 + 28 - 36 = 12$। समझ-जाँच: अतिव्यापी हिस्सा छोटे set से बड़ा हो ही नहीं सकता, और $12 < 20$ ✅। अगर जवाब 20 से ऊपर आता, तो आपको तुरंत पता चल जाता कि कुछ ग़लत है।"
   }
  },
  {
@@ -4888,7 +4888,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "57",
   "exp": {
    "en": "Three-set inclusion-exclusion: $25 + 26 + 26 - 9 - 11 - 8 + 8 = 57$. The alternating signs are pure bookkeeping — adding the three singles counts the triple overlap 3 times, subtracting the three pairs removes it 3 times leaving 0, so it must be added back once. Understand that and you never need to memorise the formula.",
-   "hi": "तीन समुच्चयों का समावेश-अपवर्जन: $25 + 26 + 26 - 9 - 11 - 8 + 8 = 57$। बारी-बारी बदलते चिह्न शुद्ध हिसाब-किताब हैं — तीनों अकेले जोड़ने पर तिहरा हिस्सा 3 बार गिना जाता है, तीनों जोड़े घटाने पर 3 बार हटकर 0 रह जाता है, तो उसे एक बार वापस जोड़ना पड़ता है। यह समझ लीजिए, सूत्र रटने की ज़रूरत कभी नहीं पड़ेगी।"
+   "hi": "तीन sets का inclusion-exclusion: $25 + 26 + 26 - 9 - 11 - 8 + 8 = 57$। बारी-बारी बदलते sign शुद्ध हिसाब-किताब हैं — तीनों अकेले जोड़ने पर तिहरा हिस्सा 3 बार गिना जाता है, तीनों जोड़े घटाने पर 3 बार हटकर 0 रह जाता है, तो उसे एक बार वापस जोड़ना पड़ता है। यह समझ लीजिए, सूत्र रटने की ज़रूरत कभी नहीं पड़ेगी।"
   }
  },
  {
@@ -4906,7 +4906,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "mcq",
   "q": {
    "en": "For sets $A$ and $B$ with $n(A) = 12$ and $n(B) = 8$, what is the SMALLEST possible value of $n(A \\cup B)$?",
-   "hi": "$n(A) = 12$ और $n(B) = 8$ वाले समुच्चयों $A$ और $B$ के लिए $n(A \\cup B)$ का **न्यूनतम** संभव मान क्या है?"
+   "hi": "$n(A) = 12$ और $n(B) = 8$ वाले sets $A$ और $B$ के लिए $n(A \\cup B)$ का **न्यूनतम** संभव मान क्या है?"
   },
   "opts": {
    "en": [
@@ -4925,7 +4925,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "The union is smallest when the overlap is largest. The overlap cannot exceed the smaller set, so at most $n(A \\cap B) = 8$, which happens when $B \\subseteq A$. Then $n(A \\cup B) = 12 + 8 - 8 = 12$. The union can never be smaller than the larger set — it contains that set entirely. The maximum, for comparison, is 20, when the sets are disjoint.",
-   "hi": "सम्मिलन तब सबसे छोटा होता है जब अतिव्यापी हिस्सा सबसे बड़ा हो। अतिव्यापी हिस्सा छोटे समुच्चय से बड़ा नहीं हो सकता, तो अधिकतम $n(A \\cap B) = 8$, जो तब होता है जब $B \\subseteq A$ हो। तब $n(A \\cup B) = 12 + 8 - 8 = 12$। सम्मिलन बड़े समुच्चय से छोटा हो ही नहीं सकता — उसमें वह समुच्चय पूरा समाया है। तुलना के लिए अधिकतम 20 है, जब समुच्चय असंयुक्त हों।"
+   "hi": "union तब सबसे छोटा होता है जब अतिव्यापी हिस्सा सबसे बड़ा हो। अतिव्यापी हिस्सा छोटे set से बड़ा नहीं हो सकता, तो अधिकतम $n(A \\cap B) = 8$, जो तब होता है जब $B \\subseteq A$ हो। तब $n(A \\cup B) = 12 + 8 - 8 = 12$। union बड़े set से छोटा हो ही नहीं सकता — उसमें वह set पूरा समाया है। तुलना के लिए अधिकतम 20 है, जब set disjoint हों।"
   }
  },
  {
@@ -4943,7 +4943,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "mcq",
   "q": {
    "en": "If $A$ and $B$ are subsets of $U$ with $n(U) = 100$, $n(A) = 50$, $n(B) = 40$ and $n(A \\cap B) = 20$, then $n(A' \\cap B')$ is:",
-   "hi": "यदि $A$ और $B$, $U$ के उपसमुच्चय हैं जहाँ $n(U) = 100$, $n(A) = 50$, $n(B) = 40$ और $n(A \\cap B) = 20$, तो $n(A' \\cap B')$ है:"
+   "hi": "यदि $A$ और $B$, $U$ के subset हैं जहाँ $n(U) = 100$, $n(A) = 50$, $n(B) = 40$ और $n(A \\cap B) = 20$, तो $n(A' \\cap B')$ है:"
   },
   "opts": {
    "en": [
@@ -4962,7 +4962,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "By De Morgan, $A' \\cap B' = (A \\cup B)'$ — the region outside both circles. First $n(A \\cup B) = 50 + 40 - 20 = 70$, so the outside is $100 - 70 = 30$. Option B is $n(A \\cup B)$ itself, chosen by anyone who forgot the final complement. This question is De Morgan and inclusion-exclusion used together, which is exactly how JEE combines them.",
-   "hi": "डी मॉर्गन से, $A' \\cap B' = (A \\cup B)'$ — यानी दोनों वृत्तों के बाहर का क्षेत्र। पहले $n(A \\cup B) = 50 + 40 - 20 = 70$, तो बाहर $100 - 70 = 30$। विकल्प B ख़ुद $n(A \\cup B)$ है, जिसे वे चुनते हैं जो आख़िरी पूरक लेना भूल गए। यह सवाल डी मॉर्गन और समावेश-अपवर्जन को साथ इस्तेमाल करता है, और JEE इन्हें ठीक इसी तरह जोड़ता है।"
+   "hi": "डी मॉर्गन से, $A' \\cap B' = (A \\cup B)'$ — यानी दोनों circles के बाहर का region। पहले $n(A \\cup B) = 50 + 40 - 20 = 70$, तो बाहर $100 - 70 = 30$। विकल्प B ख़ुद $n(A \\cup B)$ है, जिसे वे चुनते हैं जो आख़िरी complement लेना भूल गए। यह सवाल डी मॉर्गन और inclusion-exclusion को साथ इस्तेमाल करता है, और JEE इन्हें ठीक इसी तरह जोड़ता है।"
   }
  },
  {
@@ -4980,7 +4980,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "mcq",
   "q": {
    "en": "Which list gives the first four multiples of 5?",
-   "hi": "5 के पहले चार गुणज कौन-से हैं?"
+   "hi": "5 के पहले चार multiple कौन-से हैं?"
   },
   "opts": {
    "en": [
@@ -4999,7 +4999,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "A multiple of 5 is 5 times a counting number: $5\\times1, 5\\times2, 5\\times3, 5\\times4$. Do not mix up **multiples** (5 times something, they grow) with **factors** (numbers that divide it, they stay small).",
-   "hi": "5 का गुणज यानी 5 गुणा कोई गिनती की संख्या: $5\\times1, 5\\times2, 5\\times3, 5\\times4$। **गुणज** (5 गुणा कुछ, ये बढ़ते हैं) और **गुणनखंड** (जो उसे बाँटें, ये छोटे रहते हैं) में घालमेल मत कीजिए।"
+   "hi": "5 का multiple यानी 5 गुणा कोई गिनती की संख्या: $5\\times1, 5\\times2, 5\\times3, 5\\times4$। **multiple** (5 गुणा कुछ, ये बढ़ते हैं) और **factor** (जो उसे बाँटें, ये छोटे रहते हैं) में घालमेल मत कीजिए।"
   }
  },
  {
@@ -5017,12 +5017,12 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "tf",
   "q": {
    "en": "Every whole number is also an integer.",
-   "hi": "हर पूर्ण संख्या एक पूर्णांक भी है।"
+   "hi": "हर whole number एक integer भी है।"
   },
   "correct": "TRUE",
   "exp": {
    "en": "Whole numbers are $0, 1, 2, 3, \\ldots$ and integers are $\\ldots -2, -1, 0, 1, 2 \\ldots$. Every whole number appears in that longer list. Integers just add the negative side.",
-   "hi": "पूर्ण संख्याएँ हैं $0, 1, 2, 3, \\ldots$ और पूर्णांक हैं $\\ldots -2, -1, 0, 1, 2 \\ldots$। हर पूर्ण संख्या उस लंबी सूची में है। पूर्णांक बस ऋणात्मक हिस्सा और जोड़ देते हैं।"
+   "hi": "whole numbers हैं $0, 1, 2, 3, \\ldots$ और integer हैं $\\ldots -2, -1, 0, 1, 2 \\ldots$। हर whole number उस लंबी सूची में है। integer बस negative हिस्सा और जोड़ देते हैं।"
   }
  },
  {
@@ -5040,7 +5040,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "mcq",
   "q": {
    "en": "Which of these is a prime number?",
-   "hi": "इनमें से कौन अभाज्य संख्या है?"
+   "hi": "इनमें से कौन prime संख्या है?"
   },
   "opts": {
    "en": [
@@ -5059,7 +5059,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "A prime has exactly two factors: 1 and itself. $17$ has only $1$ and $17$. $1$ has just one factor, so it is **not** prime. $21 = 3\\times7$ and $27 = 3\\times9$, so both have extra factors.",
-   "hi": "अभाज्य के ठीक दो गुणनखंड होते हैं: 1 और ख़ुद वह। $17$ के सिर्फ़ $1$ और $17$ हैं। $1$ का सिर्फ़ एक गुणनखंड है, तो वह अभाज्य **नहीं** है। $21 = 3\\times7$ और $27 = 3\\times9$, तो दोनों के अतिरिक्त गुणनखंड हैं।"
+   "hi": "prime के ठीक दो factor होते हैं: 1 और ख़ुद वह। $17$ के सिर्फ़ $1$ और $17$ हैं। $1$ का सिर्फ़ एक factor है, तो वह prime **नहीं** है। $21 = 3\\times7$ और $27 = 3\\times9$, तो दोनों के extra factor हैं।"
   }
  },
  {
@@ -5077,7 +5077,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "short",
   "q": {
    "en": "Solve $x^2 = 16$ over the integers. Write both answers separated by a comma.",
-   "hi": "पूर्णांकों में $x^2 = 16$ हल कीजिए। दोनों जवाब अल्पविराम से अलग लिखिए।"
+   "hi": "integers में $x^2 = 16$ हल कीजिए। दोनों जवाब अल्पविराम से अलग लिखिए।"
   },
   "correct": "4, -4",
   "accept": [
@@ -5087,7 +5087,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   ],
   "exp": {
    "en": "Both $4$ and $-4$ work, because $4\\times4 = 16$ and $(-4)\\times(-4) = 16$ too. Writing only $4$ throws away half the answer. This is the single most common mistake when listing sets in this chapter.",
-   "hi": "$4$ और $-4$ दोनों चलते हैं, क्योंकि $4\\times4 = 16$ और $(-4)\\times(-4) = 16$ भी। सिर्फ़ $4$ लिखने से आधा जवाब चला जाता है। इस अध्याय में समुच्चय की सूची बनाते समय सबसे आम ग़लती यही है।"
+   "hi": "$4$ और $-4$ दोनों चलते हैं, क्योंकि $4\\times4 = 16$ और $(-4)\\times(-4) = 16$ भी। सिर्फ़ $4$ लिखने से आधा जवाब चला जाता है। इस अध्याय में set की सूची बनाते समय सबसे आम ग़लती यही है।"
   }
  },
  {
@@ -5105,7 +5105,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "mcq",
   "q": {
    "en": "Which interval means *all numbers from 1 up to 5, with 1 included but 5 left out*?",
-   "hi": "*1 से 5 तक की सभी संख्याएँ, जिसमें 1 शामिल पर 5 बाहर* — यह कौन-सा अंतराल है?"
+   "hi": "*1 से 5 तक की सभी संख्याएँ, जिसमें 1 शामिल पर 5 बाहर* — यह कौन-सा interval है?"
   },
   "opts": {
    "en": [
@@ -5124,7 +5124,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "Square bracket = closed door, the end stays in. Round bracket = open door, the end walks out. So 1 gets a square bracket and 5 gets a round one. Option B has them the wrong way round.",
-   "hi": "चौकोर कोष्ठक = बंद दरवाज़ा, सिरा अंदर रहता है। गोल कोष्ठक = खुला दरवाज़ा, सिरा बाहर निकल जाता है। तो 1 पर चौकोर और 5 पर गोल। विकल्प B में दोनों उलटे हैं।"
+   "hi": "चौकोर bracket = बंद दरवाज़ा, सिरा अंदर रहता है। गोल bracket = खुला दरवाज़ा, सिरा बाहर निकल जाता है। तो 1 पर चौकोर और 5 पर गोल। विकल्प B में दोनों उलटे हैं।"
   }
  },
  {
@@ -5142,12 +5142,12 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "short",
   "q": {
    "en": "How many numbers between 1 and 50 (both included) are multiples of 6?",
-   "hi": "1 से 50 तक (दोनों शामिल) 6 के कितने गुणज हैं?"
+   "hi": "1 से 50 तक (दोनों शामिल) 6 के कितने multiple हैं?"
   },
   "correct": "8",
   "exp": {
    "en": "$6, 12, 18, 24, 30, 36, 42, 48$ — eight of them. Quick way: $50 \\div 6 = 8.33$, and you keep only the whole part, 8. You will use this same divide-and-drop-the-remainder trick in the Venn counting questions.",
-   "hi": "$6, 12, 18, 24, 30, 36, 42, 48$ — आठ। झटपट तरीक़ा: $50 \\div 6 = 8.33$, और सिर्फ़ पूर्णांक भाग लीजिए, यानी 8। यही भाग-दो-और-शेष-छोड़ो वाली तरकीब वेन की गिनती वाले सवालों में काम आएगी।"
+   "hi": "$6, 12, 18, 24, 30, 36, 42, 48$ — आठ। झटपट तरीक़ा: $50 \\div 6 = 8.33$, और सिर्फ़ integer भाग लीजिए, यानी 8। यही भाग-दो-और-remainder-छोड़ो वाली तरकीब वेन की गिनती वाले सवालों में काम आएगी।"
   }
  },
  {
@@ -5171,17 +5171,17 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
    {
     "k": "n",
     "en": "Natural",
-    "hi": "प्राकृत"
+    "hi": "natural"
    },
    {
     "k": "z",
     "en": "Integer, not natural",
-    "hi": "पूर्णांक, प्राकृत नहीं"
+    "hi": "integer, natural नहीं"
    },
    {
     "k": "q",
     "en": "Rational, not integer",
-    "hi": "परिमेय, पूर्णांक नहीं"
+    "hi": "rational, integer नहीं"
    }
   ],
   "items": [
@@ -5218,7 +5218,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   ],
   "exp": {
    "en": "Simplify before you sort: $\\sqrt{81} = 9$, a counting number. $0$ is an integer but not natural, because $\\mathbb{N}$ starts at 1. $1.5$ and $\\frac{7}{2}$ both land between whole marks on the line.",
-   "hi": "बाँटने से पहले सरल कीजिए: $\\sqrt{81} = 9$, एक गिनती की संख्या। $0$ पूर्णांक है पर प्राकृत नहीं, क्योंकि $\\mathbb{N}$ 1 से शुरू होता है। $1.5$ और $\\frac{7}{2}$ दोनों रेखा के पूरे निशानों के बीच गिरते हैं।"
+   "hi": "बाँटने से पहले सरल कीजिए: $\\sqrt{81} = 9$, एक गिनती की संख्या। $0$ integer है पर natural नहीं, क्योंकि $\\mathbb{N}$ 1 से शुरू होता है। $1.5$ और $\\frac{7}{2}$ दोनों रेखा के पूरे निशानों के बीच गिरते हैं।"
   }
  },
  {
@@ -5236,7 +5236,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "mcq",
   "q": {
    "en": "Which of these is a well-defined set?",
-   "hi": "इनमें से कौन सुपरिभाषित समुच्चय है?"
+   "hi": "इनमें से कौन well-defined set है?"
   },
   "opts": {
    "en": [
@@ -5255,7 +5255,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "Ask any two people to list the days of the week and you get the same seven. *Tasty*, *kind* and *easy* are opinions — two people can disagree, so those are not sets.",
-   "hi": "किन्हीं दो लोगों से सप्ताह के दिन पूछिए, वही सात मिलेंगे। *स्वादिष्ट*, *दयालु* और *आसान* राय हैं — दो लोग असहमत हो सकते हैं, तो ये समुच्चय नहीं हैं।"
+   "hi": "किन्हीं दो लोगों से सप्ताह के दिन पूछिए, वही सात मिलेंगे। *स्वादिष्ट*, *दयालु* और *आसान* राय हैं — दो लोग असहमत हो सकते हैं, तो ये set नहीं हैं।"
   }
  },
  {
@@ -5273,12 +5273,12 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "tf",
   "q": {
    "en": "The set of letters in the word BOOK has 4 members.",
-   "hi": "BOOK शब्द के अक्षरों के समुच्चय में 4 सदस्य हैं।"
+   "hi": "BOOK शब्द के अक्षरों के set में 4 member हैं।"
   },
   "correct": "FALSE",
   "exp": {
    "en": "The different letters are B, O, K — only **three**. The word has 4 letters, but O is written twice and a set never records repeats. Count the different things, not the letters on the page.",
-   "hi": "अलग-अलग अक्षर हैं B, O, K — सिर्फ़ **तीन**। शब्द में 4 अक्षर हैं, पर O दो बार लिखा है और समुच्चय दोहराव कभी दर्ज नहीं करता। पन्ने पर लिखे अक्षर नहीं, अलग चीज़ें गिनिए।"
+   "hi": "अलग-अलग अक्षर हैं B, O, K — सिर्फ़ **तीन**। शब्द में 4 अक्षर हैं, पर O दो बार लिखा है और set दोहराव कभी दर्ज नहीं करता। पन्ने पर लिखे अक्षर नहीं, अलग चीज़ें गिनिए।"
   }
  },
  {
@@ -5306,10 +5306,10 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
     "$A$ has 5 members"
    ],
    "hi": [
-    "5, $A$ का सदस्य है",
-    "$A$, 5 का सदस्य है",
+    "5, $A$ का member है",
+    "$A$, 5 का member है",
     "5, $A$ से बड़ा है",
-    "$A$ में 5 सदस्य हैं"
+    "$A$ में 5 member हैं"
    ]
   },
   "correct": "A",
@@ -5352,7 +5352,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "The different members are 1, 2 and 3, so $n = 3$. Six numbers were written down, but writing 3 three times does not make it three members. It is still one number 3.",
-   "hi": "अलग सदस्य हैं 1, 2 और 3, तो $n = 3$। छह संख्याएँ लिखी गई थीं, पर 3 को तीन बार लिखने से वह तीन सदस्य नहीं हो जाता। वह अब भी एक ही संख्या 3 है।"
+   "hi": "अलग member हैं 1, 2 और 3, तो $n = 3$। छह संख्याएँ लिखी गई थीं, पर 3 को तीन बार लिखने से वह तीन member नहीं हो जाता। वह अब भी एक ही संख्या 3 है।"
   }
  },
  {
@@ -5370,12 +5370,12 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "tf",
   "q": {
    "en": "$\\{2, 4, 6\\}$ and $\\{6, 4, 2\\}$ are the same set.",
-   "hi": "$\\{2, 4, 6\\}$ और $\\{6, 4, 2\\}$ एक ही समुच्चय हैं।"
+   "hi": "$\\{2, 4, 6\\}$ और $\\{6, 4, 2\\}$ एक ही set हैं।"
   },
   "correct": "TRUE",
   "exp": {
    "en": "A set records **which** things are in it, never the order they were written. Both hold exactly 2, 4 and 6, so they are the same set. Order matters in a queue, not in a set.",
-   "hi": "समुच्चय यह दर्ज करता है कि उसमें **कौन-सी** चीज़ें हैं, यह कभी नहीं कि किस क्रम में लिखी गईं। दोनों में ठीक 2, 4 और 6 हैं, तो दोनों एक ही समुच्चय हैं। क्रम क़तार में मायने रखता है, समुच्चय में नहीं।"
+   "hi": "set यह दर्ज करता है कि उसमें **कौन-सी** चीज़ें हैं, यह कभी नहीं कि किस क्रम में लिखी गईं। दोनों में ठीक 2, 4 और 6 हैं, तो दोनों एक ही set हैं। क्रम क़तार में मायने रखता है, set में नहीं।"
   }
  },
  {
@@ -5393,7 +5393,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "mcq",
   "q": {
    "en": "Which collection is NOT a set?",
-   "hi": "कौन-सा संग्रह समुच्चय **नहीं** है?"
+   "hi": "कौन-सा संग्रह set **नहीं** है?"
   },
   "opts": {
    "en": [
@@ -5412,7 +5412,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "*Clever* has no fixed line. Two teachers would name different students. Option B looks similar but has a number in it, so anyone can check it — and that turns it into a proper set.",
-   "hi": "*होशियार* की कोई तय रेखा नहीं है। दो शिक्षक अलग-अलग विद्यार्थी बताएँगे। विकल्प B दिखने में वैसा ही है पर उसमें एक संख्या है, तो कोई भी जाँच सकता है — और यही उसे सही समुच्चय बना देता है।"
+   "hi": "*होशियार* की कोई तय रेखा नहीं है। दो शिक्षक अलग-अलग विद्यार्थी बताएँगे। विकल्प B दिखने में वैसा ही है पर उसमें एक संख्या है, तो कोई भी जाँच सकता है — और यही उसे सही set बना देता है।"
   }
  },
  {
@@ -5449,7 +5449,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "The three members of $A$ are: the number 1, the **set** $\\{2\\}$, and the number 3. So $\\{2\\}$ is a member, but the bare number 2 is not. A basket holding one mango is not the same as a mango.",
-   "hi": "$A$ के तीन सदस्य हैं: संख्या 1, **समुच्चय** $\\{2\\}$, और संख्या 3। तो $\\{2\\}$ सदस्य है, पर अकेली संख्या 2 नहीं। एक आम वाली टोकरी और एक आम एक बात नहीं है।"
+   "hi": "$A$ के तीन member हैं: संख्या 1, **set** $\\{2\\}$, और संख्या 3। तो $\\{2\\}$ member है, पर अकेली संख्या 2 नहीं। एक आम वाली टोकरी और एक आम एक बात नहीं है।"
   }
  },
  {
@@ -5467,7 +5467,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "short",
   "q": {
    "en": "How many members are in the set of letters of the word LEVEL?",
-   "hi": "LEVEL शब्द के अक्षरों के समुच्चय में कितने सदस्य हैं?"
+   "hi": "LEVEL शब्द के अक्षरों के set में कितने member हैं?"
   },
   "correct": "3",
   "exp": {
@@ -5490,12 +5490,12 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "tf",
   "q": {
    "en": "The collection of all rivers in India is a well-defined set.",
-   "hi": "भारत की सभी नदियों का संग्रह एक सुपरिभाषित समुच्चय है।"
+   "hi": "भारत की सभी नदियों का संग्रह एक well-defined set है।"
   },
   "correct": "TRUE",
   "exp": {
    "en": "You can check any river against a list and get a clear yes or no. It does not have to be about numbers to be a set — it only has to be checkable without argument. *The beautiful rivers of India* would not be a set.",
-   "hi": "आप किसी भी नदी को सूची से मिलाकर साफ़ हाँ या ना पा सकते हैं। समुच्चय होने के लिए संख्याओं की बात होना ज़रूरी नहीं — बस बिना बहस के जाँचा जा सकना ज़रूरी है। *भारत की सुंदर नदियाँ* समुच्चय नहीं होता।"
+   "hi": "आप किसी भी नदी को सूची से मिलाकर साफ़ हाँ या ना पा सकते हैं। set होने के लिए संख्याओं की बात होना ज़रूरी नहीं — बस बिना बहस के जाँचा जा सकना ज़रूरी है। *भारत की सुंदर नदियाँ* set नहीं होता।"
   }
  },
  {
@@ -5532,7 +5532,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "Count what sits directly inside the outer brackets: the empty set, the set $\\{1\\}$, and the set $\\{1,2\\}$. Three members. Do not open the inner sets and count 1 and 2 as well — a box inside a box is still one item on the shelf.",
-   "hi": "बाहरी कोष्ठक के अंदर सीधे जो है वह गिनिए: रिक्त समुच्चय, समुच्चय $\\{1\\}$, और समुच्चय $\\{1,2\\}$। तीन सदस्य। अंदर के समुच्चय खोलकर 1 और 2 भी मत गिनिए — डिब्बे के अंदर का डिब्बा भी शेल्फ़ पर एक ही वस्तु है।"
+   "hi": "बाहरी bracket के अंदर सीधे जो है वह गिनिए: empty set, set $\\{1\\}$, और set $\\{1,2\\}$। तीन member। अंदर के set खोलकर 1 और 2 भी मत गिनिए — डिब्बे के अंदर का डिब्बा भी शेल्फ़ पर एक ही वस्तु है।"
   }
  },
  {
@@ -5555,7 +5555,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "FALSE",
   "exp": {
    "en": "$n(A) = 1$. There is one thing inside $A$ — the empty set. Compare: $\\emptyset$ itself has $n = 0$, but $\\{\\emptyset\\}$ is a box **containing** an empty box, so the outer box is not empty.",
-   "hi": "$n(A) = 1$। $A$ के अंदर एक चीज़ है — रिक्त समुच्चय। तुलना कीजिए: ख़ुद $\\emptyset$ का $n = 0$ है, पर $\\{\\emptyset\\}$ वह डिब्बा है जिसमें एक ख़ाली डिब्बा **रखा** है, तो बाहर वाला डिब्बा ख़ाली नहीं है।"
+   "hi": "$n(A) = 1$। $A$ के अंदर एक चीज़ है — empty set। तुलना कीजिए: ख़ुद $\\emptyset$ का $n = 0$ है, पर $\\{\\emptyset\\}$ वह डिब्बा है जिसमें एक ख़ाली डिब्बा **रखा** है, तो बाहर वाला डिब्बा ख़ाली नहीं है।"
   }
  },
  {
@@ -5573,7 +5573,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "mcq",
   "q": {
    "en": "A shop lists items it sells. Which description would NOT give a proper set?",
-   "hi": "एक दुकान अपनी बिकने वाली चीज़ों की सूची बनाती है। कौन-सा विवरण सही समुच्चय **नहीं** देगा?"
+   "hi": "एक दुकान अपनी बिकने वाली चीज़ों की सूची बनाती है। कौन-सा विवरण सही set **नहीं** देगा?"
   },
   "opts": {
    "en": [
@@ -5647,7 +5647,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "mcq",
   "q": {
    "en": "In set-builder form, what does the colon mean?",
-   "hi": "समुच्चय-निर्माण रूप में अपूर्ण विराम का क्या मतलब है?"
+   "hi": "set-builder form में अपूर्ण विराम का क्या मतलब है?"
   },
   "opts": {
    "en": [
@@ -5666,7 +5666,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "$\\{x : x > 3\\}$ reads *the set of all $x$ **such that** $x$ is bigger than 3*. Some books use a straight line $|$ for the same thing. *Belongs to* is $\\in$, a different symbol.",
-   "hi": "$\\{x : x > 3\\}$ पढ़िए *उन सभी $x$ का समुच्चय **ऐसा कि** $x$, 3 से बड़ा है*। कुछ किताबें इसी के लिए खड़ी लकीर $|$ लिखती हैं। *से संबंधित* $\\in$ होता है, अलग चिह्न।"
+   "hi": "$\\{x : x > 3\\}$ पढ़िए *उन सभी $x$ का set **ऐसा कि** $x$, 3 से बड़ा है*। कुछ किताबें इसी के लिए खड़ी लकीर $|$ लिखती हैं। *से संबंधित* $\\in$ होता है, अलग sign।"
   }
  },
  {
@@ -5684,12 +5684,12 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "tf",
   "q": {
    "en": "The set of all real numbers between 0 and 1 can be written as a full list.",
-   "hi": "0 और 1 के बीच की सभी वास्तविक संख्याओं की पूरी सूची बनाई जा सकती है।"
+   "hi": "0 और 1 के बीच की सभी real संख्याओं की पूरी सूची बनाई जा सकती है।"
   },
   "correct": "FALSE",
   "exp": {
    "en": "There are endlessly many, and there is no *next one* to write after any number you pick. Between 0.1 and 0.2 there is 0.15, and between those there is another. Such sets must use set-builder form.",
-   "hi": "ये अनंत हैं, और आप जो भी संख्या चुनें उसके बाद *अगली* लिखी ही नहीं जा सकती। 0.1 और 0.2 के बीच 0.15 है, और उनके बीच फिर एक और। ऐसे समुच्चय निर्माण रूप में ही लिखने पड़ते हैं।"
+   "hi": "ये infinite हैं, और आप जो भी संख्या चुनें उसके बाद *अगली* लिखी ही नहीं जा सकती। 0.1 और 0.2 के बीच 0.15 है, और उनके बीच फिर एक और। ऐसे set set-builder form में ही लिखने पड़ते हैं।"
   }
  },
  {
@@ -5707,7 +5707,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "mcq",
   "q": {
    "en": "Which set-builder form describes $\\{1, 3, 5, 7, 9\\}$?",
-   "hi": "$\\{1, 3, 5, 7, 9\\}$ को कौन-सा निर्माण रूप बताता है?"
+   "hi": "$\\{1, 3, 5, 7, 9\\}$ को कौन-सा set-builder form बताता है?"
   },
   "opts": {
    "en": [
@@ -5744,7 +5744,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "short",
   "q": {
    "en": "List $\\{x : x \\in \\mathbb{N}, x \\text{ is a factor of } 20\\}$.",
-   "hi": "$\\{x : x \\in \\mathbb{N}, x, 20 \\text{ का गुणनखंड है}\\}$ की सूची बनाइए।"
+   "hi": "$\\{x : x \\in \\mathbb{N}, x, 20 \\text{ का factor है}\\}$ की सूची बनाइए।"
   },
   "correct": "{1,2,4,5,10,20}",
   "accept": [
@@ -5754,7 +5754,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   ],
   "exp": {
    "en": "Work in pairs so nothing is missed: $1\\times20$, $2\\times10$, $4\\times5$. That gives six factors. Note 3 is not a factor, because $20 \\div 3$ leaves a remainder.",
-   "hi": "जोड़ों में काम कीजिए ताकि कुछ छूटे नहीं: $1\\times20$, $2\\times10$, $4\\times5$। यानी छह गुणनखंड। ध्यान दीजिए 3 गुणनखंड नहीं है, क्योंकि $20 \\div 3$ में शेष बचता है।"
+   "hi": "जोड़ों में काम कीजिए ताकि कुछ छूटे नहीं: $1\\times20$, $2\\times10$, $4\\times5$। यानी छह factor। ध्यान दीजिए 3 factor नहीं है, क्योंकि $20 \\div 3$ में remainder बचता है।"
   }
  },
  {
@@ -5791,7 +5791,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "Both signs are $\\leq$, so both ends are included. Walk the integers from $-1$ to $2$. Do not forget 0 — it is an integer and it sits right in the middle of this range.",
-   "hi": "दोनों चिह्न $\\leq$ हैं, तो दोनों सिरे शामिल हैं। $-1$ से $2$ तक पूर्णांक चलिए। 0 मत भूलिए — वह पूर्णांक है और इस परास के ठीक बीच में बैठा है।"
+   "hi": "दोनों sign $\\leq$ हैं, तो दोनों सिरे शामिल हैं। $-1$ से $2$ तक integer चलिए। 0 मत भूलिए — वह integer है और इस range के ठीक बीच में बैठा है।"
   }
  },
  {
@@ -5828,7 +5828,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "Test each: $1,4,9,16$ are all under 20, but $5^2 = 25$ is not. So stop at 4. Option C forgets that $\\mathbb{N}$ has no negatives. Option D lists the **squares** instead of the values of $x$ — read what the set is made of.",
-   "hi": "एक-एक जाँचिए: $1,4,9,16$ सब 20 से कम हैं, पर $5^2 = 25$ नहीं। तो 4 पर रुक जाइए। विकल्प C भूल गया कि $\\mathbb{N}$ में ऋणात्मक नहीं होते। विकल्प D ने $x$ के मानों की जगह **वर्ग** लिख दिए — पढ़िए कि समुच्चय किससे बना है।"
+   "hi": "एक-एक जाँचिए: $1,4,9,16$ सब 20 से कम हैं, पर $5^2 = 25$ नहीं। तो 4 पर रुक जाइए। विकल्प C भूल गया कि $\\mathbb{N}$ में negative नहीं होते। विकल्प D ने $x$ के मानों की जगह **square** लिख दिए — पढ़िए कि set किससे बना है।"
   }
  },
  {
@@ -5856,7 +5856,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   ],
   "exp": {
    "en": "$x^2 = 4$ gives both $2$ and $-2$. The word *or* then adds 0 as well. Writing only $\\{2, 0\\}$ misses the negative root, which is the usual slip here.",
-   "hi": "$x^2 = 4$ से $2$ और $-2$ दोनों मिलते हैं। फिर *या* शब्द 0 को भी जोड़ देता है। सिर्फ़ $\\{2, 0\\}$ लिखने पर ऋणात्मक मूल छूट जाता है, यहाँ यही आम चूक है।"
+   "hi": "$x^2 = 4$ से $2$ और $-2$ दोनों मिलते हैं। फिर *या* शब्द 0 को भी जोड़ देता है। सिर्फ़ $\\{2, 0\\}$ लिखने पर negative root छूट जाता है, यहाँ यही आम चूक है।"
   }
  },
  {
@@ -5874,7 +5874,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "mcq",
   "q": {
    "en": "Which of these describes the same set as $\\{2, 3, 5, 7, 11\\}$?",
-   "hi": "इनमें से कौन $\\{2, 3, 5, 7, 11\\}$ जैसा ही समुच्चय बताता है?"
+   "hi": "इनमें से कौन $\\{2, 3, 5, 7, 11\\}$ जैसा ही set बताता है?"
   },
   "opts": {
    "en": [
@@ -5884,16 +5884,16 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
     "Multiples of 2 below 12"
    ],
    "hi": [
-    "12 से कम अभाज्य",
+    "12 से कम prime",
     "12 से कम विषम संख्याएँ",
-    "12 के गुणनखंड",
-    "12 से कम 2 के गुणज"
+    "12 के factor",
+    "12 से कम 2 के multiple"
    ]
   },
   "correct": "A",
   "exp": {
    "en": "These are exactly the primes below 12. Option B fails on two counts: it would leave out 2 (which is even) and wrongly add 1 and 9. Remember 2 is the only even prime.",
-   "hi": "ये ठीक 12 से कम की अभाज्य संख्याएँ हैं। विकल्प B दो वजहों से ग़लत है: वह 2 को छोड़ देता (जो सम है) और 1 व 9 को ग़लत जोड़ देता। याद रखिए 2 अकेली सम अभाज्य संख्या है।"
+   "hi": "ये ठीक 12 से कम की prime संख्याएँ हैं। विकल्प B दो वजहों से ग़लत है: वह 2 को छोड़ देता (जो सम है) और 1 व 9 को ग़लत जोड़ देता। याद रखिए 2 अकेली सम prime संख्या है।"
   }
  },
  {
@@ -5911,7 +5911,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "mcq",
   "q": {
    "en": "Which set is finite?",
-   "hi": "कौन-सा समुच्चय परिमित है?"
+   "hi": "कौन-सा set finite है?"
   },
   "opts": {
    "en": [
@@ -5930,7 +5930,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "100 has exactly nine factors, so that set ends. The other three never end: option B has endlessly many fractions in a small gap, and C and D both climb for ever. Small on the number line does not mean few members.",
-   "hi": "100 के ठीक नौ गुणनखंड हैं, तो वह समुच्चय ख़त्म होता है। बाक़ी तीन कभी ख़त्म नहीं होते: विकल्प B में छोटी सी जगह में अनंत भिन्न हैं, और C व D दोनों हमेशा चढ़ते जाते हैं। संख्या रेखा पर छोटा होने का मतलब कम सदस्य नहीं है।"
+   "hi": "100 के ठीक नौ factor हैं, तो वह set ख़त्म होता है। बाक़ी तीन कभी ख़त्म नहीं होते: विकल्प B में छोटी सी जगह में infinite fraction हैं, और C व D दोनों हमेशा चढ़ते जाते हैं। number line पर छोटा होने का मतलब कम member नहीं है।"
   }
  },
  {
@@ -5948,7 +5948,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "short",
   "q": {
    "en": "How many members are in $\\{x \\in \\mathbb{Z} : -5 < x \\leq 5\\}$?",
-   "hi": "$\\{x \\in \\mathbb{Z} : -5 < x \\leq 5\\}$ में कितने सदस्य हैं?"
+   "hi": "$\\{x \\in \\mathbb{Z} : -5 < x \\leq 5\\}$ में कितने member हैं?"
   },
   "correct": "10",
   "exp": {
@@ -5971,7 +5971,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "mcq",
   "q": {
    "en": "$A = \\{x \\in \\mathbb{N} : x \\text{ divides } 12\\}$ and $B = \\{x \\in \\mathbb{N} : x \\text{ divides } 18\\}$. How many members does $A \\cap B$ have?",
-   "hi": "$A = \\{x \\in \\mathbb{N} : x, 12 \\text{ को बाँटती है}\\}$ और $B = \\{x \\in \\mathbb{N} : x, 18 \\text{ को बाँटती है}\\}$। $A \\cap B$ में कितने सदस्य हैं?"
+   "hi": "$A = \\{x \\in \\mathbb{N} : x, 12 \\text{ को बाँटती है}\\}$ और $B = \\{x \\in \\mathbb{N} : x, 18 \\text{ को बाँटती है}\\}$। $A \\cap B$ में कितने member हैं?"
   },
   "opts": {
    "en": [
@@ -5990,7 +5990,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "$A = \\{1,2,3,4,6,12\\}$ and $B = \\{1,2,3,6,9,18\\}$. Shared: $1, 2, 3, 6$ — four. Neat fact: these are exactly the factors of $\\gcd(12,18) = 6$, and 6 has four factors. Common factors of two numbers are always the factors of their HCF.",
-   "hi": "$A = \\{1,2,3,4,6,12\\}$ और $B = \\{1,2,3,6,9,18\\}$। साझा: $1, 2, 3, 6$ — चार। मज़ेदार बात: ये ठीक $\\gcd(12,18) = 6$ के गुणनखंड हैं, और 6 के चार गुणनखंड हैं। दो संख्याओं के उभयनिष्ठ गुणनखंड हमेशा उनके म.स. के गुणनखंड होते हैं।"
+   "hi": "$A = \\{1,2,3,4,6,12\\}$ और $B = \\{1,2,3,6,9,18\\}$। साझा: $1, 2, 3, 6$ — चार। मज़ेदार बात: ये ठीक $\\gcd(12,18) = 6$ के factor हैं, और 6 के चार factor हैं। दो संख्याओं के उभयनिष्ठ factor हमेशा उनके HCF के factor होते हैं।"
   }
  },
  {
@@ -6008,12 +6008,12 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "short",
   "q": {
    "en": "For how many integers $x$ is $x^2 \\leq 100$ true?",
-   "hi": "कितने पूर्णांकों $x$ के लिए $x^2 \\leq 100$ सही है?"
+   "hi": "कितने integers $x$ के लिए $x^2 \\leq 100$ सही है?"
   },
   "correct": "21",
   "exp": {
    "en": "$x^2 \\leq 100$ means $-10 \\leq x \\leq 10$. Count: 10 negative values, 10 positive values, and 0 in the middle. Total $10 + 10 + 1 = 21$. Answering 20 means you forgot 0; answering 10 means you forgot the negative half entirely.",
-   "hi": "$x^2 \\leq 100$ का मतलब है $-10 \\leq x \\leq 10$। गिनिए: 10 ऋणात्मक, 10 धनात्मक, और बीच में 0। कुल $10 + 10 + 1 = 21$। 20 आया तो 0 भूल गए; 10 आया तो पूरा ऋणात्मक हिस्सा ही भूल गए।"
+   "hi": "$x^2 \\leq 100$ का मतलब है $-10 \\leq x \\leq 10$। गिनिए: 10 negative, 10 positive, और बीच में 0। कुल $10 + 10 + 1 = 21$। 20 आया तो 0 भूल गए; 10 आया तो पूरा negative हिस्सा ही भूल गए।"
   }
  },
  {
@@ -6031,7 +6031,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "mcq",
   "q": {
    "en": "Which pair of sets is equal?",
-   "hi": "समुच्चयों का कौन-सा जोड़ा बराबर है?"
+   "hi": "sets का कौन-सा जोड़ा बराबर है?"
   },
   "opts": {
    "en": [
@@ -6087,7 +6087,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "The empty set has no members, so the count is 0. It is still a perfectly good set — like an empty bag is still a bag.",
-   "hi": "रिक्त समुच्चय में कोई सदस्य नहीं है, तो गिनती 0 है। यह फिर भी बिल्कुल सही समुच्चय है — जैसे ख़ाली बैग भी बैग ही होता है।"
+   "hi": "empty set में कोई member नहीं है, तो गिनती 0 है। यह फिर भी बिल्कुल सही set है — जैसे ख़ाली बैग भी बैग ही होता है।"
   }
  },
  {
@@ -6105,12 +6105,12 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "tf",
   "q": {
    "en": "The set of students in your school is finite.",
-   "hi": "आपके स्कूल के विद्यार्थियों का समुच्चय परिमित है।"
+   "hi": "आपके स्कूल के विद्यार्थियों का set finite है।"
   },
   "correct": "TRUE",
   "exp": {
    "en": "You could count them all and finish. That is what finite means. It does not matter whether the number is large — grains of rice in a sack are finite too.",
-   "hi": "आप उन सबको गिनकर पूरा कर सकते हैं। परिमित का यही मतलब है। संख्या बड़ी है या नहीं, इससे फ़र्क़ नहीं पड़ता — बोरी में चावल के दाने भी परिमित हैं।"
+   "hi": "आप उन सबको गिनकर पूरा कर सकते हैं। finite का यही मतलब है। संख्या बड़ी है या नहीं, इससे फ़र्क़ नहीं पड़ता — बोरी में चावल के दाने भी finite हैं।"
   }
  },
  {
@@ -6128,7 +6128,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "mcq",
   "q": {
    "en": "Which set is infinite?",
-   "hi": "कौन-सा समुच्चय अनंत है?"
+   "hi": "कौन-सा set infinite है?"
   },
   "opts": {
    "en": [
@@ -6147,7 +6147,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "The three dots mean it keeps going with no last number. The other three all stop: 3 members, 365 days, 26 letters.",
-   "hi": "तीन बिंदु बताते हैं कि यह चलता ही रहता है, कोई आख़िरी संख्या नहीं। बाक़ी तीनों रुक जाते हैं: 3 सदस्य, 365 दिन, 26 अक्षर।"
+   "hi": "तीन बिंदु बताते हैं कि यह चलता ही रहता है, कोई आख़िरी संख्या नहीं। बाक़ी तीनों रुक जाते हैं: 3 member, 365 दिन, 26 अक्षर।"
   }
  },
  {
@@ -6165,7 +6165,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "mcq",
   "q": {
    "en": "Which of these is the empty set?",
-   "hi": "इनमें से कौन रिक्त समुच्चय है?"
+   "hi": "इनमें से कौन empty set है?"
   },
   "opts": {
    "en": [
@@ -6184,7 +6184,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "$x + 3 = 1$ gives $x = -2$. That is a perfectly good integer, so option B is **not** empty — it is $\\{-2\\}$. But $-2$ is not a counting number, so over $\\mathbb{N}$ nothing fits. Same equation, different family, opposite answer.",
-   "hi": "$x + 3 = 1$ से $x = -2$ मिलता है। वह बिल्कुल सही पूर्णांक है, तो विकल्प B रिक्त **नहीं** है — वह $\\{-2\\}$ है। पर $-2$ गिनती की संख्या नहीं है, तो $\\mathbb{N}$ में कुछ भी फ़िट नहीं बैठता। वही समीकरण, अलग परिवार, उल्टा जवाब।"
+   "hi": "$x + 3 = 1$ से $x = -2$ मिलता है। वह बिल्कुल सही integer है, तो विकल्प B empty **नहीं** है — वह $\\{-2\\}$ है। पर $-2$ गिनती की संख्या नहीं है, तो $\\mathbb{N}$ में कुछ भी फ़िट नहीं बैठता। वही equation, अलग परिवार, उल्टा जवाब।"
   }
  },
  {
@@ -6202,12 +6202,12 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "tf",
   "q": {
    "en": "$\\{1, 2\\}$ and $\\{a, b\\}$ are equivalent sets.",
-   "hi": "$\\{1, 2\\}$ और $\\{a, b\\}$ तुल्य समुच्चय हैं।"
+   "hi": "$\\{1, 2\\}$ और $\\{a, b\\}$ equivalent set हैं।"
   },
   "correct": "TRUE",
   "exp": {
    "en": "**Equivalent** only asks whether the counts match, and both have 2 members. They are **not equal**, because equal needs the same members and 1 is not $a$. Two cows and two chairs: same number, different things.",
-   "hi": "**तुल्य** सिर्फ़ यह पूछता है कि गिनती मिलती है या नहीं, और दोनों में 2 सदस्य हैं। ये **बराबर नहीं** हैं, क्योंकि बराबर के लिए सदस्य वही चाहिए और 1, $a$ नहीं है। दो गाय और दो कुर्सियाँ: संख्या वही, चीज़ें अलग।"
+   "hi": "**equivalent** सिर्फ़ यह पूछता है कि गिनती मिलती है या नहीं, और दोनों में 2 member हैं। ये **बराबर नहीं** हैं, क्योंकि बराबर के लिए member वही चाहिए और 1, $a$ नहीं है। दो गाय और दो कुर्सियाँ: संख्या वही, चीज़ें अलग।"
   }
  },
  {
@@ -6225,12 +6225,12 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "short",
   "q": {
    "en": "What is $n(A)$ if $A$ is the set of letters in the word BANANA?",
-   "hi": "यदि $A$, BANANA शब्द के अक्षरों का समुच्चय है, तो $n(A)$ क्या है?"
+   "hi": "यदि $A$, BANANA शब्द के अक्षरों का set है, तो $n(A)$ क्या है?"
   },
   "correct": "3",
   "exp": {
    "en": "The different letters are B, A, N — three. The word has 6 letters, but A appears three times and N twice. A set records each thing once, however often it is written.",
-   "hi": "अलग अक्षर हैं B, A, N — तीन। शब्द में 6 अक्षर हैं, पर A तीन बार और N दो बार आया है। समुच्चय हर चीज़ को एक ही बार दर्ज करता है, चाहे वह कितनी भी बार लिखी हो।"
+   "hi": "अलग अक्षर हैं B, A, N — तीन। शब्द में 6 अक्षर हैं, पर A तीन बार और N दो बार आया है। set हर चीज़ को एक ही बार दर्ज करता है, चाहे वह कितनी भी बार लिखी हो।"
   }
  },
  {
@@ -6260,8 +6260,8 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
    "hi": [
     "ये अलग हैं: $n(\\emptyset)=0$ पर $n(\\{0\\})=1$",
     "ये बराबर हैं",
-    "दोनों रिक्त हैं",
-    "$\\{0\\}$ रिक्त है पर $\\emptyset$ नहीं"
+    "दोनों empty हैं",
+    "$\\{0\\}$ empty है पर $\\emptyset$ नहीं"
    ]
   },
   "correct": "A",
@@ -6285,12 +6285,12 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "tf",
   "q": {
    "en": "If two sets are equal, they must also be equivalent.",
-   "hi": "यदि दो समुच्चय बराबर हैं, तो वे तुल्य भी होंगे।"
+   "hi": "यदि दो set बराबर हैं, तो वे equivalent भी होंगे।"
   },
   "correct": "TRUE",
   "exp": {
    "en": "Equal means the members are exactly the same, so of course the counts match too. The reverse fails: equivalent sets can hold completely different things. Equal is the stronger claim.",
-   "hi": "बराबर का मतलब है सदस्य बिल्कुल वही, तो गिनती भी अपने आप मिलेगी। उल्टा नहीं चलता: तुल्य समुच्चयों में बिल्कुल अलग चीज़ें हो सकती हैं। बराबर होना ज़्यादा कड़ा दावा है।"
+   "hi": "बराबर का मतलब है member बिल्कुल वही, तो गिनती भी अपने आप मिलेगी। उल्टा नहीं चलता: equivalent sets में बिल्कुल अलग चीज़ें हो सकती हैं। बराबर होना ज़्यादा कड़ा दावा है।"
   }
  },
  {
@@ -6313,7 +6313,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "5",
   "exp": {
    "en": "$x^2 \\leq 4$ means $-2 \\leq x \\leq 2$, so $A = \\{-2,-1,0,1,2\\}$ — five members. Answering 3 means you kept only the positive side and forgot that squaring wipes out the sign.",
-   "hi": "$x^2 \\leq 4$ का मतलब है $-2 \\leq x \\leq 2$, तो $A = \\{-2,-1,0,1,2\\}$ — पाँच सदस्य। 3 आया तो आपने सिर्फ़ धनात्मक हिस्सा रखा और भूल गए कि वर्ग करने से चिह्न मिट जाता है।"
+   "hi": "$x^2 \\leq 4$ का मतलब है $-2 \\leq x \\leq 2$, तो $A = \\{-2,-1,0,1,2\\}$ — पाँच member। 3 आया तो आपने सिर्फ़ positive हिस्सा रखा और भूल गए कि square करने से sign मिट जाता है।"
   }
  },
  {
@@ -6342,15 +6342,15 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
    ],
    "hi": [
     "$A = B$",
-    "$A$ रिक्त है",
-    "$A$ में 1 सदस्य है",
-    "$A$ और $B$ तुल्य हैं पर बराबर नहीं"
+    "$A$ empty है",
+    "$A$ में 1 member है",
+    "$A$ और $B$ equivalent हैं पर बराबर नहीं"
    ]
   },
   "correct": "A",
   "exp": {
    "en": "Factorise: $(x-1)(x-2) = 0$, so $x = 1$ or $x = 2$, and $A = \\{1,2\\}$ — exactly $B$. Same members, so **equal**, not merely equivalent. Option D is the trap for students who see two different-looking descriptions and assume the sets differ.",
-   "hi": "गुणनखंड कीजिए: $(x-1)(x-2) = 0$, तो $x = 1$ या $x = 2$, और $A = \\{1,2\\}$ — ठीक $B$। सदस्य वही, तो **बराबर**, सिर्फ़ तुल्य नहीं। विकल्प D उनके लिए जाल है जो दो अलग दिखने वाले विवरण देखकर मान लेते हैं कि समुच्चय अलग होंगे।"
+   "hi": "factor कीजिए: $(x-1)(x-2) = 0$, तो $x = 1$ या $x = 2$, और $A = \\{1,2\\}$ — ठीक $B$। member वही, तो **बराबर**, सिर्फ़ equivalent नहीं। विकल्प D उनके लिए जाल है जो दो अलग दिखने वाले विवरण देखकर मान लेते हैं कि set अलग होंगे।"
   }
  },
  {
@@ -6368,7 +6368,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "mcq",
   "q": {
    "en": "Which set is NOT empty?",
-   "hi": "कौन-सा समुच्चय रिक्त **नहीं** है?"
+   "hi": "कौन-सा set empty **नहीं** है?"
   },
   "opts": {
    "en": [
@@ -6387,7 +6387,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "$x^2 = 2$ gives $x = \\pm\\sqrt{2}$, which are real numbers — so over $\\mathbb{R}$ the set has two members. Over $\\mathbb{N}$ it is empty, because $\\sqrt{2}$ is not a counting number. Option D is empty because a square is never negative.",
-   "hi": "$x^2 = 2$ से $x = \\pm\\sqrt{2}$ मिलता है, जो वास्तविक संख्याएँ हैं — तो $\\mathbb{R}$ में समुच्चय के दो सदस्य हैं। $\\mathbb{N}$ में यह रिक्त है, क्योंकि $\\sqrt{2}$ गिनती की संख्या नहीं है। विकल्प D रिक्त है क्योंकि वर्ग कभी ऋणात्मक नहीं होता।"
+   "hi": "$x^2 = 2$ से $x = \\pm\\sqrt{2}$ मिलता है, जो real संख्याएँ हैं — तो $\\mathbb{R}$ में set के दो member हैं। $\\mathbb{N}$ में यह empty है, क्योंकि $\\sqrt{2}$ गिनती की संख्या नहीं है। विकल्प D empty है क्योंकि square कभी negative नहीं होता।"
   }
  },
  {
@@ -6405,7 +6405,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "short",
   "q": {
    "en": "$A$ has 5 members and $B$ has 5 members, but $A \\neq B$. Give one such pair (use letters or numbers).",
-   "hi": "$A$ में 5 सदस्य हैं और $B$ में भी 5, पर $A \\neq B$। ऐसा एक जोड़ा बताइए (अक्षर या संख्याएँ लिखिए)।"
+   "hi": "$A$ में 5 member हैं और $B$ में भी 5, पर $A \\neq B$। ऐसा एक जोड़ा बताइए (अक्षर या संख्याएँ लिखिए)।"
   },
   "correct": "{1,2,3,4,5} and {a,b,c,d,e}",
   "accept": [
@@ -6415,7 +6415,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   ],
   "exp": {
    "en": "Any two sets of size 5 holding different things will do — for example $\\{1,2,3,4,5\\}$ and $\\{a,b,c,d,e\\}$. They are equivalent (same count) but not equal (different members). This is the difference in one example.",
-   "hi": "5 आकार के कोई भी दो समुच्चय जिनमें अलग चीज़ें हों, चलेंगे — जैसे $\\{1,2,3,4,5\\}$ और $\\{a,b,c,d,e\\}$। ये तुल्य हैं (गिनती वही) पर बराबर नहीं (सदस्य अलग)। एक ही उदाहरण में पूरा फ़र्क़।"
+   "hi": "5 आकार के कोई भी दो set जिनमें अलग चीज़ें हों, चलेंगे — जैसे $\\{1,2,3,4,5\\}$ और $\\{a,b,c,d,e\\}$। ये equivalent हैं (गिनती वही) पर बराबर नहीं (member अलग)। एक ही उदाहरण में पूरा फ़र्क़।"
   }
  },
  {
@@ -6452,7 +6452,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "Adding a negative is the same as subtracting: $8 - 3 = 5$. Think of earning ₹8 and spending ₹3.",
-   "hi": "ऋणात्मक जोड़ना, घटाने जैसा ही है: $8 - 3 = 5$। ₹8 कमाकर ₹3 ख़र्च करने की तरह सोचिए।"
+   "hi": "negative जोड़ना, घटाने जैसा ही है: $8 - 3 = 5$। ₹8 कमाकर ₹3 ख़र्च करने की तरह सोचिए।"
   }
  },
  {
@@ -6475,7 +6475,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "2",
   "exp": {
    "en": "$-2 + 7 - 3 = 2$. Up means right on the number line, down means left. Work left to right, one move at a time; trying to do it in one jump is where sign errors come from.",
-   "hi": "$-2 + 7 - 3 = 2$। ऊपर यानी संख्या रेखा पर दाएँ, नीचे यानी बाएँ। बाएँ से दाएँ, एक-एक क़दम कीजिए; एक ही छलाँग में करने की कोशिश से ही चिह्न की ग़लतियाँ आती हैं।"
+   "hi": "$-2 + 7 - 3 = 2$। ऊपर यानी number line पर दाएँ, नीचे यानी बाएँ। बाएँ से दाएँ, एक-एक क़दम कीजिए; एक ही छलाँग में करने की कोशिश से ही sign की ग़लतियाँ आती हैं।"
   }
  },
  {
@@ -6493,7 +6493,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "mcq",
   "q": {
    "en": "Which fraction is the largest?",
-   "hi": "कौन-सा भिन्न सबसे बड़ा है?"
+   "hi": "कौन-सा fraction सबसे बड़ा है?"
   },
   "opts": {
    "en": [
@@ -6512,7 +6512,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "Turn them into decimals: $0.75$, $0.5$, $0.4$, $0.33$. The biggest is $\\frac{3}{4}$. When the bottoms differ, do not compare the tops — $\\frac{2}{5}$ has a bigger top than $\\frac{1}{2}$ but is smaller.",
-   "hi": "इन्हें दशमलव में बदलिए: $0.75$, $0.5$, $0.4$, $0.33$। सबसे बड़ा $\\frac{3}{4}$ है। जब हर अलग हों तो ऊपर वालों की तुलना मत कीजिए — $\\frac{2}{5}$ का ऊपर वाला $\\frac{1}{2}$ से बड़ा है पर वह ख़ुद छोटा है।"
+   "hi": "इन्हें decimal में बदलिए: $0.75$, $0.5$, $0.4$, $0.33$। सबसे बड़ा $\\frac{3}{4}$ है। जब denominator अलग हों तो ऊपर वालों की तुलना मत कीजिए — $\\frac{2}{5}$ का ऊपर वाला $\\frac{1}{2}$ से बड़ा है पर वह ख़ुद छोटा है।"
   }
  },
  {
@@ -6530,7 +6530,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "short",
   "q": {
    "en": "A shopkeeper buys a bag for ₹400 and sells it for ₹500. What is the profit percentage?",
-   "hi": "एक दुकानदार ₹400 में बैग ख़रीदकर ₹500 में बेचता है। लाभ प्रतिशत क्या है?"
+   "hi": "एक दुकानदार ₹400 में बैग ख़रीदकर ₹500 में बेचता है। लाभ percent क्या है?"
   },
   "correct": "25",
   "accept": [
@@ -6539,7 +6539,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   ],
   "exp": {
    "en": "Profit is ₹100. Percentage is always taken on the **cost price**: $\\frac{100}{400} = 0.25 = 25\\%$. Dividing by 500 gives 20%, and that is the usual wrong answer — always ask *percentage of what*.",
-   "hi": "लाभ ₹100 है। प्रतिशत हमेशा **क्रय मूल्य** पर लिया जाता है: $\\frac{100}{400} = 0.25 = 25\\%$। 500 से भाग देने पर 20% आता है, और यही आम ग़लत जवाब है — हमेशा पूछिए *किसका प्रतिशत*।"
+   "hi": "लाभ ₹100 है। percent हमेशा **cost price** पर लिया जाता है: $\\frac{100}{400} = 0.25 = 25\\%$। 500 से भाग देने पर 20% आता है, और यही आम ग़लत जवाब है — हमेशा पूछिए *किसका percent*।"
   }
  },
  {
@@ -6557,12 +6557,12 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "short",
   "q": {
    "en": "The length of a rectangle is 3 more than its width. The perimeter is 26. Find the width.",
-   "hi": "एक आयत की लंबाई उसकी चौड़ाई से 3 ज़्यादा है। परिमाप 26 है। चौड़ाई निकालिए।"
+   "hi": "एक rectangle की लंबाई उसकी चौड़ाई से 3 ज़्यादा है। perimeter 26 है। चौड़ाई निकालिए।"
   },
   "correct": "5",
   "exp": {
    "en": "Let width $= w$, so length $= w + 3$. Perimeter $= 2(w + w + 3) = 4w + 6 = 26$, giving $4w = 20$ and $w = 5$. Check: width 5, length 8, perimeter $2(13) = 26$ ✅. Naming the unknown first is what makes the sentence solvable.",
-   "hi": "चौड़ाई $= w$ मानिए, तो लंबाई $= w + 3$। परिमाप $= 2(w + w + 3) = 4w + 6 = 26$, यानी $4w = 20$ और $w = 5$। जाँच: चौड़ाई 5, लंबाई 8, परिमाप $2(13) = 26$ ✅। अज्ञात को पहले नाम देना ही वाक्य को हल करने लायक़ बनाता है।"
+   "hi": "चौड़ाई $= w$ मानिए, तो लंबाई $= w + 3$। perimeter $= 2(w + w + 3) = 4w + 6 = 26$, यानी $4w = 20$ और $w = 5$। जाँच: चौड़ाई 5, लंबाई 8, perimeter $2(13) = 26$ ✅। अज्ञात को पहले नाम देना ही वाक्य को हल करने लायक़ बनाता है।"
   }
  },
  {
@@ -6580,7 +6580,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "mcq",
   "q": {
    "en": "Factorise $4x + 12$.",
-   "hi": "$4x + 12$ के गुणनखंड कीजिए।"
+   "hi": "$4x + 12$ के factor कीजिए।"
   },
   "opts": {
    "en": [
@@ -6599,7 +6599,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "The biggest number dividing both 4 and 12 is 4. Check by expanding: $4(x+3) = 4x + 12$ ✅. Option C is true but not finished — 2 was not the biggest common factor.",
-   "hi": "4 और 12 दोनों को बाँटने वाली सबसे बड़ी संख्या 4 है। खोलकर जाँचिए: $4(x+3) = 4x + 12$ ✅। विकल्प C सही तो है पर पूरा नहीं — 2 सबसे बड़ा उभयनिष्ठ गुणनखंड नहीं था।"
+   "hi": "4 और 12 दोनों को बाँटने वाली सबसे बड़ी संख्या 4 है। खोलकर जाँचिए: $4(x+3) = 4x + 12$ ✅। विकल्प C सही तो है पर पूरा नहीं — 2 सबसे बड़ा उभयनिष्ठ factor नहीं था।"
   }
  },
  {
@@ -6617,12 +6617,12 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "tf",
   "q": {
    "en": "The set of all tall trees in a village is well defined.",
-   "hi": "गाँव के सभी ऊँचे पेड़ों का समुच्चय सुपरिभाषित है।"
+   "hi": "गाँव के सभी ऊँचे पेड़ों का set well-defined है।"
   },
   "correct": "FALSE",
   "exp": {
    "en": "*Tall* has no agreed height. One person counts a 4 metre tree, another does not. Add a number — *trees above 5 metres* — and it becomes a proper set at once.",
-   "hi": "*ऊँचा* की कोई तय ऊँचाई नहीं है। कोई 4 मीटर के पेड़ को गिनेगा, कोई नहीं। एक संख्या जोड़ दीजिए — *5 मीटर से ऊँचे पेड़* — और यह तुरंत सही समुच्चय बन जाता है।"
+   "hi": "*ऊँचा* की कोई तय ऊँचाई नहीं है। कोई 4 मीटर के पेड़ को गिनेगा, कोई नहीं। एक संख्या जोड़ दीजिए — *5 मीटर से ऊँचे पेड़* — और यह तुरंत सही set बन जाता है।"
   }
  },
  {
@@ -6650,7 +6650,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
     "$1 \\in B$"
    ],
    "hi": [
-    "$A \\neq B$, हालाँकि दोनों में 2 सदस्य हैं",
+    "$A \\neq B$, हालाँकि दोनों में 2 member हैं",
     "$A = B$",
     "$n(B) = 4$",
     "$1 \\in B$"
@@ -6659,7 +6659,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "$A$ holds two **numbers**. $B$ holds two **sets**. Same count, so they are equivalent — but not equal, because a number is not a set. And $1 \\notin B$; what is in $B$ is $\\{1\\}$.",
-   "hi": "$A$ में दो **संख्याएँ** हैं। $B$ में दो **समुच्चय** हैं। गिनती वही, तो ये तुल्य हैं — पर बराबर नहीं, क्योंकि संख्या और समुच्चय एक बात नहीं। और $1 \\notin B$; $B$ में तो $\\{1\\}$ है।"
+   "hi": "$A$ में दो **संख्याएँ** हैं। $B$ में दो **set** हैं। गिनती वही, तो ये equivalent हैं — पर बराबर नहीं, क्योंकि संख्या और set एक बात नहीं। और $1 \\notin B$; $B$ में तो $\\{1\\}$ है।"
   }
  },
  {
@@ -6677,12 +6677,12 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "short",
   "q": {
    "en": "How many members are in the set of letters of the word MISSISSIPPI?",
-   "hi": "MISSISSIPPI शब्द के अक्षरों के समुच्चय में कितने सदस्य हैं?"
+   "hi": "MISSISSIPPI शब्द के अक्षरों के set में कितने member हैं?"
   },
   "correct": "4",
   "exp": {
    "en": "The different letters are M, I, S, P — four. The word has 11 letters, but I appears four times, S four times, P twice. A set counts each different thing once.",
-   "hi": "अलग अक्षर हैं M, I, S, P — चार। शब्द में 11 अक्षर हैं, पर I चार बार, S चार बार, P दो बार आया है। समुच्चय हर अलग चीज़ को एक बार गिनता है।"
+   "hi": "अलग अक्षर हैं M, I, S, P — चार। शब्द में 11 अक्षर हैं, पर I चार बार, S चार बार, P दो बार आया है। set हर अलग चीज़ को एक बार गिनता है।"
   }
  },
  {
@@ -6700,12 +6700,12 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "tf",
   "q": {
    "en": "$\\{1, 2, 3, \\ldots\\}$ and $\\{x : x \\in \\mathbb{N}\\}$ describe the same set.",
-   "hi": "$\\{1, 2, 3, \\ldots\\}$ और $\\{x : x \\in \\mathbb{N}\\}$ एक ही समुच्चय बताते हैं।"
+   "hi": "$\\{1, 2, 3, \\ldots\\}$ और $\\{x : x \\in \\mathbb{N}\\}$ एक ही set बताते हैं।"
   },
   "correct": "TRUE",
   "exp": {
    "en": "The first is the list form, the second is the rule form. Both name every counting number. Two ways of writing, one set.",
-   "hi": "पहला तालिका रूप है, दूसरा नियम रूप। दोनों हर गिनती की संख्या बताते हैं। लिखने के दो तरीक़े, समुच्चय एक।"
+   "hi": "पहला roster form है, दूसरा नियम रूप। दोनों हर गिनती की संख्या बताते हैं। लिखने के दो तरीक़े, set एक।"
   }
  },
  {
@@ -6723,7 +6723,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "short",
   "q": {
    "en": "List $\\{x \\in \\mathbb{N} : x \\text{ is a prime factor of } 30\\}$.",
-   "hi": "$\\{x \\in \\mathbb{N} : x, 30 \\text{ का अभाज्य गुणनखंड है}\\}$ की सूची बनाइए।"
+   "hi": "$\\{x \\in \\mathbb{N} : x, 30 \\text{ का prime factor है}\\}$ की सूची बनाइए।"
   },
   "correct": "{2,3,5}",
   "accept": [
@@ -6733,7 +6733,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   ],
   "exp": {
    "en": "Break 30 down: $30 = 2 \\times 3 \\times 5$. All three are prime, so the set is $\\{2,3,5\\}$. Note 1 is not included — 1 is a factor of everything but is **not** prime. Nor is 6 or 15, which are factors but not prime.",
-   "hi": "30 को तोड़िए: $30 = 2 \\times 3 \\times 5$। तीनों अभाज्य हैं, तो समुच्चय $\\{2,3,5\\}$ है। ध्यान दीजिए 1 शामिल नहीं — 1 हर चीज़ का गुणनखंड है पर अभाज्य **नहीं**। 6 और 15 भी नहीं, जो गुणनखंड तो हैं पर अभाज्य नहीं।"
+   "hi": "30 को तोड़िए: $30 = 2 \\times 3 \\times 5$। तीनों prime हैं, तो set $\\{2,3,5\\}$ है। ध्यान दीजिए 1 शामिल नहीं — 1 हर चीज़ का factor है पर prime **नहीं**। 6 और 15 भी नहीं, जो factor तो हैं पर prime नहीं।"
   }
  },
  {
@@ -6751,7 +6751,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "mcq",
   "q": {
    "en": "Which set has exactly 3 members?",
-   "hi": "किस समुच्चय के ठीक 3 सदस्य हैं?"
+   "hi": "किस set के ठीक 3 member हैं?"
   },
   "opts": {
    "en": [
@@ -6770,7 +6770,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "$|x| \\leq 1$ over $\\mathbb{Z}$ gives $\\{-1, 0, 1\\}$ — three. Option B also has three ($1,2,3$), so read carefully: both are three! On a real paper only one would be listed; here A is the intended reading since $|x|$ is the new idea being tested. C has two members, D has just $\\{1\\}$.",
-   "hi": "$\\mathbb{Z}$ में $|x| \\leq 1$ से $\\{-1, 0, 1\\}$ मिलता है — तीन। विकल्प B में भी तीन हैं ($1,2,3$), तो ध्यान से पढ़िए। C के दो सदस्य हैं, D में सिर्फ़ $\\{1\\}$ है।"
+   "hi": "$\\mathbb{Z}$ में $|x| \\leq 1$ से $\\{-1, 0, 1\\}$ मिलता है — तीन। विकल्प B में भी तीन हैं ($1,2,3$), तो ध्यान से पढ़िए। C के दो member हैं, D में सिर्फ़ $\\{1\\}$ है।"
   }
  },
  {
@@ -6788,12 +6788,12 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "short",
   "q": {
    "en": "How many members are in $\\{x \\in \\mathbb{N} : x \\text{ divides } 36\\}$?",
-   "hi": "$\\{x \\in \\mathbb{N} : x, 36 \\text{ को बाँटती है}\\}$ में कितने सदस्य हैं?"
+   "hi": "$\\{x \\in \\mathbb{N} : x, 36 \\text{ को बाँटती है}\\}$ में कितने member हैं?"
   },
   "correct": "9",
   "exp": {
    "en": "Pair them up: $1\\times36$, $2\\times18$, $3\\times12$, $4\\times9$, $6\\times6$. The last pair repeats 6, so count it once: $1,2,3,4,6,9,12,18,36$ — nine. A perfect square always has an **odd** number of factors, for exactly this reason.",
-   "hi": "जोड़े बनाइए: $1\\times36$, $2\\times18$, $3\\times12$, $4\\times9$, $6\\times6$। आख़िरी जोड़े में 6 दोहराया गया, तो एक बार गिनिए: $1,2,3,4,6,9,12,18,36$ — नौ। पूर्ण वर्ग के गुणनखंड हमेशा **विषम** संख्या में होते हैं, ठीक इसी वजह से।"
+   "hi": "जोड़े बनाइए: $1\\times36$, $2\\times18$, $3\\times12$, $4\\times9$, $6\\times6$। आख़िरी जोड़े में 6 दोहराया गया, तो एक बार गिनिए: $1,2,3,4,6,9,12,18,36$ — नौ। perfect square के factor हमेशा **विषम** संख्या में होते हैं, ठीक इसी वजह से।"
   }
  },
  {
@@ -6811,12 +6811,12 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "short",
   "q": {
    "en": "How many integers $x$ satisfy $-3 \\leq x < 4$ AND $x$ is even?",
-   "hi": "कितने पूर्णांक $x$, $-3 \\leq x < 4$ को संतुष्ट करते हैं **और** सम भी हैं?"
+   "hi": "कितने integer $x$, $-3 \\leq x < 4$ को संतुष्ट करते हैं **और** सम भी हैं?"
   },
   "correct": "3",
   "exp": {
    "en": "The range gives $\\{-3,-2,-1,0,1,2,3\\}$. Keep only the even ones: $-2$, $0$, $2$ — three. Remember 0 is even. Missing it gives 2, the usual wrong answer.",
-   "hi": "परास से मिलता है $\\{-3,-2,-1,0,1,2,3\\}$। सिर्फ़ सम रखिए: $-2$, $0$, $2$ — तीन। याद रखिए 0 सम है। इसे छोड़ने पर 2 आता है, यही आम ग़लत जवाब है।"
+   "hi": "range से मिलता है $\\{-3,-2,-1,0,1,2,3\\}$। सिर्फ़ सम रखिए: $-2$, $0$, $2$ — तीन। याद रखिए 0 सम है। इसे छोड़ने पर 2 आता है, यही आम ग़लत जवाब है।"
   }
  },
  {
@@ -6834,7 +6834,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "mcq",
   "q": {
    "en": "$A = \\{2n : n \\in \\mathbb{N}\\}$ and $B = \\{3n : n \\in \\mathbb{N}\\}$. The smallest member of $A \\cap B$ is:",
-   "hi": "$A = \\{2n : n \\in \\mathbb{N}\\}$ और $B = \\{3n : n \\in \\mathbb{N}\\}$। $A \\cap B$ का सबसे छोटा सदस्य है:"
+   "hi": "$A = \\{2n : n \\in \\mathbb{N}\\}$ और $B = \\{3n : n \\in \\mathbb{N}\\}$। $A \\cap B$ का सबसे छोटा member है:"
   },
   "correct": "A",
   "opts": {
@@ -6853,7 +6853,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   },
   "exp": {
    "en": "$A$ is the multiples of 2, $B$ the multiples of 3. A number in both must be a multiple of both, so the smallest is the LCM, $6$. In general $A \\cap B$ here is the multiples of 6.",
-   "hi": "$A$ 2 के गुणज हैं, $B$ 3 के। दोनों में होने वाली संख्या दोनों की गुणज होगी, तो सबसे छोटी उनका ल.स., यानी $6$। आम तौर पर यहाँ $A \\cap B$ 6 के गुणज हैं।"
+   "hi": "$A$ 2 के multiple हैं, $B$ 3 के। दोनों में होने वाली संख्या दोनों की multiple होगी, तो सबसे छोटी उनका LCM, यानी $6$। आम तौर पर यहाँ $A \\cap B$ 6 के multiple हैं।"
   }
  },
  {
@@ -6871,12 +6871,12 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "tf",
   "q": {
    "en": "A set can have zero members.",
-   "hi": "किसी समुच्चय के शून्य सदस्य हो सकते हैं।"
+   "hi": "किसी set के शून्य member हो सकते हैं।"
   },
   "correct": "TRUE",
   "exp": {
    "en": "That is the empty set, $\\emptyset$. It is a real set with $n = 0$. An empty bag is still a bag.",
-   "hi": "वही रिक्त समुच्चय है, $\\emptyset$। यह असली समुच्चय है जिसका $n = 0$ है। ख़ाली बैग भी बैग ही होता है।"
+   "hi": "वही empty set है, $\\emptyset$। यह असली set है जिसका $n = 0$ है। ख़ाली बैग भी बैग ही होता है।"
   }
  },
  {
@@ -6894,12 +6894,12 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "short",
   "q": {
    "en": "Find $n(A)$ where $A$ is the set of factors of 16.",
-   "hi": "$A$, 16 के गुणनखंडों का समुच्चय है। $n(A)$ ज्ञात कीजिए।"
+   "hi": "$A$, 16 के factors का set है। $n(A)$ ज्ञात कीजिए।"
   },
   "correct": "5",
   "exp": {
    "en": "$1, 2, 4, 8, 16$ — five. Pair them: $1\\times16$, $2\\times8$, $4\\times4$. The middle pair repeats 4, so count it once. 16 is a perfect square, which is why the count is odd.",
-   "hi": "$1, 2, 4, 8, 16$ — पाँच। जोड़े बनाइए: $1\\times16$, $2\\times8$, $4\\times4$। बीच वाले जोड़े में 4 दोहराया गया, तो एक बार गिनिए। 16 पूर्ण वर्ग है, इसीलिए गिनती विषम है।"
+   "hi": "$1, 2, 4, 8, 16$ — पाँच। जोड़े बनाइए: $1\\times16$, $2\\times8$, $4\\times4$। बीच वाले जोड़े में 4 दोहराया गया, तो एक बार गिनिए। 16 perfect square है, इसीलिए गिनती विषम है।"
   }
  },
  {
@@ -6922,7 +6922,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "FALSE",
   "exp": {
    "en": "Matching counts only make them **equivalent**. $\\{1,2\\}$ and $\\{5,9\\}$ both have 2 members but hold different things, so they are not equal. Equal is the stronger claim and needs the same members.",
-   "hi": "गिनती मिलने से ये सिर्फ़ **तुल्य** होते हैं। $\\{1,2\\}$ और $\\{5,9\\}$ दोनों में 2 सदस्य हैं पर चीज़ें अलग हैं, तो ये बराबर नहीं। बराबर होना ज़्यादा कड़ा दावा है और उसके लिए सदस्य वही चाहिए।"
+   "hi": "गिनती मिलने से ये सिर्फ़ **equivalent** होते हैं। $\\{1,2\\}$ और $\\{5,9\\}$ दोनों में 2 member हैं पर चीज़ें अलग हैं, तो ये बराबर नहीं। बराबर होना ज़्यादा कड़ा दावा है और उसके लिए member वही चाहिए।"
   }
  },
  {
@@ -6940,7 +6940,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "mcq",
   "q": {
    "en": "How many subsets does $\\{a, b\\}$ have?",
-   "hi": "$\\{a, b\\}$ के कितने उपसमुच्चय हैं?"
+   "hi": "$\\{a, b\\}$ के कितने subset हैं?"
   },
   "opts": {
    "en": [
@@ -6959,7 +6959,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "$2^2 = 4$: they are $\\emptyset$, $\\{a\\}$, $\\{b\\}$, $\\{a,b\\}$. Answering 2 means you counted only the single-member ones and forgot the empty set and the whole set.",
-   "hi": "$2^2 = 4$: ये हैं $\\emptyset$, $\\{a\\}$, $\\{b\\}$, $\\{a,b\\}$। 2 आया तो आपने सिर्फ़ एक-सदस्यीय गिने और रिक्त समुच्चय व पूरा समुच्चय भूल गए।"
+   "hi": "$2^2 = 4$: ये हैं $\\emptyset$, $\\{a\\}$, $\\{b\\}$, $\\{a,b\\}$। 2 आया तो आपने सिर्फ़ एक-member वाला गिने और empty set व पूरा set भूल गए।"
   }
  },
  {
@@ -6982,7 +6982,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "TRUE",
   "exp": {
    "en": "Both 1 and 2 are inside the bigger set, so nothing pokes out. That is exactly what $\\subseteq$ means.",
-   "hi": "1 और 2 दोनों बड़े समुच्चय के अंदर हैं, तो कुछ भी बाहर नहीं निकला। $\\subseteq$ का ठीक यही मतलब है।"
+   "hi": "1 और 2 दोनों बड़े set के अंदर हैं, तो कुछ भी बाहर नहीं निकला। $\\subseteq$ का ठीक यही मतलब है।"
   }
  },
  {
@@ -7019,7 +7019,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "Both brackets are square, so both doors are closed and both ends stay in. If it were $(2, 6)$ both would be out.",
-   "hi": "दोनों कोष्ठक चौकोर हैं, तो दोनों दरवाज़े बंद हैं और दोनों सिरे अंदर रहते हैं। अगर $(2, 6)$ होता तो दोनों बाहर होते।"
+   "hi": "दोनों bracket चौकोर हैं, तो दोनों दरवाज़े बंद हैं और दोनों सिरे अंदर रहते हैं। अगर $(2, 6)$ होता तो दोनों बाहर होते।"
   }
  },
  {
@@ -7037,7 +7037,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "mcq",
   "q": {
    "en": "If $n(A) = 6$, the number of subsets of $A$ is:",
-   "hi": "यदि $n(A) = 6$ है, तो $A$ के उपसमुच्चयों की संख्या है:"
+   "hi": "यदि $n(A) = 6$ है, तो $A$ के subsets की संख्या है:"
   },
   "opts": {
    "en": [
@@ -7056,7 +7056,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "$2^6 = 64$. Option B is $6^2$, which reverses the two numbers — the base is always 2, because each member has 2 choices. Option D, 63, is the number of **proper** subsets.",
-   "hi": "$2^6 = 64$। विकल्प B यानी $6^2$, जिसमें दोनों संख्याएँ उलट गईं — आधार हमेशा 2 होता है, क्योंकि हर सदस्य के 2 विकल्प हैं। विकल्प D यानी 63, **उचित** उपसमुच्चयों की संख्या है।"
+   "hi": "$2^6 = 64$। विकल्प B यानी $6^2$, जिसमें दोनों संख्याएँ उलट गईं — आधार हमेशा 2 होता है, क्योंकि हर member के 2 विकल्प हैं। विकल्प D यानी 63, **उचित** subsets की संख्या है।"
   }
  },
  {
@@ -7093,7 +7093,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "The empty set is a **subset** of every set, so $\\subseteq$ is right. It is not a **member** of $A$ — the members of $A$ are just 1, 2 and 3. Option C uses $\\subseteq$ on a single number, which needs $\\in$.",
-   "hi": "रिक्त समुच्चय हर समुच्चय का **उपसमुच्चय** है, तो $\\subseteq$ सही है। यह $A$ का **सदस्य** नहीं है — $A$ के सदस्य सिर्फ़ 1, 2 और 3 हैं। विकल्प C अकेली संख्या पर $\\subseteq$ लगाता है, जहाँ $\\in$ चाहिए।"
+   "hi": "empty set हर set का **subset** है, तो $\\subseteq$ सही है। यह $A$ का **member** नहीं है — $A$ के member सिर्फ़ 1, 2 और 3 हैं। विकल्प C अकेली संख्या पर $\\subseteq$ लगाता है, जहाँ $\\in$ चाहिए।"
   }
  },
  {
@@ -7111,7 +7111,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "short",
   "q": {
    "en": "Write $\\{x \\in \\mathbb{R} : -2 < x \\leq 3\\}$ as an interval.",
-   "hi": "$\\{x \\in \\mathbb{R} : -2 < x \\leq 3\\}$ को अंतराल के रूप में लिखिए।"
+   "hi": "$\\{x \\in \\mathbb{R} : -2 < x \\leq 3\\}$ को interval के रूप में लिखिए।"
   },
   "correct": "(-2,3]",
   "accept": [
@@ -7119,7 +7119,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   ],
   "exp": {
    "en": "$-2 <$ is strict, so a round bracket and $-2$ stays out. $\\leq 3$ includes 3, so a square bracket. Read each sign on its own and the brackets follow.",
-   "hi": "$-2 <$ कड़ा है, तो गोल कोष्ठक और $-2$ बाहर। $\\leq 3$ में 3 शामिल है, तो चौकोर कोष्ठक। हर चिह्न अलग पढ़िए, कोष्ठक अपने आप तय हो जाएँगे।"
+   "hi": "$-2 <$ कड़ा है, तो गोल bracket और $-2$ बाहर। $\\leq 3$ में 3 शामिल है, तो चौकोर bracket। हर sign अलग पढ़िए, bracket अपने आप तय हो जाएँगे।"
   }
  },
  {
@@ -7137,7 +7137,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "mcq",
   "q": {
    "en": "How many subsets of $\\{1,2,3\\}$ have exactly 2 members?",
-   "hi": "$\\{1,2,3\\}$ के कितने उपसमुच्चयों में ठीक 2 सदस्य हैं?"
+   "hi": "$\\{1,2,3\\}$ के कितने subsets में ठीक 2 member हैं?"
   },
   "opts": {
    "en": [
@@ -7179,7 +7179,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "FALSE",
   "exp": {
    "en": "Infinity always takes a round bracket. $\\infty$ is not a number you can reach, so it can never be included. It says *keep going*, not *stop here*.",
-   "hi": "अनंत पर हमेशा गोल कोष्ठक लगता है। $\\infty$ ऐसी संख्या नहीं है जहाँ पहुँचा जा सके, तो उसे शामिल किया ही नहीं जा सकता। यह कहता है *चलते रहिए*, न कि *यहाँ रुकिए*।"
+   "hi": "infinite पर हमेशा गोल bracket लगता है। $\\infty$ ऐसी संख्या नहीं है जहाँ पहुँचा जा सके, तो उसे शामिल किया ही नहीं जा सकता। यह कहता है *चलते रहिए*, न कि *यहाँ रुकिए*।"
   }
  },
  {
@@ -7197,7 +7197,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "short",
   "q": {
    "en": "A set has 32 subsets. How many members does it have?",
-   "hi": "किसी समुच्चय के 32 उपसमुच्चय हैं। उसमें कितने सदस्य हैं?"
+   "hi": "किसी set के 32 subset हैं। उसमें कितने member हैं?"
   },
   "correct": "5",
   "exp": {
@@ -7220,7 +7220,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "mcq",
   "q": {
    "en": "Which of these is NOT a subset of $\\{1, 2, 3, 4\\}$?",
-   "hi": "इनमें से कौन $\\{1, 2, 3, 4\\}$ का उपसमुच्चय **नहीं** है?"
+   "hi": "इनमें से कौन $\\{1, 2, 3, 4\\}$ का subset **नहीं** है?"
   },
   "opts": {
    "en": [
@@ -7239,7 +7239,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "5 is not in the big set, so $\\{2,5\\}$ pokes out. **Every** member must be inside — one stray member is enough to break it. The empty set and the whole set are always subsets.",
-   "hi": "5 बड़े समुच्चय में नहीं है, तो $\\{2,5\\}$ बाहर निकल जाता है। **हर** सदस्य अंदर होना चाहिए — एक भी बाहरी सदस्य इसे तोड़ने के लिए काफ़ी है। रिक्त समुच्चय और पूरा समुच्चय हमेशा उपसमुच्चय होते हैं।"
+   "hi": "5 बड़े set में नहीं है, तो $\\{2,5\\}$ बाहर निकल जाता है। **हर** member अंदर होना चाहिए — एक भी बाहरी member इसे तोड़ने के लिए काफ़ी है। empty set और पूरा set हमेशा subset होते हैं।"
   }
  },
  {
@@ -7257,12 +7257,12 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "short",
   "q": {
    "en": "A set has 127 proper subsets. How many members does it have?",
-   "hi": "किसी समुच्चय के 127 उचित उपसमुच्चय हैं। उसमें कितने सदस्य हैं?"
+   "hi": "किसी set के 127 proper subset हैं। उसमें कितने member हैं?"
   },
   "correct": "7",
   "exp": {
    "en": "Proper subsets number $2^n - 1$. So $2^n = 128$, and $2^7 = 128$, giving $n = 7$. If you answered 7 by solving $2^n = 127$ you were lucky — 127 is not a power of 2, so you must add the 1 back first.",
-   "hi": "उचित उपसमुच्चयों की संख्या $2^n - 1$ होती है। तो $2^n = 128$, और $2^7 = 128$, यानी $n = 7$। अगर आपने $2^n = 127$ हल करके 7 पाया तो यह संयोग था — 127, 2 की कोई घात नहीं है, तो पहले 1 वापस जोड़ना ज़रूरी है।"
+   "hi": "proper subsets की संख्या $2^n - 1$ होती है। तो $2^n = 128$, और $2^7 = 128$, यानी $n = 7$। अगर आपने $2^n = 127$ हल करके 7 पाया तो यह संयोग था — 127, 2 की कोई power नहीं है, तो पहले 1 वापस जोड़ना ज़रूरी है।"
   }
  },
  {
@@ -7291,15 +7291,15 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
    ],
    "hi": [
     "$A = B$",
-    "$A$, $B$ का उचित उपसमुच्चय है",
-    "$A$ और $B$ असंयुक्त हैं",
+    "$A$, $B$ का proper subset है",
+    "$A$ और $B$ disjoint हैं",
     "कुछ नहीं कहा जा सकता"
    ]
   },
   "correct": "A",
   "exp": {
    "en": "$A$ sits inside $B$ and they are the same size, so $A$ cannot be missing anything from $B$. They must be the same set. A proper subset would have to be strictly smaller.",
-   "hi": "$A$, $B$ के अंदर है और दोनों का आकार बराबर है, तो $A$ में $B$ की कोई चीज़ छूट ही नहीं सकती। दोनों एक ही समुच्चय होंगे। उचित उपसमुच्चय को कड़ाई से छोटा होना पड़ता।"
+   "hi": "$A$, $B$ के अंदर है और दोनों का आकार बराबर है, तो $A$ में $B$ की कोई चीज़ छूट ही नहीं सकती। दोनों एक ही set होंगे। proper subset को कड़ाई से छोटा होना पड़ता।"
   }
  },
  {
@@ -7317,7 +7317,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "mcq",
   "q": {
    "en": "How many subsets of $\\{1,2,3,4\\}$ contain the number 1?",
-   "hi": "$\\{1,2,3,4\\}$ के कितने उपसमुच्चयों में संख्या 1 है?"
+   "hi": "$\\{1,2,3,4\\}$ के कितने subsets में संख्या 1 है?"
   },
   "opts": {
    "en": [
@@ -7336,7 +7336,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "Fix 1 as *in*. That choice is now settled, and the other three members are still free: $2^3 = 8$. Neat check: exactly half of all 16 subsets contain 1, because for every subset with 1 there is a matching one without it.",
-   "hi": "1 को *अंदर* तय कर दीजिए। वह फ़ैसला हो गया, और बाक़ी तीन सदस्य अब भी आज़ाद हैं: $2^3 = 8$। बढ़िया जाँच: सभी 16 उपसमुच्चयों में से ठीक आधे में 1 है, क्योंकि 1 वाले हर उपसमुच्चय के सामने बिना 1 वाला एक जोड़ीदार है।"
+   "hi": "1 को *अंदर* तय कर दीजिए। वह फ़ैसला हो गया, और बाक़ी तीन member अब भी आज़ाद हैं: $2^3 = 8$। बढ़िया जाँच: सभी 16 subsets में से ठीक आधे में 1 है, क्योंकि 1 वाले हर subset के सामने बिना 1 वाला एक जोड़ीदार है।"
   }
  },
  {
@@ -7354,12 +7354,12 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "short",
   "q": {
    "en": "How many subsets of a 6-member set have at most 1 member?",
-   "hi": "6 सदस्यों वाले समुच्चय के कितने उपसमुच्चयों में अधिक से अधिक 1 सदस्य है?"
+   "hi": "6 members वाले set के कितने subsets में अधिक से अधिक 1 member है?"
   },
   "correct": "7",
   "exp": {
    "en": "*At most 1* means 0 or 1. There is 1 subset with no members and 6 with one member each, so $1 + 6 = 7$. Reading *at most* as *exactly* gives 6, the usual slip.",
-   "hi": "*अधिक से अधिक 1* यानी 0 या 1। बिना सदस्य वाला 1 उपसमुच्चय है और एक-एक सदस्य वाले 6, तो $1 + 6 = 7$। *अधिक से अधिक* को *ठीक* पढ़ने पर 6 आता है, यही आम चूक है।"
+   "hi": "*अधिक से अधिक 1* यानी 0 या 1। बिना member वाला 1 subset है और एक-एक member वाले 6, तो $1 + 6 = 7$। *अधिक से अधिक* को *ठीक* पढ़ने पर 6 आता है, यही आम चूक है।"
   }
  },
  {
@@ -7377,7 +7377,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "mcq",
   "q": {
    "en": "$A$ has $n$ members. The number of subsets with an EVEN number of members is:",
-   "hi": "$A$ में $n$ सदस्य हैं। **सम** संख्या में सदस्यों वाले उपसमुच्चयों की संख्या है:"
+   "hi": "$A$ में $n$ member हैं। **सम** संख्या में members वाले subsets की संख्या है:"
   },
   "opts": {
    "en": [
@@ -7396,7 +7396,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "Exactly half of all subsets have an even size, so $\\frac{2^n}{2} = 2^{n-1}$. Check with $n = 3$: even-sized subsets are $\\emptyset$ and the three pairs — four of them, and $2^2 = 4$ ✅.",
-   "hi": "सभी उपसमुच्चयों में से ठीक आधों का आकार सम होता है, तो $\\frac{2^n}{2} = 2^{n-1}$। $n = 3$ से जाँचिए: सम आकार वाले हैं $\\emptyset$ और तीनों जोड़े — यानी चार, और $2^2 = 4$ ✅।"
+   "hi": "सभी subsets में से ठीक आधों का आकार सम होता है, तो $\\frac{2^n}{2} = 2^{n-1}$। $n = 3$ से जाँचिए: सम आकार वाले हैं $\\emptyset$ और तीनों जोड़े — यानी चार, और $2^2 = 4$ ✅।"
   }
  },
  {
@@ -7414,7 +7414,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "short",
   "q": {
    "en": "If $n(P(A)) = 256$, find $n(P(P(A)))$ as a power of 2.",
-   "hi": "यदि $n(P(A)) = 256$ है, तो $n(P(P(A)))$ को 2 की घात के रूप में लिखिए।"
+   "hi": "यदि $n(P(A)) = 256$ है, तो $n(P(P(A)))$ को 2 की power के रूप में लिखिए।"
   },
   "correct": "2^256",
   "accept": [
@@ -7424,7 +7424,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   ],
   "exp": {
    "en": "The power set rule applies to whatever set you feed it. $P(A)$ has 256 members, so $P(P(A))$ has $2^{256}$ members. You do not need $n(A)$ at all — though it is 8, since $2^8 = 256$. This number is larger than the count of atoms in the universe.",
-   "hi": "घात समुच्चय का नियम उसी समुच्चय पर लगता है जो आप दें। $P(A)$ के 256 सदस्य हैं, तो $P(P(A))$ के $2^{256}$ सदस्य होंगे। $n(A)$ की ज़रूरत ही नहीं — वैसे वह 8 है, क्योंकि $2^8 = 256$। यह संख्या ब्रह्मांड के परमाणुओं से भी बड़ी है।"
+   "hi": "power set का नियम उसी set पर लगता है जो आप दें। $P(A)$ के 256 member हैं, तो $P(P(A))$ के $2^{256}$ member होंगे। $n(A)$ की ज़रूरत ही नहीं — वैसे वह 8 है, क्योंकि $2^8 = 256$। यह संख्या ब्रह्मांड के परमाणुओं से भी बड़ी है।"
   }
  },
  {
@@ -7461,7 +7461,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "Put both lists together and write $b$ only once. Option B is the intersection, which keeps only the shared part — the opposite of what union does.",
-   "hi": "दोनों सूचियाँ मिला दीजिए और $b$ सिर्फ़ एक बार लिखिए। विकल्प B सर्वनिष्ठ है, जो सिर्फ़ साझा हिस्सा रखता है — सम्मिलन के उल्टा।"
+   "hi": "दोनों सूचियाँ मिला दीजिए और $b$ सिर्फ़ एक बार लिखिए। विकल्प B intersection है, जो सिर्फ़ साझा हिस्सा रखता है — union के उल्टा।"
   }
  },
  {
@@ -7479,7 +7479,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "mcq",
   "q": {
    "en": "Which symbol means *and* (only what is in both)?",
-   "hi": "कौन-सा चिह्न *और* बताता है (सिर्फ़ वह जो दोनों में हो)?"
+   "hi": "कौन-सा sign *और* बताता है (सिर्फ़ वह जो दोनों में हो)?"
   },
   "opts": {
    "en": [
@@ -7498,7 +7498,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "$\\cap$ is intersection, which means AND. It looks like a **cap** — a cap fits only one head. $\\cup$ is a **cup**, and a cup holds everything you pour in, so that is OR.",
-   "hi": "$\\cap$ सर्वनिष्ठ है, जिसका मतलब है **और**। यह **टोपी** जैसा दिखता है — टोपी सिर्फ़ एक सिर पर बैठती है। $\\cup$ **प्याला** है, और प्याले में जो डालिए सब समाता है, तो वह **या** है।"
+   "hi": "$\\cap$ intersection है, जिसका मतलब है **और**। यह **टोपी** जैसा दिखता है — टोपी सिर्फ़ एक सिर पर बैठती है। $\\cup$ **प्याला** है, और प्याले में जो डालिए सब समाता है, तो वह **या** है।"
   }
  },
  {
@@ -7558,7 +7558,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "Everything in either set: 1, 2, 3 from $A$ and 3, 4 from $B$, with 3 written once. Option D wrongly throws in 5 and 6, which are in $U$ but in neither $A$ nor $B$.",
-   "hi": "जो भी किसी एक समुच्चय में हो: $A$ से 1, 2, 3 और $B$ से 3, 4, जिसमें 3 एक बार लिखा। विकल्प D ग़लती से 5 और 6 जोड़ देता है, जो $U$ में तो हैं पर न $A$ में न $B$ में।"
+   "hi": "जो भी किसी एक set में हो: $A$ से 1, 2, 3 और $B$ से 3, 4, जिसमें 3 एक बार लिखा। विकल्प D ग़लती से 5 और 6 जोड़ देता है, जो $U$ में तो हैं पर न $A$ में न $B$ में।"
   }
  },
  {
@@ -7576,12 +7576,12 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "tf",
   "q": {
    "en": "Odd numbers and even numbers are disjoint sets.",
-   "hi": "विषम और सम संख्याएँ असंयुक्त समुच्चय हैं।"
+   "hi": "विषम और सम संख्याएँ disjoint set हैं।"
   },
   "correct": "TRUE",
   "exp": {
    "en": "No number is both odd and even, so they share nothing and their intersection is $\\emptyset$. In a Venn diagram their circles would not touch at all.",
-   "hi": "कोई संख्या विषम और सम दोनों नहीं होती, तो इनमें कुछ भी साझा नहीं और इनका सर्वनिष्ठ $\\emptyset$ है। वेन आरेख में इनके वृत्त एक-दूसरे को छूते ही नहीं।"
+   "hi": "कोई संख्या विषम और सम दोनों नहीं होती, तो इनमें कुछ भी साझा नहीं और इनका intersection $\\emptyset$ है। Venn diagram में इनके circle एक-दूसरे को छूते ही नहीं।"
   }
  },
  {
@@ -7646,7 +7646,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "If $A$ sits entirely inside $B$, then putting them together adds nothing new — the answer is just $B$. Draw it: the small circle is already inside the big one. The matching result is $A \\cap B = A$.",
-   "hi": "अगर $A$ पूरी तरह $B$ के अंदर है, तो दोनों मिलाने से कुछ नया नहीं जुड़ता — जवाब सिर्फ़ $B$ है। बनाकर देखिए: छोटा वृत्त पहले से बड़े के अंदर है। साथ वाला नतीजा है $A \\cap B = A$।"
+   "hi": "अगर $A$ पूरी तरह $B$ के अंदर है, तो दोनों मिलाने से कुछ नया नहीं जुड़ता — जवाब सिर्फ़ $B$ है। बनाकर देखिए: छोटा circle पहले से बड़े के अंदर है। साथ वाला नतीजा है $A \\cap B = A$।"
   }
  },
  {
@@ -7669,7 +7669,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "3",
   "exp": {
    "en": "*Everyone likes at least one* means $n(T \\cup C) = 30$. So $30 = 18 + 15 - n(T \\cap C)$, giving $n(T \\cap C) = 33 - 30 = 3$. The phrase *at least one* is the clue that the union fills the whole group.",
-   "hi": "*हर किसी को कम से कम एक पसंद है* यानी $n(T \\cup C) = 30$। तो $30 = 18 + 15 - n(T \\cap C)$, यानी $n(T \\cap C) = 33 - 30 = 3$। *कम से कम एक* वाक्यांश ही इशारा है कि सम्मिलन पूरे समूह को भर देता है।"
+   "hi": "*हर किसी को कम से कम एक पसंद है* यानी $n(T \\cup C) = 30$। तो $30 = 18 + 15 - n(T \\cap C)$, यानी $n(T \\cap C) = 33 - 30 = 3$। *कम से कम एक* वाक्यांश ही इशारा है कि union पूरे समूह को भर देता है।"
   }
  },
  {
@@ -7687,7 +7687,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "mcq",
   "q": {
    "en": "Which region is shaded when we shade $A$ and then remove $A \\cap B$?",
-   "hi": "जब हम $A$ को रंगकर उसमें से $A \\cap B$ हटा दें, तो कौन-सा क्षेत्र रंगा रहेगा?"
+   "hi": "जब हम $A$ को रंगकर उसमें से $A \\cap B$ हटा दें, तो कौन-सा region रंगा रहेगा?"
   },
   "opts": {
    "en": [
@@ -7706,7 +7706,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "Circle $A$ minus the shared middle leaves the part of $A$ that is not in $B$ — the *only A* region, written $A \\cap B'$. Picture it before you reach for symbols.",
-   "hi": "वृत्त $A$ में से साझा बीच वाला हिस्सा हटाने पर $A$ का वह हिस्सा बचता है जो $B$ में नहीं है — यानी *सिर्फ़ A* वाला क्षेत्र, जिसे $A \\cap B'$ लिखते हैं। चिह्नों की ओर जाने से पहले तस्वीर देखिए।"
+   "hi": "circle $A$ में से साझा बीच वाला हिस्सा हटाने पर $A$ का वह हिस्सा बचता है जो $B$ में नहीं है — यानी *सिर्फ़ A* वाला region, जिसे $A \\cap B'$ लिखते हैं। signs की ओर जाने से पहले तस्वीर देखिए।"
   }
  },
  {
@@ -7752,7 +7752,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "15",
   "exp": {
    "en": "12 own neither, so $n(C \\cup G) = 80 - 12 = 68$. Then $68 = 45 + 38 - n(C \\cap G)$, giving $n(C \\cap G) = 83 - 68 = 15$. Check the four regions: 30 cow only, 15 both, 23 goat only, 12 neither — total 80 ✅.",
-   "hi": "12 के पास कोई नहीं, तो $n(C \\cup G) = 80 - 12 = 68$। फिर $68 = 45 + 38 - n(C \\cap G)$, यानी $n(C \\cap G) = 83 - 68 = 15$। चारों क्षेत्र जाँचिए: सिर्फ़ गाय 30, दोनों 15, सिर्फ़ बकरी 23, कोई नहीं 12 — कुल 80 ✅।"
+   "hi": "12 के पास कोई नहीं, तो $n(C \\cup G) = 80 - 12 = 68$। फिर $68 = 45 + 38 - n(C \\cap G)$, यानी $n(C \\cap G) = 83 - 68 = 15$। चारों region जाँचिए: सिर्फ़ गाय 30, दोनों 15, सिर्फ़ बकरी 23, कोई नहीं 12 — कुल 80 ✅।"
   }
  },
  {
@@ -7789,7 +7789,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "The shared part can never be bigger than the smaller set — you cannot share more of $B$ than all of $B$. The largest case is $B \\subseteq A$, giving 15. Option C is $n(A) + n(B)$, which would be the largest **union**, not intersection.",
-   "hi": "साझा हिस्सा छोटे समुच्चय से बड़ा हो ही नहीं सकता — आप $B$ का पूरे $B$ से ज़्यादा हिस्सा साझा नहीं कर सकते। सबसे बड़ी स्थिति है $B \\subseteq A$, यानी 15। विकल्प C यानी $n(A) + n(B)$, जो सबसे बड़ा **सम्मिलन** होता, सर्वनिष्ठ नहीं।"
+   "hi": "साझा हिस्सा छोटे set से बड़ा हो ही नहीं सकता — आप $B$ का पूरे $B$ से ज़्यादा हिस्सा साझा नहीं कर सकते। सबसे बड़ी स्थिति है $B \\subseteq A$, यानी 15। विकल्प C यानी $n(A) + n(B)$, जो सबसे बड़ा **union** होता, intersection नहीं।"
   }
  },
  {
@@ -7812,7 +7812,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "14",
   "exp": {
    "en": "First the middle: $n(A \\cap B) = 25 + 18 - 32 = 11$. Then *only A* $= 25 - 11 = 14$. Always find the middle before any *only* region — going the other way causes double counting.",
-   "hi": "पहले बीच वाला: $n(A \\cap B) = 25 + 18 - 32 = 11$। फिर *सिर्फ़ A* $= 25 - 11 = 14$। किसी भी *सिर्फ़* वाले क्षेत्र से पहले हमेशा बीच वाला निकालिए — उल्टा करने से दोहरी गिनती हो जाती है।"
+   "hi": "पहले बीच वाला: $n(A \\cap B) = 25 + 18 - 32 = 11$। फिर *सिर्फ़ A* $= 25 - 11 = 14$। किसी भी *सिर्फ़* वाले region से पहले हमेशा बीच वाला निकालिए — उल्टा करने से दोहरी गिनती हो जाती है।"
   }
  },
  {
@@ -7830,7 +7830,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "mcq",
   "q": {
    "en": "For any two sets, which is always true?",
-   "hi": "किन्हीं भी दो समुच्चयों के लिए कौन हमेशा सही है?"
+   "hi": "किन्हीं भी दो sets के लिए कौन हमेशा सही है?"
   },
   "opts": {
    "en": [
@@ -7849,7 +7849,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "The middle slice is always part of the whole, so it can never be bigger. Option C is only true when the sets are disjoint. Option B is backwards: the intersection is at most $n(A)$, never more.",
-   "hi": "बीच का हिस्सा हमेशा पूरे का ही एक भाग है, तो वह बड़ा हो ही नहीं सकता। विकल्प C तभी सही है जब समुच्चय असंयुक्त हों। विकल्प B उल्टा है: सर्वनिष्ठ अधिक से अधिक $n(A)$ होता है, उससे ज़्यादा कभी नहीं।"
+   "hi": "बीच का हिस्सा हमेशा पूरे का ही एक भाग है, तो वह बड़ा हो ही नहीं सकता। विकल्प C तभी सही है जब set disjoint हों। विकल्प B उल्टा है: intersection अधिक से अधिक $n(A)$ होता है, उससे ज़्यादा कभी नहीं।"
   }
  },
  {
@@ -7872,7 +7872,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "26",
   "exp": {
    "en": "$n(H \\cup S) = 20 + 18 - 12 = 26$. Since everybody studies at least one, the union IS the whole class, so there are 26 students. Answering 38 means the 12 who do both were counted twice.",
-   "hi": "$n(H \\cup S) = 20 + 18 - 12 = 26$। चूँकि हर कोई कम से कम एक पढ़ता है, सम्मिलन **ही** पूरी कक्षा है, तो 26 विद्यार्थी हैं। 38 आया तो दोनों पढ़ने वाले 12 दो बार गिने गए।"
+   "hi": "$n(H \\cup S) = 20 + 18 - 12 = 26$। चूँकि हर कोई कम से कम एक पढ़ता है, union **ही** पूरी कक्षा है, तो 26 विद्यार्थी हैं। 38 आया तो दोनों पढ़ने वाले 12 दो बार गिने गए।"
   }
  },
  {
@@ -7946,7 +7946,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "$12 + 9 - 4 = 17$. Option B, 21, is what you get by forgetting to subtract — but then the 4 shared members would be counted twice.",
-   "hi": "$12 + 9 - 4 = 17$। विकल्प B यानी 21, घटाना भूल जाने पर आता है — पर तब वे 4 साझा सदस्य दो बार गिने जाते।"
+   "hi": "$12 + 9 - 4 = 17$। विकल्प B यानी 21, घटाना भूल जाने पर आता है — पर तब वे 4 साझा member दो बार गिने जाते।"
   }
  },
  {
@@ -8006,7 +8006,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "First $A \\cup B = \\{1,2,3,4,5\\}$. Then take everything else in $U$: $\\{6,7,8,9\\}$. Work inside out — bracket first, dash last. Taking the dash too early is where this goes wrong.",
-   "hi": "पहले $A \\cup B = \\{1,2,3,4,5\\}$। फिर $U$ की बाक़ी सब चीज़ें लीजिए: $\\{6,7,8,9\\}$। अंदर से बाहर चलिए — पहले कोष्ठक, आख़िर में डैश। डैश जल्दी ले लेना ही वह जगह है जहाँ यह बिगड़ता है।"
+   "hi": "पहले $A \\cup B = \\{1,2,3,4,5\\}$। फिर $U$ की बाक़ी सब चीज़ें लीजिए: $\\{6,7,8,9\\}$। अंदर से बाहर चलिए — पहले bracket, आख़िर में डैश। डैश जल्दी ले लेना ही वह जगह है जहाँ यह बिगड़ता है।"
   }
  },
  {
@@ -8052,7 +8052,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "12",
   "exp": {
    "en": "By De Morgan, $A' \\cap B' = (A \\cup B)'$ — the region outside both circles. So the answer is $40 - 28 = 12$. Spotting that the two look different but mean the same region is the whole question.",
-   "hi": "डी मॉर्गन से, $A' \\cap B' = (A \\cup B)'$ — दोनों वृत्तों के बाहर का क्षेत्र। तो जवाब $40 - 28 = 12$। यह पहचान लेना कि दोनों अलग दिखते हैं पर एक ही क्षेत्र बताते हैं — पूरा सवाल यही है।"
+   "hi": "डी मॉर्गन से, $A' \\cap B' = (A \\cup B)'$ — दोनों circles के बाहर का region। तो जवाब $40 - 28 = 12$। यह पहचान लेना कि दोनों अलग दिखते हैं पर एक ही region बताते हैं — पूरा सवाल यही है।"
   }
  },
  {
@@ -8070,7 +8070,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "mcq",
   "q": {
    "en": "*I have neither a bicycle nor a phone.* In set language this is:",
-   "hi": "*मेरे पास न साइकिल है न फ़ोन।* समुच्चय की भाषा में यह है:"
+   "hi": "*मेरे पास न साइकिल है न फ़ोन।* set की भाषा में यह है:"
   },
   "opts": {
    "en": [
@@ -8112,7 +8112,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "2",
   "exp": {
    "en": "Rearrange: $n(A \\cap B) = 17 + 23 - 38 = 2$. Sense-check: the shared part can never exceed the smaller set, and $2 < 17$ ✅. If your answer had come out above 17, you would know at once it was wrong.",
-   "hi": "पुनर्व्यवस्थित कीजिए: $n(A \\cap B) = 17 + 23 - 38 = 2$। समझ से जाँच: साझा हिस्सा छोटे समुच्चय से बड़ा नहीं हो सकता, और $2 < 17$ ✅। अगर जवाब 17 से ऊपर आता, तो तुरंत पता चल जाता कि ग़लत है।"
+   "hi": "पुनर्व्यवस्थित कीजिए: $n(A \\cap B) = 17 + 23 - 38 = 2$। समझ से जाँच: साझा हिस्सा छोटे set से बड़ा नहीं हो सकता, और $2 < 17$ ✅। अगर जवाब 17 से ऊपर आता, तो तुरंत पता चल जाता कि ग़लत है।"
   }
  },
  {
@@ -8130,7 +8130,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "match",
   "q": {
    "en": "Match each phrase with its set expression.",
-   "hi": "हर वाक्यांश को उसके समुच्चय व्यंजक से मिलाइए।"
+   "hi": "हर वाक्यांश को उसके set expression से मिलाइए।"
   },
   "pairs": [
    {
@@ -8176,7 +8176,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   ],
   "exp": {
    "en": "Translating words into regions is the real skill in this chapter. Watch *neither...nor*: it means BOTH are missing, so it takes $\\cap$, not $\\cup$. That one is the most common slip.",
-   "hi": "शब्दों को क्षेत्रों में बदलना ही इस अध्याय का असली कौशल है। *न...न* पर ध्यान दीजिए: इसका मतलब है **दोनों** नहीं हैं, तो इसमें $\\cap$ लगेगा, $\\cup$ नहीं। सबसे आम चूक यही है।"
+   "hi": "शब्दों को regions में बदलना ही इस अध्याय का असली कौशल है। *न...न* पर ध्यान दीजिए: इसका मतलब है **दोनों** नहीं हैं, तो इसमें $\\cap$ लगेगा, $\\cup$ नहीं। सबसे आम चूक यही है।"
   }
  },
  {
@@ -8259,7 +8259,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "35",
   "exp": {
    "en": "*Rice but not dal* is the *only rice* region: $60 - 25 = 35$. The 60 already includes the 25 who buy both, so take them out. Answering 60 means you did not remove the shared part at all.",
-   "hi": "*चावल पर दाल नहीं* यानी *सिर्फ़ चावल* वाला क्षेत्र: $60 - 25 = 35$। 60 में वे 25 पहले से शामिल हैं जो दोनों ख़रीदते हैं, तो उन्हें निकाल दीजिए। 60 आया तो आपने साझा हिस्सा हटाया ही नहीं।"
+   "hi": "*चावल पर दाल नहीं* यानी *सिर्फ़ चावल* वाला region: $60 - 25 = 35$। 60 में वे 25 पहले से शामिल हैं जो दोनों ख़रीदते हैं, तो उन्हें निकाल दीजिए। 60 आया तो आपने साझा हिस्सा हटाया ही नहीं।"
   }
  },
  {
@@ -8282,7 +8282,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "5",
   "exp": {
    "en": "At least one: $120+90+70-40-30-35+20 = 195$. So none $= 200 - 195 = 5$. Two steps: use inclusion-exclusion for the union, then subtract from the total. Stopping at 195 answers a different question.",
-   "hi": "कम से कम एक: $120+90+70-40-30-35+20 = 195$। तो कोई नहीं $= 200 - 195 = 5$। दो चरण: सम्मिलन के लिए समावेश-अपवर्जन, फिर कुल में से घटाइए। 195 पर रुक जाना किसी और सवाल का जवाब है।"
+   "hi": "कम से कम एक: $120+90+70-40-30-35+20 = 195$। तो कोई नहीं $= 200 - 195 = 5$। दो चरण: union के लिए inclusion-exclusion, फिर कुल में से घटाइए। 195 पर रुक जाना किसी और सवाल का जवाब है।"
   }
  },
  {
@@ -8311,15 +8311,15 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
    ],
    "hi": [
     "$A = B$",
-    "$A$ और $B$ असंयुक्त हैं",
-    "$A$ रिक्त है",
+    "$A$ और $B$ disjoint हैं",
+    "$A$ empty है",
     "$B \\subset A$"
    ]
   },
   "correct": "A",
   "exp": {
    "en": "The shared part is as big as $A$ itself, so all of $A$ lies inside $B$. The same argument puts all of $B$ inside $A$. Each contains the other, so they are the same set. Disjoint would need the intersection to be 0.",
-   "hi": "साझा हिस्सा ख़ुद $A$ जितना बड़ा है, तो पूरा $A$, $B$ के अंदर है। उसी तर्क से पूरा $B$, $A$ के अंदर है। हर एक दूसरे को समाए है, तो दोनों एक ही समुच्चय हैं। असंयुक्त होने के लिए सर्वनिष्ठ 0 चाहिए होता।"
+   "hi": "साझा हिस्सा ख़ुद $A$ जितना बड़ा है, तो पूरा $A$, $B$ के अंदर है। उसी तर्क से पूरा $B$, $A$ के अंदर है। हर एक दूसरे को समाए है, तो दोनों एक ही set हैं। disjoint होने के लिए intersection 0 चाहिए होता।"
   }
  },
  {
@@ -8342,7 +8342,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "48",
   "exp": {
    "en": "At least one language: $25 + 20 - 5 = 40$. Add the 8 who speak neither: $40 + 8 = 48$. The *neither* group lives outside both circles but is still inside $U$, so it must be added at the end — forgetting it gives 40.",
-   "hi": "कम से कम एक भाषा: $25 + 20 - 5 = 40$। कोई नहीं बोलने वाले 8 जोड़िए: $40 + 8 = 48$। *कोई नहीं* वाला समूह दोनों वृत्तों के बाहर रहता है पर $U$ के अंदर ही है, तो उसे आख़िर में जोड़ना ज़रूरी है — भूलने पर 40 आता है।"
+   "hi": "कम से कम एक भाषा: $25 + 20 - 5 = 40$। कोई नहीं बोलने वाले 8 जोड़िए: $40 + 8 = 48$। *कोई नहीं* वाला समूह दोनों circles के बाहर रहता है पर $U$ के अंदर ही है, तो उसे आख़िर में जोड़ना ज़रूरी है — भूलने पर 40 आता है।"
   }
  },
  {
@@ -8360,7 +8360,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "mcq",
   "q": {
    "en": "How many of these are empty? $\\{x \\in \\mathbb{N} : x < 1\\}$, $\\{0\\}$, $\\{x \\in \\mathbb{R} : x^2 < 0\\}$, $\\{\\emptyset\\}$",
-   "hi": "इनमें से कितने रिक्त हैं? $\\{x \\in \\mathbb{N} : x < 1\\}$, $\\{0\\}$, $\\{x \\in \\mathbb{R} : x^2 < 0\\}$, $\\{\\emptyset\\}$"
+   "hi": "इनमें से कितने empty हैं? $\\{x \\in \\mathbb{N} : x < 1\\}$, $\\{0\\}$, $\\{x \\in \\mathbb{R} : x^2 < 0\\}$, $\\{\\emptyset\\}$"
   },
   "opts": {
    "en": [
@@ -8379,7 +8379,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "Empty: the first (no counting number is below 1) and the third (a square is never below 0). Not empty: $\\{0\\}$ holds one number, and $\\{\\emptyset\\}$ holds one set. Both of those look empty but are not.",
-   "hi": "रिक्त: पहला (कोई गिनती की संख्या 1 से नीचे नहीं) और तीसरा (वर्ग कभी 0 से नीचे नहीं)। रिक्त नहीं: $\\{0\\}$ में एक संख्या है, और $\\{\\emptyset\\}$ में एक समुच्चय। ये दोनों रिक्त दिखते हैं पर हैं नहीं।"
+   "hi": "empty: पहला (कोई गिनती की संख्या 1 से नीचे नहीं) और तीसरा (square कभी 0 से नीचे नहीं)। empty नहीं: $\\{0\\}$ में एक संख्या है, और $\\{\\emptyset\\}$ में एक set। ये दोनों empty दिखते हैं पर हैं नहीं।"
   }
  },
  {
@@ -8397,12 +8397,12 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "short",
   "q": {
    "en": "How many subsets of $\\{1,2,3,4,5\\}$ do NOT contain the number 5?",
-   "hi": "$\\{1,2,3,4,5\\}$ के कितने उपसमुच्चयों में संख्या 5 **नहीं** है?"
+   "hi": "$\\{1,2,3,4,5\\}$ के कितने subsets में संख्या 5 **नहीं** है?"
   },
   "correct": "16",
   "exp": {
    "en": "Fix 5 as *out*. The other four members are still free, so $2^4 = 16$. Neat check: exactly half of the 32 subsets leave 5 out, and half include it.",
-   "hi": "5 को *बाहर* तय कर दीजिए। बाक़ी चार सदस्य अब भी आज़ाद हैं, तो $2^4 = 16$। बढ़िया जाँच: 32 उपसमुच्चयों में से ठीक आधे 5 को छोड़ते हैं, और आधे उसे रखते हैं।"
+   "hi": "5 को *बाहर* तय कर दीजिए। बाक़ी चार member अब भी आज़ाद हैं, तो $2^4 = 16$। बढ़िया जाँच: 32 subsets में से ठीक आधे 5 को छोड़ते हैं, और आधे उसे रखते हैं।"
   }
  },
  {
@@ -8420,7 +8420,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "mcq",
   "q": {
    "en": "$A$ has $n$ members. How many subsets contain at least one member?",
-   "hi": "$A$ में $n$ सदस्य हैं। कितने उपसमुच्चयों में कम से कम एक सदस्य है?"
+   "hi": "$A$ में $n$ member हैं। कितने subsets में कम से कम एक member है?"
   },
   "opts": {
    "en": [
@@ -8439,7 +8439,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "Count all of them and remove the one that fails: only the empty set has no members, so $2^n - 1$. Counting the opposite and subtracting is almost always faster than counting each size separately.",
-   "hi": "सब गिनिए और जो शर्त पूरी न करे उसे हटा दीजिए: सिर्फ़ रिक्त समुच्चय में कोई सदस्य नहीं है, तो $2^n - 1$। उल्टा गिनकर घटाना लगभग हमेशा हर आकार अलग-अलग गिनने से तेज़ होता है।"
+   "hi": "सब गिनिए और जो शर्त पूरी न करे उसे हटा दीजिए: सिर्फ़ empty set में कोई member नहीं है, तो $2^n - 1$। उल्टा गिनकर घटाना लगभग हमेशा हर आकार अलग-अलग गिनने से तेज़ होता है।"
   }
  },
  {
@@ -8462,7 +8462,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "38",
   "exp": {
    "en": "Sharing nothing means $n(A \\cap B) = 0$, so there is no double counting: $22 + 16 = 38$. This is the largest the union can ever be for these two sizes.",
-   "hi": "कुछ साझा न होने का मतलब है $n(A \\cap B) = 0$, तो कोई दोहरी गिनती नहीं: $22 + 16 = 38$। इन दो आकारों के लिए सम्मिलन इससे बड़ा कभी नहीं हो सकता।"
+   "hi": "कुछ साझा न होने का मतलब है $n(A \\cap B) = 0$, तो कोई दोहरी गिनती नहीं: $22 + 16 = 38$। इन दो आकारों के लिए union इससे बड़ा कभी नहीं हो सकता।"
   }
  },
  {
@@ -8480,7 +8480,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "type": "mcq",
   "q": {
    "en": "In a Venn diagram, which region is $A' \\cap B$?",
-   "hi": "वेन आरेख में $A' \\cap B$ कौन-सा क्षेत्र है?"
+   "hi": "Venn diagram में $A' \\cap B$ कौन-सा region है?"
   },
   "opts": {
    "en": [
@@ -8499,7 +8499,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "$A'$ is everything outside circle $A$. Keeping only what is also in $B$ leaves the part of $B$ that does not overlap $A$ — the *only B* slice. Read such expressions right to left: start with $B$, then throw out anything in $A$.",
-   "hi": "$A'$ वृत्त $A$ के बाहर का सब कुछ है। उसमें से सिर्फ़ वही रखिए जो $B$ में भी हो, तो $B$ का वह हिस्सा बचता है जो $A$ पर नहीं चढ़ा — यानी *सिर्फ़ B* वाला टुकड़ा। ऐसे व्यंजक दाएँ से बाएँ पढ़िए: $B$ से शुरू कीजिए, फिर $A$ वाला सब हटा दीजिए।"
+   "hi": "$A'$ circle $A$ के बाहर का सब कुछ है। उसमें से सिर्फ़ वही रखिए जो $B$ में भी हो, तो $B$ का वह हिस्सा बचता है जो $A$ पर नहीं चढ़ा — यानी *सिर्फ़ B* वाला टुकड़ा। ऐसे expression दाएँ से बाएँ पढ़िए: $B$ से शुरू कीजिए, फिर $A$ वाला सब हटा दीजिए।"
   }
  },
  {
@@ -8559,7 +8559,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "A",
   "exp": {
    "en": "The union is smallest when the overlap is largest, which happens when $B$ sits entirely inside $A$. Then $A \\cup B = A$, so the answer is 14. The union can never be smaller than the bigger set, because it contains that set whole.",
-   "hi": "सम्मिलन तब सबसे छोटा होता है जब अतिव्यापी हिस्सा सबसे बड़ा हो, यानी जब $B$ पूरी तरह $A$ के अंदर बैठे। तब $A \\cup B = A$, तो जवाब 14। सम्मिलन बड़े समुच्चय से छोटा हो ही नहीं सकता, क्योंकि उसमें वह समुच्चय पूरा समाया है।"
+   "hi": "union तब सबसे छोटा होता है जब अतिव्यापी हिस्सा सबसे बड़ा हो, यानी जब $B$ पूरी तरह $A$ के अंदर बैठे। तब $A \\cup B = A$, तो जवाब 14। union बड़े set से छोटा हो ही नहीं सकता, क्योंकि उसमें वह set पूरा समाया है।"
   }
  },
  {
@@ -8582,7 +8582,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "FALSE",
   "exp": {
    "en": "The correct law is $(A \\cup B)' = A' \\cap B'$ — the dash flips OR into AND. This is the single most common De Morgan mistake: keeping the same joining symbol.",
-   "hi": "सही नियम है $(A \\cup B)' = A' \\cap B'$ — डैश **या** को **और** में पलट देता है। डी मॉर्गन की सबसे आम ग़लती यही है: जोड़ने वाला चिह्न वैसा ही रख देना।"
+   "hi": "सही नियम है $(A \\cup B)' = A' \\cap B'$ — डैश **या** को **और** में पलट देता है। डी मॉर्गन की सबसे आम ग़लती यही है: जोड़ने वाला sign वैसा ही रख देना।"
   }
  },
  {
@@ -8605,7 +8605,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "19",
   "exp": {
    "en": "$14 + 11 - 6 = 19$. The 6 shared members were counted once with $A$ and once with $B$, so one copy has to go.",
-   "hi": "$14 + 11 - 6 = 19$। वे 6 साझा सदस्य एक बार $A$ के साथ और एक बार $B$ के साथ गिने गए, तो एक प्रति हटानी पड़ेगी।"
+   "hi": "$14 + 11 - 6 = 19$। वे 6 साझा member एक बार $A$ के साथ और एक बार $B$ के साथ गिने गए, तो एक प्रति हटानी पड़ेगी।"
   }
  },
  {
@@ -8628,7 +8628,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "correct": "25",
   "exp": {
    "en": "At least one: $85 + 70 - 30 = 125$. Neither $= 150 - 125 = 25$. Two steps — the union first, then take it away from the total. Stopping at 125 answers the wrong question.",
-   "hi": "कम से कम एक: $85 + 70 - 30 = 125$। कोई नहीं $= 150 - 125 = 25$। दो चरण — पहले सम्मिलन, फिर कुल में से घटाइए। 125 पर रुक जाना ग़लत सवाल का जवाब है।"
+   "hi": "कम से कम एक: $85 + 70 - 30 = 125$। कोई नहीं $= 150 - 125 = 25$। दो चरण — पहले union, फिर कुल में से घटाइए। 125 पर रुक जाना ग़लत सवाल का जवाब है।"
   }
  }
 ]);

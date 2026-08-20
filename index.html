@@ -678,16 +678,16 @@ function _venn(L, mode){
     intersection: d("A \u2229 B  \u2014  only what is in BOTH","A \u2229 B  \u2014  सिर्फ़ जो दोनों में हो"),
     onlyA:        d("In A but NOT in B","A में पर B में नहीं"),
     complement:   d("A\u2032  \u2014  everything NOT in A","A\u2032  \u2014  जो कुछ A में नहीं है"),
-    disjoint:     d("Disjoint \u2014 nothing shared","असंयुक्त \u2014 कुछ भी साझा नहीं"),
+    disjoint:     d("Disjoint \u2014 nothing shared","disjoint \u2014 कुछ भी साझा नहीं"),
     subset:       d("A \u2286 B  \u2014  all of A is inside B","A \u2286 B  \u2014  पूरा A, B के अंदर है")
   }[mode];
   var note={
-    union:        d("Pour both circles into one cup","दोनों वृत्त एक ही प्याले में डाल दीजिए"),
+    union:        d("Pour both circles into one cup","दोनों circle एक ही प्याले में डाल दीजिए"),
     intersection: d("Only the middle slice, where they overlap","सिर्फ़ बीच का हिस्सा, जहाँ दोनों चढ़े हैं"),
-    onlyA:        d("Circle A, minus the shared middle","वृत्त A, में से साझा बीच वाला हिस्सा हटाकर"),
+    onlyA:        d("Circle A, minus the shared middle","circle A में से साझा बीच वाला हिस्सा हटा दीजिए"),
     complement:   d("Everything in the box except A","डिब्बे में A को छोड़कर सब कुछ"),
-    disjoint:     d("The circles never touch","वृत्त एक-दूसरे को छूते ही नहीं"),
-    subset:       d("The small circle sits inside the big one","छोटा वृत्त बड़े के अंदर बैठा है")
+    disjoint:     d("The circles never touch","circle एक-दूसरे को छूते ही नहीं"),
+    subset:       d("The small circle sits inside the big one","छोटा circle बड़े के अंदर बैठा है")
   }[mode];
   var cxA = (mode==="disjoint") ? 140 : (mode==="subset" ? 210 : 185);
   var cxB = (mode==="disjoint") ? 320 : (mode==="subset" ? 245 : 275);
@@ -733,20 +733,20 @@ var DIAGRAMS = {
     return '<svg viewBox="0 0 460 300" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
       +'<text x="230" y="18" text-anchor="middle" font-size="17" font-weight="bold" fill="var(--primary)">'+d("Each family sits inside the next","हर परिवार अगले के अंदर है")+'</text>'
       +'<rect x="16" y="30" width="428" height="228" rx="16" fill="none" stroke="var(--primary)" stroke-width="2"/>'
-      +'<text x="28" y="50" font-size="15" font-weight="bold" fill="var(--primary)">'+d("Real \u211d","वास्तविक \u211d")+'</text>'
+      +'<text x="28" y="50" font-size="15" font-weight="bold" fill="var(--primary)">'+d("Real \u211d","real \u211d")+'</text>'
       +'<rect x="40" y="56" width="380" height="180" rx="14" fill="var(--primary-light)" stroke="var(--teal)" stroke-width="2"/>'
-      +'<text x="52" y="76" font-size="15" font-weight="bold" fill="var(--teal)">'+d("Rational \u211a","परिमेय \u211a")+'</text>'
+      +'<text x="52" y="76" font-size="15" font-weight="bold" fill="var(--teal)">'+d("Rational \u211a","rational \u211a")+'</text>'
       +'<rect x="64" y="82" width="332" height="132" rx="12" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>'
-      +'<text x="76" y="102" font-size="15" font-weight="bold" fill="var(--accent)">'+d("Integers \u2124","पूर्णांक \u2124")+'</text>'
+      +'<text x="76" y="102" font-size="15" font-weight="bold" fill="var(--accent)">'+d("Integers \u2124","integer \u2124")+'</text>'
       +'<rect x="88" y="108" width="284" height="86" rx="10" fill="var(--green-light)" stroke="var(--green)" stroke-width="2"/>'
-      +'<text x="100" y="128" font-size="15" font-weight="bold" fill="var(--green)">'+d("Natural \u2115","प्राकृत \u2115")+'</text>'
+      +'<text x="100" y="128" font-size="15" font-weight="bold" fill="var(--green)">'+d("Natural \u2115","natural \u2115")+'</text>'
       +'<text x="230" y="156" text-anchor="middle" font-size="17" fill="var(--ink)">1, 2, 3, 4 \u2026</text>'
       +'<text x="230" y="178" text-anchor="middle" font-size="15" fill="var(--muted)">'+d("counting numbers","गिनती की संख्याएँ")+'</text>'
       +'<text x="150" y="208" font-size="15" fill="var(--muted)">0, -1, -2 \u2026</text>'
       +'<text x="300" y="230" font-size="15" fill="var(--muted)">\u00bd, 0.75</text>'
       +'<text x="60" y="252" font-size="15" fill="var(--muted)">\u221a2</text>'
       +'<text x="390" y="252" font-size="15" fill="var(--muted)">\u03c0</text>'
-      +'<text x="230" y="284" text-anchor="middle" font-size="15" fill="var(--muted)">'+d("\u221a2 and \u03c0 are real but not rational","\u221a2 और \u03c0 वास्तविक हैं पर परिमेय नहीं")+'</text>'
+      +'<text x="230" y="284" text-anchor="middle" font-size="15" fill="var(--muted)">'+d("\u221a2 and \u03c0 are real but not rational","\u221a2 और \u03c0 real हैं पर rational नहीं")+'</text>'
       +'</svg>';
   },
   "sets-union": function(L){ return _venn(L, "union"); },
@@ -758,7 +758,7 @@ var DIAGRAMS = {
   "sets-regions": function(L){
     var d=function(a,b){return L==="hi"?b:a;};
     return '<svg viewBox="0 0 460 300" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
-      +'<text x="230" y="18" text-anchor="middle" font-size="17" font-weight="bold" fill="var(--primary)">'+d("Two circles make four parts","दो वृत्त चार हिस्से बनाते हैं")+'</text>'
+      +'<text x="230" y="18" text-anchor="middle" font-size="17" font-weight="bold" fill="var(--primary)">'+d("Two circles make four parts","दो circle चार हिस्से बनाते हैं")+'</text>'
       +'<rect x="20" y="28" width="420" height="204" rx="10" fill="var(--bg)" stroke="var(--line-strong)" stroke-width="2"/>'
       +'<text x="30" y="46" font-size="15" font-weight="bold" fill="var(--muted)">U</text>'
       +'<circle cx="185" cy="130" r="88" fill="var(--primary)" fill-opacity="0.18" stroke="var(--primary)" stroke-width="2.5"/>'
@@ -798,8 +798,8 @@ var DIAGRAMS = {
     var d=function(a,b){return L==="hi"?b:a;};
     var rows=[["\u2205","out","out"],["{a}","in","out"],["{b}","out","in"],["{a, b}","in","in"]];
     var h='<svg viewBox="0 0 460 300" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
-      +'<text x="230" y="18" text-anchor="middle" font-size="17" font-weight="bold" fill="var(--primary)">'+d("One yes/no choice per member","हर सदस्य पर एक हाँ/ना")+'</text>'
-      +'<text x="230" y="38" text-anchor="middle" font-size="15" fill="var(--muted)">'+d("A = {a, b}  \u2192  2 \u00d7 2 = 4 subsets","A = {a, b}  \u2192  2 \u00d7 2 = 4 उपसमुच्चय")+'</text>'
+      +'<text x="230" y="18" text-anchor="middle" font-size="17" font-weight="bold" fill="var(--primary)">'+d("One yes/no choice per member","हर member पर एक हाँ/ना")+'</text>'
+      +'<text x="230" y="38" text-anchor="middle" font-size="15" fill="var(--muted)">'+d("A = {a, b}  \u2192  2 \u00d7 2 = 4 subsets","A = {a, b}  \u2192  2 \u00d7 2 = 4 subset")+'</text>'
       +'<text x="118" y="66" text-anchor="middle" font-size="15" font-weight="bold" fill="var(--muted)">'+d("a in?","a अंदर?")+'</text>'
       +'<text x="224" y="66" text-anchor="middle" font-size="15" font-weight="bold" fill="var(--muted)">'+d("b in?","b अंदर?")+'</text>'
       +'<text x="356" y="66" text-anchor="middle" font-size="15" font-weight="bold" fill="var(--muted)">'+d("you get","मिलता है")+'</text>';
