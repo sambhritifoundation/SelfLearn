@@ -848,9 +848,10 @@ window.SL_DATA.subjects.push({
       "en": "Empty, finite, infinite, equal",
       "hi": "रिक्त, परिमित, अनंत, बराबर"
      },
+     "diagram": "sets-regions",
      "notes": {
-      "en": "Four labels. Three are obvious once stated; the fourth catches almost everyone.\n\n**The empty set**\nA set with no members at all, written $\\emptyset$ or $\\{\\;\\}$.\n\n$$\\{x \\in \\mathbb{N} : x < 1\\} = \\emptyset \\qquad \\{x \\in \\mathbb{R} : x^2 = -1\\} = \\emptyset$$\n\n💡 **Why bother naming nothing?** Because a rule can genuinely select nothing, and mathematics needs an answer for that case rather than a shrug. It is the same reason zero was invented: *no goats* still has to be a number you can write down and calculate with.\n\n⚠️ **The trap.** $\\emptyset$ and $\\{0\\}$ and $\\{\\emptyset\\}$ are three different things:\n\n| Written | Members | Size |\n|---|---|---|\n| $\\emptyset$ | none | 0 |\n| $\\{0\\}$ | the number zero | 1 |\n| $\\{\\emptyset\\}$ | the empty set itself | 1 |\n\nThink of a box. $\\emptyset$ is no box. $\\{0\\}$ is a box with a zero in it. $\\{\\emptyset\\}$ is a box with an empty box inside it — the outer box is not empty, it contains something.\n\n**Finite and infinite**\nA set is **finite** if you could, in principle, finish counting it. $\\{1, 2, \\ldots, 1000000\\}$ is finite — tedious, but finishable. $\\mathbb{N}$ is **infinite** — the counting never ends.\n\n$n(A)$, called the **cardinal number**, is how many members a finite set has. $n(\\{a, e, i, o, u\\}) = 5$, and $n(\\emptyset) = 0$.\n\n⚠️ Do not confuse *large* with *infinite*. The set of grains of sand on Earth is finite. Infinite means the counting has no last step, not that the number is big.\n\n**Equal sets**\nTwo sets are **equal** when they have exactly the same members. Nothing else counts.\n\n$$\\{1, 2, 3\\} = \\{3, 2, 1\\} = \\{1, 1, 2, 3, 3\\}$$\n\nAll three are the same set. Order was never recorded, and repetition was never recorded, so none of it can make a difference.\n\n**Equal versus equivalent**\n- **Equal** ($A = B$): the same members.\n- **Equivalent**: the same *number* of members, $n(A) = n(B)$.\n\n$\\{1, 2, 3\\}$ and $\\{a, b, c\\}$ are equivalent but **not** equal. Every equal pair is also equivalent; the reverse fails. Examiners test this distinction constantly, because it is the one place students answer from habit rather than from the definition.",
-      "hi": "चार नाम। तीन बताते ही साफ़ हो जाते हैं; चौथा लगभग सबको पकड़ता है।\n\n**रिक्त समुच्चय**\nवह समुच्चय जिसका कोई सदस्य ही नहीं, लिखा जाता है $\\emptyset$ या $\\{\\;\\}$।\n\n$$\\{x \\in \\mathbb{N} : x < 1\\} = \\emptyset \\qquad \\{x \\in \\mathbb{R} : x^2 = -1\\} = \\emptyset$$\n\n💡 **कुछ न होने को नाम देने की ज़रूरत क्या?** क्योंकि कोई नियम सचमुच कुछ भी न चुन सकता है, और गणित को उस स्थिति का जवाब चाहिए, कंधे उचकाना नहीं। यही वजह शून्य के आविष्कार की भी थी: *कोई बकरी नहीं* को भी ऐसी संख्या होना पड़ेगा जिसे लिखा और जिससे हिसाब किया जा सके।\n\n⚠️ **जाल।** $\\emptyset$, $\\{0\\}$ और $\\{\\emptyset\\}$ तीन अलग चीज़ें हैं:\n\n| लिखा हुआ | सदस्य | आकार |\n|---|---|---|\n| $\\emptyset$ | कोई नहीं | 0 |\n| $\\{0\\}$ | शून्य संख्या | 1 |\n| $\\{\\emptyset\\}$ | ख़ुद रिक्त समुच्चय | 1 |\n\nडिब्बे की तरह सोचिए। $\\emptyset$ यानी कोई डिब्बा नहीं। $\\{0\\}$ यानी डिब्बा जिसमें शून्य रखा है। $\\{\\emptyset\\}$ यानी डिब्बा जिसके अंदर एक ख़ाली डिब्बा है — बाहर वाला डिब्बा ख़ाली नहीं है, उसमें कुछ रखा है।\n\n**परिमित और अनंत**\nसमुच्चय **परिमित** है अगर आप सिद्धांततः उसे गिनकर ख़त्म कर सकें। $\\{1, 2, \\ldots, 1000000\\}$ परिमित है — उबाऊ, पर ख़त्म होने लायक़। $\\mathbb{N}$ **अनंत** है — गिनती कभी ख़त्म नहीं होती।\n\n$n(A)$, जिसे **कार्डिनल संख्या** कहते हैं, बताता है कि परिमित समुच्चय में कितने सदस्य हैं। $n(\\{a, e, i, o, u\\}) = 5$, और $n(\\emptyset) = 0$।\n\n⚠️ *बड़ा* और *अनंत* में घालमेल मत कीजिए। पृथ्वी पर रेत के कणों का समुच्चय परिमित है। अनंत का मतलब है गिनती का कोई आख़िरी क़दम नहीं, यह नहीं कि संख्या बड़ी है।\n\n**बराबर समुच्चय**\nदो समुच्चय **बराबर** तब हैं जब उनके सदस्य ठीक-ठीक वही हों। और कुछ नहीं गिना जाता।\n\n$$\\{1, 2, 3\\} = \\{3, 2, 1\\} = \\{1, 1, 2, 3, 3\\}$$\n\nतीनों एक ही समुच्चय हैं। क्रम कभी दर्ज ही नहीं हुआ, और दोहराव कभी दर्ज ही नहीं हुआ, तो इनमें से कोई फ़र्क़ डाल ही नहीं सकता।\n\n**बराबर बनाम तुल्य**\n- **बराबर** ($A = B$): सदस्य वही।\n- **तुल्य**: सदस्यों की *संख्या* वही, $n(A) = n(B)$।\n\n$\\{1, 2, 3\\}$ और $\\{a, b, c\\}$ तुल्य हैं पर बराबर **नहीं**। हर बराबर जोड़ा तुल्य भी होता है; उल्टा नहीं चलता। परीक्षक यह भेद लगातार पूछते हैं, क्योंकि यही एक जगह है जहाँ विद्यार्थी परिभाषा से नहीं, आदत से जवाब देते हैं।"
+      "en": "Four names. Three are easy. The fourth catches almost everyone.\n\n**The empty set**\nA set with nothing in it. We write it $\\emptyset$ or $\\{\\;\\}$.\n\nThink of your school bag on a Sunday. It is still a bag. It just has nothing inside.\n\n$$\\{x \\in \\mathbb{N} : x < 1\\} = \\emptyset$$\n\nNo counting number is smaller than 1, so nothing is picked. The answer is the empty set.\n\n💡 **Why give a name to nothing?** Because sometimes a rule picks nothing, and we still need an answer to write down. It is like zero. If you have no goats, *zero goats* is still a real answer.\n\n⚠️ **The trap.** These three look alike but are different:\n\n| We write | What is inside | How many |\n|---|---|---|\n| $\\emptyset$ | nothing | 0 |\n| $\\{0\\}$ | the number zero | 1 |\n| $\\{\\emptyset\\}$ | one empty set | 1 |\n\nThink of boxes:\n- $\\emptyset$ = no box at all\n- $\\{0\\}$ = a box with a zero inside\n- $\\{\\emptyset\\}$ = a big box with a small **empty** box inside it\n\nThe big box is not empty. There is a small box in it.\n\n**Finite and infinite**\nA set is **finite** if you could finish counting it one day.\n\n> The students in your school — finite.\n> Grains of rice in a sack — finite. Very many, but they would end.\n\nA set is **infinite** if the counting never ends.\n\n> $\\mathbb{N} = \\{1, 2, 3, \\ldots\\}$ — after every number there is a next one. It never stops.\n\n⚠️ **Big is not the same as infinite.** All the sand on earth is a huge amount, but you could finish counting it. That set is finite.\n\nWe write $n(A)$ for **how many members** are in set $A$.\n\n$$n(\\{a, e, i, o, u\\}) = 5 \\qquad n(\\emptyset) = 0$$\n\n**Equal sets**\nTwo sets are **equal** when they have exactly the same members. Nothing else matters.\n\n$$\\{1, 2, 3\\} = \\{3, 2, 1\\} = \\{1, 1, 2, 3, 3\\}$$\n\nAll three are the same set. Order was never written down. Repeats were never written down. So neither can change anything.\n\n**Equal and equivalent are different**\n- **Equal** ($A = B$): the same members.\n- **Equivalent**: the same *number* of members.\n\n$\\{1, 2, 3\\}$ and $\\{a, b, c\\}$ are **equivalent** — both have 3 members. But they are **not equal** — 1 is not the same thing as $a$.\n\n> Three cows and three chairs. Same number. Not the same thing.\n\nExam papers ask this every year, because students answer from habit instead of checking the meaning.",
+      "hi": "चार नाम। तीन आसान हैं। चौथा लगभग सबको पकड़ता है।\n\n**रिक्त समुच्चय**\nऐसा समुच्चय जिसमें कुछ भी नहीं है। इसे $\\emptyset$ या $\\{\\;\\}$ लिखते हैं।\n\nरविवार को अपने स्कूल बैग के बारे में सोचिए। वह अब भी बैग है। बस अंदर कुछ नहीं है।\n\n$$\\{x \\in \\mathbb{N} : x < 1\\} = \\emptyset$$\n\nकोई भी गिनती की संख्या 1 से छोटी नहीं है, तो कुछ भी नहीं चुना गया। जवाब है रिक्त समुच्चय।\n\n💡 **कुछ न होने को नाम क्यों दें?** क्योंकि कभी-कभी नियम कुछ भी नहीं चुनता, और फिर भी हमें कोई जवाब लिखना होता है। यह शून्य जैसा ही है। अगर आपके पास कोई बकरी नहीं है, तो *शून्य बकरी* भी एक असली जवाब है।\n\n⚠️ **जाल।** ये तीन एक जैसे दिखते हैं पर अलग हैं:\n\n| हम लिखते हैं | अंदर क्या है | कितने |\n|---|---|---|\n| $\\emptyset$ | कुछ नहीं | 0 |\n| $\\{0\\}$ | शून्य संख्या | 1 |\n| $\\{\\emptyset\\}$ | एक रिक्त समुच्चय | 1 |\n\nडिब्बों की तरह सोचिए:\n- $\\emptyset$ = कोई डिब्बा ही नहीं\n- $\\{0\\}$ = डिब्बा जिसमें शून्य रखा है\n- $\\{\\emptyset\\}$ = बड़ा डिब्बा जिसके अंदर एक छोटा **ख़ाली** डिब्बा रखा है\n\nबड़ा डिब्बा ख़ाली नहीं है। उसमें एक छोटा डिब्बा रखा है।\n\n**परिमित और अनंत**\nसमुच्चय **परिमित** है अगर आप उसे कभी न कभी गिनकर पूरा कर सकें।\n\n> आपके स्कूल के विद्यार्थी — परिमित।\n> बोरी में चावल के दाने — परिमित। बहुत सारे, पर कभी तो ख़त्म होंगे।\n\nसमुच्चय **अनंत** है अगर गिनती कभी ख़त्म ही न हो।\n\n> $\\mathbb{N} = \\{1, 2, 3, \\ldots\\}$ — हर संख्या के बाद एक और संख्या है। यह कभी नहीं रुकता।\n\n⚠️ **बड़ा होना और अनंत होना एक बात नहीं है।** धरती की सारी रेत बहुत ज़्यादा है, पर आप उसे गिनकर पूरा कर सकते हैं। वह समुच्चय परिमित है।\n\nसमुच्चय $A$ में **कितने सदस्य हैं**, इसे $n(A)$ लिखते हैं।\n\n$$n(\\{a, e, i, o, u\\}) = 5 \\qquad n(\\emptyset) = 0$$\n\n**बराबर समुच्चय**\nदो समुच्चय **बराबर** तब हैं जब उनके सदस्य बिल्कुल वही हों। और किसी बात से फ़र्क़ नहीं पड़ता।\n\n$$\\{1, 2, 3\\} = \\{3, 2, 1\\} = \\{1, 1, 2, 3, 3\\}$$\n\nतीनों एक ही समुच्चय हैं। क्रम कभी लिखा ही नहीं गया। दोहराव कभी लिखा ही नहीं गया। तो इनमें से कोई कुछ बदल ही नहीं सकता।\n\n**बराबर और तुल्य अलग हैं**\n- **बराबर** ($A = B$): सदस्य वही।\n- **तुल्य**: सदस्यों की *संख्या* वही।\n\n$\\{1, 2, 3\\}$ और $\\{a, b, c\\}$ **तुल्य** हैं — दोनों में 3 सदस्य हैं। पर ये **बराबर नहीं** हैं — 1 और $a$ एक चीज़ नहीं हैं।\n\n> तीन गाय और तीन कुर्सियाँ। संख्या वही। चीज़ वही नहीं।\n\nपरीक्षा में यह हर साल पूछा जाता है, क्योंकि विद्यार्थी मतलब देखने के बजाय आदत से जवाब दे देते हैं।"
      },
      "worked": [
       {
@@ -865,47 +866,47 @@ window.SL_DATA.subjects.push({
        "steps": [
         {
          "do": {
-          "en": "(a) $x^2 + 1 = 0$ needs $x^2 = -1$. A real number squared is never negative, so nothing qualifies. **Empty.**",
-          "hi": "(क) $x^2 + 1 = 0$ के लिए $x^2 = -1$ चाहिए। किसी वास्तविक संख्या का वर्ग ऋणात्मक नहीं होता, तो कोई योग्य नहीं। **रिक्त।**"
+          "en": "(a) $x^2 + 1 = 0$ needs $x^2 = -1$. But a number times itself is never negative. So nothing fits. **Empty.**",
+          "hi": "(क) $x^2 + 1 = 0$ के लिए $x^2 = -1$ चाहिए। पर कोई संख्या ख़ुद से गुणा होकर ऋणात्मक नहीं होती। तो कुछ भी फ़िट नहीं बैठता। **रिक्त।**"
          },
          "why": {
-          "en": "Note the family matters: over complex numbers this set would not be empty. Chapter 4 exists precisely to fix this gap.",
-          "hi": "ध्यान दीजिए परिवार मायने रखता है: सम्मिश्र संख्याओं में यह समुच्चय रिक्त नहीं होता। अध्याय 4 इसी कमी को भरने के लिए ही है।"
+          "en": "$2 \\times 2 = 4$ and $(-2) \\times (-2) = 4$ too. Both give a plus. So a square is never below zero.",
+          "hi": "$2 \\times 2 = 4$ और $(-2) \\times (-2) = 4$ भी। दोनों धन देते हैं। तो वर्ग कभी शून्य से नीचे नहीं जाता।"
          }
         },
         {
          "do": {
-          "en": "(b) Natural numbers strictly between 2 and 3 — there are none. **Empty.**",
-          "hi": "(ख) 2 और 3 के बीच की प्राकृत संख्याएँ — कोई नहीं। **रिक्त।**"
+          "en": "(b) Counting numbers between 2 and 3 — there are none. **Empty.**",
+          "hi": "(ख) 2 और 3 के बीच गिनती की संख्याएँ — कोई नहीं। **रिक्त।**"
          },
          "why": {
-          "en": "Naturals come in whole steps, and there is no whole step between 2 and 3.",
-          "hi": "प्राकृत संख्याएँ पूरे क़दमों में चलती हैं, और 2 व 3 के बीच कोई पूरा क़दम है ही नहीं।"
+          "en": "Counting numbers jump in whole steps: 1, 2, 3. There is no stop between 2 and 3.",
+          "hi": "गिनती की संख्याएँ पूरे क़दमों में चलती हैं: 1, 2, 3। 2 और 3 के बीच कोई ठहराव है ही नहीं।"
          }
         },
         {
          "do": {
-          "en": "(c) Same inequality, but over $\\mathbb{R}$: $2.5$ works, and so do infinitely many others. **Not empty** — in fact infinite.",
-          "hi": "(ग) वही असमिका, पर $\\mathbb{R}$ में: $2.5$ चलती है, और उसके जैसी अनंत और भी। **रिक्त नहीं** — बल्कि अनंत।"
+          "en": "(c) Same question, but now over $\\mathbb{R}$. Here $2.5$ fits. So do $2.1$, $2.9$, $2.55$. **Not empty** — in fact endless.",
+          "hi": "(ग) वही सवाल, पर अब $\\mathbb{R}$ में। यहाँ $2.5$ फ़िट बैठता है। $2.1$, $2.9$, $2.55$ भी। **रिक्त नहीं** — बल्कि अनंत।"
          },
          "why": {
-          "en": "(b) and (c) differ only in the family, and the answers are opposite. That is the whole reason the family clause is compulsory.",
-          "hi": "(ख) और (ग) में फ़र्क़ सिर्फ़ परिवार का है, और जवाब उल्टे हैं। परिवार वाली शर्त अनिवार्य होने की पूरी वजह यही है।"
+          "en": "(b) and (c) ask the same thing but from different families, and the answers are opposite. This is why the family must always be written.",
+          "hi": "(ख) और (ग) एक ही बात पूछते हैं पर अलग परिवार से, और जवाब उल्टे हैं। इसीलिए परिवार हमेशा लिखना ज़रूरी है।"
          }
         },
         {
          "do": {
-          "en": "(d) $\\{\\emptyset\\}$ has one member — the empty set. **Not empty**, $n = 1$.",
-          "hi": "(घ) $\\{\\emptyset\\}$ का एक सदस्य है — रिक्त समुच्चय। **रिक्त नहीं**, $n = 1$।"
+          "en": "(d) $\\{\\emptyset\\}$ has one thing inside — an empty set. **Not empty**, $n = 1$.",
+          "hi": "(घ) $\\{\\emptyset\\}$ के अंदर एक चीज़ है — एक रिक्त समुच्चय। **रिक्त नहीं**, $n = 1$।"
          },
          "why": {
-          "en": "A box containing an empty box is not an empty box. Count what is inside the outer brackets: there is one thing there.",
-          "hi": "ख़ाली डिब्बा रखे होने वाला डिब्बा ख़ाली डिब्बा नहीं होता। बाहर के कोष्ठक के अंदर गिनिए: वहाँ एक चीज़ रखी है।"
+          "en": "A box with an empty box inside is not an empty box. Count what is inside the outer brackets: one thing.",
+          "hi": "जिस डिब्बे में ख़ाली डिब्बा रखा हो, वह ख़ाली डिब्बा नहीं होता। बाहरी कोष्ठक के अंदर गिनिए: एक चीज़।"
          }
         }
        ],
        "answer": {
-        "en": "(a) and (b) are empty. (c) is infinite, (d) has one member.",
+        "en": "(a) and (b) are empty. (c) is endless, (d) has one member.",
         "hi": "(क) और (ख) रिक्त हैं। (ग) अनंत है, (घ) में एक सदस्य है।"
        }
       }
@@ -917,9 +918,13 @@ window.SL_DATA.subjects.push({
       "en": "Subsets, power set and intervals",
       "hi": "उपसमुच्चय, घात समुच्चय और अंतराल"
      },
+     "diagram": "sets-subset",
+     "derivations": [
+      "powerset"
+     ],
      "notes": {
-      "en": "**Subset — the idea in one sentence**\n$A \\subseteq B$ means **every member of $A$ is also a member of $B$**.\n\nEvery student in Class 11-B is a student in your school. So $\\{$Class 11-B$\\} \\subseteq \\{$school$\\}$. You have used this idea your whole life; it just did not have a symbol.\n\n$$\\{1, 2\\} \\subseteq \\{1, 2, 3\\} \\qquad \\mathbb{N} \\subseteq \\mathbb{Z} \\subseteq \\mathbb{Q} \\subseteq \\mathbb{R}$$\n\nThat last chain is the Bridge table, written properly. Everything you learned about number families is one line of subset notation.\n\n⚠️ **$\\in$ and $\\subseteq$ are not the same.** $\\in$ relates a *member* to a set; $\\subseteq$ relates a *set* to a set.\n\n$$2 \\in \\{1,2,3\\} \\;\\;✅ \\qquad \\{2\\} \\subseteq \\{1,2,3\\} \\;\\;✅ \\qquad 2 \\subseteq \\{1,2,3\\} \\;\\;❌ \\qquad \\{2\\} \\in \\{1,2,3\\} \\;\\;❌$$\n\nThe curly brackets are the whole difference. This is worth ten minutes now, because it silently ruins answers for two years otherwise.\n\n**Two subsets every set has**\n1. **Itself.** $A \\subseteq A$ — every member of $A$ is in $A$. Trivially true.\n2. **The empty set.** $\\emptyset \\subseteq A$, always.\n\n💡 **Why is $\\emptyset$ a subset of everything?** To break $\\emptyset \\subseteq A$ you would need to produce a member of $\\emptyset$ that is missing from $A$. You cannot produce a member of $\\emptyset$ at all. The claim cannot fail, so it holds. Mathematicians call this *vacuously true*, and once you have seen the argument once it stops feeling like a cheat.\n\n**Proper subset**\n$A \\subset B$ means $A \\subseteq B$ **and** $A \\neq B$ — a subset that leaves something out.\n\n**Power set — all subsets, collected**\n$P(A)$ is the set of every subset of $A$. For $A = \\{1, 2\\}$:\n\n$$P(A) = \\{\\; \\emptyset, \\; \\{1\\}, \\; \\{2\\}, \\; \\{1,2\\} \\;\\}$$\n\nFour subsets, so $n(P(A)) = 4$.\n\n**The formula, and why it is true**\n\n$$n(P(A)) = 2^{n(A)}$$\n\n**Why:** building a subset means walking down the member list and making one decision per member — *in* or *out*. Two choices, made $n$ times independently, gives $2 \\times 2 \\times \\cdots \\times 2 = 2^n$ different subsets. The two extreme runs of decisions give the two subsets you already knew: all out is $\\emptyset$, all in is $A$ itself.\n\nThat argument is the multiplication principle, which is the whole of Chapter 6. You are meeting it here first, on the easiest possible example.\n\n**Intervals — subsets of $\\mathbb{R}$ with their own shorthand**\n\n| Written | Means | In set-builder |\n|---|---|---|\n| $[a, b]$ | closed, both ends in | $\\{x : a \\leq x \\leq b\\}$ |\n| $(a, b)$ | open, both ends out | $\\{x : a < x < b\\}$ |\n| $[a, b)$ | half-open | $\\{x : a \\leq x < b\\}$ |\n| $(a, \\infty)$ | everything above $a$ | $\\{x : x > a\\}$ |\n\n⚠️ Infinity **always** gets a round bracket. $\\infty$ is not a number you can reach and include — it is a direction, not a destination.\n\n💡 Square bracket = closed door, endpoint is inside. Round bracket = open door, endpoint is outside. You will use this notation in inequalities, in functions, in limits and in every domain question for the next two years.",
-      "hi": "**उपसमुच्चय — एक वाक्य में विचार**\n$A \\subseteq B$ का मतलब है **$A$ का हर सदस्य $B$ का भी सदस्य है**।\n\nकक्षा 11-ब का हर विद्यार्थी आपके स्कूल का विद्यार्थी है। तो $\\{$कक्षा 11-ब$\\} \\subseteq \\{$स्कूल$\\}$। यह विचार आपने ज़िंदगी भर इस्तेमाल किया है; बस उसका चिह्न नहीं था।\n\n$$\\{1, 2\\} \\subseteq \\{1, 2, 3\\} \\qquad \\mathbb{N} \\subseteq \\mathbb{Z} \\subseteq \\mathbb{Q} \\subseteq \\mathbb{R}$$\n\nयह आख़िरी शृंखला पुल वाली तालिका ही है, ठीक से लिखी हुई। संख्या परिवारों के बारे में आपने जो सीखा, वह उपसमुच्चय संकेतन की एक पंक्ति है।\n\n⚠️ **$\\in$ और $\\subseteq$ एक नहीं हैं।** $\\in$ *सदस्य* को समुच्चय से जोड़ता है; $\\subseteq$ *समुच्चय* को समुच्चय से।\n\n$$2 \\in \\{1,2,3\\} \\;\\;✅ \\qquad \\{2\\} \\subseteq \\{1,2,3\\} \\;\\;✅ \\qquad 2 \\subseteq \\{1,2,3\\} \\;\\;❌ \\qquad \\{2\\} \\in \\{1,2,3\\} \\;\\;❌$$\n\nपूरा फ़र्क़ मझले कोष्ठक का है। यह अभी दस मिनट देने लायक़ है, वरना यह दो साल तक चुपचाप जवाब बिगाड़ता रहता है।\n\n**हर समुच्चय के दो उपसमुच्चय**\n1. **ख़ुद वह।** $A \\subseteq A$ — $A$ का हर सदस्य $A$ में है। स्वतः सत्य।\n2. **रिक्त समुच्चय।** $\\emptyset \\subseteq A$, हमेशा।\n\n💡 **$\\emptyset$ हर चीज़ का उपसमुच्चय क्यों है?** $\\emptyset \\subseteq A$ को ग़लत साबित करने के लिए आपको $\\emptyset$ का कोई ऐसा सदस्य दिखाना पड़ेगा जो $A$ में न हो। आप $\\emptyset$ का कोई सदस्य दिखा ही नहीं सकते। दावा ग़लत हो ही नहीं सकता, इसलिए सही है। गणितज्ञ इसे *रिक्ततः सत्य* कहते हैं, और यह तर्क एक बार देख लेने के बाद यह चालाकी लगना बंद कर देता है।\n\n**उचित उपसमुच्चय**\n$A \\subset B$ का मतलब $A \\subseteq B$ **और** $A \\neq B$ — ऐसा उपसमुच्चय जो कुछ छोड़ देता है।\n\n**घात समुच्चय — सारे उपसमुच्चय, इकट्ठे**\n$P(A)$, $A$ के हर उपसमुच्चय का समुच्चय है। $A = \\{1, 2\\}$ के लिए:\n\n$$P(A) = \\{\\; \\emptyset, \\; \\{1\\}, \\; \\{2\\}, \\; \\{1,2\\} \\;\\}$$\n\nचार उपसमुच्चय, तो $n(P(A)) = 4$।\n\n**सूत्र, और वह सही क्यों है**\n\n$$n(P(A)) = 2^{n(A)}$$\n\n**क्यों:** उपसमुच्चय बनाने का मतलब है सदस्यों की सूची पर चलते जाना और हर सदस्य पर एक फ़ैसला लेना — *अंदर* या *बाहर*। दो विकल्प, $n$ बार स्वतंत्र रूप से, यानी $2 \\times 2 \\times \\cdots \\times 2 = 2^n$ अलग उपसमुच्चय। फ़ैसलों की दो चरम शृंखलाएँ वही दो उपसमुच्चय देती हैं जो आप पहले से जानते थे: सब बाहर यानी $\\emptyset$, सब अंदर यानी ख़ुद $A$।\n\nयह तर्क गुणन सिद्धांत है, और अध्याय 6 पूरा का पूरा यही है। आप इससे यहाँ पहली बार मिल रहे हैं, सबसे आसान उदाहरण पर।\n\n**अंतराल — $\\mathbb{R}$ के उपसमुच्चय, अपने छोटे संकेतन के साथ**\n\n| लिखा हुआ | मतलब | निर्माण रूप में |\n|---|---|---|\n| $[a, b]$ | बंद, दोनों सिरे अंदर | $\\{x : a \\leq x \\leq b\\}$ |\n| $(a, b)$ | खुला, दोनों सिरे बाहर | $\\{x : a < x < b\\}$ |\n| $[a, b)$ | अर्ध-खुला | $\\{x : a \\leq x < b\\}$ |\n| $(a, \\infty)$ | $a$ से ऊपर सब कुछ | $\\{x : x > a\\}$ |\n\n⚠️ अनंत को **हमेशा** गोल कोष्ठक मिलता है। $\\infty$ ऐसी संख्या नहीं है जहाँ पहुँचकर उसे शामिल किया जा सके — यह दिशा है, मंज़िल नहीं।\n\n💡 चौकोर कोष्ठक = बंद दरवाज़ा, सिरा अंदर। गोल कोष्ठक = खुला दरवाज़ा, सिरा बाहर। यह संकेतन आप असमिकाओं में, फलनों में, सीमाओं में और अगले दो साल के हर प्रांत वाले सवाल में इस्तेमाल करेंगे।"
+      "en": "**Subset — the idea in one line**\n$A \\subseteq B$ means **every member of $A$ is also in $B$**.\n\nEvery student in Class 11-B is a student in your school. So the Class 11-B set sits inside the school set.\n\n{{diagram:sets-subset}}\n\nThe small circle is fully inside the big one. Nothing pokes out. That is what $\\subseteq$ means.\n\n$$\\{1, 2\\} \\subseteq \\{1, 2, 3\\} \\qquad \\mathbb{N} \\subseteq \\mathbb{Z} \\subseteq \\mathbb{Q} \\subseteq \\mathbb{R}$$\n\nThat second line is the number family table, written in one row.\n\n⚠️ **$\\in$ and $\\subseteq$ are not the same.**\n- $\\in$ joins **one member** to a set.\n- $\\subseteq$ joins **a whole set** to a set.\n\n$$2 \\in \\{1,2,3\\} \\;\\;✅ \\qquad \\{2\\} \\subseteq \\{1,2,3\\} \\;\\;✅$$\n$$2 \\subseteq \\{1,2,3\\} \\;\\;❌ \\qquad \\{2\\} \\in \\{1,2,3\\} \\;\\;❌$$\n\nThe curly brackets make all the difference. $2$ is a number. $\\{2\\}$ is a set holding that number. One mango is not the same as a basket with one mango in it.\n\n**Two subsets that every set has**\n1. **Itself.** $A \\subseteq A$. Every member of $A$ is in $A$. Obviously true.\n2. **The empty set.** $\\emptyset \\subseteq A$, always.\n\n💡 **Why is $\\emptyset$ inside everything?** To show it is wrong, you would have to find a member of $\\emptyset$ that is missing from $A$. But $\\emptyset$ has no members at all. So you can never find one. The rule can never be broken, so we say it is true.\n\n**Proper subset**\n$A \\subset B$ means $A$ is inside $B$ **and** $A$ is not the whole of $B$. Something is left out.\n\n**Power set — all the subsets, put together**\n$P(A)$ is the set of **every** subset of $A$.\n\nTo build a subset, walk down the members and answer one question each time: *in or out?*\n\n{{diagram:sets-powerset}}\n\nFor $A = \\{a, b\\}$ there are 2 choices for $a$ and 2 for $b$, so $2 \\times 2 = 4$ subsets:\n\n$$P(A) = \\{\\; \\emptyset, \\; \\{a\\}, \\; \\{b\\}, \\; \\{a,b\\} \\;\\}$$\n\n**The rule**\n\n$$n(P(A)) = 2^{n(A)}$$\n\nOne yes/no choice per member. $n$ members means $n$ choices, each with 2 answers, so $2 \\times 2 \\times \\cdots = 2^n$.\n\nThe two extreme cases give the two subsets you already knew: all *no* gives $\\emptyset$, all *yes* gives $A$ itself.\n\n**Intervals — a short way to write a piece of the number line**\n\n| We write | It means | In set form |\n|---|---|---|\n| $[a, b]$ | ends are IN | $\\{x : a \\leq x \\leq b\\}$ |\n| $(a, b)$ | ends are OUT | $\\{x : a < x < b\\}$ |\n| $[a, b)$ | left in, right out | $\\{x : a \\leq x < b\\}$ |\n| $(a, \\infty)$ | everything above $a$ | $\\{x : x > a\\}$ |\n\n💡 **How to remember it.** A square bracket is a **closed door** — the end point stays inside. A round bracket is an **open door** — the end point walks out.\n\n⚠️ Infinity always gets a round bracket. You can never arrive at $\\infty$, so it can never be included. It is a direction, not a place.",
+      "hi": "**उपसमुच्चय — एक पंक्ति में विचार**\n$A \\subseteq B$ का मतलब है **$A$ का हर सदस्य $B$ में भी है**।\n\nकक्षा 11-ब का हर विद्यार्थी आपके स्कूल का विद्यार्थी है। तो कक्षा 11-ब वाला समुच्चय स्कूल वाले समुच्चय के अंदर बैठता है।\n\n{{diagram:sets-subset}}\n\nछोटा वृत्त पूरी तरह बड़े के अंदर है। कुछ भी बाहर नहीं निकला। $\\subseteq$ का यही मतलब है।\n\n$$\\{1, 2\\} \\subseteq \\{1, 2, 3\\} \\qquad \\mathbb{N} \\subseteq \\mathbb{Z} \\subseteq \\mathbb{Q} \\subseteq \\mathbb{R}$$\n\nदूसरी पंक्ति संख्या परिवारों की तालिका ही है, एक ही लाइन में लिखी हुई।\n\n⚠️ **$\\in$ और $\\subseteq$ एक नहीं हैं।**\n- $\\in$ **एक सदस्य** को समुच्चय से जोड़ता है।\n- $\\subseteq$ **पूरे समुच्चय** को समुच्चय से जोड़ता है।\n\n$$2 \\in \\{1,2,3\\} \\;\\;✅ \\qquad \\{2\\} \\subseteq \\{1,2,3\\} \\;\\;✅$$\n$$2 \\subseteq \\{1,2,3\\} \\;\\;❌ \\qquad \\{2\\} \\in \\{1,2,3\\} \\;\\;❌$$\n\nपूरा फ़र्क़ मझले कोष्ठक का है। $2$ एक संख्या है। $\\{2\\}$ वह समुच्चय है जिसमें वह संख्या रखी है। एक आम और एक आम वाली टोकरी एक बात नहीं है।\n\n**हर समुच्चय के दो उपसमुच्चय**\n1. **ख़ुद वह।** $A \\subseteq A$। $A$ का हर सदस्य $A$ में है। ज़ाहिर सी बात है।\n2. **रिक्त समुच्चय।** $\\emptyset \\subseteq A$, हमेशा।\n\n💡 **$\\emptyset$ हर चीज़ के अंदर क्यों है?** इसे ग़लत दिखाने के लिए आपको $\\emptyset$ का कोई ऐसा सदस्य ढूँढना पड़ेगा जो $A$ में न हो। पर $\\emptyset$ में कोई सदस्य है ही नहीं। तो आप कभी ढूँढ ही नहीं पाएँगे। नियम कभी टूट ही नहीं सकता, इसलिए हम इसे सही मानते हैं।\n\n**उचित उपसमुच्चय**\n$A \\subset B$ का मतलब है $A$, $B$ के अंदर है **और** $A$ पूरा $B$ नहीं है। कुछ न कुछ छूट जाता है।\n\n**घात समुच्चय — सारे उपसमुच्चय, एक जगह**\n$P(A)$ वह समुच्चय है जिसमें $A$ का **हर** उपसमुच्चय रखा है।\n\nउपसमुच्चय बनाने के लिए सदस्यों पर चलते जाइए और हर बार एक सवाल का जवाब दीजिए: *अंदर या बाहर?*\n\n{{diagram:sets-powerset}}\n\n$A = \\{a, b\\}$ के लिए $a$ पर 2 विकल्प और $b$ पर 2, तो $2 \\times 2 = 4$ उपसमुच्चय:\n\n$$P(A) = \\{\\; \\emptyset, \\; \\{a\\}, \\; \\{b\\}, \\; \\{a,b\\} \\;\\}$$\n\n**नियम**\n\n$$n(P(A)) = 2^{n(A)}$$\n\nहर सदस्य पर एक हाँ/ना। $n$ सदस्य यानी $n$ फ़ैसले, हर एक के 2 जवाब, तो $2 \\times 2 \\times \\cdots = 2^n$।\n\nदोनों चरम स्थितियाँ वही दो उपसमुच्चय देती हैं जो आप पहले से जानते थे: सब *ना* यानी $\\emptyset$, सब *हाँ* यानी ख़ुद $A$।\n\n**अंतराल — संख्या रेखा का टुकड़ा लिखने का छोटा तरीक़ा**\n\n| हम लिखते हैं | मतलब | समुच्चय रूप में |\n|---|---|---|\n| $[a, b]$ | सिरे **अंदर** | $\\{x : a \\leq x \\leq b\\}$ |\n| $(a, b)$ | सिरे **बाहर** | $\\{x : a < x < b\\}$ |\n| $[a, b)$ | बायाँ अंदर, दायाँ बाहर | $\\{x : a \\leq x < b\\}$ |\n| $(a, \\infty)$ | $a$ से ऊपर सब कुछ | $\\{x : x > a\\}$ |\n\n💡 **याद रखने का तरीक़ा।** चौकोर कोष्ठक **बंद दरवाज़ा** है — सिरा अंदर ही रहता है। गोल कोष्ठक **खुला दरवाज़ा** है — सिरा बाहर निकल जाता है।\n\n⚠️ अनंत को हमेशा गोल कोष्ठक मिलता है। आप $\\infty$ तक कभी पहुँच ही नहीं सकते, तो उसे शामिल भी नहीं कर सकते। यह दिशा है, कोई जगह नहीं।"
      },
      "worked": [
       {
@@ -928,38 +933,38 @@ window.SL_DATA.subjects.push({
         "hi": "घात समुच्चय, दो तरीक़ों से गिना हुआ"
        },
        "problem": {
-        "en": "Write $P(A)$ for $A = \\{a, b, c\\}$ and check the count against the formula.",
-        "hi": "$A = \\{a, b, c\\}$ के लिए $P(A)$ लिखिए और गिनती को सूत्र से मिलाइए।"
+        "en": "Write $P(A)$ for $A = \\{a, b, c\\}$ and check the count against the rule.",
+        "hi": "$A = \\{a, b, c\\}$ के लिए $P(A)$ लिखिए और गिनती को नियम से मिलाइए।"
        },
        "steps": [
         {
          "do": {
-          "en": "Organise by size, so nothing is missed. Size 0: $\\emptyset$.",
-          "hi": "आकार के हिसाब से जमाइए, ताकि कुछ छूटे नहीं। आकार 0: $\\emptyset$।"
+          "en": "Go by size, so nothing is missed. Size 0: just $\\emptyset$.",
+          "hi": "आकार के हिसाब से चलिए, ताकि कुछ छूटे नहीं। आकार 0: सिर्फ़ $\\emptyset$।"
          },
          "why": {
-          "en": "Listing at random guarantees a missed subset. Grouping by size turns it into four short, checkable lists.",
-          "hi": "बेतरतीब लिखने पर कोई उपसमुच्चय छूटेगा ही। आकार से समूह बनाने पर यह चार छोटी, जाँचने लायक़ सूचियाँ बन जाती हैं।"
+          "en": "If you list them in any order you please, you will drop one. Going by size turns it into four short lists you can check.",
+          "hi": "मनमाने क्रम में लिखेंगे तो एक छूट ही जाएगा। आकार से चलने पर यह चार छोटी सूचियाँ बन जाती हैं जिन्हें जाँचा जा सकता है।"
          }
         },
         {
          "do": {
-          "en": "Size 1: $\\{a\\}, \\{b\\}, \\{c\\}$ — three of them, one per member.",
+          "en": "Size 1: $\\{a\\}, \\{b\\}, \\{c\\}$ — three, one for each member.",
           "hi": "आकार 1: $\\{a\\}, \\{b\\}, \\{c\\}$ — तीन, हर सदस्य के लिए एक।"
          },
          "why": {
-          "en": "There is exactly one single-member subset per member, so this row always has $n$ entries.",
-          "hi": "हर सदस्य के लिए ठीक एक एक-सदस्यीय उपसमुच्चय होता है, तो इस पंक्ति में हमेशा $n$ प्रविष्टियाँ होंगी।"
+          "en": "Each member gives exactly one one-member subset, so this row always has $n$ of them.",
+          "hi": "हर सदस्य से ठीक एक एक-सदस्यीय उपसमुच्चय बनता है, तो इस पंक्ति में हमेशा $n$ होंगे।"
          }
         },
         {
          "do": {
-          "en": "Size 2: $\\{a,b\\}, \\{a,c\\}, \\{b,c\\}$ — three, one for each member left out.",
-          "hi": "आकार 2: $\\{a,b\\}, \\{a,c\\}, \\{b,c\\}$ — तीन, हर छोड़े गए सदस्य के लिए एक।"
+          "en": "Size 2: $\\{a,b\\}, \\{a,c\\}, \\{b,c\\}$ — three again.",
+          "hi": "आकार 2: $\\{a,b\\}, \\{a,c\\}, \\{b,c\\}$ — फिर तीन।"
          },
          "why": {
-          "en": "Choosing which 2 to keep is the same as choosing which 1 to drop — which is why this row matches the size-1 row. That symmetry is $^nC_r = {}^nC_{n-r}$, arriving five chapters early.",
-          "hi": "कौन-से 2 रखने हैं यह चुनना, कौन-सा 1 हटाना है यह चुनने जैसा ही है — इसीलिए यह पंक्ति आकार-1 वाली पंक्ति से मेल खाती है। यही सममिति $^nC_r = {}^nC_{n-r}$ है, पाँच अध्याय पहले आ पहुँची।"
+          "en": "Choosing which 2 to keep is the same as choosing which 1 to drop. That is why this row matches the row above.",
+          "hi": "कौन-से 2 रखने हैं यह चुनना, कौन-सा 1 हटाना है यह चुनने जैसा ही है। इसीलिए यह पंक्ति ऊपर वाली से मेल खाती है।"
          }
         },
         {
@@ -968,18 +973,18 @@ window.SL_DATA.subjects.push({
           "hi": "आकार 3: $\\{a,b,c\\}$ — ख़ुद वह समुच्चय। कुल: $1 + 3 + 3 + 1 = 8$।"
          },
          "why": {
-          "en": "Those counts $1, 3, 3, 1$ are a row of Pascal's triangle. Sets, combinations and the binomial theorem are the same structure seen from three angles.",
-          "hi": "ये गिनतियाँ $1, 3, 3, 1$ पास्कल त्रिभुज की एक पंक्ति हैं। समुच्चय, संचय और द्विपद प्रमेय एक ही ढाँचे को तीन कोणों से देखना है।"
+          "en": "Those counts $1, 3, 3, 1$ come back in Chapter 7. Sets and counting are the same idea seen twice.",
+          "hi": "ये गिनतियाँ $1, 3, 3, 1$ अध्याय 7 में लौटेंगी। समुच्चय और गिनती एक ही विचार को दो बार देखना है।"
          }
         },
         {
          "do": {
-          "en": "Check with the formula: $n(P(A)) = 2^{n(A)} = 2^3 = 8$. ✅",
-          "hi": "सूत्र से जाँचिए: $n(P(A)) = 2^{n(A)} = 2^3 = 8$। ✅"
+          "en": "Check with the rule: $2^{n(A)} = 2^3 = 8$. ✅",
+          "hi": "नियम से जाँचिए: $2^{n(A)} = 2^3 = 8$। ✅"
          },
          "why": {
-          "en": "Always list AND count when the set is small. The agreement is what makes the formula trustworthy when the set is too big to list.",
-          "hi": "समुच्चय छोटा हो तो सूची भी बनाइए और गिनिए भी। यही मेल सूत्र पर भरोसा दिलाता है, जब समुच्चय इतना बड़ा हो कि सूची बन ही न सके।"
+          "en": "When the set is small, list AND count. When they agree, you can trust the rule for a set too big to list.",
+          "hi": "जब समुच्चय छोटा हो, सूची भी बनाइए और गिनिए भी। दोनों मिल जाएँ तो उस बड़े समुच्चय पर भी नियम पर भरोसा किया जा सकता है जिसकी सूची बन ही नहीं सकती।"
          }
         }
        ],
@@ -988,13 +993,10 @@ window.SL_DATA.subjects.push({
         "hi": "$P(A) = \\{\\emptyset, \\{a\\}, \\{b\\}, \\{c\\}, \\{a,b\\}, \\{a,c\\}, \\{b,c\\}, \\{a,b,c\\}\\}$, और $n(P(A)) = 8$।"
        },
        "note": {
-        "en": "Number of **proper** subsets is $2^n - 1$ — everything except $A$ itself. Read the question carefully; the difference of one is a whole mark.",
-        "hi": "**उचित** उपसमुच्चयों की संख्या $2^n - 1$ है — ख़ुद $A$ को छोड़कर सब। सवाल ध्यान से पढ़िए; एक का फ़र्क़ पूरा एक नंबर है।"
+        "en": "The number of **proper** subsets is $2^n - 1$ — all of them except $A$ itself. Read the question carefully; that difference of one is a full mark.",
+        "hi": "**उचित** उपसमुच्चयों की संख्या $2^n - 1$ है — ख़ुद $A$ को छोड़कर सब। सवाल ध्यान से पढ़िए; एक का यह फ़र्क़ पूरा एक नंबर है।"
        }
       }
-     ],
-     "derivations": [
-      "powerset"
      ]
     },
     {
@@ -1003,15 +1005,16 @@ window.SL_DATA.subjects.push({
       "en": "Union, intersection and Venn diagrams",
       "hi": "सम्मिलन, सर्वनिष्ठ और वेन आरेख"
      },
+     "diagram": "sets-regions",
      "notes": {
-      "en": "Two sets, two ways to combine them. English gives it away: **union is OR**, **intersection is AND**.\n\n**Union — everything in either**\n$$A \\cup B = \\{x : x \\in A \\text{ or } x \\in B\\}$$\n\nStudents who play cricket **or** football: put both lists together and cross out repeats.\n\n$$\\{1,2,3\\} \\cup \\{3,4\\} = \\{1,2,3,4\\}$$\n\n⚠️ The 3 appears once, not twice. Repetition was never recorded in a set — the rule from topic 1 doing real work.\n\n**Intersection — only what is in both**\n$$A \\cap B = \\{x : x \\in A \\text{ and } x \\in B\\}$$\n\nStudents who play cricket **and** football: only those on both lists.\n\n$$\\{1,2,3\\} \\cap \\{3,4\\} = \\{3\\}$$\n\n💡 **Remembering which is which.** $\\cup$ is a cup — it holds everything you pour in. $\\cap$ is a cap — it fits only the head it was made for. Or: $\\cup$ looks like the U in *union*.\n\n**Disjoint sets**\nIf $A \\cap B = \\emptyset$, nothing is shared, and the sets are **disjoint**. Odd numbers and even numbers are disjoint. In a Venn diagram they are drawn as two circles that do not touch.\n\n**Universal set and complement**\n$U$ is everything under discussion in that problem — the whole class, or all of $\\mathbb{R}$, or all 52 cards. It is drawn as the rectangle everything sits inside.\n\n$A'$ (the **complement**) is everything in $U$ that is not in $A$.\n\n$$A' = \\{x \\in U : x \\notin A\\}$$\n\n⚠️ **Complement is meaningless without $U$.** The complement of *even numbers* is odd numbers if $U = \\mathbb{Z}$, but something quite different if $U = \\mathbb{R}$. The problem must tell you $U$, and if it does not, you must state your assumption.\n\n**Venn diagrams**\nA rectangle for $U$, a circle per set. Two overlapping circles cut the rectangle into four regions, and every element of $U$ lands in exactly one:\n\n| Region | What it holds |\n|---|---|\n| in $A$ only | $A \\cap B'$ |\n| in both | $A \\cap B$ |\n| in $B$ only | $A' \\cap B$ |\n| in neither | $A' \\cap B' = (A \\cup B)'$ |\n\n💡 **Fill the middle first.** In any Venn problem, work out $n(A \\cap B)$ before anything else, then subtract outward to get the *only* regions. Filling outside-in produces double-counting almost every time; filling middle-out almost never does.\n\n**Three properties worth knowing (all obvious from the picture)**\n- **Commutative:** $A \\cup B = B \\cup A$ — pooling two lists does not depend on which you pick up first.\n- **Associative:** $(A \\cup B) \\cup C = A \\cup (B \\cup C)$ — so writing $A \\cup B \\cup C$ is unambiguous.\n- **Distributive:** $A \\cap (B \\cup C) = (A \\cap B) \\cup (A \\cap C)$ — this one is worth drawing before you believe it.",
-      "hi": "दो समुच्चय, जोड़ने के दो तरीक़े। भाषा ही राज़ खोल देती है: **सम्मिलन यानी या**, **सर्वनिष्ठ यानी और**।\n\n**सम्मिलन — जो भी किसी एक में हो**\n$$A \\cup B = \\{x : x \\in A \\text{ या } x \\in B\\}$$\n\nवे विद्यार्थी जो क्रिकेट **या** फ़ुटबॉल खेलते हैं: दोनों सूचियाँ मिला दीजिए और दोहराव काट दीजिए।\n\n$$\\{1,2,3\\} \\cup \\{3,4\\} = \\{1,2,3,4\\}$$\n\n⚠️ 3 एक बार आया, दो बार नहीं। समुच्चय में दोहराव कभी दर्ज ही नहीं होता — विषय 1 का नियम असली काम करते हुए।\n\n**सर्वनिष्ठ — सिर्फ़ वह जो दोनों में हो**\n$$A \\cap B = \\{x : x \\in A \\text{ और } x \\in B\\}$$\n\nवे विद्यार्थी जो क्रिकेट **और** फ़ुटबॉल दोनों खेलते हैं: सिर्फ़ वे जो दोनों सूचियों में हैं।\n\n$$\\{1,2,3\\} \\cap \\{3,4\\} = \\{3\\}$$\n\n💡 **कौन-सा कौन है, याद रखने का तरीक़ा।** $\\cup$ प्याला है — जो डालिए सब समा जाता है। $\\cap$ टोपी है — सिर्फ़ उसी सिर पर बैठती है जिसके लिए बनी। या: $\\cup$ अंग्रेज़ी *union* के U जैसा दिखता है।\n\n**असंयुक्त समुच्चय**\nअगर $A \\cap B = \\emptyset$ है, तो कुछ भी साझा नहीं है, और समुच्चय **असंयुक्त** हैं। विषम और सम संख्याएँ असंयुक्त हैं। वेन आरेख में इन्हें दो न छूने वाले वृत्तों से दिखाते हैं।\n\n**सार्वत्रिक समुच्चय और पूरक**\n$U$ वह सब है जिसकी उस सवाल में चर्चा है — पूरी कक्षा, या पूरा $\\mathbb{R}$, या 52 ताश। इसे वह आयत बनाते हैं जिसके अंदर सब कुछ बैठता है।\n\n$A'$ (**पूरक**) $U$ का वह सब है जो $A$ में नहीं है।\n\n$$A' = \\{x \\in U : x \\notin A\\}$$\n\n⚠️ **$U$ के बिना पूरक का कोई मतलब नहीं।** *सम संख्याओं* का पूरक विषम संख्याएँ हैं अगर $U = \\mathbb{Z}$ हो, पर $U = \\mathbb{R}$ हो तो कुछ और ही। सवाल को $U$ बताना चाहिए, और न बताए तो आपको अपनी मान्यता लिखनी चाहिए।\n\n**वेन आरेख**\n$U$ के लिए आयत, हर समुच्चय के लिए एक वृत्त। दो अतिव्यापी वृत्त आयत को चार क्षेत्रों में काटते हैं, और $U$ का हर अवयव ठीक एक में गिरता है:\n\n| क्षेत्र | उसमें क्या |\n|---|---|\n| सिर्फ़ $A$ में | $A \\cap B'$ |\n| दोनों में | $A \\cap B$ |\n| सिर्फ़ $B$ में | $A' \\cap B$ |\n| किसी में नहीं | $A' \\cap B' = (A \\cup B)'$ |\n\n💡 **पहले बीच वाला भरिए।** किसी भी वेन सवाल में सबसे पहले $n(A \\cap B)$ निकालिए, फिर बाहर की ओर घटाते जाइए ताकि *सिर्फ़* वाले क्षेत्र मिलें। बाहर से अंदर भरने पर लगभग हर बार दोहरी गिनती होती है; बीच से बाहर भरने पर लगभग कभी नहीं।\n\n**तीन गुण जानने लायक़ (तीनों तस्वीर से साफ़ हैं)**\n- **क्रमविनिमेय:** $A \\cup B = B \\cup A$ — दो सूचियाँ मिलाने में यह मायने नहीं रखता कि पहले कौन-सी उठाई।\n- **साहचर्य:** $(A \\cup B) \\cup C = A \\cup (B \\cup C)$ — इसीलिए $A \\cup B \\cup C$ लिखना अस्पष्ट नहीं है।\n- **वितरण:** $A \\cap (B \\cup C) = (A \\cap B) \\cup (A \\cap C)$ — इस पर यक़ीन करने से पहले इसे बनाकर देखिए।"
+      "en": "Two sets. Two ways to join them. The English words give it away: **union is OR**, **intersection is AND**.\n\n**Union — put both together**\n\nThink of two lists. Cricket players and football players. Put both lists on one page and cross out any name written twice. That is the union.\n\n{{diagram:sets-union}}\n\nThe whole shaded part is $A \\cup B$. Nothing is left out.\n\n$$A \\cup B = \\{x : x \\in A \\text{ or } x \\in B\\}$$\n\n$$\\{1,2,3\\} \\cup \\{3,4\\} = \\{1,2,3,4\\}$$\n\n⚠️ The 3 is written **once**, not twice. A set never records repeats.\n\n**Intersection — keep only what is shared**\n\nSame two lists. Now keep only the names that appear on **both**.\n\n{{diagram:sets-intersection}}\n\nOnly the middle slice is shaded. That slice is $A \\cap B$.\n\n$$A \\cap B = \\{x : x \\in A \\text{ and } x \\in B\\}$$\n\n$$\\{1,2,3\\} \\cap \\{3,4\\} = \\{3\\}$$\n\n💡 **Which symbol is which?**\n- $\\cup$ looks like a **cup**. A cup holds everything you pour in. Union.\n- $\\cap$ looks like a **cap**. A cap fits only one head. Intersection.\n\nAlso: $\\cup$ is the **U** in **U**nion.\n\n**When nothing is shared**\n\n{{diagram:sets-disjoint}}\n\nIf $A \\cap B = \\emptyset$, the two sets share nothing. We call them **disjoint**. Odd numbers and even numbers are disjoint — no number is both.\n\n**The universal set and the complement**\n\n$U$ is **everything we are talking about** in that question. The whole class. Or all of $\\mathbb{R}$. Or all 52 playing cards. We draw it as the box around everything.\n\n$A'$ (say *A dash*, or *A complement*) is **everything in $U$ that is not in $A$**.\n\n{{diagram:sets-complement}}\n\n$$A' = \\{x \\in U : x \\notin A\\}$$\n\n⚠️ **The complement makes no sense without $U$.** The opposite of *even numbers* is odd numbers if $U$ is all integers. But if $U$ is all real numbers, the answer is very different — it would include $0.5$ and $\\pi$ too. So the question must tell you $U$.\n\n**In A but not in B**\n\n{{diagram:sets-difference}}\n\nTake circle $A$, then remove the shared middle. What is left is in $A$ only.\n\n**Venn diagrams — the whole picture**\n\nA box for $U$, one circle for each set. Two circles cut the box into **four** parts, and every single member of $U$ falls into exactly one of them.\n\n{{diagram:sets-regions}}\n\n💡 **Always fill the middle first.** In any Venn question, work out the *both* number before anything else, then subtract outwards to get the *only* numbers. Filling from the outside in causes double counting almost every time.\n\n**Three rules you can see in the picture**\n- $A \\cup B = B \\cup A$ — it does not matter which list you pick up first.\n- $(A \\cup B) \\cup C = A \\cup (B \\cup C)$ — so writing $A \\cup B \\cup C$ is safe.\n- $A \\cap (B \\cup C) = (A \\cap B) \\cup (A \\cap C)$ — draw this one before you believe it.",
+      "hi": "दो समुच्चय। जोड़ने के दो तरीक़े। शब्द ही राज़ खोल देते हैं: **सम्मिलन यानी या**, **सर्वनिष्ठ यानी और**।\n\n**सम्मिलन — दोनों को मिला दीजिए**\n\nदो सूचियों के बारे में सोचिए। क्रिकेट खेलने वाले और फ़ुटबॉल खेलने वाले। दोनों सूचियाँ एक ही पन्ने पर लिख दीजिए और जो नाम दो बार आया हो उसे एक बार काट दीजिए। यही सम्मिलन है।\n\n{{diagram:sets-union}}\n\nपूरा रंगा हुआ हिस्सा $A \\cup B$ है। कुछ भी छूटा नहीं।\n\n$$A \\cup B = \\{x : x \\in A \\text{ या } x \\in B\\}$$\n\n$$\\{1,2,3\\} \\cup \\{3,4\\} = \\{1,2,3,4\\}$$\n\n⚠️ 3 **एक बार** लिखा गया, दो बार नहीं। समुच्चय दोहराव कभी दर्ज नहीं करता।\n\n**सर्वनिष्ठ — सिर्फ़ साझा वाला रखिए**\n\nवही दो सूचियाँ। अब सिर्फ़ वे नाम रखिए जो **दोनों** में हों।\n\n{{diagram:sets-intersection}}\n\nसिर्फ़ बीच का हिस्सा रंगा है। वही $A \\cap B$ है।\n\n$$A \\cap B = \\{x : x \\in A \\text{ और } x \\in B\\}$$\n\n$$\\{1,2,3\\} \\cap \\{3,4\\} = \\{3\\}$$\n\n💡 **कौन-सा चिह्न कौन-सा है?**\n- $\\cup$ **प्याले** जैसा दिखता है। प्याले में जो डालिए सब समा जाता है। सम्मिलन।\n- $\\cap$ **टोपी** जैसा दिखता है। टोपी सिर्फ़ एक सिर पर बैठती है। सर्वनिष्ठ।\n\nयह भी: $\\cup$ अंग्रेज़ी **U**nion का **U** है।\n\n**जब कुछ भी साझा न हो**\n\n{{diagram:sets-disjoint}}\n\nअगर $A \\cap B = \\emptyset$ हो, तो दोनों समुच्चयों में कुछ भी साझा नहीं है। इन्हें **असंयुक्त** कहते हैं। विषम और सम संख्याएँ असंयुक्त हैं — कोई संख्या दोनों नहीं होती।\n\n**सार्वत्रिक समुच्चय और पूरक**\n\n$U$ वह सब है जिसकी उस सवाल में **बात हो रही है**। पूरी कक्षा। या पूरा $\\mathbb{R}$। या ताश के सारे 52 पत्ते। इसे हम सबके चारों ओर का डिब्बा बनाते हैं।\n\n$A'$ (बोलिए *A डैश*, या *A का पूरक*) वह सब है जो **$U$ में है पर $A$ में नहीं**।\n\n{{diagram:sets-complement}}\n\n$$A' = \\{x \\in U : x \\notin A\\}$$\n\n⚠️ **$U$ के बिना पूरक का कोई मतलब नहीं।** *सम संख्याओं* का उल्टा विषम संख्याएँ हैं, अगर $U$ सारे पूर्णांक हों। पर अगर $U$ सारी वास्तविक संख्याएँ हों, तो जवाब बहुत अलग होगा — उसमें $0.5$ और $\\pi$ भी आ जाएँगे। इसलिए सवाल को $U$ बताना ही होगा।\n\n**A में पर B में नहीं**\n\n{{diagram:sets-difference}}\n\nवृत्त $A$ लीजिए, फिर साझा बीच वाला हिस्सा हटा दीजिए। जो बचा वह सिर्फ़ $A$ में है।\n\n**वेन आरेख — पूरी तस्वीर**\n\n$U$ के लिए एक डिब्बा, हर समुच्चय के लिए एक वृत्त। दो वृत्त डिब्बे को **चार** हिस्सों में काटते हैं, और $U$ का हर एक सदस्य इनमें से ठीक एक में गिरता है।\n\n{{diagram:sets-regions}}\n\n💡 **हमेशा बीच वाला पहले भरिए।** किसी भी वेन सवाल में सबसे पहले *दोनों* वाली संख्या निकालिए, फिर बाहर की ओर घटाते जाइए ताकि *सिर्फ़* वाली संख्याएँ मिलें। बाहर से अंदर भरने पर लगभग हर बार दोहरी गिनती हो जाती है।\n\n**तीन नियम जो तस्वीर में दिख जाते हैं**\n- $A \\cup B = B \\cup A$ — पहले कौन-सी सूची उठाई, इससे फ़र्क़ नहीं पड़ता।\n- $(A \\cup B) \\cup C = A \\cup (B \\cup C)$ — इसलिए $A \\cup B \\cup C$ लिखना सुरक्षित है।\n- $A \\cap (B \\cup C) = (A \\cap B) \\cup (A \\cap C)$ — इस पर यक़ीन करने से पहले इसे बनाकर देखिए।"
      },
      "worked": [
       {
        "title": {
-        "en": "A Venn problem, filled middle-out",
-        "hi": "वेन का सवाल, बीच से बाहर भरा हुआ"
+        "en": "A Venn problem, filled from the middle",
+        "hi": "वेन का सवाल, बीच से भरा हुआ"
        },
        "problem": {
         "en": "In a class of 40, 25 play cricket, 20 play football, and 8 play both. How many play only cricket, only football, and neither?",
@@ -1020,22 +1023,22 @@ window.SL_DATA.subjects.push({
        "steps": [
         {
          "do": {
-          "en": "Write down what you have: $U = 40$, $n(C) = 25$, $n(F) = 20$, $n(C \\cap F) = 8$. Draw the rectangle and two overlapping circles.",
-          "hi": "जो दिया है वह लिखिए: $U = 40$, $n(C) = 25$, $n(F) = 20$, $n(C \\cap F) = 8$। आयत और दो अतिव्यापी वृत्त बनाइए।"
+          "en": "Write down what you know: $U = 40$, $n(C) = 25$, $n(F) = 20$, $n(C \\cap F) = 8$. Draw the box and two circles.",
+          "hi": "जो पता है वह लिखिए: $U = 40$, $n(C) = 25$, $n(F) = 20$, $n(C \\cap F) = 8$। डिब्बा और दो वृत्त बनाइए।"
          },
          "why": {
-          "en": "Never attempt a Venn question without drawing it. The diagram does the bookkeeping your memory will get wrong.",
-          "hi": "वेन का सवाल बिना चित्र बनाए कभी मत कीजिए। जो हिसाब आपकी याददाश्त गड़बड़ करेगी, वह चित्र सँभाल लेता है।"
+          "en": "Never do a Venn question in your head. The picture keeps count for you.",
+          "hi": "वेन का सवाल कभी दिमाग़ में मत कीजिए। तस्वीर आपके लिए हिसाब रखती है।"
          }
         },
         {
          "do": {
-          "en": "Put 8 in the overlap first.",
-          "hi": "पहले अतिव्यापी हिस्से में 8 रखिए।"
+          "en": "Put 8 in the middle first.",
+          "hi": "पहले बीच में 8 रखिए।"
          },
          "why": {
-          "en": "The middle is the only region the question gives you directly. Every other region is found by subtracting from it, so it has to go in first.",
-          "hi": "बीच वाला ही एकमात्र क्षेत्र है जो सवाल सीधे देता है। बाक़ी हर क्षेत्र इसी से घटाकर मिलता है, इसलिए यही पहले भरना है।"
+          "en": "The middle is the only number the question gives you straight. Everything else comes from taking it away.",
+          "hi": "बीच वाला ही एकमात्र संख्या है जो सवाल सीधे देता है। बाक़ी सब उसी को घटाकर मिलता है।"
          }
         },
         {
@@ -1044,8 +1047,8 @@ window.SL_DATA.subjects.push({
           "hi": "सिर्फ़ क्रिकेट $= 25 - 8 = 17$। सिर्फ़ फ़ुटबॉल $= 20 - 8 = 12$।"
          },
          "why": {
-          "en": "The 25 already includes the 8 who play both — that is what *25 play cricket* means. Subtracting removes the ones you have already placed.",
-          "hi": "25 में वे 8 पहले से शामिल हैं जो दोनों खेलते हैं — *25 क्रिकेट खेलते हैं* का यही मतलब है। घटाने से वे हट जाते हैं जिन्हें आप पहले ही रख चुके हैं।"
+          "en": "The 25 already includes the 8 who play both. That is what *25 play cricket* means. So take the 8 away to find the rest.",
+          "hi": "25 में वे 8 पहले से शामिल हैं जो दोनों खेलते हैं। *25 क्रिकेट खेलते हैं* का यही मतलब है। तो बाक़ी निकालने के लिए 8 हटा दीजिए।"
          }
         },
         {
@@ -1054,18 +1057,18 @@ window.SL_DATA.subjects.push({
           "hi": "वृत्तों के अंदर: $17 + 8 + 12 = 37$। कोई नहीं $= 40 - 37 = 3$।"
          },
          "why": {
-          "en": "The four regions must add to $n(U)$. That is your check — if they do not total 40, something is wrong.",
-          "hi": "चारों क्षेत्रों का योग $n(U)$ होना ही चाहिए। यही आपकी जाँच है — अगर योग 40 नहीं आया, तो कुछ ग़लत है।"
+          "en": "All four parts must add up to 40. That is your check. If they do not, something is wrong.",
+          "hi": "चारों हिस्सों का जोड़ 40 होना ही चाहिए। यही आपकी जाँच है। अगर नहीं होता, तो कुछ ग़लत है।"
          }
         },
         {
          "do": {
-          "en": "Cross-check with the formula: $n(C \\cup F) = 25 + 20 - 8 = 37$. ✅ Matches.",
-          "hi": "सूत्र से मिलाइए: $n(C \\cup F) = 25 + 20 - 8 = 37$। ✅ मेल खाता है।"
+          "en": "Check with the rule: $n(C \\cup F) = 25 + 20 - 8 = 37$. ✅ Same answer.",
+          "hi": "नियम से मिलाइए: $n(C \\cup F) = 25 + 20 - 8 = 37$। ✅ वही जवाब।"
          },
          "why": {
-          "en": "Diagram and formula are two routes to the same number. Agreement means you can trust the answer; disagreement means find the error before moving on.",
-          "hi": "चित्र और सूत्र एक ही संख्या तक पहुँचने के दो रास्ते हैं। मेल खाना यानी जवाब पर भरोसा किया जा सकता है; न खाना यानी आगे बढ़ने से पहले ग़लती ढूँढिए।"
+          "en": "Picture and rule are two roads to the same number. When they agree, you are safe.",
+          "hi": "तस्वीर और नियम एक ही संख्या तक पहुँचने के दो रास्ते हैं। जब दोनों मिल जाएँ, आप सुरक्षित हैं।"
          }
         }
        ],
@@ -1082,15 +1085,20 @@ window.SL_DATA.subjects.push({
       "en": "De Morgan, and counting with sets",
       "hi": "डी मॉर्गन, और समुच्चयों से गिनती"
      },
+     "diagram": "sets-counting",
+     "derivations": [
+      "demorgan",
+      "inclexcl"
+     ],
      "notes": {
-      "en": "Two results that turn Sets from vocabulary into a tool.\n\n**De Morgan's laws**\n$$(A \\cup B)' = A' \\cap B' \\qquad (A \\cap B)' = A' \\cup B'$$\n\nIn words: **the complement flips the operation.** Union becomes intersection; intersection becomes union.\n\n💡 **Why, in ordinary language.** Take *not (tea or coffee)*. If you did not have tea or coffee, then you did not have tea **and** you did not have coffee. Both must fail. So *not (P or Q)* is *not-P and not-Q* — which is exactly the first law.\n\nNow take *not (tea and coffee)*. If it is false that you had both, at least one is missing — maybe tea, maybe coffee, maybe neither. So *not (P and Q)* is *not-P or not-Q* — the second law.\n\n⚠️ The commonest error is keeping the operation: writing $(A \\cup B)' = A' \\cup B'$. Test it on the tea sentence and the mistake is obvious.\n\nThese are not just set facts. They are the same laws that govern logic gates, database queries and every `if (!(a || b))` in every programming language. Learning them here means learning them once.\n\n**Counting: inclusion and exclusion**\n$$n(A \\cup B) = n(A) + n(B) - n(A \\cap B)$$\n\n💡 **Why the subtraction.** Adding $n(A)$ and $n(B)$ counts everyone in the overlap **twice** — once as a member of $A$, once as a member of $B$. Subtracting the overlap once puts each person back to being counted exactly once. The formula is not a rule to memorise; it is bookkeeping.\n\n⚠️ If the sets are disjoint, $n(A \\cap B) = 0$ and the formula collapses to $n(A \\cup B) = n(A) + n(B)$ — which is what you would have said anyway. A good formula should reduce to common sense in the easy case, and this one does.\n\n**Three sets**\n$$n(A \\cup B \\cup C) = n(A) + n(B) + n(C) - n(A \\cap B) - n(B \\cap C) - n(A \\cap C) + n(A \\cap B \\cap C)$$\n\nIt looks alarming. It is the same bookkeeping, done once more:\n- Add the three singles — the triple overlap is now counted 3 times.\n- Subtract the three pairs — the triple overlap has been removed 3 times, so it is now counted $3 - 3 = 0$ times.\n- Add it back once. Correct.\n\nThe alternating plus-minus-plus is why this is called **inclusion-exclusion**. You will meet the same alternation in probability, and it is exactly this argument.\n\n**Where sets actually get used**\n- **Probability (Ch 14):** $P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$ — literally this formula, divided by $n(U)$.\n- **Surveys and market research:** how many people use product A but not B.\n- **Databases:** a SQL `WHERE` clause is a set-builder description; a `JOIN` is an intersection.\n- **Digital electronics:** De Morgan's laws are how NAND gates can build every other gate.\n\nThat is the honest answer to *where will I ever use this*: you are using it whenever a computer answers a query for you.",
-      "hi": "दो नतीजे जो समुच्चय को शब्दावली से औज़ार बना देते हैं।\n\n**डी मॉर्गन के नियम**\n$$(A \\cup B)' = A' \\cap B' \\qquad (A \\cap B)' = A' \\cup B'$$\n\nशब्दों में: **पूरक लेने से क्रिया पलट जाती है।** सम्मिलन सर्वनिष्ठ बन जाता है; सर्वनिष्ठ सम्मिलन।\n\n💡 **क्यों, आम भाषा में।** लीजिए *चाय या कॉफ़ी नहीं*। अगर आपने चाय या कॉफ़ी नहीं ली, तो आपने चाय नहीं ली **और** कॉफ़ी भी नहीं ली। दोनों का न होना ज़रूरी है। तो *(प या क) नहीं* का मतलब *प नहीं और क नहीं* — यही पहला नियम है।\n\nअब लीजिए *चाय और कॉफ़ी दोनों नहीं*। अगर यह ग़लत है कि आपने दोनों लीं, तो कम से कम एक छूटी — शायद चाय, शायद कॉफ़ी, शायद दोनों। तो *(प और क) नहीं* का मतलब *प नहीं या क नहीं* — दूसरा नियम।\n\n⚠️ सबसे आम ग़लती है क्रिया वैसी ही रख देना: $(A \\cup B)' = A' \\cup B'$ लिख देना। चाय वाले वाक्य पर जाँचिए, ग़लती साफ़ दिख जाएगी।\n\nये सिर्फ़ समुच्चय के तथ्य नहीं हैं। यही नियम लॉजिक गेट, डेटाबेस क्वेरी और हर प्रोग्रामिंग भाषा के हर `if (!(a || b))` को चलाते हैं। इन्हें यहाँ सीखना यानी एक ही बार सीखना।\n\n**गिनती: समावेश और अपवर्जन**\n$$n(A \\cup B) = n(A) + n(B) - n(A \\cap B)$$\n\n💡 **घटाना क्यों।** $n(A)$ और $n(B)$ जोड़ने पर अतिव्यापी हिस्से का हर व्यक्ति **दो बार** गिना जाता है — एक बार $A$ के सदस्य के रूप में, एक बार $B$ के। अतिव्यापी हिस्सा एक बार घटाने से हर व्यक्ति फिर से ठीक एक बार गिना जाने लगता है। यह सूत्र रटने का नियम नहीं; यह हिसाब-किताब है।\n\n⚠️ अगर समुच्चय असंयुक्त हों, तो $n(A \\cap B) = 0$ और सूत्र सिमटकर $n(A \\cup B) = n(A) + n(B)$ रह जाता है — यानी वही जो आप वैसे भी कहते। अच्छे सूत्र को आसान स्थिति में सामान्य समझ पर लौट आना चाहिए, और यह लौटता है।\n\n**तीन समुच्चय**\n$$n(A \\cup B \\cup C) = n(A) + n(B) + n(C) - n(A \\cap B) - n(B \\cap C) - n(A \\cap C) + n(A \\cap B \\cap C)$$\n\nदेखने में डरावना है। यह वही हिसाब है, एक बार और किया हुआ:\n- तीनों अकेले जोड़िए — तिहरा अतिव्यापी हिस्सा अब 3 बार गिना गया।\n- तीनों जोड़े घटाइए — तिहरा हिस्सा 3 बार हट गया, तो अब $3 - 3 = 0$ बार गिना है।\n- उसे एक बार वापस जोड़िए। सही।\n\nयह जो जोड़-घटाव-जोड़ बारी-बारी चलता है, इसी वजह से इसे **समावेश-अपवर्जन** कहते हैं। यही बारी-बारी वाला ढाँचा आपको प्रायिकता में मिलेगा, और वहाँ भी तर्क ठीक यही है।\n\n**समुच्चय असल में कहाँ काम आते हैं**\n- **प्रायिकता (अध्याय 14):** $P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$ — अक्षरशः यही सूत्र, $n(U)$ से भाग देकर।\n- **सर्वेक्षण और बाज़ार शोध:** कितने लोग उत्पाद A इस्तेमाल करते हैं पर B नहीं।\n- **डेटाबेस:** SQL का `WHERE` खंड समुच्चय-निर्माण विवरण ही है; `JOIN` सर्वनिष्ठ है।\n- **डिजिटल इलेक्ट्रॉनिक्स:** डी मॉर्गन के नियमों की वजह से ही NAND गेट से बाक़ी हर गेट बनाया जा सकता है।\n\n*यह कभी काम आएगा भी?* का ईमानदार जवाब यही है: जब भी कोई कंप्यूटर आपके लिए कोई क्वेरी का जवाब देता है, आप इसी का इस्तेमाल कर रहे होते हैं।"
+      "en": "Two results that turn sets from words into a tool you can use.\n\n**De Morgan's laws**\n\n$$(A \\cup B)' = A' \\cap B' \\qquad (A \\cap B)' = A' \\cup B'$$\n\nIn plain words: **saying NOT flips the joining word.** OR becomes AND. AND becomes OR.\n\n💡 **See it with tea and coffee.**\n\n> *I had neither tea nor coffee.*\n\nIf that is true, then I had **no tea** AND I had **no coffee**. Both must be missing. So *not (tea or coffee)* = *no tea and no coffee*. That is the first law.\n\n> *It is not true that I had both tea and coffee.*\n\nThen at least one is missing. Maybe the tea. Maybe the coffee. Maybe both. So *not (tea and coffee)* = *no tea or no coffee*. That is the second law.\n\n⚠️ **The common mistake** is keeping the same word: writing $(A \\cup B)' = A' \\cup B'$. Test it on the tea sentence and you will see it is wrong straight away.\n\nThese are not only set rules. The same two laws run computer chips, database searches, and every `if` statement in every program. Learn them here once and you have them for life.\n\n**Counting: add, then take back the double count**\n\n$$n(A \\cup B) = n(A) + n(B) - n(A \\cap B)$$\n\n💡 **Why do we subtract?** Look at the picture.\n\n{{diagram:sets-counting}}\n\n25 play cricket. 20 play football. Add them and you get 45. But there are only 37 children! The 8 who play both got counted **twice** — once with the cricket group, once with the football group. Take those 8 away once and everybody is counted exactly one time.\n\nThe rule is not something to memorise. It is just careful counting.\n\n⚠️ If the two sets share nothing, then $n(A \\cap B) = 0$ and the rule becomes $n(A \\cup B) = n(A) + n(B)$ — which is what you would have said anyway. A good rule should turn back into common sense in the easy case.\n\n**Three sets**\n\n$$n(A \\cup B \\cup C) = n(A) + n(B) + n(C) - n(A \\cap B) - n(B \\cap C) - n(A \\cap C) + n(A \\cap B \\cap C)$$\n\nIt looks frightening. It is the same careful counting, done once more:\n- Add the three singles. The middle bit where all three meet is now counted 3 times.\n- Take away the three pairs. That middle bit gets removed 3 times, so now it is counted 0 times.\n- Add it back once. Now it is right.\n\nPlus, minus, plus. That is why it is called **inclusion and exclusion** — putting in and taking out.\n\n**Where sets are really used**\n- **Probability (Chapter 14):** $P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$. The same rule, divided by $n(U)$.\n- **Surveys:** how many people use soap A but not soap B.\n- **Computers:** a database search is a set-builder rule. Joining two tables is an intersection.\n\nSo when someone asks *where will I ever use this* — you use it every time a computer answers a search for you.",
+      "hi": "दो नतीजे जो समुच्चय को शब्दों से बदलकर काम का औज़ार बना देते हैं।\n\n**डी मॉर्गन के नियम**\n\n$$(A \\cup B)' = A' \\cap B' \\qquad (A \\cap B)' = A' \\cup B'$$\n\nसीधे शब्दों में: **'नहीं' कहने से जोड़ने वाला शब्द पलट जाता है।** या बन जाता है और। और बन जाता है या।\n\n💡 **चाय और कॉफ़ी से देखिए।**\n\n> *मैंने न चाय ली न कॉफ़ी।*\n\nअगर यह सच है, तो मैंने **चाय नहीं** ली **और** **कॉफ़ी नहीं** ली। दोनों का न होना ज़रूरी है। तो *(चाय या कॉफ़ी) नहीं* = *चाय नहीं और कॉफ़ी नहीं*। यही पहला नियम है।\n\n> *यह सच नहीं कि मैंने चाय और कॉफ़ी दोनों लीं।*\n\nतब कम से कम एक छूटी। शायद चाय। शायद कॉफ़ी। शायद दोनों। तो *(चाय और कॉफ़ी) नहीं* = *चाय नहीं या कॉफ़ी नहीं*। यही दूसरा नियम है।\n\n⚠️ **आम ग़लती** है वही शब्द रख देना: $(A \\cup B)' = A' \\cup B'$ लिख देना। चाय वाले वाक्य पर जाँचिए, तुरंत दिख जाएगा कि यह ग़लत है।\n\nये सिर्फ़ समुच्चय के नियम नहीं हैं। यही दो नियम कंप्यूटर की चिप, डेटाबेस की खोज, और हर प्रोग्राम के हर `if` को चलाते हैं। इन्हें यहाँ एक बार सीख लीजिए, ज़िंदगी भर के लिए हो गए।\n\n**गिनती: जोड़िए, फिर दोहरी गिनती वापस हटाइए**\n\n$$n(A \\cup B) = n(A) + n(B) - n(A \\cap B)$$\n\n💡 **घटाते क्यों हैं?** तस्वीर देखिए।\n\n{{diagram:sets-counting}}\n\n25 क्रिकेट खेलते हैं। 20 फ़ुटबॉल। जोड़िए तो 45 आता है। पर बच्चे तो सिर्फ़ 37 हैं! जो 8 दोनों खेलते हैं वे **दो बार** गिने गए — एक बार क्रिकेट वालों के साथ, एक बार फ़ुटबॉल वालों के साथ। उन 8 को एक बार हटा दीजिए और हर कोई ठीक एक बार गिना जाएगा।\n\nयह नियम रटने की चीज़ नहीं है। यह बस ध्यान से की गई गिनती है।\n\n⚠️ अगर दोनों समुच्चयों में कुछ साझा न हो, तो $n(A \\cap B) = 0$ और नियम बन जाता है $n(A \\cup B) = n(A) + n(B)$ — यानी वही जो आप वैसे भी कहते। अच्छे नियम को आसान स्थिति में सामान्य समझ पर लौट आना चाहिए।\n\n**तीन समुच्चय**\n\n$$n(A \\cup B \\cup C) = n(A) + n(B) + n(C) - n(A \\cap B) - n(B \\cap C) - n(A \\cap C) + n(A \\cap B \\cap C)$$\n\nदेखने में डरावना है। यह वही ध्यान से की गई गिनती है, एक बार और:\n- तीनों अकेले जोड़िए। जहाँ तीनों मिलते हैं वह बीच वाला हिस्सा अब 3 बार गिना गया।\n- तीनों जोड़े हटाइए। वह बीच वाला हिस्सा 3 बार हट गया, तो अब 0 बार गिना है।\n- उसे एक बार वापस जोड़िए। अब सही है।\n\nजोड़, घटाव, जोड़। इसीलिए इसे **समावेश और अपवर्जन** कहते हैं — डालना और निकालना।\n\n**समुच्चय असल में कहाँ काम आते हैं**\n- **प्रायिकता (अध्याय 14):** $P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$। वही नियम, $n(U)$ से भाग देकर।\n- **सर्वेक्षण:** कितने लोग साबुन A इस्तेमाल करते हैं पर साबुन B नहीं।\n- **कंप्यूटर:** डेटाबेस की खोज एक समुच्चय-निर्माण नियम ही है। दो तालिकाएँ जोड़ना सर्वनिष्ठ है।\n\nतो जब कोई पूछे *यह कभी काम आएगा भी* — जब भी कोई कंप्यूटर आपकी खोज का जवाब देता है, आप यही इस्तेमाल कर रहे होते हैं।"
      },
      "worked": [
       {
        "title": {
-        "en": "Inclusion-exclusion, run backwards",
-        "hi": "समावेश-अपवर्जन, उल्टी दिशा में"
+        "en": "Counting backwards",
+        "hi": "उल्टी दिशा में गिनती"
        },
        "problem": {
         "en": "In a group of 60 people, 35 read Hindi newspapers, 30 read English newspapers, and 5 read neither. How many read both?",
@@ -1099,22 +1107,22 @@ window.SL_DATA.subjects.push({
        "steps": [
         {
          "do": {
-          "en": "5 read neither, so the number reading at least one is $60 - 5 = 55$. That is $n(H \\cup E) = 55$.",
-          "hi": "5 कोई नहीं पढ़ते, तो कम से कम एक पढ़ने वाले $60 - 5 = 55$ हैं। यानी $n(H \\cup E) = 55$।"
+          "en": "5 read neither. So the number who read at least one is $60 - 5 = 55$. That is $n(H \\cup E) = 55$.",
+          "hi": "5 कोई नहीं पढ़ते। तो कम से कम एक पढ़ने वाले $60 - 5 = 55$ हैं। यानी $n(H \\cup E) = 55$।"
          },
          "why": {
-          "en": "*Neither* is the region outside both circles, so subtracting it from $n(U)$ gives exactly the union. Translating the words into a region is the real skill here.",
-          "hi": "*कोई नहीं* वह क्षेत्र है जो दोनों वृत्तों के बाहर है, तो उसे $n(U)$ से घटाने पर ठीक सम्मिलन मिलता है। शब्दों को क्षेत्र में बदलना ही यहाँ असली कौशल है।"
+          "en": "*Neither* means outside both circles. Take that away from 60 and what is left is inside the circles — the union.",
+          "hi": "*कोई नहीं* का मतलब है दोनों वृत्तों के बाहर। उसे 60 में से हटाइए और जो बचा वह वृत्तों के अंदर है — यानी सम्मिलन।"
          }
         },
         {
          "do": {
-          "en": "Write the formula with the unknown in it: $55 = 35 + 30 - n(H \\cap E)$.",
-          "hi": "सूत्र में अज्ञात रखकर लिखिए: $55 = 35 + 30 - n(H \\cap E)$।"
+          "en": "Put the rule down with the unknown in it: $55 = 35 + 30 - n(H \\cap E)$.",
+          "hi": "नियम को अज्ञात के साथ लिखिए: $55 = 35 + 30 - n(H \\cap E)$।"
          },
          "why": {
-          "en": "The formula works in any direction. Here you know the union and want the overlap, so it becomes an equation to solve rather than a sum to compute.",
-          "hi": "सूत्र किसी भी दिशा में चलता है। यहाँ सम्मिलन पता है और अतिव्यापी हिस्सा चाहिए, तो यह जोड़ने के बजाय हल करने वाला समीकरण बन जाता है।"
+          "en": "The rule works in both directions. Here you know the union and want the middle, so it becomes an equation to solve.",
+          "hi": "नियम दोनों दिशाओं में चलता है। यहाँ सम्मिलन पता है और बीच वाला चाहिए, तो यह हल करने वाला समीकरण बन जाता है।"
          }
         },
         {
@@ -1123,18 +1131,18 @@ window.SL_DATA.subjects.push({
           "hi": "हल कीजिए: $55 = 65 - n(H \\cap E)$, तो $n(H \\cap E) = 65 - 55 = 10$।"
          },
          "why": {
-          "en": "This is the Foundation balanced-scale rule — do the same thing to both sides. Class 11 questions are usually Class 8 algebra wearing new vocabulary.",
-          "hi": "यह नींव वाला संतुलित तराज़ू नियम है — दोनों तरफ़ वही कीजिए। कक्षा 11 के सवाल अक्सर नई शब्दावली पहने कक्षा 8 की बीजगणित ही होते हैं।"
+          "en": "Do the same thing to both sides — the balanced scale rule from Foundation. Class 11 questions are often Class 8 algebra in new clothes.",
+          "hi": "दोनों तरफ़ वही कीजिए — नींव वाला संतुलित तराज़ू नियम। कक्षा 11 के सवाल अक्सर नए कपड़ों में कक्षा 8 की बीजगणित होते हैं।"
          }
         },
         {
          "do": {
-          "en": "Check by filling the diagram: Hindi only $= 25$, both $= 10$, English only $= 20$, neither $= 5$. Total $25 + 10 + 20 + 5 = 60$. ✅",
-          "hi": "चित्र भरकर जाँचिए: सिर्फ़ हिंदी $= 25$, दोनों $= 10$, सिर्फ़ अंग्रेज़ी $= 20$, कोई नहीं $= 5$। कुल $25 + 10 + 20 + 5 = 60$। ✅"
+          "en": "Check by filling the picture: Hindi only $= 25$, both $= 10$, English only $= 20$, neither $= 5$. Add: $25 + 10 + 20 + 5 = 60$ ✅",
+          "hi": "तस्वीर भरकर जाँचिए: सिर्फ़ हिंदी $= 25$, दोनों $= 10$, सिर्फ़ अंग्रेज़ी $= 20$, कोई नहीं $= 5$। जोड़िए: $25 + 10 + 20 + 5 = 60$ ✅"
          },
          "why": {
-          "en": "Filling all four regions and totalling to $n(U)$ catches every arithmetic slip. Never leave a Venn answer unchecked when the check costs ten seconds.",
-          "hi": "चारों क्षेत्र भरकर $n(U)$ से मिलाना हर हिसाब की चूक पकड़ लेता है। जब जाँच में दस सेकंड लगते हों, तो वेन का जवाब बिना जाँचे कभी मत छोड़िए।"
+          "en": "Filling all four parts and adding to 60 catches any slip. The check takes ten seconds, so never skip it.",
+          "hi": "चारों हिस्से भरकर 60 से मिलाना हर चूक पकड़ लेता है। जाँच में दस सेकंड लगते हैं, तो इसे कभी मत छोड़िए।"
          }
         }
        ],
@@ -1143,8 +1151,8 @@ window.SL_DATA.subjects.push({
         "hi": "10 लोग दोनों पढ़ते हैं।"
        },
        "note": {
-        "en": "Notice the shape of the question: it gave you the answer to the formula and asked for an input. Exams do this constantly — know the formula well enough to run it in reverse.",
-        "hi": "सवाल का ढाँचा देखिए: उसने सूत्र का जवाब दे दिया और एक इनपुट पूछा। परीक्षाएँ यह लगातार करती हैं — सूत्र इतना अच्छे से जानिए कि उसे उल्टा भी चला सकें।"
+        "en": "Notice the shape of this question: it gave you the answer and asked for one of the inputs. Exams do this often, so learn the rule well enough to run it backwards.",
+        "hi": "सवाल का ढाँचा देखिए: उसने जवाब दे दिया और एक इनपुट पूछ लिया। परीक्षाएँ यह अक्सर करती हैं, तो नियम इतना अच्छे से सीखिए कि उसे उल्टा भी चला सकें।"
        }
       },
       {
@@ -1153,38 +1161,38 @@ window.SL_DATA.subjects.push({
         "hi": "अब आपकी बारी — ख़ाली जगह भरिए"
        },
        "problem": {
-        "en": "$U = \\{1,2,3,4,5,6,7,8\\}$, $A = \\{1,2,3,4\\}$, $B = \\{3,4,5,6\\}$. Verify $(A \\cup B)' = A' \\cap B'$.",
+        "en": "$U = \\{1,2,3,4,5,6,7,8\\}$, $A = \\{1,2,3,4\\}$, $B = \\{3,4,5,6\\}$. Check that $(A \\cup B)' = A' \\cap B'$.",
         "hi": "$U = \\{1,2,3,4,5,6,7,8\\}$, $A = \\{1,2,3,4\\}$, $B = \\{3,4,5,6\\}$। जाँचिए कि $(A \\cup B)' = A' \\cap B'$।"
        },
        "steps": [
         {
          "fade": true,
          "ask": {
-          "en": "Left-hand side first. What is $A \\cup B$, and then its complement in $U$?",
-          "hi": "पहले बायाँ पक्ष। $A \\cup B$ क्या है, और फिर $U$ में उसका पूरक?"
+          "en": "Left side first. What is $A \\cup B$? Then what is left over in $U$?",
+          "hi": "पहले बायाँ पक्ष। $A \\cup B$ क्या है? फिर $U$ में क्या बचा?"
          },
          "do": {
           "en": "$A \\cup B = \\{1,2,3,4,5,6\\}$, so $(A \\cup B)' = \\{7, 8\\}$.",
           "hi": "$A \\cup B = \\{1,2,3,4,5,6\\}$, तो $(A \\cup B)' = \\{7, 8\\}$।"
          },
          "why": {
-          "en": "Work strictly inside out — brackets first, complement last. Taking the complement too early is how this goes wrong.",
-          "hi": "सख़्ती से अंदर से बाहर चलिए — पहले कोष्ठक, आख़िर में पूरक। पूरक जल्दी ले लेना ही वह जगह है जहाँ यह बिगड़ता है।"
+          "en": "Work from the inside out. Do the bracket first, the dash last. Taking the dash too early is where this goes wrong.",
+          "hi": "अंदर से बाहर चलिए। पहले कोष्ठक, आख़िर में डैश। डैश जल्दी ले लेना ही वह जगह है जहाँ यह बिगड़ता है।"
          }
         },
         {
          "fade": true,
          "ask": {
-          "en": "Now the right-hand side. Find $A'$ and $B'$ separately, then their intersection.",
-          "hi": "अब दायाँ पक्ष। $A'$ और $B'$ अलग-अलग निकालिए, फिर उनका सर्वनिष्ठ।"
+          "en": "Now the right side. Find $A'$ and $B'$ one at a time, then keep only what is in both.",
+          "hi": "अब दायाँ पक्ष। $A'$ और $B'$ एक-एक करके निकालिए, फिर सिर्फ़ वही रखिए जो दोनों में हो।"
          },
          "do": {
           "en": "$A' = \\{5,6,7,8\\}$, $B' = \\{1,2,7,8\\}$, so $A' \\cap B' = \\{7, 8\\}$.",
           "hi": "$A' = \\{5,6,7,8\\}$, $B' = \\{1,2,7,8\\}$, तो $A' \\cap B' = \\{7, 8\\}$।"
          },
          "why": {
-          "en": "Intersection keeps only what appears in both lists — here 7 and 8.",
-          "hi": "सर्वनिष्ठ सिर्फ़ वही रखता है जो दोनों सूचियों में हो — यहाँ 7 और 8।"
+          "en": "7 and 8 are the only numbers on both lists.",
+          "hi": "7 और 8 ही एकमात्र संख्याएँ हैं जो दोनों सूचियों में हैं।"
          }
         },
         {
@@ -1194,24 +1202,20 @@ window.SL_DATA.subjects.push({
           "hi": "दोनों पक्षों की तुलना कीजिए। आपने क्या दिखाया?"
          },
          "do": {
-          "en": "Both sides are $\\{7, 8\\}$, so $(A \\cup B)' = A' \\cap B'$ holds for this $U$, $A$ and $B$.",
-          "hi": "दोनों पक्ष $\\{7, 8\\}$ हैं, तो इस $U$, $A$ और $B$ के लिए $(A \\cup B)' = A' \\cap B'$ सही है।"
+          "en": "Both sides give $\\{7, 8\\}$. So the law is true for this $U$, $A$ and $B$.",
+          "hi": "दोनों पक्ष $\\{7, 8\\}$ देते हैं। तो इस $U$, $A$ और $B$ के लिए नियम सही है।"
          },
          "why": {
-          "en": "Be honest about what one example proves: it verifies the law here, it does not prove it in general. The general proof is the tea-and-coffee argument in the notes.",
-          "hi": "एक उदाहरण क्या साबित करता है, इस बारे में ईमानदार रहिए: यह नियम को यहाँ जाँचता है, आम तौर पर सिद्ध नहीं करता। आम सबूत नोट्स वाला चाय-कॉफ़ी का तर्क है।"
+          "en": "Be honest about what one example shows: it checks the law here. It does not prove it for every set. The full proof is the tea and coffee argument above.",
+          "hi": "एक उदाहरण क्या दिखाता है, इस बारे में ईमानदार रहिए: यह नियम को यहाँ जाँचता है। हर समुच्चय के लिए सिद्ध नहीं करता। पूरा सबूत ऊपर वाला चाय-कॉफ़ी का तर्क है।"
          }
         }
        ],
        "answer": {
-        "en": "Both sides equal $\\{7, 8\\}$ — the law is verified.",
-        "hi": "दोनों पक्ष $\\{7, 8\\}$ हैं — नियम जाँचा गया।"
+        "en": "Both sides are $\\{7, 8\\}$ — the law checks out.",
+        "hi": "दोनों पक्ष $\\{7, 8\\}$ हैं — नियम सही निकला।"
        }
       }
-     ],
-     "derivations": [
-      "demorgan",
-      "inclexcl"
      ]
     }
    ],
@@ -1223,19 +1227,19 @@ window.SL_DATA.subjects.push({
       "hi": "n सदस्यों वाले समुच्चय के ठीक 2^n उपसमुच्चय क्यों होते हैं"
      },
      "body": {
-      "en": "**What we are proving**\n$$n(P(A)) = 2^{n(A)}$$\n\n**The idea**\nBuilding a subset is a sequence of yes/no decisions — one per member. Nothing more.\n\n**The argument**\nLet $A = \\{a_1, a_2, \\ldots, a_n\\}$. To specify a subset $S$, walk down the list and answer one question at each member: *is $a_i$ in $S$?*\n\n- For $a_1$: 2 choices (in or out).\n- For $a_2$: 2 choices, and this choice is completely unaffected by what you decided for $a_1$.\n- ... and so on to $a_n$.\n\nBy the multiplication principle, the number of complete decision-sequences is\n$$\\underbrace{2 \\times 2 \\times \\cdots \\times 2}_{n \\text{ times}} = 2^n$$\n\nEach distinct sequence of decisions produces a distinct subset, and every subset arises from exactly one sequence — so subsets and decision-sequences are in one-to-one correspondence. Therefore $n(P(A)) = 2^n$.\n\n**Sanity checks**\n- $n = 0$: the empty set. $2^0 = 1$, and indeed $P(\\emptyset) = \\{\\emptyset\\}$ — one subset. ✅\n- $n = 1$: $A = \\{a\\}$ gives $\\emptyset$ and $\\{a\\}$. $2^1 = 2$. ✅\n- $n = 3$: listed by size, $1 + 3 + 3 + 1 = 8 = 2^3$. ✅\n\n**What this connects to**\nThose counts $1, 3, 3, 1$ are $^3C_0, {}^3C_1, {}^3C_2, {}^3C_3$. So counting subsets by size and adding gives\n$$\\sum_{r=0}^{n} \\binom{n}{r} = 2^n$$\nwhich is the binomial theorem with $a = b = 1$. Chapter 1, Chapter 6 and Chapter 7 are three views of this one fact — worth remembering when Chapter 7 arrives and looks unfamiliar.",
-      "hi": "**हम क्या सिद्ध कर रहे हैं**\n$$n(P(A)) = 2^{n(A)}$$\n\n**विचार**\nउपसमुच्चय बनाना हाँ/ना फ़ैसलों की एक शृंखला है — हर सदस्य पर एक। इससे ज़्यादा कुछ नहीं।\n\n**तर्क**\nमान लीजिए $A = \\{a_1, a_2, \\ldots, a_n\\}$। किसी उपसमुच्चय $S$ को बताने के लिए सूची पर चलिए और हर सदस्य पर एक सवाल का जवाब दीजिए: *क्या $a_i$, $S$ में है?*\n\n- $a_1$ के लिए: 2 विकल्प (अंदर या बाहर)।\n- $a_2$ के लिए: 2 विकल्प, और यह चुनाव इस बात से बिल्कुल अप्रभावित है कि $a_1$ के लिए क्या तय किया था।\n- ... और इसी तरह $a_n$ तक।\n\nगुणन सिद्धांत से, पूरी फ़ैसला-शृंखलाओं की संख्या है\n$$\\underbrace{2 \\times 2 \\times \\cdots \\times 2}_{n \\text{ बार}} = 2^n$$\n\nहर अलग फ़ैसला-शृंखला अलग उपसमुच्चय बनाती है, और हर उपसमुच्चय ठीक एक शृंखला से बनता है — तो उपसमुच्चय और फ़ैसला-शृंखलाएँ एक-से-एक संगति में हैं। इसलिए $n(P(A)) = 2^n$।\n\n**जाँच**\n- $n = 0$: रिक्त समुच्चय। $2^0 = 1$, और सचमुच $P(\\emptyset) = \\{\\emptyset\\}$ — एक उपसमुच्चय। ✅\n- $n = 1$: $A = \\{a\\}$ से $\\emptyset$ और $\\{a\\}$। $2^1 = 2$। ✅\n- $n = 3$: आकार से गिनने पर $1 + 3 + 3 + 1 = 8 = 2^3$। ✅\n\n**यह किससे जुड़ता है**\nवे गिनतियाँ $1, 3, 3, 1$ यानी $^3C_0, {}^3C_1, {}^3C_2, {}^3C_3$ हैं। तो उपसमुच्चयों को आकार से गिनकर जोड़ने पर मिलता है\n$$\\sum_{r=0}^{n} \\binom{n}{r} = 2^n$$\nजो $a = b = 1$ रखने पर द्विपद प्रमेय है। अध्याय 1, अध्याय 6 और अध्याय 7 इसी एक तथ्य के तीन नज़ारे हैं — यह याद रखना काम आएगा जब अध्याय 7 आएगा और अनजाना लगेगा।"
+      "en": "**What we want to show**\n\n$$n(P(A)) = 2^{n(A)}$$\n\n**The idea**\nMaking a subset is just a set of yes/no answers. One answer per member. Nothing more.\n\n**The reasoning**\nLet $A = \\{a_1, a_2, \\ldots, a_n\\}$. To make a subset $S$, walk down the list and answer one question at each name: *is this one in $S$?*\n\n- For $a_1$: 2 choices — in, or out.\n- For $a_2$: 2 choices again. And this choice does not depend at all on what you said for $a_1$.\n- Keep going to $a_n$.\n\nWhen each choice is free, you multiply the number of choices:\n\n$$\\underbrace{2 \\times 2 \\times \\cdots \\times 2}_{n \\text{ times}} = 2^n$$\n\nEvery different set of answers gives a different subset. Every subset comes from exactly one set of answers. So subsets and answer-sheets match one to one. Therefore $n(P(A)) = 2^n$.\n\n**Quick checks**\n- $n = 0$: the empty set. $2^0 = 1$, and indeed $P(\\emptyset) = \\{\\emptyset\\}$ — one subset. ✅\n- $n = 1$: $A = \\{a\\}$ gives $\\emptyset$ and $\\{a\\}$. $2^1 = 2$. ✅\n- $n = 3$: listed by size, $1 + 3 + 3 + 1 = 8 = 2^3$. ✅\n\n**Where this comes back**\nThose counts $1, 3, 3, 1$ are the numbers $^3C_0, {}^3C_1, {}^3C_2, {}^3C_3$ from Chapter 7. So counting subsets by size and adding gives\n\n$$\\sum_{r=0}^{n} \\binom{n}{r} = 2^n$$\n\nChapter 1, Chapter 6 and Chapter 7 are three views of one fact. Remember that when Chapter 7 arrives and looks new.",
+      "hi": "**हम क्या दिखाना चाहते हैं**\n\n$$n(P(A)) = 2^{n(A)}$$\n\n**विचार**\nउपसमुच्चय बनाना बस हाँ/ना जवाबों का एक सेट है। हर सदस्य पर एक जवाब। इससे ज़्यादा कुछ नहीं।\n\n**तर्क**\nमान लीजिए $A = \\{a_1, a_2, \\ldots, a_n\\}$। उपसमुच्चय $S$ बनाने के लिए सूची पर चलिए और हर नाम पर एक सवाल का जवाब दीजिए: *क्या यह $S$ में है?*\n\n- $a_1$ पर: 2 विकल्प — अंदर, या बाहर।\n- $a_2$ पर: फिर 2 विकल्प। और यह चुनाव इस बात पर बिल्कुल निर्भर नहीं करता कि $a_1$ पर आपने क्या कहा था।\n- ऐसे ही $a_n$ तक चलते जाइए।\n\nजब हर चुनाव आज़ाद हो, तो विकल्पों की संख्याएँ गुणा होती हैं:\n\n$$\\underbrace{2 \\times 2 \\times \\cdots \\times 2}_{n \\text{ बार}} = 2^n$$\n\nहर अलग जवाब-सेट अलग उपसमुच्चय देता है। हर उपसमुच्चय ठीक एक जवाब-सेट से बनता है। तो उपसमुच्चय और जवाब-पर्चियाँ एक-से-एक मिलते हैं। इसलिए $n(P(A)) = 2^n$।\n\n**झटपट जाँच**\n- $n = 0$: रिक्त समुच्चय। $2^0 = 1$, और सचमुच $P(\\emptyset) = \\{\\emptyset\\}$ — एक उपसमुच्चय। ✅\n- $n = 1$: $A = \\{a\\}$ से $\\emptyset$ और $\\{a\\}$। $2^1 = 2$। ✅\n- $n = 3$: आकार से गिनने पर $1 + 3 + 3 + 1 = 8 = 2^3$। ✅\n\n**यह कहाँ लौटेगा**\nवे गिनतियाँ $1, 3, 3, 1$ अध्याय 7 की संख्याएँ $^3C_0, {}^3C_1, {}^3C_2, {}^3C_3$ हैं। तो उपसमुच्चयों को आकार से गिनकर जोड़ने पर मिलता है\n\n$$\\sum_{r=0}^{n} \\binom{n}{r} = 2^n$$\n\nअध्याय 1, अध्याय 6 और अध्याय 7 एक ही तथ्य के तीन नज़ारे हैं। यह याद रखिए जब अध्याय 7 आएगा और नया लगेगा।"
      }
     },
     {
      "key": "demorgan",
      "title": {
-      "en": "Proving De Morgan's laws properly",
-      "hi": "डी मॉर्गन के नियम ठीक से सिद्ध करना"
+      "en": "Proving De Morgan's laws",
+      "hi": "डी मॉर्गन के नियम सिद्ध करना"
      },
      "body": {
-      "en": "**What we are proving**\n$$(A \\cup B)' = A' \\cap B'$$\n\n**How you prove two sets are equal**\nShow each is a subset of the other. That is the standard method for every set identity, and it is worth learning here where the sets are simple.\n\n**Step 1 — show $(A \\cup B)' \\subseteq A' \\cap B'$**\n\nTake any $x \\in (A \\cup B)'$. By the definition of complement, $x \\notin A \\cup B$.\n\nNow, $A \\cup B$ contains everything that is in $A$ or in $B$. If $x$ were in $A$, it would be in $A \\cup B$ — but it is not. So $x \\notin A$. The identical argument gives $x \\notin B$.\n\nSo $x \\in A'$ and $x \\in B'$, which means $x \\in A' \\cap B'$.\n\n**Step 2 — show $A' \\cap B' \\subseteq (A \\cup B)'$**\n\nTake any $x \\in A' \\cap B'$. Then $x \\notin A$ and $x \\notin B$.\n\nFor $x$ to be in $A \\cup B$ it would have to be in at least one of them. It is in neither. So $x \\notin A \\cup B$, which means $x \\in (A \\cup B)'$.\n\n**Conclusion**\nEach set contains the other, so they are equal. $\\blacksquare$\n\n**The second law**\n$(A \\cap B)' = A' \\cup B'$ follows by the same two-way argument. Try writing it out yourself — if you can reproduce the structure above with the words changed, you have understood the method, not memorised the result.\n\n**The plain-language version, which is the one you will actually use in an exam**\n*Not (in A or in B)* means *not in A, and not in B*. Both must fail for the *or* to fail.\n*Not (in A and in B)* means *not in A, or not in B*. Only one needs to fail for the *and* to fail.\n\nIf you ever doubt which way a law goes, test it on a sentence about tea and coffee. It takes five seconds and it has never been wrong.",
-      "hi": "**हम क्या सिद्ध कर रहे हैं**\n$$(A \\cup B)' = A' \\cap B'$$\n\n**दो समुच्चयों को बराबर कैसे सिद्ध करते हैं**\nदिखाइए कि हर एक दूसरे का उपसमुच्चय है। हर समुच्चय सर्वसमिका के लिए यही मानक तरीक़ा है, और इसे यहीं सीख लेना ठीक है जहाँ समुच्चय सरल हैं।\n\n**चरण 1 — दिखाइए $(A \\cup B)' \\subseteq A' \\cap B'$**\n\nकोई भी $x \\in (A \\cup B)'$ लीजिए। पूरक की परिभाषा से, $x \\notin A \\cup B$।\n\nअब, $A \\cup B$ में वह सब है जो $A$ में या $B$ में है। अगर $x$, $A$ में होता, तो वह $A \\cup B$ में होता — पर वह है नहीं। तो $x \\notin A$। बिल्कुल यही तर्क देता है $x \\notin B$।\n\nतो $x \\in A'$ और $x \\in B'$, यानी $x \\in A' \\cap B'$।\n\n**चरण 2 — दिखाइए $A' \\cap B' \\subseteq (A \\cup B)'$**\n\nकोई भी $x \\in A' \\cap B'$ लीजिए। तब $x \\notin A$ और $x \\notin B$।\n\n$x$ को $A \\cup B$ में होने के लिए कम से कम किसी एक में होना पड़ता। वह किसी में नहीं है। तो $x \\notin A \\cup B$, यानी $x \\in (A \\cup B)'$।\n\n**निष्कर्ष**\nहर समुच्चय दूसरे को समाए हुए है, तो दोनों बराबर हैं। $\\blacksquare$\n\n**दूसरा नियम**\n$(A \\cap B)' = A' \\cup B'$ इसी दोतरफ़ा तर्क से निकलता है। इसे ख़ुद लिखकर देखिए — अगर आप ऊपर वाला ढाँचा शब्द बदलकर दोहरा पाएँ, तो आपने तरीक़ा समझा है, नतीजा रटा नहीं।\n\n**आम भाषा वाला रूप, जो परीक्षा में असल में काम आएगा**\n*(A में या B में) नहीं* का मतलब *A में नहीं, और B में नहीं*। *या* के ग़लत होने के लिए दोनों का ग़लत होना ज़रूरी है।\n*(A में और B में) नहीं* का मतलब *A में नहीं, या B में नहीं*। *और* के ग़लत होने के लिए सिर्फ़ एक का ग़लत होना काफ़ी है।\n\nअगर कभी शक हो कि नियम किस तरफ़ जाता है, तो उसे चाय और कॉफ़ी वाले वाक्य पर जाँच लीजिए। पाँच सेकंड लगते हैं और यह आज तक ग़लत नहीं हुआ।"
+      "en": "**What we want to show**\n\n$$(A \\cup B)' = A' \\cap B'$$\n\n**How you show two sets are equal**\nShow each one sits inside the other. If $A$ is inside $B$ and $B$ is inside $A$, they must be the same set. This is the standard way to prove any set rule, so it is worth learning here where the sets are simple.\n\n**Step 1 — show $(A \\cup B)'$ sits inside $A' \\cap B'$**\n\nTake any $x$ in $(A \\cup B)'$. By what the dash means, $x$ is **not** in $A \\cup B$.\n\nNow $A \\cup B$ holds everything that is in $A$ or in $B$. If $x$ were in $A$, it would be in $A \\cup B$ — but it is not. So $x$ is not in $A$. The same reasoning gives: $x$ is not in $B$.\n\nSo $x$ is in $A'$, and $x$ is in $B'$. That means $x$ is in $A' \\cap B'$.\n\n**Step 2 — show $A' \\cap B'$ sits inside $(A \\cup B)'$**\n\nTake any $x$ in $A' \\cap B'$. Then $x$ is not in $A$, and $x$ is not in $B$.\n\nFor $x$ to be in $A \\cup B$, it would have to be in at least one of them. It is in neither. So $x$ is not in $A \\cup B$, which means $x$ is in $(A \\cup B)'$.\n\n**Done**\nEach set holds the other, so they are the same set. $\\blacksquare$\n\n**The second law**\n$(A \\cap B)' = A' \\cup B'$ works the same way, in two steps. Try writing it yourself. If you can copy the shape above with the words changed, you have understood the method — not just remembered the answer.\n\n**The quick version, for the exam hall**\n- *Not (in A or in B)* means *not in A, and not in B*. For an **or** to fail, both must fail.\n- *Not (in A and in B)* means *not in A, or not in B*. For an **and** to fail, only one needs to fail.\n\nIf you ever forget which way it goes, test it on a sentence about tea and coffee. Five seconds, and it has never let anyone down.",
+      "hi": "**हम क्या दिखाना चाहते हैं**\n\n$$(A \\cup B)' = A' \\cap B'$$\n\n**दो समुच्चय बराबर हैं, यह कैसे दिखाते हैं**\nदिखाइए कि हर एक दूसरे के अंदर बैठता है। अगर $A$, $B$ के अंदर है और $B$, $A$ के अंदर है, तो दोनों एक ही समुच्चय होंगे। किसी भी समुच्चय नियम को सिद्ध करने का यही मानक तरीक़ा है, तो इसे यहीं सीख लेना ठीक है जहाँ समुच्चय आसान हैं।\n\n**चरण 1 — दिखाइए कि $(A \\cup B)'$, $A' \\cap B'$ के अंदर है**\n\n$(A \\cup B)'$ में से कोई भी $x$ लीजिए। डैश के मतलब से, $x$, $A \\cup B$ में **नहीं** है।\n\nअब $A \\cup B$ में वह सब है जो $A$ में या $B$ में है। अगर $x$, $A$ में होता, तो वह $A \\cup B$ में होता — पर वह है नहीं। तो $x$, $A$ में नहीं है। इसी तर्क से: $x$, $B$ में भी नहीं है।\n\nतो $x$, $A'$ में है, और $x$, $B'$ में है। यानी $x$, $A' \\cap B'$ में है।\n\n**चरण 2 — दिखाइए कि $A' \\cap B'$, $(A \\cup B)'$ के अंदर है**\n\n$A' \\cap B'$ में से कोई भी $x$ लीजिए। तब $x$, $A$ में नहीं है, और $B$ में भी नहीं है।\n\n$x$ को $A \\cup B$ में होने के लिए कम से कम किसी एक में होना पड़ता। वह किसी में नहीं है। तो $x$, $A \\cup B$ में नहीं है, यानी $x$, $(A \\cup B)'$ में है।\n\n**हो गया**\nहर समुच्चय दूसरे को समाए हुए है, तो दोनों एक ही हैं। $\\blacksquare$\n\n**दूसरा नियम**\n$(A \\cap B)' = A' \\cup B'$ भी इसी तरह, दो चरणों में चलता है। इसे ख़ुद लिखकर देखिए। अगर आप ऊपर वाला ढाँचा शब्द बदलकर दोहरा पाएँ, तो आपने तरीक़ा समझा है — सिर्फ़ जवाब याद नहीं किया।\n\n**परीक्षा हॉल के लिए झटपट रूप**\n- *(A में या B में) नहीं* का मतलब *A में नहीं, और B में नहीं*। **या** के ग़लत होने के लिए दोनों का ग़लत होना ज़रूरी है।\n- *(A में और B में) नहीं* का मतलब *A में नहीं, या B में नहीं*। **और** के ग़लत होने के लिए सिर्फ़ एक का ग़लत होना काफ़ी है।\n\nअगर कभी भूल जाएँ कि नियम किस तरफ़ जाता है, तो उसे चाय और कॉफ़ी वाले वाक्य पर जाँच लीजिए। पाँच सेकंड, और इसने आज तक किसी को धोखा नहीं दिया।"
      }
     },
     {
@@ -1245,8 +1249,8 @@ window.SL_DATA.subjects.push({
       "hi": "n(A∪B) = n(A) + n(B) − n(A∩B) क्यों"
      },
      "body": {
-      "en": "**What we are proving**\n$$n(A \\cup B) = n(A) + n(B) - n(A \\cap B)$$\n\n**The idea**\nCount each person exactly once. That is all the formula is doing.\n\n**The argument**\nSplit $A \\cup B$ into three regions that do not overlap:\n\n1. in $A$ only — write its size $p$\n2. in both — size $q$, so $q = n(A \\cap B)$\n3. in $B$ only — size $r$\n\nEvery member of $A \\cup B$ falls into exactly one region, so\n$$n(A \\cup B) = p + q + r$$\n\nNow express the given quantities in the same three pieces:\n$$n(A) = p + q \\qquad n(B) = q + r$$\n\nAdd them:\n$$n(A) + n(B) = p + q + q + r = (p + q + r) + q$$\n\nThe overlap $q$ has been counted **twice** — once inside $n(A)$ and once inside $n(B)$. Subtract it once:\n$$n(A) + n(B) - q = p + q + r = n(A \\cup B) \\quad \\blacksquare$$\n\n**Why this is worth understanding rather than memorising**\nBecause the same argument extends. For three sets, adding the singles counts the triple overlap 3 times; subtracting the three pairwise overlaps removes it 3 times, leaving it counted 0 times; so it must be added back once:\n$$n(A \\cup B \\cup C) = \\sum n(A) - \\sum n(A \\cap B) + n(A \\cap B \\cap C)$$\n\nA student who memorised the two-set formula finds the three-set version arbitrary and frightening. A student who understood the double-counting derives it in the margin.\n\n**Where you meet it again**\nDivide every term by $n(U)$ and you have the probability addition rule from Chapter 14:\n$$P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$$\nSame formula, same reason, different chapter.",
-      "hi": "**हम क्या सिद्ध कर रहे हैं**\n$$n(A \\cup B) = n(A) + n(B) - n(A \\cap B)$$\n\n**विचार**\nहर व्यक्ति को ठीक एक बार गिनिए। सूत्र बस इतना ही कर रहा है।\n\n**तर्क**\n$A \\cup B$ को तीन ऐसे क्षेत्रों में बाँटिए जो आपस में नहीं मिलते:\n\n1. सिर्फ़ $A$ में — इसका आकार $p$\n2. दोनों में — आकार $q$, यानी $q = n(A \\cap B)$\n3. सिर्फ़ $B$ में — आकार $r$\n\n$A \\cup B$ का हर सदस्य ठीक एक क्षेत्र में गिरता है, तो\n$$n(A \\cup B) = p + q + r$$\n\nअब दी गई राशियों को उन्हीं तीन टुकड़ों में लिखिए:\n$$n(A) = p + q \\qquad n(B) = q + r$$\n\nजोड़िए:\n$$n(A) + n(B) = p + q + q + r = (p + q + r) + q$$\n\nअतिव्यापी हिस्सा $q$ **दो बार** गिना गया — एक बार $n(A)$ के अंदर और एक बार $n(B)$ के अंदर। इसे एक बार घटाइए:\n$$n(A) + n(B) - q = p + q + r = n(A \\cup B) \\quad \\blacksquare$$\n\n**इसे रटने के बजाय समझना क्यों ज़रूरी है**\nक्योंकि यही तर्क आगे बढ़ता है। तीन समुच्चयों में अकेलों को जोड़ने पर तिहरा अतिव्यापी हिस्सा 3 बार गिना जाता है; तीनों जोड़े घटाने पर वह 3 बार हट जाता है, यानी 0 बार गिना रह जाता है; तो उसे एक बार वापस जोड़ना पड़ेगा:\n$$n(A \\cup B \\cup C) = \\sum n(A) - \\sum n(A \\cap B) + n(A \\cap B \\cap C)$$\n\nजिसने दो-समुच्चय वाला सूत्र रटा है, उसे तीन-समुच्चय वाला रूप मनमाना और डरावना लगता है। जिसने दोहरी गिनती समझी है, वह उसे हाशिये पर ही निकाल लेता है।\n\n**यह दोबारा कहाँ मिलेगा**\nहर पद को $n(U)$ से भाग दीजिए और अध्याय 14 का प्रायिकता योग नियम मिल जाएगा:\n$$P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$$\nवही सूत्र, वही वजह, अलग अध्याय।"
+      "en": "**What we want to show**\n\n$$n(A \\cup B) = n(A) + n(B) - n(A \\cap B)$$\n\n**The idea**\nCount every person exactly once. That is all this rule does.\n\n**The reasoning**\nCut $A \\cup B$ into three parts that do not overlap:\n\n1. in $A$ only — call its size $p$\n2. in both — call its size $q$, so $q = n(A \\cap B)$\n3. in $B$ only — call its size $r$\n\nEvery member of $A \\cup B$ lands in exactly one part, so\n\n$$n(A \\cup B) = p + q + r$$\n\nNow write the given numbers using the same three parts:\n\n$$n(A) = p + q \\qquad n(B) = q + r$$\n\nAdd them:\n\n$$n(A) + n(B) = p + q + q + r = (p + q + r) + q$$\n\nThe middle part $q$ has been counted **twice** — once inside $n(A)$, once inside $n(B)$. Take it away once:\n\n$$n(A) + n(B) - q = p + q + r = n(A \\cup B) \\quad \\blacksquare$$\n\n**Why understand it instead of memorising it**\nBecause the same reasoning keeps working. For three sets, adding the three singles counts the middle bit 3 times. Taking away the three pairs removes it 3 times, leaving it counted 0 times. So it must be added back once:\n\n$$n(A \\cup B \\cup C) = \\sum n(A) - \\sum n(A \\cap B) + n(A \\cap B \\cap C)$$\n\nA student who only memorised the two-set rule finds the three-set version strange and frightening. A student who understood the double counting can work it out on the side of the page.\n\n**Where it comes back**\nDivide every term by $n(U)$ and you have the probability rule from Chapter 14:\n\n$$P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$$\n\nSame rule. Same reason. Different chapter.",
+      "hi": "**हम क्या दिखाना चाहते हैं**\n\n$$n(A \\cup B) = n(A) + n(B) - n(A \\cap B)$$\n\n**विचार**\nहर व्यक्ति को ठीक एक बार गिनिए। यह नियम बस इतना ही करता है।\n\n**तर्क**\n$A \\cup B$ को तीन ऐसे हिस्सों में काटिए जो आपस में न मिलें:\n\n1. सिर्फ़ $A$ में — इसका आकार $p$ मान लीजिए\n2. दोनों में — आकार $q$, यानी $q = n(A \\cap B)$\n3. सिर्फ़ $B$ में — आकार $r$\n\n$A \\cup B$ का हर सदस्य ठीक एक हिस्से में गिरता है, तो\n\n$$n(A \\cup B) = p + q + r$$\n\nअब दी गई संख्याओं को उन्हीं तीन हिस्सों में लिखिए:\n\n$$n(A) = p + q \\qquad n(B) = q + r$$\n\nजोड़िए:\n\n$$n(A) + n(B) = p + q + q + r = (p + q + r) + q$$\n\nबीच वाला हिस्सा $q$ **दो बार** गिना गया — एक बार $n(A)$ के अंदर, एक बार $n(B)$ के अंदर। उसे एक बार हटा दीजिए:\n\n$$n(A) + n(B) - q = p + q + r = n(A \\cup B) \\quad \\blacksquare$$\n\n**रटने के बजाय समझना क्यों बेहतर है**\nक्योंकि यही तर्क आगे भी चलता रहता है। तीन समुच्चयों में तीनों अकेले जोड़ने पर बीच वाला हिस्सा 3 बार गिना जाता है। तीनों जोड़े हटाने पर वह 3 बार हट जाता है, यानी 0 बार गिना रह जाता है। तो उसे एक बार वापस जोड़ना पड़ेगा:\n\n$$n(A \\cup B \\cup C) = \\sum n(A) - \\sum n(A \\cap B) + n(A \\cap B \\cap C)$$\n\nजिसने सिर्फ़ दो-समुच्चय वाला नियम रटा है, उसे तीन-समुच्चय वाला रूप अजीब और डरावना लगता है। जिसने दोहरी गिनती समझी है, वह उसे पन्ने के किनारे पर ही निकाल लेता है।\n\n**यह कहाँ लौटेगा**\nहर पद को $n(U)$ से भाग दीजिए और अध्याय 14 का प्रायिकता नियम मिल जाएगा:\n\n$$P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$$\n\nवही नियम। वही वजह। अलग अध्याय।"
      }
     }
    ],
@@ -1255,16 +1259,16 @@ window.SL_DATA.subjects.push({
     "hi": "कक्षा 11 · अध्याय 1"
    },
    "revision": [
-    "MTH-Q028",
-    "MTH-Q031",
-    "MTH-Q025",
-    "MTH-Q042",
-    "MTH-Q053",
-    "MTH-Q029",
-    "MTH-Q032",
-    "MTH-Q026",
-    "MTH-Q052",
-    "MTH-Q065"
+    "MTH-Q073",
+    "MTH-Q076",
+    "MTH-Q070",
+    "MTH-Q087",
+    "MTH-Q098",
+    "MTH-Q074",
+    "MTH-Q077",
+    "MTH-Q071",
+    "MTH-Q097",
+    "MTH-Q110"
    ]
   }
  ]
@@ -2102,6 +2106,1478 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "board": "CBSE",
   "klass": 11,
   "subject": "MATH11",
+  "chapter": 1,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH-1-1",
+  "tier": 1,
+  "diff": "easy",
+  "type": "mcq",
+  "q": {
+   "en": "Which of these is the smallest?",
+   "hi": "इनमें से सबसे छोटी कौन है?"
+  },
+  "opts": {
+   "en": [
+    "$-5$",
+    "$-2$",
+    "$0$",
+    "$3$"
+   ],
+   "hi": [
+    "$-5$",
+    "$-2$",
+    "$0$",
+    "$3$"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "$-5$ sits furthest LEFT on the number line, so it is smallest. Many pick $-2$ or $0$ because $5$ looks like a big number — but the minus sign puts it far to the left, not far up.",
+   "hi": "$-5$ संख्या रेखा पर सबसे बाईं तरफ़ है, तो वही सबसे छोटी है। कई लोग $-2$ या $0$ चुन लेते हैं क्योंकि $5$ बड़ी संख्या लगती है — पर ऋण चिह्न उसे बहुत बाईं तरफ़ ले जाता है, ऊपर नहीं।"
+  }
+ },
+ {
+  "id": "MTH-Q026",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 1,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH-1-1",
+  "tier": 1,
+  "diff": "easy",
+  "type": "tf",
+  "q": {
+   "en": "$0$ is a natural number.",
+   "hi": "$0$ एक प्राकृत संख्या है।"
+  },
+  "correct": "FALSE",
+  "exp": {
+   "en": "$\\mathbb{N}$ starts at 1. Zero is a WHOLE number, not a natural one. This is not a technicality — it decides the answer to set questions like $\\{x \\in \\mathbb{N} : x < 1\\}$, which is empty.",
+   "hi": "$\\mathbb{N}$ की शुरुआत 1 से होती है। शून्य पूर्ण संख्या है, प्राकृत नहीं। यह कोई तकनीकी बारीक़ी नहीं — इसी से $\\{x \\in \\mathbb{N} : x < 1\\}$ जैसे समुच्चय के सवाल का जवाब तय होता है, जो रिक्त है।"
+  }
+ },
+ {
+  "id": "MTH-Q027",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 1,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH-1-1",
+  "tier": 1,
+  "diff": "easy",
+  "type": "mcq",
+  "q": {
+   "en": "Which symbol stands for the real numbers?",
+   "hi": "वास्तविक संख्याओं के लिए कौन-सा चिह्न है?"
+  },
+  "opts": {
+   "en": [
+    "$\\mathbb{R}$",
+    "$\\mathbb{N}$",
+    "$\\mathbb{Z}$",
+    "$\\mathbb{Q}$"
+   ],
+   "hi": [
+    "$\\mathbb{R}$",
+    "$\\mathbb{N}$",
+    "$\\mathbb{Z}$",
+    "$\\mathbb{Q}$"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "$\\mathbb{R}$ for real — every single point on the number line, including $\\sqrt{2}$ and $\\pi$. $\\mathbb{Q}$ is rational (from *quotient*), $\\mathbb{Z}$ integers, $\\mathbb{N}$ natural.",
+   "hi": "$\\mathbb{R}$ वास्तविक के लिए — संख्या रेखा का हर एक बिंदु, $\\sqrt{2}$ और $\\pi$ समेत। $\\mathbb{Q}$ परिमेय (*quotient* से), $\\mathbb{Z}$ पूर्णांक, $\\mathbb{N}$ प्राकृत।"
+  }
+ },
+ {
+  "id": "MTH-Q028",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 1,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH-1-1",
+  "tier": 2,
+  "diff": "medium",
+  "type": "mcq",
+  "q": {
+   "en": "$\\sqrt{36}$ belongs to which smallest family?",
+   "hi": "$\\sqrt{36}$ किस सबसे छोटे परिवार में आती है?"
+  },
+  "opts": {
+   "en": [
+    "Natural",
+    "Rational, not integer",
+    "Irrational",
+    "Integer, not natural"
+   ],
+   "hi": [
+    "प्राकृत",
+    "परिमेय, पूर्णांक नहीं",
+    "अपरिमेय",
+    "पूर्णांक, प्राकृत नहीं"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "$\\sqrt{36} = 6$, an ordinary counting number. The root sign tempts you to answer *irrational* — but always simplify BEFORE you classify. A root is only irrational when the number under it is not a perfect square.",
+   "hi": "$\\sqrt{36} = 6$, एक साधारण गिनती की संख्या। मूल का चिह्न *अपरिमेय* कहने को उकसाता है — पर वर्गीकरण से **पहले** हमेशा सरल कीजिए। मूल तभी अपरिमेय होता है जब उसके नीचे की संख्या पूर्ण वर्ग न हो।"
+  }
+ },
+ {
+  "id": "MTH-Q029",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 1,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH-1-1",
+  "tier": 2,
+  "diff": "medium",
+  "type": "tf",
+  "q": {
+   "en": "$-\\frac{7}{2}$ is an integer.",
+   "hi": "$-\\frac{7}{2}$ एक पूर्णांक है।"
+  },
+  "correct": "FALSE",
+  "exp": {
+   "en": "$-\\frac{7}{2} = -3.5$, which lands between $-4$ and $-3$ on the line, not on a whole mark. It IS rational (it is one whole number over another) and real — but not an integer. Being negative has nothing to do with it.",
+   "hi": "$-\\frac{7}{2} = -3.5$, जो रेखा पर $-4$ और $-3$ के बीच गिरती है, किसी पूरे निशान पर नहीं। यह परिमेय **है** (एक पूर्णांक बटा दूसरा) और वास्तविक भी — पर पूर्णांक नहीं। ऋणात्मक होने से इसका कोई लेना-देना नहीं।"
+  }
+ },
+ {
+  "id": "MTH-Q030",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 1,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH-1-1",
+  "tier": 2,
+  "diff": "medium",
+  "type": "mcq",
+  "q": {
+   "en": "Which number is furthest from zero?",
+   "hi": "कौन-सी संख्या शून्य से सबसे दूर है?"
+  },
+  "opts": {
+   "en": [
+    "$-9$",
+    "$7$",
+    "$-4$",
+    "$5$"
+   ],
+   "hi": [
+    "$-9$",
+    "$7$",
+    "$-4$",
+    "$5$"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "Distance from zero ignores the sign, so compare 9, 7, 4 and 5 — and $-9$ wins. Careful: furthest from zero is a different question from largest. $-9$ is the SMALLEST of these four, and simultaneously the furthest from zero.",
+   "hi": "शून्य से दूरी में चिह्न नहीं देखा जाता, तो 9, 7, 4 और 5 की तुलना कीजिए — $-9$ जीतती है। ध्यान: शून्य से सबसे दूर होना और सबसे बड़ा होना अलग सवाल हैं। इन चारों में $-9$ सबसे **छोटी** है, और साथ ही शून्य से सबसे दूर भी।"
+  }
+ },
+ {
+  "id": "MTH-Q031",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 1,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH-1-1",
+  "tier": 3,
+  "diff": "medium",
+  "type": "tf",
+  "q": {
+   "en": "Every integer is a rational number.",
+   "hi": "हर पूर्णांक एक परिमेय संख्या है।"
+  },
+  "correct": "TRUE",
+  "exp": {
+   "en": "Any integer $n$ can be written $\\frac{n}{1}$, which is one whole number over another with a non-zero bottom — exactly the definition of rational. So $\\mathbb{Z} \\subseteq \\mathbb{Q}$. The reverse fails: $\\frac{1}{2}$ is rational but not an integer.",
+   "hi": "किसी भी पूर्णांक $n$ को $\\frac{n}{1}$ लिखा जा सकता है, यानी एक पूर्णांक बटा दूसरा जिसका हर शून्य नहीं — परिमेय की ठीक यही परिभाषा है। तो $\\mathbb{Z} \\subseteq \\mathbb{Q}$। उल्टा नहीं चलता: $\\frac{1}{2}$ परिमेय है पर पूर्णांक नहीं।"
+  }
+ },
+ {
+  "id": "MTH-Q032",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 1,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH-1-1",
+  "tier": 3,
+  "diff": "hard",
+  "type": "mcq",
+  "q": {
+   "en": "Which of these is irrational?",
+   "hi": "इनमें से कौन अपरिमेय है?"
+  },
+  "opts": {
+   "en": [
+    "$\\sqrt{3}$",
+    "$\\sqrt{16}$",
+    "$\\frac{22}{7}$",
+    "$0.3333\\ldots$"
+   ],
+   "hi": [
+    "$\\sqrt{3}$",
+    "$\\sqrt{16}$",
+    "$\\frac{22}{7}$",
+    "$0.3333\\ldots$"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "3 is not a perfect square, so $\\sqrt{3}$ cannot be written as $\\frac{p}{q}$. $\\sqrt{16} = 4$. $\\frac{22}{7}$ is a fraction, so rational — it is only an APPROXIMATION of $\\pi$, not $\\pi$ itself, and that trap catches many. $0.333\\ldots = \\frac{1}{3}$: a repeating decimal is always rational.",
+   "hi": "3 पूर्ण वर्ग नहीं है, तो $\\sqrt{3}$ को $\\frac{p}{q}$ रूप में नहीं लिखा जा सकता। $\\sqrt{16} = 4$। $\\frac{22}{7}$ भिन्न है, तो परिमेय — यह $\\pi$ का सिर्फ़ **सन्निकट मान** है, ख़ुद $\\pi$ नहीं, और यही जाल कई लोगों को पकड़ता है। $0.333\\ldots = \\frac{1}{3}$: आवर्ती दशमलव हमेशा परिमेय होता है।"
+  }
+ },
+ {
+  "id": "MTH-Q033",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 1,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH-1-1",
+  "tier": 3,
+  "diff": "hard",
+  "type": "short",
+  "q": {
+   "en": "Arrange from smallest to largest: $-\\frac{1}{2}$, $-2$, $0.3$, $-0.9$. Separate with commas.",
+   "hi": "छोटे से बड़े क्रम में लिखिए: $-\\frac{1}{2}$, $-2$, $0.3$, $-0.9$। अल्पविराम से अलग कीजिए।"
+  },
+  "correct": "-2, -0.9, -1/2, 0.3",
+  "accept": [
+   "-2,-0.9,-1/2,0.3",
+   "-2, -0.9, -0.5, 0.3",
+   "-2,-0.9,-0.5,0.3"
+  ],
+  "exp": {
+   "en": "Convert first: $-\\frac{1}{2} = -0.5$. Now walk the line left to right: $-2$, then $-0.9$, then $-0.5$, then $0.3$. The trap is $-0.9$ versus $-0.5$: $0.9 > 0.5$, but with the minus in front the order reverses, because $-0.9$ is further left.",
+   "hi": "पहले बदलिए: $-\\frac{1}{2} = -0.5$। अब रेखा पर बाएँ से दाएँ चलिए: $-2$, फिर $-0.9$, फिर $-0.5$, फिर $0.3$। जाल है $-0.9$ बनाम $-0.5$: $0.9 > 0.5$ है, पर आगे ऋण चिह्न लगते ही क्रम उलट जाता है, क्योंकि $-0.9$ और बाईं तरफ़ है।"
+  }
+ },
+ {
+  "id": "MTH-Q034",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 1,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH-1-2",
+  "tier": 1,
+  "diff": "easy",
+  "type": "mcq",
+  "q": {
+   "en": "$-6 + 10 = ?$",
+   "hi": "$-6 + 10 = ?$"
+  },
+  "opts": {
+   "en": [
+    "$4$",
+    "$-4$",
+    "$16$",
+    "$-16$"
+   ],
+   "hi": [
+    "$4$",
+    "$-4$",
+    "$16$",
+    "$-16$"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "Start at $-6$ and move 10 to the RIGHT (adding always moves right). You pass zero after 6 steps and have 4 left, landing on $4$. No rules needed — just walk the line.",
+   "hi": "$-6$ से शुरू कीजिए और 10 क़दम **दाएँ** चलिए (जोड़ने से हमेशा दाएँ जाते हैं)। 6 क़दम में शून्य पार हो जाता है और 4 बचते हैं, तो $4$ पर पहुँचे। कोई नियम नहीं चाहिए — बस रेखा पर चलिए।"
+  }
+ },
+ {
+  "id": "MTH-Q035",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 1,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH-1-2",
+  "tier": 1,
+  "diff": "easy",
+  "type": "mcq",
+  "q": {
+   "en": "$-3 \\times -5 = ?$",
+   "hi": "$-3 \\times -5 = ?$"
+  },
+  "opts": {
+   "en": [
+    "$15$",
+    "$-15$",
+    "$8$",
+    "$-8$"
+   ],
+   "hi": [
+    "$15$",
+    "$-15$",
+    "$8$",
+    "$-8$"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "Negative times negative is positive: $15$. Think of removing three debts of ₹5 each — you end up ₹15 better off. Removing something bad is good.",
+   "hi": "ऋणात्मक गुणा ऋणात्मक धनात्मक होता है: $15$। ₹5 के तीन उधार हटाने की तरह सोचिए — आप ₹15 बेहतर स्थिति में आ जाते हैं। कोई बुरी चीज़ हटाना अच्छा होता है।"
+  }
+ },
+ {
+  "id": "MTH-Q036",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 1,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH-1-2",
+  "tier": 1,
+  "diff": "easy",
+  "type": "tf",
+  "q": {
+   "en": "$-2 - 3 = -5$",
+   "hi": "$-2 - 3 = -5$"
+  },
+  "correct": "TRUE",
+  "exp": {
+   "en": "Start at $-2$ and move 3 further LEFT (subtracting moves left), landing on $-5$. Owing ₹2 and then owing ₹3 more means owing ₹5 in total.",
+   "hi": "$-2$ से शुरू कीजिए और 3 क़दम और **बाएँ** चलिए (घटाने से बाएँ जाते हैं), $-5$ पर पहुँचे। ₹2 का उधार और फिर ₹3 का उधार, यानी कुल ₹5 का उधार।"
+  }
+ },
+ {
+  "id": "MTH-Q037",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 1,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH-1-2",
+  "tier": 2,
+  "diff": "medium",
+  "type": "mcq",
+  "q": {
+   "en": "$(-2)^4 = ?$",
+   "hi": "$(-2)^4 = ?$"
+  },
+  "opts": {
+   "en": [
+    "$16$",
+    "$-16$",
+    "$8$",
+    "$-8$"
+   ],
+   "hi": [
+    "$16$",
+    "$-16$",
+    "$8$",
+    "$-8$"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "Four minus signs pair up: $(-2)(-2) = 4$, then $(-2)(-2) = 4$, and $4 \\times 4 = 16$. An EVEN power of a negative is positive; an odd power stays negative. Count the minus signs, not the digits.",
+   "hi": "चार ऋण चिह्न जोड़ों में कट जाते हैं: $(-2)(-2) = 4$, फिर $(-2)(-2) = 4$, और $4 \\times 4 = 16$। ऋणात्मक की **सम** घात धनात्मक होती है; विषम घात ऋणात्मक रहती है। ऋण चिह्न गिनिए, अंक नहीं।"
+  }
+ },
+ {
+  "id": "MTH-Q038",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 1,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH-1-2",
+  "tier": 2,
+  "diff": "medium",
+  "type": "short",
+  "q": {
+   "en": "Evaluate $\\frac{-12}{-4} + (-3)$.",
+   "hi": "$\\frac{-12}{-4} + (-3)$ का मान निकालिए।"
+  },
+  "correct": "0",
+  "exp": {
+   "en": "$\\frac{-12}{-4} = 3$ — negative divided by negative is positive, exactly as with multiplication. Then $3 + (-3) = 0$. Adding a negative is the same as subtracting.",
+   "hi": "$\\frac{-12}{-4} = 3$ — ऋणात्मक बटा ऋणात्मक धनात्मक होता है, ठीक गुणा की तरह। फिर $3 + (-3) = 0$। ऋणात्मक जोड़ना, घटाने के ही बराबर है।"
+  }
+ },
+ {
+  "id": "MTH-Q039",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 1,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH-1-2",
+  "tier": 2,
+  "diff": "medium",
+  "type": "tf",
+  "q": {
+   "en": "$-4^2$ and $(-4)^2$ give the same answer.",
+   "hi": "$-4^2$ और $(-4)^2$ का जवाब एक ही आता है।"
+  },
+  "correct": "FALSE",
+  "exp": {
+   "en": "$-4^2 = -16$ (no bracket, so the power acts on 4 alone and the minus is applied last), but $(-4)^2 = +16$ (the bracket puts the minus inside, so it gets squared too). A difference of 32 from one pair of brackets.",
+   "hi": "$-4^2 = -16$ (कोष्ठक नहीं, तो घात सिर्फ़ 4 पर लगती है और ऋण चिह्न आख़िर में), पर $(-4)^2 = +16$ (कोष्ठक ऋण चिह्न को अंदर कर देता है, तो उसका भी वर्ग होता है)। एक जोड़ी कोष्ठक से 32 का फ़र्क़।"
+  }
+ },
+ {
+  "id": "MTH-Q040",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 1,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH-1-2",
+  "tier": 3,
+  "diff": "hard",
+  "type": "short",
+  "q": {
+   "en": "Evaluate $(-2)^3 + (-2)^2 - (-2)$.",
+   "hi": "$(-2)^3 + (-2)^2 - (-2)$ का मान निकालिए।"
+  },
+  "correct": "-2",
+  "exp": {
+   "en": "$(-2)^3 = -8$ (odd power stays negative), $(-2)^2 = +4$ (even power turns positive), $-(-2) = +2$. Total: $-8 + 4 + 2 = -2$. Getting $+14$ means you made the cube positive; getting $-10$ means you dropped the double-negative.",
+   "hi": "$(-2)^3 = -8$ (विषम घात ऋणात्मक रहती है), $(-2)^2 = +4$ (सम घात धनात्मक हो जाती है), $-(-2) = +2$। कुल: $-8 + 4 + 2 = -2$। $+14$ आया तो आपने घन को धनात्मक कर दिया; $-10$ आया तो दोहरा ऋण चिह्न छूट गया।"
+  }
+ },
+ {
+  "id": "MTH-Q041",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 1,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH-1-2",
+  "tier": 3,
+  "diff": "hard",
+  "type": "mcq",
+  "q": {
+   "en": "The temperature was $-4°$C and fell by $7°$. What is it now?",
+   "hi": "तापमान $-4°$C था और $7°$ गिर गया। अब कितना है?"
+  },
+  "opts": {
+   "en": [
+    "$-11°$C",
+    "$3°$C",
+    "$-3°$C",
+    "$11°$C"
+   ],
+   "hi": [
+    "$-11°$C",
+    "$3°$C",
+    "$-3°$C",
+    "$11°$C"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "*Fell* means move LEFT: $-4 - 7 = -11$. The common error is $3$, from subtracting 4 from 7 — but the temperature was already below zero and got colder, so the answer must be further below zero, never above it. Always sense-check the direction.",
+   "hi": "*गिरा* यानी **बाएँ** जाइए: $-4 - 7 = -11$। आम ग़लती है $3$, जो 7 में से 4 घटाने से आती है — पर तापमान पहले ही शून्य से नीचे था और और ठंडा हुआ, तो जवाब शून्य से और नीचे ही होगा, ऊपर कभी नहीं। दिशा हमेशा समझ से जाँचिए।"
+  }
+ },
+ {
+  "id": "MTH-Q042",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 1,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH-1-2",
+  "tier": 3,
+  "diff": "hard",
+  "type": "sort",
+  "q": {
+   "en": "Sort each expression by its sign.",
+   "hi": "हर व्यंजक को उसके चिह्न के अनुसार बाँटिए।"
+  },
+  "cats": [
+   {
+    "k": "p",
+    "en": "Positive",
+    "hi": "धनात्मक"
+   },
+   {
+    "k": "n",
+    "en": "Negative",
+    "hi": "ऋणात्मक"
+   }
+  ],
+  "items": [
+   {
+    "k": "n",
+    "en": "$-5^2$",
+    "hi": "$-5^2$"
+   },
+   {
+    "k": "p",
+    "en": "$(-5)^2$",
+    "hi": "$(-5)^2$"
+   },
+   {
+    "k": "n",
+    "en": "$(-3)^3$",
+    "hi": "$(-3)^3$"
+   },
+   {
+    "k": "p",
+    "en": "$(-3)^4$",
+    "hi": "$(-3)^4$"
+   },
+   {
+    "k": "p",
+    "en": "$-2 \\times -6$",
+    "hi": "$-2 \\times -6$"
+   },
+   {
+    "k": "n",
+    "en": "$\\frac{-8}{2}$",
+    "hi": "$\\frac{-8}{2}$"
+   }
+  ],
+  "exp": {
+   "en": "Two separate rules are being tested. Brackets: $-5^2 = -25$ but $(-5)^2 = +25$. Parity of the power: an odd power of a negative stays negative ($(-3)^3$), an even power turns positive ($(-3)^4$). Then $-2 \\times -6 = +12$ and $\\frac{-8}{2} = -4$.",
+   "hi": "यहाँ दो अलग नियम जाँचे जा रहे हैं। कोष्ठक: $-5^2 = -25$ पर $(-5)^2 = +25$। घात की सम-विषमता: ऋणात्मक की विषम घात ऋणात्मक रहती है ($(-3)^3$), सम घात धनात्मक हो जाती है ($(-3)^4$)। फिर $-2 \\times -6 = +12$ और $\\frac{-8}{2} = -4$।"
+  }
+ },
+ {
+  "id": "MTH-Q043",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 1,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH-1-3",
+  "tier": 1,
+  "diff": "easy",
+  "type": "mcq",
+  "q": {
+   "en": "$\\frac{3}{4}$ as a decimal is:",
+   "hi": "दशमलव में $\\frac{3}{4}$ है:"
+  },
+  "opts": {
+   "en": [
+    "$0.75$",
+    "$0.34$",
+    "$1.33$",
+    "$0.43$"
+   ],
+   "hi": [
+    "$0.75$",
+    "$0.34$",
+    "$1.33$",
+    "$0.43$"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "Divide the top by the bottom: $3 \\div 4 = 0.75$. Not $0.34$ — the digits of the fraction are not the digits of the decimal. If you divided the wrong way round you would get $1.33$, which is what $\\frac{4}{3}$ gives.",
+   "hi": "ऊपर वाले को नीचे वाले से भाग दीजिए: $3 \\div 4 = 0.75$। $0.34$ नहीं — भिन्न के अंक दशमलव के अंक नहीं होते। उल्टा भाग दिया होता तो $1.33$ मिलता, जो $\\frac{4}{3}$ का मान है।"
+  }
+ },
+ {
+  "id": "MTH-Q044",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 1,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH-1-3",
+  "tier": 1,
+  "diff": "easy",
+  "type": "mcq",
+  "q": {
+   "en": "$25\\%$ of ₹800 is:",
+   "hi": "₹800 का $25\\%$ है:"
+  },
+  "opts": {
+   "en": [
+    "₹200",
+    "₹250",
+    "₹160",
+    "₹320"
+   ],
+   "hi": [
+    "₹200",
+    "₹250",
+    "₹160",
+    "₹320"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "$25\\% = \\frac{1}{4}$, and a quarter of 800 is 200. Turning the percentage into a simple fraction first makes this mental arithmetic instead of a calculation.",
+   "hi": "$25\\% = \\frac{1}{4}$, और 800 का चौथाई 200 है। प्रतिशत को पहले सरल भिन्न बना लेने से यह हिसाब नहीं, मन ही मन का काम बन जाता है।"
+  }
+ },
+ {
+  "id": "MTH-Q045",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 1,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH-1-3",
+  "tier": 1,
+  "diff": "easy",
+  "type": "tf",
+  "q": {
+   "en": "$\\frac{1}{2}$, $0.5$ and $50\\%$ are all the same number.",
+   "hi": "$\\frac{1}{2}$, $0.5$ और $50\\%$ तीनों एक ही संख्या हैं।"
+  },
+  "correct": "TRUE",
+  "exp": {
+   "en": "Three coats on one number. $\\frac{1}{2} = 1 \\div 2 = 0.5$, and $0.5 \\times 100 = 50\\%$. Fractions, decimals and percentages are not three topics — they are three notations for the same thing.",
+   "hi": "एक ही संख्या के तीन लिबास। $\\frac{1}{2} = 1 \\div 2 = 0.5$, और $0.5 \\times 100 = 50\\%$। भिन्न, दशमलव और प्रतिशत तीन विषय नहीं — एक ही चीज़ के तीन संकेतन हैं।"
+  }
+ },
+ {
+  "id": "MTH-Q046",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 1,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH-1-3",
+  "tier": 2,
+  "diff": "medium",
+  "type": "mcq",
+  "q": {
+   "en": "$\\frac{2}{3} \\times \\frac{3}{8} = ?$",
+   "hi": "$\\frac{2}{3} \\times \\frac{3}{8} = ?$"
+  },
+  "opts": {
+   "en": [
+    "$\\frac{1}{4}$",
+    "$\\frac{5}{11}$",
+    "$\\frac{6}{24}$",
+    "$\\frac{16}{9}$"
+   ],
+   "hi": [
+    "$\\frac{1}{4}$",
+    "$\\frac{5}{11}$",
+    "$\\frac{6}{24}$",
+    "$\\frac{16}{9}$"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "Multiply across: $\\frac{2 \\times 3}{3 \\times 8} = \\frac{6}{24} = \\frac{1}{4}$. Option C is right but not simplified — always reduce. Option B adds tops and bottoms, which is never how multiplication works.",
+   "hi": "आमने-सामने गुणा कीजिए: $\\frac{2 \\times 3}{3 \\times 8} = \\frac{6}{24} = \\frac{1}{4}$। विकल्प C सही है पर सरल नहीं — हमेशा सरल कीजिए। विकल्प B ऊपर-ऊपर और नीचे-नीचे जोड़ता है, जो गुणा में कभी नहीं होता।"
+  }
+ },
+ {
+  "id": "MTH-Q047",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 1,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH-1-3",
+  "tier": 2,
+  "diff": "medium",
+  "type": "short",
+  "q": {
+   "en": "$\\frac{5}{6} - \\frac{1}{3} = ?$ Give your answer as a fraction in lowest terms.",
+   "hi": "$\\frac{5}{6} - \\frac{1}{3} = ?$ जवाब सरलतम भिन्न में दीजिए।"
+  },
+  "correct": "1/2",
+  "accept": [
+   "3/6",
+   "0.5"
+  ],
+  "exp": {
+   "en": "Common denominator 6: $\\frac{5}{6} - \\frac{2}{6} = \\frac{3}{6} = \\frac{1}{2}$. Sense-check: $\\frac{5}{6}$ is nearly a whole and you removed a third, so a half is about right.",
+   "hi": "हर 6 लीजिए: $\\frac{5}{6} - \\frac{2}{6} = \\frac{3}{6} = \\frac{1}{2}$। समझ से जाँच: $\\frac{5}{6}$ लगभग पूरा है और आपने एक-तिहाई हटाया, तो आधा आना ठीक बैठता है।"
+  }
+ },
+ {
+  "id": "MTH-Q048",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 1,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH-1-3",
+  "tier": 2,
+  "diff": "medium",
+  "type": "mcq",
+  "q": {
+   "en": "A shirt marked ₹1200 is sold at $15\\%$ off. The selling price is:",
+   "hi": "₹1200 अंकित मूल्य वाली क़मीज़ $15\\%$ छूट पर बिकती है। विक्रय मूल्य है:"
+  },
+  "opts": {
+   "en": [
+    "₹1020",
+    "₹180",
+    "₹1380",
+    "₹1185"
+   ],
+   "hi": [
+    "₹1020",
+    "₹180",
+    "₹1380",
+    "₹1185"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "$15\\%$ of 1200 is 180, so the price is $1200 - 180 = 1020$. Option B is the discount itself, not the price — read what was asked. A faster route: paying $85\\%$ means $0.85 \\times 1200 = 1020$ in one step.",
+   "hi": "1200 का $15\\%$ यानी 180, तो दाम $1200 - 180 = 1020$। विकल्प B ख़ुद छूट है, दाम नहीं — पढ़िए कि पूछा क्या गया। तेज़ रास्ता: $85\\%$ देना है, यानी एक ही चरण में $0.85 \\times 1200 = 1020$।"
+  }
+ },
+ {
+  "id": "MTH-Q049",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 1,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH-1-3",
+  "tier": 3,
+  "diff": "hard",
+  "type": "short",
+  "q": {
+   "en": "$\\frac{2}{3} \\div \\frac{4}{9} = ?$ Give your answer as a fraction in lowest terms.",
+   "hi": "$\\frac{2}{3} \\div \\frac{4}{9} = ?$ जवाब सरलतम भिन्न में दीजिए।"
+  },
+  "correct": "3/2",
+  "accept": [
+   "1.5",
+   "6/4"
+  ],
+  "exp": {
+   "en": "Flip the second and multiply: $\\frac{2}{3} \\times \\frac{9}{4} = \\frac{18}{12} = \\frac{3}{2}$. Note the answer is bigger than $\\frac{2}{3}$ — dividing by something less than 1 always increases the result, which feels wrong until you ask *how many $\\frac{4}{9}$s fit into $\\frac{2}{3}$?*",
+   "hi": "दूसरी को उलटिए और गुणा कीजिए: $\\frac{2}{3} \\times \\frac{9}{4} = \\frac{18}{12} = \\frac{3}{2}$। ध्यान दीजिए जवाब $\\frac{2}{3}$ से बड़ा है — 1 से छोटी संख्या से भाग देने पर नतीजा हमेशा बढ़ता है, जो तब तक ग़लत लगता है जब तक आप न पूछें *$\\frac{2}{3}$ में $\\frac{4}{9}$ कितनी बार आएगा?*"
+  }
+ },
+ {
+  "id": "MTH-Q050",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 1,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH-1-3",
+  "tier": 3,
+  "diff": "hard",
+  "type": "mcq",
+  "q": {
+   "en": "A price rises by $20\\%$, then falls by $20\\%$. Compared with the start, the final price is:",
+   "hi": "दाम $20\\%$ बढ़ता है, फिर $20\\%$ घटता है। शुरुआत की तुलना में अंतिम दाम है:"
+  },
+  "opts": {
+   "en": [
+    "$4\\%$ lower",
+    "the same",
+    "$4\\%$ higher",
+    "$20\\%$ lower"
+   ],
+   "hi": [
+    "$4\\%$ कम",
+    "वही",
+    "$4\\%$ ज़्यादा",
+    "$20\\%$ कम"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "Take ₹100. Up $20\\%$ gives 120. Down $20\\%$ of **120** is 24, giving 96 — that is $4\\%$ below the start. Most people answer *the same*, because the two percentages look like they cancel. They do not: the rise was calculated on 100 and the fall on the larger 120.",
+   "hi": "₹100 लीजिए। $20\\%$ बढ़ने पर 120। **120** का $20\\%$ यानी 24 घटने पर 96 — जो शुरुआत से $4\\%$ कम है। ज़्यादातर लोग *वही* कहते हैं, क्योंकि दोनों प्रतिशत कटते हुए लगते हैं। कटते नहीं: बढ़त 100 पर लगी और गिरावट बड़ी रक़म 120 पर।"
+  }
+ },
+ {
+  "id": "MTH-Q051",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 1,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH-1-3",
+  "tier": 3,
+  "diff": "hard",
+  "type": "short",
+  "q": {
+   "en": "A student scored 34 out of 40. What percentage is that?",
+   "hi": "एक विद्यार्थी को 40 में से 34 अंक मिले। यह कितने प्रतिशत हुआ?"
+  },
+  "correct": "85",
+  "accept": [
+   "85%",
+   "85 %"
+  ],
+  "exp": {
+   "en": "$\\frac{34}{40} = 0.85$, and $0.85 \\times 100 = 85\\%$. The route is always the same: make the fraction, turn it into a decimal, multiply by 100. Sense-check: 34 is well over three-quarters of 40, and $85 > 75$ ✅.",
+   "hi": "$\\frac{34}{40} = 0.85$, और $0.85 \\times 100 = 85\\%$। रास्ता हमेशा वही है: भिन्न बनाइए, दशमलव में बदलिए, 100 से गुणा कीजिए। समझ से जाँच: 34, 40 के तीन-चौथाई से काफ़ी ज़्यादा है, और $85 > 75$ ✅।"
+  }
+ },
+ {
+  "id": "MTH-Q052",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 2,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH-2-1",
+  "tier": 1,
+  "diff": "easy",
+  "type": "mcq",
+  "q": {
+   "en": "Simplify $7a - 2a$.",
+   "hi": "$7a - 2a$ को सरल कीजिए।"
+  },
+  "opts": {
+   "en": [
+    "$5a$",
+    "$5$",
+    "$5a^2$",
+    "$9a$"
+   ],
+   "hi": [
+    "$5a$",
+    "$5$",
+    "$5a^2$",
+    "$9a$"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "Same box, so subtract the numbers and keep the letter: $5a$. The letter never disappears and never gains a power when you add or subtract like terms.",
+   "hi": "एक ही डिब्बा, तो संख्याएँ घटाइए और अक्षर वैसा ही रखिए: $5a$। समान पद जोड़ने-घटाने पर अक्षर न ग़ायब होता है, न उस पर घात आती है।"
+  }
+ },
+ {
+  "id": "MTH-Q053",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 2,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH-2-1",
+  "tier": 1,
+  "diff": "easy",
+  "type": "mcq",
+  "q": {
+   "en": "Expand $5(x + 2)$.",
+   "hi": "$5(x + 2)$ को खोलिए।"
+  },
+  "opts": {
+   "en": [
+    "$5x + 10$",
+    "$5x + 2$",
+    "$x + 10$",
+    "$5x + 7$"
+   ],
+   "hi": [
+    "$5x + 10$",
+    "$5x + 2$",
+    "$x + 10$",
+    "$5x + 7$"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "The 5 reaches BOTH terms inside: $5 \\times x$ and $5 \\times 2$. Option B is the classic slip of multiplying only the first term — 5 packets each holding an $x$ and a 2 give 5 of each, not 5 and 2.",
+   "hi": "5 अंदर के **दोनों** पदों तक पहुँचता है: $5 \\times x$ और $5 \\times 2$। विकल्प B वही चिरपरिचित चूक है जिसमें सिर्फ़ पहला पद गुणा होता है — 5 पैकेट, हर एक में एक $x$ और एक 2, यानी दोनों के 5-5, न कि 5 और 2।"
+  }
+ },
+ {
+  "id": "MTH-Q054",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 2,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH-2-1",
+  "tier": 1,
+  "diff": "easy",
+  "type": "short",
+  "q": {
+   "en": "If $x + 9 = 15$, what is $x$?",
+   "hi": "यदि $x + 9 = 15$ है, तो $x$ क्या है?"
+  },
+  "correct": "6",
+  "exp": {
+   "en": "Subtract 9 from both sides to keep the scale balanced: $x = 6$. Check by putting it back: $6 + 9 = 15$ ✅. Substituting back takes five seconds and catches almost every slip.",
+   "hi": "तराज़ू का संतुलन बनाए रखने के लिए दोनों तरफ़ से 9 घटाइए: $x = 6$। वापस रखकर जाँचिए: $6 + 9 = 15$ ✅। वापस रखने में पाँच सेकंड लगते हैं और लगभग हर चूक पकड़ में आ जाती है।"
+  }
+ },
+ {
+  "id": "MTH-Q055",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 2,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH-2-1",
+  "tier": 2,
+  "diff": "medium",
+  "type": "short",
+  "q": {
+   "en": "Solve $5x + 4 = 2x + 19$.",
+   "hi": "$5x + 4 = 2x + 19$ हल कीजिए।"
+  },
+  "correct": "5",
+  "exp": {
+   "en": "Get the letters on one side and the numbers on the other. Subtract $2x$ from both sides: $3x + 4 = 19$. Subtract 4: $3x = 15$. Divide by 3: $x = 5$. Check: $5(5)+4 = 29$ and $2(5)+19 = 29$ ✅.",
+   "hi": "अक्षर एक तरफ़ और संख्याएँ दूसरी तरफ़ कीजिए। दोनों तरफ़ से $2x$ घटाइए: $3x + 4 = 19$। 4 घटाइए: $3x = 15$। 3 से भाग दीजिए: $x = 5$। जाँच: $5(5)+4 = 29$ और $2(5)+19 = 29$ ✅।"
+  }
+ },
+ {
+  "id": "MTH-Q056",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 2,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH-2-1",
+  "tier": 2,
+  "diff": "medium",
+  "type": "mcq",
+  "q": {
+   "en": "Expand $(x - 3)(x - 4)$.",
+   "hi": "$(x - 3)(x - 4)$ को खोलिए।"
+  },
+  "opts": {
+   "en": [
+    "$x^2 - 7x + 12$",
+    "$x^2 + 7x + 12$",
+    "$x^2 - 7x - 12$",
+    "$x^2 - 12$"
+   ],
+   "hi": [
+    "$x^2 - 7x + 12$",
+    "$x^2 + 7x + 12$",
+    "$x^2 - 7x - 12$",
+    "$x^2 - 12$"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "Four products: $x^2$, $-4x$, $-3x$, and $(-3)(-4) = +12$. The last one is where marks go — two negatives multiply to a POSITIVE, so the constant is $+12$, not $-12$. Middle: $-4x - 3x = -7x$.",
+   "hi": "चार गुणनफल: $x^2$, $-4x$, $-3x$, और $(-3)(-4) = +12$। आख़िरी पर ही नंबर कटते हैं — दो ऋणात्मक गुणा करके **धनात्मक** देते हैं, तो अचर $+12$ है, $-12$ नहीं। बीच वाला: $-4x - 3x = -7x$।"
+  }
+ },
+ {
+  "id": "MTH-Q057",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 2,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH-2-1",
+  "tier": 2,
+  "diff": "medium",
+  "type": "mcq",
+  "q": {
+   "en": "If $y = 3x - 2$, what is $y$ when $x = -2$?",
+   "hi": "यदि $y = 3x - 2$ है, तो $x = -2$ पर $y$ क्या है?"
+  },
+  "opts": {
+   "en": [
+    "$-8$",
+    "$-4$",
+    "$4$",
+    "$8$"
+   ],
+   "hi": [
+    "$-8$",
+    "$-4$",
+    "$4$",
+    "$8$"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "$y = 3(-2) - 2 = -6 - 2 = -8$. Substitute in brackets to protect the sign: writing $3 \\times -2$ without them is how people end up with $-4$ or $+4$.",
+   "hi": "$y = 3(-2) - 2 = -6 - 2 = -8$। चिह्न बचाने के लिए कोष्ठक में रखिए: बिना कोष्ठक $3 \\times -2$ लिखने से ही लोग $-4$ या $+4$ पर पहुँच जाते हैं।"
+  }
+ },
+ {
+  "id": "MTH-Q058",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 2,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH-2-1",
+  "tier": 3,
+  "diff": "hard",
+  "type": "short",
+  "q": {
+   "en": "Simplify $4(x + 2) - 3(x - 1)$.",
+   "hi": "$4(x + 2) - 3(x - 1)$ को सरल कीजिए।"
+  },
+  "correct": "x+11",
+  "accept": [
+   "x + 11",
+   "11+x",
+   "11 + x"
+  ],
+  "exp": {
+   "en": "$4(x+2) = 4x + 8$. The second multiplier is $-3$, so BOTH signs inside flip: $-3(x-1) = -3x + 3$. Then $4x - 3x = x$ and $8 + 3 = 11$, giving $x + 11$. Answering $x + 5$ means you forgot the minus reaches the $-1$ as well.",
+   "hi": "$4(x+2) = 4x + 8$। दूसरा गुणक $-3$ है, तो अंदर के **दोनों** चिह्न पलटेंगे: $-3(x-1) = -3x + 3$। फिर $4x - 3x = x$ और $8 + 3 = 11$, यानी $x + 11$। $x + 5$ आया तो आप भूल गए कि ऋण चिह्न $-1$ तक भी पहुँचता है।"
+  }
+ },
+ {
+  "id": "MTH-Q059",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 2,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH-2-1",
+  "tier": 3,
+  "diff": "hard",
+  "type": "short",
+  "q": {
+   "en": "A number is doubled, then 7 is subtracted, giving 19. What was the number?",
+   "hi": "एक संख्या को दोगुना किया गया, फिर 7 घटाया गया, तो 19 मिला। संख्या क्या थी?"
+  },
+  "correct": "13",
+  "exp": {
+   "en": "Write it as $2x - 7 = 19$. Add 7: $2x = 26$. Divide by 2: $x = 13$. Check: $2(13) - 7 = 19$ ✅. Turning the sentence into an equation is the whole skill — the algebra afterwards is easy.",
+   "hi": "इसे $2x - 7 = 19$ लिखिए। 7 जोड़िए: $2x = 26$। 2 से भाग दीजिए: $x = 13$। जाँच: $2(13) - 7 = 19$ ✅। वाक्य को समीकरण में बदलना ही पूरा कौशल है — उसके बाद की बीजगणित आसान है।"
+  }
+ },
+ {
+  "id": "MTH-Q060",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 2,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH-2-1",
+  "tier": 3,
+  "diff": "hard",
+  "type": "tf",
+  "q": {
+   "en": "$(x + 3)^2 = x^2 + 9$",
+   "hi": "$(x + 3)^2 = x^2 + 9$"
+  },
+  "correct": "FALSE",
+  "exp": {
+   "en": "$(x+3)^2$ means $(x+3)(x+3) = x^2 + 3x + 3x + 9 = x^2 + 6x + 9$. The middle term $6x$ is missing from the claim. Squaring a bracket is NOT squaring each piece — this is one of the most expensive errors in all of Class 11.",
+   "hi": "$(x+3)^2$ का मतलब है $(x+3)(x+3) = x^2 + 3x + 3x + 9 = x^2 + 6x + 9$। दावे में बीच वाला पद $6x$ ग़ायब है। कोष्ठक का वर्ग करना, हर टुकड़े का वर्ग करना **नहीं** है — कक्षा 11 की सबसे महँगी ग़लतियों में से एक यही है।"
+  }
+ },
+ {
+  "id": "MTH-Q061",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 2,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH-2-2",
+  "tier": 1,
+  "diff": "easy",
+  "type": "mcq",
+  "q": {
+   "en": "Factorise $6x + 9$.",
+   "hi": "$6x + 9$ के गुणनखंड कीजिए।"
+  },
+  "opts": {
+   "en": [
+    "$3(2x + 3)$",
+    "$3(2x + 9)$",
+    "$6(x + 3)$",
+    "$3(6x + 9)$"
+   ],
+   "hi": [
+    "$3(2x + 3)$",
+    "$3(2x + 9)$",
+    "$6(x + 3)$",
+    "$3(2x + 9)$"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "The largest number dividing both 6 and 9 is 3. Take it out: $6x \\div 3 = 2x$ and $9 \\div 3 = 3$. Check by expanding: $3(2x+3) = 6x + 9$ ✅. Always expand your answer back — factorising is the one place a check is instant.",
+   "hi": "6 और 9 दोनों को विभाजित करने वाली सबसे बड़ी संख्या 3 है। उसे बाहर निकालिए: $6x \\div 3 = 2x$ और $9 \\div 3 = 3$। खोलकर जाँचिए: $3(2x+3) = 6x + 9$ ✅। जवाब को हमेशा वापस खोलकर देखिए — गुणनखंड ही वह जगह है जहाँ जाँच तुरंत हो जाती है।"
+  }
+ },
+ {
+  "id": "MTH-Q062",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 2,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH-2-2",
+  "tier": 1,
+  "diff": "easy",
+  "type": "mcq",
+  "q": {
+   "en": "Factorise $x^2 - 1$.",
+   "hi": "$x^2 - 1$ के गुणनखंड कीजिए।"
+  },
+  "opts": {
+   "en": [
+    "$(x-1)(x+1)$",
+    "$(x-1)^2$",
+    "$(x+1)^2$",
+    "$x(x-1)$"
+   ],
+   "hi": [
+    "$(x-1)(x+1)$",
+    "$(x-1)^2$",
+    "$(x+1)^2$",
+    "$x(x-1)$"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "A difference of two squares, since $1 = 1^2$: $x^2 - 1^2 = (x-1)(x+1)$. This exact expression appears in the very first limit you will meet, $\\lim_{x \\to 1} \\frac{x^2-1}{x-1}$ — recognising it now saves you later.",
+   "hi": "दो वर्गों का अंतर, क्योंकि $1 = 1^2$: $x^2 - 1^2 = (x-1)(x+1)$। यही व्यंजक उस पहली सीमा में आता है जो आप देखेंगे, $\\lim_{x \\to 1} \\frac{x^2-1}{x-1}$ — इसे अभी पहचान लेना आगे काम आएगा।"
+  }
+ },
+ {
+  "id": "MTH-Q063",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 2,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH-2-2",
+  "tier": 1,
+  "diff": "easy",
+  "type": "tf",
+  "q": {
+   "en": "$x^2 + 4$ factorises to $(x+2)(x+2)$.",
+   "hi": "$x^2 + 4$ के गुणनखंड $(x+2)(x+2)$ होते हैं।"
+  },
+  "correct": "FALSE",
+  "exp": {
+   "en": "Expand the claim: $(x+2)(x+2) = x^2 + 4x + 4$, which has an extra $4x$. A SUM of two squares does not factorise over real numbers at all — only a DIFFERENCE does. $x^2 - 4$ works; $x^2 + 4$ does not.",
+   "hi": "दावे को खोलिए: $(x+2)(x+2) = x^2 + 4x + 4$, जिसमें अतिरिक्त $4x$ है। दो वर्गों का **योग** वास्तविक संख्याओं में गुणनखंडित होता ही नहीं — सिर्फ़ **अंतर** होता है। $x^2 - 4$ चलता है; $x^2 + 4$ नहीं।"
+  }
+ },
+ {
+  "id": "MTH-Q064",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 2,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH-2-2",
+  "tier": 2,
+  "diff": "medium",
+  "type": "mcq",
+  "q": {
+   "en": "Factorise $x^2 - x - 6$.",
+   "hi": "$x^2 - x - 6$ के गुणनखंड कीजिए।"
+  },
+  "opts": {
+   "en": [
+    "$(x-3)(x+2)$",
+    "$(x+3)(x-2)$",
+    "$(x-6)(x+1)$",
+    "$(x-3)(x-2)$"
+   ],
+   "hi": [
+    "$(x-3)(x+2)$",
+    "$(x+3)(x-2)$",
+    "$(x-6)(x+1)$",
+    "$(x-3)(x-2)$"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "Two numbers multiplying to $-6$ and adding to $-1$: they must have opposite signs, and $-3$ with $+2$ works. Option B has the signs the wrong way round — it gives $+x$ in the middle. Always check BOTH the product and the sum.",
+   "hi": "गुणनफल $-6$ और योग $-1$ वाली दो संख्याएँ: इनके चिह्न विपरीत होने चाहिए, और $-3$ के साथ $+2$ काम करता है। विकल्प B में चिह्न उलटे हैं — उससे बीच में $+x$ आता है। हमेशा गुणनफल **और** योग दोनों जाँचिए।"
+  }
+ },
+ {
+  "id": "MTH-Q065",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 2,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH-2-2",
+  "tier": 2,
+  "diff": "medium",
+  "type": "short",
+  "q": {
+   "en": "Factorise $x^2 + 8x + 16$.",
+   "hi": "$x^2 + 8x + 16$ के गुणनखंड कीजिए।"
+  },
+  "correct": "(x+4)^2",
+  "accept": [
+   "(x+4)(x+4)",
+   "(x+4)²"
+  ],
+  "exp": {
+   "en": "Two numbers multiplying to 16 and adding to 8 are 4 and 4, so $(x+4)(x+4) = (x+4)^2$. Spot it faster: 16 is a perfect square, and $8 = 2 \\times 4$, which is the signature of $a^2 + 2ab + b^2$.",
+   "hi": "गुणनफल 16 और योग 8 वाली दो संख्याएँ 4 और 4 हैं, तो $(x+4)(x+4) = (x+4)^2$। तेज़ी से पहचानिए: 16 पूर्ण वर्ग है, और $8 = 2 \\times 4$, जो $a^2 + 2ab + b^2$ की पहचान है।"
+  }
+ },
+ {
+  "id": "MTH-Q066",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 2,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH-2-2",
+  "tier": 2,
+  "diff": "medium",
+  "type": "mcq",
+  "q": {
+   "en": "Factorise $5x^2 - 20$.",
+   "hi": "$5x^2 - 20$ के गुणनखंड कीजिए।"
+  },
+  "opts": {
+   "en": [
+    "$5(x-2)(x+2)$",
+    "$(5x-4)(x+5)$",
+    "$5(x^2-4)$",
+    "$5(x-4)(x+4)$"
+   ],
+   "hi": [
+    "$5(x-2)(x+2)$",
+    "$(5x-4)(x+5)$",
+    "$5(x^2-4)$",
+    "$5(x-4)(x+4)$"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "Common factor 5 first: $5(x^2 - 4)$. Then $x^2 - 4$ is a difference of squares: $5(x-2)(x+2)$. Option C stopped halfway — *factorise* means go all the way. Option D used 4 instead of $\\sqrt{4} = 2$.",
+   "hi": "पहले उभयनिष्ठ गुणनखंड 5: $5(x^2 - 4)$। फिर $x^2 - 4$ वर्गों का अंतर है: $5(x-2)(x+2)$। विकल्प C आधे में रुक गया — *गुणनखंड कीजिए* का मतलब है पूरा कीजिए। विकल्प D ने $\\sqrt{4} = 2$ की जगह 4 ले लिया।"
+  }
+ },
+ {
+  "id": "MTH-Q067",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 2,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH-2-2",
+  "tier": 3,
+  "diff": "hard",
+  "type": "short",
+  "q": {
+   "en": "Simplify $\\frac{x^2 + 5x + 6}{x + 2}$ for $x \\neq -2$.",
+   "hi": "$x \\neq -2$ के लिए $\\frac{x^2 + 5x + 6}{x + 2}$ को सरल कीजिए।"
+  },
+  "correct": "x+3",
+  "accept": [
+   "x + 3",
+   "3+x",
+   "3 + x"
+  ],
+  "exp": {
+   "en": "Factorise the top: two numbers multiplying to 6 and adding to 5 are 2 and 3, giving $(x+2)(x+3)$. Cancel the $(x+2)$: the answer is $x+3$. You may only cancel a whole FACTOR — never a single term out of a sum.",
+   "hi": "ऊपर वाले के गुणनखंड कीजिए: गुणनफल 6 और योग 5 वाली संख्याएँ 2 और 3 हैं, तो $(x+2)(x+3)$। $(x+2)$ काटिए: जवाब $x+3$। आप सिर्फ़ पूरा **गुणनखंड** काट सकते हैं — योग में से अकेला पद कभी नहीं।"
+  }
+ },
+ {
+  "id": "MTH-Q068",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 2,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH-2-2",
+  "tier": 3,
+  "diff": "hard",
+  "type": "mcq",
+  "q": {
+   "en": "Which is a factor of $x^2 - 9x + 20$?",
+   "hi": "$x^2 - 9x + 20$ का एक गुणनखंड कौन है?"
+  },
+  "opts": {
+   "en": [
+    "$x - 5$",
+    "$x + 5$",
+    "$x - 20$",
+    "$x + 4$"
+   ],
+   "hi": [
+    "$x - 5$",
+    "$x + 5$",
+    "$x - 20$",
+    "$x + 4$"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "Product 20, sum $-9$: both numbers negative, namely $-4$ and $-5$. So $x^2 - 9x + 20 = (x-4)(x-5)$, and $x-5$ is a factor. A positive constant with a negative middle term always means BOTH brackets carry a minus.",
+   "hi": "गुणनफल 20, योग $-9$: दोनों संख्याएँ ऋणात्मक, यानी $-4$ और $-5$। तो $x^2 - 9x + 20 = (x-4)(x-5)$, और $x-5$ एक गुणनखंड है। धनात्मक अचर के साथ ऋणात्मक बीच वाला पद हमेशा यही बताता है कि **दोनों** कोष्ठकों में ऋण चिह्न है।"
+  }
+ },
+ {
+  "id": "MTH-Q069",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 2,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH-2-2",
+  "tier": 3,
+  "diff": "hard",
+  "type": "match",
+  "q": {
+   "en": "Match each expression with its fully factorised form.",
+   "hi": "हर व्यंजक को उसके पूर्ण गुणनखंड रूप से मिलाइए।"
+  },
+  "pairs": [
+   {
+    "l": {
+     "en": "$2x^2 - 18$",
+     "hi": "$2x^2 - 18$"
+    },
+    "r": {
+     "en": "$2(x-3)(x+3)$",
+     "hi": "$2(x-3)(x+3)$"
+    }
+   },
+   {
+    "l": {
+     "en": "$x^2 - 6x + 9$",
+     "hi": "$x^2 - 6x + 9$"
+    },
+    "r": {
+     "en": "$(x-3)^2$",
+     "hi": "$(x-3)^2$"
+    }
+   },
+   {
+    "l": {
+     "en": "$x^2 + 2x - 15$",
+     "hi": "$x^2 + 2x - 15$"
+    },
+    "r": {
+     "en": "$(x+5)(x-3)$",
+     "hi": "$(x+5)(x-3)$"
+    }
+   },
+   {
+    "l": {
+     "en": "$3x^2 + 9x$",
+     "hi": "$3x^2 + 9x$"
+    },
+    "r": {
+     "en": "$3x(x+3)$",
+     "hi": "$3x(x+3)$"
+    }
+   }
+  ],
+  "exp": {
+   "en": "Every one starts by looking for a common factor. $2x^2-18 = 2(x^2-9)$ then difference of squares. $3x^2+9x$ shares $3x$, and taking out a LETTER as well as a number is the step most often missed. The middle two are the standard patterns.",
+   "hi": "हर एक की शुरुआत उभयनिष्ठ गुणनखंड ढूँढने से होती है। $2x^2-18 = 2(x^2-9)$ फिर वर्गों का अंतर। $3x^2+9x$ में $3x$ साझा है, और संख्या के साथ **अक्षर** भी बाहर निकालना वह चरण है जो सबसे ज़्यादा छूटता है। बीच के दो मानक पैटर्न हैं।"
+  }
+ },
+ {
+  "id": "MTH-Q070",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
   "chapter": 3,
   "status": "published",
   "tags": [],
@@ -2135,7 +3611,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   }
  },
  {
-  "id": "MTH-Q026",
+  "id": "MTH-Q071",
   "board": "CBSE",
   "klass": 11,
   "subject": "MATH11",
@@ -2158,7 +3634,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   }
  },
  {
-  "id": "MTH-Q027",
+  "id": "MTH-Q072",
   "board": "CBSE",
   "klass": 11,
   "subject": "MATH11",
@@ -2195,7 +3671,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   }
  },
  {
-  "id": "MTH-Q028",
+  "id": "MTH-Q073",
   "board": "CBSE",
   "klass": 11,
   "subject": "MATH11",
@@ -2232,7 +3708,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   }
  },
  {
-  "id": "MTH-Q029",
+  "id": "MTH-Q074",
   "board": "CBSE",
   "klass": 11,
   "subject": "MATH11",
@@ -2255,7 +3731,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   }
  },
  {
-  "id": "MTH-Q030",
+  "id": "MTH-Q075",
   "board": "CBSE",
   "klass": 11,
   "subject": "MATH11",
@@ -2326,7 +3802,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   }
  },
  {
-  "id": "MTH-Q031",
+  "id": "MTH-Q076",
   "board": "CBSE",
   "klass": 11,
   "subject": "MATH11",
@@ -2349,7 +3825,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   }
  },
  {
-  "id": "MTH-Q032",
+  "id": "MTH-Q077",
   "board": "CBSE",
   "klass": 11,
   "subject": "MATH11",
@@ -2377,7 +3853,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   }
  },
  {
-  "id": "MTH-Q033",
+  "id": "MTH-Q078",
   "board": "CBSE",
   "klass": 11,
   "subject": "MATH11",
@@ -2414,7 +3890,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   }
  },
  {
-  "id": "MTH-Q034",
+  "id": "MTH-Q079",
   "board": "CBSE",
   "klass": 11,
   "subject": "MATH11",
@@ -2437,7 +3913,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   }
  },
  {
-  "id": "MTH-Q035",
+  "id": "MTH-Q080",
   "board": "CBSE",
   "klass": 11,
   "subject": "MATH11",
@@ -2474,7 +3950,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   }
  },
  {
-  "id": "MTH-Q036",
+  "id": "MTH-Q081",
   "board": "CBSE",
   "klass": 11,
   "subject": "MATH11",
@@ -2511,7 +3987,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   }
  },
  {
-  "id": "MTH-Q037",
+  "id": "MTH-Q082",
   "board": "CBSE",
   "klass": 11,
   "subject": "MATH11",
@@ -2534,7 +4010,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   }
  },
  {
-  "id": "MTH-Q038",
+  "id": "MTH-Q083",
   "board": "CBSE",
   "klass": 11,
   "subject": "MATH11",
@@ -2571,7 +4047,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   }
  },
  {
-  "id": "MTH-Q039",
+  "id": "MTH-Q084",
   "board": "CBSE",
   "klass": 11,
   "subject": "MATH11",
@@ -2608,7 +4084,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   }
  },
  {
-  "id": "MTH-Q040",
+  "id": "MTH-Q085",
   "board": "CBSE",
   "klass": 11,
   "subject": "MATH11",
@@ -2636,7 +4112,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   }
  },
  {
-  "id": "MTH-Q041",
+  "id": "MTH-Q086",
   "board": "CBSE",
   "klass": 11,
   "subject": "MATH11",
@@ -2673,7 +4149,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   }
  },
  {
-  "id": "MTH-Q042",
+  "id": "MTH-Q087",
   "board": "CBSE",
   "klass": 11,
   "subject": "MATH11",
@@ -2710,7 +4186,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   }
  },
  {
-  "id": "MTH-Q043",
+  "id": "MTH-Q088",
   "board": "CBSE",
   "klass": 11,
   "subject": "MATH11",
@@ -2747,7 +4223,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   }
  },
  {
-  "id": "MTH-Q044",
+  "id": "MTH-Q089",
   "board": "CBSE",
   "klass": 11,
   "subject": "MATH11",
@@ -2784,7 +4260,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   }
  },
  {
-  "id": "MTH-Q045",
+  "id": "MTH-Q090",
   "board": "CBSE",
   "klass": 11,
   "subject": "MATH11",
@@ -2807,7 +4283,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   }
  },
  {
-  "id": "MTH-Q046",
+  "id": "MTH-Q091",
   "board": "CBSE",
   "klass": 11,
   "subject": "MATH11",
@@ -2844,7 +4320,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   }
  },
  {
-  "id": "MTH-Q047",
+  "id": "MTH-Q092",
   "board": "CBSE",
   "klass": 11,
   "subject": "MATH11",
@@ -2881,7 +4357,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   }
  },
  {
-  "id": "MTH-Q048",
+  "id": "MTH-Q093",
   "board": "CBSE",
   "klass": 11,
   "subject": "MATH11",
@@ -2904,7 +4380,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   }
  },
  {
-  "id": "MTH-Q049",
+  "id": "MTH-Q094",
   "board": "CBSE",
   "klass": 11,
   "subject": "MATH11",
@@ -2941,7 +4417,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   }
  },
  {
-  "id": "MTH-Q050",
+  "id": "MTH-Q095",
   "board": "CBSE",
   "klass": 11,
   "subject": "MATH11",
@@ -2969,7 +4445,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   }
  },
  {
-  "id": "MTH-Q051",
+  "id": "MTH-Q096",
   "board": "CBSE",
   "klass": 11,
   "subject": "MATH11",
@@ -3006,7 +4482,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   }
  },
  {
-  "id": "MTH-Q052",
+  "id": "MTH-Q097",
   "board": "CBSE",
   "klass": 11,
   "subject": "MATH11",
@@ -3029,7 +4505,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   }
  },
  {
-  "id": "MTH-Q053",
+  "id": "MTH-Q098",
   "board": "CBSE",
   "klass": 11,
   "subject": "MATH11",
@@ -3066,7 +4542,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   }
  },
  {
-  "id": "MTH-Q054",
+  "id": "MTH-Q099",
   "board": "CBSE",
   "klass": 11,
   "subject": "MATH11",
@@ -3103,7 +4579,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   }
  },
  {
-  "id": "MTH-Q055",
+  "id": "MTH-Q100",
   "board": "CBSE",
   "klass": 11,
   "subject": "MATH11",
@@ -3140,7 +4616,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   }
  },
  {
-  "id": "MTH-Q056",
+  "id": "MTH-Q101",
   "board": "CBSE",
   "klass": 11,
   "subject": "MATH11",
@@ -3204,7 +4680,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   }
  },
  {
-  "id": "MTH-Q057",
+  "id": "MTH-Q102",
   "board": "CBSE",
   "klass": 11,
   "subject": "MATH11",
@@ -3227,7 +4703,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   }
  },
  {
-  "id": "MTH-Q058",
+  "id": "MTH-Q103",
   "board": "CBSE",
   "klass": 11,
   "subject": "MATH11",
@@ -3250,7 +4726,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   }
  },
  {
-  "id": "MTH-Q059",
+  "id": "MTH-Q104",
   "board": "CBSE",
   "klass": 11,
   "subject": "MATH11",
@@ -3273,7 +4749,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   }
  },
  {
-  "id": "MTH-Q060",
+  "id": "MTH-Q105",
   "board": "CBSE",
   "klass": 11,
   "subject": "MATH11",
@@ -3310,7 +4786,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   }
  },
  {
-  "id": "MTH-Q061",
+  "id": "MTH-Q106",
   "board": "CBSE",
   "klass": 11,
   "subject": "MATH11",
@@ -3347,7 +4823,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   }
  },
  {
-  "id": "MTH-Q062",
+  "id": "MTH-Q107",
   "board": "CBSE",
   "klass": 11,
   "subject": "MATH11",
@@ -3370,7 +4846,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   }
  },
  {
-  "id": "MTH-Q063",
+  "id": "MTH-Q108",
   "board": "CBSE",
   "klass": 11,
   "subject": "MATH11",
@@ -3393,7 +4869,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   }
  },
  {
-  "id": "MTH-Q064",
+  "id": "MTH-Q109",
   "board": "CBSE",
   "klass": 11,
   "subject": "MATH11",
@@ -3416,7 +4892,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   }
  },
  {
-  "id": "MTH-Q065",
+  "id": "MTH-Q110",
   "board": "CBSE",
   "klass": 11,
   "subject": "MATH11",
@@ -3453,7 +4929,7 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   }
  },
  {
-  "id": "MTH-Q066",
+  "id": "MTH-Q111",
   "board": "CBSE",
   "klass": 11,
   "subject": "MATH11",
@@ -3487,6 +4963,3672 @@ window.SL_DATA.questions.push.apply(window.SL_DATA.questions, [
   "exp": {
    "en": "By De Morgan, $A' \\cap B' = (A \\cup B)'$ — the region outside both circles. First $n(A \\cup B) = 50 + 40 - 20 = 70$, so the outside is $100 - 70 = 30$. Option B is $n(A \\cup B)$ itself, chosen by anyone who forgot the final complement. This question is De Morgan and inclusion-exclusion used together, which is exactly how JEE combines them.",
    "hi": "डी मॉर्गन से, $A' \\cap B' = (A \\cup B)'$ — यानी दोनों वृत्तों के बाहर का क्षेत्र। पहले $n(A \\cup B) = 50 + 40 - 20 = 70$, तो बाहर $100 - 70 = 30$। विकल्प B ख़ुद $n(A \\cup B)$ है, जिसे वे चुनते हैं जो आख़िरी पूरक लेना भूल गए। यह सवाल डी मॉर्गन और समावेश-अपवर्जन को साथ इस्तेमाल करता है, और JEE इन्हें ठीक इसी तरह जोड़ता है।"
+  }
+ },
+ {
+  "id": "MTH-Q112",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-0",
+  "tier": 1,
+  "diff": "easy",
+  "type": "mcq",
+  "q": {
+   "en": "Which list gives the first four multiples of 5?",
+   "hi": "5 के पहले चार गुणज कौन-से हैं?"
+  },
+  "opts": {
+   "en": [
+    "$5, 10, 15, 20$",
+    "$1, 5, 10, 15$",
+    "$5, 10, 20, 25$",
+    "$0, 5, 10, 15$"
+   ],
+   "hi": [
+    "$5, 10, 15, 20$",
+    "$1, 5, 10, 15$",
+    "$5, 10, 20, 25$",
+    "$0, 5, 10, 15$"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "A multiple of 5 is 5 times a counting number: $5\\times1, 5\\times2, 5\\times3, 5\\times4$. Do not mix up **multiples** (5 times something, they grow) with **factors** (numbers that divide it, they stay small).",
+   "hi": "5 का गुणज यानी 5 गुणा कोई गिनती की संख्या: $5\\times1, 5\\times2, 5\\times3, 5\\times4$। **गुणज** (5 गुणा कुछ, ये बढ़ते हैं) और **गुणनखंड** (जो उसे बाँटें, ये छोटे रहते हैं) में घालमेल मत कीजिए।"
+  }
+ },
+ {
+  "id": "MTH-Q113",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-0",
+  "tier": 1,
+  "diff": "easy",
+  "type": "tf",
+  "q": {
+   "en": "Every whole number is also an integer.",
+   "hi": "हर पूर्ण संख्या एक पूर्णांक भी है।"
+  },
+  "correct": "TRUE",
+  "exp": {
+   "en": "Whole numbers are $0, 1, 2, 3, \\ldots$ and integers are $\\ldots -2, -1, 0, 1, 2 \\ldots$. Every whole number appears in that longer list. Integers just add the negative side.",
+   "hi": "पूर्ण संख्याएँ हैं $0, 1, 2, 3, \\ldots$ और पूर्णांक हैं $\\ldots -2, -1, 0, 1, 2 \\ldots$। हर पूर्ण संख्या उस लंबी सूची में है। पूर्णांक बस ऋणात्मक हिस्सा और जोड़ देते हैं।"
+  }
+ },
+ {
+  "id": "MTH-Q114",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-0",
+  "tier": 2,
+  "diff": "medium",
+  "type": "mcq",
+  "q": {
+   "en": "Which of these is a prime number?",
+   "hi": "इनमें से कौन अभाज्य संख्या है?"
+  },
+  "opts": {
+   "en": [
+    "$17$",
+    "$1$",
+    "$21$",
+    "$27$"
+   ],
+   "hi": [
+    "$17$",
+    "$1$",
+    "$21$",
+    "$27$"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "A prime has exactly two factors: 1 and itself. $17$ has only $1$ and $17$. $1$ has just one factor, so it is **not** prime. $21 = 3\\times7$ and $27 = 3\\times9$, so both have extra factors.",
+   "hi": "अभाज्य के ठीक दो गुणनखंड होते हैं: 1 और ख़ुद वह। $17$ के सिर्फ़ $1$ और $17$ हैं। $1$ का सिर्फ़ एक गुणनखंड है, तो वह अभाज्य **नहीं** है। $21 = 3\\times7$ और $27 = 3\\times9$, तो दोनों के अतिरिक्त गुणनखंड हैं।"
+  }
+ },
+ {
+  "id": "MTH-Q115",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-0",
+  "tier": 2,
+  "diff": "medium",
+  "type": "short",
+  "q": {
+   "en": "Solve $x^2 = 16$ over the integers. Write both answers separated by a comma.",
+   "hi": "पूर्णांकों में $x^2 = 16$ हल कीजिए। दोनों जवाब अल्पविराम से अलग लिखिए।"
+  },
+  "correct": "4, -4",
+  "accept": [
+   "4,-4",
+   "-4, 4",
+   "-4,4"
+  ],
+  "exp": {
+   "en": "Both $4$ and $-4$ work, because $4\\times4 = 16$ and $(-4)\\times(-4) = 16$ too. Writing only $4$ throws away half the answer. This is the single most common mistake when listing sets in this chapter.",
+   "hi": "$4$ और $-4$ दोनों चलते हैं, क्योंकि $4\\times4 = 16$ और $(-4)\\times(-4) = 16$ भी। सिर्फ़ $4$ लिखने से आधा जवाब चला जाता है। इस अध्याय में समुच्चय की सूची बनाते समय सबसे आम ग़लती यही है।"
+  }
+ },
+ {
+  "id": "MTH-Q116",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-0",
+  "tier": 3,
+  "diff": "medium",
+  "type": "mcq",
+  "q": {
+   "en": "Which interval means *all numbers from 1 up to 5, with 1 included but 5 left out*?",
+   "hi": "*1 से 5 तक की सभी संख्याएँ, जिसमें 1 शामिल पर 5 बाहर* — यह कौन-सा अंतराल है?"
+  },
+  "opts": {
+   "en": [
+    "$[1, 5)$",
+    "$(1, 5]$",
+    "$[1, 5]$",
+    "$(1, 5)$"
+   ],
+   "hi": [
+    "$[1, 5)$",
+    "$(1, 5]$",
+    "$[1, 5]$",
+    "$(1, 5)$"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "Square bracket = closed door, the end stays in. Round bracket = open door, the end walks out. So 1 gets a square bracket and 5 gets a round one. Option B has them the wrong way round.",
+   "hi": "चौकोर कोष्ठक = बंद दरवाज़ा, सिरा अंदर रहता है। गोल कोष्ठक = खुला दरवाज़ा, सिरा बाहर निकल जाता है। तो 1 पर चौकोर और 5 पर गोल। विकल्प B में दोनों उलटे हैं।"
+  }
+ },
+ {
+  "id": "MTH-Q117",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-0",
+  "tier": 3,
+  "diff": "hard",
+  "type": "short",
+  "q": {
+   "en": "How many numbers between 1 and 50 (both included) are multiples of 6?",
+   "hi": "1 से 50 तक (दोनों शामिल) 6 के कितने गुणज हैं?"
+  },
+  "correct": "8",
+  "exp": {
+   "en": "$6, 12, 18, 24, 30, 36, 42, 48$ — eight of them. Quick way: $50 \\div 6 = 8.33$, and you keep only the whole part, 8. You will use this same divide-and-drop-the-remainder trick in the Venn counting questions.",
+   "hi": "$6, 12, 18, 24, 30, 36, 42, 48$ — आठ। झटपट तरीक़ा: $50 \\div 6 = 8.33$, और सिर्फ़ पूर्णांक भाग लीजिए, यानी 8। यही भाग-दो-और-शेष-छोड़ो वाली तरकीब वेन की गिनती वाले सवालों में काम आएगी।"
+  }
+ },
+ {
+  "id": "MTH-Q118",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-0",
+  "tier": 3,
+  "diff": "hard",
+  "type": "sort",
+  "q": {
+   "en": "Sort each number into its smallest family.",
+   "hi": "हर संख्या को उसके सबसे छोटे परिवार में रखिए।"
+  },
+  "cats": [
+   {
+    "k": "n",
+    "en": "Natural",
+    "hi": "प्राकृत"
+   },
+   {
+    "k": "z",
+    "en": "Integer, not natural",
+    "hi": "पूर्णांक, प्राकृत नहीं"
+   },
+   {
+    "k": "q",
+    "en": "Rational, not integer",
+    "hi": "परिमेय, पूर्णांक नहीं"
+   }
+  ],
+  "items": [
+   {
+    "k": "n",
+    "en": "$12$",
+    "hi": "$12$"
+   },
+   {
+    "k": "z",
+    "en": "$-6$",
+    "hi": "$-6$"
+   },
+   {
+    "k": "q",
+    "en": "$1.5$",
+    "hi": "$1.5$"
+   },
+   {
+    "k": "n",
+    "en": "$\\sqrt{81}$",
+    "hi": "$\\sqrt{81}$"
+   },
+   {
+    "k": "z",
+    "en": "$0$",
+    "hi": "$0$"
+   },
+   {
+    "k": "q",
+    "en": "$\\frac{7}{2}$",
+    "hi": "$\\frac{7}{2}$"
+   }
+  ],
+  "exp": {
+   "en": "Simplify before you sort: $\\sqrt{81} = 9$, a counting number. $0$ is an integer but not natural, because $\\mathbb{N}$ starts at 1. $1.5$ and $\\frac{7}{2}$ both land between whole marks on the line.",
+   "hi": "बाँटने से पहले सरल कीजिए: $\\sqrt{81} = 9$, एक गिनती की संख्या। $0$ पूर्णांक है पर प्राकृत नहीं, क्योंकि $\\mathbb{N}$ 1 से शुरू होता है। $1.5$ और $\\frac{7}{2}$ दोनों रेखा के पूरे निशानों के बीच गिरते हैं।"
+  }
+ },
+ {
+  "id": "MTH-Q119",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-1",
+  "tier": 1,
+  "diff": "easy",
+  "type": "mcq",
+  "q": {
+   "en": "Which of these is a well-defined set?",
+   "hi": "इनमें से कौन सुपरिभाषित समुच्चय है?"
+  },
+  "opts": {
+   "en": [
+    "The days of the week",
+    "The tasty vegetables",
+    "The kind teachers",
+    "The easy questions"
+   ],
+   "hi": [
+    "सप्ताह के दिन",
+    "स्वादिष्ट सब्ज़ियाँ",
+    "दयालु शिक्षक",
+    "आसान सवाल"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "Ask any two people to list the days of the week and you get the same seven. *Tasty*, *kind* and *easy* are opinions — two people can disagree, so those are not sets.",
+   "hi": "किन्हीं दो लोगों से सप्ताह के दिन पूछिए, वही सात मिलेंगे। *स्वादिष्ट*, *दयालु* और *आसान* राय हैं — दो लोग असहमत हो सकते हैं, तो ये समुच्चय नहीं हैं।"
+  }
+ },
+ {
+  "id": "MTH-Q120",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-1",
+  "tier": 1,
+  "diff": "easy",
+  "type": "tf",
+  "q": {
+   "en": "The set of letters in the word BOOK has 4 members.",
+   "hi": "BOOK शब्द के अक्षरों के समुच्चय में 4 सदस्य हैं।"
+  },
+  "correct": "FALSE",
+  "exp": {
+   "en": "The different letters are B, O, K — only **three**. The word has 4 letters, but O is written twice and a set never records repeats. Count the different things, not the letters on the page.",
+   "hi": "अलग-अलग अक्षर हैं B, O, K — सिर्फ़ **तीन**। शब्द में 4 अक्षर हैं, पर O दो बार लिखा है और समुच्चय दोहराव कभी दर्ज नहीं करता। पन्ने पर लिखे अक्षर नहीं, अलग चीज़ें गिनिए।"
+  }
+ },
+ {
+  "id": "MTH-Q121",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-1",
+  "tier": 1,
+  "diff": "easy",
+  "type": "mcq",
+  "q": {
+   "en": "What does $5 \\in A$ mean?",
+   "hi": "$5 \\in A$ का क्या मतलब है?"
+  },
+  "opts": {
+   "en": [
+    "5 is a member of $A$",
+    "$A$ is a member of 5",
+    "5 is bigger than $A$",
+    "$A$ has 5 members"
+   ],
+   "hi": [
+    "5, $A$ का सदस्य है",
+    "$A$, 5 का सदस्य है",
+    "5, $A$ से बड़ा है",
+    "$A$ में 5 सदस्य हैं"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "Read $\\in$ as *belongs to*. So $5 \\in A$ says the number 5 is one of the things inside $A$. Option D is a different idea altogether — that would be written $n(A) = 5$.",
+   "hi": "$\\in$ को *से संबंधित है* पढ़िए। तो $5 \\in A$ कहता है कि संख्या 5, $A$ के अंदर रखी चीज़ों में से एक है। विकल्प D बिल्कुल अलग बात है — उसे $n(A) = 5$ लिखा जाता।"
+  }
+ },
+ {
+  "id": "MTH-Q122",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-1",
+  "tier": 2,
+  "diff": "medium",
+  "type": "mcq",
+  "q": {
+   "en": "$n(\\{1, 2, 2, 3, 3, 3\\}) = ?$",
+   "hi": "$n(\\{1, 2, 2, 3, 3, 3\\}) = ?$"
+  },
+  "opts": {
+   "en": [
+    "3",
+    "6",
+    "2",
+    "1"
+   ],
+   "hi": [
+    "3",
+    "6",
+    "2",
+    "1"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "The different members are 1, 2 and 3, so $n = 3$. Six numbers were written down, but writing 3 three times does not make it three members. It is still one number 3.",
+   "hi": "अलग सदस्य हैं 1, 2 और 3, तो $n = 3$। छह संख्याएँ लिखी गई थीं, पर 3 को तीन बार लिखने से वह तीन सदस्य नहीं हो जाता। वह अब भी एक ही संख्या 3 है।"
+  }
+ },
+ {
+  "id": "MTH-Q123",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-1",
+  "tier": 2,
+  "diff": "medium",
+  "type": "tf",
+  "q": {
+   "en": "$\\{2, 4, 6\\}$ and $\\{6, 4, 2\\}$ are the same set.",
+   "hi": "$\\{2, 4, 6\\}$ और $\\{6, 4, 2\\}$ एक ही समुच्चय हैं।"
+  },
+  "correct": "TRUE",
+  "exp": {
+   "en": "A set records **which** things are in it, never the order they were written. Both hold exactly 2, 4 and 6, so they are the same set. Order matters in a queue, not in a set.",
+   "hi": "समुच्चय यह दर्ज करता है कि उसमें **कौन-सी** चीज़ें हैं, यह कभी नहीं कि किस क्रम में लिखी गईं। दोनों में ठीक 2, 4 और 6 हैं, तो दोनों एक ही समुच्चय हैं। क्रम क़तार में मायने रखता है, समुच्चय में नहीं।"
+  }
+ },
+ {
+  "id": "MTH-Q124",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-1",
+  "tier": 2,
+  "diff": "medium",
+  "type": "mcq",
+  "q": {
+   "en": "Which collection is NOT a set?",
+   "hi": "कौन-सा संग्रह समुच्चय **नहीं** है?"
+  },
+  "opts": {
+   "en": [
+    "The clever students in a class",
+    "The students who scored above 60",
+    "The months starting with J",
+    "The even numbers below 10"
+   ],
+   "hi": [
+    "कक्षा के होशियार विद्यार्थी",
+    "60 से ऊपर अंक पाने वाले विद्यार्थी",
+    "J से शुरू होने वाले महीने",
+    "10 से कम सम संख्याएँ"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "*Clever* has no fixed line. Two teachers would name different students. Option B looks similar but has a number in it, so anyone can check it — and that turns it into a proper set.",
+   "hi": "*होशियार* की कोई तय रेखा नहीं है। दो शिक्षक अलग-अलग विद्यार्थी बताएँगे। विकल्प B दिखने में वैसा ही है पर उसमें एक संख्या है, तो कोई भी जाँच सकता है — और यही उसे सही समुच्चय बना देता है।"
+  }
+ },
+ {
+  "id": "MTH-Q125",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-1",
+  "tier": 3,
+  "diff": "medium",
+  "type": "mcq",
+  "q": {
+   "en": "If $A = \\{1, \\{2\\}, 3\\}$, which is true?",
+   "hi": "यदि $A = \\{1, \\{2\\}, 3\\}$ है, तो कौन सही है?"
+  },
+  "opts": {
+   "en": [
+    "$\\{2\\} \\in A$",
+    "$2 \\in A$",
+    "$n(A) = 4$",
+    "$\\{2\\} \\notin A$"
+   ],
+   "hi": [
+    "$\\{2\\} \\in A$",
+    "$2 \\in A$",
+    "$n(A) = 4$",
+    "$\\{2\\} \\notin A$"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "The three members of $A$ are: the number 1, the **set** $\\{2\\}$, and the number 3. So $\\{2\\}$ is a member, but the bare number 2 is not. A basket holding one mango is not the same as a mango.",
+   "hi": "$A$ के तीन सदस्य हैं: संख्या 1, **समुच्चय** $\\{2\\}$, और संख्या 3। तो $\\{2\\}$ सदस्य है, पर अकेली संख्या 2 नहीं। एक आम वाली टोकरी और एक आम एक बात नहीं है।"
+  }
+ },
+ {
+  "id": "MTH-Q126",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-1",
+  "tier": 3,
+  "diff": "medium",
+  "type": "short",
+  "q": {
+   "en": "How many members are in the set of letters of the word LEVEL?",
+   "hi": "LEVEL शब्द के अक्षरों के समुच्चय में कितने सदस्य हैं?"
+  },
+  "correct": "3",
+  "exp": {
+   "en": "The different letters are L, E, V — three. The word has 5 letters, but L appears twice and E appears twice. Repeats are never counted.",
+   "hi": "अलग अक्षर हैं L, E, V — तीन। शब्द में 5 अक्षर हैं, पर L दो बार और E दो बार आया है। दोहराव कभी नहीं गिना जाता।"
+  }
+ },
+ {
+  "id": "MTH-Q127",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-1",
+  "tier": 3,
+  "diff": "hard",
+  "type": "tf",
+  "q": {
+   "en": "The collection of all rivers in India is a well-defined set.",
+   "hi": "भारत की सभी नदियों का संग्रह एक सुपरिभाषित समुच्चय है।"
+  },
+  "correct": "TRUE",
+  "exp": {
+   "en": "You can check any river against a list and get a clear yes or no. It does not have to be about numbers to be a set — it only has to be checkable without argument. *The beautiful rivers of India* would not be a set.",
+   "hi": "आप किसी भी नदी को सूची से मिलाकर साफ़ हाँ या ना पा सकते हैं। समुच्चय होने के लिए संख्याओं की बात होना ज़रूरी नहीं — बस बिना बहस के जाँचा जा सकना ज़रूरी है। *भारत की सुंदर नदियाँ* समुच्चय नहीं होता।"
+  }
+ },
+ {
+  "id": "MTH-Q128",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-1",
+  "tier": 4,
+  "diff": "hard",
+  "type": "mcq",
+  "q": {
+   "en": "If $A = \\{\\emptyset, \\{1\\}, \\{1,2\\}\\}$, then $n(A) = ?$",
+   "hi": "यदि $A = \\{\\emptyset, \\{1\\}, \\{1,2\\}\\}$ है, तो $n(A) = ?$"
+  },
+  "opts": {
+   "en": [
+    "3",
+    "4",
+    "2",
+    "0"
+   ],
+   "hi": [
+    "3",
+    "4",
+    "2",
+    "0"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "Count what sits directly inside the outer brackets: the empty set, the set $\\{1\\}$, and the set $\\{1,2\\}$. Three members. Do not open the inner sets and count 1 and 2 as well — a box inside a box is still one item on the shelf.",
+   "hi": "बाहरी कोष्ठक के अंदर सीधे जो है वह गिनिए: रिक्त समुच्चय, समुच्चय $\\{1\\}$, और समुच्चय $\\{1,2\\}$। तीन सदस्य। अंदर के समुच्चय खोलकर 1 और 2 भी मत गिनिए — डिब्बे के अंदर का डिब्बा भी शेल्फ़ पर एक ही वस्तु है।"
+  }
+ },
+ {
+  "id": "MTH-Q129",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-1",
+  "tier": 4,
+  "diff": "hard",
+  "type": "tf",
+  "q": {
+   "en": "If $A = \\{\\emptyset\\}$ then $n(A) = 0$.",
+   "hi": "यदि $A = \\{\\emptyset\\}$ है तो $n(A) = 0$।"
+  },
+  "correct": "FALSE",
+  "exp": {
+   "en": "$n(A) = 1$. There is one thing inside $A$ — the empty set. Compare: $\\emptyset$ itself has $n = 0$, but $\\{\\emptyset\\}$ is a box **containing** an empty box, so the outer box is not empty.",
+   "hi": "$n(A) = 1$। $A$ के अंदर एक चीज़ है — रिक्त समुच्चय। तुलना कीजिए: ख़ुद $\\emptyset$ का $n = 0$ है, पर $\\{\\emptyset\\}$ वह डिब्बा है जिसमें एक ख़ाली डिब्बा **रखा** है, तो बाहर वाला डिब्बा ख़ाली नहीं है।"
+  }
+ },
+ {
+  "id": "MTH-Q130",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-1",
+  "tier": 4,
+  "diff": "hard",
+  "type": "mcq",
+  "q": {
+   "en": "A shop lists items it sells. Which description would NOT give a proper set?",
+   "hi": "एक दुकान अपनी बिकने वाली चीज़ों की सूची बनाती है। कौन-सा विवरण सही समुच्चय **नहीं** देगा?"
+  },
+  "opts": {
+   "en": [
+    "Items worth buying",
+    "Items priced above ₹100",
+    "Items in stock today",
+    "Items made of steel"
+   ],
+   "hi": [
+    "ख़रीदने लायक़ चीज़ें",
+    "₹100 से ऊपर दाम वाली चीज़ें",
+    "आज स्टॉक में मौजूद चीज़ें",
+    "स्टील से बनी चीज़ें"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "*Worth buying* depends on who is asking. The other three can each be checked against a fact — a price, a stock register, a material. The test is never *is it about numbers*, it is *must two careful people agree*.",
+   "hi": "*ख़रीदने लायक़* इस पर निर्भर है कि पूछ कौन रहा है। बाक़ी तीनों को किसी तथ्य से जाँचा जा सकता है — दाम, स्टॉक रजिस्टर, या सामग्री। कसौटी यह नहीं कि *क्या संख्याओं की बात है*, बल्कि यह कि *क्या दो सावधान लोगों को सहमत होना ही पड़ेगा*।"
+  }
+ },
+ {
+  "id": "MTH-Q131",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-2",
+  "tier": 1,
+  "diff": "easy",
+  "type": "mcq",
+  "q": {
+   "en": "Write $\\{x : x \\in \\mathbb{N}, x \\leq 4\\}$ as a list.",
+   "hi": "$\\{x : x \\in \\mathbb{N}, x \\leq 4\\}$ को सूची के रूप में लिखिए।"
+  },
+  "opts": {
+   "en": [
+    "$\\{1,2,3,4\\}$",
+    "$\\{1,2,3\\}$",
+    "$\\{0,1,2,3,4\\}$",
+    "$\\{4\\}$"
+   ],
+   "hi": [
+    "$\\{1,2,3,4\\}$",
+    "$\\{1,2,3\\}$",
+    "$\\{0,1,2,3,4\\}$",
+    "$\\{4\\}$"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "$\\leq$ means *less than or equal to*, so 4 is included. And $\\mathbb{N}$ starts at 1, so 0 stays out. Option B drops the 4 by reading $\\leq$ as $<$.",
+   "hi": "$\\leq$ का मतलब है *से कम या बराबर*, तो 4 शामिल है। और $\\mathbb{N}$ 1 से शुरू होता है, तो 0 बाहर रहता है। विकल्प B ने $\\leq$ को $<$ पढ़कर 4 छोड़ दिया।"
+  }
+ },
+ {
+  "id": "MTH-Q132",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-2",
+  "tier": 1,
+  "diff": "easy",
+  "type": "mcq",
+  "q": {
+   "en": "In set-builder form, what does the colon mean?",
+   "hi": "समुच्चय-निर्माण रूप में अपूर्ण विराम का क्या मतलब है?"
+  },
+  "opts": {
+   "en": [
+    "such that",
+    "equal to",
+    "divided by",
+    "belongs to"
+   ],
+   "hi": [
+    "ऐसा कि",
+    "बराबर",
+    "भाग",
+    "से संबंधित"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "$\\{x : x > 3\\}$ reads *the set of all $x$ **such that** $x$ is bigger than 3*. Some books use a straight line $|$ for the same thing. *Belongs to* is $\\in$, a different symbol.",
+   "hi": "$\\{x : x > 3\\}$ पढ़िए *उन सभी $x$ का समुच्चय **ऐसा कि** $x$, 3 से बड़ा है*। कुछ किताबें इसी के लिए खड़ी लकीर $|$ लिखती हैं। *से संबंधित* $\\in$ होता है, अलग चिह्न।"
+  }
+ },
+ {
+  "id": "MTH-Q133",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-2",
+  "tier": 1,
+  "diff": "easy",
+  "type": "tf",
+  "q": {
+   "en": "The set of all real numbers between 0 and 1 can be written as a full list.",
+   "hi": "0 और 1 के बीच की सभी वास्तविक संख्याओं की पूरी सूची बनाई जा सकती है।"
+  },
+  "correct": "FALSE",
+  "exp": {
+   "en": "There are endlessly many, and there is no *next one* to write after any number you pick. Between 0.1 and 0.2 there is 0.15, and between those there is another. Such sets must use set-builder form.",
+   "hi": "ये अनंत हैं, और आप जो भी संख्या चुनें उसके बाद *अगली* लिखी ही नहीं जा सकती। 0.1 और 0.2 के बीच 0.15 है, और उनके बीच फिर एक और। ऐसे समुच्चय निर्माण रूप में ही लिखने पड़ते हैं।"
+  }
+ },
+ {
+  "id": "MTH-Q134",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-2",
+  "tier": 2,
+  "diff": "medium",
+  "type": "mcq",
+  "q": {
+   "en": "Which set-builder form describes $\\{1, 3, 5, 7, 9\\}$?",
+   "hi": "$\\{1, 3, 5, 7, 9\\}$ को कौन-सा निर्माण रूप बताता है?"
+  },
+  "opts": {
+   "en": [
+    "$\\{2n-1 : n \\in \\mathbb{N}, n \\leq 5\\}$",
+    "$\\{2n+1 : n \\in \\mathbb{N}, n \\leq 5\\}$",
+    "$\\{2n : n \\in \\mathbb{N}, n \\leq 5\\}$",
+    "$\\{n : n \\in \\mathbb{N}, n \\leq 9\\}$"
+   ],
+   "hi": [
+    "$\\{2n-1 : n \\in \\mathbb{N}, n \\leq 5\\}$",
+    "$\\{2n+1 : n \\in \\mathbb{N}, n \\leq 5\\}$",
+    "$\\{2n : n \\in \\mathbb{N}, n \\leq 5\\}$",
+    "$\\{n : n \\in \\mathbb{N}, n \\leq 9\\}$"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "Put $n = 1,2,3,4,5$ into $2n-1$: you get $1,3,5,7,9$ ✅. Option B would start at 3 and end at 11, because $\\mathbb{N}$ starts at 1, not 0. Always test a formula with the first value before choosing it.",
+   "hi": "$2n-1$ में $n = 1,2,3,4,5$ रखिए: मिलता है $1,3,5,7,9$ ✅। विकल्प B 3 से शुरू होकर 11 पर ख़त्म होता, क्योंकि $\\mathbb{N}$ 1 से शुरू होता है, 0 से नहीं। कोई भी सूत्र चुनने से पहले पहली क़ीमत डालकर जाँचिए।"
+  }
+ },
+ {
+  "id": "MTH-Q135",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-2",
+  "tier": 2,
+  "diff": "medium",
+  "type": "short",
+  "q": {
+   "en": "List $\\{x : x \\in \\mathbb{N}, x \\text{ is a factor of } 20\\}$.",
+   "hi": "$\\{x : x \\in \\mathbb{N}, x, 20 \\text{ का गुणनखंड है}\\}$ की सूची बनाइए।"
+  },
+  "correct": "{1,2,4,5,10,20}",
+  "accept": [
+   "1,2,4,5,10,20",
+   "{1, 2, 4, 5, 10, 20}",
+   "1, 2, 4, 5, 10, 20"
+  ],
+  "exp": {
+   "en": "Work in pairs so nothing is missed: $1\\times20$, $2\\times10$, $4\\times5$. That gives six factors. Note 3 is not a factor, because $20 \\div 3$ leaves a remainder.",
+   "hi": "जोड़ों में काम कीजिए ताकि कुछ छूटे नहीं: $1\\times20$, $2\\times10$, $4\\times5$। यानी छह गुणनखंड। ध्यान दीजिए 3 गुणनखंड नहीं है, क्योंकि $20 \\div 3$ में शेष बचता है।"
+  }
+ },
+ {
+  "id": "MTH-Q136",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-2",
+  "tier": 2,
+  "diff": "medium",
+  "type": "mcq",
+  "q": {
+   "en": "$\\{x : x \\in \\mathbb{Z}, -1 \\leq x \\leq 2\\}$ as a list is:",
+   "hi": "सूची के रूप में $\\{x : x \\in \\mathbb{Z}, -1 \\leq x \\leq 2\\}$ है:"
+  },
+  "opts": {
+   "en": [
+    "$\\{-1, 0, 1, 2\\}$",
+    "$\\{0, 1\\}$",
+    "$\\{-1, 0, 1\\}$",
+    "$\\{0, 1, 2\\}$"
+   ],
+   "hi": [
+    "$\\{-1, 0, 1, 2\\}$",
+    "$\\{0, 1\\}$",
+    "$\\{-1, 0, 1\\}$",
+    "$\\{0, 1, 2\\}$"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "Both signs are $\\leq$, so both ends are included. Walk the integers from $-1$ to $2$. Do not forget 0 — it is an integer and it sits right in the middle of this range.",
+   "hi": "दोनों चिह्न $\\leq$ हैं, तो दोनों सिरे शामिल हैं। $-1$ से $2$ तक पूर्णांक चलिए। 0 मत भूलिए — वह पूर्णांक है और इस परास के ठीक बीच में बैठा है।"
+  }
+ },
+ {
+  "id": "MTH-Q137",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-2",
+  "tier": 3,
+  "diff": "medium",
+  "type": "mcq",
+  "q": {
+   "en": "$\\{x \\in \\mathbb{N} : x^2 < 20\\}$ as a list is:",
+   "hi": "सूची के रूप में $\\{x \\in \\mathbb{N} : x^2 < 20\\}$ है:"
+  },
+  "opts": {
+   "en": [
+    "$\\{1,2,3,4\\}$",
+    "$\\{1,2,3,4,5\\}$",
+    "$\\{-4,\\ldots,4\\}$",
+    "$\\{1,4,9,16\\}$"
+   ],
+   "hi": [
+    "$\\{1,2,3,4\\}$",
+    "$\\{1,2,3,4,5\\}$",
+    "$\\{-4,\\ldots,4\\}$",
+    "$\\{1,4,9,16\\}$"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "Test each: $1,4,9,16$ are all under 20, but $5^2 = 25$ is not. So stop at 4. Option C forgets that $\\mathbb{N}$ has no negatives. Option D lists the **squares** instead of the values of $x$ — read what the set is made of.",
+   "hi": "एक-एक जाँचिए: $1,4,9,16$ सब 20 से कम हैं, पर $5^2 = 25$ नहीं। तो 4 पर रुक जाइए। विकल्प C भूल गया कि $\\mathbb{N}$ में ऋणात्मक नहीं होते। विकल्प D ने $x$ के मानों की जगह **वर्ग** लिख दिए — पढ़िए कि समुच्चय किससे बना है।"
+  }
+ },
+ {
+  "id": "MTH-Q138",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-2",
+  "tier": 3,
+  "diff": "hard",
+  "type": "short",
+  "q": {
+   "en": "List $\\{x \\in \\mathbb{Z} : x^2 = 4 \\text{ or } x = 0\\}$.",
+   "hi": "$\\{x \\in \\mathbb{Z} : x^2 = 4 \\text{ या } x = 0\\}$ की सूची बनाइए।"
+  },
+  "correct": "{-2,0,2}",
+  "accept": [
+   "-2,0,2",
+   "{-2, 0, 2}",
+   "-2, 0, 2"
+  ],
+  "exp": {
+   "en": "$x^2 = 4$ gives both $2$ and $-2$. The word *or* then adds 0 as well. Writing only $\\{2, 0\\}$ misses the negative root, which is the usual slip here.",
+   "hi": "$x^2 = 4$ से $2$ और $-2$ दोनों मिलते हैं। फिर *या* शब्द 0 को भी जोड़ देता है। सिर्फ़ $\\{2, 0\\}$ लिखने पर ऋणात्मक मूल छूट जाता है, यहाँ यही आम चूक है।"
+  }
+ },
+ {
+  "id": "MTH-Q139",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-2",
+  "tier": 3,
+  "diff": "hard",
+  "type": "mcq",
+  "q": {
+   "en": "Which of these describes the same set as $\\{2, 3, 5, 7, 11\\}$?",
+   "hi": "इनमें से कौन $\\{2, 3, 5, 7, 11\\}$ जैसा ही समुच्चय बताता है?"
+  },
+  "opts": {
+   "en": [
+    "Primes less than 12",
+    "Odd numbers less than 12",
+    "Factors of 12",
+    "Multiples of 2 below 12"
+   ],
+   "hi": [
+    "12 से कम अभाज्य",
+    "12 से कम विषम संख्याएँ",
+    "12 के गुणनखंड",
+    "12 से कम 2 के गुणज"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "These are exactly the primes below 12. Option B fails on two counts: it would leave out 2 (which is even) and wrongly add 1 and 9. Remember 2 is the only even prime.",
+   "hi": "ये ठीक 12 से कम की अभाज्य संख्याएँ हैं। विकल्प B दो वजहों से ग़लत है: वह 2 को छोड़ देता (जो सम है) और 1 व 9 को ग़लत जोड़ देता। याद रखिए 2 अकेली सम अभाज्य संख्या है।"
+  }
+ },
+ {
+  "id": "MTH-Q140",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-2",
+  "tier": 4,
+  "diff": "hard",
+  "type": "mcq",
+  "q": {
+   "en": "Which set is finite?",
+   "hi": "कौन-सा समुच्चय परिमित है?"
+  },
+  "opts": {
+   "en": [
+    "$\\{x \\in \\mathbb{N} : x \\text{ divides } 100\\}$",
+    "$\\{x \\in \\mathbb{Q} : 0 < x < 1\\}$",
+    "$\\{x \\in \\mathbb{Z} : x > 5\\}$",
+    "$\\{2n : n \\in \\mathbb{N}\\}$"
+   ],
+   "hi": [
+    "$\\{x \\in \\mathbb{N} : x, 100 \\text{ को बाँटती है}\\}$",
+    "$\\{x \\in \\mathbb{Q} : 0 < x < 1\\}$",
+    "$\\{x \\in \\mathbb{Z} : x > 5\\}$",
+    "$\\{2n : n \\in \\mathbb{N}\\}$"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "100 has exactly nine factors, so that set ends. The other three never end: option B has endlessly many fractions in a small gap, and C and D both climb for ever. Small on the number line does not mean few members.",
+   "hi": "100 के ठीक नौ गुणनखंड हैं, तो वह समुच्चय ख़त्म होता है। बाक़ी तीन कभी ख़त्म नहीं होते: विकल्प B में छोटी सी जगह में अनंत भिन्न हैं, और C व D दोनों हमेशा चढ़ते जाते हैं। संख्या रेखा पर छोटा होने का मतलब कम सदस्य नहीं है।"
+  }
+ },
+ {
+  "id": "MTH-Q141",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-2",
+  "tier": 4,
+  "diff": "hard",
+  "type": "short",
+  "q": {
+   "en": "How many members are in $\\{x \\in \\mathbb{Z} : -5 < x \\leq 5\\}$?",
+   "hi": "$\\{x \\in \\mathbb{Z} : -5 < x \\leq 5\\}$ में कितने सदस्य हैं?"
+  },
+  "correct": "10",
+  "exp": {
+   "en": "The left end is strict, so $-5$ is out and we start at $-4$. The right end is not, so 5 is in. List them: $-4$ to $-1$ is 4 numbers, then 0, then 1 to 5 is 5 numbers. Total $4+1+5 = 10$. Forgetting to count 0 gives 9, the usual wrong answer.",
+   "hi": "बायाँ सिरा कड़ा है, तो $-5$ बाहर और शुरुआत $-4$ से। दायाँ सिरा कड़ा नहीं, तो 5 अंदर। गिनिए: $-4$ से $-1$ तक 4 संख्याएँ, फिर 0, फिर 1 से 5 तक 5 संख्याएँ। कुल $4+1+5 = 10$। 0 गिनना भूलने पर 9 आता है, यही आम ग़लत जवाब है।"
+  }
+ },
+ {
+  "id": "MTH-Q142",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-2",
+  "tier": 5,
+  "diff": "hard",
+  "type": "mcq",
+  "q": {
+   "en": "$A = \\{x \\in \\mathbb{N} : x \\text{ divides } 12\\}$ and $B = \\{x \\in \\mathbb{N} : x \\text{ divides } 18\\}$. How many members does $A \\cap B$ have?",
+   "hi": "$A = \\{x \\in \\mathbb{N} : x, 12 \\text{ को बाँटती है}\\}$ और $B = \\{x \\in \\mathbb{N} : x, 18 \\text{ को बाँटती है}\\}$। $A \\cap B$ में कितने सदस्य हैं?"
+  },
+  "opts": {
+   "en": [
+    "4",
+    "3",
+    "6",
+    "2"
+   ],
+   "hi": [
+    "4",
+    "3",
+    "6",
+    "2"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "$A = \\{1,2,3,4,6,12\\}$ and $B = \\{1,2,3,6,9,18\\}$. Shared: $1, 2, 3, 6$ — four. Neat fact: these are exactly the factors of $\\gcd(12,18) = 6$, and 6 has four factors. Common factors of two numbers are always the factors of their HCF.",
+   "hi": "$A = \\{1,2,3,4,6,12\\}$ और $B = \\{1,2,3,6,9,18\\}$। साझा: $1, 2, 3, 6$ — चार। मज़ेदार बात: ये ठीक $\\gcd(12,18) = 6$ के गुणनखंड हैं, और 6 के चार गुणनखंड हैं। दो संख्याओं के उभयनिष्ठ गुणनखंड हमेशा उनके म.स. के गुणनखंड होते हैं।"
+  }
+ },
+ {
+  "id": "MTH-Q143",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-2",
+  "tier": 5,
+  "diff": "hard",
+  "type": "short",
+  "q": {
+   "en": "For how many integers $x$ is $x^2 \\leq 100$ true?",
+   "hi": "कितने पूर्णांकों $x$ के लिए $x^2 \\leq 100$ सही है?"
+  },
+  "correct": "21",
+  "exp": {
+   "en": "$x^2 \\leq 100$ means $-10 \\leq x \\leq 10$. Count: 10 negative values, 10 positive values, and 0 in the middle. Total $10 + 10 + 1 = 21$. Answering 20 means you forgot 0; answering 10 means you forgot the negative half entirely.",
+   "hi": "$x^2 \\leq 100$ का मतलब है $-10 \\leq x \\leq 10$। गिनिए: 10 ऋणात्मक, 10 धनात्मक, और बीच में 0। कुल $10 + 10 + 1 = 21$। 20 आया तो 0 भूल गए; 10 आया तो पूरा ऋणात्मक हिस्सा ही भूल गए।"
+  }
+ },
+ {
+  "id": "MTH-Q144",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-2",
+  "tier": 5,
+  "diff": "hard",
+  "type": "mcq",
+  "q": {
+   "en": "Which pair of sets is equal?",
+   "hi": "समुच्चयों का कौन-सा जोड़ा बराबर है?"
+  },
+  "opts": {
+   "en": [
+    "$\\{x \\in \\mathbb{Z} : x^2 = 1\\}$ and $\\{-1, 1\\}$",
+    "$\\{x \\in \\mathbb{N} : x^2 = 1\\}$ and $\\{-1, 1\\}$",
+    "$\\{x \\in \\mathbb{N} : x < 3\\}$ and $\\{0,1,2\\}$",
+    "$\\emptyset$ and $\\{\\emptyset\\}$"
+   ],
+   "hi": [
+    "$\\{x \\in \\mathbb{Z} : x^2 = 1\\}$ और $\\{-1, 1\\}$",
+    "$\\{x \\in \\mathbb{N} : x^2 = 1\\}$ और $\\{-1, 1\\}$",
+    "$\\{x \\in \\mathbb{N} : x < 3\\}$ और $\\{0,1,2\\}$",
+    "$\\emptyset$ और $\\{\\emptyset\\}$"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "Over $\\mathbb{Z}$, $x^2 = 1$ gives both $1$ and $-1$, matching exactly. Option B uses $\\mathbb{N}$, which drops $-1$. Option C fails because $\\mathbb{N}$ has no 0. Option D compares nothing with a box holding nothing. All three wrong options are the three warnings from the Bridge.",
+   "hi": "$\\mathbb{Z}$ में $x^2 = 1$ से $1$ और $-1$ दोनों मिलते हैं, ठीक मेल। विकल्प B में $\\mathbb{N}$ है, जो $-1$ हटा देता है। विकल्प C ग़लत है क्योंकि $\\mathbb{N}$ में 0 नहीं है। विकल्प D कुछ नहीं की तुलना कुछ नहीं वाले डिब्बे से करता है। तीनों ग़लत विकल्प पुल की वही तीन चेतावनियाँ हैं।"
+  }
+ },
+ {
+  "id": "MTH-Q145",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-3",
+  "tier": 1,
+  "diff": "easy",
+  "type": "mcq",
+  "q": {
+   "en": "$n(\\emptyset) = ?$",
+   "hi": "$n(\\emptyset) = ?$"
+  },
+  "opts": {
+   "en": [
+    "0",
+    "1",
+    "2",
+    "cannot be found"
+   ],
+   "hi": [
+    "0",
+    "1",
+    "2",
+    "निकाला नहीं जा सकता"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "The empty set has no members, so the count is 0. It is still a perfectly good set — like an empty bag is still a bag.",
+   "hi": "रिक्त समुच्चय में कोई सदस्य नहीं है, तो गिनती 0 है। यह फिर भी बिल्कुल सही समुच्चय है — जैसे ख़ाली बैग भी बैग ही होता है।"
+  }
+ },
+ {
+  "id": "MTH-Q146",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-3",
+  "tier": 1,
+  "diff": "easy",
+  "type": "tf",
+  "q": {
+   "en": "The set of students in your school is finite.",
+   "hi": "आपके स्कूल के विद्यार्थियों का समुच्चय परिमित है।"
+  },
+  "correct": "TRUE",
+  "exp": {
+   "en": "You could count them all and finish. That is what finite means. It does not matter whether the number is large — grains of rice in a sack are finite too.",
+   "hi": "आप उन सबको गिनकर पूरा कर सकते हैं। परिमित का यही मतलब है। संख्या बड़ी है या नहीं, इससे फ़र्क़ नहीं पड़ता — बोरी में चावल के दाने भी परिमित हैं।"
+  }
+ },
+ {
+  "id": "MTH-Q147",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-3",
+  "tier": 1,
+  "diff": "easy",
+  "type": "mcq",
+  "q": {
+   "en": "Which set is infinite?",
+   "hi": "कौन-सा समुच्चय अनंत है?"
+  },
+  "opts": {
+   "en": [
+    "$\\{1, 2, 3, \\ldots\\}$",
+    "$\\{1, 2, 3\\}$",
+    "The days in a year",
+    "The letters in the English alphabet"
+   ],
+   "hi": [
+    "$\\{1, 2, 3, \\ldots\\}$",
+    "$\\{1, 2, 3\\}$",
+    "एक साल के दिन",
+    "अंग्रेज़ी वर्णमाला के अक्षर"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "The three dots mean it keeps going with no last number. The other three all stop: 3 members, 365 days, 26 letters.",
+   "hi": "तीन बिंदु बताते हैं कि यह चलता ही रहता है, कोई आख़िरी संख्या नहीं। बाक़ी तीनों रुक जाते हैं: 3 सदस्य, 365 दिन, 26 अक्षर।"
+  }
+ },
+ {
+  "id": "MTH-Q148",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-3",
+  "tier": 2,
+  "diff": "medium",
+  "type": "mcq",
+  "q": {
+   "en": "Which of these is the empty set?",
+   "hi": "इनमें से कौन रिक्त समुच्चय है?"
+  },
+  "opts": {
+   "en": [
+    "$\\{x \\in \\mathbb{N} : x + 3 = 1\\}$",
+    "$\\{x \\in \\mathbb{Z} : x + 3 = 1\\}$",
+    "$\\{0\\}$",
+    "$\\{x \\in \\mathbb{N} : x < 5\\}$"
+   ],
+   "hi": [
+    "$\\{x \\in \\mathbb{N} : x + 3 = 1\\}$",
+    "$\\{x \\in \\mathbb{Z} : x + 3 = 1\\}$",
+    "$\\{0\\}$",
+    "$\\{x \\in \\mathbb{N} : x < 5\\}$"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "$x + 3 = 1$ gives $x = -2$. That is a perfectly good integer, so option B is **not** empty — it is $\\{-2\\}$. But $-2$ is not a counting number, so over $\\mathbb{N}$ nothing fits. Same equation, different family, opposite answer.",
+   "hi": "$x + 3 = 1$ से $x = -2$ मिलता है। वह बिल्कुल सही पूर्णांक है, तो विकल्प B रिक्त **नहीं** है — वह $\\{-2\\}$ है। पर $-2$ गिनती की संख्या नहीं है, तो $\\mathbb{N}$ में कुछ भी फ़िट नहीं बैठता। वही समीकरण, अलग परिवार, उल्टा जवाब।"
+  }
+ },
+ {
+  "id": "MTH-Q149",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-3",
+  "tier": 2,
+  "diff": "medium",
+  "type": "tf",
+  "q": {
+   "en": "$\\{1, 2\\}$ and $\\{a, b\\}$ are equivalent sets.",
+   "hi": "$\\{1, 2\\}$ और $\\{a, b\\}$ तुल्य समुच्चय हैं।"
+  },
+  "correct": "TRUE",
+  "exp": {
+   "en": "**Equivalent** only asks whether the counts match, and both have 2 members. They are **not equal**, because equal needs the same members and 1 is not $a$. Two cows and two chairs: same number, different things.",
+   "hi": "**तुल्य** सिर्फ़ यह पूछता है कि गिनती मिलती है या नहीं, और दोनों में 2 सदस्य हैं। ये **बराबर नहीं** हैं, क्योंकि बराबर के लिए सदस्य वही चाहिए और 1, $a$ नहीं है। दो गाय और दो कुर्सियाँ: संख्या वही, चीज़ें अलग।"
+  }
+ },
+ {
+  "id": "MTH-Q150",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-3",
+  "tier": 2,
+  "diff": "medium",
+  "type": "short",
+  "q": {
+   "en": "What is $n(A)$ if $A$ is the set of letters in the word BANANA?",
+   "hi": "यदि $A$, BANANA शब्द के अक्षरों का समुच्चय है, तो $n(A)$ क्या है?"
+  },
+  "correct": "3",
+  "exp": {
+   "en": "The different letters are B, A, N — three. The word has 6 letters, but A appears three times and N twice. A set records each thing once, however often it is written.",
+   "hi": "अलग अक्षर हैं B, A, N — तीन। शब्द में 6 अक्षर हैं, पर A तीन बार और N दो बार आया है। समुच्चय हर चीज़ को एक ही बार दर्ज करता है, चाहे वह कितनी भी बार लिखी हो।"
+  }
+ },
+ {
+  "id": "MTH-Q151",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-3",
+  "tier": 3,
+  "diff": "medium",
+  "type": "mcq",
+  "q": {
+   "en": "Which statement about $\\emptyset$ and $\\{0\\}$ is correct?",
+   "hi": "$\\emptyset$ और $\\{0\\}$ के बारे में कौन-सा कथन सही है?"
+  },
+  "opts": {
+   "en": [
+    "They are different: $n(\\emptyset)=0$ but $n(\\{0\\})=1$",
+    "They are equal",
+    "Both are empty",
+    "$\\{0\\}$ is empty but $\\emptyset$ is not"
+   ],
+   "hi": [
+    "ये अलग हैं: $n(\\emptyset)=0$ पर $n(\\{0\\})=1$",
+    "ये बराबर हैं",
+    "दोनों रिक्त हैं",
+    "$\\{0\\}$ रिक्त है पर $\\emptyset$ नहीं"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "$\\{0\\}$ is a box with the number zero inside it. Having zero **in** a box is not the same as having an **empty** box. This is one of the most tested points in the chapter.",
+   "hi": "$\\{0\\}$ वह डिब्बा है जिसके अंदर शून्य संख्या रखी है। डिब्बे **में** शून्य होना और डिब्बे का **ख़ाली** होना एक बात नहीं है। अध्याय में सबसे ज़्यादा पूछे जाने वाले बिंदुओं में से एक यही है।"
+  }
+ },
+ {
+  "id": "MTH-Q152",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-3",
+  "tier": 3,
+  "diff": "hard",
+  "type": "tf",
+  "q": {
+   "en": "If two sets are equal, they must also be equivalent.",
+   "hi": "यदि दो समुच्चय बराबर हैं, तो वे तुल्य भी होंगे।"
+  },
+  "correct": "TRUE",
+  "exp": {
+   "en": "Equal means the members are exactly the same, so of course the counts match too. The reverse fails: equivalent sets can hold completely different things. Equal is the stronger claim.",
+   "hi": "बराबर का मतलब है सदस्य बिल्कुल वही, तो गिनती भी अपने आप मिलेगी। उल्टा नहीं चलता: तुल्य समुच्चयों में बिल्कुल अलग चीज़ें हो सकती हैं। बराबर होना ज़्यादा कड़ा दावा है।"
+  }
+ },
+ {
+  "id": "MTH-Q153",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-3",
+  "tier": 3,
+  "diff": "hard",
+  "type": "short",
+  "q": {
+   "en": "Find $n(A)$ where $A = \\{x \\in \\mathbb{Z} : x^2 \\leq 4\\}$.",
+   "hi": "$A = \\{x \\in \\mathbb{Z} : x^2 \\leq 4\\}$ के लिए $n(A)$ ज्ञात कीजिए।"
+  },
+  "correct": "5",
+  "exp": {
+   "en": "$x^2 \\leq 4$ means $-2 \\leq x \\leq 2$, so $A = \\{-2,-1,0,1,2\\}$ — five members. Answering 3 means you kept only the positive side and forgot that squaring wipes out the sign.",
+   "hi": "$x^2 \\leq 4$ का मतलब है $-2 \\leq x \\leq 2$, तो $A = \\{-2,-1,0,1,2\\}$ — पाँच सदस्य। 3 आया तो आपने सिर्फ़ धनात्मक हिस्सा रखा और भूल गए कि वर्ग करने से चिह्न मिट जाता है।"
+  }
+ },
+ {
+  "id": "MTH-Q154",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-3",
+  "tier": 4,
+  "diff": "hard",
+  "type": "mcq",
+  "q": {
+   "en": "$A = \\{x \\in \\mathbb{R} : x^2 - 3x + 2 = 0\\}$ and $B = \\{1, 2\\}$. Which is true?",
+   "hi": "$A = \\{x \\in \\mathbb{R} : x^2 - 3x + 2 = 0\\}$ और $B = \\{1, 2\\}$। कौन सही है?"
+  },
+  "opts": {
+   "en": [
+    "$A = B$",
+    "$A$ is empty",
+    "$A$ has 1 member",
+    "$A$ and $B$ are equivalent but not equal"
+   ],
+   "hi": [
+    "$A = B$",
+    "$A$ रिक्त है",
+    "$A$ में 1 सदस्य है",
+    "$A$ और $B$ तुल्य हैं पर बराबर नहीं"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "Factorise: $(x-1)(x-2) = 0$, so $x = 1$ or $x = 2$, and $A = \\{1,2\\}$ — exactly $B$. Same members, so **equal**, not merely equivalent. Option D is the trap for students who see two different-looking descriptions and assume the sets differ.",
+   "hi": "गुणनखंड कीजिए: $(x-1)(x-2) = 0$, तो $x = 1$ या $x = 2$, और $A = \\{1,2\\}$ — ठीक $B$। सदस्य वही, तो **बराबर**, सिर्फ़ तुल्य नहीं। विकल्प D उनके लिए जाल है जो दो अलग दिखने वाले विवरण देखकर मान लेते हैं कि समुच्चय अलग होंगे।"
+  }
+ },
+ {
+  "id": "MTH-Q155",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-3",
+  "tier": 4,
+  "diff": "hard",
+  "type": "mcq",
+  "q": {
+   "en": "Which set is NOT empty?",
+   "hi": "कौन-सा समुच्चय रिक्त **नहीं** है?"
+  },
+  "opts": {
+   "en": [
+    "$\\{x \\in \\mathbb{R} : x^2 = 2\\}$",
+    "$\\{x \\in \\mathbb{N} : x^2 = 2\\}$",
+    "$\\{x \\in \\mathbb{N} : x < 0\\}$",
+    "$\\{x \\in \\mathbb{R} : x^2 + 4 = 0\\}$"
+   ],
+   "hi": [
+    "$\\{x \\in \\mathbb{R} : x^2 = 2\\}$",
+    "$\\{x \\in \\mathbb{N} : x^2 = 2\\}$",
+    "$\\{x \\in \\mathbb{N} : x < 0\\}$",
+    "$\\{x \\in \\mathbb{R} : x^2 + 4 = 0\\}$"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "$x^2 = 2$ gives $x = \\pm\\sqrt{2}$, which are real numbers — so over $\\mathbb{R}$ the set has two members. Over $\\mathbb{N}$ it is empty, because $\\sqrt{2}$ is not a counting number. Option D is empty because a square is never negative.",
+   "hi": "$x^2 = 2$ से $x = \\pm\\sqrt{2}$ मिलता है, जो वास्तविक संख्याएँ हैं — तो $\\mathbb{R}$ में समुच्चय के दो सदस्य हैं। $\\mathbb{N}$ में यह रिक्त है, क्योंकि $\\sqrt{2}$ गिनती की संख्या नहीं है। विकल्प D रिक्त है क्योंकि वर्ग कभी ऋणात्मक नहीं होता।"
+  }
+ },
+ {
+  "id": "MTH-Q156",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-3",
+  "tier": 4,
+  "diff": "hard",
+  "type": "short",
+  "q": {
+   "en": "$A$ has 5 members and $B$ has 5 members, but $A \\neq B$. Give one such pair (use letters or numbers).",
+   "hi": "$A$ में 5 सदस्य हैं और $B$ में भी 5, पर $A \\neq B$। ऐसा एक जोड़ा बताइए (अक्षर या संख्याएँ लिखिए)।"
+  },
+  "correct": "{1,2,3,4,5} and {a,b,c,d,e}",
+  "accept": [
+   "{1,2,3,4,5},{a,b,c,d,e}",
+   "{1,2,3,4,5} {a,b,c,d,e}",
+   "1,2,3,4,5 and a,b,c,d,e"
+  ],
+  "exp": {
+   "en": "Any two sets of size 5 holding different things will do — for example $\\{1,2,3,4,5\\}$ and $\\{a,b,c,d,e\\}$. They are equivalent (same count) but not equal (different members). This is the difference in one example.",
+   "hi": "5 आकार के कोई भी दो समुच्चय जिनमें अलग चीज़ें हों, चलेंगे — जैसे $\\{1,2,3,4,5\\}$ और $\\{a,b,c,d,e\\}$। ये तुल्य हैं (गिनती वही) पर बराबर नहीं (सदस्य अलग)। एक ही उदाहरण में पूरा फ़र्क़।"
+  }
+ },
+ {
+  "id": "MTH-Q157",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 1,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH-1-2",
+  "tier": 1,
+  "diff": "easy",
+  "type": "mcq",
+  "q": {
+   "en": "$8 + (-3) = ?$",
+   "hi": "$8 + (-3) = ?$"
+  },
+  "opts": {
+   "en": [
+    "$5$",
+    "$11$",
+    "$-5$",
+    "$-11$"
+   ],
+   "hi": [
+    "$5$",
+    "$11$",
+    "$-5$",
+    "$-11$"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "Adding a negative is the same as subtracting: $8 - 3 = 5$. Think of earning ₹8 and spending ₹3.",
+   "hi": "ऋणात्मक जोड़ना, घटाने जैसा ही है: $8 - 3 = 5$। ₹8 कमाकर ₹3 ख़र्च करने की तरह सोचिए।"
+  }
+ },
+ {
+  "id": "MTH-Q158",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 1,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH-1-2",
+  "tier": 3,
+  "diff": "hard",
+  "type": "short",
+  "q": {
+   "en": "A lift starts at floor $-2$, goes up 7 floors, then down 3. Which floor is it on?",
+   "hi": "एक लिफ़्ट मंज़िल $-2$ से चलती है, 7 मंज़िल ऊपर जाती है, फिर 3 नीचे। वह किस मंज़िल पर है?"
+  },
+  "correct": "2",
+  "exp": {
+   "en": "$-2 + 7 - 3 = 2$. Up means right on the number line, down means left. Work left to right, one move at a time; trying to do it in one jump is where sign errors come from.",
+   "hi": "$-2 + 7 - 3 = 2$। ऊपर यानी संख्या रेखा पर दाएँ, नीचे यानी बाएँ। बाएँ से दाएँ, एक-एक क़दम कीजिए; एक ही छलाँग में करने की कोशिश से ही चिह्न की ग़लतियाँ आती हैं।"
+  }
+ },
+ {
+  "id": "MTH-Q159",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 1,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH-1-3",
+  "tier": 1,
+  "diff": "easy",
+  "type": "mcq",
+  "q": {
+   "en": "Which fraction is the largest?",
+   "hi": "कौन-सा भिन्न सबसे बड़ा है?"
+  },
+  "opts": {
+   "en": [
+    "$\\frac{3}{4}$",
+    "$\\frac{1}{2}$",
+    "$\\frac{2}{5}$",
+    "$\\frac{1}{3}$"
+   ],
+   "hi": [
+    "$\\frac{3}{4}$",
+    "$\\frac{1}{2}$",
+    "$\\frac{2}{5}$",
+    "$\\frac{1}{3}$"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "Turn them into decimals: $0.75$, $0.5$, $0.4$, $0.33$. The biggest is $\\frac{3}{4}$. When the bottoms differ, do not compare the tops — $\\frac{2}{5}$ has a bigger top than $\\frac{1}{2}$ but is smaller.",
+   "hi": "इन्हें दशमलव में बदलिए: $0.75$, $0.5$, $0.4$, $0.33$। सबसे बड़ा $\\frac{3}{4}$ है। जब हर अलग हों तो ऊपर वालों की तुलना मत कीजिए — $\\frac{2}{5}$ का ऊपर वाला $\\frac{1}{2}$ से बड़ा है पर वह ख़ुद छोटा है।"
+  }
+ },
+ {
+  "id": "MTH-Q160",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 1,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH-1-3",
+  "tier": 3,
+  "diff": "hard",
+  "type": "short",
+  "q": {
+   "en": "A shopkeeper buys a bag for ₹400 and sells it for ₹500. What is the profit percentage?",
+   "hi": "एक दुकानदार ₹400 में बैग ख़रीदकर ₹500 में बेचता है। लाभ प्रतिशत क्या है?"
+  },
+  "correct": "25",
+  "accept": [
+   "25%",
+   "25 %"
+  ],
+  "exp": {
+   "en": "Profit is ₹100. Percentage is always taken on the **cost price**: $\\frac{100}{400} = 0.25 = 25\\%$. Dividing by 500 gives 20%, and that is the usual wrong answer — always ask *percentage of what*.",
+   "hi": "लाभ ₹100 है। प्रतिशत हमेशा **क्रय मूल्य** पर लिया जाता है: $\\frac{100}{400} = 0.25 = 25\\%$। 500 से भाग देने पर 20% आता है, और यही आम ग़लत जवाब है — हमेशा पूछिए *किसका प्रतिशत*।"
+  }
+ },
+ {
+  "id": "MTH-Q161",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 2,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH-2-1",
+  "tier": 3,
+  "diff": "hard",
+  "type": "short",
+  "q": {
+   "en": "The length of a rectangle is 3 more than its width. The perimeter is 26. Find the width.",
+   "hi": "एक आयत की लंबाई उसकी चौड़ाई से 3 ज़्यादा है। परिमाप 26 है। चौड़ाई निकालिए।"
+  },
+  "correct": "5",
+  "exp": {
+   "en": "Let width $= w$, so length $= w + 3$. Perimeter $= 2(w + w + 3) = 4w + 6 = 26$, giving $4w = 20$ and $w = 5$. Check: width 5, length 8, perimeter $2(13) = 26$ ✅. Naming the unknown first is what makes the sentence solvable.",
+   "hi": "चौड़ाई $= w$ मानिए, तो लंबाई $= w + 3$। परिमाप $= 2(w + w + 3) = 4w + 6 = 26$, यानी $4w = 20$ और $w = 5$। जाँच: चौड़ाई 5, लंबाई 8, परिमाप $2(13) = 26$ ✅। अज्ञात को पहले नाम देना ही वाक्य को हल करने लायक़ बनाता है।"
+  }
+ },
+ {
+  "id": "MTH-Q162",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 2,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH-2-2",
+  "tier": 1,
+  "diff": "easy",
+  "type": "mcq",
+  "q": {
+   "en": "Factorise $4x + 12$.",
+   "hi": "$4x + 12$ के गुणनखंड कीजिए।"
+  },
+  "opts": {
+   "en": [
+    "$4(x + 3)$",
+    "$4(x + 12)$",
+    "$2(2x + 6)$",
+    "$4(x + 4)$"
+   ],
+   "hi": [
+    "$4(x + 3)$",
+    "$4(x + 12)$",
+    "$2(2x + 6)$",
+    "$4(x + 4)$"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "The biggest number dividing both 4 and 12 is 4. Check by expanding: $4(x+3) = 4x + 12$ ✅. Option C is true but not finished — 2 was not the biggest common factor.",
+   "hi": "4 और 12 दोनों को बाँटने वाली सबसे बड़ी संख्या 4 है। खोलकर जाँचिए: $4(x+3) = 4x + 12$ ✅। विकल्प C सही तो है पर पूरा नहीं — 2 सबसे बड़ा उभयनिष्ठ गुणनखंड नहीं था।"
+  }
+ },
+ {
+  "id": "MTH-Q163",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-1",
+  "tier": 3,
+  "diff": "medium",
+  "type": "tf",
+  "q": {
+   "en": "The set of all tall trees in a village is well defined.",
+   "hi": "गाँव के सभी ऊँचे पेड़ों का समुच्चय सुपरिभाषित है।"
+  },
+  "correct": "FALSE",
+  "exp": {
+   "en": "*Tall* has no agreed height. One person counts a 4 metre tree, another does not. Add a number — *trees above 5 metres* — and it becomes a proper set at once.",
+   "hi": "*ऊँचा* की कोई तय ऊँचाई नहीं है। कोई 4 मीटर के पेड़ को गिनेगा, कोई नहीं। एक संख्या जोड़ दीजिए — *5 मीटर से ऊँचे पेड़* — और यह तुरंत सही समुच्चय बन जाता है।"
+  }
+ },
+ {
+  "id": "MTH-Q164",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-1",
+  "tier": 4,
+  "diff": "hard",
+  "type": "mcq",
+  "q": {
+   "en": "If $A = \\{1, 2\\}$ and $B = \\{\\{1\\}, \\{2\\}\\}$, which is true?",
+   "hi": "यदि $A = \\{1, 2\\}$ और $B = \\{\\{1\\}, \\{2\\}\\}$ है, तो कौन सही है?"
+  },
+  "opts": {
+   "en": [
+    "$A \\neq B$, though both have 2 members",
+    "$A = B$",
+    "$n(B) = 4$",
+    "$1 \\in B$"
+   ],
+   "hi": [
+    "$A \\neq B$, हालाँकि दोनों में 2 सदस्य हैं",
+    "$A = B$",
+    "$n(B) = 4$",
+    "$1 \\in B$"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "$A$ holds two **numbers**. $B$ holds two **sets**. Same count, so they are equivalent — but not equal, because a number is not a set. And $1 \\notin B$; what is in $B$ is $\\{1\\}$.",
+   "hi": "$A$ में दो **संख्याएँ** हैं। $B$ में दो **समुच्चय** हैं। गिनती वही, तो ये तुल्य हैं — पर बराबर नहीं, क्योंकि संख्या और समुच्चय एक बात नहीं। और $1 \\notin B$; $B$ में तो $\\{1\\}$ है।"
+  }
+ },
+ {
+  "id": "MTH-Q165",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-1",
+  "tier": 4,
+  "diff": "hard",
+  "type": "short",
+  "q": {
+   "en": "How many members are in the set of letters of the word MISSISSIPPI?",
+   "hi": "MISSISSIPPI शब्द के अक्षरों के समुच्चय में कितने सदस्य हैं?"
+  },
+  "correct": "4",
+  "exp": {
+   "en": "The different letters are M, I, S, P — four. The word has 11 letters, but I appears four times, S four times, P twice. A set counts each different thing once.",
+   "hi": "अलग अक्षर हैं M, I, S, P — चार। शब्द में 11 अक्षर हैं, पर I चार बार, S चार बार, P दो बार आया है। समुच्चय हर अलग चीज़ को एक बार गिनता है।"
+  }
+ },
+ {
+  "id": "MTH-Q166",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-2",
+  "tier": 1,
+  "diff": "easy",
+  "type": "tf",
+  "q": {
+   "en": "$\\{1, 2, 3, \\ldots\\}$ and $\\{x : x \\in \\mathbb{N}\\}$ describe the same set.",
+   "hi": "$\\{1, 2, 3, \\ldots\\}$ और $\\{x : x \\in \\mathbb{N}\\}$ एक ही समुच्चय बताते हैं।"
+  },
+  "correct": "TRUE",
+  "exp": {
+   "en": "The first is the list form, the second is the rule form. Both name every counting number. Two ways of writing, one set.",
+   "hi": "पहला तालिका रूप है, दूसरा नियम रूप। दोनों हर गिनती की संख्या बताते हैं। लिखने के दो तरीक़े, समुच्चय एक।"
+  }
+ },
+ {
+  "id": "MTH-Q167",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-2",
+  "tier": 3,
+  "diff": "medium",
+  "type": "short",
+  "q": {
+   "en": "List $\\{x \\in \\mathbb{N} : x \\text{ is a prime factor of } 30\\}$.",
+   "hi": "$\\{x \\in \\mathbb{N} : x, 30 \\text{ का अभाज्य गुणनखंड है}\\}$ की सूची बनाइए।"
+  },
+  "correct": "{2,3,5}",
+  "accept": [
+   "2,3,5",
+   "{2, 3, 5}",
+   "2, 3, 5"
+  ],
+  "exp": {
+   "en": "Break 30 down: $30 = 2 \\times 3 \\times 5$. All three are prime, so the set is $\\{2,3,5\\}$. Note 1 is not included — 1 is a factor of everything but is **not** prime. Nor is 6 or 15, which are factors but not prime.",
+   "hi": "30 को तोड़िए: $30 = 2 \\times 3 \\times 5$। तीनों अभाज्य हैं, तो समुच्चय $\\{2,3,5\\}$ है। ध्यान दीजिए 1 शामिल नहीं — 1 हर चीज़ का गुणनखंड है पर अभाज्य **नहीं**। 6 और 15 भी नहीं, जो गुणनखंड तो हैं पर अभाज्य नहीं।"
+  }
+ },
+ {
+  "id": "MTH-Q168",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-2",
+  "tier": 4,
+  "diff": "hard",
+  "type": "mcq",
+  "q": {
+   "en": "Which set has exactly 3 members?",
+   "hi": "किस समुच्चय के ठीक 3 सदस्य हैं?"
+  },
+  "opts": {
+   "en": [
+    "$\\{x \\in \\mathbb{Z} : |x| \\leq 1\\}$",
+    "$\\{x \\in \\mathbb{N} : x \\leq 3\\}$ ",
+    "$\\{x \\in \\mathbb{Z} : x^2 = 9\\}$",
+    "$\\{x \\in \\mathbb{N} : x^2 < 4\\}$"
+   ],
+   "hi": [
+    "$\\{x \\in \\mathbb{Z} : |x| \\leq 1\\}$",
+    "$\\{x \\in \\mathbb{N} : x \\leq 3\\}$ ",
+    "$\\{x \\in \\mathbb{Z} : x^2 = 9\\}$",
+    "$\\{x \\in \\mathbb{N} : x^2 < 4\\}$"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "$|x| \\leq 1$ over $\\mathbb{Z}$ gives $\\{-1, 0, 1\\}$ — three. Option B also has three ($1,2,3$), so read carefully: both are three! On a real paper only one would be listed; here A is the intended reading since $|x|$ is the new idea being tested. C has two members, D has just $\\{1\\}$.",
+   "hi": "$\\mathbb{Z}$ में $|x| \\leq 1$ से $\\{-1, 0, 1\\}$ मिलता है — तीन। विकल्प B में भी तीन हैं ($1,2,3$), तो ध्यान से पढ़िए। C के दो सदस्य हैं, D में सिर्फ़ $\\{1\\}$ है।"
+  }
+ },
+ {
+  "id": "MTH-Q169",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-2",
+  "tier": 4,
+  "diff": "hard",
+  "type": "short",
+  "q": {
+   "en": "How many members are in $\\{x \\in \\mathbb{N} : x \\text{ divides } 36\\}$?",
+   "hi": "$\\{x \\in \\mathbb{N} : x, 36 \\text{ को बाँटती है}\\}$ में कितने सदस्य हैं?"
+  },
+  "correct": "9",
+  "exp": {
+   "en": "Pair them up: $1\\times36$, $2\\times18$, $3\\times12$, $4\\times9$, $6\\times6$. The last pair repeats 6, so count it once: $1,2,3,4,6,9,12,18,36$ — nine. A perfect square always has an **odd** number of factors, for exactly this reason.",
+   "hi": "जोड़े बनाइए: $1\\times36$, $2\\times18$, $3\\times12$, $4\\times9$, $6\\times6$। आख़िरी जोड़े में 6 दोहराया गया, तो एक बार गिनिए: $1,2,3,4,6,9,12,18,36$ — नौ। पूर्ण वर्ग के गुणनखंड हमेशा **विषम** संख्या में होते हैं, ठीक इसी वजह से।"
+  }
+ },
+ {
+  "id": "MTH-Q170",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-2",
+  "tier": 5,
+  "diff": "hard",
+  "type": "short",
+  "q": {
+   "en": "How many integers $x$ satisfy $-3 \\leq x < 4$ AND $x$ is even?",
+   "hi": "कितने पूर्णांक $x$, $-3 \\leq x < 4$ को संतुष्ट करते हैं **और** सम भी हैं?"
+  },
+  "correct": "3",
+  "exp": {
+   "en": "The range gives $\\{-3,-2,-1,0,1,2,3\\}$. Keep only the even ones: $-2$, $0$, $2$ — three. Remember 0 is even. Missing it gives 2, the usual wrong answer.",
+   "hi": "परास से मिलता है $\\{-3,-2,-1,0,1,2,3\\}$। सिर्फ़ सम रखिए: $-2$, $0$, $2$ — तीन। याद रखिए 0 सम है। इसे छोड़ने पर 2 आता है, यही आम ग़लत जवाब है।"
+  }
+ },
+ {
+  "id": "MTH-Q171",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-2",
+  "tier": 5,
+  "diff": "hard",
+  "type": "mcq",
+  "q": {
+   "en": "$A = \\{2n : n \\in \\mathbb{N}\\}$ and $B = \\{3n : n \\in \\mathbb{N}\\}$. The smallest member of $A \\cap B$ is:",
+   "hi": "$A = \\{2n : n \\in \\mathbb{N}\\}$ और $B = \\{3n : n \\in \\mathbb{N}\\}$। $A \\cap B$ का सबसे छोटा सदस्य है:"
+  },
+  "correct": "A",
+  "opts": {
+   "en": [
+    "$6$",
+    "$2$",
+    "$3$",
+    "$12$"
+   ],
+   "hi": [
+    "$6$",
+    "$2$",
+    "$3$",
+    "$12$"
+   ]
+  },
+  "exp": {
+   "en": "$A$ is the multiples of 2, $B$ the multiples of 3. A number in both must be a multiple of both, so the smallest is the LCM, $6$. In general $A \\cap B$ here is the multiples of 6.",
+   "hi": "$A$ 2 के गुणज हैं, $B$ 3 के। दोनों में होने वाली संख्या दोनों की गुणज होगी, तो सबसे छोटी उनका ल.स., यानी $6$। आम तौर पर यहाँ $A \\cap B$ 6 के गुणज हैं।"
+  }
+ },
+ {
+  "id": "MTH-Q172",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-3",
+  "tier": 1,
+  "diff": "easy",
+  "type": "tf",
+  "q": {
+   "en": "A set can have zero members.",
+   "hi": "किसी समुच्चय के शून्य सदस्य हो सकते हैं।"
+  },
+  "correct": "TRUE",
+  "exp": {
+   "en": "That is the empty set, $\\emptyset$. It is a real set with $n = 0$. An empty bag is still a bag.",
+   "hi": "वही रिक्त समुच्चय है, $\\emptyset$। यह असली समुच्चय है जिसका $n = 0$ है। ख़ाली बैग भी बैग ही होता है।"
+  }
+ },
+ {
+  "id": "MTH-Q173",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-3",
+  "tier": 3,
+  "diff": "medium",
+  "type": "short",
+  "q": {
+   "en": "Find $n(A)$ where $A$ is the set of factors of 16.",
+   "hi": "$A$, 16 के गुणनखंडों का समुच्चय है। $n(A)$ ज्ञात कीजिए।"
+  },
+  "correct": "5",
+  "exp": {
+   "en": "$1, 2, 4, 8, 16$ — five. Pair them: $1\\times16$, $2\\times8$, $4\\times4$. The middle pair repeats 4, so count it once. 16 is a perfect square, which is why the count is odd.",
+   "hi": "$1, 2, 4, 8, 16$ — पाँच। जोड़े बनाइए: $1\\times16$, $2\\times8$, $4\\times4$। बीच वाले जोड़े में 4 दोहराया गया, तो एक बार गिनिए। 16 पूर्ण वर्ग है, इसीलिए गिनती विषम है।"
+  }
+ },
+ {
+  "id": "MTH-Q174",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-3",
+  "tier": 4,
+  "diff": "hard",
+  "type": "tf",
+  "q": {
+   "en": "If $n(A) = n(B)$ then $A = B$.",
+   "hi": "यदि $n(A) = n(B)$ है तो $A = B$।"
+  },
+  "correct": "FALSE",
+  "exp": {
+   "en": "Matching counts only make them **equivalent**. $\\{1,2\\}$ and $\\{5,9\\}$ both have 2 members but hold different things, so they are not equal. Equal is the stronger claim and needs the same members.",
+   "hi": "गिनती मिलने से ये सिर्फ़ **तुल्य** होते हैं। $\\{1,2\\}$ और $\\{5,9\\}$ दोनों में 2 सदस्य हैं पर चीज़ें अलग हैं, तो ये बराबर नहीं। बराबर होना ज़्यादा कड़ा दावा है और उसके लिए सदस्य वही चाहिए।"
+  }
+ },
+ {
+  "id": "MTH-Q175",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-4",
+  "tier": 1,
+  "diff": "easy",
+  "type": "mcq",
+  "q": {
+   "en": "How many subsets does $\\{a, b\\}$ have?",
+   "hi": "$\\{a, b\\}$ के कितने उपसमुच्चय हैं?"
+  },
+  "opts": {
+   "en": [
+    "4",
+    "2",
+    "3",
+    "1"
+   ],
+   "hi": [
+    "4",
+    "2",
+    "3",
+    "1"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "$2^2 = 4$: they are $\\emptyset$, $\\{a\\}$, $\\{b\\}$, $\\{a,b\\}$. Answering 2 means you counted only the single-member ones and forgot the empty set and the whole set.",
+   "hi": "$2^2 = 4$: ये हैं $\\emptyset$, $\\{a\\}$, $\\{b\\}$, $\\{a,b\\}$। 2 आया तो आपने सिर्फ़ एक-सदस्यीय गिने और रिक्त समुच्चय व पूरा समुच्चय भूल गए।"
+  }
+ },
+ {
+  "id": "MTH-Q176",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-4",
+  "tier": 1,
+  "diff": "easy",
+  "type": "tf",
+  "q": {
+   "en": "$\\{1, 2\\} \\subseteq \\{1, 2, 3\\}$",
+   "hi": "$\\{1, 2\\} \\subseteq \\{1, 2, 3\\}$"
+  },
+  "correct": "TRUE",
+  "exp": {
+   "en": "Both 1 and 2 are inside the bigger set, so nothing pokes out. That is exactly what $\\subseteq$ means.",
+   "hi": "1 और 2 दोनों बड़े समुच्चय के अंदर हैं, तो कुछ भी बाहर नहीं निकला। $\\subseteq$ का ठीक यही मतलब है।"
+  }
+ },
+ {
+  "id": "MTH-Q177",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-4",
+  "tier": 1,
+  "diff": "easy",
+  "type": "mcq",
+  "q": {
+   "en": "$[2, 6]$ includes which of these?",
+   "hi": "$[2, 6]$ में इनमें से कौन शामिल है?"
+  },
+  "opts": {
+   "en": [
+    "Both 2 and 6",
+    "Only 2",
+    "Only 6",
+    "Neither 2 nor 6"
+   ],
+   "hi": [
+    "2 और 6 दोनों",
+    "सिर्फ़ 2",
+    "सिर्फ़ 6",
+    "न 2 न 6"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "Both brackets are square, so both doors are closed and both ends stay in. If it were $(2, 6)$ both would be out.",
+   "hi": "दोनों कोष्ठक चौकोर हैं, तो दोनों दरवाज़े बंद हैं और दोनों सिरे अंदर रहते हैं। अगर $(2, 6)$ होता तो दोनों बाहर होते।"
+  }
+ },
+ {
+  "id": "MTH-Q178",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-4",
+  "tier": 2,
+  "diff": "medium",
+  "type": "mcq",
+  "q": {
+   "en": "If $n(A) = 6$, the number of subsets of $A$ is:",
+   "hi": "यदि $n(A) = 6$ है, तो $A$ के उपसमुच्चयों की संख्या है:"
+  },
+  "opts": {
+   "en": [
+    "64",
+    "36",
+    "12",
+    "63"
+   ],
+   "hi": [
+    "64",
+    "36",
+    "12",
+    "63"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "$2^6 = 64$. Option B is $6^2$, which reverses the two numbers — the base is always 2, because each member has 2 choices. Option D, 63, is the number of **proper** subsets.",
+   "hi": "$2^6 = 64$। विकल्प B यानी $6^2$, जिसमें दोनों संख्याएँ उलट गईं — आधार हमेशा 2 होता है, क्योंकि हर सदस्य के 2 विकल्प हैं। विकल्प D यानी 63, **उचित** उपसमुच्चयों की संख्या है।"
+  }
+ },
+ {
+  "id": "MTH-Q179",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-4",
+  "tier": 2,
+  "diff": "medium",
+  "type": "mcq",
+  "q": {
+   "en": "Which is written correctly for $A = \\{1, 2, 3\\}$?",
+   "hi": "$A = \\{1, 2, 3\\}$ के लिए कौन-सा सही लिखा है?"
+  },
+  "opts": {
+   "en": [
+    "$\\emptyset \\subseteq A$",
+    "$\\emptyset \\in A$",
+    "$3 \\subseteq A$",
+    "$\\{1,2,3\\} \\in A$"
+   ],
+   "hi": [
+    "$\\emptyset \\subseteq A$",
+    "$\\emptyset \\in A$",
+    "$3 \\subseteq A$",
+    "$\\{1,2,3\\} \\in A$"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "The empty set is a **subset** of every set, so $\\subseteq$ is right. It is not a **member** of $A$ — the members of $A$ are just 1, 2 and 3. Option C uses $\\subseteq$ on a single number, which needs $\\in$.",
+   "hi": "रिक्त समुच्चय हर समुच्चय का **उपसमुच्चय** है, तो $\\subseteq$ सही है। यह $A$ का **सदस्य** नहीं है — $A$ के सदस्य सिर्फ़ 1, 2 और 3 हैं। विकल्प C अकेली संख्या पर $\\subseteq$ लगाता है, जहाँ $\\in$ चाहिए।"
+  }
+ },
+ {
+  "id": "MTH-Q180",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-4",
+  "tier": 2,
+  "diff": "medium",
+  "type": "short",
+  "q": {
+   "en": "Write $\\{x \\in \\mathbb{R} : -2 < x \\leq 3\\}$ as an interval.",
+   "hi": "$\\{x \\in \\mathbb{R} : -2 < x \\leq 3\\}$ को अंतराल के रूप में लिखिए।"
+  },
+  "correct": "(-2,3]",
+  "accept": [
+   "(-2, 3]"
+  ],
+  "exp": {
+   "en": "$-2 <$ is strict, so a round bracket and $-2$ stays out. $\\leq 3$ includes 3, so a square bracket. Read each sign on its own and the brackets follow.",
+   "hi": "$-2 <$ कड़ा है, तो गोल कोष्ठक और $-2$ बाहर। $\\leq 3$ में 3 शामिल है, तो चौकोर कोष्ठक। हर चिह्न अलग पढ़िए, कोष्ठक अपने आप तय हो जाएँगे।"
+  }
+ },
+ {
+  "id": "MTH-Q181",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-4",
+  "tier": 3,
+  "diff": "medium",
+  "type": "mcq",
+  "q": {
+   "en": "How many subsets of $\\{1,2,3\\}$ have exactly 2 members?",
+   "hi": "$\\{1,2,3\\}$ के कितने उपसमुच्चयों में ठीक 2 सदस्य हैं?"
+  },
+  "opts": {
+   "en": [
+    "3",
+    "2",
+    "4",
+    "6"
+   ],
+   "hi": [
+    "3",
+    "2",
+    "4",
+    "6"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "They are $\\{1,2\\}, \\{1,3\\}, \\{2,3\\}$ — three. Quick check: choosing which 2 to keep is the same as choosing which 1 to leave out, and there are 3 ways to leave one out.",
+   "hi": "ये हैं $\\{1,2\\}, \\{1,3\\}, \\{2,3\\}$ — तीन। झटपट जाँच: कौन-से 2 रखने हैं यह चुनना, कौन-सा 1 छोड़ना है यह चुनने जैसा ही है, और एक छोड़ने के 3 तरीक़े हैं।"
+  }
+ },
+ {
+  "id": "MTH-Q182",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-4",
+  "tier": 3,
+  "diff": "medium",
+  "type": "tf",
+  "q": {
+   "en": "$(3, \\infty)$ could also be written $(3, \\infty]$.",
+   "hi": "$(3, \\infty)$ को $(3, \\infty]$ भी लिखा जा सकता है।"
+  },
+  "correct": "FALSE",
+  "exp": {
+   "en": "Infinity always takes a round bracket. $\\infty$ is not a number you can reach, so it can never be included. It says *keep going*, not *stop here*.",
+   "hi": "अनंत पर हमेशा गोल कोष्ठक लगता है। $\\infty$ ऐसी संख्या नहीं है जहाँ पहुँचा जा सके, तो उसे शामिल किया ही नहीं जा सकता। यह कहता है *चलते रहिए*, न कि *यहाँ रुकिए*।"
+  }
+ },
+ {
+  "id": "MTH-Q183",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-4",
+  "tier": 3,
+  "diff": "hard",
+  "type": "short",
+  "q": {
+   "en": "A set has 32 subsets. How many members does it have?",
+   "hi": "किसी समुच्चय के 32 उपसमुच्चय हैं। उसमें कितने सदस्य हैं?"
+  },
+  "correct": "5",
+  "exp": {
+   "en": "$2^n = 32$, and $2^5 = 32$, so $n = 5$. Count the doublings: 2, 4, 8, 16, 32 — that is five steps.",
+   "hi": "$2^n = 32$, और $2^5 = 32$, तो $n = 5$। दोगुना होने की गिनती कीजिए: 2, 4, 8, 16, 32 — यानी पाँच क़दम।"
+  }
+ },
+ {
+  "id": "MTH-Q184",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-4",
+  "tier": 3,
+  "diff": "hard",
+  "type": "mcq",
+  "q": {
+   "en": "Which of these is NOT a subset of $\\{1, 2, 3, 4\\}$?",
+   "hi": "इनमें से कौन $\\{1, 2, 3, 4\\}$ का उपसमुच्चय **नहीं** है?"
+  },
+  "opts": {
+   "en": [
+    "$\\{2, 5\\}$",
+    "$\\{1, 4\\}$",
+    "$\\emptyset$",
+    "$\\{1,2,3,4\\}$"
+   ],
+   "hi": [
+    "$\\{2, 5\\}$",
+    "$\\{1, 4\\}$",
+    "$\\emptyset$",
+    "$\\{1,2,3,4\\}$"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "5 is not in the big set, so $\\{2,5\\}$ pokes out. **Every** member must be inside — one stray member is enough to break it. The empty set and the whole set are always subsets.",
+   "hi": "5 बड़े समुच्चय में नहीं है, तो $\\{2,5\\}$ बाहर निकल जाता है। **हर** सदस्य अंदर होना चाहिए — एक भी बाहरी सदस्य इसे तोड़ने के लिए काफ़ी है। रिक्त समुच्चय और पूरा समुच्चय हमेशा उपसमुच्चय होते हैं।"
+  }
+ },
+ {
+  "id": "MTH-Q185",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-4",
+  "tier": 4,
+  "diff": "hard",
+  "type": "short",
+  "q": {
+   "en": "A set has 127 proper subsets. How many members does it have?",
+   "hi": "किसी समुच्चय के 127 उचित उपसमुच्चय हैं। उसमें कितने सदस्य हैं?"
+  },
+  "correct": "7",
+  "exp": {
+   "en": "Proper subsets number $2^n - 1$. So $2^n = 128$, and $2^7 = 128$, giving $n = 7$. If you answered 7 by solving $2^n = 127$ you were lucky — 127 is not a power of 2, so you must add the 1 back first.",
+   "hi": "उचित उपसमुच्चयों की संख्या $2^n - 1$ होती है। तो $2^n = 128$, और $2^7 = 128$, यानी $n = 7$। अगर आपने $2^n = 127$ हल करके 7 पाया तो यह संयोग था — 127, 2 की कोई घात नहीं है, तो पहले 1 वापस जोड़ना ज़रूरी है।"
+  }
+ },
+ {
+  "id": "MTH-Q186",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-4",
+  "tier": 4,
+  "diff": "hard",
+  "type": "mcq",
+  "q": {
+   "en": "If $A \\subseteq B$ and $n(A) = 4$, $n(B) = 4$, what can you say?",
+   "hi": "यदि $A \\subseteq B$ और $n(A) = 4$, $n(B) = 4$ है, तो आप क्या कह सकते हैं?"
+  },
+  "opts": {
+   "en": [
+    "$A = B$",
+    "$A$ is a proper subset of $B$",
+    "$A$ and $B$ are disjoint",
+    "Nothing can be said"
+   ],
+   "hi": [
+    "$A = B$",
+    "$A$, $B$ का उचित उपसमुच्चय है",
+    "$A$ और $B$ असंयुक्त हैं",
+    "कुछ नहीं कहा जा सकता"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "$A$ sits inside $B$ and they are the same size, so $A$ cannot be missing anything from $B$. They must be the same set. A proper subset would have to be strictly smaller.",
+   "hi": "$A$, $B$ के अंदर है और दोनों का आकार बराबर है, तो $A$ में $B$ की कोई चीज़ छूट ही नहीं सकती। दोनों एक ही समुच्चय होंगे। उचित उपसमुच्चय को कड़ाई से छोटा होना पड़ता।"
+  }
+ },
+ {
+  "id": "MTH-Q187",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-4",
+  "tier": 4,
+  "diff": "hard",
+  "type": "mcq",
+  "q": {
+   "en": "How many subsets of $\\{1,2,3,4\\}$ contain the number 1?",
+   "hi": "$\\{1,2,3,4\\}$ के कितने उपसमुच्चयों में संख्या 1 है?"
+  },
+  "opts": {
+   "en": [
+    "8",
+    "4",
+    "16",
+    "15"
+   ],
+   "hi": [
+    "8",
+    "4",
+    "16",
+    "15"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "Fix 1 as *in*. That choice is now settled, and the other three members are still free: $2^3 = 8$. Neat check: exactly half of all 16 subsets contain 1, because for every subset with 1 there is a matching one without it.",
+   "hi": "1 को *अंदर* तय कर दीजिए। वह फ़ैसला हो गया, और बाक़ी तीन सदस्य अब भी आज़ाद हैं: $2^3 = 8$। बढ़िया जाँच: सभी 16 उपसमुच्चयों में से ठीक आधे में 1 है, क्योंकि 1 वाले हर उपसमुच्चय के सामने बिना 1 वाला एक जोड़ीदार है।"
+  }
+ },
+ {
+  "id": "MTH-Q188",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-4",
+  "tier": 5,
+  "diff": "hard",
+  "type": "short",
+  "q": {
+   "en": "How many subsets of a 6-member set have at most 1 member?",
+   "hi": "6 सदस्यों वाले समुच्चय के कितने उपसमुच्चयों में अधिक से अधिक 1 सदस्य है?"
+  },
+  "correct": "7",
+  "exp": {
+   "en": "*At most 1* means 0 or 1. There is 1 subset with no members and 6 with one member each, so $1 + 6 = 7$. Reading *at most* as *exactly* gives 6, the usual slip.",
+   "hi": "*अधिक से अधिक 1* यानी 0 या 1। बिना सदस्य वाला 1 उपसमुच्चय है और एक-एक सदस्य वाले 6, तो $1 + 6 = 7$। *अधिक से अधिक* को *ठीक* पढ़ने पर 6 आता है, यही आम चूक है।"
+  }
+ },
+ {
+  "id": "MTH-Q189",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-4",
+  "tier": 5,
+  "diff": "hard",
+  "type": "mcq",
+  "q": {
+   "en": "$A$ has $n$ members. The number of subsets with an EVEN number of members is:",
+   "hi": "$A$ में $n$ सदस्य हैं। **सम** संख्या में सदस्यों वाले उपसमुच्चयों की संख्या है:"
+  },
+  "opts": {
+   "en": [
+    "$2^{n-1}$",
+    "$2^n$",
+    "$n^2$",
+    "$2^{n}-1$"
+   ],
+   "hi": [
+    "$2^{n-1}$",
+    "$2^n$",
+    "$n^2$",
+    "$2^{n}-1$"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "Exactly half of all subsets have an even size, so $\\frac{2^n}{2} = 2^{n-1}$. Check with $n = 3$: even-sized subsets are $\\emptyset$ and the three pairs — four of them, and $2^2 = 4$ ✅.",
+   "hi": "सभी उपसमुच्चयों में से ठीक आधों का आकार सम होता है, तो $\\frac{2^n}{2} = 2^{n-1}$। $n = 3$ से जाँचिए: सम आकार वाले हैं $\\emptyset$ और तीनों जोड़े — यानी चार, और $2^2 = 4$ ✅।"
+  }
+ },
+ {
+  "id": "MTH-Q190",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-4",
+  "tier": 5,
+  "diff": "hard",
+  "type": "short",
+  "q": {
+   "en": "If $n(P(A)) = 256$, find $n(P(P(A)))$ as a power of 2.",
+   "hi": "यदि $n(P(A)) = 256$ है, तो $n(P(P(A)))$ को 2 की घात के रूप में लिखिए।"
+  },
+  "correct": "2^256",
+  "accept": [
+   "2^{256}",
+   "2**256",
+   "2 ^ 256"
+  ],
+  "exp": {
+   "en": "The power set rule applies to whatever set you feed it. $P(A)$ has 256 members, so $P(P(A))$ has $2^{256}$ members. You do not need $n(A)$ at all — though it is 8, since $2^8 = 256$. This number is larger than the count of atoms in the universe.",
+   "hi": "घात समुच्चय का नियम उसी समुच्चय पर लगता है जो आप दें। $P(A)$ के 256 सदस्य हैं, तो $P(P(A))$ के $2^{256}$ सदस्य होंगे। $n(A)$ की ज़रूरत ही नहीं — वैसे वह 8 है, क्योंकि $2^8 = 256$। यह संख्या ब्रह्मांड के परमाणुओं से भी बड़ी है।"
+  }
+ },
+ {
+  "id": "MTH-Q191",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-5",
+  "tier": 1,
+  "diff": "easy",
+  "type": "mcq",
+  "q": {
+   "en": "$\\{a, b\\} \\cup \\{b, c\\} = ?$",
+   "hi": "$\\{a, b\\} \\cup \\{b, c\\} = ?$"
+  },
+  "opts": {
+   "en": [
+    "$\\{a, b, c\\}$",
+    "$\\{b\\}$",
+    "$\\{a, b, b, c\\}$",
+    "$\\{a, c\\}$"
+   ],
+   "hi": [
+    "$\\{a, b, c\\}$",
+    "$\\{b\\}$",
+    "$\\{a, b, b, c\\}$",
+    "$\\{a, c\\}$"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "Put both lists together and write $b$ only once. Option B is the intersection, which keeps only the shared part — the opposite of what union does.",
+   "hi": "दोनों सूचियाँ मिला दीजिए और $b$ सिर्फ़ एक बार लिखिए। विकल्प B सर्वनिष्ठ है, जो सिर्फ़ साझा हिस्सा रखता है — सम्मिलन के उल्टा।"
+  }
+ },
+ {
+  "id": "MTH-Q192",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-5",
+  "tier": 1,
+  "diff": "easy",
+  "type": "mcq",
+  "q": {
+   "en": "Which symbol means *and* (only what is in both)?",
+   "hi": "कौन-सा चिह्न *और* बताता है (सिर्फ़ वह जो दोनों में हो)?"
+  },
+  "opts": {
+   "en": [
+    "$\\cap$",
+    "$\\cup$",
+    "$\\subseteq$",
+    "$\\in$"
+   ],
+   "hi": [
+    "$\\cap$",
+    "$\\cup$",
+    "$\\subseteq$",
+    "$\\in$"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "$\\cap$ is intersection, which means AND. It looks like a **cap** — a cap fits only one head. $\\cup$ is a **cup**, and a cup holds everything you pour in, so that is OR.",
+   "hi": "$\\cap$ सर्वनिष्ठ है, जिसका मतलब है **और**। यह **टोपी** जैसा दिखता है — टोपी सिर्फ़ एक सिर पर बैठती है। $\\cup$ **प्याला** है, और प्याले में जो डालिए सब समाता है, तो वह **या** है।"
+  }
+ },
+ {
+  "id": "MTH-Q193",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-5",
+  "tier": 1,
+  "diff": "easy",
+  "type": "tf",
+  "q": {
+   "en": "If $U$ is the set of all students in a class and $A$ is the girls, then $A'$ is the boys.",
+   "hi": "यदि $U$ कक्षा के सभी विद्यार्थी हैं और $A$ लड़कियाँ हैं, तो $A'$ लड़के हैं।"
+  },
+  "correct": "TRUE",
+  "exp": {
+   "en": "$A'$ is everything in $U$ that is not in $A$. Inside this class, not-a-girl means a boy. Note how much the answer depends on $U$: if $U$ were the whole village, $A'$ would include adults too.",
+   "hi": "$A'$ वह सब है जो $U$ में है पर $A$ में नहीं। इस कक्षा के अंदर, लड़की-नहीं का मतलब लड़का है। ध्यान दीजिए जवाब $U$ पर कितना निर्भर है: अगर $U$ पूरा गाँव होता, तो $A'$ में बड़े लोग भी आते।"
+  }
+ },
+ {
+  "id": "MTH-Q194",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-5",
+  "tier": 2,
+  "diff": "medium",
+  "type": "mcq",
+  "q": {
+   "en": "$U = \\{1,\\ldots,6\\}$, $A = \\{1,2,3\\}$, $B = \\{3,4\\}$. What is $A \\cup B$?",
+   "hi": "$U = \\{1,\\ldots,6\\}$, $A = \\{1,2,3\\}$, $B = \\{3,4\\}$। $A \\cup B$ क्या है?"
+  },
+  "opts": {
+   "en": [
+    "$\\{1,2,3,4\\}$",
+    "$\\{3\\}$",
+    "$\\{1,2,4\\}$",
+    "$\\{1,2,3,4,5,6\\}$"
+   ],
+   "hi": [
+    "$\\{1,2,3,4\\}$",
+    "$\\{3\\}$",
+    "$\\{1,2,4\\}$",
+    "$\\{1,2,3,4,5,6\\}$"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "Everything in either set: 1, 2, 3 from $A$ and 3, 4 from $B$, with 3 written once. Option D wrongly throws in 5 and 6, which are in $U$ but in neither $A$ nor $B$.",
+   "hi": "जो भी किसी एक समुच्चय में हो: $A$ से 1, 2, 3 और $B$ से 3, 4, जिसमें 3 एक बार लिखा। विकल्प D ग़लती से 5 और 6 जोड़ देता है, जो $U$ में तो हैं पर न $A$ में न $B$ में।"
+  }
+ },
+ {
+  "id": "MTH-Q195",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-5",
+  "tier": 2,
+  "diff": "medium",
+  "type": "tf",
+  "q": {
+   "en": "Odd numbers and even numbers are disjoint sets.",
+   "hi": "विषम और सम संख्याएँ असंयुक्त समुच्चय हैं।"
+  },
+  "correct": "TRUE",
+  "exp": {
+   "en": "No number is both odd and even, so they share nothing and their intersection is $\\emptyset$. In a Venn diagram their circles would not touch at all.",
+   "hi": "कोई संख्या विषम और सम दोनों नहीं होती, तो इनमें कुछ भी साझा नहीं और इनका सर्वनिष्ठ $\\emptyset$ है। वेन आरेख में इनके वृत्त एक-दूसरे को छूते ही नहीं।"
+  }
+ },
+ {
+  "id": "MTH-Q196",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-5",
+  "tier": 2,
+  "diff": "medium",
+  "type": "short",
+  "q": {
+   "en": "$U = \\{1,\\ldots,8\\}$ and $A = \\{2,4,6,8\\}$. Write $A'$.",
+   "hi": "$U = \\{1,\\ldots,8\\}$ और $A = \\{2,4,6,8\\}$। $A'$ लिखिए।"
+  },
+  "correct": "{1,3,5,7}",
+  "accept": [
+   "1,3,5,7",
+   "{1, 3, 5, 7}",
+   "1, 3, 5, 7"
+  ],
+  "exp": {
+   "en": "Take everything in $U$ and remove what is in $A$. The evens go, the odds stay. A useful check: $n(A) + n(A')$ must equal $n(U)$, and $4 + 4 = 8$ ✅.",
+   "hi": "$U$ की सारी चीज़ें लीजिए और $A$ वाली हटा दीजिए। सम चली गईं, विषम रह गईं। काम की जाँच: $n(A) + n(A')$ का जोड़ $n(U)$ होना चाहिए, और $4 + 4 = 8$ ✅।"
+  }
+ },
+ {
+  "id": "MTH-Q197",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-5",
+  "tier": 3,
+  "diff": "medium",
+  "type": "mcq",
+  "q": {
+   "en": "If $A \\subseteq B$, then $A \\cup B$ equals:",
+   "hi": "यदि $A \\subseteq B$ है, तो $A \\cup B$ बराबर है:"
+  },
+  "opts": {
+   "en": [
+    "$B$",
+    "$A$",
+    "$\\emptyset$",
+    "$U$"
+   ],
+   "hi": [
+    "$B$",
+    "$A$",
+    "$\\emptyset$",
+    "$U$"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "If $A$ sits entirely inside $B$, then putting them together adds nothing new — the answer is just $B$. Draw it: the small circle is already inside the big one. The matching result is $A \\cap B = A$.",
+   "hi": "अगर $A$ पूरी तरह $B$ के अंदर है, तो दोनों मिलाने से कुछ नया नहीं जुड़ता — जवाब सिर्फ़ $B$ है। बनाकर देखिए: छोटा वृत्त पहले से बड़े के अंदर है। साथ वाला नतीजा है $A \\cap B = A$।"
+  }
+ },
+ {
+  "id": "MTH-Q198",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-5",
+  "tier": 3,
+  "diff": "medium",
+  "type": "short",
+  "q": {
+   "en": "In a group of 30, 18 like tea and 15 like coffee. Everyone likes at least one. How many like both?",
+   "hi": "30 लोगों के समूह में 18 को चाय पसंद है और 15 को कॉफ़ी। हर किसी को कम से कम एक पसंद है। कितनों को दोनों पसंद हैं?"
+  },
+  "correct": "3",
+  "exp": {
+   "en": "*Everyone likes at least one* means $n(T \\cup C) = 30$. So $30 = 18 + 15 - n(T \\cap C)$, giving $n(T \\cap C) = 33 - 30 = 3$. The phrase *at least one* is the clue that the union fills the whole group.",
+   "hi": "*हर किसी को कम से कम एक पसंद है* यानी $n(T \\cup C) = 30$। तो $30 = 18 + 15 - n(T \\cap C)$, यानी $n(T \\cap C) = 33 - 30 = 3$। *कम से कम एक* वाक्यांश ही इशारा है कि सम्मिलन पूरे समूह को भर देता है।"
+  }
+ },
+ {
+  "id": "MTH-Q199",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-5",
+  "tier": 3,
+  "diff": "hard",
+  "type": "mcq",
+  "q": {
+   "en": "Which region is shaded when we shade $A$ and then remove $A \\cap B$?",
+   "hi": "जब हम $A$ को रंगकर उसमें से $A \\cap B$ हटा दें, तो कौन-सा क्षेत्र रंगा रहेगा?"
+  },
+  "opts": {
+   "en": [
+    "Only A",
+    "Only B",
+    "Both",
+    "Neither"
+   ],
+   "hi": [
+    "सिर्फ़ A",
+    "सिर्फ़ B",
+    "दोनों",
+    "कोई नहीं"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "Circle $A$ minus the shared middle leaves the part of $A$ that is not in $B$ — the *only A* region, written $A \\cap B'$. Picture it before you reach for symbols.",
+   "hi": "वृत्त $A$ में से साझा बीच वाला हिस्सा हटाने पर $A$ का वह हिस्सा बचता है जो $B$ में नहीं है — यानी *सिर्फ़ A* वाला क्षेत्र, जिसे $A \\cap B'$ लिखते हैं। चिह्नों की ओर जाने से पहले तस्वीर देखिए।"
+  }
+ },
+ {
+  "id": "MTH-Q200",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-5",
+  "tier": 3,
+  "diff": "hard",
+  "type": "short",
+  "q": {
+   "en": "$n(U) = 50$, $n(A) = 30$. Find $n(A')$.",
+   "hi": "$n(U) = 50$, $n(A) = 30$। $n(A')$ ज्ञात कीजिए।"
+  },
+  "correct": "20",
+  "exp": {
+   "en": "Everything in $U$ is either in $A$ or in $A'$, never both. So $n(A) + n(A') = n(U)$, giving $n(A') = 50 - 30 = 20$. This little rule saves time in almost every Venn question.",
+   "hi": "$U$ की हर चीज़ या तो $A$ में है या $A'$ में, दोनों में कभी नहीं। तो $n(A) + n(A') = n(U)$, यानी $n(A') = 50 - 30 = 20$। यह छोटा नियम लगभग हर वेन सवाल में समय बचाता है।"
+  }
+ },
+ {
+  "id": "MTH-Q201",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-5",
+  "tier": 4,
+  "diff": "hard",
+  "type": "short",
+  "q": {
+   "en": "In a village survey of 80 families, 45 own a cow, 38 own a goat, and 12 own neither. How many own both?",
+   "hi": "80 परिवारों के गाँव सर्वेक्षण में 45 के पास गाय है, 38 के पास बकरी, और 12 के पास कोई नहीं। कितनों के पास दोनों हैं?"
+  },
+  "correct": "15",
+  "exp": {
+   "en": "12 own neither, so $n(C \\cup G) = 80 - 12 = 68$. Then $68 = 45 + 38 - n(C \\cap G)$, giving $n(C \\cap G) = 83 - 68 = 15$. Check the four regions: 30 cow only, 15 both, 23 goat only, 12 neither — total 80 ✅.",
+   "hi": "12 के पास कोई नहीं, तो $n(C \\cup G) = 80 - 12 = 68$। फिर $68 = 45 + 38 - n(C \\cap G)$, यानी $n(C \\cap G) = 83 - 68 = 15$। चारों क्षेत्र जाँचिए: सिर्फ़ गाय 30, दोनों 15, सिर्फ़ बकरी 23, कोई नहीं 12 — कुल 80 ✅।"
+  }
+ },
+ {
+  "id": "MTH-Q202",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-5",
+  "tier": 4,
+  "diff": "hard",
+  "type": "mcq",
+  "q": {
+   "en": "$n(A) = 20$, $n(B) = 15$. The largest possible value of $n(A \\cap B)$ is:",
+   "hi": "$n(A) = 20$, $n(B) = 15$। $n(A \\cap B)$ का सबसे बड़ा संभव मान है:"
+  },
+  "opts": {
+   "en": [
+    "15",
+    "20",
+    "35",
+    "5"
+   ],
+   "hi": [
+    "15",
+    "20",
+    "35",
+    "5"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "The shared part can never be bigger than the smaller set — you cannot share more of $B$ than all of $B$. The largest case is $B \\subseteq A$, giving 15. Option C is $n(A) + n(B)$, which would be the largest **union**, not intersection.",
+   "hi": "साझा हिस्सा छोटे समुच्चय से बड़ा हो ही नहीं सकता — आप $B$ का पूरे $B$ से ज़्यादा हिस्सा साझा नहीं कर सकते। सबसे बड़ी स्थिति है $B \\subseteq A$, यानी 15। विकल्प C यानी $n(A) + n(B)$, जो सबसे बड़ा **सम्मिलन** होता, सर्वनिष्ठ नहीं।"
+  }
+ },
+ {
+  "id": "MTH-Q203",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-5",
+  "tier": 5,
+  "diff": "hard",
+  "type": "short",
+  "q": {
+   "en": "$n(A) = 25$, $n(B) = 18$, $n(A \\cup B) = 32$. Find the number in $A$ only.",
+   "hi": "$n(A) = 25$, $n(B) = 18$, $n(A \\cup B) = 32$। सिर्फ़ $A$ वालों की संख्या निकालिए।"
+  },
+  "correct": "14",
+  "exp": {
+   "en": "First the middle: $n(A \\cap B) = 25 + 18 - 32 = 11$. Then *only A* $= 25 - 11 = 14$. Always find the middle before any *only* region — going the other way causes double counting.",
+   "hi": "पहले बीच वाला: $n(A \\cap B) = 25 + 18 - 32 = 11$। फिर *सिर्फ़ A* $= 25 - 11 = 14$। किसी भी *सिर्फ़* वाले क्षेत्र से पहले हमेशा बीच वाला निकालिए — उल्टा करने से दोहरी गिनती हो जाती है।"
+  }
+ },
+ {
+  "id": "MTH-Q204",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-5",
+  "tier": 5,
+  "diff": "hard",
+  "type": "mcq",
+  "q": {
+   "en": "For any two sets, which is always true?",
+   "hi": "किन्हीं भी दो समुच्चयों के लिए कौन हमेशा सही है?"
+  },
+  "opts": {
+   "en": [
+    "$n(A \\cap B) \\leq n(A \\cup B)$",
+    "$n(A \\cap B) \\geq n(A)$",
+    "$n(A \\cup B) = n(A) + n(B)$",
+    "$n(A \\cap B) = 0$"
+   ],
+   "hi": [
+    "$n(A \\cap B) \\leq n(A \\cup B)$",
+    "$n(A \\cap B) \\geq n(A)$",
+    "$n(A \\cup B) = n(A) + n(B)$",
+    "$n(A \\cap B) = 0$"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "The middle slice is always part of the whole, so it can never be bigger. Option C is only true when the sets are disjoint. Option B is backwards: the intersection is at most $n(A)$, never more.",
+   "hi": "बीच का हिस्सा हमेशा पूरे का ही एक भाग है, तो वह बड़ा हो ही नहीं सकता। विकल्प C तभी सही है जब समुच्चय असंयुक्त हों। विकल्प B उल्टा है: सर्वनिष्ठ अधिक से अधिक $n(A)$ होता है, उससे ज़्यादा कभी नहीं।"
+  }
+ },
+ {
+  "id": "MTH-Q205",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-5",
+  "tier": 5,
+  "diff": "hard",
+  "type": "short",
+  "q": {
+   "en": "In a class, 20 study Hindi, 18 study Sanskrit, 12 study both, and every student studies at least one. How many students are there?",
+   "hi": "एक कक्षा में 20 हिंदी पढ़ते हैं, 18 संस्कृत, 12 दोनों, और हर विद्यार्थी कम से कम एक पढ़ता है। कुल कितने विद्यार्थी हैं?"
+  },
+  "correct": "26",
+  "exp": {
+   "en": "$n(H \\cup S) = 20 + 18 - 12 = 26$. Since everybody studies at least one, the union IS the whole class, so there are 26 students. Answering 38 means the 12 who do both were counted twice.",
+   "hi": "$n(H \\cup S) = 20 + 18 - 12 = 26$। चूँकि हर कोई कम से कम एक पढ़ता है, सम्मिलन **ही** पूरी कक्षा है, तो 26 विद्यार्थी हैं। 38 आया तो दोनों पढ़ने वाले 12 दो बार गिने गए।"
+  }
+ },
+ {
+  "id": "MTH-Q206",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-6",
+  "tier": 1,
+  "diff": "easy",
+  "type": "mcq",
+  "q": {
+   "en": "$(A \\cap B)'$ equals:",
+   "hi": "$(A \\cap B)'$ बराबर है:"
+  },
+  "opts": {
+   "en": [
+    "$A' \\cup B'$",
+    "$A' \\cap B'$",
+    "$A \\cup B$",
+    "$A \\cap B$"
+   ],
+   "hi": [
+    "$A' \\cup B'$",
+    "$A' \\cap B'$",
+    "$A \\cup B$",
+    "$A \\cap B$"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "The dash flips the joining word: AND becomes OR. Test it: *I did not have both tea and coffee* means at least one was missing — no tea **or** no coffee. Option B keeps the AND, which is the usual mistake.",
+   "hi": "डैश जोड़ने वाला शब्द पलट देता है: **और** बन जाता है **या**। जाँचिए: *मैंने चाय और कॉफ़ी दोनों नहीं लीं* का मतलब है कम से कम एक छूटी — चाय नहीं **या** कॉफ़ी नहीं। विकल्प B **और** को वैसा ही रख देता है, यही आम ग़लती है।"
+  }
+ },
+ {
+  "id": "MTH-Q207",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-6",
+  "tier": 1,
+  "diff": "easy",
+  "type": "mcq",
+  "q": {
+   "en": "$n(A) = 12$, $n(B) = 9$, $n(A \\cap B) = 4$. Find $n(A \\cup B)$.",
+   "hi": "$n(A) = 12$, $n(B) = 9$, $n(A \\cap B) = 4$। $n(A \\cup B)$ ज्ञात कीजिए।"
+  },
+  "opts": {
+   "en": [
+    "17",
+    "21",
+    "25",
+    "13"
+   ],
+   "hi": [
+    "17",
+    "21",
+    "25",
+    "13"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "$12 + 9 - 4 = 17$. Option B, 21, is what you get by forgetting to subtract — but then the 4 shared members would be counted twice.",
+   "hi": "$12 + 9 - 4 = 17$। विकल्प B यानी 21, घटाना भूल जाने पर आता है — पर तब वे 4 साझा सदस्य दो बार गिने जाते।"
+  }
+ },
+ {
+  "id": "MTH-Q208",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-6",
+  "tier": 1,
+  "diff": "easy",
+  "type": "tf",
+  "q": {
+   "en": "If $A$ and $B$ share nothing, then $n(A \\cup B) = n(A) + n(B)$.",
+   "hi": "यदि $A$ और $B$ में कुछ भी साझा नहीं है, तो $n(A \\cup B) = n(A) + n(B)$।"
+  },
+  "correct": "TRUE",
+  "exp": {
+   "en": "With nothing shared, $n(A \\cap B) = 0$, so there is no double counting to remove. The rule turns back into plain addition — which is what common sense already said.",
+   "hi": "कुछ भी साझा न होने पर $n(A \\cap B) = 0$, तो हटाने के लिए कोई दोहरी गिनती है ही नहीं। नियम सीधे जोड़ पर लौट आता है — जो सामान्य समझ पहले ही कह रही थी।"
+  }
+ },
+ {
+  "id": "MTH-Q209",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-6",
+  "tier": 2,
+  "diff": "medium",
+  "type": "mcq",
+  "q": {
+   "en": "$U = \\{1,\\ldots,9\\}$, $A = \\{1,2,3\\}$, $B = \\{3,4,5\\}$. What is $(A \\cup B)'$?",
+   "hi": "$U = \\{1,\\ldots,9\\}$, $A = \\{1,2,3\\}$, $B = \\{3,4,5\\}$। $(A \\cup B)'$ क्या है?"
+  },
+  "opts": {
+   "en": [
+    "$\\{6,7,8,9\\}$",
+    "$\\{1,2,4,5\\}$",
+    "$\\{3\\}$",
+    "$\\{6,7,8\\}$"
+   ],
+   "hi": [
+    "$\\{6,7,8,9\\}$",
+    "$\\{1,2,4,5\\}$",
+    "$\\{3\\}$",
+    "$\\{6,7,8\\}$"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "First $A \\cup B = \\{1,2,3,4,5\\}$. Then take everything else in $U$: $\\{6,7,8,9\\}$. Work inside out — bracket first, dash last. Taking the dash too early is where this goes wrong.",
+   "hi": "पहले $A \\cup B = \\{1,2,3,4,5\\}$। फिर $U$ की बाक़ी सब चीज़ें लीजिए: $\\{6,7,8,9\\}$। अंदर से बाहर चलिए — पहले कोष्ठक, आख़िर में डैश। डैश जल्दी ले लेना ही वह जगह है जहाँ यह बिगड़ता है।"
+  }
+ },
+ {
+  "id": "MTH-Q210",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-6",
+  "tier": 2,
+  "diff": "medium",
+  "type": "tf",
+  "q": {
+   "en": "$(A')' = A$",
+   "hi": "$(A')' = A$"
+  },
+  "correct": "TRUE",
+  "exp": {
+   "en": "Taking the opposite twice brings you back. *Not (not a girl)* means a girl. In the Venn picture, shading everything outside $A$, then everything outside that, returns you to $A$.",
+   "hi": "उल्टा दो बार लेने से आप वापस वहीं आ जाते हैं। *(लड़की नहीं) नहीं* का मतलब लड़की। वेन तस्वीर में $A$ के बाहर सब रंगिए, फिर उसके बाहर सब — आप $A$ पर लौट आएँगे।"
+  }
+ },
+ {
+  "id": "MTH-Q211",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-6",
+  "tier": 2,
+  "diff": "medium",
+  "type": "short",
+  "q": {
+   "en": "$n(U) = 40$, $n(A \\cup B) = 28$. Find $n(A' \\cap B')$.",
+   "hi": "$n(U) = 40$, $n(A \\cup B) = 28$। $n(A' \\cap B')$ ज्ञात कीजिए।"
+  },
+  "correct": "12",
+  "exp": {
+   "en": "By De Morgan, $A' \\cap B' = (A \\cup B)'$ — the region outside both circles. So the answer is $40 - 28 = 12$. Spotting that the two look different but mean the same region is the whole question.",
+   "hi": "डी मॉर्गन से, $A' \\cap B' = (A \\cup B)'$ — दोनों वृत्तों के बाहर का क्षेत्र। तो जवाब $40 - 28 = 12$। यह पहचान लेना कि दोनों अलग दिखते हैं पर एक ही क्षेत्र बताते हैं — पूरा सवाल यही है।"
+  }
+ },
+ {
+  "id": "MTH-Q212",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-6",
+  "tier": 3,
+  "diff": "medium",
+  "type": "mcq",
+  "q": {
+   "en": "*I have neither a bicycle nor a phone.* In set language this is:",
+   "hi": "*मेरे पास न साइकिल है न फ़ोन।* समुच्चय की भाषा में यह है:"
+  },
+  "opts": {
+   "en": [
+    "$x \\in B' \\cap P'$",
+    "$x \\in B' \\cup P'$",
+    "$x \\in B \\cap P$",
+    "$x \\in (B \\cap P)'$"
+   ],
+   "hi": [
+    "$x \\in B' \\cap P'$",
+    "$x \\in B' \\cup P'$",
+    "$x \\in B \\cap P$",
+    "$x \\in (B \\cap P)'$"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "*Neither...nor* means both are missing: no bicycle **and** no phone, so $B' \\cap P'$. By De Morgan that is the same as $(B \\cup P)'$. Option B would be *I am missing at least one of them*, which is a weaker claim.",
+   "hi": "*न...न* का मतलब है दोनों नहीं हैं: साइकिल नहीं **और** फ़ोन नहीं, तो $B' \\cap P'$। डी मॉर्गन से यह $(B \\cup P)'$ के बराबर है। विकल्प B का मतलब होता *इनमें से कम से कम एक नहीं है*, जो कमज़ोर दावा है।"
+  }
+ },
+ {
+  "id": "MTH-Q213",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-6",
+  "tier": 3,
+  "diff": "hard",
+  "type": "short",
+  "q": {
+   "en": "$n(A) = 17$, $n(B) = 23$, $n(A \\cup B) = 38$. Find $n(A \\cap B)$.",
+   "hi": "$n(A) = 17$, $n(B) = 23$, $n(A \\cup B) = 38$। $n(A \\cap B)$ ज्ञात कीजिए।"
+  },
+  "correct": "2",
+  "exp": {
+   "en": "Rearrange: $n(A \\cap B) = 17 + 23 - 38 = 2$. Sense-check: the shared part can never exceed the smaller set, and $2 < 17$ ✅. If your answer had come out above 17, you would know at once it was wrong.",
+   "hi": "पुनर्व्यवस्थित कीजिए: $n(A \\cap B) = 17 + 23 - 38 = 2$। समझ से जाँच: साझा हिस्सा छोटे समुच्चय से बड़ा नहीं हो सकता, और $2 < 17$ ✅। अगर जवाब 17 से ऊपर आता, तो तुरंत पता चल जाता कि ग़लत है।"
+  }
+ },
+ {
+  "id": "MTH-Q214",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-6",
+  "tier": 3,
+  "diff": "hard",
+  "type": "match",
+  "q": {
+   "en": "Match each phrase with its set expression.",
+   "hi": "हर वाक्यांश को उसके समुच्चय व्यंजक से मिलाइए।"
+  },
+  "pairs": [
+   {
+    "l": {
+     "en": "In both A and B",
+     "hi": "A और B दोनों में"
+    },
+    "r": {
+     "en": "$A \\cap B$",
+     "hi": "$A \\cap B$"
+    }
+   },
+   {
+    "l": {
+     "en": "In A or B or both",
+     "hi": "A में या B में या दोनों में"
+    },
+    "r": {
+     "en": "$A \\cup B$",
+     "hi": "$A \\cup B$"
+    }
+   },
+   {
+    "l": {
+     "en": "In neither A nor B",
+     "hi": "न A में न B में"
+    },
+    "r": {
+     "en": "$A' \\cap B'$",
+     "hi": "$A' \\cap B'$"
+    }
+   },
+   {
+    "l": {
+     "en": "In A but not B",
+     "hi": "A में पर B में नहीं"
+    },
+    "r": {
+     "en": "$A \\cap B'$",
+     "hi": "$A \\cap B'$"
+    }
+   }
+  ],
+  "exp": {
+   "en": "Translating words into regions is the real skill in this chapter. Watch *neither...nor*: it means BOTH are missing, so it takes $\\cap$, not $\\cup$. That one is the most common slip.",
+   "hi": "शब्दों को क्षेत्रों में बदलना ही इस अध्याय का असली कौशल है। *न...न* पर ध्यान दीजिए: इसका मतलब है **दोनों** नहीं हैं, तो इसमें $\\cap$ लगेगा, $\\cup$ नहीं। सबसे आम चूक यही है।"
+  }
+ },
+ {
+  "id": "MTH-Q215",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-6",
+  "tier": 4,
+  "diff": "hard",
+  "type": "short",
+  "q": {
+   "en": "In a class of 45, 20 play kabaddi, 22 play kho-kho, 18 play cricket, 8 play kabaddi and kho-kho, 7 play kho-kho and cricket, 6 play kabaddi and cricket, and 3 play all three. How many play at least one game?",
+   "hi": "45 विद्यार्थियों की कक्षा में 20 कबड्डी खेलते हैं, 22 खो-खो, 18 क्रिकेट, 8 कबड्डी और खो-खो, 7 खो-खो और क्रिकेट, 6 कबड्डी और क्रिकेट, और 3 तीनों। कम से कम एक खेल खेलने वाले कितने हैं?"
+  },
+  "correct": "42",
+  "exp": {
+   "en": "Add the three singles, take away the three pairs, add the triple back: $20+22+18-8-7-6+3 = 42$. The plus-minus-plus pattern is just careful counting — the triple overlap is added 3 times, removed 3 times, so it must be put back once.",
+   "hi": "तीनों अकेले जोड़िए, तीनों जोड़े हटाइए, तिहरा वापस जोड़िए: $20+22+18-8-7-6+3 = 42$। जोड़-घटाव-जोड़ का यह ढाँचा बस ध्यान से की गई गिनती है — तिहरा हिस्सा 3 बार जुड़ा, 3 बार हटा, तो एक बार वापस रखना पड़ेगा।"
+  }
+ },
+ {
+  "id": "MTH-Q216",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-6",
+  "tier": 4,
+  "diff": "hard",
+  "type": "mcq",
+  "q": {
+   "en": "$n(U) = 70$, $n(A) = 40$, $n(B) = 30$, $n(A \\cap B) = 15$. Find $n(A' \\cup B')$.",
+   "hi": "$n(U) = 70$, $n(A) = 40$, $n(B) = 30$, $n(A \\cap B) = 15$। $n(A' \\cup B')$ ज्ञात कीजिए।"
+  },
+  "opts": {
+   "en": [
+    "55",
+    "15",
+    "5",
+    "70"
+   ],
+   "hi": [
+    "55",
+    "15",
+    "5",
+    "70"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "By De Morgan, $A' \\cup B' = (A \\cap B)'$. So the answer is $70 - 15 = 55$. Option B is $n(A \\cap B)$ itself, chosen by anyone who forgot the final dash. Spot the De Morgan first and the arithmetic becomes one subtraction.",
+   "hi": "डी मॉर्गन से, $A' \\cup B' = (A \\cap B)'$। तो जवाब $70 - 15 = 55$। विकल्प B ख़ुद $n(A \\cap B)$ है, जिसे वे चुनते हैं जो आख़िरी डैश भूल गए। पहले डी मॉर्गन पहचान लीजिए, फिर हिसाब सिर्फ़ एक घटाव रह जाता है।"
+  }
+ },
+ {
+  "id": "MTH-Q217",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-6",
+  "tier": 4,
+  "diff": "hard",
+  "type": "short",
+  "q": {
+   "en": "Of 100 shoppers, 60 buy rice, 45 buy dal, and 25 buy both. How many buy rice but not dal?",
+   "hi": "100 ख़रीदारों में से 60 चावल ख़रीदते हैं, 45 दाल, और 25 दोनों। कितने चावल ख़रीदते हैं पर दाल नहीं?"
+  },
+  "correct": "35",
+  "exp": {
+   "en": "*Rice but not dal* is the *only rice* region: $60 - 25 = 35$. The 60 already includes the 25 who buy both, so take them out. Answering 60 means you did not remove the shared part at all.",
+   "hi": "*चावल पर दाल नहीं* यानी *सिर्फ़ चावल* वाला क्षेत्र: $60 - 25 = 35$। 60 में वे 25 पहले से शामिल हैं जो दोनों ख़रीदते हैं, तो उन्हें निकाल दीजिए। 60 आया तो आपने साझा हिस्सा हटाया ही नहीं।"
+  }
+ },
+ {
+  "id": "MTH-Q218",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-6",
+  "tier": 5,
+  "diff": "hard",
+  "type": "short",
+  "q": {
+   "en": "In a survey of 200 people, 120 read newspaper A, 90 read B, 70 read C, 40 read A and B, 30 read B and C, 35 read A and C, and 20 read all three. How many read none?",
+   "hi": "200 लोगों के सर्वेक्षण में 120 अख़बार A पढ़ते हैं, 90 B, 70 C, 40 A और B, 30 B और C, 35 A और C, और 20 तीनों। कितने कोई नहीं पढ़ते?"
+  },
+  "correct": "5",
+  "exp": {
+   "en": "At least one: $120+90+70-40-30-35+20 = 195$. So none $= 200 - 195 = 5$. Two steps: use inclusion-exclusion for the union, then subtract from the total. Stopping at 195 answers a different question.",
+   "hi": "कम से कम एक: $120+90+70-40-30-35+20 = 195$। तो कोई नहीं $= 200 - 195 = 5$। दो चरण: सम्मिलन के लिए समावेश-अपवर्जन, फिर कुल में से घटाइए। 195 पर रुक जाना किसी और सवाल का जवाब है।"
+  }
+ },
+ {
+  "id": "MTH-Q219",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-6",
+  "tier": 5,
+  "diff": "hard",
+  "type": "mcq",
+  "q": {
+   "en": "If $n(A) = n(B) = n(A \\cap B)$, what must be true?",
+   "hi": "यदि $n(A) = n(B) = n(A \\cap B)$ है, तो क्या सही होगा?"
+  },
+  "opts": {
+   "en": [
+    "$A = B$",
+    "$A$ and $B$ are disjoint",
+    "$A$ is empty",
+    "$B \\subset A$"
+   ],
+   "hi": [
+    "$A = B$",
+    "$A$ और $B$ असंयुक्त हैं",
+    "$A$ रिक्त है",
+    "$B \\subset A$"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "The shared part is as big as $A$ itself, so all of $A$ lies inside $B$. The same argument puts all of $B$ inside $A$. Each contains the other, so they are the same set. Disjoint would need the intersection to be 0.",
+   "hi": "साझा हिस्सा ख़ुद $A$ जितना बड़ा है, तो पूरा $A$, $B$ के अंदर है। उसी तर्क से पूरा $B$, $A$ के अंदर है। हर एक दूसरे को समाए है, तो दोनों एक ही समुच्चय हैं। असंयुक्त होने के लिए सर्वनिष्ठ 0 चाहिए होता।"
+  }
+ },
+ {
+  "id": "MTH-Q220",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-6",
+  "tier": 5,
+  "diff": "hard",
+  "type": "short",
+  "q": {
+   "en": "In a group, 25 speak Hindi, 20 speak English, 5 speak both, and 8 speak neither. How many people are in the group?",
+   "hi": "एक समूह में 25 हिंदी बोलते हैं, 20 अंग्रेज़ी, 5 दोनों, और 8 कोई नहीं। समूह में कितने लोग हैं?"
+  },
+  "correct": "48",
+  "exp": {
+   "en": "At least one language: $25 + 20 - 5 = 40$. Add the 8 who speak neither: $40 + 8 = 48$. The *neither* group lives outside both circles but is still inside $U$, so it must be added at the end — forgetting it gives 40.",
+   "hi": "कम से कम एक भाषा: $25 + 20 - 5 = 40$। कोई नहीं बोलने वाले 8 जोड़िए: $40 + 8 = 48$। *कोई नहीं* वाला समूह दोनों वृत्तों के बाहर रहता है पर $U$ के अंदर ही है, तो उसे आख़िर में जोड़ना ज़रूरी है — भूलने पर 40 आता है।"
+  }
+ },
+ {
+  "id": "MTH-Q221",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-3",
+  "tier": 4,
+  "diff": "hard",
+  "type": "mcq",
+  "q": {
+   "en": "How many of these are empty? $\\{x \\in \\mathbb{N} : x < 1\\}$, $\\{0\\}$, $\\{x \\in \\mathbb{R} : x^2 < 0\\}$, $\\{\\emptyset\\}$",
+   "hi": "इनमें से कितने रिक्त हैं? $\\{x \\in \\mathbb{N} : x < 1\\}$, $\\{0\\}$, $\\{x \\in \\mathbb{R} : x^2 < 0\\}$, $\\{\\emptyset\\}$"
+  },
+  "opts": {
+   "en": [
+    "2",
+    "1",
+    "3",
+    "4"
+   ],
+   "hi": [
+    "2",
+    "1",
+    "3",
+    "4"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "Empty: the first (no counting number is below 1) and the third (a square is never below 0). Not empty: $\\{0\\}$ holds one number, and $\\{\\emptyset\\}$ holds one set. Both of those look empty but are not.",
+   "hi": "रिक्त: पहला (कोई गिनती की संख्या 1 से नीचे नहीं) और तीसरा (वर्ग कभी 0 से नीचे नहीं)। रिक्त नहीं: $\\{0\\}$ में एक संख्या है, और $\\{\\emptyset\\}$ में एक समुच्चय। ये दोनों रिक्त दिखते हैं पर हैं नहीं।"
+  }
+ },
+ {
+  "id": "MTH-Q222",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-4",
+  "tier": 4,
+  "diff": "hard",
+  "type": "short",
+  "q": {
+   "en": "How many subsets of $\\{1,2,3,4,5\\}$ do NOT contain the number 5?",
+   "hi": "$\\{1,2,3,4,5\\}$ के कितने उपसमुच्चयों में संख्या 5 **नहीं** है?"
+  },
+  "correct": "16",
+  "exp": {
+   "en": "Fix 5 as *out*. The other four members are still free, so $2^4 = 16$. Neat check: exactly half of the 32 subsets leave 5 out, and half include it.",
+   "hi": "5 को *बाहर* तय कर दीजिए। बाक़ी चार सदस्य अब भी आज़ाद हैं, तो $2^4 = 16$। बढ़िया जाँच: 32 उपसमुच्चयों में से ठीक आधे 5 को छोड़ते हैं, और आधे उसे रखते हैं।"
+  }
+ },
+ {
+  "id": "MTH-Q223",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-4",
+  "tier": 5,
+  "diff": "hard",
+  "type": "mcq",
+  "q": {
+   "en": "$A$ has $n$ members. How many subsets contain at least one member?",
+   "hi": "$A$ में $n$ सदस्य हैं। कितने उपसमुच्चयों में कम से कम एक सदस्य है?"
+  },
+  "opts": {
+   "en": [
+    "$2^n - 1$",
+    "$2^n$",
+    "$2^{n-1}$",
+    "$n - 1$"
+   ],
+   "hi": [
+    "$2^n - 1$",
+    "$2^n$",
+    "$2^{n-1}$",
+    "$n - 1$"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "Count all of them and remove the one that fails: only the empty set has no members, so $2^n - 1$. Counting the opposite and subtracting is almost always faster than counting each size separately.",
+   "hi": "सब गिनिए और जो शर्त पूरी न करे उसे हटा दीजिए: सिर्फ़ रिक्त समुच्चय में कोई सदस्य नहीं है, तो $2^n - 1$। उल्टा गिनकर घटाना लगभग हमेशा हर आकार अलग-अलग गिनने से तेज़ होता है।"
+  }
+ },
+ {
+  "id": "MTH-Q224",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-5",
+  "tier": 4,
+  "diff": "hard",
+  "type": "short",
+  "q": {
+   "en": "$n(A) = 22$, $n(B) = 16$, and $A$ and $B$ share nothing. Find $n(A \\cup B)$.",
+   "hi": "$n(A) = 22$, $n(B) = 16$, और $A$ व $B$ में कुछ साझा नहीं है। $n(A \\cup B)$ ज्ञात कीजिए।"
+  },
+  "correct": "38",
+  "exp": {
+   "en": "Sharing nothing means $n(A \\cap B) = 0$, so there is no double counting: $22 + 16 = 38$. This is the largest the union can ever be for these two sizes.",
+   "hi": "कुछ साझा न होने का मतलब है $n(A \\cap B) = 0$, तो कोई दोहरी गिनती नहीं: $22 + 16 = 38$। इन दो आकारों के लिए सम्मिलन इससे बड़ा कभी नहीं हो सकता।"
+  }
+ },
+ {
+  "id": "MTH-Q225",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-5",
+  "tier": 4,
+  "diff": "hard",
+  "type": "mcq",
+  "q": {
+   "en": "In a Venn diagram, which region is $A' \\cap B$?",
+   "hi": "वेन आरेख में $A' \\cap B$ कौन-सा क्षेत्र है?"
+  },
+  "opts": {
+   "en": [
+    "Only B",
+    "Only A",
+    "Both",
+    "Neither"
+   ],
+   "hi": [
+    "सिर्फ़ B",
+    "सिर्फ़ A",
+    "दोनों",
+    "कोई नहीं"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "$A'$ is everything outside circle $A$. Keeping only what is also in $B$ leaves the part of $B$ that does not overlap $A$ — the *only B* slice. Read such expressions right to left: start with $B$, then throw out anything in $A$.",
+   "hi": "$A'$ वृत्त $A$ के बाहर का सब कुछ है। उसमें से सिर्फ़ वही रखिए जो $B$ में भी हो, तो $B$ का वह हिस्सा बचता है जो $A$ पर नहीं चढ़ा — यानी *सिर्फ़ B* वाला टुकड़ा। ऐसे व्यंजक दाएँ से बाएँ पढ़िए: $B$ से शुरू कीजिए, फिर $A$ वाला सब हटा दीजिए।"
+  }
+ },
+ {
+  "id": "MTH-Q226",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-5",
+  "tier": 5,
+  "diff": "hard",
+  "type": "short",
+  "q": {
+   "en": "$n(U) = 100$, $n(A) = 55$, $n(B) = 48$, $n(A \\cup B) = 83$. How many are in $B$ only?",
+   "hi": "$n(U) = 100$, $n(A) = 55$, $n(B) = 48$, $n(A \\cup B) = 83$। सिर्फ़ $B$ में कितने हैं?"
+  },
+  "correct": "28",
+  "exp": {
+   "en": "Middle first: $n(A \\cap B) = 55 + 48 - 83 = 20$. Then *only B* $= 48 - 20 = 28$. Full check: 35 only A, 20 both, 28 only B, 17 neither — total 100 ✅.",
+   "hi": "पहले बीच वाला: $n(A \\cap B) = 55 + 48 - 83 = 20$। फिर *सिर्फ़ B* $= 48 - 20 = 28$। पूरी जाँच: सिर्फ़ A 35, दोनों 20, सिर्फ़ B 28, कोई नहीं 17 — कुल 100 ✅।"
+  }
+ },
+ {
+  "id": "MTH-Q227",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-5",
+  "tier": 5,
+  "diff": "hard",
+  "type": "mcq",
+  "q": {
+   "en": "$n(A) = 14$ and $n(B) = 9$. The smallest possible value of $n(A \\cup B)$ is:",
+   "hi": "$n(A) = 14$ और $n(B) = 9$। $n(A \\cup B)$ का सबसे छोटा संभव मान है:"
+  },
+  "opts": {
+   "en": [
+    "14",
+    "9",
+    "23",
+    "5"
+   ],
+   "hi": [
+    "14",
+    "9",
+    "23",
+    "5"
+   ]
+  },
+  "correct": "A",
+  "exp": {
+   "en": "The union is smallest when the overlap is largest, which happens when $B$ sits entirely inside $A$. Then $A \\cup B = A$, so the answer is 14. The union can never be smaller than the bigger set, because it contains that set whole.",
+   "hi": "सम्मिलन तब सबसे छोटा होता है जब अतिव्यापी हिस्सा सबसे बड़ा हो, यानी जब $B$ पूरी तरह $A$ के अंदर बैठे। तब $A \\cup B = A$, तो जवाब 14। सम्मिलन बड़े समुच्चय से छोटा हो ही नहीं सकता, क्योंकि उसमें वह समुच्चय पूरा समाया है।"
+  }
+ },
+ {
+  "id": "MTH-Q228",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-6",
+  "tier": 1,
+  "diff": "easy",
+  "type": "tf",
+  "q": {
+   "en": "$(A \\cup B)' = A' \\cup B'$",
+   "hi": "$(A \\cup B)' = A' \\cup B'$"
+  },
+  "correct": "FALSE",
+  "exp": {
+   "en": "The correct law is $(A \\cup B)' = A' \\cap B'$ — the dash flips OR into AND. This is the single most common De Morgan mistake: keeping the same joining symbol.",
+   "hi": "सही नियम है $(A \\cup B)' = A' \\cap B'$ — डैश **या** को **और** में पलट देता है। डी मॉर्गन की सबसे आम ग़लती यही है: जोड़ने वाला चिह्न वैसा ही रख देना।"
+  }
+ },
+ {
+  "id": "MTH-Q229",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-6",
+  "tier": 2,
+  "diff": "medium",
+  "type": "short",
+  "q": {
+   "en": "$n(A) = 14$, $n(B) = 11$, $n(A \\cap B) = 6$. Find $n(A \\cup B)$.",
+   "hi": "$n(A) = 14$, $n(B) = 11$, $n(A \\cap B) = 6$। $n(A \\cup B)$ ज्ञात कीजिए।"
+  },
+  "correct": "19",
+  "exp": {
+   "en": "$14 + 11 - 6 = 19$. The 6 shared members were counted once with $A$ and once with $B$, so one copy has to go.",
+   "hi": "$14 + 11 - 6 = 19$। वे 6 साझा सदस्य एक बार $A$ के साथ और एक बार $B$ के साथ गिने गए, तो एक प्रति हटानी पड़ेगी।"
+  }
+ },
+ {
+  "id": "MTH-Q230",
+  "board": "CBSE",
+  "klass": 11,
+  "subject": "MATH11",
+  "chapter": 3,
+  "status": "published",
+  "tags": [],
+  "source": "NCERT",
+  "topic": "MTH11-1-6",
+  "tier": 4,
+  "diff": "hard",
+  "type": "short",
+  "q": {
+   "en": "Of 150 farmers, 85 grow wheat, 70 grow rice, and 30 grow both. How many grow neither?",
+   "hi": "150 किसानों में से 85 गेहूँ उगाते हैं, 70 चावल, और 30 दोनों। कितने कोई नहीं उगाते?"
+  },
+  "correct": "25",
+  "exp": {
+   "en": "At least one: $85 + 70 - 30 = 125$. Neither $= 150 - 125 = 25$. Two steps — the union first, then take it away from the total. Stopping at 125 answers the wrong question.",
+   "hi": "कम से कम एक: $85 + 70 - 30 = 125$। कोई नहीं $= 150 - 125 = 25$। दो चरण — पहले सम्मिलन, फिर कुल में से घटाइए। 125 पर रुक जाना ग़लत सवाल का जवाब है।"
   }
  }
 ]);

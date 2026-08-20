@@ -260,6 +260,19 @@
   .mvec{display:inline-block;position:relative;padding-top:.1em}
   .mvec::before{content:"→";position:absolute;top:-.62em;left:50%;transform:translateX(-50%);font-size:.62em}
   .mdelim.mbig{font-size:1.28em;font-style:normal;padding:0 .04em}
+  /* --- diagram sizing ---
+     An svg with only a viewBox takes a browser default size (~180px), which
+     shrank every label below 4px. Fill the container instead, and keep a floor
+     so the text stays readable; narrower than that, the card scrolls. */
+  .diagram{overflow-x:auto}
+  .diagram svg{display:block;width:100%;min-width:400px;height:auto}
+  @media (max-width:420px){ .diagram svg{min-width:340px} }
+  /* Diagrams drawn on a wide canvas (viewBox 600+) need a bigger floor or they
+     scale their labels into nothing. Note this only rescales them — the older
+     Physics/Accountancy diagrams also use very small font-size values in their
+     source (as low as 6.5 units), which no amount of scaling fixes; that needs
+     a typography pass on those SVGs. */
+  .diagram svg[viewBox^="0 0 6"], .diagram svg[viewBox^="0 0 7"], .diagram svg[viewBox^="0 0 8"]{min-width:600px}
   .mathraw{background:var(--bg);border-radius:5px;padding:1px 5px;font-size:.92em}
   /* ---- worked examples ---- */
   .wkproblem{background:var(--bg);border-radius:9px;padding:9px 11px;margin-bottom:10px;font-size:.97rem}
@@ -406,7 +419,9 @@ function mathTokens(src){
     else if(c === "}"){ t.push({k:"}"}); i++; }
     else if(c === "^"){ t.push({k:"^"}); i++; }
     else if(c === "_"){ t.push({k:"_"}); i++; }
-    else if(c === " "){ i++; }
+    /* Spaces are kept as tokens, not dropped. Maths ignores them, but
+       \text{ or } is ordinary words and must keep them. */
+    else if(c === " "){ t.push({k:"sp"}); i++; }
     else { t.push({k:"chr", v:c}); i++; }
   }
   return t;
@@ -416,6 +431,7 @@ function mathParse(t, pos, stopAtBrace){
   var out = [];
   while(pos.i < t.length){
     var tk = t[pos.i];
+    if(tk.k === "sp"){ pos.i++; continue; }   /* spacing is layout, not a term */
     if(tk.k === "}"){ if(stopAtBrace){ pos.i++; } break; }
     if(tk.k === "{"){ pos.i++; out.push({n:"row", c:mathParse(t, pos, true)}); continue; }
     if(tk.k === "^" || tk.k === "_"){
@@ -458,6 +474,21 @@ function mathAtom(t, pos){
       return {n:"sqrt", idx:idx, body:mathAtom(t,pos)};
     }
     if(name === "text" || name === "mathrm" || name === "operatorname"){
+      /* Content is words, so take it VERBATIM including its spaces rather
+         than re-parsing it as maths. */
+      if(t[pos.i] && t[pos.i].k === "{"){
+        pos.i++;
+        var lit = "", depth = 1;
+        while(pos.i < t.length){
+          var tk2 = t[pos.i];
+          if(tk2.k === "{"){ depth++; lit += "{"; }
+          else if(tk2.k === "}"){ depth--; if(!depth){ pos.i++; break; } lit += "}"; }
+          else if(tk2.k === "sp"){ lit += " "; }
+          else lit += (tk2.v === undefined ? "" : tk2.v);
+          pos.i++;
+        }
+        return {n:"txt", v:lit, keepSpace:true};
+      }
       var b = mathAtom(t,pos);
       return {n:"text", c:[b]};
     }
@@ -498,7 +529,9 @@ function mathRender(nodes){
         if(d.big) cls = "mbig";
         h += '<span class="' + cls + '">' + v + '</span>';
         break;
-      case "txt":   h += esc(d.v); break;
+      case "txt":   h += d.keepSpace
+                        ? '<span class="mtext" style="white-space:pre">' + esc(d.v) + '</span>'
+                        : esc(d.v); break;
       case "text":  h += '<span class="mtext">' + mathRender(d.c) + '</span>'; break;
       case "space": h += '<span style="display:inline-block;width:' + d.w + '"></span>'; break;
       case "frac":
@@ -635,7 +668,150 @@ function fmtNotes(txt, images){
     .replace(/\*\*([^*\n]+)\*\*/g,"<b>$1</b>").replace(/\*([^*\n]+)\*/g,"<i>$1</i>"), mathStore);
 }
 /* Inline SVG diagram registry — theme-aware (CSS vars) and bilingual (rebuilt on language toggle). */
+/* One painter for every two-circle picture; only the shading changes. Keeping
+   them identical means a learner compares the SHADED PART, not the drawing.
+   460x300 so the whole picture fits a phone column with readable labels. */
+function _venn(L, mode){
+  var d=function(a,b){return L==="hi"?b:a;};
+  var title={
+    union:        d("A \u222a B  \u2014  in A OR B (or both)","A \u222a B  \u2014  A में या B में (या दोनों में)"),
+    intersection: d("A \u2229 B  \u2014  only what is in BOTH","A \u2229 B  \u2014  सिर्फ़ जो दोनों में हो"),
+    onlyA:        d("In A but NOT in B","A में पर B में नहीं"),
+    complement:   d("A\u2032  \u2014  everything NOT in A","A\u2032  \u2014  जो कुछ A में नहीं है"),
+    disjoint:     d("Disjoint \u2014 nothing shared","असंयुक्त \u2014 कुछ भी साझा नहीं"),
+    subset:       d("A \u2286 B  \u2014  all of A is inside B","A \u2286 B  \u2014  पूरा A, B के अंदर है")
+  }[mode];
+  var note={
+    union:        d("Pour both circles into one cup","दोनों वृत्त एक ही प्याले में डाल दीजिए"),
+    intersection: d("Only the middle slice, where they overlap","सिर्फ़ बीच का हिस्सा, जहाँ दोनों चढ़े हैं"),
+    onlyA:        d("Circle A, minus the shared middle","वृत्त A, में से साझा बीच वाला हिस्सा हटाकर"),
+    complement:   d("Everything in the box except A","डिब्बे में A को छोड़कर सब कुछ"),
+    disjoint:     d("The circles never touch","वृत्त एक-दूसरे को छूते ही नहीं"),
+    subset:       d("The small circle sits inside the big one","छोटा वृत्त बड़े के अंदर बैठा है")
+  }[mode];
+  var cxA = (mode==="disjoint") ? 140 : (mode==="subset" ? 210 : 185);
+  var cxB = (mode==="disjoint") ? 320 : (mode==="subset" ? 245 : 275);
+  var rA  = (mode==="subset") ? 46 : 88, rB = 88;
+  var SH = 'fill="var(--primary)" fill-opacity="0.45"';
+  var shade = "";
+  if(mode==="union"){
+    shade = '<circle cx="'+cxA+'" cy="130" r="'+rA+'" '+SH+'/><circle cx="'+cxB+'" cy="130" r="'+rB+'" '+SH+'/>';
+  } else if(mode==="intersection"){
+    shade = '<defs><clipPath id="vcA"><circle cx="'+cxA+'" cy="130" r="'+rA+'"/></clipPath></defs>'
+          + '<g clip-path="url(#vcA)"><circle cx="'+cxB+'" cy="130" r="'+rB+'" '+SH+'/></g>';
+  } else if(mode==="onlyA"){
+    shade = '<defs><mask id="vmB"><rect x="0" y="0" width="460" height="300" fill="#fff"/>'
+          + '<circle cx="'+cxB+'" cy="130" r="'+rB+'" fill="#000"/></mask></defs>'
+          + '<circle cx="'+cxA+'" cy="130" r="'+rA+'" '+SH+' mask="url(#vmB)"/>';
+  } else if(mode==="complement"){
+    shade = '<defs><mask id="vmA"><rect x="20" y="28" width="420" height="204" rx="10" fill="#fff"/>'
+          + '<circle cx="'+cxA+'" cy="130" r="'+rA+'" fill="#000"/></mask></defs>'
+          + '<rect x="20" y="28" width="420" height="204" rx="10" '+SH+' mask="url(#vmA)"/>';
+  } else if(mode==="subset"){
+    shade = '<circle cx="'+cxA+'" cy="130" r="'+rA+'" '+SH+'/>';
+  }
+  var labA = (mode==="subset")
+    ? '<text x="'+cxA+'" y="136" text-anchor="middle" font-size="20" font-weight="bold" fill="var(--primary)">A</text>'
+    : '<text x="'+(cxA-62)+'" y="62" font-size="20" font-weight="bold" fill="var(--primary)">A</text>';
+  var labB = '<text x="'+(cxB+(mode==="subset"?74:62))+'" y="62" font-size="20" font-weight="bold" fill="var(--teal)">B</text>';
+  return '<svg viewBox="0 0 460 300" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+    +'<text x="230" y="18" text-anchor="middle" font-size="17" font-weight="bold" fill="var(--primary)">'+title+'</text>'
+    +'<rect x="20" y="28" width="420" height="204" rx="10" fill="var(--bg)" stroke="var(--line-strong)" stroke-width="2"/>'
+    +'<text x="30" y="46" font-size="15" font-weight="bold" fill="var(--muted)">U</text>'
+    + shade
+    +'<circle cx="'+cxA+'" cy="130" r="'+rA+'" fill="none" stroke="var(--primary)" stroke-width="2.5"/>'
+    +'<circle cx="'+cxB+'" cy="130" r="'+rB+'" fill="none" stroke="var(--teal)" stroke-width="2.5"/>'
+    + labA + labB
+    +'<text x="230" y="262" text-anchor="middle" font-size="15" fill="var(--muted)">'+note+'</text>'
+    +'</svg>';
+}
 var DIAGRAMS = {
+
+  /* ---- Sets: the pictures that ARE the definitions ---- */
+  "number-families": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 460 300" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="230" y="18" text-anchor="middle" font-size="17" font-weight="bold" fill="var(--primary)">'+d("Each family sits inside the next","हर परिवार अगले के अंदर है")+'</text>'
+      +'<rect x="16" y="30" width="428" height="228" rx="16" fill="none" stroke="var(--primary)" stroke-width="2"/>'
+      +'<text x="28" y="50" font-size="15" font-weight="bold" fill="var(--primary)">'+d("Real \u211d","वास्तविक \u211d")+'</text>'
+      +'<rect x="40" y="56" width="380" height="180" rx="14" fill="var(--primary-light)" stroke="var(--teal)" stroke-width="2"/>'
+      +'<text x="52" y="76" font-size="15" font-weight="bold" fill="var(--teal)">'+d("Rational \u211a","परिमेय \u211a")+'</text>'
+      +'<rect x="64" y="82" width="332" height="132" rx="12" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>'
+      +'<text x="76" y="102" font-size="15" font-weight="bold" fill="var(--accent)">'+d("Integers \u2124","पूर्णांक \u2124")+'</text>'
+      +'<rect x="88" y="108" width="284" height="86" rx="10" fill="var(--green-light)" stroke="var(--green)" stroke-width="2"/>'
+      +'<text x="100" y="128" font-size="15" font-weight="bold" fill="var(--green)">'+d("Natural \u2115","प्राकृत \u2115")+'</text>'
+      +'<text x="230" y="156" text-anchor="middle" font-size="17" fill="var(--ink)">1, 2, 3, 4 \u2026</text>'
+      +'<text x="230" y="178" text-anchor="middle" font-size="15" fill="var(--muted)">'+d("counting numbers","गिनती की संख्याएँ")+'</text>'
+      +'<text x="150" y="208" font-size="15" fill="var(--muted)">0, -1, -2 \u2026</text>'
+      +'<text x="300" y="230" font-size="15" fill="var(--muted)">\u00bd, 0.75</text>'
+      +'<text x="60" y="252" font-size="15" fill="var(--muted)">\u221a2</text>'
+      +'<text x="390" y="252" font-size="15" fill="var(--muted)">\u03c0</text>'
+      +'<text x="230" y="284" text-anchor="middle" font-size="15" fill="var(--muted)">'+d("\u221a2 and \u03c0 are real but not rational","\u221a2 और \u03c0 वास्तविक हैं पर परिमेय नहीं")+'</text>'
+      +'</svg>';
+  },
+  "sets-union": function(L){ return _venn(L, "union"); },
+  "sets-intersection": function(L){ return _venn(L, "intersection"); },
+  "sets-difference": function(L){ return _venn(L, "onlyA"); },
+  "sets-complement": function(L){ return _venn(L, "complement"); },
+  "sets-disjoint": function(L){ return _venn(L, "disjoint"); },
+  "sets-subset": function(L){ return _venn(L, "subset"); },
+  "sets-regions": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 460 300" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="230" y="18" text-anchor="middle" font-size="17" font-weight="bold" fill="var(--primary)">'+d("Two circles make four parts","दो वृत्त चार हिस्से बनाते हैं")+'</text>'
+      +'<rect x="20" y="28" width="420" height="204" rx="10" fill="var(--bg)" stroke="var(--line-strong)" stroke-width="2"/>'
+      +'<text x="30" y="46" font-size="15" font-weight="bold" fill="var(--muted)">U</text>'
+      +'<circle cx="185" cy="130" r="88" fill="var(--primary)" fill-opacity="0.18" stroke="var(--primary)" stroke-width="2.5"/>'
+      +'<circle cx="275" cy="130" r="88" fill="var(--teal)" fill-opacity="0.18" stroke="var(--teal)" stroke-width="2.5"/>'
+      +'<text x="123" y="62" font-size="20" font-weight="bold" fill="var(--primary)">A</text>'
+      +'<text x="330" y="62" font-size="20" font-weight="bold" fill="var(--teal)">B</text>'
+      +'<text x="140" y="126" text-anchor="middle" font-size="15" font-weight="bold" fill="var(--ink)">'+d("only A","सिर्फ़ A")+'</text>'
+      +'<text x="140" y="144" text-anchor="middle" font-size="15" fill="var(--muted)">A \u2229 B\u2032</text>'
+      +'<text x="230" y="126" text-anchor="middle" font-size="15" font-weight="bold" fill="var(--ink)">'+d("both","दोनों")+'</text>'
+      +'<text x="230" y="144" text-anchor="middle" font-size="15" fill="var(--muted)">A \u2229 B</text>'
+      +'<text x="320" y="126" text-anchor="middle" font-size="15" font-weight="bold" fill="var(--ink)">'+d("only B","सिर्फ़ B")+'</text>'
+      +'<text x="320" y="144" text-anchor="middle" font-size="15" fill="var(--muted)">A\u2032 \u2229 B</text>'
+      +'<text x="392" y="210" text-anchor="middle" font-size="15" font-weight="bold" fill="var(--ink)">'+d("neither","कोई नहीं")+'</text>'
+      +'<text x="392" y="226" text-anchor="middle" font-size="15" fill="var(--muted)">(A \u222a B)\u2032</text>'
+      +'<text x="230" y="262" text-anchor="middle" font-size="15" fill="var(--muted)">'+d("Everyone in U is in exactly one part","U का हर कोई ठीक एक हिस्से में है")+'</text>'
+      +'</svg>';
+  },
+  "sets-counting": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 460 310" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="230" y="18" text-anchor="middle" font-size="17" font-weight="bold" fill="var(--primary)">'+d("Why we subtract the middle","बीच वाला क्यों घटाते हैं")+'</text>'
+      +'<text x="230" y="38" text-anchor="middle" font-size="15" fill="var(--muted)">'+d("25 cricket \u00b7 20 football \u00b7 8 both","25 क्रिकेट \u00b7 20 फ़ुटबॉल \u00b7 8 दोनों")+'</text>'
+      +'<rect x="20" y="48" width="420" height="190" rx="10" fill="var(--bg)" stroke="var(--line-strong)" stroke-width="2"/>'
+      +'<circle cx="185" cy="143" r="85" fill="var(--primary)" fill-opacity="0.18" stroke="var(--primary)" stroke-width="2.5"/>'
+      +'<circle cx="275" cy="143" r="85" fill="var(--teal)" fill-opacity="0.18" stroke="var(--teal)" stroke-width="2.5"/>'
+      +'<text x="118" y="76" font-size="15" font-weight="bold" fill="var(--primary)">'+d("Cricket","क्रिकेट")+'</text>'
+      +'<text x="312" y="76" font-size="15" font-weight="bold" fill="var(--teal)">'+d("Football","फ़ुटबॉल")+'</text>'
+      +'<text x="138" y="150" text-anchor="middle" font-size="26" font-weight="bold" fill="var(--ink)">17</text>'
+      +'<text x="230" y="146" text-anchor="middle" font-size="26" font-weight="bold" fill="var(--red)">8</text>'
+      +'<text x="322" y="150" text-anchor="middle" font-size="26" font-weight="bold" fill="var(--ink)">12</text>'
+      +'<text x="230" y="166" text-anchor="middle" font-size="15" fill="var(--red)">'+d("counted twice!","दो बार गिने!")+'</text>'
+      +'<text x="230" y="266" text-anchor="middle" font-size="15" fill="var(--ink)">25 + 20 = 45, '+d("but only 37 children","पर बच्चे सिर्फ़ 37")+'</text>'
+      +'<text x="230" y="294" text-anchor="middle" font-size="17" font-weight="bold" fill="var(--primary)">45 \u2212 8 = 37 \u2705</text>'
+      +'</svg>';
+  },
+  "sets-powerset": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    var rows=[["\u2205","out","out"],["{a}","in","out"],["{b}","out","in"],["{a, b}","in","in"]];
+    var h='<svg viewBox="0 0 460 300" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="230" y="18" text-anchor="middle" font-size="17" font-weight="bold" fill="var(--primary)">'+d("One yes/no choice per member","हर सदस्य पर एक हाँ/ना")+'</text>'
+      +'<text x="230" y="38" text-anchor="middle" font-size="15" fill="var(--muted)">'+d("A = {a, b}  \u2192  2 \u00d7 2 = 4 subsets","A = {a, b}  \u2192  2 \u00d7 2 = 4 उपसमुच्चय")+'</text>'
+      +'<text x="118" y="66" text-anchor="middle" font-size="15" font-weight="bold" fill="var(--muted)">'+d("a in?","a अंदर?")+'</text>'
+      +'<text x="224" y="66" text-anchor="middle" font-size="15" font-weight="bold" fill="var(--muted)">'+d("b in?","b अंदर?")+'</text>'
+      +'<text x="356" y="66" text-anchor="middle" font-size="15" font-weight="bold" fill="var(--muted)">'+d("you get","मिलता है")+'</text>';
+    rows.forEach(function(r,i){
+      var y=104+i*48;
+      h+='<rect x="30" y="'+(y-26)+'" width="400" height="40" rx="9" fill="'+(i%2?"var(--bg)":"var(--card)")+'" stroke="var(--line)"/>'
+        +'<text x="118" y="'+y+'" text-anchor="middle" font-size="16" fill="'+(r[1]==="in"?"var(--green)":"var(--muted)")+'">'+(r[1]==="in"?d("YES","हाँ"):d("no","ना"))+'</text>'
+        +'<text x="224" y="'+y+'" text-anchor="middle" font-size="16" fill="'+(r[2]==="in"?"var(--green)":"var(--muted)")+'">'+(r[2]==="in"?d("YES","हाँ"):d("no","ना"))+'</text>'
+        +'<text x="356" y="'+y+'" text-anchor="middle" font-size="17" font-weight="bold" fill="var(--ink)">'+r[0]+'</text>';
+    });
+    return h+'</svg>';
+  },
   "distance-vs-displacement": function(L){
     var d=function(a,b){return L==="hi"?b:a;};
     return '<svg viewBox="0 0 640 260" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
@@ -7930,7 +8106,7 @@ function setLastVisited(o){ localStorage.setItem(PK("sl_last"), JSON.stringify(o
 /* ---- badges ---- */
 var BADGES = {
   "story-explorer":  { icon:"🧭", en:"Story Explorer",       hi:"कहानी खोजी",      de:"Read every micro-topic of a chapter",        dh:"अध्याय का हर सूक्ष्म-विषय पढ़ा" },
-  "practice-master": { icon:"🎯", en:"Practice Master",       hi:"अभ्यास मास्टर",    de:"Practised every micro-topic of a chapter",   dh:"अध्याय के हर सूक्ष्म-विषय का अभ्यास" },
+  "practice-master": { icon:"🎯", en:"Practice Master",       hi:"अभ्यास मास्टर",    de:"Practiced every micro-topic of a chapter",   dh:"अध्याय के हर सूक्ष्म-विषय का अभ्यास" },
   "assignment-done": { icon:"📝", en:"Assignment Completed",  hi:"असाइनमेंट पूर्ण",  de:"Completed an End-of-Chapter Assignment",     dh:"अध्याय-अंत असाइनमेंट पूर्ण" },
   "chapter-champion":{ icon:"🏆", en:"Chapter Champion",      hi:"अध्याय चैंपियन",   de:"Scored 80%+ in a Chapter Assignment",        dh:"अध्याय असाइनमेंट में 80%+" }
 };
@@ -7963,7 +8139,7 @@ function progressStrip(subject, chapter, topicIdx){
   return '<div class="progress-strip" role="status" aria-label="'+esc(aria)+'">'
     + '<div class="ps-meta"><b>'+esc(t(subject.name))+'</b> · '+sp("Chapter","अध्याय")+' '+chIdx+' / '+subject.chapters.length+' · '+sp("Topic","विषय")+' '+(topicIdx+1)+' / '+chapter.topics.length+'</div>'
     + '<div class="bar" aria-hidden="true"><i style="width:'+cp+'%"></i></div>'
-    + '<div class="ps-meta sub">'+cp+'% '+sp("of this chapter practised","इस अध्याय का अभ्यास")+'</div></div>';
+    + '<div class="ps-meta sub">'+cp+'% '+sp("of this chapter practiced","इस अध्याय का अभ्यास")+'</div></div>';
 }
 function badgeChips(ids, highlight){
   return ids.map(function(id){ var b=BADGES[id]; if(!b) return ""; return '<span class="badge'+(highlight?" badge-new":"")+'" title="'+esc(LANG==="hi"?b.dh:b.de)+'"><span class="badge-ic" aria-hidden="true">'+b.icon+'</span> '+esc(LANG==="hi"?b.hi:b.en)+'</span>'; }).join(" ");
@@ -8028,7 +8204,7 @@ document.addEventListener("keydown", function(e){
 /* ================= HOME ================= */
 function vHome(){
   var h = '<div class="hero"><span class="chip amber">'+sp("Practice-first learning","अभ्यास-प्रथम शिक्षा")+'</span>'
-    + '<h1 style="margin-top:10px">'+sp("Learn one small concept. Practise it now.","एक छोटा concept सीखें। तुरंत अभ्यास करें।")+'</h1>'
+    + '<h1 style="margin-top:10px">'+sp("Learn one small concept. Practice it now.","एक छोटा concept सीखें। तुरंत अभ्यास करें।")+'</h1>'
     + '<p>'+sp("Short bilingual lessons, focused practice, instant explanations.","छोटे द्विभाषी पाठ, केंद्रित अभ्यास, तुरंत व्याख्या।")+'</p></div>';
 
   var last = lastVisited();
@@ -8050,17 +8226,17 @@ function vHome(){
       + '<div class="sub">'+(s.board==="GEN" ? sp("All ages · 3 levels","सभी आयु · 3 स्तर") : s.board+" · "+sp("Class "+s.klass,"कक्षा "+s.klass))
       + ' · '+s.chapters.length+' '+sp("chapters","अध्याय")+' · '+qn+' '+sp("questions","प्रश्न")+'</div>'
       + '<div class="bar"><i style="width:'+pr.pct+'%"></i></div>'
-      + '<div class="sub" style="margin-top:4px">'+pr.done+'/'+pr.total+' '+sp("topics practised","विषयों का अभ्यास")+'</div></div>';
+      + '<div class="sub" style="margin-top:4px">'+pr.done+'/'+pr.total+' '+sp("topics practiced","विषयों का अभ्यास")+'</div></div>';
   });
   h += '</div>';
 
   var weak = weakTopics().slice(0,4);
   if(weak.length){
-    h += '<h2 style="margin-top:24px">🔁 '+sp("Revision queue — practise these again","पुनरावृत्ति सूची — इनका फिर से अभ्यास करें")+'</h2><div class="grid g2">';
+    h += '<h2 style="margin-top:24px">🔁 '+sp("Revision queue — practice these again","पुनरावृत्ति सूची — इनका फिर से अभ्यास करें")+'</h2><div class="grid g2">';
     weak.forEach(function(w){
       h += '<div class="card rowflex"><div><span class="chip '+(w.acc<50?"red":"amber")+'">'+w.acc+'% · '+w.n+' '+sp("attempts","प्रयास")+'</span>'
         + '<h3 style="margin-top:6px">'+t(w.info.topic.name)+'</h3><div class="sub">'+t(w.info.subject.name)+'</div></div>'
-        + '<button class="btn ghost sm" onclick="startQuiz(\'topic\',\''+w.code+'\')">'+sp("Practise","अभ्यास करें")+'</button></div>';
+        + '<button class="btn ghost sm" onclick="startQuiz(\'topic\',\''+w.code+'\')">'+sp("Practice","अभ्यास करें")+'</button></div>';
     });
     h += '</div>';
   }
@@ -8088,7 +8264,7 @@ function vSubject(code){
     var done = c.topics.filter(function(tp){ var st=topicStats(tp.code); return st&&st.n>0; }).length;
     h += '<div class="card rowflex" style="margin-bottom:10px"><div style="flex:1;min-width:250px">'
       + '<h3>'+chapLabel(c)+': '+t(c.name)+'</h3>'
-      + '<div class="sub">'+c.topics.length+' '+sp("micro-topics","सूक्ष्म-विषय")+' · '+qn+' '+sp("questions","प्रश्न")+' · '+done+'/'+c.topics.length+' '+sp("practised","अभ्यास किया")+'</div>'
+      + '<div class="sub">'+c.topics.length+' '+sp("micro-topics","सूक्ष्म-विषय")+' · '+qn+' '+sp("questions","प्रश्न")+' · '+done+'/'+c.topics.length+' '+sp("practiced","अभ्यास किया")+'</div>'
       + '<div style="margin-top:8px">';
     c.topics.forEach(function(tp){
       var st = topicStats(tp.code); var a2 = acc(st);
@@ -8286,7 +8462,7 @@ function shadowInner(){
     h += '<div class="explain ok" style="margin-bottom:8px"><b>'+sp("Nicely done.","बढ़िया।")+'</b> '
        + sp("That phrase should feel automatic now.","अब यह वाक्यांश अपने आप निकलना चाहिए।")+'</div>';
     h += last
-      ? '<button class="btn" type="button" onclick="shadowRestart()">'+sp("Practise again from the start","शुरू से दोबारा अभ्यास करें")+'</button>'
+      ? '<button class="btn" type="button" onclick="shadowRestart()">'+sp("Practice again from the start","शुरू से दोबारा अभ्यास करें")+'</button>'
       : '<button class="btn" type="button" onclick="shadowNext()">'+sp("Next line","अगली पंक्ति")+' →</button>';
   }
   return h;
@@ -8605,7 +8781,7 @@ function vTopic(code){
   h += vSpeakCheck(tp);
   h += vTierLadder(code);
   h += '<div class="card rowflex" style="margin-top:14px"><div>'
-    + '<h3>'+(qn ? sp("Practise this concept now","अभी इस अवधारणा का अभ्यास करें") : sp("No questions yet for this topic","इस विषय हेतु अभी प्रश्न नहीं हैं"))+'</h3>'
+    + '<h3>'+(qn ? sp("Practice this concept now","अभी इस अवधारणा का अभ्यास करें") : sp("No questions yet for this topic","इस विषय हेतु अभी प्रश्न नहीं हैं"))+'</h3>'
     + (qn ? '<div class="sub">'+Math.min(qn,8)+' '+sp("questions · instant explanations","प्रश्न · तुरंत व्याख्या")+'</div>' : '')
     + '</div><div>'
     + (qn ? '<button class="btn" onclick="startQuiz(\'topic\',\''+code+'\')">'+sp("Start practice →","अभ्यास शुरू करें →")+'</button>' : '')
@@ -8660,10 +8836,23 @@ function startQuiz(scope, a, b){
   }
   if(!qs.length){ toast(LANG==="hi"?"अभी प्रश्न उपलब्ध नहीं":"No questions available yet"); return; }
   QUIZ = { scope:scope, key: scope==="topic"?a:(scope==="tier"?(a+"::t"+b):(a+"-ch"+b)),
+           /* Remember how this quiz was started so "Practice again" can rerun it.
+              The key is not usable for that: only in topic scope is it a topic
+              code — in tier scope it is "code::tN" and in chapter scope
+              "SUBJ-chN", so replaying through the key started an empty quiz. */
+           replay: { scope:scope, a:a, b:b },
            tierKey: scope==="tier" ? (a+"::t"+b) : null,
            title:title, backTopic:backTopic,
            qs: shuffle(qs).slice(0,8), i:0, results:[], answered:false, t0:Date.now() };
   go("quiz");
+}
+/* Rerun the quiz just finished, with the same scope and arguments. Reads the
+   replay record rather than the key, because the key only doubles as a topic
+   code in topic scope. */
+function replayQuiz(){
+  var r = QUIZ && QUIZ.replay;
+  if(!r){ toast(LANG==="hi"?"अभी प्रश्न उपलब्ध नहीं":"No questions available yet"); return; }
+  startQuiz(r.scope, r.a, r.b);
 }
 function vLegal(doc){
   var ORG=SL_CONFIG.org, YR=SL_CONFIG.year, SITE=SL_CONFIG.website;
@@ -9165,7 +9354,7 @@ function vResult(){
     if(nt) nextTopicBtn = '<button class="btn" onclick="go(\'topic\',{code:\''+nt+'\'})">'+sp("Next Topic","अगला विषय")+' →</button>';
     else if(curInfo && curInfo.chapter.summary) nextTopicBtn = '<button class="btn" onclick="go(\'summary\',{code:\''+curInfo.subject.code+'\',chapter:'+curInfo.chapter.no+'})">🚀 '+sp("Start Assignment","असाइनमेंट शुरू करें")+' →</button>';
     h += '<div class="card" style="margin-top:16px"><div class="resultnav-row">'+reviseTopic+nextTopicBtn+'</div>'
-      + '<div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap"><button class="btn ghost sm" onclick="startQuiz(\'topic\',\''+QUIZ.key+'\')">'+sp("Practise again","फिर अभ्यास करें")+'</button>'
+      + '<div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap"><button class="btn ghost sm" onclick="replayQuiz()">'+sp("Practice again","फिर अभ्यास करें")+'</button>'
       + '<button class="btn ghost sm" onclick="go(\'dashboard\')">'+sp("My progress","मेरी प्रगति")+'</button></div></div>';
   }
   h += '</div>';
@@ -9210,11 +9399,11 @@ function vDashboard(){
 
   var weak = weakTopics();
   if(weak.length){
-    h += '<div class="card" style="margin-top:16px"><h2>⚠️ '+sp("Weak topics — practise first","कमज़ोर विषय — पहले अभ्यास करें")+'</h2>';
+    h += '<div class="card" style="margin-top:16px"><h2>⚠️ '+sp("Weak topics — practice first","कमज़ोर विषय — पहले अभ्यास करें")+'</h2>';
     weak.forEach(function(w){
       h += '<div class="rowflex" style="padding:8px 0;border-bottom:1px solid var(--line)"><div><b>'+t(w.info.topic.name)+'</b>'
         + '<div class="sub">'+t(w.info.subject.name)+' · '+w.acc+'% · '+w.n+' '+sp("attempts","प्रयास")+'</div></div>'
-        + '<button class="btn sm" onclick="startQuiz(\'topic\',\''+w.code+'\')">'+sp("Practise","अभ्यास")+'</button></div>';
+        + '<button class="btn sm" onclick="startQuiz(\'topic\',\''+w.code+'\')">'+sp("Practice","अभ्यास")+'</button></div>';
     });
     h += '</div>';
   }
