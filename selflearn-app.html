@@ -749,6 +749,55 @@ var DIAGRAMS = {
       +'<text x="230" y="284" text-anchor="middle" font-size="15" fill="var(--muted)">'+d("\u221a2 and \u03c0 are real but not rational","\u221a2 और \u03c0 real हैं पर rational नहीं")+'</text>'
       +'</svg>';
   },
+  "union-vs-intersection": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    function pair(ox, mode, head, cap){
+      var cxA=ox+72, cxB=ox+128, r=54, cy=118;
+      var SH='fill="#F5C518"';
+      var shade = (mode==="union")
+        ? '<circle cx="'+cxA+'" cy="'+cy+'" r="'+r+'" '+SH+'/><circle cx="'+cxB+'" cy="'+cy+'" r="'+r+'" '+SH+'/>'
+        : '<defs><clipPath id="cp'+ox+'"><circle cx="'+cxA+'" cy="'+cy+'" r="'+r+'"/></clipPath></defs>'
+          +'<g clip-path="url(#cp'+ox+')"><circle cx="'+cxB+'" cy="'+cy+'" r="'+r+'" '+SH+'/></g>';
+      return '<text x="'+(ox+100)+'" y="42" text-anchor="middle" font-size="20" font-weight="bold" fill="var(--ink)">'+head+'</text>'
+        + (mode==="union" ? shade : '')
+        +'<circle cx="'+cxA+'" cy="'+cy+'" r="'+r+'" fill="#2E75B6" fill-opacity="'+(mode==="union"?0:1)+'" stroke="#2E75B6" stroke-width="2"/>'
+        +'<circle cx="'+cxB+'" cy="'+cy+'" r="'+r+'" fill="#8CC63F" fill-opacity="'+(mode==="union"?0:1)+'" stroke="#8CC63F" stroke-width="2"/>'
+        + (mode==="union" ? shade : '')
+        + (mode==="intersection" ? shade : '')
+        +'<text x="'+(cxA-24)+'" y="'+(cy+7)+'" text-anchor="middle" font-size="19" font-weight="bold" fill="#fff">A</text>'
+        +'<text x="'+(cxB+24)+'" y="'+(cy+7)+'" text-anchor="middle" font-size="19" font-weight="bold" fill="#fff">B</text>'
+        +'<rect x="'+(ox+8)+'" y="192" width="184" height="34" rx="7" fill="var(--card)" stroke="var(--line-strong)"/>'
+        +'<text x="'+(ox+100)+'" y="214" text-anchor="middle" font-size="15" font-style="italic" fill="var(--ink)">'+cap+'</text>';
+    }
+    return '<svg viewBox="0 0 420 238" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      + pair(6,   "union",        d("Union","Union"),        d("Everything from A and B","A और B का सब कुछ"))
+      + pair(214, "intersection", d("Intersection","Intersection"), d("Only what is in both","सिर्फ़ जो दोनों में है"))
+      +'</svg>';
+  },
+  "fruit-baskets": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    var h='<svg viewBox="0 0 460 250" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="230" y="20" text-anchor="middle" font-size="17" font-weight="bold" fill="var(--primary)">'+d("Two baskets — before any maths","दो टोकरियाँ — गणित से पहले")+'</text>';
+    function basket(x,y,label,items,tint){
+      var g='<rect x="'+x+'" y="'+y+'" width="122" height="76" rx="12" fill="'+tint+'" stroke="var(--line-strong)" stroke-width="2"/>'
+        +'<text x="'+(x+61)+'" y="'+(y-8)+'" text-anchor="middle" font-size="15" font-weight="bold" fill="var(--ink)">'+label+'</text>';
+      items.forEach(function(it,i){
+        g+='<text x="'+(x+30+ (i%2)*58)+'" y="'+(y+30+Math.floor(i/2)*30)+'" text-anchor="middle" font-size="22">'+it+'</text>';
+      });
+      return g;
+    }
+    h+= basket(24, 62, d("Your basket","आपकी टोकरी"), ["🍎","🍌"], "var(--primary-light)")
+      + basket(170, 62, d("Friend's basket","दोस्त की टोकरी"), ["🍎","🍊"], "var(--green-light)")
+      +'<text x="316" y="72" font-size="15" font-weight="bold" fill="var(--ink)">'+d("Union — tip both in","Union — दोनों उँडेल दीजिए")+'</text>'
+      +'<rect x="316" y="82" width="122" height="40" rx="10" fill="var(--accent-light)" stroke="var(--line-strong)" stroke-width="2"/>'
+      +'<text x="377" y="109" text-anchor="middle" font-size="21">🍎 🍌 🍊</text>'
+      +'<text x="316" y="152" font-size="15" font-weight="bold" fill="var(--ink)">'+d("Intersection — in both","Intersection — दोनों में")+'</text>'
+      +'<rect x="316" y="162" width="122" height="40" rx="10" fill="var(--accent-light)" stroke="var(--line-strong)" stroke-width="2"/>'
+      +'<text x="377" y="189" text-anchor="middle" font-size="21">🍎</text>'
+      +'<text x="230" y="232" text-anchor="middle" font-size="15" fill="var(--muted)">'+d("Apple was in both baskets, so it is written ONCE in the union","सेब दोनों टोकरियों में था, तो union में एक ही बार लिखा जाता है")+'</text>'
+      +'</svg>';
+    return h;
+  },
   "sets-union": function(L){ return _venn(L, "union"); },
   "sets-intersection": function(L){ return _venn(L, "intersection"); },
   "sets-difference": function(L){ return _venn(L, "onlyA"); },
