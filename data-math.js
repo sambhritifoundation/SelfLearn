@@ -958,6 +958,113 @@ window.SL_DATA = window.SL_DATA || {subjects:[], questions:[]};
         b("Distance = 4.","Distance = 4।")))
   ];
 
+  var conics=[
+
+    topic("MTH11-10-0",
+      b("0. Revise: Circles You Already Know","0. दोहराइए: Circles जो आप पहले से जानते हैं"),
+      b(
+        "A **circle** is every point that sits the same fixed distance — the **radius** — from one fixed point, the **centre**. You have drawn these since primary school with a compass.\n\nUsing the distance formula from Chapter 9, a circle centred at the origin with radius $r$ satisfies:\n\n$$x^2+y^2=r^2$$\n\nEvery point $(x,y)$ on the circle is exactly distance $r$ from $(0,0)$ — this equation is just the distance formula, squared to remove the square root.\n\nThis chapter studies the circle's cousins — shapes made by slicing a cone at different angles.",
+        "**Circle** वे सभी points हैं जो एक तय दूरी — **radius** — पर एक तय point, **centre**, से हों। आप ये primary school से compass से बनाते आए हैं।\n\nChapter 9 के distance formula से, origin पर centred radius $r$ वाला circle इसे satisfy करता है:\n\n$$x^2+y^2=r^2$$\n\nCircle पर हर point $(x,y)$, $(0,0)$ से ठीक $r$ दूरी पर है — यह equation बस distance formula है, square root हटाने के लिए square किया हुआ।\n\nयह chapter circle के चचेरे भाइयों को पढ़ता है — cone को अलग-अलग angles पर काटने से बनी shapes।"),
+      worked(
+        b("Find the equation of a circle centred at (0,0) with radius 5.","(0,0) पर centred, radius 5 वाले circle का equation निकालिए।"),
+        [
+          ["Use x²+y²=r² with r=5.","r=5 के साथ x²+y²=r² इस्तेमाल कीजिए।","This is the standard circle-at-origin equation.","यह origin पर circle का standard equation है।"],
+          ["x²+y² = 25.","x²+y² = 25।","5² = 25.","5² = 25।"]
+        ],
+        b("x² + y² = 25.","x² + y² = 25।"))),
+
+    topic("MTH11-10-1",
+      b("1. What is a Conic Section?","1. Conic Section क्या है?"),
+      b(
+        "Take a double cone — two ice-cream cones joined tip to tip — and slice through it with a flat plane. Depending on the angle of the cut, four different curves appear.\n\n{{diagram:conic-four-shapes}}\n\nA flat cut gives a **circle**. A tilted cut gives an **ellipse**. A cut parallel to the cone's slanted side gives a **parabola**. A cut through both halves of the double cone gives a **hyperbola**.\n\nAll four are called **conic sections** — sections (slices) of a cone. Each has its own defining property and its own equation, which this chapter builds one at a time.",
+        "एक double cone लीजिए — दो ice-cream cones नोक से नोक जुड़े हुए — और उसे एक flat plane से काटिए। काटने के angle के हिसाब से, चार अलग curves बनते हैं।\n\n{{diagram:conic-four-shapes}}\n\nसीधा कट **circle** देता है। तिरछा कट **ellipse** देता है। Cone की ढलानदार साइड के समानांतर कट **parabola** देता है। Double cone के दोनों हिस्सों से गुज़रता कट **hyperbola** देता है।\n\nये चारों **conic sections** कहलाते हैं — cone के sections (टुकड़े)। हर एक की अपनी परिभाषित property और अपना equation है, जिसे यह chapter एक-एक करके बनाता है।"),
+      worked(
+        b("A plane cuts a double cone through both nappes (halves). Which conic section results?","एक plane double cone के दोनों nappes (हिस्सों) से गुज़रकर काटता है। कौन-सा conic section बनता है?"),
+        [
+          ["Recall which cut produces which shape from the diagram.","Diagram से याद कीजिए कौन-सा कट कौन-सी shape बनाता है।","Only one of the four shapes needs both halves of the cone.","चारों shapes में से सिर्फ़ एक को cone के दोनों हिस्सों की ज़रूरत है।"],
+          ["Cutting through both nappes gives a hyperbola, with two separate branches.","दोनों nappes से गुज़रना hyperbola देता है, दो अलग branches के साथ।","A hyperbola's two branches come from the two halves of the cone.","Hyperbola की दो branches, cone के दोनों हिस्सों से आती हैं।"]
+        ],
+        b("A hyperbola.","एक hyperbola।"))),
+
+    topic("MTH11-10-2",
+      b("2. Circle: Standard Equation","2. Circle: Standard Equation"),
+      b(
+        "For a circle centred anywhere, not just the origin, use the distance formula from centre $(h,k)$ to any point $(x,y)$ on the circle, and set it equal to the radius $r$.\n\n$$(x-h)^2+(y-k)^2=r^2$$\n\nGiven an equation that does not look like this, **complete the square** on the $x$ terms and the $y$ terms separately to reveal the centre and radius hidden inside.\n\nExample: $x^2+y^2+8x+10y-8=0$ regroups to $(x+4)^2+(y+5)^2=49$ — a circle centred at $(-4,-5)$ with radius $7$.",
+        "कहीं भी centred circle के लिए, सिर्फ़ origin पर नहीं, centre $(h,k)$ से circle पर किसी भी point $(x,y)$ तक distance formula इस्तेमाल कीजिए, और उसे radius $r$ के बराबर रखिए।\n\n$$(x-h)^2+(y-k)^2=r^2$$\n\nअगर दिया गया equation इस जैसा न दिखे, तो x terms और y terms पर अलग-अलग **complete the square** करके अंदर छुपा centre और radius निकालिए।\n\nउदाहरण: $x^2+y^2+8x+10y-8=0$ फिर से $(x+4)^2+(y+5)^2=49$ बनता है — centre $(-4,-5)$ और radius $7$ वाला circle।"),
+      worked(
+        b("Find the centre and radius of the circle x² + y² + 8x + 10y − 8 = 0.","Circle x² + y² + 8x + 10y − 8 = 0 का centre और radius निकालिए।"),
+        [
+          ["Group and complete the square: (x²+8x+16) + (y²+10y+25) = 8+16+25.","Group करके complete the square कीजिए: (x²+8x+16) + (y²+10y+25) = 8+16+25।","Add the same numbers to both sides to keep the equation balanced.","Equation balanced रखने के लिए दोनों तरफ़ एक जैसे numbers जोड़िए।"],
+          ["(x+4)² + (y+5)² = 49, so centre = (−4,−5) and radius = 7.","(x+4)² + (y+5)² = 49, इसलिए centre = (−4,−5) और radius = 7।","√49 = 7, and the signs inside each bracket flip for the centre.","√49 = 7, और हर bracket के अंदर का sign centre के लिए पलट जाता है।"]
+        ],
+        b("Centre = (−4,−5), radius = 7.","Centre = (−4,−5), radius = 7।"))),
+
+    topic("MTH11-10-3",
+      b("3. Parabola: Definition and Standard Equations","3. Parabola: परिभाषा और Standard Equations"),
+      b(
+        "A **parabola** is every point equally far from one fixed point (the **focus**) and one fixed line (the **directrix**).\n\n{{diagram:parabola-focus-directrix}}\n\nFor a parabola opening rightward, vertex at the origin, focus at $(a,0)$ and directrix $x=-a$:\n\n$$y^2=4ax$$\n\nThree sister equations cover the other directions: $y^2=-4ax$ (opens left), $x^2=4ay$ (opens up), $x^2=-4ay$ (opens down) — always match the sign and which variable is squared to the direction it opens.",
+        "**Parabola** वे सभी points हैं जो एक तय point (**focus**) और एक तय line (**directrix**) से बराबर दूर हों।\n\n{{diagram:parabola-focus-directrix}}\n\nदाईं ओर खुलने वाले parabola के लिए, vertex origin पर, focus $(a,0)$ पर और directrix $x=-a$:\n\n$$y^2=4ax$$\n\nतीन बहन equations बाक़ी दिशाएँ देती हैं: $y^2=-4ax$ (बाईं ओर खुलता), $x^2=4ay$ (ऊपर खुलता), $x^2=-4ay$ (नीचे खुलता) — sign और कौन-सा variable square है, हमेशा खुलने की दिशा से मेल खाते हैं।"),
+      worked(
+        b("Find the focus, directrix and latus rectum length of the parabola y² = 8x.","Parabola y² = 8x का focus, directrix और latus rectum length निकालिए।"),
+        [
+          ["Compare with y²=4ax: 4a=8, so a=2.","y²=4ax से compare कीजिए: 4a=8, इसलिए a=2।","Match the coefficient of x to find a.","a पाने के लिए x के coefficient से मिलाइए।"],
+          ["Focus = (2,0), directrix x = −2, latus rectum = 4a = 8.","Focus = (2,0), directrix x = −2, latus rectum = 4a = 8।","All three values come directly from a, once found.","एक बार a मिलने पर, तीनों values सीधे उसी से आती हैं।"]
+        ],
+        b("Focus (2,0), directrix x=−2, latus rectum 8.","Focus (2,0), directrix x=−2, latus rectum 8।"))),
+
+    topic("MTH11-10-4",
+      b("4. Parabola: Working Backward From Focus and Directrix","4. Parabola: Focus और Directrix से पीछे की ओर काम करना"),
+      b(
+        "The last topic went from equation to focus/directrix. This one reverses the process — start from a focus and directrix, and build the equation.\n\nThe **latus rectum** is the chord through the focus, perpendicular to the axis, with both ends on the parabola — it measures how ‘wide open’ the curve is at the focus. Its length is always $4a$, same $a$ as in the equation.\n\nGiven a focus, find $a$ as the distance from the vertex to the focus, check which way the parabola opens, then write the matching standard equation directly.",
+        "पिछले topic में equation से focus/directrix तक गए। यह topic उल्टा करता है — focus और directrix से शुरू करके, equation बनाता है।\n\n**Latus rectum** वह chord है जो focus से गुज़रती है, axis के perpendicular, दोनों सिरे parabola पर — यह बताती है कि curve focus पर कितनी ‘खुली हुई’ है। इसकी length हमेशा $4a$ होती है, वही $a$ जो equation में है।\n\nFocus दिए जाने पर, vertex से focus तक की दूरी को $a$ मानिए, देखिए parabola किस ओर खुलता है, फिर सीधे matching standard equation लिखिए।"),
+      worked(
+        b("Find the equation of the parabola with focus (2,0) and directrix x = −2.","Focus (2,0) और directrix x = −2 वाले parabola का equation निकालिए।"),
+        [
+          ["The focus is on the positive x-axis, and the directrix is x=−a, so a=2.","Focus positive x-axis पर है, और directrix x=−a है, इसलिए a=2।","Compare the given directrix to the standard form x=−a.","दिए गए directrix को standard form x=−a से compare कीजिए।"],
+          ["Since it opens toward the positive x-axis, use y²=4ax: y²=8x.","चूँकि यह positive x-axis की ओर खुलता है, y²=4ax इस्तेमाल कीजिए: y²=8x।","The focus on the positive side means the plus version of the equation.","Positive side पर focus होने का मतलब है equation का + वाला version।"]
+        ],
+        b("y² = 8x.","y² = 8x।"))),
+
+    topic("MTH11-10-5",
+      b("5. Ellipse: Definition, Standard Equation and Eccentricity","5. Ellipse: परिभाषा, Standard Equation और Eccentricity"),
+      b(
+        "An **ellipse** is every point where the distances to two fixed points — the **foci** — always add up to the same total.\n\n{{diagram:ellipse-foci}}\n\nFor an ellipse centred at the origin, wider along the x-axis ($a>b$):\n\n$$\\dfrac{x^2}{a^2}+\\dfrac{y^2}{b^2}=1$$\n\nThe foci sit at $(\\pm c,0)$, where $c^2=a^2-b^2$. **Eccentricity** measures how stretched the ellipse is:\n\n$$e=\\dfrac{c}{a},\\qquad0<e<1$$\n\n$e$ close to $0$ is nearly circular; $e$ close to $1$ is a long, thin ellipse.",
+        "**Ellipse** वे सभी points हैं जहाँ दो तय points — **foci** — से दूरियाँ हमेशा एक ही कुल में जुड़ें।\n\n{{diagram:ellipse-foci}}\n\nOrigin पर centred, x-axis के साथ चौड़े ellipse ($a>b$) के लिए:\n\n$$\\dfrac{x^2}{a^2}+\\dfrac{y^2}{b^2}=1$$\n\nFoci $(\\pm c,0)$ पर बैठते हैं, जहाँ $c^2=a^2-b^2$। **Eccentricity** बताती है ellipse कितनी खिंची हुई है:\n\n$$e=\\dfrac{c}{a},\\qquad0<e<1$$\n\n$e$ का $0$ के पास होना लगभग circular है; $e$ का $1$ के पास होना एक लम्बा, पतला ellipse है।"),
+      worked(
+        b("For the ellipse x²/25 + y²/9 = 1, find a, b, c and the eccentricity.","Ellipse x²/25 + y²/9 = 1 के लिए, a, b, c और eccentricity निकालिए।"),
+        [
+          ["a²=25 so a=5; b²=9 so b=3.","a²=25 इसलिए a=5; b²=9 इसलिए b=3।","Read a² and b² straight off the denominators.","a² और b² को denominators से सीधे पढ़िए।"],
+          ["c² = a²−b² = 25−9 = 16, so c=4. Then e = c/a = 4/5 = 0.8.","c² = a²−b² = 25−9 = 16, इसलिए c=4। फिर e = c/a = 4/5 = 0.8।","Use the relationship between a, b and c for an ellipse.","Ellipse के लिए a, b और c के बीच का संबंध इस्तेमाल कीजिए।"]
+        ],
+        b("a=5, b=3, c=4, e=0.8.","a=5, b=3, c=4, e=0.8।"))),
+
+    topic("MTH11-10-6",
+      b("6. Ellipse: Latus Rectum","6. Ellipse: Latus Rectum"),
+      b(
+        "Just like the parabola, an ellipse has a latus rectum at each focus — the chord through the focus, perpendicular to the major axis, with both ends on the curve.\n\n$$\\text{Length of latus rectum}=\\dfrac{2b^2}{a}$$\n\nThis is worth memorising alongside the eccentricity formula — between the two, you can describe an ellipse's shape and size completely from just $a$ and $b$.",
+        "Parabola की तरह, ellipse के हर focus पर एक latus rectum होता है — focus से गुज़रती chord, major axis के perpendicular, दोनों सिरे curve पर।\n\n$$\\text{Latus rectum की Length}=\\dfrac{2b^2}{a}$$\n\nइसे eccentricity formula के साथ याद रखना फ़ायदेमंद है — दोनों मिलकर, सिर्फ़ $a$ और $b$ से ellipse का shape और size पूरी तरह बता देते हैं।"),
+      worked(
+        b("Find the length of the latus rectum of the ellipse x²/25 + y²/9 = 1.","Ellipse x²/25 + y²/9 = 1 के latus rectum की length निकालिए।"),
+        [
+          ["Identify a=5, b=3 from the last topic's example.","पिछले topic के example से a=5, b=3 पहचानिए।","Same ellipse, so the same a and b apply.","वही ellipse है, इसलिए वही a और b लागू होते हैं।"],
+          ["Length = 2b²/a = 2(9)/5 = 18/5 = 3.6.","Length = 2b²/a = 2(9)/5 = 18/5 = 3.6।","Substitute directly into the latus rectum formula.","Latus rectum formula में सीधे रखिए।"]
+        ],
+        b("Latus rectum = 18/5 = 3.6.","Latus rectum = 18/5 = 3.6।"))),
+
+    topic("MTH11-10-7",
+      b("7. Hyperbola: Standard Equation and Eccentricity","7. Hyperbola: Standard Equation और Eccentricity"),
+      b(
+        "A **hyperbola** looks almost like an ellipse's rule, with one sign flipped — the *difference* of distances to the two foci stays constant, instead of the sum.\n\n$$\\dfrac{x^2}{a^2}-\\dfrac{y^2}{b^2}=1$$\n\nThe foci still sit at $(\\pm c,0)$, but now $c^2=a^2+b^2$ — addition, not subtraction, since a hyperbola's branches spread wider than $a$ allows on their own.\n\n$$e=\\dfrac{c}{a},\\qquad e>1$$\n\nEccentricity greater than 1 is exactly what makes a hyperbola open up and never close, unlike the ellipse's bounded loop.",
+        "**Hyperbola**, ellipse के rule जैसा ही लगता है, बस एक sign पलटा हुआ — दो foci से दूरियों का *अंतर* स्थिर रहता है, योग नहीं।\n\n$$\\dfrac{x^2}{a^2}-\\dfrac{y^2}{b^2}=1$$\n\nFoci अब भी $(\\pm c,0)$ पर बैठते हैं, पर अब $c^2=a^2+b^2$ — जोड़, घटाव नहीं, क्योंकि hyperbola की branches, $a$ अकेले जितना allow करता है उससे कहीं ज़्यादा फैलती हैं।\n\n$$e=\\dfrac{c}{a},\\qquad e>1$$\n\nEccentricity का 1 से ज़्यादा होना ही hyperbola को खुला और कभी न बंद होने वाला बनाता है, ellipse के बंद loop के उलट।"),
+      worked(
+        b("For the hyperbola x²/16 − y²/9 = 1, find a, b, c and the eccentricity.","Hyperbola x²/16 − y²/9 = 1 के लिए, a, b, c और eccentricity निकालिए।"),
+        [
+          ["a²=16 so a=4; b²=9 so b=3.","a²=16 इसलिए a=4; b²=9 इसलिए b=3।","Read a² and b² straight off the denominators.","a² और b² को denominators से सीधे पढ़िए।"],
+          ["c² = a²+b² = 16+9 = 25, so c=5. Then e = c/a = 5/4 = 1.25.","c² = a²+b² = 16+9 = 25, इसलिए c=5। फिर e = c/a = 5/4 = 1.25।","Addition here, unlike the ellipse's subtraction.","यहाँ जोड़, ellipse के घटाव के उलट।"]
+        ],
+        b("a=4, b=3, c=5, e=1.25.","a=4, b=3, c=5, e=1.25।")))
+  ];
+
   window.SL_DATA.subjects = (window.SL_DATA.subjects||[]).filter(function(s){ return s.code!=="MATH11"; });
 
   window.SL_DATA.subjects.push({code:"MATH11",board:"CBSE",klass:11,icon:"📐",
@@ -1064,7 +1171,18 @@ window.SL_DATA = window.SL_DATA || {subjects:[], questions:[]};
         assessment:["MTH-L01","MTH-L03","MTH-L05","MTH-L06","MTH-L09","MTH-L12","MTH-L14","MTH-L17",
           "MTH-L20","MTH-L22","MTH-L25","MTH-L28","MTH-L30","MTH-L33","MTH-L36","MTH-L39",
           "MTH-L42","MTH-L45","MTH-L48","MTH-L51","MTH-L54","MTH-L58","MTH-L61","MTH-L64"],
-        topics:lines}
+        topics:lines},
+      {no:10,name:b("Conic Sections","Conic Sections"),
+        summary:b(
+          "**Conic Sections: what this chapter covers**\n\nSlicing a cone at different angles produces four curves: circle, ellipse, parabola, hyperbola. A circle is every point a fixed radius from a centre — (x−h)²+(y−k)²=r². A parabola is every point equally far from a focus and a directrix — y²=4ax. An ellipse is every point where distances to two foci sum to a constant — x²/a²+y²/b²=1, with eccentricity 0<e<1. A hyperbola swaps that sum for a difference — x²/a²−y²/b²=1, with eccentricity e>1. Each curve has its own latus-rectum formula measuring how wide it opens at the focus.",
+          "**Conic Sections: इस chapter में क्या सीखेंगे**\n\nCone को अलग-अलग angles पर काटने से चार curves बनते हैं: circle, ellipse, parabola, hyperbola। Circle वे सभी points हैं जो centre से एक तय radius पर हों — (x−h)²+(y−k)²=r²। Parabola वे सभी points हैं जो एक focus और एक directrix से बराबर दूर हों — y²=4ax। Ellipse वे सभी points हैं जहाँ दो foci से दूरियों का योग स्थिर हो — x²/a²+y²/b²=1, eccentricity 0<e<1 के साथ। Hyperbola उस योग को अंतर से बदल देता है — x²/a²−y²/b²=1, eccentricity e>1 के साथ। हर curve का अपना latus-rectum formula है जो बताता है कि वह focus पर कितना खुला है।"),
+        checkpoint:b(
+          "Getting most Warm-up and Standard questions right, across every topic in this chapter, means you are ready to move on. Scoring low? Go back to '0. Revise: Circles You Already Know' and redo its example by hand — that is the fastest way forward, not a setback.",
+          "इस chapter के हर topic में ज़्यादातर Warm-up और Standard questions सही होना, मतलब आप आगे बढ़ने के लिए ready हैं। Score कम है? '0. Revise: Circles जो आप पहले से जानते हैं' पर वापस जाइए और उसका example हाथ से दोबारा कीजिए — यही सबसे तेज़ रास्ता है, हार नहीं।"),
+        assessment:["MTH-K01","MTH-K03","MTH-K05","MTH-K06","MTH-K09","MTH-K12","MTH-K14","MTH-K17",
+          "MTH-K20","MTH-K22","MTH-K25","MTH-K28","MTH-K31","MTH-K34","MTH-K37","MTH-K40",
+          "MTH-K43","MTH-K46","MTH-K49","MTH-K52","MTH-K55","MTH-K58","MTH-K62","MTH-K65"],
+        topics:conics}
     ]});
 
   window.SL_DATA.questions = (window.SL_DATA.questions||[]).filter(function(q){ return q.subject!=="MATH11"; });
@@ -2417,6 +2535,160 @@ window.SL_DATA = window.SL_DATA || {subjects:[], questions:[]};
     ["3x+4y+5=0","3x+4y−35=0","3x+4y−15=0","3x+4y+35=0"],["3x+4y+5=0","3x+4y−35=0","3x+4y−15=0","3x+4y+35=0"],"B","|−15−C|=20 gives C=5 or C=−35; the more negative option is −35.","|−15−C|=20 से C=5 या C=−35 मिलता है; ज़्यादा negative option −35 है।");
   add("MTH-L69",9,"MTH11-9-7",5,"Verify: find the distance between 3x+4y−15=0 and 3x+4y−35=0.","जाँचिए: 3x+4y−15=0 और 3x+4y−35=0 के बीच की distance निकालिए।",
     ["4","8","20","1"],["4","8","20","1"],"A","|−15−(−35)|/5 = 20/5 = 4.","|−15−(−35)|/5 = 20/5 = 4।");
+
+  /* ---- Ch10 Topic 0: Revise (5) ---- */
+  add("MTH-K01",10,"MTH11-10-0",1,"A circle is the set of all points:","Circle किन सभी points का set है?",
+    ["at a fixed distance from a line","at a fixed distance from one point","forming a straight path","equally spaced on a grid"],["एक line से तय दूरी पर","एक point से तय दूरी पर","एक सीधे रास्ते पर","grid पर बराबर फ़ासले पर"],"B","Distance from the centre stays constant.","Centre से दूरी स्थिर रहती है।");
+  add("MTH-K02",10,"MTH11-10-0",1,"The fixed point in a circle's definition is called the:","Circle की परिभाषा में तय point को क्या कहते हैं?",
+    ["radius","centre","diameter","focus"],["radius","centre","diameter","focus"],"B","Every point on the circle is equidistant from the centre.","Circle पर हर point centre से बराबर दूर है।");
+  add("MTH-K03",10,"MTH11-10-0",1,"The equation of a circle centred at the origin with radius r is:","Origin पर centred, radius r वाले circle का equation है:",
+    ["x+y=r","x²+y²=r²","x²−y²=r²","xy=r"],["x+y=r","x²+y²=r²","x²−y²=r²","xy=r"],"B","The squared distance formula.","Squared distance formula।");
+  add("MTH-K04",10,"MTH11-10-0",2,"Find the equation of a circle centred at (0,0) with radius 3.","(0,0) पर centred, radius 3 वाले circle का equation निकालिए।",
+    ["x²+y²=3","x²+y²=9","x²+y²=6","x+y=3"],["x²+y²=3","x²+y²=9","x²+y²=6","x+y=3"],"B","3² = 9.","3² = 9।");
+  add("MTH-K05",10,"MTH11-10-0",2,"Find the radius of the circle x²+y²=49.","Circle x²+y²=49 का radius निकालिए।",
+    ["49","7","24.5","14"],["49","7","24.5","14"],"B","√49 = 7.","√49 = 7।");
+
+  /* ---- Ch10 Topic 1: What is a Conic Section? (8) ---- */
+  add("MTH-K06",10,"MTH11-10-1",1,"Conic sections are formed by:","Conic sections कैसे बनते हैं?",
+    ["drawing circles","slicing a cone with a plane","measuring angles","adding two lines"],["circles बनाकर","cone को plane से काटकर","angles नापकर","दो lines जोड़कर"],"B","Different cutting angles give different curves.","अलग-अलग काटने के angles अलग curves देते हैं।");
+  add("MTH-K07",10,"MTH11-10-1",1,"A straight, flat cut through a cone gives a:","Cone में सीधा, flat कट क्या देता है?",
+    ["parabola","circle","hyperbola","point"],["parabola","circle","hyperbola","point"],"B","A level cut is a circle.","सीधा कट circle है।");
+  add("MTH-K08",10,"MTH11-10-1",1,"A tilted cut through a cone gives an:","Cone में तिरछा कट क्या देता है?",
+    ["circle","ellipse","hyperbola","line"],["circle","ellipse","hyperbola","line"],"B","A slanted cut stretches the circle into an ellipse.","तिरछा कट circle को ellipse में खींच देता है।");
+  add("MTH-K09",10,"MTH11-10-1",2,"A cut parallel to the cone's slanted side gives a:","Cone की ढलानदार साइड के समानांतर कट क्या देता है?",
+    ["circle","ellipse","parabola","hyperbola"],["circle","ellipse","parabola","hyperbola"],"C","This special angle gives a parabola.","यह ख़ास angle parabola देता है।");
+  add("MTH-K10",10,"MTH11-10-1",2,"A cut through both nappes of a double cone gives a:","Double cone के दोनों nappes से गुज़रता कट क्या देता है?",
+    ["circle","ellipse","parabola","hyperbola"],["circle","ellipse","parabola","hyperbola"],"D","Both halves give the two branches of a hyperbola.","दोनों हिस्से hyperbola की दो branches देते हैं।");
+  add("MTH-K11",10,"MTH11-10-1",2,"How many conic sections are there in total?","कुल कितने conic sections हैं?",
+    ["2","3","4","5"],["2","3","4","5"],"C","Circle, ellipse, parabola, hyperbola.","Circle, ellipse, parabola, hyperbola।");
+  add("MTH-K12",10,"MTH11-10-1",3,"Which conic section has two separate branches?","किस conic section की दो अलग branches हैं?",
+    ["circle","ellipse","parabola","hyperbola"],["circle","ellipse","parabola","hyperbola"],"D","Only the hyperbola splits into two curves.","सिर्फ़ hyperbola दो curves में बँटता है।");
+  add("MTH-K13",10,"MTH11-10-1",3,"Which conic section is like a special case of the ellipse?","किस conic section को ellipse का एक special case कह सकते हैं?",
+    ["parabola","hyperbola","circle","point"],["parabola","hyperbola","circle","point"],"C","A circle is an ellipse where both axes are equal.","Circle एक ellipse है जिसकी दोनों axes बराबर हैं।");
+
+  /* ---- Ch10 Topic 2: Circle Standard Equation (8) ---- */
+  add("MTH-K14",10,"MTH11-10-2",1,"The standard equation of a circle with centre (h,k) and radius r is:","Centre (h,k) और radius r वाले circle का standard equation है:",
+    ["x²+y²=r²","(x−h)²+(y−k)²=r²","(x+h)²+(y+k)²=r²","hx+ky=r"],["x²+y²=r²","(x−h)²+(y−k)²=r²","(x+h)²+(y+k)²=r²","hx+ky=r"],"B","Distance from (h,k) to any point on the circle is r.","(h,k) से circle पर किसी भी point की दूरी r है।");
+  add("MTH-K15",10,"MTH11-10-2",1,"Find the centre of the circle (x−3)²+(y+2)²=16.","Circle (x−3)²+(y+2)²=16 का centre निकालिए।",
+    ["(3,−2)","(3,2)","(−3,−2)","(−3,2)"],["(3,−2)","(3,2)","(−3,−2)","(−3,2)"],"A","Flip the signs inside each bracket.","हर bracket के अंदर के signs पलटिए।");
+  add("MTH-K16",10,"MTH11-10-2",1,"Find the radius of the circle (x−3)²+(y+2)²=16.","Circle (x−3)²+(y+2)²=16 का radius निकालिए।",
+    ["16","4","8","2"],["16","4","8","2"],"B","√16 = 4.","√16 = 4।");
+  add("MTH-K17",10,"MTH11-10-2",2,"Find the equation of a circle with centre (−3,2) and radius 4.","Centre (−3,2) और radius 4 वाले circle का equation निकालिए।",
+    ["(x+3)²+(y−2)²=16","(x−3)²+(y+2)²=16","(x+3)²+(y−2)²=4","(x−3)²+(y−2)²=16"],["(x+3)²+(y−2)²=16","(x−3)²+(y+2)²=16","(x+3)²+(y−2)²=4","(x−3)²+(y−2)²=16"],"A","Flip the centre's signs into the brackets.","Centre के signs को brackets में पलटिए।");
+  add("MTH-K18",10,"MTH11-10-2",2,"To find the centre from a general equation like x²+y²+6x−4y+4=0, you must:","x²+y²+6x−4y+4=0 जैसे general equation से centre पाने के लिए, क्या करना होगा?",
+    ["factor completely","complete the square","take the square root immediately","divide by x"],["पूरी तरह factor करना","complete the square करना","तुरंत square root लेना","x से divide करना"],"B","This reveals the (x−h)² and (y−k)² shape.","यह (x−h)² और (y−k)² shape सामने लाता है।");
+  add("MTH-K19",10,"MTH11-10-2",2,"Complete the square: x²+6x becomes:","Complete the square: x²+6x बन जाता है:",
+    ["(x+3)²−9","(x+6)²−36","(x+3)²−6","(x+3)²+9"],["(x+3)²−9","(x+6)²−36","(x+3)²−6","(x+3)²+9"],"A","Half of 6 is 3; subtract 3² to balance.","6 का आधा 3 है; balance के लिए 3² घटाइए।");
+  add("MTH-K20",10,"MTH11-10-2",3,"Find the centre and radius of x²+y²−6x−8y=0.","x²+y²−6x−8y=0 का centre और radius निकालिए।",
+    ["centre(3,4), radius 5","centre(−3,−4), radius 5","centre(3,4), radius 25","centre(6,8), radius 5"],["centre(3,4), radius 5","centre(−3,−4), radius 5","centre(3,4), radius 25","centre(6,8), radius 5"],"A","(x−3)²+(y−4)²=9+16=25, so radius=5.","(x−3)²+(y−4)²=9+16=25, इसलिए radius=5।");
+  add("MTH-K21",10,"MTH11-10-2",4,"Find the centre and radius of x²+y²+4x−6y−12=0.","x²+y²+4x−6y−12=0 का centre और radius निकालिए।",
+    ["centre(−2,3), radius 5","centre(2,−3), radius 5","centre(−2,3), radius 25","centre(−4,6), radius 5"],["centre(−2,3), radius 5","centre(2,−3), radius 5","centre(−2,3), radius 25","centre(−4,6), radius 5"],"A","(x+2)²+(y−3)²=12+4+9=25, so radius=5.","(x+2)²+(y−3)²=12+4+9=25, इसलिए radius=5।");
+
+  /* ---- Ch10 Topic 3: Parabola Definition and Standard Equations (9) ---- */
+  add("MTH-K22",10,"MTH11-10-3",1,"A parabola is the set of points equally distant from:","Parabola किन points से बराबर दूर सभी points का set है?",
+    ["two points","a point and a line","two lines","the origin only"],["दो points","एक point और एक line","दो lines","सिर्फ़ origin"],"B","Focus (point) and directrix (line).","Focus (point) और directrix (line)।");
+  add("MTH-K23",10,"MTH11-10-3",1,"The fixed point in a parabola's definition is the:","Parabola की परिभाषा में तय point को क्या कहते हैं?",
+    ["vertex","focus","directrix","centre"],["vertex","focus","directrix","centre"],"B","The point every curve-point is measured against.","वह point जिससे curve का हर point मापा जाता है।");
+  add("MTH-K24",10,"MTH11-10-3",1,"The fixed line in a parabola's definition is the:","Parabola की परिभाषा में तय line को क्या कहते हैं?",
+    ["axis","vertex","directrix","focus"],["axis","vertex","directrix","focus"],"C","The line every curve-point is also measured against.","वह line जिससे curve का हर point भी मापा जाता है।");
+  add("MTH-K25",10,"MTH11-10-3",2,"For y²=4ax, the focus is at:","y²=4ax के लिए, focus कहाँ है?",
+    ["(0,a)","(a,0)","(−a,0)","(0,−a)"],["(0,a)","(a,0)","(−a,0)","(0,−a)"],"B","On the x-axis, distance a from the vertex.","x-axis पर, vertex से दूरी a।");
+  add("MTH-K26",10,"MTH11-10-3",2,"For y²=4ax, the directrix is:","y²=4ax के लिए, directrix है:",
+    ["x=a","x=−a","y=a","y=−a"],["x=a","x=−a","y=a","y=−a"],"B","Vertical line on the opposite side of the vertex from the focus.","Vertex के उस पार वाली vertical line, focus के उलट।");
+  add("MTH-K27",10,"MTH11-10-3",2,"Which standard form opens downward?","कौन-सा standard form नीचे की ओर खुलता है?",
+    ["y²=4ax","y²=−4ax","x²=4ay","x²=−4ay"],["y²=4ax","y²=−4ax","x²=4ay","x²=−4ay"],"D","x² squared, negative sign, opens down.","x² squared, negative sign, नीचे खुलता है।");
+  add("MTH-K28",10,"MTH11-10-3",3,"Find a for the parabola y²=12x.","Parabola y²=12x के लिए a निकालिए।",
+    ["3","6","12","4"],["3","6","12","4"],"A","4a=12, so a=3.","4a=12, इसलिए a=3।");
+  add("MTH-K29",10,"MTH11-10-3",3,"Find the focus of the parabola y²=12x.","Parabola y²=12x का focus निकालिए।",
+    ["(3,0)","(0,3)","(−3,0)","(12,0)"],["(3,0)","(0,3)","(−3,0)","(12,0)"],"A","Focus is (a,0) with a=3.","Focus है (a,0), a=3 के साथ।");
+  add("MTH-K30",10,"MTH11-10-3",4,"Find the directrix of the parabola x²=16y.","Parabola x²=16y का directrix निकालिए।",
+    ["y=−4","x=−4","y=4","x=4"],["y=−4","x=−4","y=4","x=4"],"A","4a=16 so a=4; directrix is y=−a=−4.","4a=16 इसलिए a=4; directrix है y=−a=−4।");
+
+  /* ---- Ch10 Topic 4: Parabola Backward and Latus Rectum (9) ---- */
+  add("MTH-K31",10,"MTH11-10-4",1,"The latus rectum of a parabola passes through the:","Parabola का latus rectum किससे गुज़रता है?",
+    ["vertex","focus","directrix only","centre"],["vertex","focus","directrix केवल","centre"],"B","It is a chord through the focus.","यह focus से गुज़रती chord है।");
+  add("MTH-K32",10,"MTH11-10-4",1,"The latus rectum is always ___ to the axis of the parabola.","Latus rectum, parabola के axis के हमेशा ___ होता है।",
+    ["parallel","perpendicular","at 45°","equal"],["parallel","perpendicular","45° पर","equal"],"B","It crosses the axis at a right angle.","यह axis को एक right angle पर काटता है।");
+  add("MTH-K33",10,"MTH11-10-4",1,"The length of the latus rectum for y²=4ax is:","y²=4ax के latus rectum की length है:",
+    ["a","2a","4a","a²"],["a","2a","4a","a²"],"C","Always 4a for this standard form.","इस standard form के लिए हमेशा 4a।");
+  add("MTH-K34",10,"MTH11-10-4",2,"Find the latus rectum length for y²=20x.","y²=20x के लिए latus rectum की length निकालिए।",
+    ["5","10","20","40"],["5","10","20","40"],"C","4a=20 directly.","सीधे 4a=20।");
+  add("MTH-K35",10,"MTH11-10-4",2,"A parabola has focus (5,0) and vertex (0,0). Find a.","एक parabola का focus (5,0) है और vertex (0,0) है। a निकालिए।",
+    ["5","10","2.5","0"],["5","10","2.5","0"],"A","a is the vertex-to-focus distance.","a, vertex से focus तक की दूरी है।");
+  add("MTH-K36",10,"MTH11-10-4",2,"A parabola has focus (5,0) and vertex (0,0). Find its equation.","एक parabola का focus (5,0) है और vertex (0,0) है। इसका equation निकालिए।",
+    ["y²=20x","y²=10x","y²=5x","x²=20y"],["y²=20x","y²=10x","y²=5x","x²=20y"],"A","4a=20 with a=5.","4a=20, a=5 के साथ।");
+  add("MTH-K37",10,"MTH11-10-4",3,"A parabola has focus (0,−3) and vertex (0,0). Find its equation.","एक parabola का focus (0,−3) है और vertex (0,0) है। इसका equation निकालिए।",
+    ["x²=−12y","x²=12y","y²=−12x","x²=−6y"],["x²=−12y","x²=12y","y²=−12x","x²=−6y"],"A","Focus below vertex means opening down: x²=−4ay with a=3.","Focus, vertex से नीचे है यानी नीचे खुलता है: x²=−4ay, a=3 के साथ।");
+  add("MTH-K38",10,"MTH11-10-4",3,"A parabola has vertex (0,0) and directrix x=6. Find its equation.","एक parabola का vertex (0,0) है और directrix x=6 है। इसका equation निकालिए।",
+    ["y²=−24x","y²=24x","x²=24y","y²=−6x"],["y²=−24x","y²=24x","x²=24y","y²=−6x"],"A","Directrix x=a for y²=−4ax; here a=6.","y²=−4ax के लिए directrix x=a; यहाँ a=6।");
+  add("MTH-K39",10,"MTH11-10-4",4,"A parabola has vertex (0,0) and directrix y=−5. Find its equation.","एक parabola का vertex (0,0) है और directrix y=−5 है। इसका equation निकालिए।",
+    ["x²=20y","x²=−20y","y²=20x","x²=5y"],["x²=20y","x²=−20y","y²=20x","x²=5y"],"A","Directrix y=−a for x²=4ay; here a=5.","x²=4ay के लिए directrix y=−a; यहाँ a=5।");
+
+  /* ---- Ch10 Topic 5: Ellipse Definition, Equation, Eccentricity (9) ---- */
+  add("MTH-K40",10,"MTH11-10-5",1,"An ellipse is the set of points where the ___ of distances to two foci is constant.","Ellipse वे points हैं जहाँ दो foci से दूरियों का ___ स्थिर रहता है।",
+    ["difference","sum","product","ratio"],["अंतर","योग","गुणनफल","ratio"],"B","This is the defining property.","यही परिभाषित property है।");
+  add("MTH-K41",10,"MTH11-10-5",1,"For x²/a²+y²/b²=1 with a>b, the foci lie on the:","x²/a²+y²/b²=1 (a>b) के लिए, foci किस पर होते हैं?",
+    ["y-axis","x-axis","origin only","both axes"],["y-axis","x-axis","सिर्फ़ origin","दोनों axes"],"B","Along the longer (major) axis.","लम्बे (major) axis के साथ।");
+  add("MTH-K42",10,"MTH11-10-5",1,"The relationship between a, b, c for an ellipse is:","Ellipse के लिए a, b, c का संबंध है:",
+    ["c²=a²+b²","c²=a²−b²","c²=b²−a²","c=a+b"],["c²=a²+b²","c²=a²−b²","c²=b²−a²","c=a+b"],"B","Subtraction, since c is smaller than a.","घटाव, क्योंकि c, a से छोटा है।");
+  add("MTH-K43",10,"MTH11-10-5",2,"Eccentricity of an ellipse always satisfies:","Ellipse की eccentricity हमेशा किसे satisfy करती है?",
+    ["e=0","e=1","0<e<1","e>1"],["e=0","e=1","0<e<1","e>1"],"C","Strictly between 0 and 1.","सख़्ती से 0 और 1 के बीच।");
+  add("MTH-K44",10,"MTH11-10-5",2,"For x²/16+y²/4=1, find a and b.","x²/16+y²/4=1 के लिए, a और b निकालिए।",
+    ["a=4, b=2","a=2, b=4","a=16, b=4","a=4, b=4"],["a=4, b=2","a=2, b=4","a=16, b=4","a=4, b=4"],"A","√16=4, √4=2.","√16=4, √4=2।");
+  add("MTH-K45",10,"MTH11-10-5",2,"For x²/16+y²/4=1, find c.","x²/16+y²/4=1 के लिए, c निकालिए।",
+    ["√12","20","12","2"],["√12","20","12","2"],"A","c²=16−4=12, so c=√12.","c²=16−4=12, इसलिए c=√12।");
+  add("MTH-K46",10,"MTH11-10-5",3,"Find the eccentricity of the ellipse x²/16+y²/4=1 (using c=√12).","Ellipse x²/16+y²/4=1 की eccentricity निकालिए (c=√12 इस्तेमाल करके)।",
+    ["√12/4 ≈ 0.866","4/√12","12/16","0.5"],["√12/4 ≈ 0.866","4/√12","12/16","0.5"],"A","e = c/a = √12/4.","e = c/a = √12/4।");
+  add("MTH-K47",10,"MTH11-10-5",3,"An ellipse has a=10 and e=0.6. Find c.","एक ellipse का a=10 और e=0.6 है। c निकालिए।",
+    ["6","16.7","0.06","60"],["6","16.7","0.06","60"],"A","c = e×a = 0.6×10 = 6.","c = e×a = 0.6×10 = 6।");
+  add("MTH-K48",10,"MTH11-10-5",4,"An ellipse has a=10 and c=6. Find b.","एक ellipse का a=10 और c=6 है। b निकालिए।",
+    ["8","4","64","16"],["8","4","64","16"],"A","b²=100−36=64, so b=8.","b²=100−36=64, इसलिए b=8।");
+
+  /* ---- Ch10 Topic 6: Ellipse Latus Rectum (9) ---- */
+  add("MTH-K49",10,"MTH11-10-6",1,"The formula for the latus rectum of an ellipse is:","Ellipse के latus rectum का formula है:",
+    ["2a²/b","2b²/a","a²/b²","2ab"],["2a²/b","2b²/a","a²/b²","2ab"],"B","Twice b-squared over a.","b का square, दो गुना, a से divide।");
+  add("MTH-K50",10,"MTH11-10-6",1,"For an ellipse with a=5 and b=4, find the latus rectum.","a=5 और b=4 वाले ellipse के लिए, latus rectum निकालिए।",
+    ["32/5","25/4","16/5","40"],["32/5","25/4","16/5","40"],"A","2(16)/5 = 32/5.","2(16)/5 = 32/5।");
+  add("MTH-K51",10,"MTH11-10-6",2,"For the ellipse x²/25+y²/9=1, find the latus rectum.","Ellipse x²/25+y²/9=1 के लिए, latus rectum निकालिए।",
+    ["18/5","25/9","50/9","9/5"],["18/5","25/9","50/9","9/5"],"A","2(9)/5 = 18/5.","2(9)/5 = 18/5।");
+  add("MTH-K52",10,"MTH11-10-6",2,"For the ellipse x²/36+y²/16=1, find a and b.","Ellipse x²/36+y²/16=1 के लिए, a और b निकालिए।",
+    ["a=6, b=4","a=4, b=6","a=36, b=16","a=6, b=6"],["a=6, b=4","a=4, b=6","a=36, b=16","a=6, b=6"],"A","√36=6, √16=4.","√36=6, √16=4।");
+  add("MTH-K53",10,"MTH11-10-6",2,"For the ellipse x²/36+y²/16=1, find the latus rectum.","Ellipse x²/36+y²/16=1 के लिए, latus rectum निकालिए।",
+    ["16/3","6","36/16","4"],["16/3","6","36/16","4"],"A","2(16)/6 = 16/3.","2(16)/6 = 16/3।");
+  add("MTH-K54",10,"MTH11-10-6",3,"As eccentricity increases toward 1, the ellipse becomes:","Eccentricity 1 की ओर बढ़ने पर, ellipse कैसा हो जाता है?",
+    ["more circular","more stretched (thinner)","smaller","unchanged"],["ज़्यादा circular","ज़्यादा खिंचा हुआ (पतला)","छोटा","वैसा ही"],"B","Higher e means a flatter, more elongated shape.","ज़्यादा e का मतलब है ज़्यादा चपटा, लम्बा shape।");
+  add("MTH-K55",10,"MTH11-10-6",3,"As eccentricity approaches 0, the ellipse becomes:","Eccentricity 0 के पास होने पर, ellipse कैसा हो जाता है?",
+    ["a line","nearly circular","a parabola","a hyperbola"],["एक line","लगभग circular","एक parabola","एक hyperbola"],"B","a and b become nearly equal.","a और b लगभग बराबर हो जाते हैं।");
+  add("MTH-K56",10,"MTH11-10-6",3,"For an ellipse with a=13, b=12, find c.","a=13, b=12 वाले ellipse के लिए, c निकालिए।",
+    ["5","25","1","169"],["5","25","1","169"],"A","c²=169−144=25, so c=5.","c²=169−144=25, इसलिए c=5।");
+  add("MTH-K57",10,"MTH11-10-6",4,"For an ellipse with a=13, b=12, find the eccentricity and latus rectum.","a=13, b=12 वाले ellipse के लिए, eccentricity और latus rectum निकालिए।",
+    ["e=5/13, latus rectum=288/13","e=13/5, latus rectum=288/13","e=5/13, latus rectum=24/13","e=12/13, latus rectum=288/13"],["e=5/13, latus rectum=288/13","e=13/5, latus rectum=288/13","e=5/13, latus rectum=24/13","e=12/13, latus rectum=288/13"],"A","e=c/a=5/13; latus rectum=2(144)/13=288/13.","e=c/a=5/13; latus rectum=2(144)/13=288/13।");
+
+  /* ---- Ch10 Topic 7: Hyperbola Standard Equation and Eccentricity (12) ---- */
+  add("MTH-K58",10,"MTH11-10-7",1,"A hyperbola is the set of points where the ___ of distances to two foci is constant.","Hyperbola वे points हैं जहाँ दो foci से दूरियों का ___ स्थिर रहता है।",
+    ["sum","difference","product","ratio"],["योग","अंतर","गुणनफल","ratio"],"B","This flips the ellipse's rule.","यह ellipse के rule को पलट देता है।");
+  add("MTH-K59",10,"MTH11-10-7",1,"The relationship between a, b, c for a hyperbola is:","Hyperbola के लिए a, b, c का संबंध है:",
+    ["c²=a²−b²","c²=a²+b²","c=a−b","c²=b²−a²"],["c²=a²−b²","c²=a²+b²","c=a−b","c²=b²−a²"],"B","Addition, unlike the ellipse's subtraction.","जोड़, ellipse के घटाव के उलट।");
+  add("MTH-K60",10,"MTH11-10-7",1,"Eccentricity of a hyperbola always satisfies:","Hyperbola की eccentricity हमेशा किसे satisfy करती है?",
+    ["e=1","0<e<1","e>1","e=0"],["e=1","0<e<1","e>1","e=0"],"C","Always greater than 1.","हमेशा 1 से ज़्यादा।");
+  add("MTH-K61",10,"MTH11-10-7",2,"For x²/9−y²/16=1, find a and b.","x²/9−y²/16=1 के लिए, a और b निकालिए।",
+    ["a=3, b=4","a=4, b=3","a=9, b=16","a=16, b=9"],["a=3, b=4","a=4, b=3","a=9, b=16","a=16, b=9"],"A","√9=3, √16=4.","√9=3, √16=4।");
+  add("MTH-K62",10,"MTH11-10-7",2,"For x²/9−y²/16=1, find c.","x²/9−y²/16=1 के लिए, c निकालिए।",
+    ["5","7","25","1"],["5","7","25","1"],"A","c²=9+16=25, so c=5.","c²=9+16=25, इसलिए c=5।");
+  add("MTH-K63",10,"MTH11-10-7",2,"For x²/9−y²/16=1, find the eccentricity.","x²/9−y²/16=1 के लिए, eccentricity निकालिए।",
+    ["5/3","3/5","5/16","16/5"],["5/3","3/5","5/16","16/5"],"A","e = c/a = 5/3.","e = c/a = 5/3।");
+  add("MTH-K64",10,"MTH11-10-7",3,"The transverse axis of a hyperbola is the line through:","Hyperbola का transverse axis किस से गुज़रती line है?",
+    ["the two foci","the two vertices only, not foci","the centre and one focus","neither foci nor vertices"],["दोनों foci","सिर्फ़ दोनों vertices, foci नहीं","centre और एक focus","न foci, न vertices"],"A","Both the foci and the vertices sit on this line.","इस line पर foci और vertices दोनों बैठते हैं।");
+  add("MTH-K65",10,"MTH11-10-7",3,"For a hyperbola, if a=5 and c=13, find b.","Hyperbola के लिए, अगर a=5 और c=13, b निकालिए।",
+    ["12","8","18","144"],["12","8","18","144"],"A","b²=169−25=144, so b=12.","b²=169−25=144, इसलिए b=12।");
+  add("MTH-K66",10,"MTH11-10-7",3,"Find the latus rectum of the hyperbola x²/9−y²/16=1 (using 2b²/a).","Hyperbola x²/9−y²/16=1 का latus rectum निकालिए (2b²/a इस्तेमाल करके)।",
+    ["32/3","9/16","3/32","128/3"],["32/3","9/16","3/32","128/3"],"A","2(16)/3 = 32/3.","2(16)/3 = 32/3।");
+  add("MTH-K67",10,"MTH11-10-7",4,"A hyperbola has a=4, b=3. Find c and eccentricity.","Hyperbola का a=4, b=3 है। c और eccentricity निकालिए।",
+    ["c=5, e=5/4","c=5, e=4/5","c=7, e=7/4","c=1, e=1/4"],["c=5, e=5/4","c=5, e=4/5","c=7, e=7/4","c=1, e=1/4"],"A","c²=16+9=25, c=5, e=5/4.","c²=16+9=25, c=5, e=5/4।");
+  add("MTH-K68",10,"MTH11-10-7",4,"Which of these is true for both ellipse and hyperbola?","इनमें से क्या ellipse और hyperbola दोनों के लिए सच है?",
+    ["e=c/a in both","c²=a²−b² in both","c²=a²+b² in both","both have e<1"],["दोनों में e=c/a","दोनों में c²=a²−b²","दोनों में c²=a²+b²","दोनों में e<1"],"A","Only the eccentricity formula's shape is shared; the c-relation differs.","सिर्फ़ eccentricity formula का shape साझा है; c का संबंध अलग है।");
+  add("MTH-K69",10,"MTH11-10-7",5,"A hyperbola has foci (±5,0) and a=3. Find b and the equation.","Hyperbola के foci (±5,0) हैं और a=3 है। b और equation निकालिए।",
+    ["b=4, x²/9−y²/16=1","b=4, x²/16−y²/9=1","b=16, x²/9−y²/256=1","b=4, x²/9+y²/16=1"],["b=4, x²/9−y²/16=1","b=4, x²/16−y²/9=1","b=16, x²/9−y²/256=1","b=4, x²/9+y²/16=1"],"A","c=5, a=3, b²=25−9=16, so b=4.","c=5, a=3, b²=25−9=16, इसलिए b=4।");
 
   window.SL_DATA.questions = window.SL_DATA.questions.concat(Q);
 })();

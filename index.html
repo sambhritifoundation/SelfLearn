@@ -4756,6 +4756,56 @@ var DIAGRAMS = {
       +'</svg>';
   },
 
+  "conic-four-shapes": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 460 300" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="230" y="18" text-anchor="middle" font-size="16" font-weight="bold" fill="var(--primary)">'+d("The four conic sections","चार conic sections")+'</text>'
+      +'<circle cx="115" cy="90" r="45" fill="none" stroke="var(--primary)" stroke-width="3"/>'
+      +'<text x="115" y="150" text-anchor="middle" font-size="13" font-weight="bold" fill="var(--primary)">'+d("Circle","Circle")+'</text>'
+      +'<ellipse cx="345" cy="90" rx="60" ry="38" fill="none" stroke="var(--teal)" stroke-width="3"/>'
+      +'<text x="345" y="150" text-anchor="middle" font-size="13" font-weight="bold" fill="var(--teal)">'+d("Ellipse","Ellipse")+'</text>'
+      +'<path d="M65,250 Q115,160 165,250" fill="none" stroke="var(--accent)" stroke-width="3"/>'
+      +'<text x="115" y="280" text-anchor="middle" font-size="13" font-weight="bold" fill="var(--accent)">'+d("Parabola","Parabola")+'</text>'
+      +'<path d="M320,190 Q290,220 320,250" fill="none" stroke="var(--red)" stroke-width="3"/>'
+      +'<path d="M370,190 Q400,220 370,250" fill="none" stroke="var(--red)" stroke-width="3"/>'
+      +'<text x="345" y="280" text-anchor="middle" font-size="13" font-weight="bold" fill="var(--red)">'+d("Hyperbola","Hyperbola")+'</text>'
+      +'</svg>';
+  },
+
+  "parabola-focus-directrix": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 460 300" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="230" y="18" text-anchor="middle" font-size="16" font-weight="bold" fill="var(--primary)">'+d("Every point is equally far from the focus and the directrix","हर point, focus और directrix से बराबर दूर है")+'</text>'
+      +'<line x1="60" y1="35" x2="60" y2="265" stroke="var(--accent)" stroke-width="2.5"/>'
+      +'<text x="60" y="28" text-anchor="middle" font-size="12.5" fill="var(--accent)">'+d("directrix","directrix")+'</text>'
+      +'<path d="M162.5,50 Q135.2,75 115.6,100 Q103.9,125 100,150 Q103.9,175 115.6,200 Q135.2,225 162.5,250" fill="none" stroke="var(--primary)" stroke-width="3"/>'
+      +'<circle cx="140" cy="150" r="5" fill="var(--red)"/>'
+      +'<text x="140" y="138" text-anchor="middle" font-size="13" font-weight="bold" fill="var(--red)">F</text>'
+      +'<circle cx="135.2" cy="225" r="4.5" fill="var(--ink)"/>'
+      +'<text x="147" y="222" font-size="13" font-weight="bold" fill="var(--ink)">P</text>'
+      +'<line x1="135.2" y1="225" x2="140" y2="150" stroke="var(--red)" stroke-width="2" stroke-dasharray="4,3"/>'
+      +'<line x1="135.2" y1="225" x2="60" y2="225" stroke="var(--accent)" stroke-width="2" stroke-dasharray="4,3"/>'
+      +'<text x="230" y="288" text-anchor="middle" font-size="12.5" font-style="italic" fill="var(--muted)">'+d("distance PF = distance from P to the directrix, always","distance PF = P से directrix तक की दूरी, हमेशा")+'</text>'
+      +'</svg>';
+  },
+
+  "ellipse-foci": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 460 300" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="230" y="18" text-anchor="middle" font-size="16" font-weight="bold" fill="var(--primary)">'+d("PF₁ + PF₂ is always the same total","PF₁ + PF₂ हमेशा एक जैसा कुल रहता है")+'</text>'
+      +'<ellipse cx="230" cy="150" rx="150" ry="90" fill="none" stroke="var(--primary)" stroke-width="3"/>'
+      +'<circle cx="110" cy="150" r="5" fill="var(--accent)"/>'
+      +'<text x="110" y="168" text-anchor="middle" font-size="13" font-weight="bold" fill="var(--accent)">F₁</text>'
+      +'<circle cx="350" cy="150" r="5" fill="var(--accent)"/>'
+      +'<text x="350" y="168" text-anchor="middle" font-size="13" font-weight="bold" fill="var(--accent)">F₂</text>'
+      +'<circle cx="230" cy="60" r="5" fill="var(--red)"/>'
+      +'<text x="240" y="55" font-size="13" font-weight="bold" fill="var(--red)">P</text>'
+      +'<line x1="230" y1="60" x2="110" y2="150" stroke="var(--red)" stroke-width="2" stroke-dasharray="4,3"/>'
+      +'<line x1="230" y1="60" x2="350" y2="150" stroke="var(--red)" stroke-width="2" stroke-dasharray="4,3"/>'
+      +'<text x="230" y="288" text-anchor="middle" font-size="12.5" font-style="italic" fill="var(--muted)">'+d("wherever P sits on the ellipse, PF₁ + PF₂ = 2a","P कहीं भी हो, PF₁ + PF₂ = 2a")+'</text>'
+      +'</svg>';
+  },
+
 };
 
 /* Interactive widgets: sliders students can move to feel the relationship. */
