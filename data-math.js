@@ -744,6 +744,113 @@ window.SL_DATA = window.SL_DATA || {subjects:[], questions:[]};
         b("(102)³ = 1,061,208.","(102)³ = 1,061,208।")))
   ];
 
+  var sequences=[
+
+    topic("MTH11-8-0",
+      b("0. Revise: Arithmetic Progressions You Already Know","0. दोहराइए: Arithmetic Progressions जो आप पहले से जानते हैं"),
+      b(
+        "From Class 10: an **arithmetic progression (A.P.)** is a list of numbers where the **same amount** is added each time.\n\n$$3,7,11,15,\\ldots\\qquad(\\text{add }4\\text{ each time})$$\n\nCall the first term $a$ and the fixed added amount the **common difference** $d$.\n\n$$n\\text{th term: }a_n=a+(n-1)d\\qquad\\text{Sum of }n\\text{ terms: }S_n=\\dfrac{n}{2}\\big[2a+(n-1)d\\big]$$\n\nThis chapter builds on A.P. and introduces its cousin, where you **multiply** instead of add.",
+        "Class 10 से: **arithmetic progression (A.P.)** एक ऐसी numbers की list है जहाँ हर बार **एक जैसी मात्रा** जुड़ती है।\n\n$$3,7,11,15,\\ldots\\qquad(\\text{हर बार }4\\text{ जोड़ें})$$\n\nपहले term को $a$ कहिए और जुड़ने वाली fixed मात्रा को **common difference** $d$।\n\n$$n\\text{वाँ term: }a_n=a+(n-1)d\\qquad n\\text{ terms का Sum: }S_n=\\dfrac{n}{2}\\big[2a+(n-1)d\\big]$$\n\nयह chapter A.P. पर बनता है और उसके चचेरे भाई से मिलवाता है, जहाँ जोड़ने की जगह **गुणा** करते हैं।"),
+      worked(
+        b("Find the 10th term of the A.P. 3, 7, 11, 15, ...","A.P. 3, 7, 11, 15, ... का 10वाँ term निकालिए।"),
+        [
+          ["Identify a=3 and d=4 (each term adds 4).","a=3 और d=4 पहचानिए (हर term में 4 जुड़ता है)।","Compare consecutive terms to find the common difference.","Common difference पाने के लिए लगातार terms compare कीजिए।"],
+          ["a₁₀ = a + 9d = 3 + 9(4) = 39.","a₁₀ = a + 9d = 3 + 9(4) = 39।","Use n=10 in the nth-term formula.","nth-term formula में n=10 इस्तेमाल कीजिए।"]
+        ],
+        b("The 10th term is 39.","10वाँ term 39 है।"))),
+
+    topic("MTH11-8-1",
+      b("1. What is a Sequence?","1. Sequence क्या है?"),
+      b(
+        "Assume a 30-year generation gap. The number of your ancestors in each generation — parents, grandparents, great-grandparents — goes $2,4,8,16,32,\\ldots$\n\nThis ordered list is a **sequence**. Each number is called a **term**, written $a_1,a_2,a_3,\\ldots$ The term at position $n$ is $a_n$, also called the **general term**.\n\nA sequence is **finite** if it stops (10 generations over 300 years) or **infinite** if it never ends.\n\nSome sequences follow a clean formula, like $a_n=2n$ for even numbers. Others follow a **recurrence** — each term built from earlier ones, like the Fibonacci sequence $1,1,2,3,5,8,\\ldots$ where $a_n=a_{n-1}+a_{n-2}$.",
+        "मान लीजिए हर generation में 30 साल का gap है। हर generation में आपके ancestors की संख्या — parents, grandparents, great-grandparents — है $2,4,8,16,32,\\ldots$\n\nयह क्रम में रखी list एक **sequence** है। हर number एक **term** है, लिखा जाता है $a_1,a_2,a_3,\\ldots$ Position $n$ पर वाला term है $a_n$, इसे **general term** भी कहते हैं।\n\nSequence **finite** है अगर वह रुक जाए (300 सालों में 10 generations), या **infinite** है अगर वह कभी न रुके।\n\nकुछ sequences एक साफ़ formula follow करती हैं, जैसे even numbers के लिए $a_n=2n$। कुछ **recurrence** follow करती हैं — हर term पिछलों से बनता है, जैसे Fibonacci sequence $1,1,2,3,5,8,\\ldots$ जहाँ $a_n=a_{n-1}+a_{n-2}$।"),
+      worked(
+        b("A sequence is given by aₙ=2ⁿ. Find a₅.","एक sequence aₙ=2ⁿ से दी गई है। a₅ निकालिए।"),
+        [
+          ["Substitute n=5 into the formula: a₅ = 2⁵.","Formula में n=5 रखिए: a₅ = 2⁵।","The general term formula works for any position n.","General term formula किसी भी position n के लिए काम करता है।"],
+          ["2⁵ = 32.","2⁵ = 32।","2×2×2×2×2 = 32.","2×2×2×2×2 = 32।"]
+        ],
+        b("a₅ = 32.","a₅ = 32।"))),
+
+    topic("MTH11-8-2",
+      b("2. Series and Sigma Notation","2. Series और Sigma Notation"),
+      b(
+        "A **series** is what you get when you add up a sequence's terms instead of just listing them.\n\n$$a_1+a_2+a_3+\\cdots+a_n$$\n\nWriting this out fully gets long, so mathematicians use the Greek letter $\\Sigma$ (sigma) as a shorthand for ‘sum’.\n\n$$\\sum_{k=1}^{n}a_k=a_1+a_2+\\cdots+a_n$$\n\nRead it as: ‘sum $a_k$, as $k$ runs from 1 to $n$’.",
+        "**Series** वह है जो sequence के terms को सिर्फ़ list करने की जगह जोड़ने पर मिलता है।\n\n$$a_1+a_2+a_3+\\cdots+a_n$$\n\nइसे पूरा लिखना लम्बा हो जाता है, इसलिए mathematicians ‘sum’ के लिए Greek letter $\\Sigma$ (sigma) का shorthand इस्तेमाल करते हैं।\n\n$$\\sum_{k=1}^{n}a_k=a_1+a_2+\\cdots+a_n$$\n\nइसे पढ़िए: ‘$a_k$ का sum, जैसे $k$, 1 से $n$ तक चलता है’।"),
+      worked(
+        b("Find the sum of the first 4 terms of the sequence aₙ=2n−1 (odd numbers).","Sequence aₙ=2n−1 (odd numbers) के पहले 4 terms का sum निकालिए।"),
+        [
+          ["List the terms: a₁=1, a₂=3, a₃=5, a₄=7.","Terms लिखिए: a₁=1, a₂=3, a₃=5, a₄=7।","Substitute n=1,2,3,4 into the formula.","Formula में n=1,2,3,4 रखिए।"],
+          ["Add them: 1+3+5+7 = 16.","इन्हें जोड़िए: 1+3+5+7 = 16।","This sum is written Σ(2k−1) for k=1 to 4.","यह sum Σ(2k−1) लिखा जाता है, k=1 से 4 तक।"]
+        ],
+        b("The sum is 16.","Sum 16 है।"))),
+
+    topic("MTH11-8-3",
+      b("3. Geometric Progression: the General Term","3. Geometric Progression: General Term"),
+      b(
+        "A **geometric progression (G.P.)** is a sequence where you **multiply** by the same fixed number each time, instead of adding.\n\n$$2,6,18,54,\\ldots\\qquad(\\text{multiply by }3\\text{ each time})$$\n\nCall the first term $a$ and the fixed multiplier the **common ratio** $r$ (found by dividing any term by the one before it).\n\n$$a_n=ar^{n-1}$$\n\nCompare this to the A.P. formula $a_n=a+(n-1)d$ — same shape, but multiplication has replaced addition throughout.",
+        "**Geometric progression (G.P.)** एक sequence है जहाँ हर बार जोड़ने की जगह एक ही fixed number से **गुणा** करते हैं।\n\n$$2,6,18,54,\\ldots\\qquad(\\text{हर बार }3\\text{ से गुणा})$$\n\nपहले term को $a$ कहिए और fixed multiplier को **common ratio** $r$ (किसी term को उससे पहले वाले से divide करके मिलता है)।\n\n$$a_n=ar^{n-1}$$\n\nइसे A.P. formula $a_n=a+(n-1)d$ से compare कीजिए — same shape, बस जोड़ने की जगह हर जगह गुणा आ गया।"),
+      worked(
+        b("Find the 5th term of the G.P. 2, 6, 18, 54, ...","G.P. 2, 6, 18, 54, ... का 5वाँ term निकालिए।"),
+        [
+          ["Identify a=2 and r=3 (each term is 3 times the last).","a=2 और r=3 पहचानिए (हर term पिछले का 3 गुना है)।","Divide any term by the one before it to find r.","r पाने के लिए किसी term को उससे पहले वाले से divide कीजिए।"],
+          ["a₅ = ar⁴ = 2×3⁴ = 2×81 = 162.","a₅ = ar⁴ = 2×3⁴ = 2×81 = 162।","Use n=5 in the general-term formula.","General-term formula में n=5 इस्तेमाल कीजिए।"]
+        ],
+        b("The 5th term is 162.","5वाँ term 162 है।"))),
+
+    topic("MTH11-8-4",
+      b("4. Sum of a Geometric Progression","4. Geometric Progression का Sum"),
+      b(
+        "Adding G.P. terms one by one gets slow. There is a direct formula for the sum of the first $n$ terms, when $r\\neq1$:\n\n$$S_n=\\dfrac{a(r^n-1)}{r-1}$$\n\nThis single formula replaces adding potentially huge lists of numbers by hand — useful the moment $n$ gets large, like the number of ancestors over many generations.",
+        "G.P. के terms को एक-एक करके जोड़ना धीमा है। पहले $n$ terms के sum के लिए एक सीधा formula है, जब $r\\neq1$:\n\n$$S_n=\\dfrac{a(r^n-1)}{r-1}$$\n\nयह एक formula, हाथ से बड़ी-बड़ी lists जोड़ने की जगह लेता है — तब काम आता है जब $n$ बड़ा हो जाए, जैसे कई generations में ancestors की संख्या।"),
+      worked(
+        b("Find the sum of the first 5 terms of the G.P. 1, 2, 4, 8, ...","G.P. 1, 2, 4, 8, ... के पहले 5 terms का sum निकालिए।"),
+        [
+          ["Identify a=1, r=2, n=5.","a=1, r=2, n=5 पहचानिए।","Each term doubles, so r=2.","हर term दोगुना होता है, इसलिए r=2।"],
+          ["S₅ = 1×(2⁵−1)/(2−1) = (32−1)/1 = 31.","S₅ = 1×(2⁵−1)/(2−1) = (32−1)/1 = 31।","Substitute directly into the sum formula.","Sum formula में सीधे रखिए।"]
+        ],
+        b("The sum is 31.","Sum 31 है।"))),
+
+    topic("MTH11-8-5",
+      b("5. Geometric Mean and the A.M.–G.M. Relationship","5. Geometric Mean और A.M.–G.M. का संबंध"),
+      b(
+        "You already know the **arithmetic mean (A.M.)** of two numbers: $\\dfrac{a+b}{2}$, the ordinary average.\n\nThe **geometric mean (G.M.)** of two positive numbers is $\\sqrt{ab}$ — it makes $a,\\text{G.M.},b$ into a G.P., the same way the A.M. makes $a,\\text{A.M.},b$ into an A.P.\n\nFor 2 and 8: A.M. $=\\dfrac{2+8}{2}=5$, but G.M. $=\\sqrt{16}=4$.\n\nThis is not a coincidence — for any two positive numbers, **A.M. is never smaller than G.M.**\n\n$$\\dfrac{a+b}{2}\\geq\\sqrt{ab}$$",
+        "आप दो numbers का **arithmetic mean (A.M.)** पहले से जानते हैं: $\\dfrac{a+b}{2}$, साधारण average।\n\nदो positive numbers का **geometric mean (G.M.)** है $\\sqrt{ab}$ — यह $a,\\text{G.M.},b$ को एक G.P. बना देता है, वैसे ही जैसे A.M., $a,\\text{A.M.},b$ को एक A.P. बनाता है।\n\n2 और 8 के लिए: A.M. $=\\dfrac{2+8}{2}=5$, पर G.M. $=\\sqrt{16}=4$।\n\nयह coincidence नहीं है — किसी भी दो positive numbers के लिए, **A.M. कभी G.M. से छोटा नहीं होता।**\n\n$$\\dfrac{a+b}{2}\\geq\\sqrt{ab}$$"),
+      worked(
+        b("Find the A.M. and G.M. of 4 and 16, and confirm A.M. ≥ G.M.","4 और 16 का A.M. और G.M. निकालिए, और A.M. ≥ G.M. जाँचिए।"),
+        [
+          ["A.M. = (4+16)/2 = 10.","A.M. = (4+16)/2 = 10।","The ordinary average of the two numbers.","दोनों numbers का साधारण average।"],
+          ["G.M. = √(4×16) = √64 = 8. Since 10 ≥ 8, the relationship holds.","G.M. = √(4×16) = √64 = 8। चूँकि 10 ≥ 8, relationship सही है।","Multiply the two numbers, then take the square root.","दोनों numbers गुणा करके square root लीजिए।"]
+        ],
+        b("A.M. = 10, G.M. = 8, and 10 ≥ 8.","A.M. = 10, G.M. = 8, और 10 ≥ 8।"))),
+
+    topic("MTH11-8-6",
+      b("6. Recognising A.P. vs G.P.","6. A.P. और G.P. में फ़र्क़ पहचानना"),
+      b(
+        "The two progressions grow completely differently — one steadily, one explosively.\n\n{{diagram:ap-gp-comparison}}\n\n**Test for A.P.:** subtract consecutive terms. If the difference is always the same, it is an A.P.\n\n**Test for G.P.:** divide consecutive terms. If the ratio is always the same, it is a G.P.\n\nFor $5,10,15,20$: differences are $5,5,5$ — an A.P. For $5,10,20,40$: ratios are $2,2,2$ — a G.P. Some sequences are neither.",
+        "दोनों progressions बिल्कुल अलग तरह से बढ़ती हैं — एक स्थिर रफ़्तार से, दूसरी विस्फोटक रूप से।\n\n{{diagram:ap-gp-comparison}}\n\n**A.P. का test:** लगातार terms घटाइए। अगर अंतर हमेशा एक जैसा हो, यह A.P. है।\n\n**G.P. का test:** लगातार terms को divide कीजिए। अगर ratio हमेशा एक जैसा हो, यह G.P. है।\n\n$5,10,15,20$ के लिए: अंतर हैं $5,5,5$ — यह A.P. है। $5,10,20,40$ के लिए: ratios हैं $2,2,2$ — यह G.P. है। कुछ sequences न तो A.P. हैं, न G.P.।"),
+      worked(
+        b("Is the sequence 3, 9, 27, 81 an A.P. or a G.P.?","क्या sequence 3, 9, 27, 81 एक A.P. है या G.P.?"),
+        [
+          ["Check differences first: 9−3=6, 27−9=18. Not equal, so not an A.P.","पहले अंतर जाँचिए: 9−3=6, 27−9=18। बराबर नहीं, इसलिए A.P. नहीं है।","An A.P. needs the SAME difference every time.","A.P. के लिए हर बार अंतर एक जैसा चाहिए।"],
+          ["Check ratios instead: 9÷3=3, 27÷9=3, 81÷27=3. Same ratio — it is a G.P.","इसकी जगह ratios जाँचिए: 9÷3=3, 27÷9=3, 81÷27=3। एक जैसा ratio — यह G.P. है।","A constant ratio is exactly the G.P. test.","स्थिर ratio ही G.P. का test है।"]
+        ],
+        b("It is a G.P. with common ratio 3.","यह common ratio 3 वाला G.P. है।"))),
+
+    topic("MTH11-8-7",
+      b("7. Applying Sequences and Series","7. Sequences और Series का इस्तेमाल"),
+      b(
+        "Real growth often behaves like a G.P., not an A.P. — because most real change compounds (multiplies), rather than adding a fixed amount.\n\n**Example:** a town's population is 100, and it doubles every year. After $n$ years, the population is:\n\n$$100\\times2^n$$\n\nAfter 5 years: $100\\times2^5=100\\times32=3200$.\n\nMoney in a savings account earning fixed interest, a rumour spreading person-to-person, a virus spreading through contacts — all of these are G.P.-shaped, which is exactly why they can look deceptively slow at first, then rise very fast.",
+        "असली growth अक्सर G.P. जैसी होती है, A.P. जैसी नहीं — क्योंकि ज़्यादातर असली बदलाव compound होता है (गुणा होता है), fixed मात्रा नहीं जुड़ती।\n\n**उदाहरण:** एक शहर की population 100 है, और हर साल दोगुनी होती है। $n$ सालों बाद, population है:\n\n$$100\\times2^n$$\n\n5 सालों बाद: $100\\times2^5=100\\times32=3200$।\n\nFixed interest वाले savings account का पैसा, व्यक्ति-से-व्यक्ति फैलती अफ़वाह, contacts से फैलता virus — ये सब G.P.-आकार के हैं, इसीलिए ये शुरू में धीमे दिख सकते हैं, फिर बहुत तेज़ बढ़ते हैं।"),
+      worked(
+        b("A sheet of paper is folded in half repeatedly. It starts 0.1 mm thick. How thick is it after 6 folds?","एक कागज़ को बार-बार आधा मोड़ा जाता है। यह 0.1 mm मोटा शुरू होता है। 6 folds के बाद यह कितना मोटा है?"),
+        [
+          ["Each fold doubles the thickness — this is a G.P. with a=0.1, r=2.","हर fold मोटाई दोगुनी करता है — यह a=0.1, r=2 वाला G.P. है।","Folding in half is exactly a ×2 operation, repeated.","आधा मोड़ना ठीक एक ×2 operation है, दोहराया हुआ।"],
+          ["After 6 folds: 0.1×2⁶ = 0.1×64 = 6.4 mm.","6 folds के बाद: 0.1×2⁶ = 0.1×64 = 6.4 mm।","6 folds means multiplying by r six times, i.e. r⁶.","6 folds का मतलब है r को छह बार गुणा करना, यानी r⁶।"]
+        ],
+        b("6.4 mm thick.","6.4 mm मोटा।")))
+  ];
+
   window.SL_DATA.subjects = (window.SL_DATA.subjects||[]).filter(function(s){ return s.code!=="MATH11"; });
 
   window.SL_DATA.subjects.push({code:"MATH11",board:"CBSE",klass:11,icon:"📐",
@@ -828,7 +935,18 @@ window.SL_DATA = window.SL_DATA || {subjects:[], questions:[]};
         assessment:["MTH-B01","MTH-B03","MTH-B05","MTH-B07","MTH-B09","MTH-B11","MTH-B13","MTH-B15",
           "MTH-B17","MTH-B19","MTH-B21","MTH-B23","MTH-B25","MTH-B27","MTH-B29","MTH-B31",
           "MTH-B33","MTH-B35","MTH-B37","MTH-B39","MTH-B41","MTH-B43","MTH-B45","MTH-B47"],
-        topics:binomial}
+        topics:binomial},
+      {no:8,name:b("Sequences and Series","Sequences और Series"),
+        summary:b(
+          "**Sequences and Series: what this chapter covers**\n\nA sequence is an ordered list of numbers, each called a term; a series is what you get by adding them, written compactly with sigma notation. An A.P. adds a fixed amount each step (recap from Class 10); a G.P. multiplies by a fixed ratio instead — the same shape of formula, addition swapped for multiplication. Both have a formula for the nth term and for the sum of the first n terms. The geometric mean √(ab) always sits at or below the arithmetic mean (a+b)/2. Real growth — population, money, spreading rumours — usually behaves like a G.P., not an A.P.",
+          "**Sequences और Series: इस chapter में क्या सीखेंगे**\n\nSequence एक क्रम में रखी numbers की list है, हर एक को term कहते हैं; series उन्हें जोड़ने पर मिलती है, sigma notation से छोटे में लिखी जाती है। A.P. में हर step पर एक fixed मात्रा जुड़ती है (Class 10 से दोहराना); G.P. में इसकी जगह एक fixed ratio से गुणा होता है — वही formula का आकार, बस जोड़ की जगह गुणा। दोनों के nth term और पहले n terms के sum के फ़ॉर्मूले हैं। Geometric mean √(ab), हमेशा arithmetic mean (a+b)/2 के बराबर या उससे कम होता है। असली growth — population, पैसा, फैलती अफ़वाहें — आम तौर पर G.P. जैसी होती है, A.P. जैसी नहीं।"),
+        checkpoint:b(
+          "Getting most Warm-up and Standard questions right, across every topic in this chapter, means you are ready to move on. Scoring low? Go back to '0. Revise: Arithmetic Progressions You Already Know' and redo its example by hand — that is the fastest way forward, not a setback.",
+          "इस chapter के हर topic में ज़्यादातर Warm-up और Standard questions सही होना, मतलब आप आगे बढ़ने के लिए ready हैं। Score कम है? '0. Revise: Arithmetic Progressions जो आप पहले से जानते हैं' पर वापस जाइए और उसका example हाथ से दोबारा कीजिए — यही सबसे तेज़ रास्ता है, हार नहीं।"),
+        assessment:["MTH-Q01","MTH-Q03","MTH-Q05","MTH-Q06","MTH-Q09","MTH-Q12","MTH-Q14","MTH-Q17",
+          "MTH-Q20","MTH-Q22","MTH-Q25","MTH-Q28","MTH-Q31","MTH-Q34","MTH-Q37","MTH-Q40",
+          "MTH-Q43","MTH-Q46","MTH-Q49","MTH-Q52","MTH-Q55","MTH-Q58","MTH-Q62","MTH-Q67"],
+        topics:sequences}
     ]});
 
   window.SL_DATA.questions = (window.SL_DATA.questions||[]).filter(function(q){ return q.subject!=="MATH11"; });
@@ -1873,6 +1991,160 @@ window.SL_DATA = window.SL_DATA || {subjects:[], questions:[]};
     ["1+100×0.02 = 3","1+0.02 = 1.02","100×0.02 = 2","1−100×0.02"],["1+100×0.02 = 3","1+0.02 = 1.02","100×0.02 = 2","1−100×0.02"],"A","¹⁰⁰C₀+¹⁰⁰C₁(0.02) = 1+2 = 3.","¹⁰⁰C₀+¹⁰⁰C₁(0.02) = 1+2 = 3।");
   add("MTH-B48",7,"MTH11-7-5",5,"Which statement about (1.01)^1000000 is true, using just the first two binomial terms?","(1.01)^1000000 के बारे में कौन-सा सच है, सिर्फ़ पहले दो binomial terms से?",
     ["It is greater than 10,000, since 1+1000000×0.01 = 10001","It is less than 10,000","It equals exactly 10,000","It cannot be estimated this way"],["यह 10,000 से बड़ा है, क्योंकि 1+1000000×0.01 = 10001","यह 10,000 से छोटा है","यह ठीक 10,000 के बराबर है","इस तरह अंदाज़ा नहीं लगाया जा सकता"],"A","Just the first two terms already exceed 10,000.","सिर्फ़ पहले दो terms ही 10,000 से ज़्यादा हैं।");
+
+  /* ---- Ch8 Topic 0: Revise (5) ---- */
+  add("MTH-Q01",8,"MTH11-8-0",1,"In an A.P., the common difference is:","A.P. में common difference है:",
+    ["multiplied each time","added each time","squared each time","divided each time"],["हर बार गुणा होता है","हर बार जुड़ता है","हर बार square होता है","हर बार भाग होता है"],"B","d is added at every step.","हर step पर d जुड़ता है।");
+  add("MTH-Q02",8,"MTH11-8-0",1,"For the A.P. 2,5,8,11,..., the common difference is:","A.P. 2,5,8,11,... के लिए, common difference है:",
+    ["2","3","5","8"],["2","3","5","8"],"B","5−2=3.","5−2=3।");
+  add("MTH-Q03",8,"MTH11-8-0",1,"The nth term formula for an A.P. is:","A.P. का nth term formula है:",
+    ["a+(n−1)d","a×(n−1)d","a+nd","a−(n−1)d"],["a+(n−1)d","a×(n−1)d","a+nd","a−(n−1)d"],"A","Add d exactly (n−1) times to the first term.","पहले term में d को ठीक (n−1) बार जोड़िए।");
+  add("MTH-Q04",8,"MTH11-8-0",2,"Find the 6th term of the A.P. 4,9,14,19,...","A.P. 4,9,14,19,... का 6वाँ term निकालिए।",
+    ["24","29","34","19"],["24","29","34","19"],"B","4+5(5) = 29.","4+5(5) = 29।");
+  add("MTH-Q05",8,"MTH11-8-0",2,"Find the sum of the first 5 terms of the A.P. 2,4,6,8,10.","A.P. 2,4,6,8,10 के पहले 5 terms का sum निकालिए।",
+    ["20","25","30","15"],["20","25","30","15"],"C","2+4+6+8+10 = 30.","2+4+6+8+10 = 30।");
+
+  /* ---- Ch8 Topic 1: What is a Sequence? (8) ---- */
+  add("MTH-Q06",8,"MTH11-8-1",1,"A list of numbers in a definite order is called a:","एक तय क्रम में रखी numbers की list क्या कहलाती है?",
+    ["series","sequence","set","sum"],["series","sequence","set","sum"],"B","Order matters in a sequence.","Sequence में order मायने रखता है।");
+  add("MTH-Q07",8,"MTH11-8-1",1,"The nth term of a sequence is also called the:","Sequence के nth term को और क्या कहते हैं?",
+    ["common term","general term","first term","random term"],["common term","general term","first term","random term"],"B","It gives the rule for every position n.","यह हर position n के लिए rule देता है।");
+  add("MTH-Q08",8,"MTH11-8-1",1,"A sequence with a fixed number of terms is called:","एक तय संख्या वाले terms की sequence को क्या कहते हैं?",
+    ["infinite","finite","undefined","periodic"],["infinite","finite","undefined","periodic"],"B","It stops after a definite count.","यह एक तय गिनती के बाद रुक जाती है।");
+  add("MTH-Q09",8,"MTH11-8-1",2,"A sequence that never ends is called:","कभी न ख़त्म होने वाली sequence को क्या कहते हैं?",
+    ["finite","infinite","limited","short"],["finite","infinite","limited","short"],"B","It continues forever.","यह हमेशा चलती रहती है।");
+  add("MTH-Q10",8,"MTH11-8-1",2,"For aₙ=3n, find a₄.","aₙ=3n के लिए, a₄ निकालिए।",
+    ["7","12","34","9"],["7","12","34","9"],"B","3×4 = 12.","3×4 = 12।");
+  add("MTH-Q11",8,"MTH11-8-1",2,"For aₙ=n²+1, find a₃.","aₙ=n²+1 के लिए, a₃ निकालिए।",
+    ["4","9","10","7"],["4","9","10","7"],"C","3²+1 = 10.","3²+1 = 10।");
+  add("MTH-Q12",8,"MTH11-8-1",3,"In the Fibonacci sequence 1,1,2,3,5,8,..., what is the next term?","Fibonacci sequence 1,1,2,3,5,8,... में अगला term क्या है?",
+    ["11","13","10","12"],["11","13","10","12"],"B","5+8 = 13.","5+8 = 13।");
+  add("MTH-Q13",8,"MTH11-8-1",3,"The Fibonacci rule aₙ=aₙ₋₁+aₙ₋₂ is an example of a:","Fibonacci rule aₙ=aₙ₋₁+aₙ₋₂ किसका उदाहरण है?",
+    ["general term formula","recurrence relation","geometric formula","constant sequence"],["general term formula","recurrence relation","geometric formula","constant sequence"],"B","Each term is built from earlier ones, not a direct formula in n.","हर term पिछलों से बनता है, n का सीधा formula नहीं।");
+
+  /* ---- Ch8 Topic 2: Series and Sigma Notation (8) ---- */
+  add("MTH-Q14",8,"MTH11-8-2",1,"A series is formed by:","Series कैसे बनती है?",
+    ["listing a sequence's terms","adding a sequence's terms","multiplying a sequence's terms","reversing a sequence"],["Sequence के terms को list करके","Sequence के terms को जोड़कर","Sequence के terms को गुणा करके","Sequence को उलटकर"],"B","A series is the sum of the terms.","Series, terms का sum है।");
+  add("MTH-Q15",8,"MTH11-8-2",1,"The symbol Σ means:","Symbol Σ का मतलब है:",
+    ["product","sum","difference","limit"],["product","sum","difference","limit"],"B","Sigma is shorthand for a sum.","Sigma, sum का shorthand है।");
+  add("MTH-Q16",8,"MTH11-8-2",1,"Σ (k=1 to 3) of k means:","Σ (k=1 से 3) k का मतलब है:",
+    ["1+2+3","1×2×3","3","1,2,3"],["1+2+3","1×2×3","3","1,2,3"],"A","Add k for each value from 1 to 3.","1 से 3 तक हर k को जोड़िए।");
+  add("MTH-Q17",8,"MTH11-8-2",2,"Evaluate Σ (k=1 to 4) of k.","Σ (k=1 से 4) k निकालिए।",
+    ["10","4","24","16"],["10","4","24","16"],"A","1+2+3+4 = 10.","1+2+3+4 = 10।");
+  add("MTH-Q18",8,"MTH11-8-2",2,"Evaluate Σ (k=1 to 3) of 2k.","Σ (k=1 से 3) 2k निकालिए।",
+    ["6","12","9","24"],["6","12","9","24"],"B","2+4+6 = 12.","2+4+6 = 12।");
+  add("MTH-Q19",8,"MTH11-8-2",2,"Find the sum of the first 4 terms of aₙ=3n.","aₙ=3n के पहले 4 terms का sum निकालिए।",
+    ["30","12","24","18"],["30","12","24","18"],"A","3+6+9+12 = 30.","3+6+9+12 = 30।");
+  add("MTH-Q20",8,"MTH11-8-2",3,"Find the sum of the first 5 terms of aₙ=2n−1 (odd numbers).","aₙ=2n−1 (odd numbers) के पहले 5 terms का sum निकालिए।",
+    ["15","25","20","9"],["15","25","20","9"],"B","1+3+5+7+9 = 25.","1+3+5+7+9 = 25।");
+  add("MTH-Q21",8,"MTH11-8-2",3,"Evaluate Σ (k=1 to 4) of k².","Σ (k=1 से 4) k² निकालिए।",
+    ["30","16","10","20"],["30","16","10","20"],"A","1+4+9+16 = 30.","1+4+9+16 = 30।");
+
+  /* ---- Ch8 Topic 3: G.P. General Term (9) ---- */
+  add("MTH-Q22",8,"MTH11-8-3",1,"In a G.P., the common ratio is found by:","G.P. में common ratio कैसे पाते हैं?",
+    ["subtracting consecutive terms","dividing a term by the one before it","adding consecutive terms","squaring a term"],["लगातार terms घटाकर","term को उससे पहले वाले से divide करके","लगातार terms जोड़कर","term का square करके"],"B","Divide any term by its predecessor.","किसी term को उसके पहले वाले से divide कीजिए।");
+  add("MTH-Q23",8,"MTH11-8-3",1,"For the G.P. 3,6,12,24,..., the common ratio is:","G.P. 3,6,12,24,... के लिए, common ratio है:",
+    ["2","3","6","12"],["2","3","6","12"],"A","6÷3 = 2.","6÷3 = 2।");
+  add("MTH-Q24",8,"MTH11-8-3",1,"The nth term formula for a G.P. is:","G.P. का nth term formula है:",
+    ["a+(n−1)r","ar^(n−1)","a×n×r","a+nr"],["a+(n−1)r","ar^(n−1)","a×n×r","a+nr"],"B","Multiply a by r exactly (n−1) times.","a को r से ठीक (n−1) बार गुणा कीजिए।");
+  add("MTH-Q25",8,"MTH11-8-3",2,"Find the 4th term of the G.P. 5,10,20,40,...","G.P. 5,10,20,40,... का 4वाँ term निकालिए।",
+    ["20","40","80","160"],["20","40","80","160"],"B","5×2³ = 40.","5×2³ = 40।");
+  add("MTH-Q26",8,"MTH11-8-3",2,"Find the 6th term of the G.P. 1,3,9,27,...","G.P. 1,3,9,27,... का 6वाँ term निकालिए।",
+    ["81","162","243","729"],["81","162","243","729"],"C","1×3⁵ = 243.","1×3⁵ = 243।");
+  add("MTH-Q27",8,"MTH11-8-3",2,"Find the common ratio of the G.P. 100,50,25,...","G.P. 100,50,25,... का common ratio निकालिए।",
+    ["2","0.5","1","−0.5"],["2","0.5","1","−0.5"],"B","50÷100 = 0.5.","50÷100 = 0.5।");
+  add("MTH-Q28",8,"MTH11-8-3",3,"Find the 5th term of the G.P. 2,−4,8,−16,...","G.P. 2,−4,8,−16,... का 5वाँ term निकालिए।",
+    ["−32","32","−16","16"],["−32","32","−16","16"],"B","2×(−2)⁴ = 2×16 = 32.","2×(−2)⁴ = 2×16 = 32।");
+  add("MTH-Q29",8,"MTH11-8-3",3,"If a=3 and r=4 in a G.P., find the 3rd term.","G.P. में a=3 और r=4 है, 3rd term निकालिए।",
+    ["12","36","48","7"],["12","36","48","7"],"C","3×4² = 48.","3×4² = 48।");
+  add("MTH-Q30",8,"MTH11-8-3",4,"The 3rd term of a G.P. is 12 and the common ratio is 2. Find the 1st term.","G.P. का 3rd term 12 है और common ratio 2 है। पहला term निकालिए।",
+    ["3","6","24","48"],["3","6","24","48"],"A","a×2² = 12, so a = 3.","a×2² = 12, इसलिए a = 3।");
+
+  /* ---- Ch8 Topic 4: Sum of a G.P. (9) ---- */
+  add("MTH-Q31",8,"MTH11-8-4",1,"The formula for the sum of n terms of a G.P. (r≠1) is:","G.P. के n terms के sum का formula (r≠1) है:",
+    ["n/2[2a+(n−1)d]","a(rⁿ−1)/(r−1)","a+(n−1)r","narⁿ"],["n/2[2a+(n−1)d]","a(rⁿ−1)/(r−1)","a+(n−1)r","narⁿ"],"B","The standard G.P. sum formula.","Standard G.P. sum formula।");
+  add("MTH-Q32",8,"MTH11-8-4",1,"Find the sum of the first 3 terms of the G.P. 1,2,4,...","G.P. 1,2,4,... के पहले 3 terms का sum निकालिए।",
+    ["6","7","8","4"],["6","7","8","4"],"B","1+2+4 = 7.","1+2+4 = 7।");
+  add("MTH-Q33",8,"MTH11-8-4",2,"Find the sum of the first 4 terms of the G.P. 2,4,8,16.","G.P. 2,4,8,16 के पहले 4 terms का sum निकालिए।",
+    ["30","28","32","16"],["30","28","32","16"],"A","2+4+8+16 = 30.","2+4+8+16 = 30।");
+  add("MTH-Q34",8,"MTH11-8-4",2,"Using the formula, find S₃ for a=1, r=3.","Formula से, a=1, r=3 के लिए S₃ निकालिए।",
+    ["13","9","12","6"],["13","9","12","6"],"A","1×(27−1)/(3−1) = 13.","1×(27−1)/(3−1) = 13।");
+  add("MTH-Q35",8,"MTH11-8-4",2,"Using the formula, find S₄ for a=2, r=2.","Formula से, a=2, r=2 के लिए S₄ निकालिए।",
+    ["30","28","16","32"],["30","28","16","32"],"A","2×(16−1)/(2−1) = 30.","2×(16−1)/(2−1) = 30।");
+  add("MTH-Q36",8,"MTH11-8-4",3,"Using the formula, find S₅ for a=3, r=2.","Formula से, a=3, r=2 के लिए S₅ निकालिए।",
+    ["93","96","90","99"],["93","96","90","99"],"A","3×(32−1)/(2−1) = 93.","3×(32−1)/(2−1) = 93।");
+  add("MTH-Q37",8,"MTH11-8-4",3,"A G.P. has a=1, r=5. Find the sum of the first 3 terms.","G.P. में a=1, r=5 है। पहले 3 terms का sum निकालिए।",
+    ["31","25","30","36"],["31","25","30","36"],"A","1×(125−1)/(5−1) = 31.","1×(125−1)/(5−1) = 31।");
+  add("MTH-Q38",8,"MTH11-8-4",3,"Why can't the G.P. sum formula be used when r=1?","r=1 होने पर G.P. sum formula क्यों इस्तेमाल नहीं कर सकते?",
+    ["Because the denominator r−1 becomes 0","Because a becomes 0","Because n becomes 0","There is no reason, it works fine"],["क्योंकि denominator r−1, 0 हो जाता है","क्योंकि a, 0 हो जाता है","क्योंकि n, 0 हो जाता है","कोई reason नहीं, यह ठीक काम करता है"],"A","Division by zero is not allowed.","0 से division allowed नहीं है।");
+  add("MTH-Q39",8,"MTH11-8-4",4,"If r=1, every term of the G.P. equals a. What is the sum of n such terms?","अगर r=1 है, G.P. का हर term a के बराबर है। ऐसे n terms का sum क्या है?",
+    ["na","a/n","aⁿ","n+a"],["na","a/n","aⁿ","n+a"],"A","Adding a to itself n times.","a को अपने आप में n बार जोड़ना।");
+
+  /* ---- Ch8 Topic 5: A.M.-G.M. Relationship (9) ---- */
+  add("MTH-Q40",8,"MTH11-8-5",1,"The arithmetic mean of a and b is:","a और b का arithmetic mean है:",
+    ["√(ab)","(a+b)/2","ab/2","a+b"],["√(ab)","(a+b)/2","ab/2","a+b"],"B","The ordinary average.","साधारण average।");
+  add("MTH-Q41",8,"MTH11-8-5",1,"The geometric mean of a and b (positive) is:","a और b (positive) का geometric mean है:",
+    ["(a+b)/2","√(ab)","ab","a−b"],["(a+b)/2","√(ab)","ab","a−b"],"B","The square root of their product.","इनके गुणनफल का square root।");
+  add("MTH-Q42",8,"MTH11-8-5",1,"Find the A.M. of 6 and 10.","6 और 10 का A.M. निकालिए।",
+    ["8","16","60","4"],["8","16","60","4"],"A","(6+10)/2 = 8.","(6+10)/2 = 8।");
+  add("MTH-Q43",8,"MTH11-8-5",2,"Find the G.M. of 4 and 9.","4 और 9 का G.M. निकालिए।",
+    ["6","6.5","36","13"],["6","6.5","36","13"],"A","√36 = 6.","√36 = 6।");
+  add("MTH-Q44",8,"MTH11-8-5",2,"Find the G.M. of 2 and 18.","2 और 18 का G.M. निकालिए।",
+    ["6","10","36","20"],["6","10","36","20"],"A","√36 = 6.","√36 = 6।");
+  add("MTH-Q45",8,"MTH11-8-5",2,"For any two positive numbers, which is always true?","किसी भी दो positive numbers के लिए, हमेशा क्या सच है?",
+    ["A.M. < G.M.","A.M. ≥ G.M.","A.M. = G.M. always","G.M. > A.M. always"],["A.M. < G.M.","A.M. ≥ G.M.","A.M. = G.M. हमेशा","G.M. > A.M. हमेशा"],"B","A.M. is never smaller than G.M.","A.M. कभी G.M. से छोटा नहीं होता।");
+  add("MTH-Q46",8,"MTH11-8-5",3,"Find the A.M. and G.M. of 3 and 27, and state which is bigger.","3 और 27 का A.M. और G.M. निकालिए, और बताइए कौन बड़ा है।",
+    ["A.M.=15, G.M.=9, A.M. bigger","A.M.=9, G.M.=15","A.M.=G.M.=12","A.M.=15, G.M.=15"],["A.M.=15, G.M.=9, A.M. बड़ा","A.M.=9, G.M.=15","A.M.=G.M.=12","A.M.=15, G.M.=15"],"A","(3+27)/2=15, √81=9, and 15≥9.","(3+27)/2=15, √81=9, और 15≥9।");
+  add("MTH-Q47",8,"MTH11-8-5",3,"When are A.M. and G.M. of two positive numbers equal?","दो positive numbers का A.M. और G.M. कब बराबर होते हैं?",
+    ["Never","Only when the two numbers are equal","Only when one number is 0","Always"],["कभी नहीं","सिर्फ़ जब दोनों numbers बराबर हों","सिर्फ़ जब एक number 0 हो","हमेशा"],"B","Equal numbers make both means the same value.","बराबर numbers दोनों means को एक जैसा बना देते हैं।");
+  add("MTH-Q48",8,"MTH11-8-5",4,"Find the G.M. of 1 and 100.","1 और 100 का G.M. निकालिए।",
+    ["10","50.5","100","1"],["10","50.5","100","1"],"A","√100 = 10.","√100 = 10।");
+
+  /* ---- Ch8 Topic 6: Recognising A.P. vs G.P. (9) ---- */
+  add("MTH-Q49",8,"MTH11-8-6",1,"Is 4,8,12,16 an A.P. or G.P.?","क्या 4,8,12,16 एक A.P. है या G.P.?",
+    ["A.P.","G.P.","Both","Neither"],["A.P.","G.P.","दोनों","कोई नहीं"],"A","Differences are all 4; ratios are not constant.","अंतर सब 4 हैं; ratios स्थिर नहीं हैं।");
+  add("MTH-Q50",8,"MTH11-8-6",1,"Is 4,8,16,32 an A.P. or G.P.?","क्या 4,8,16,32 एक A.P. है या G.P.?",
+    ["A.P.","G.P.","Both","Neither"],["A.P.","G.P.","दोनों","कोई नहीं"],"B","Ratios are all 2.","Ratios सब 2 हैं।");
+  add("MTH-Q51",8,"MTH11-8-6",1,"To test for an A.P., you check whether consecutive terms have a constant:","A.P. जाँचने के लिए, लगातार terms का स्थिर क्या देखते हैं?",
+    ["ratio","difference","product","sum"],["ratio","difference","product","sum"],"B","A constant difference defines an A.P.","स्थिर difference A.P. को defines करता है।");
+  add("MTH-Q52",8,"MTH11-8-6",2,"To test for a G.P., you check whether consecutive terms have a constant:","G.P. जाँचने के लिए, लगातार terms का स्थिर क्या देखते हैं?",
+    ["difference","ratio","sum","square"],["difference","ratio","sum","square"],"B","A constant ratio defines a G.P.","स्थिर ratio G.P. को defines करता है।");
+  add("MTH-Q53",8,"MTH11-8-6",2,"Is 2,4,7,11 an A.P., G.P., or neither?","क्या 2,4,7,11 A.P., G.P., या कोई नहीं है?",
+    ["A.P.","G.P.","neither","both"],["A.P.","G.P.","कोई नहीं","दोनों"],"C","Differences (2,3,4) and ratios both vary.","अंतर (2,3,4) और ratios दोनों बदलते हैं।");
+  add("MTH-Q54",8,"MTH11-8-6",2,"Is 1,4,9,16 an A.P., G.P., or neither?","क्या 1,4,9,16 A.P., G.P., या कोई नहीं है?",
+    ["A.P.","G.P.","neither","both"],["A.P.","G.P.","कोई नहीं","दोनों"],"C","Neither the differences nor the ratios stay constant.","न अंतर स्थिर रहते हैं, न ratios।");
+  add("MTH-Q55",8,"MTH11-8-6",3,"Is 100,90,80,70 an A.P. or G.P.?","क्या 100,90,80,70 एक A.P. है या G.P.?",
+    ["A.P.","G.P.","neither","both"],["A.P.","G.P.","कोई नहीं","दोनों"],"A","Differences are all −10.","अंतर सब −10 हैं।");
+  add("MTH-Q56",8,"MTH11-8-6",3,"Is 81,27,9,3 an A.P. or G.P.?","क्या 81,27,9,3 एक A.P. है या G.P.?",
+    ["A.P.","G.P.","neither","both"],["A.P.","G.P.","कोई नहीं","दोनों"],"B","Ratios are all 1/3.","Ratios सब 1/3 हैं।");
+  add("MTH-Q57",8,"MTH11-8-6",3,"A sequence has a constant ratio of 1. What can you say about it?","एक sequence का स्थिर ratio 1 है। इसके बारे में क्या कह सकते हैं?",
+    ["It must be a G.P. only","It is both an A.P. (d=0) and a G.P. (r=1)","It cannot be an A.P.","It is undefined"],["यह सिर्फ़ G.P. होगी","यह A.P. (d=0) और G.P. (r=1) दोनों है","यह A.P. नहीं हो सकती","यह undefined है"],"B","Every term is equal, so both d=0 and r=1 fit.","हर term बराबर है, इसलिए d=0 और r=1 दोनों फ़िट होते हैं।");
+
+  /* ---- Ch8 Topic 7: Applying Sequences and Series (12) ---- */
+  add("MTH-Q58",8,"MTH11-8-7",2,"A town's population is 200 and doubles every year. After n years, the population is:","एक शहर की population 200 है और हर साल दोगुनी होती है। n सालों बाद, population है:",
+    ["200+2n","200×2ⁿ","200ⁿ","2×200ⁿ"],["200+2n","200×2ⁿ","200ⁿ","2×200ⁿ"],"B","Doubling n times is ×2ⁿ.","n बार दोगुना होना ×2ⁿ है।");
+  add("MTH-Q59",8,"MTH11-8-7",2,"Using the formula, find the population after 3 years, starting at 200 and doubling yearly.","Formula से, 200 से शुरू होकर हर साल दोगुनी होने पर 3 साल बाद population निकालिए।",
+    ["800","1600","600","1200"],["800","1600","600","1200"],"B","200×2³ = 1600.","200×2³ = 1600।");
+  add("MTH-Q60",8,"MTH11-8-7",2,"A bank account starts with ₹1000 and grows by a fixed percentage each year. This growth is best modelled by a:","एक bank account ₹1000 से शुरू होता है और हर साल एक तय percentage से बढ़ता है। यह growth किससे सबसे अच्छा मॉडल होता है?",
+    ["A.P.","G.P.","neither","a constant sequence"],["A.P.","G.P.","कोई नहीं","एक constant sequence"],"B","A fixed percentage growth is a fixed ratio, r.","Fixed percentage growth एक fixed ratio, r है।");
+  add("MTH-Q61",8,"MTH11-8-7",3,"Paper starts 0.2 mm thick and doubles in thickness with each fold. How thick after 4 folds?","कागज़ 0.2 mm मोटा शुरू होता है और हर fold पर मोटाई दोगुनी होती है। 4 folds के बाद कितना मोटा है?",
+    ["1.6mm","3.2mm","0.8mm","6.4mm"],["1.6mm","3.2mm","0.8mm","6.4mm"],"B","0.2×2⁴ = 3.2mm.","0.2×2⁴ = 3.2mm।");
+  add("MTH-Q62",8,"MTH11-8-7",3,"A ball dropped from 100 m bounces back to half its height each time. How high after the 3rd bounce?","100 m से गिरी एक गेंद हर बार आधी ऊँचाई तक उछलती है। तीसरे उछाल के बाद कितनी ऊँची है?",
+    ["25m","12.5m","50m","6.25m"],["25m","12.5m","50m","6.25m"],"B","100×0.5³ = 12.5m.","100×0.5³ = 12.5m।");
+  add("MTH-Q63",8,"MTH11-8-7",3,"If a rumour is told to 3 new people every hour, starting with 1 person, how many know it after 4 hours (aₙ=3ⁿ)?","अगर एक अफ़वाह हर घंटे 3 नए लोगों को बताई जाती है, 1 व्यक्ति से शुरू होकर, 4 घंटे बाद कितने लोग जानते हैं (aₙ=3ⁿ)?",
+    ["12","81","64","27"],["12","81","64","27"],"B","3⁴ = 81.","3⁴ = 81।");
+  add("MTH-Q64",8,"MTH11-8-7",4,"A car depreciates to 90% of its value each year, starting at ₹10,00,000. What is its value after 2 years?","एक car हर साल अपनी value का 90% रह जाती है, ₹10,00,000 से शुरू होकर। 2 साल बाद value क्या है?",
+    ["₹8,00,000","₹8,10,000","₹9,00,000","₹8,90,000"],["₹8,00,000","₹8,10,000","₹9,00,000","₹8,90,000"],"B","10,00,000×0.9² = 8,10,000.","10,00,000×0.9² = 8,10,000।");
+  add("MTH-Q65",8,"MTH11-8-7",4,"Which grows faster in the long run: an A.P. adding 100 each term, or a G.P. multiplying by 1.5 each term?","लम्बे समय में कौन तेज़ बढ़ता है: हर term में 100 जोड़ने वाला A.P., या हर term में 1.5 से गुणा करने वाला G.P.?",
+    ["The A.P., always","The G.P., eventually overtakes it","They grow at the same rate","Cannot be determined"],["A.P., हमेशा","G.P., आख़िरकार आगे निकल जाता है","दोनों एक जैसे बढ़ते हैं","तय नहीं किया जा सकता"],"B","Multiplicative growth always eventually overtakes additive growth.","Multiplicative growth हमेशा आख़िरकार additive growth से आगे निकल जाती है।");
+  add("MTH-Q66",8,"MTH11-8-7",4,"Every week, a store's sales increase by a factor of 1.1 (10% growth). This pattern is an example of a:","हर हफ़्ते, एक store की sales 1.1 factor से बढ़ती हैं (10% growth)। यह pattern किसका उदाहरण है?",
+    ["A.P.","G.P.","neither","a constant sequence"],["A.P.","G.P.","कोई नहीं","एक constant sequence"],"B","A constant growth factor is a G.P.'s common ratio.","स्थिर growth factor, G.P. का common ratio है।");
+  add("MTH-Q67",8,"MTH11-8-7",5,"A chess-board legend: 1 grain on square 1, doubling each square, up to square 10. How many grains on square 10?","शतरंज की एक कहानी: चौकोर 1 पर 1 दाना, हर चौकोर पर दोगुना, चौकोर 10 तक। चौकोर 10 पर कितने दाने हैं?",
+    ["512","1024","256","2048"],["512","1024","256","2048"],"A","1×2⁹ = 512.","1×2⁹ = 512।");
+  add("MTH-Q68",8,"MTH11-8-7",5,"Using the sum formula, find the total grains on the first 10 squares of the chessboard legend (a=1, r=2).","Sum formula से, शतरंज की कहानी के पहले 10 चौकोरों के कुल दाने निकालिए (a=1, r=2)।",
+    ["1023","1024","512","2046"],["1023","1024","512","2046"],"A","1×(2¹⁰−1)/(2−1) = 1023.","1×(2¹⁰−1)/(2−1) = 1023।");
+  add("MTH-Q69",8,"MTH11-8-7",5,"Bacteria in a dish triple every hour, starting from 50. Using aₙ=50×3ⁿ⁻¹, how many bacteria are there at hour 4 (n=4)?","एक dish में bacteria हर घंटे तीन गुना होते हैं, 50 से शुरू होकर। aₙ=50×3ⁿ⁻¹ से, घंटे 4 (n=4) पर कितने bacteria हैं?",
+    ["1350","4050","450","150"],["1350","4050","450","150"],"A","50×3³ = 50×27 = 1350.","50×3³ = 50×27 = 1350।");
 
   window.SL_DATA.questions = window.SL_DATA.questions.concat(Q);
 })();

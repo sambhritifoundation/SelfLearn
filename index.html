@@ -4698,6 +4698,29 @@ var DIAGRAMS = {
     return '<svg viewBox="0 0 460 300" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'+h+'</svg>';
   },
 
+  "ap-gp-comparison": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    var xs=[80,140,200,260,320];
+    var apVals=[2,4,6,8,10], gpVals=[2,4,8,16,32];
+    function ys(v){ return 260-v*7; }
+    var apPts=xs.map(function(x,i){ return x+','+ys(apVals[i]); }).join(' ');
+    var gpPts=xs.map(function(x,i){ return x+','+ys(gpVals[i]); }).join(' ');
+    var h='<text x="230" y="18" text-anchor="middle" font-size="16" font-weight="bold" fill="var(--primary)">'+d("A.P. adds; G.P. multiplies","A.P. जोड़ता है; G.P. गुणा करता है")+'</text>'
+      +'<line x1="40" y1="260" x2="400" y2="260" stroke="var(--line-strong)" stroke-width="1.5"/>'
+      +'<line x1="40" y1="30" x2="40" y2="260" stroke="var(--line-strong)" stroke-width="1.5"/>'
+      +'<polyline points="'+apPts+'" fill="none" stroke="var(--primary)" stroke-width="3"/>'
+      +'<polyline points="'+gpPts+'" fill="none" stroke="var(--accent)" stroke-width="3"/>';
+    xs.forEach(function(x,i){
+      h+='<circle cx="'+x+'" cy="'+ys(apVals[i])+'" r="4.5" fill="var(--primary)"/>'
+        +'<circle cx="'+x+'" cy="'+ys(gpVals[i])+'" r="4.5" fill="var(--accent)"/>'
+        +'<text x="'+x+'" y="275" text-anchor="middle" font-size="12" fill="var(--muted)">'+(i+1)+'</text>';
+    });
+    h+='<text x="326" y="'+(ys(apVals[4])+4)+'" font-size="13" font-weight="bold" fill="var(--primary)">'+d("A.P.","A.P.")+'</text>'
+      +'<text x="326" y="'+(ys(gpVals[4])+4)+'" font-size="13" font-weight="bold" fill="var(--accent)">'+d("G.P.","G.P.")+'</text>'
+      +'<text x="230" y="292" text-anchor="middle" font-size="12" fill="var(--muted)">'+d("term number →","term number →")+'</text>';
+    return '<svg viewBox="0 0 460 300" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'+h+'</svg>';
+  },
+
 };
 
 /* Interactive widgets: sliders students can move to feel the relationship. */
