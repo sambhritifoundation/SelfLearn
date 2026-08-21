@@ -342,6 +342,113 @@ window.SL_DATA = window.SL_DATA || {subjects:[], questions:[]};
         b("sin 15° = (√6 − √2)/4.","sin 15° = (√6 − √2)/4।")))
   ];
 
+  var complex=[
+
+    topic("MTH11-4-0",
+      b("0. Revise: Why We Need a New Kind of Number","0. दोहराइए: एक नए तरह के number की ज़रूरत क्यों है"),
+      b(
+        "Try to solve $x^2+1=0$, so $x^2=-1$. Pick any real number and square it — the answer is never negative. There is **no real solution**.\n\nThis has happened before. Counting numbers alone could not solve $x+5=3$, so negative numbers were invented. Whole numbers could not solve $2x=3$, so fractions were invented. Each time, mathematicians built a new kind of number to fill the gap.\n\nHere, they invented a number called $i$, with one rule:\n\n$$i^2=-1$$\n\nThis chapter is about what you can do once $i$ exists.",
+        "$x^2+1=0$ हल करने की कोशिश कीजिए, यानी $x^2=-1$। कोई भी real number लीजिए और उसे square कीजिए — answer कभी negative नहीं होता। **कोई real solution नहीं है।**\n\nऐसा पहले भी हुआ है। सिर्फ़ counting numbers से $x+5=3$ हल नहीं हो पाता था, इसलिए negative numbers बनाए गए। Whole numbers से $2x=3$ हल नहीं हो पाता था, इसलिए fractions बनाए गए। हर बार, mathematicians ने कमी पूरी करने के लिए एक नया number बनाया।\n\nयहाँ, उन्होंने एक number बनाया जिसे $i$ कहते हैं, एक ही rule के साथ:\n\n$$i^2=-1$$\n\nयह chapter इसी बारे में है कि $i$ के होने पर आप क्या कर सकते हैं।"),
+      worked(
+        b("Solve x² + 1 = 0.","x² + 1 = 0 हल कीजिए।"),
+        [
+          ["Rearrange: x² = −1.","फिर से लिखिए: x² = −1।","Move the 1 to the other side.","1 को दूसरी तरफ़ ले जाइए।"],
+          ["No real x squares to −1, but x = i works, since i² = −1 by definition.","कोई real x का square −1 नहीं होता, पर x = i काम करता है, क्योंकि परिभाषा से i² = −1 है।","This is exactly why i was invented.","इसीलिए तो i बनाया गया था।"]
+        ],
+        b("x = i or x = −i.","x = i या x = −i।"))),
+
+    topic("MTH11-4-1",
+      b("1. What is a Complex Number?","1. Complex Number क्या है?"),
+      b(
+        "A **complex number** combines an ordinary real number with a multiple of $i$:\n\n$$z=a+bi$$\n\n$a$ is the **real part**; $b$ is the **imaginary part** — just the plain number, not ‘$bi$’.\n\nExample: for $z=3+4i$, the real part is $3$ and the imaginary part is $4$.\n\nIf $b=0$, $z$ is simply a real number — every real number is also a complex number. If $a=0$ and $b\\neq0$, $z$ is called **purely imaginary**, like $5i$.",
+        "**Complex number**, एक साधारण real number को $i$ के multiple के साथ जोड़ता है:\n\n$$z=a+bi$$\n\n$a$ **real part** है; $b$ **imaginary part** है — बस साधारण number, ‘$bi$’ नहीं।\n\nउदाहरण: $z=3+4i$ के लिए, real part $3$ है और imaginary part $4$ है।\n\nअगर $b=0$, तो $z$ बस एक real number है — हर real number एक complex number भी है। अगर $a=0$ और $b\\neq0$, तो $z$ को **purely imaginary** कहते हैं, जैसे $5i$।"),
+      worked(
+        b("Write the real and imaginary parts of z = 5 − 3i.","z = 5 − 3i के real और imaginary parts लिखिए।"),
+        [
+          ["The real part is the plain number: 5.","Real part साधारण number है: 5।","That is the a in a+bi.","यही a+bi में a है।"],
+          ["The imaginary part is the coefficient of i: −3, not −3i.","Imaginary part, i का coefficient है: −3, न कि −3i।","That is the b in a+bi — just the number.","यही a+bi में b है — बस number।"]
+        ],
+        b("Real part = 5, imaginary part = −3.","Real part = 5, imaginary part = −3।"))),
+
+    topic("MTH11-4-2",
+      b("2. Adding, Subtracting and Multiplying","2. जोड़ना, घटाना और गुणा करना"),
+      b(
+        "Add or subtract complex numbers the way you combine like terms — real parts together, imaginary parts together.\n\n$$(a+bi)+(c+di)=(a+c)+(b+d)i$$\n$$(a+bi)-(c+di)=(a-c)+(b-d)i$$\n\nMultiply exactly like two binomials — then simplify using $i^2=-1$.\n\n$$(a+bi)(c+di)=ac+adi+bci+bdi^2=(ac-bd)+(ad+bc)i$$\n\nThe only new step versus ordinary algebra is remembering that $i^2$ becomes $-1$, not staying as $i^2$.",
+        "Complex numbers को जोड़ना या घटाना वैसे ही है जैसे like terms मिलाते हैं — real parts साथ, imaginary parts साथ।\n\n$$(a+bi)+(c+di)=(a+c)+(b+d)i$$\n$$(a+bi)-(c+di)=(a-c)+(b-d)i$$\n\nगुणा बिल्कुल दो binomials जैसे कीजिए — फिर $i^2=-1$ से simplify कीजिए।\n\n$$(a+bi)(c+di)=ac+adi+bci+bdi^2=(ac-bd)+(ad+bc)i$$\n\nसाधारण algebra से बस एक नया step है: याद रखना कि $i^2$, $-1$ बन जाता है, $i^2$ ही नहीं रहता।"),
+      worked(
+        b("Multiply (2 + 3i)(1 − i).","(2 + 3i)(1 − i) गुणा कीजिए।"),
+        [
+          ["Expand like two binomials: 2(1) + 2(−i) + 3i(1) + 3i(−i).","दो binomials जैसे expand कीजिए: 2(1) + 2(−i) + 3i(1) + 3i(−i)।","Multiply every term in the first bracket by every term in the second.","पहले bracket के हर term को दूसरे के हर term से गुणा कीजिए।"],
+          ["= 2 − 2i + 3i − 3i² = 2 + i − 3(−1) = 5 + i.","= 2 − 2i + 3i − 3i² = 2 + i − 3(−1) = 5 + i।","Combine the i terms, then replace i² with −1.","पहले i वाले terms मिलाइए, फिर i² की जगह −1 रखिए।"]
+        ],
+        b("5 + i.","5 + i।"))),
+
+    topic("MTH11-4-3",
+      b("3. Dividing Complex Numbers","3. Complex Numbers को Divide करना"),
+      b(
+        "You can never leave $i$ sitting in a denominator. Clear it using the **conjugate**.\n\nThe conjugate of $c+di$ is $c-di$ — just flip the sign of the imaginary part.\n\n$$(c+di)(c-di)=c^2+d^2$$\n\nThat product has **no $i$ left** — multiplying by a conjugate always produces a real number. So to divide, multiply top and bottom by the denominator's conjugate.\n\n$$\\dfrac{a+bi}{c+di}=\\dfrac{(a+bi)(c-di)}{(c+di)(c-di)}=\\dfrac{(a+bi)(c-di)}{c^2+d^2}$$",
+        "$i$ को denominator में कभी नहीं छोड़ते। इसे **conjugate** से साफ़ कीजिए।\n\n$c+di$ का conjugate है $c-di$ — बस imaginary part का sign बदल दीजिए।\n\n$$(c+di)(c-di)=c^2+d^2$$\n\nइस गुणनफल में $i$ **बचता ही नहीं** — conjugate से गुणा करने पर हमेशा एक real number मिलता है। तो divide करने के लिए, denominator के conjugate से ऊपर-नीचे दोनों को गुणा कीजिए।\n\n$$\\dfrac{a+bi}{c+di}=\\dfrac{(a+bi)(c-di)}{(c+di)(c-di)}=\\dfrac{(a+bi)(c-di)}{c^2+d^2}$$"),
+      worked(
+        b("Divide (3 + 2i) / (1 − i).","(3 + 2i) / (1 − i) को divide कीजिए।"),
+        [
+          ["Multiply top and bottom by the conjugate of the denominator, 1+i.","Denominator के conjugate 1+i से ऊपर-नीचे दोनों को गुणा कीजिए।","1−i and 1+i multiply to a real number.","1−i और 1+i गुणा करने पर एक real number देते हैं।"],
+          ["(3+2i)(1+i) = 1+5i, and (1−i)(1+i) = 2, so the answer is (1+5i)/2.","(3+2i)(1+i) = 1+5i, और (1−i)(1+i) = 2, इसलिए answer है (1+5i)/2।","Expand both products, then simplify the fraction.","दोनों products expand कीजिए, फिर fraction simplify कीजिए।"]
+        ],
+        b("1/2 + 5/2 i.","1/2 + 5/2 i।"))),
+
+    topic("MTH11-4-4",
+      b("4. Powers of i and Square Roots of Negative Numbers","4. i की Powers और Negative Numbers के Square Roots"),
+      b(
+        "Powers of $i$ repeat in a cycle of 4:\n\n$$i^1=i\\quad i^2=-1\\quad i^3=-i\\quad i^4=1\\quad i^5=i\\ldots$$\n\nTo find any power $i^n$, divide $n$ by 4 and use the remainder — the cycle then tells you the answer.\n\nThis also unlocks square roots of negative numbers. Since $i^2=-1$:\n\n$$\\sqrt{-a}=i\\sqrt{a}\\quad(\\text{for }a>0)$$\n\nExample: $\\sqrt{-9}=i\\sqrt{9}=3i$.",
+        "$i$ की powers 4 के cycle में दोहराती हैं:\n\n$$i^1=i\\quad i^2=-1\\quad i^3=-i\\quad i^4=1\\quad i^5=i\\ldots$$\n\nकोई भी power $i^n$ निकालने के लिए, $n$ को 4 से भाग दीजिए और remainder इस्तेमाल कीजिए — cycle से answer मिल जाता है।\n\nयह negative numbers के square roots भी खोल देता है। चूँकि $i^2=-1$:\n\n$$\\sqrt{-a}=i\\sqrt{a}\\quad(a>0\\text{ के लिए})$$\n\nउदाहरण: $\\sqrt{-9}=i\\sqrt{9}=3i$।"),
+      worked(
+        b("Find i to the power 15.","i की power 15 निकालिए।"),
+        [
+          ["Divide 15 by 4: 15 = 4×3 + 3, remainder 3.","15 को 4 से भाग दीजिए: 15 = 4×3 + 3, remainder 3।","Only the remainder decides the answer — full cycles just bring you back to i¹.","सिर्फ़ remainder answer तय करता है — पूरे cycles वापस i¹ पर ले आते हैं।"],
+          ["Remainder 3 means i^15 = i³ = −i.","Remainder 3 का मतलब है i^15 = i³ = −i।","Match the remainder to the cycle: i¹, i², i³, i⁴.","Remainder को cycle से मिलाइए: i¹, i², i³, i⁴।"]
+        ],
+        b("i^15 = −i.","i^15 = −i।"))),
+
+    topic("MTH11-4-5",
+      b("5. Modulus and Conjugate of a Complex Number","5. Complex Number का Modulus और Conjugate"),
+      b(
+        "The **modulus** $|z|$ measures how far $z=a+bi$ sits from $0$ — like measuring distance with the Pythagoras theorem.\n\n$$|z|=\\sqrt{a^2+b^2}$$\n\nThe **conjugate** $\\bar z$ flips the sign of the imaginary part only.\n\n$$\\bar z=a-bi$$\n\nMultiplying $z$ by its own conjugate always gives a real, non-negative number — you met this trick in the division topic.\n\n$$z\\bar z=a^2+b^2=|z|^2$$",
+        "**Modulus** $|z|$ मापता है कि $z=a+bi$, $0$ से कितनी दूर है — जैसे Pythagoras theorem से दूरी नापना।\n\n$$|z|=\\sqrt{a^2+b^2}$$\n\n**Conjugate** $\\bar z$ सिर्फ़ imaginary part का sign बदलता है।\n\n$$\\bar z=a-bi$$\n\n$z$ को अपने ही conjugate से गुणा करने पर हमेशा एक real, non-negative number मिलता है — यह trick आपने division वाले topic में देखी थी।\n\n$$z\\bar z=a^2+b^2=|z|^2$$"),
+      worked(
+        b("Find |z| and the conjugate of z = 4 − 3i.","z = 4 − 3i का |z| और conjugate निकालिए।"),
+        [
+          ["|z| = √(4² + (−3)²) = √(16+9) = √25 = 5.","|z| = √(4² + (−3)²) = √(16+9) = √25 = 5।","Square both parts, add, then take the square root.","दोनों parts का square कीजिए, जोड़िए, फिर square root लीजिए।"],
+          ["The conjugate flips the sign of −3, giving 4 + 3i.","Conjugate, −3 का sign बदलता है, 4 + 3i मिलता है।","Only the imaginary part's sign changes.","सिर्फ़ imaginary part का sign बदलता है।"]
+        ],
+        b("|z| = 5, conjugate = 4 + 3i.","|z| = 5, conjugate = 4 + 3i।"))),
+
+    topic("MTH11-4-6",
+      b("6. The Argand Plane","6. Argand Plane"),
+      b(
+        "Plot $z=a+bi$ as the point $(a,b)$: real part along the horizontal axis, imaginary part along the vertical axis. This picture is the **Argand plane**.\n\n{{diagram:argand-plane}}\n\nA real number sits exactly on the horizontal axis (imaginary part $0$). A purely imaginary number sits exactly on the vertical axis (real part $0$).\n\nThe straight-line distance from the origin to this point is exactly $|z|$, the modulus — the same Pythagoras calculation you just practised.",
+        "$z=a+bi$ को point $(a,b)$ की तरह plot कीजिए: real part horizontal axis पर, imaginary part vertical axis पर। यह picture **Argand plane** है।\n\n{{diagram:argand-plane}}\n\nEक real number ठीक horizontal axis पर बैठता है (imaginary part $0$)। एक purely imaginary number ठीक vertical axis पर बैठता है (real part $0$)।\n\nOrigin से इस point तक की सीधी दूरी ठीक $|z|$ है, modulus — वही Pythagoras calculation जो आपने अभी की।"),
+      worked(
+        b("Which quadrant does z = −2 + 3i sit in on the Argand plane?","Argand plane पर z = −2 + 3i किस quadrant में है?"),
+        [
+          ["Real part is −2 (negative), imaginary part is 3 (positive).","Real part −2 है (negative), imaginary part 3 है (positive)।","These become the x and y coordinates of the point.","ये point के x और y coordinates बन जाते हैं।"],
+          ["Negative x, positive y is the upper-left region.","Negative x, positive y ऊपर-बाईं तरफ़ का region है।","Same quadrant layout as any x-y graph.","किसी भी x-y graph जैसा ही quadrant layout है।"]
+        ],
+        b("The upper-left quadrant (like Quadrant II).","ऊपर-बाईं quadrant (Quadrant II जैसी)।"))),
+
+    topic("MTH11-4-7",
+      b("7. Polar Representation","7. Polar Representation"),
+      b(
+        "Instead of $(a,b)$, you can locate the same point using a distance $r$ and an angle $\\theta$ from the positive real axis.\n\n{{diagram:argand-plane}}\n\n$$z=r(\\cos\\theta+i\\sin\\theta)\\qquad r=|z|,\\ \\theta=\\text{the argument}$$\n\nThis connects straight back to the unit circle: $a=r\\cos\\theta$ and $b=r\\sin\\theta$, exactly like the coordinates you plotted on a circle in the last chapter — except here the radius is $r$, not always $1$.",
+        "$(a,b)$ की जगह, आप उसी point को एक दूरी $r$ और positive real axis से एक angle $\\theta$ से भी बता सकते हैं।\n\n{{diagram:argand-plane}}\n\n$$z=r(\\cos\\theta+i\\sin\\theta)\\qquad r=|z|,\\ \\theta=\\text{argument}$$\n\nयह सीधे unit circle से जुड़ता है: $a=r\\cos\\theta$ और $b=r\\sin\\theta$, बिल्कुल वैसे ही जैसे पिछले chapter में circle पर coordinates plot किए थे — बस यहाँ radius $r$ है, हमेशा $1$ नहीं।"),
+      worked(
+        b("Write z = 2(cos 60° + i sin 60°) in the form a + bi.","z = 2(cos 60° + i sin 60°) को a + bi के रूप में लिखिए।"),
+        [
+          ["a = r cos θ = 2 × cos 60° = 2 × 1/2 = 1.","a = r cos θ = 2 × cos 60° = 2 × 1/2 = 1।","cos 60° = 1/2 is a standard angle value from the last chapter.","cos 60° = 1/2, पिछले chapter का standard angle value है।"],
+          ["b = r sin θ = 2 × sin 60° = 2 × √3/2 = √3.","b = r sin θ = 2 × sin 60° = 2 × √3/2 = √3।","sin 60° = √3/2, another standard value.","sin 60° = √3/2, एक और standard value।"]
+        ],
+        b("z = 1 + √3 i.","z = 1 + √3 i।")))
+  ];
+
   window.SL_DATA.subjects = (window.SL_DATA.subjects||[]).filter(function(s){ return s.code!=="MATH11"; });
 
   window.SL_DATA.subjects.push({code:"MATH11",board:"CBSE",klass:11,icon:"📐",
@@ -382,7 +489,18 @@ window.SL_DATA = window.SL_DATA || {subjects:[], questions:[]};
         assessment:["MTH-T01","MTH-T03","MTH-T05","MTH-T06","MTH-T09","MTH-T12","MTH-T15","MTH-T18",
           "MTH-T21","MTH-T24","MTH-T27","MTH-T30","MTH-T33","MTH-T36","MTH-T39","MTH-T42",
           "MTH-T46","MTH-T49","MTH-T52","MTH-T55","MTH-T58","MTH-T61","MTH-T64","MTH-T67"],
-        topics:trig}
+        topics:trig},
+      {no:4,name:b("Complex Numbers","Complex Numbers"),
+        summary:b(
+          "**Complex Numbers: what this chapter covers**\n\nx²+1=0 has no real solution, so mathematicians invented i, with i²=−1. A complex number z=a+bi has a real part a and imaginary part b. Add, subtract and multiply them like ordinary algebra, remembering i²=−1. To divide, multiply by the denominator's conjugate to clear i from the bottom. Powers of i repeat every 4 steps. The modulus |z|=√(a²+b²) measures distance from 0; the conjugate flips the sign of the imaginary part. The Argand plane plots z as a point; polar form describes the same point using a distance r and angle θ.",
+          "**Complex Numbers: इस chapter में क्या सीखेंगे**\n\nx²+1=0 का कोई real solution नहीं है, इसलिए mathematicians ने i बनाया, जिसमें i²=−1 है। Complex number z=a+bi का एक real part a और imaginary part b होता है। इन्हें साधारण algebra जैसे जोड़ें, घटाएँ, गुणा करें, बस i²=−1 याद रखते हुए। Divide करने के लिए, denominator के conjugate से गुणा करके नीचे से i हटाइए। i की powers हर 4 steps में दोहराती हैं। Modulus |z|=√(a²+b²), 0 से दूरी मापता है; conjugate imaginary part का sign बदल देता है। Argand plane, z को एक point की तरह plot करता है; polar form उसी point को दूरी r और angle θ से बताता है।"),
+        checkpoint:b(
+          "Getting most Warm-up and Standard questions right, across every topic in this chapter, means you are ready to move on. Scoring low? Go back to '0. Revise: Why We Need a New Kind of Number' and redo its example by hand — that is the fastest way forward, not a setback.",
+          "इस chapter के हर topic में ज़्यादातर Warm-up और Standard questions सही होना, मतलब आप आगे बढ़ने के लिए ready हैं। Score कम है? '0. Revise: एक नए तरह के number की ज़रूरत क्यों है' पर वापस जाइए और उसका example हाथ से दोबारा कीजिए — यही सबसे तेज़ रास्ता है, हार नहीं।"),
+        assessment:["MTH-C01","MTH-C03","MTH-C05","MTH-C06","MTH-C09","MTH-C12","MTH-C14","MTH-C17",
+          "MTH-C20","MTH-C23","MTH-C26","MTH-C29","MTH-C32","MTH-C36","MTH-C39","MTH-C41",
+          "MTH-C44","MTH-C47","MTH-C50","MTH-C53","MTH-C56","MTH-C58","MTH-C62","MTH-C65"],
+        topics:complex}
     ]});
 
   window.SL_DATA.questions = (window.SL_DATA.questions||[]).filter(function(q){ return q.subject!=="MATH11"; });
@@ -863,6 +981,154 @@ window.SL_DATA = window.SL_DATA || {subjects:[], questions:[]};
     ["divide sin(x+y) by cos(x+y)","add them","multiply them","subtract them"],["sin(x+y) को cos(x+y) से divide कीजिए","उन्हें जोड़िए","उन्हें गुणा कीजिए","उन्हें घटाइए"],"A","tan is always sin divided by cos, even for a combined angle.","tan हमेशा sin भाग cos है, combined angle के लिए भी।");
   add("MTH-T69",3,"MTH11-3-7",5,"Using the sum formula, cos 120° [=cos(90°+30°)] equals:","Sum formula से, cos 120° [=cos(90°+30°)] बराबर है:",
     ["−1/2","1/2","−√3/2","√3/2"],["−1/2","1/2","−√3/2","√3/2"],"A","(0)(√3/2) − (1)(1/2) = −1/2.","(0)(√3/2) − (1)(1/2) = −1/2।");
+
+  /* ---- Ch4 Topic 0: Revise (5) ---- */
+  add("MTH-C01",4,"MTH11-4-0",1,"What is the value of x² for any real number x?","किसी भी real number x के लिए x² का value क्या है?",
+    ["always negative","always 0","always ≥ 0","can be any real number"],["हमेशा negative","हमेशा 0","हमेशा ≥ 0","कोई भी real number हो सकता है"],"C","A real number squared can never be negative.","Real number का square कभी negative नहीं होता।");
+  add("MTH-C02",4,"MTH11-4-0",1,"Does x² + 1 = 0 have a real solution?","क्या x² + 1 = 0 का कोई real solution है?",
+    ["Yes, x=1","Yes, x=−1","No","Yes, x=0"],["हाँ, x=1","हाँ, x=−1","नहीं","हाँ, x=0"],"C","x² would have to be −1, impossible for a real x.","x² को −1 होना पड़ेगा, जो real x के लिए असंभव है।");
+  add("MTH-C03",4,"MTH11-4-0",1,"The imaginary unit i is defined by:","Imaginary unit i की परिभाषा है:",
+    ["i=1","i²=1","i²=−1","i=−1"],["i=1","i²=1","i²=−1","i=−1"],"C","This one rule is the entire definition.","यही एक rule पूरी परिभाषा है।");
+  add("MTH-C04",4,"MTH11-4-0",2,"i is most like which earlier extension of numbers?","i सबसे ज़्यादा किस पुराने number-extension जैसा है?",
+    ["Extending numbers to solve an equation with no solution before, like negative numbers or fractions","A trick with no real use","The same as zero","An error in mathematics"],["ऐसे numbers बनाना जो पहले हल न हो सकने वाले equation को हल करें, negative numbers या fractions जैसे","बिना किसी असली इस्तेमाल का trick","शून्य जैसा ही","Mathematics में एक ग़लती"],"A","Each extension filled a genuine gap in what could be solved.","हर extension ने हल न हो सकने की एक असली कमी पूरी की।");
+  add("MTH-C05",4,"MTH11-4-0",2,"If i² = −1, what is i × i × i (that is, i³)?","अगर i² = −1, तो i × i × i (यानी i³) क्या है?",
+    ["1","−1","i","−i"],["1","−1","i","−i"],"D","i³ = i² × i = (−1) × i = −i.","i³ = i² × i = (−1) × i = −i।");
+
+  /* ---- Ch4 Topic 1: What is a Complex Number? (8) ---- */
+  add("MTH-C06",4,"MTH11-4-1",1,"In z=a+bi, a is called the:","z=a+bi में, a को क्या कहते हैं?",
+    ["imaginary part","real part","modulus","conjugate"],["imaginary part","real part","modulus","conjugate"],"B","a is the real part.","a real part है।");
+  add("MTH-C07",4,"MTH11-4-1",1,"In z=a+bi, b is called the:","z=a+bi में, b को क्या कहते हैं?",
+    ["imaginary part","real part","modulus","conjugate"],["imaginary part","real part","modulus","conjugate"],"A","b is the imaginary part.","b imaginary part है।");
+  add("MTH-C08",4,"MTH11-4-1",1,"For z=7+2i, the real part is:","z=7+2i के लिए, real part है:",
+    ["7","2","2i","9"],["7","2","2i","9"],"A","The plain number without i is the real part.","बिना i वाला साधारण number ही real part है।");
+  add("MTH-C09",4,"MTH11-4-1",2,"For z=5−3i, the imaginary part is:","z=5−3i के लिए, imaginary part है:",
+    ["5","−3","3","−3i"],["5","−3","3","−3i"],"B","The coefficient of i, keeping its sign, is −3.","i का coefficient, sign के साथ, −3 है।");
+  add("MTH-C10",4,"MTH11-4-1",2,"If b=0 in z=a+bi, then z is:","अगर z=a+bi में b=0, तो z है:",
+    ["purely imaginary","a real number","undefined","always 0"],["purely imaginary","एक real number","undefined","हमेशा 0"],"B","With no imaginary part, z is just a real number.","बिना imaginary part के, z बस एक real number है।");
+  add("MTH-C11",4,"MTH11-4-1",2,"If a=0 and b≠0 in z=a+bi, z is called:","अगर z=a+bi में a=0 और b≠0, तो z को क्या कहते हैं?",
+    ["real","purely imaginary","undefined","a conjugate"],["real","purely imaginary","undefined","एक conjugate"],"B","No real part at all — purely imaginary.","कोई real part नहीं — purely imaginary।");
+  add("MTH-C12",4,"MTH11-4-1",3,"Which of these is purely imaginary?","इनमें से कौन-सा purely imaginary है?",
+    ["3+0i","0+5i","4+2i","0+0i"],["3+0i","0+5i","4+2i","0+0i"],"B","Real part 0, nonzero imaginary part.","Real part 0, imaginary part nonzero।");
+  add("MTH-C13",4,"MTH11-4-1",3,"z=−2+0i is best described as:","z=−2+0i को सबसे अच्छा क्या कहेंगे?",
+    ["purely imaginary","a real number","undefined","has no real part"],["purely imaginary","एक real number","undefined","इसका कोई real part नहीं"],"B","Imaginary part is 0, so z is a real number.","Imaginary part 0 है, इसलिए z एक real number है।");
+
+  /* ---- Ch4 Topic 2: Add, Subtract, Multiply (9) ---- */
+  add("MTH-C14",4,"MTH11-4-2",1,"(2+3i)+(1+4i) equals:","(2+3i)+(1+4i) बराबर है:",
+    ["3+7i","3+i","2+7i","3+12i"],["3+7i","3+i","2+7i","3+12i"],"A","Add real parts and imaginary parts separately.","Real parts और imaginary parts अलग-अलग जोड़िए।");
+  add("MTH-C15",4,"MTH11-4-2",1,"(5+2i)−(3+i) equals:","(5+2i)−(3+i) बराबर है:",
+    ["2+i","8+3i","2+3i","2−i"],["2+i","8+3i","2+3i","2−i"],"A","Subtract real parts and imaginary parts separately.","Real parts और imaginary parts अलग-अलग घटाइए।");
+  add("MTH-C16",4,"MTH11-4-2",1,"i² equals:","i² बराबर है:",
+    ["1","−1","i","−i"],["1","−1","i","−i"],"B","By definition.","परिभाषा से।");
+  add("MTH-C17",4,"MTH11-4-2",2,"(4+i)+(2−3i) equals:","(4+i)+(2−3i) बराबर है:",
+    ["6−2i","6+2i","2+4i","6−4i"],["6−2i","6+2i","2+4i","6−4i"],"A","(4+2)+(1−3)i = 6−2i.","(4+2)+(1−3)i = 6−2i।");
+  add("MTH-C18",4,"MTH11-4-2",2,"(3−2i)−(1−5i) equals:","(3−2i)−(1−5i) बराबर है:",
+    ["2+3i","2−3i","4−7i","2−7i"],["2+3i","2−3i","4−7i","2−7i"],"A","(3−1)+(−2−(−5))i = 2+3i.","(3−1)+(−2−(−5))i = 2+3i।");
+  add("MTH-C19",4,"MTH11-4-2",2,"Multiply (1+i)(1−i).","(1+i)(1−i) गुणा कीजिए।",
+    ["0","2","1−i²","1+i²"],["0","2","1−i²","1+i²"],"B","1−i² = 1−(−1) = 2.","1−i² = 1−(−1) = 2।");
+  add("MTH-C20",4,"MTH11-4-2",3,"Multiply (2+3i)(1−i).","(2+3i)(1−i) गुणा कीजिए।",
+    ["5+i","2−3i","5−i","−1+i"],["5+i","2−3i","5−i","−1+i"],"A","Expand and simplify using i²=−1.","i²=−1 से expand और simplify कीजिए।");
+  add("MTH-C21",4,"MTH11-4-2",3,"Multiply (1+2i)(3+i).","(1+2i)(3+i) गुणा कीजिए।",
+    ["1+7i","3+7i","1+i","3+i"],["1+7i","3+7i","1+i","3+i"],"A","3+i+6i+2i² = 3+7i−2 = 1+7i.","3+i+6i+2i² = 3+7i−2 = 1+7i।");
+  add("MTH-C22",4,"MTH11-4-2",3,"(a+bi)+(a−bi) always equals:","(a+bi)+(a−bi) हमेशा बराबर है:",
+    ["2a","2bi","0","2a+2bi"],["2a","2bi","0","2a+2bi"],"A","The imaginary parts cancel, leaving 2a.","Imaginary parts cancel हो जाते हैं, 2a बचता है।");
+
+  /* ---- Ch4 Topic 3: Dividing (9) ---- */
+  add("MTH-C23",4,"MTH11-4-3",2,"The conjugate of 3+4i is:","3+4i का conjugate है:",
+    ["3−4i","−3+4i","−3−4i","4+3i"],["3−4i","−3+4i","−3−4i","4+3i"],"A","Flip the sign of the imaginary part only.","सिर्फ़ imaginary part का sign बदलिए।");
+  add("MTH-C24",4,"MTH11-4-3",2,"The conjugate of −2−5i is:","−2−5i का conjugate है:",
+    ["2+5i","−2+5i","2−5i","−2−5i"],["2+5i","−2+5i","2−5i","−2−5i"],"B","Only the imaginary part's sign flips.","सिर्फ़ imaginary part का sign बदलता है।");
+  add("MTH-C25",4,"MTH11-4-3",2,"(3+4i)(3−4i) equals:","(3+4i)(3−4i) बराबर है:",
+    ["−7","25","7","9−16i"],["−7","25","7","9−16i"],"B","9−16i² = 9+16 = 25.","9−16i² = 9+16 = 25।");
+  add("MTH-C26",4,"MTH11-4-3",3,"Divide (3+2i)/(1−i).","(3+2i)/(1−i) को divide कीजिए।",
+    ["1/2+5/2 i","1+5i","1/2−5/2 i","5+i"],["1/2+5/2 i","1+5i","1/2−5/2 i","5+i"],"A","Multiply top and bottom by the conjugate 1+i.","ऊपर-नीचे दोनों को conjugate 1+i से गुणा कीजिए।");
+  add("MTH-C27",4,"MTH11-4-3",3,"Why do we multiply by the conjugate when dividing?","Divide करते समय conjugate से क्यों गुणा करते हैं?",
+    ["To make the denominator a real number","To make the numerator zero","It is just a tradition, no reason","To change the sign of i in the answer"],["Denominator को real number बनाने के लिए","Numerator को zero बनाने के लिए","बस एक परंपरा है, कोई reason नहीं","Answer में i का sign बदलने के लिए"],"A","This clears i from the bottom of the fraction.","यह fraction के नीचे से i हटा देता है।");
+  add("MTH-C28",4,"MTH11-4-3",3,"Divide (1+i)/(1−i).","(1+i)/(1−i) को divide कीजिए।",
+    ["i","−i","1","1+i"],["i","−i","1","1+i"],"A","(1+2i+i²)/2 = 2i/2 = i.","(1+2i+i²)/2 = 2i/2 = i।");
+  add("MTH-C29",4,"MTH11-4-3",4,"Divide 2/(1+i).","2/(1+i) को divide कीजिए।",
+    ["1−i","1+i","2−2i","(1−i)/2"],["1−i","1+i","2−2i","(1−i)/2"],"A","2(1−i)/2 = 1−i.","2(1−i)/2 = 1−i।");
+  add("MTH-C30",4,"MTH11-4-3",4,"The multiplicative inverse of z=a+bi (nonzero) is:","z=a+bi (nonzero) का multiplicative inverse है:",
+    ["a+bi","a−bi","(a−bi)/(a²+b²)","(a+bi)/(a²+b²)"],["a+bi","a−bi","(a−bi)/(a²+b²)","(a+bi)/(a²+b²)"],"C","1/z = conjugate divided by |z|².","1/z = conjugate को |z|² से divide किया हुआ।");
+  add("MTH-C31",4,"MTH11-4-3",4,"Find the multiplicative inverse of 2−3i.","2−3i का multiplicative inverse निकालिए।",
+    ["(2+3i)/13","(2−3i)/13","(2+3i)/5","13/(2−3i)"],["(2+3i)/13","(2−3i)/13","(2+3i)/5","13/(2−3i)"],"A","a²+b²=4+9=13; inverse = (2+3i)/13.","a²+b²=4+9=13; inverse = (2+3i)/13।");
+
+  /* ---- Ch4 Topic 4: Powers of i and Square Roots (9) ---- */
+  add("MTH-C32",4,"MTH11-4-4",1,"i¹ equals:","i¹ बराबर है:",
+    ["1","−1","i","−i"],["1","−1","i","−i"],"C","The first power is just i itself.","पहली power ख़ुद i ही है।");
+  add("MTH-C33",4,"MTH11-4-4",1,"i² equals:","i² बराबर है:",
+    ["1","−1","i","−i"],["1","−1","i","−i"],"B","By definition.","परिभाषा से।");
+  add("MTH-C34",4,"MTH11-4-4",1,"i³ equals:","i³ बराबर है:",
+    ["1","−1","i","−i"],["1","−1","i","−i"],"D","i³ = i² × i = −i.","i³ = i² × i = −i।");
+  add("MTH-C35",4,"MTH11-4-4",2,"i⁴ equals:","i⁴ बराबर है:",
+    ["1","−1","i","−i"],["1","−1","i","−i"],"A","i⁴ = i² × i² = (−1)(−1) = 1.","i⁴ = i² × i² = (−1)(−1) = 1।");
+  add("MTH-C36",4,"MTH11-4-4",2,"The powers of i repeat with a cycle length of:","i की powers कितने के cycle में दोहराती हैं?",
+    ["2","3","4","8"],["2","3","4","8"],"C","i⁴=1 brings you back to the start.","i⁴=1 वापस शुरुआत पर ले आता है।");
+  add("MTH-C37",4,"MTH11-4-4",2,"√(−4) equals:","√(−4) बराबर है:",
+    ["−4","4","2i","−2i"],["−4","4","2i","−2i"],"C","√(−4) = i√4 = 2i.","√(−4) = i√4 = 2i।");
+  add("MTH-C38",4,"MTH11-4-4",3,"√(−9) equals:","√(−9) बराबर है:",
+    ["3","−3","3i","9i"],["3","−3","3i","9i"],"C","√(−9) = i√9 = 3i.","√(−9) = i√9 = 3i।");
+  add("MTH-C39",4,"MTH11-4-4",3,"Find i⁶ (hint: use the remainder when 6 is divided by 4).","i⁶ निकालिए (संकेत: 6 को 4 से भाग देने पर बचा remainder इस्तेमाल कीजिए)।",
+    ["i","−1","−i","1"],["i","−1","−i","1"],"B","Remainder 2, so i⁶ = i² = −1.","Remainder 2 है, इसलिए i⁶ = i² = −1।");
+  add("MTH-C40",4,"MTH11-4-4",4,"Find i^15.","i^15 निकालिए।",
+    ["i","−1","−i","1"],["i","−1","−i","1"],"C","Remainder 3, so i^15 = i³ = −i.","Remainder 3 है, इसलिए i^15 = i³ = −i।");
+
+  /* ---- Ch4 Topic 5: Modulus and Conjugate (9) ---- */
+  add("MTH-C41",4,"MTH11-4-5",1,"The modulus of z=a+bi is:","z=a+bi का modulus है:",
+    ["a+b","a²+b²","√(a²+b²)","a−b"],["a+b","a²+b²","√(a²+b²)","a−b"],"C","Pythagoras' theorem applied to the coordinates.","Coordinates पर लगाया गया Pythagoras theorem।");
+  add("MTH-C42",4,"MTH11-4-5",1,"The conjugate of z=a+bi is:","z=a+bi का conjugate है:",
+    ["a+bi","−a−bi","a−bi","−a+bi"],["a+bi","−a−bi","a−bi","−a+bi"],"C","Only the imaginary part's sign flips.","सिर्फ़ imaginary part का sign बदलता है।");
+  add("MTH-C43",4,"MTH11-4-5",1,"Find |3+4i|.","|3+4i| निकालिए।",
+    ["5","7","25","12"],["5","7","25","12"],"A","√(9+16) = √25 = 5.","√(9+16) = √25 = 5।");
+  add("MTH-C44",4,"MTH11-4-5",2,"Find the conjugate of 4−3i.","4−3i का conjugate निकालिए।",
+    ["4+3i","−4+3i","−4−3i","4−3i"],["4+3i","−4+3i","−4−3i","4−3i"],"A","Flip the sign of −3 to get +3.","−3 का sign बदलकर +3 पाइए।");
+  add("MTH-C45",4,"MTH11-4-5",2,"Find |0+5i|.","|0+5i| निकालिए।",
+    ["0","5","25","−5"],["0","5","25","−5"],"B","√(0+25) = 5.","√(0+25) = 5।");
+  add("MTH-C46",4,"MTH11-4-5",2,"z × (conjugate of z) always gives:","z × (z का conjugate) हमेशा क्या देता है?",
+    ["a real, non-negative number","an imaginary number","zero always","a negative number"],["एक real, non-negative number","एक imaginary number","हमेशा zero","एक negative number"],"A","z×z̄ = a²+b², a sum of squares.","z×z̄ = a²+b², squares का योग।");
+  add("MTH-C47",4,"MTH11-4-5",3,"Find |z|² for z=1−i.","z=1−i के लिए |z|² निकालिए।",
+    ["0","1","2","4"],["0","1","2","4"],"C","1²+(−1)² = 1+1 = 2.","1²+(−1)² = 1+1 = 2।");
+  add("MTH-C48",4,"MTH11-4-5",3,"Find the conjugate of the purely imaginary number 0+7i.","Purely imaginary number 0+7i का conjugate निकालिए।",
+    ["0+7i","0−7i","7+0i","−7+0i"],["0+7i","0−7i","7+0i","−7+0i"],"B","Flip the sign of 7 to get −7.","7 का sign बदलकर −7 पाइए।");
+  add("MTH-C49",4,"MTH11-4-5",4,"If |z|=0, what must z be?","अगर |z|=0, तो z क्या होना चाहिए?",
+    ["z=1","z=i","z=0","z can be anything"],["z=1","z=i","z=0","z कुछ भी हो सकता है"],"C","a²+b²=0 forces both a and b to be 0.","a²+b²=0 होने के लिए a और b दोनों 0 होने चाहिए।");
+
+  /* ---- Ch4 Topic 6: The Argand Plane (8) ---- */
+  add("MTH-C50",4,"MTH11-4-6",1,"On the Argand plane, the real part of z is plotted along the:","Argand plane पर, z का real part किस axis पर plot होता है?",
+    ["vertical axis","horizontal axis","diagonal","origin"],["vertical axis","horizontal axis","diagonal","origin"],"B","Real part is the horizontal coordinate.","Real part horizontal coordinate है।");
+  add("MTH-C51",4,"MTH11-4-6",1,"On the Argand plane, the imaginary part of z is plotted along the:","Argand plane पर, z का imaginary part किस axis पर plot होता है?",
+    ["horizontal axis","vertical axis","diagonal","origin"],["horizontal axis","vertical axis","diagonal","origin"],"B","Imaginary part is the vertical coordinate.","Imaginary part vertical coordinate है।");
+  add("MTH-C52",4,"MTH11-4-6",1,"z=3+4i is plotted as the point:","z=3+4i को किस point की तरह plot करते हैं?",
+    ["(4,3)","(3,4)","(3,−4)","(−3,4)"],["(4,3)","(3,4)","(3,−4)","(−3,4)"],"B","Real part first, imaginary part second.","पहले real part, फिर imaginary part।");
+  add("MTH-C53",4,"MTH11-4-6",2,"z=−2+3i is plotted as the point:","z=−2+3i को किस point की तरह plot करते हैं?",
+    ["(2,3)","(−2,3)","(−2,−3)","(3,−2)"],["(2,3)","(−2,3)","(−2,−3)","(3,−2)"],"B","(real part, imaginary part) = (−2,3).","(real part, imaginary part) = (−2,3)।");
+  add("MTH-C54",4,"MTH11-4-6",2,"The distance from the origin to the point representing z is:","Origin से z वाले point की दूरी क्या है?",
+    ["the real part","the imaginary part","the modulus of z","the conjugate of z"],["real part","imaginary part","z का modulus","z का conjugate"],"C","That distance is exactly |z|.","वह दूरी ठीक |z| है।");
+  add("MTH-C55",4,"MTH11-4-6",2,"A real number like z=5+0i is plotted:","z=5+0i जैसा real number कहाँ plot होता है?",
+    ["on the horizontal axis","on the vertical axis","at the origin always","off both axes"],["horizontal axis पर","vertical axis पर","हमेशा origin पर","दोनों axes से बाहर"],"A","Imaginary part 0 keeps it on the horizontal axis.","Imaginary part 0 होने से यह horizontal axis पर रहता है।");
+  add("MTH-C56",4,"MTH11-4-6",3,"A purely imaginary number like z=0+4i is plotted:","z=0+4i जैसा purely imaginary number कहाँ plot होता है?",
+    ["on the horizontal axis","on the vertical axis","at the origin always","off both axes"],["horizontal axis पर","vertical axis पर","हमेशा origin पर","दोनों axes से बाहर"],"B","Real part 0 keeps it on the vertical axis.","Real part 0 होने से यह vertical axis पर रहता है।");
+  add("MTH-C57",4,"MTH11-4-6",3,"Which point represents z=−1−1i?","z=−1−1i को कौन-सा point दिखाता है?",
+    ["(1,1)","(−1,1)","(−1,−1)","(1,−1)"],["(1,1)","(−1,1)","(−1,−1)","(1,−1)"],"C","Both parts are −1.","दोनों parts −1 हैं।");
+
+  /* ---- Ch4 Topic 7: Polar Representation (9) ---- */
+  add("MTH-C58",4,"MTH11-4-7",2,"In polar form z=r(cos θ + i sin θ), r represents:","Polar form z=r(cos θ + i sin θ) में, r क्या दिखाता है?",
+    ["the real part","the imaginary part","the modulus","the argument"],["real part","imaginary part","modulus","argument"],"C","r is |z|, the modulus.","r ही |z| है, modulus।");
+  add("MTH-C59",4,"MTH11-4-7",2,"In polar form, θ is called the:","Polar form में, θ को क्या कहते हैं?",
+    ["modulus","argument","conjugate","real part"],["modulus","argument","conjugate","real part"],"B","θ is called the argument.","θ को argument कहते हैं।");
+  add("MTH-C60",4,"MTH11-4-7",2,"The real part a relates to r and θ by:","Real part a, r और θ से किस तरह जुड़ा है?",
+    ["a=r sin θ","a=r cos θ","a=r tan θ","a=r"],["a=r sin θ","a=r cos θ","a=r tan θ","a=r"],"B","a = r cos θ.","a = r cos θ।");
+  add("MTH-C61",4,"MTH11-4-7",3,"The imaginary part b relates to r and θ by:","Imaginary part b, r और θ से किस तरह जुड़ा है?",
+    ["b=r cos θ","b=r sin θ","b=r tan θ","b=r"],["b=r cos θ","b=r sin θ","b=r tan θ","b=r"],"B","b = r sin θ.","b = r sin θ।");
+  add("MTH-C62",4,"MTH11-4-7",3,"Find the modulus of z=1+i.","z=1+i का modulus निकालिए।",
+    ["1","√2","2","0"],["1","√2","2","0"],"B","√(1+1) = √2.","√(1+1) = √2।");
+  add("MTH-C63",4,"MTH11-4-7",3,"For z=1+i, since the real and imaginary parts are equal, the argument θ is:","z=1+i के लिए, real और imaginary parts बराबर होने से, argument θ है:",
+    ["30°","45°","60°","90°"],["30°","45°","60°","90°"],"B","Equal parts means the standard 45° angle.","बराबर parts का मतलब है standard 45° angle।");
+  add("MTH-C64",4,"MTH11-4-7",4,"Find the modulus of z=√3+i.","z=√3+i का modulus निकालिए।",
+    ["2","4","√3","1"],["2","4","√3","1"],"A","√(3+1) = √4 = 2.","√(3+1) = √4 = 2।");
+  add("MTH-C65",4,"MTH11-4-7",4,"For z=√3+i, using tan θ = b/a = 1/√3, θ is:","z=√3+i के लिए, tan θ = b/a = 1/√3 इस्तेमाल करने पर, θ है:",
+    ["30°","45°","60°","90°"],["30°","45°","60°","90°"],"A","tan 30° = 1/√3, a standard value.","tan 30° = 1/√3, एक standard value।");
+  add("MTH-C66",4,"MTH11-4-7",5,"Write z=2(cos 60° + i sin 60°) in the form a+bi.","z=2(cos 60° + i sin 60°) को a+bi के रूप में लिखिए।",
+    ["1+√3 i","√3+i","2+i","1+i"],["1+√3 i","√3+i","2+i","1+i"],"A","a=2cos60°=1, b=2sin60°=√3.","a=2cos60°=1, b=2sin60°=√3।");
 
   window.SL_DATA.questions = window.SL_DATA.questions.concat(Q);
 })();
