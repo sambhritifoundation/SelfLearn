@@ -128,6 +128,113 @@ window.SL_DATA = window.SL_DATA || {subjects:[], questions:[]};
         b("26 people like tea or coffee.","26 लोगों को tea या coffee पसन्द है.")))
   ];
 
+  var relations=[
+
+    topic("MTH11-2-0",
+      b("0. Revise: Pairs and Sets You Already Know","0. दोहराइए: Pairs और Sets जो आप पहले से जानते हैं"),
+      b(
+        "A seat number like ‘row 3, seat 5’ is not the same as ‘row 5, seat 3’. **Order matters.**\n\nWe write this as an **ordered pair**: $(3,5)$. The first number is always the row; the second is always the seat.\n\n$$(a,b)=(b,a)\\ \\text{ only when }\\ a=b$$\n\nYou also know a **set** from Chapter 1 — a well-defined collection, written $\\{1,2,3\\}$, where order does *not* matter.\n\nThis chapter uses both ideas together: ordered pairs, built from sets.",
+        "‘row 3, seat 5’ जैसी seat number, ‘row 5, seat 3’ जैसी नहीं है। **क्रम मायने रखता है।**\n\nइसे **ordered pair** कहते हैं: $(3,5)$। पहला number हमेशा row है; दूसरा हमेशा seat है।\n\n$$(a,b)=(b,a)\\ \\text{ तभी जब }\\ a=b$$\n\nChapter 1 से आप **set** भी जानते हैं — एक well-defined collection, जिसे $\\{1,2,3\\}$ लिखते हैं, जहाँ क्रम मायने नहीं रखता।\n\nयह chapter दोनों विचारों को साथ इस्तेमाल करता है: sets से बने ordered pairs।"),
+      worked(
+        b("Is (2, 5) the same as (5, 2)?","क्या (2, 5), (5, 2) जैसा है?"),
+        [
+          ["Compare the first position: 2 and 5.","पहली position compare कीजिए: 2 और 5।","The first numbers do not match.","पहले numbers match नहीं करते।"],
+          ["Since the first positions differ, the pairs are different.","पहली positions अलग हैं, इसलिए pairs अलग हैं।","Order is part of what an ordered pair means.","Order, ordered pair के मतलब का हिस्सा है।"]
+        ],
+        b("No, they are different ordered pairs.","नहीं, ये अलग ordered pairs हैं।"))),
+
+    topic("MTH11-2-1",
+      b("1. Cartesian Product of Sets","1. Sets का Cartesian Product"),
+      b(
+        "A school has 2 sections, $A=\\{X,Y\\}$, and 3 houses, $B=\\{\\text{Red},\\text{Blue},\\text{Green}\\}$. Every student belongs to one section and one house — a pair like (X, Red).\n\nAll such pairs together are the **Cartesian product** $A\\times B$.\n\n{{diagram:cartesian-grid}}\n\n$$A\\times B=\\{(X,\\text{Red}),(X,\\text{Blue}),(X,\\text{Green}),(Y,\\text{Red}),(Y,\\text{Blue}),(Y,\\text{Green})\\}$$\n\nEach member of A pairs with every member of B.\n\n$$n(A\\times B)=n(A)\\times n(B)$$\n\nHere $2\\times3=6$ pairs — and the grid above shows exactly 6 dots.",
+        "एक school में 2 sections हैं, $A=\\{X,Y\\}$, और 3 houses हैं, $B=\\{\\text{Red},\\text{Blue},\\text{Green}\\}$। हर student एक section और एक house में है — जैसे pair (X, Red)।\n\nऐसे सभी pairs मिलकर **Cartesian product** $A\\times B$ बनाते हैं।\n\n{{diagram:cartesian-grid}}\n\n$$A\\times B=\\{(X,\\text{Red}),(X,\\text{Blue}),(X,\\text{Green}),(Y,\\text{Red}),(Y,\\text{Blue}),(Y,\\text{Green})\\}$$\n\nA का हर member, B के हर member से pair करता है।\n\n$$n(A\\times B)=n(A)\\times n(B)$$\n\nयहाँ $2\\times3=6$ pairs हैं — ऊपर की grid में ठीक 6 dots हैं।"),
+      worked(
+        b("If A has 4 members and B has 5 members, how many pairs are in A×B?","अगर A में 4 और B में 5 members हैं, तो A×B में कितने pairs हैं?"),
+        [
+          ["Each of A's 4 members can pair with all 5 members of B.","A के 4 members में से हर एक, B के सभी 5 members से pair कर सकता है।","No possible pair is left out.","कोई possible pair नहीं छूटता।"],
+          ["Multiply: $4\\times5=20$ pairs.","गुणा कीजिए: $4\\times5=20$ pairs।","n(A×B) is always n(A) times n(B).","n(A×B) हमेशा n(A) गुणा n(B) होता है।"]
+        ],
+        b("20 pairs.","20 pairs।"))),
+
+    topic("MTH11-2-2",
+      b("2. Relations","2. Relations"),
+      b(
+        "Take $A=\\{R,S\\}$ (initials) and $B=\\{\\text{Rahul},\\text{Sita}\\}$ (names). Connect a letter to a name only when that letter starts the name.\n\nThis chosen collection of pairs is a **relation**.\n\n{{diagram:relation-arrow}}\n\n$$R\\subseteq A\\times B$$\n\nA relation does not have to use every possible pair from $A\\times B$ — it keeps only the ones that fit the rule.\n\nThree words describe a relation:\n\n- **Domain**: first elements that are actually used — here $\\{R,S\\}$.\n- **Range**: second elements that are actually used — here $\\{\\text{Rahul},\\text{Sita}\\}$.\n- **Codomain**: the whole target set $B$, whether used or not.\n\nRange is always inside codomain, but may be smaller.",
+        "मानिए $A=\\{R,S\\}$ (initials) और $B=\\{\\text{Rahul},\\text{Sita}\\}$ (names)। किसी letter को किसी name से तभी जोड़िए जब वह letter उस name से शुरू होता हो।\n\nPairs का यह चुना हुआ collection एक **relation** है।\n\n{{diagram:relation-arrow}}\n\n$$R\\subseteq A\\times B$$\n\nRelation में $A\\times B$ के सभी pairs ज़रूरी नहीं — सिर्फ़ वे जो rule पर खरे उतरें।\n\nRelation को बताने के तीन शब्द:\n\n- **Domain**: पहले elements जो सच में इस्तेमाल हुए — यहाँ $\\{R,S\\}$।\n- **Range**: दूसरे elements जो सच में इस्तेमाल हुए — यहाँ $\\{\\text{Rahul},\\text{Sita}\\}$।\n- **Codomain**: पूरा target set $B$, चाहे इस्तेमाल हो या न हो।\n\nRange हमेशा codomain के अंदर होता है, पर उससे छोटा हो सकता है।"),
+      worked(
+        b("A={1,2,3}, B={2,4,6}. R connects x to y when y=2x. Find the range.","A={1,2,3}, B={2,4,6}। R में x, y से जुड़ता है जब y=2x। Range निकालिए।"),
+        [
+          ["Apply the rule to each member of A: 1→2, 2→4, 3→6.","A के हर member पर rule लगाइए: 1→2, 2→4, 3→6।","Each domain member gives one matching y=2x.","हर domain member का एक matching y=2x है।"],
+          ["The range is every y that was actually reached: {2,4,6}.","Range वे सभी y हैं जो सच में मिले: {2,4,6}।","All three outputs were used, so range equals the codomain here.","तीनों outputs इस्तेमाल हुए, इसलिए यहाँ range, codomain के बराबर है।"]
+        ],
+        b("Range = {2, 4, 6}.","Range = {2, 4, 6}।"))),
+
+    topic("MTH11-2-3",
+      b("3. What is a Function?","3. Function क्या है?"),
+      b(
+        "Every relation is not a function. A **function** adds one strict rule: **one input must give exactly one output.**\n\n{{diagram:function-vs-not}}\n\nIf $f(x)=2x$, then input 3 always gives $f(3)=6$ — never anything else.\n\nMany inputs may share one output (that is fine). But one input can never point to two different outputs (that breaks the rule).\n\nTest: pick any input. Does exactly one arrow leave it? If yes for every input, it is a function.",
+        "हर relation function नहीं होता। **Function** एक सख़्त rule जोड़ता है: **एक input का ठीक एक output होना चाहिए।**\n\n{{diagram:function-vs-not}}\n\nअगर $f(x)=2x$ है, तो input 3 का output हमेशा $f(3)=6$ होगा — कभी कुछ और नहीं।\n\nकई inputs का output एक ही हो सकता है (यह ठीक है)। पर एक input कभी दो अलग outputs की ओर नहीं जा सकता (यह rule तोड़ता है)।\n\nTest: कोई भी input चुनिए। क्या उससे ठीक एक arrow निकलता है? अगर हर input के लिए हाँ, तो यह function है।"),
+      worked(
+        b("Can (2,4) and (2,5) both belong to the same function?","क्या (2,4) और (2,5) दोनों एक ही function में हो सकते हैं?"),
+        [
+          ["Look at the first element of both pairs: both are 2.","दोनों pairs का पहला element देखिए: दोनों 2 हैं।","Same input, 2, appears in both pairs.","Same input, 2, दोनों pairs में है।"],
+          ["The outputs differ (4 and 5), so this breaks the one-output rule.","Outputs अलग हैं (4 और 5), यह one-output rule तोड़ता है।","One input cannot have two different outputs in a function.","Function में एक input के दो अलग outputs नहीं हो सकते।"]
+        ],
+        b("No — this cannot be a function.","नहीं — यह function नहीं हो सकता।"))),
+
+    topic("MTH11-2-4",
+      b("4. Domain, Codomain and Range of a Function","4. Function का Domain, Codomain और Range"),
+      b(
+        "For a real-number function, the **domain** is every input the formula is allowed to accept.\n\nTwo things break a formula:\n\n- A fraction whose denominator becomes 0.\n- A real square root of a negative number.\n\n**Example (NCERT):** $f(x)=\\dfrac{x^2+3x+5}{x^2-5x+4}$.\n\nFactor the denominator: $x^2-5x+4=(x-1)(x-4)$. It is 0 when $x=1$ or $x=4$.\n\n{{diagram:domain-restriction}}\n\nSo the domain is every real number except those two:\n\n$$\\text{Domain}=\\mathbb{R}-\\{1,4\\}$$\n\nAlways check the denominator (and any square root) before answering ‘what is the domain?’.",
+        "किसी real-number function के लिए, **domain** वे सभी inputs हैं जिन्हें formula स्वीकार कर सकता है।\n\nदो चीज़ें formula को तोड़ देती हैं:\n\n- Fraction, जिसका denominator 0 हो जाए।\n- किसी negative number का real square root।\n\n**उदाहरण (NCERT):** $f(x)=\\dfrac{x^2+3x+5}{x^2-5x+4}$।\n\nDenominator को factor कीजिए: $x^2-5x+4=(x-1)(x-4)$। यह 0 होता है जब $x=1$ या $x=4$।\n\n{{diagram:domain-restriction}}\n\nतो domain हर real number है, बस ये दो छोड़कर:\n\n$$\\text{Domain}=\\mathbb{R}-\\{1,4\\}$$\n\n‘Domain क्या है?’ का जवाब देने से पहले हमेशा denominator (और कोई square root) जाँचिए।"),
+      worked(
+        b("Find the domain of f(x) = 1 / (x−3).","f(x) = 1 / (x−3) का domain निकालिए।"),
+        [
+          ["Set the denominator equal to 0: x−3=0, so x=3.","Denominator को 0 के बराबर रखिए: x−3=0, इसलिए x=3।","At x=3 the fraction would divide by 0, which is not allowed.","x=3 पर fraction 0 से divide होगा, जो allowed नहीं।"],
+          ["Remove just that one point: domain is ℝ − {3}.","बस वही एक point हटाइए: domain है ℝ − {3}।","Every other real number keeps the denominator nonzero.","बाक़ी हर real number पर denominator nonzero रहता है।"]
+        ],
+        b("Domain = ℝ − {3}.","Domain = ℝ − {3}।"))),
+
+    topic("MTH11-2-5",
+      b("5. Everyday Functions: Identity, Constant, Polynomial and Rational","5. रोज़मर्रा के Functions: Identity, Constant, Polynomial और Rational"),
+      b(
+        "Four common function types, each with its own domain and range.\n\n{{diagram:graph-panel-lines}}\n\n**Identity function**: $f(x)=x$. Every input comes back unchanged. Domain and range are both $\\mathbb{R}$.\n\n**Constant function**: $f(x)=c$. Every input gives the same fixed output. Domain is $\\mathbb{R}$; range is just $\\{c\\}$.\n\n**Polynomial function**: built from powers of $x$ added together, like $f(x)=x^2+3x+5$. Domain is $\\mathbb{R}$.\n\n**Rational function**: one polynomial divided by another, like the fraction you saw in the last topic. Its domain excludes wherever the denominator is 0 — the same check you just practised.",
+        "चार आम function types, हर एक का अपना domain और range है।\n\n{{diagram:graph-panel-lines}}\n\n**Identity function**: $f(x)=x$। हर input बिना बदले वापस आता है। Domain और range दोनों $\\mathbb{R}$ हैं।\n\n**Constant function**: $f(x)=c$। हर input का output एक ही fixed value है। Domain $\\mathbb{R}$ है; range सिर्फ़ $\\{c\\}$ है।\n\n**Polynomial function**: $x$ की powers जोड़कर बनता है, जैसे $f(x)=x^2+3x+5$। Domain $\\mathbb{R}$ है।\n\n**Rational function**: एक polynomial को दूसरे से divide किया हुआ, जैसा fraction पिछले topic में देखा। Domain में वहाँ शामिल नहीं जहाँ denominator 0 हो — वही check जो आपने अभी किया।"),
+      worked(
+        b("For the constant function f(x)=7, what is f(100)?","Constant function f(x)=7 के लिए, f(100) क्या है?"),
+        [
+          ["A constant function ignores the input completely.","Constant function input को बिलकुल नज़रअंदाज़ करता है।","The rule says the output is always 7, no matter what x is.","Rule कहता है output हमेशा 7 है, चाहे x कुछ भी हो।"],
+          ["So f(100)=7, the same as f(0) or f(−5).","इसलिए f(100)=7, जैसा f(0) या f(−5) है।","Every input maps to the one fixed value.","हर input उसी एक fixed value पर जाता है।"]
+        ],
+        b("f(100) = 7.","f(100) = 7।"))),
+
+    topic("MTH11-2-6",
+      b("6. Modulus, Signum and Greatest Integer Functions","6. Modulus, Signum और Greatest Integer Functions"),
+      b(
+        "Three special functions, each defined in pieces.\n\n{{diagram:graph-panel-special}}\n\n**Modulus function**: $f(x)=|x|$, the distance of $x$ from 0 — always 0 or positive. $|3|=3$ and $|-3|=3$.\n\n**Signum function**: only cares about the sign. $f(x)=-1$ if $x<0$, $0$ if $x=0$, $+1$ if $x>0$. Range is just $\\{-1,0,1\\}$.\n\n**Greatest integer function**: $f(x)=[x]$, the largest whole number that is still $\\le x$ — round *down*, always, even for negatives.\n\n$$[3.7]=3\\qquad[-1.2]=-2$$\n\n⚠️ $[-1.2]$ is **not** $-1$. Rounding down means moving further left on the number line, not just dropping the decimal part.",
+        "तीन special functions, हर एक टुकड़ों में बना है।\n\n{{diagram:graph-panel-special}}\n\n**Modulus function**: $f(x)=|x|$, यह $x$ की 0 से दूरी है — हमेशा 0 या positive। $|3|=3$ और $|-3|=3$।\n\n**Signum function**: सिर्फ़ sign से मतलब रखता है। $f(x)=-1$ अगर $x<0$, $0$ अगर $x=0$, $+1$ अगर $x>0$। Range सिर्फ़ $\\{-1,0,1\\}$ है।\n\n**Greatest integer function**: $f(x)=[x]$, यह सबसे बड़ा whole number है जो फिर भी $\\le x$ हो — हमेशा *नीचे* की ओर round कीजिए, negatives के लिए भी।\n\n$$[3.7]=3\\qquad[-1.2]=-2$$\n\n⚠️ $[-1.2]$, $-1$ **नहीं** है। नीचे round करने का मतलब है number line पर और बाईं ओर जाना, सिर्फ़ decimal भाग हटाना नहीं।"),
+      worked(
+        b("Find [4.9] and [−2.3].","[4.9] और [−2.3] निकालिए।"),
+        [
+          ["[4.9]: the largest whole number ≤ 4.9 is 4.","[4.9]: 4.9 से छोटा या बराबर सबसे बड़ा whole number 4 है।","Round down from 4.9, staying above 4.","4.9 से नीचे round कीजिए, 4 से ऊपर रहते हुए।"],
+          ["[−2.3]: the largest whole number ≤ −2.3 is −3, not −2.","[−2.3]: −2.3 से छोटा या बराबर सबसे बड़ा whole number −3 है, −2 नहीं।","−3 is further left than −2.3 on the number line; −2 is to the right of −2.3, so it is not ≤ −2.3.","Number line पर −3, −2.3 से बाईं ओर है; −2, −2.3 के दाईं ओर है, इसलिए वह ≤ −2.3 नहीं है।"]
+        ],
+        b("[4.9] = 4 and [−2.3] = −3.","[4.9] = 4 और [−2.3] = −3।"))),
+
+    topic("MTH11-2-7",
+      b("7. Algebra of Real Functions","7. Real Functions का Algebra"),
+      b(
+        "Two functions can be combined the same way two numbers are.\n\n$$(f+g)(x)=f(x)+g(x)\\qquad(f-g)(x)=f(x)-g(x)$$\n$$(fg)(x)=f(x)\\cdot g(x)\\qquad\\left(\\frac{f}{g}\\right)(x)=\\frac{f(x)}{g(x)},\\ g(x)\\neq0$$\n\nEach combined function's domain is wherever **both** $f$ and $g$ are defined — for division, also remove any point where $g(x)=0$.\n\nExample: $f(x)=x+1$, $g(x)=x^2$. Then $(f+g)(2)=f(2)+g(2)=3+4=7$.",
+        "दो functions को उसी तरह combine कर सकते हैं जैसे दो numbers को।\n\n$$(f+g)(x)=f(x)+g(x)\\qquad(f-g)(x)=f(x)-g(x)$$\n$$(fg)(x)=f(x)\\cdot g(x)\\qquad\\left(\\frac{f}{g}\\right)(x)=\\frac{f(x)}{g(x)},\\ g(x)\\neq0$$\n\nCombined function का domain वहाँ है जहाँ $f$ और $g$ **दोनों** defined हों — division के लिए, जहाँ $g(x)=0$ हो वह point भी हटाइए।\n\nउदाहरण: $f(x)=x+1$, $g(x)=x^2$। तो $(f+g)(2)=f(2)+g(2)=3+4=7$।"),
+      worked(
+        b("f(x)=x+1, g(x)=x². Find (f·g)(2).","f(x)=x+1, g(x)=x²। (f·g)(2) निकालिए।"),
+        [
+          ["Find f(2) and g(2) separately: f(2)=3, g(2)=4.","f(2) और g(2) अलग-अलग निकालिए: f(2)=3, g(2)=4।","Substitute x=2 into each rule on its own.","हर rule में अलग-अलग x=2 रखिए।"],
+          ["Multiply them: (f·g)(2) = 3×4 = 12.","उन्हें गुणा कीजिए: (f·g)(2) = 3×4 = 12।","(fg)(x) is defined as the product f(x)·g(x).","(fg)(x) की परिभाषा है f(x)·g(x) का गुणनफल।"]
+        ],
+        b("(f·g)(2) = 12.","(f·g)(2) = 12।")))
+  ];
+
   window.SL_DATA.subjects = (window.SL_DATA.subjects||[]).filter(function(s){ return s.code!=="MATH11"; });
 
   window.SL_DATA.subjects.push({code:"MATH11",board:"CBSE",klass:11,icon:"📐",
@@ -146,7 +253,18 @@ window.SL_DATA = window.SL_DATA || {subjects:[], questions:[]};
         assessment:["MTH-S01","MTH-S03","MTH-S05","MTH-S06","MTH-S09","MTH-S12","MTH-S14","MTH-S17","MTH-S20",
           "MTH-S22","MTH-S25","MTH-S28","MTH-S31","MTH-S34","MTH-S37","MTH-S41","MTH-S44","MTH-S47",
           "MTH-S51","MTH-S54","MTH-S57","MTH-S63","MTH-S66","MTH-S70"],
-        topics:sets}
+        topics:sets},
+      {no:2,name:b("Relations and Functions","Relations और Functions"),
+        summary:b(
+          "**Relations and Functions: what this chapter covers**\n\nAn ordered pair has a fixed order — (a,b) is not (b,a). The Cartesian product A×B lists every such pair from two sets. A relation is a chosen collection of these pairs, with its own domain, codomain and range. A function is a stricter relation: one input, exactly one output. Learn the everyday functions — identity, constant, polynomial, rational, modulus, signum, greatest integer — and how to combine two functions into one.",
+          "**Relations और Functions: इस chapter में क्या सीखेंगे**\n\nOrdered pair का क्रम तय है — (a,b), (b,a) नहीं है। Cartesian product A×B, दो sets के ऐसे हर pair को list करता है। Relation, इन pairs का चुना हुआ collection है, जिसका अपना domain, codomain और range है। Function एक सख़्त relation है: एक input, ठीक एक output। रोज़मर्रा के functions सीखिए — identity, constant, polynomial, rational, modulus, signum, greatest integer — और दो functions को मिलाकर एक बनाना सीखिए।"),
+        checkpoint:b(
+          "Getting most Warm-up and Standard questions right, across every topic in this chapter, means you are ready to move on. Scoring low? Go back to ‘0. Revise: Pairs and Sets You Already Know’ and redo its example by hand — that is the fastest way forward, not a setback.",
+          "इस chapter के हर topic में ज़्यादातर Warm-up और Standard questions सही होना, मतलब आप आगे बढ़ने के लिए ready हैं। Score कम है? ‘0. Revise: Pairs और Sets जो आप पहले से जानते हैं’ पर वापस जाइए और उसका example हाथ से दोबारा कीजिए — यही सबसे तेज़ रास्ता है, हार नहीं।"),
+        assessment:["MTH-R01","MTH-R03","MTH-R06","MTH-R09","MTH-R12","MTH-R15","MTH-R18","MTH-R21",
+          "MTH-R24","MTH-R27","MTH-R30","MTH-R33","MTH-R36","MTH-R39","MTH-R42","MTH-R45",
+          "MTH-R48","MTH-R51","MTH-R54","MTH-R57","MTH-R60","MTH-R63","MTH-R66","MTH-R69"],
+        topics:relations}
     ]});
 
   window.SL_DATA.questions = (window.SL_DATA.questions||[]).filter(function(q){ return q.subject!=="MATH11"; });
@@ -319,6 +437,160 @@ window.SL_DATA = window.SL_DATA || {subjects:[], questions:[]};
     ["15","55","25","30"],["15","55","25","30"],"A","Neither = n(U) − n(A ∪ B) = 70 − 55 = 15.","न कोई = n(U) − n(A ∪ B) = 70 − 55 = 15।");
   add("MTH-S74",1,"MTH11-1-7",5,"If n(A ∪ B) = n(A) + n(B), what must be true?","अगर n(A ∪ B) = n(A) + n(B) है, तो क्या सच होना चाहिए?",
     ["A and B are equal","A and B are disjoint","A is a subset of B","A and B are both empty"],["A और B equal हैं","A और B disjoint हैं","A, B का subset है","A और B दोनों empty हैं"],"B","This only holds when n(A ∩ B) = 0 — no overlap to subtract.","यह तभी सच होता है जब n(A ∩ B) = 0 हो — घटाने के लिए कोई overlap नहीं।");
+
+  /* ---- Ch2 Topic 0: Revise (5) ---- */
+  add("MTH-R01",2,"MTH11-2-0",1,"Is (4, 9) the same as (9, 4)?","क्या (4, 9), (9, 4) जैसा है?",
+    ["Yes, always","No, order matters","Yes, if 4 < 9","Only inside a set"],["हाँ, हमेशा","नहीं, order मायने रखता है","हाँ, अगर 4 < 9 हो","सिर्फ़ set के अंदर"],"B","Swapping the positions gives a different ordered pair.","Positions बदलने से अलग ordered pair बनता है।");
+  add("MTH-R02",2,"MTH11-2-0",1,"In the ordered pair (a, b), which is written first?","Ordered pair (a, b) में पहले क्या लिखा जाता है?",
+    ["a","b","whichever is larger","it does not matter"],["a","b","जो बड़ा हो","मायने नहीं रखता"],"A","By definition, a is the first element.","परिभाषा से, a पहला element है।");
+  add("MTH-R03",2,"MTH11-2-0",1,"(a, b) = (b, a) is true only when:","(a, b) = (b, a) तभी सच है जब:",
+    ["a = 0","b = 0","a = b","never"],["a = 0","b = 0","a = b","कभी नहीं"],"C","Swapping equal values changes nothing.","बराबर values को बदलने से कुछ नहीं बदलता।");
+  add("MTH-R04",2,"MTH11-2-0",2,"Which of these is a set, not an ordered pair?","इनमें से कौन-सा set है, ordered pair नहीं?",
+    ["(2, 3)","{2, 3}","(3, 2)","(2, 2)"],["(2, 3)","{2, 3}","(3, 2)","(2, 2)"],"B","Curly braces mean a set; round brackets mean an ordered pair.","Curly braces set दिखाते हैं; round brackets ordered pair।");
+  add("MTH-R05",2,"MTH11-2-0",2,"What is different between the set {2,3} and the pair (2,3)?","Set {2,3} और pair (2,3) में क्या अलग है?",
+    ["the numbers used","whether order matters","nothing, they are the same","the count of members"],["इस्तेमाल हुए numbers","क्या order मायने रखता है","कुछ नहीं, दोनों same हैं","members की गिनती"],"B","In a set, order is irrelevant; in a pair, order is everything.","Set में order मायने नहीं रखता; pair में order ही सब कुछ है।");
+
+  /* ---- Ch2 Topic 1: Cartesian Product (8) ---- */
+  add("MTH-R06",2,"MTH11-2-1",1,"If A={1,2} and B={x,y}, which pair is in A×B?","अगर A={1,2} और B={x,y}, कौन-सा pair A×B में है?",
+    ["(1, x)","(x, 1)","(1, 2)","(x, y)"],["(1, x)","(x, 1)","(1, 2)","(x, y)"],"A","The first element must come from A, the second from B.","पहला element A से, दूसरा B से आना चाहिए।");
+  add("MTH-R07",2,"MTH11-2-1",1,"n(A)=3, n(B)=2. Find n(A×B).","n(A)=3, n(B)=2। n(A×B) निकालिए।",
+    ["5","6","9","2"],["5","6","9","2"],"B","3 × 2 = 6.","3 × 2 = 6।");
+  add("MTH-R08",2,"MTH11-2-1",1,"In A×B, the first element of every pair comes from:","A×B में हर pair का पहला element कहाँ से आता है?",
+    ["A","B","either A or B","neither"],["A","B","A या B, कोई भी","कोई नहीं"],"A","A×B keeps A's elements first, always.","A×B में A के elements हमेशा पहले होते हैं।");
+  add("MTH-R09",2,"MTH11-2-1",2,"A={1,2,3}, B={4,5}. How many pairs are in A×B?","A={1,2,3}, B={4,5}। A×B में कितने pairs हैं?",
+    ["5","6","8","9"],["5","6","8","9"],"B","3 × 2 = 6.","3 × 2 = 6।");
+  add("MTH-R10",2,"MTH11-2-1",2,"A={1,2}, B={1,2}. Is (2,1) in A×B?","A={1,2}, B={1,2}। क्या (2,1), A×B में है?",
+    ["Yes","No","Only if listed in B×A","Cannot tell"],["हाँ","नहीं","सिर्फ़ B×A में लिखा हो तो","कह नहीं सकते"],"A","2 is in A and 1 is in B, so the pair fits.","2, A में है और 1, B में है, इसलिए pair सही है।");
+  add("MTH-R11",2,"MTH11-2-1",2,"n(A×B)=12 and n(A)=3. What is n(B)?","n(A×B)=12 और n(A)=3। n(B) क्या है?",
+    ["4","9","15","36"],["4","9","15","36"],"A","12 ÷ 3 = 4.","12 ÷ 3 = 4।");
+  add("MTH-R12",2,"MTH11-2-1",3,"n(A×B)=15 and n(B)=5. What is n(A)?","n(A×B)=15 और n(B)=5। n(A) क्या है?",
+    ["3","10","20","75"],["3","10","20","75"],"A","15 ÷ 5 = 3.","15 ÷ 5 = 3।");
+  add("MTH-R13",2,"MTH11-2-1",3,"n(B)=2, n(C)=3. How many pairs are in B×C?","n(B)=2, n(C)=3। B×C में कितने pairs हैं?",
+    ["5","6","4","9"],["5","6","4","9"],"B","2 × 3 = 6.","2 × 3 = 6।");
+
+  /* ---- Ch2 Topic 2: Relations (8) ---- */
+  add("MTH-R14",2,"MTH11-2-2",1,"A relation from A to B is a subset of:","A से B तक relation किसका subset है?",
+    ["A","B","A×B","A∪B"],["A","B","A×B","A∪B"],"C","A relation is a chosen collection of pairs from A×B.","Relation, A×B में से चुने हुए pairs का collection है।");
+  add("MTH-R15",2,"MTH11-2-2",1,"In a relation, the codomain is:","Relation में codomain क्या है?",
+    ["only the outputs used","the whole target set B","the whole set A","the domain"],["सिर्फ़ इस्तेमाल हुए outputs","पूरा target set B","पूरा set A","domain"],"B","Codomain is the entire target set, whether used or not.","Codomain पूरा target set है, चाहे इस्तेमाल हो या न हो।");
+  add("MTH-R16",2,"MTH11-2-2",1,"In a relation, the domain is:","Relation में domain क्या है?",
+    ["the whole set A","first elements actually used","second elements actually used","the whole set B"],["पूरा set A","इस्तेमाल हुए पहले elements","इस्तेमाल हुए दूसरे elements","पूरा set B"],"B","Domain is only the first elements that were actually paired.","Domain सिर्फ़ वे पहले elements हैं जो सच में pair हुए।");
+  add("MTH-R17",2,"MTH11-2-2",2,"R={(1,2),(2,4),(3,6)}. Find the domain of R.","R={(1,2),(2,4),(3,6)}। R का domain निकालिए।",
+    ["{2,4,6}","{1,2,3}","{1,2,3,4,6}","{6}"],["{2,4,6}","{1,2,3}","{1,2,3,4,6}","{6}"],"B","Domain is the set of first elements.","Domain पहले elements का set है।");
+  add("MTH-R18",2,"MTH11-2-2",2,"For the same R={(1,2),(2,4),(3,6)}, find the range.","उसी R={(1,2),(2,4),(3,6)} के लिए, range निकालिए।",
+    ["{1,2,3}","{2,4,6}","{1,2,3,4,6}","{6}"],["{1,2,3}","{2,4,6}","{1,2,3,4,6}","{6}"],"B","Range is the set of second elements.","Range दूसरे elements का set है।");
+  add("MTH-R19",2,"MTH11-2-2",2,"Range is always:","Range हमेशा कैसा होता है?",
+    ["bigger than codomain","equal to codomain","inside codomain, possibly smaller","unrelated to codomain"],["codomain से बड़ा","codomain के बराबर","codomain के अंदर, शायद छोटा","codomain से बेमतलब"],"C","Range can never go outside the codomain.","Range कभी codomain से बाहर नहीं जा सकता।");
+  add("MTH-R20",2,"MTH11-2-2",3,"A={1,2,3,4}, B={1,4,9,16}. R: y=x². Find the range of R.","A={1,2,3,4}, B={1,4,9,16}। R: y=x²। R का range निकालिए।",
+    ["{1,4,9,16}","{1,2,3,4}","{1,4,16}","{9}"],["{1,4,9,16}","{1,2,3,4}","{1,4,16}","{9}"],"A","1²,2²,3²,4² give 1,4,9,16 — every codomain value is reached.","1²,2²,3²,4² से 1,4,9,16 मिलते हैं — codomain की हर value पहुँचती है।");
+  add("MTH-R21",2,"MTH11-2-2",3,"A={2,3,5}, B={4,6,10,15,25}. R: x relates to y if y is a multiple of x. Is (3,10) in R?","A={2,3,5}, B={4,6,10,15,25}। R: x, y से जुड़ता है अगर y, x का multiple हो। क्या (3,10), R में है?",
+    ["Yes, 10 is a multiple of 3","No, 10 is not a multiple of 3","Yes, always","Cannot tell"],["हाँ, 10, 3 का multiple है","नहीं, 10, 3 का multiple नहीं है","हाँ, हमेशा","कह नहीं सकते"],"B","10 ÷ 3 is not a whole number.","10 ÷ 3 whole number नहीं है।");
+
+  /* ---- Ch2 Topic 3: What is a Function? (8) ---- */
+  add("MTH-R22",2,"MTH11-2-3",1,"A function must give each input:","Function हर input को क्या देता है?",
+    ["two outputs","exactly one output","no output","only positive outputs"],["दो outputs","ठीक एक output","कोई output नहीं","केवल positive outputs"],"B","One input, one output — the core rule.","एक input, एक output — मुख्य rule।");
+  add("MTH-R23",2,"MTH11-2-3",1,"Which is NOT allowed in a function?","Function में कौन-सा allowed नहीं है?",
+    ["two inputs sharing one output","one input with two different outputs","every input having an output","one input, one output"],["दो inputs का एक ही output","एक input के दो अलग outputs","हर input का एक output होना","एक input, एक output"],"B","One input cannot point to two different outputs.","एक input दो अलग outputs की ओर नहीं जा सकता।");
+  add("MTH-R24",2,"MTH11-2-3",1,"f(x)=3x. Find f(4).","f(x)=3x। f(4) निकालिए।",
+    ["7","12","34","43"],["7","12","34","43"],"B","3 × 4 = 12.","3 × 4 = 12।");
+  add("MTH-R25",2,"MTH11-2-3",2,"R={(1,5),(2,5),(3,5)}. Is R a function?","R={(1,5),(2,5),(3,5)}। क्या R function है?",
+    ["Yes, each input has exactly one output","No, outputs repeat","No, too few inputs","Cannot tell"],["हाँ, हर input का ठीक एक output है","नहीं, outputs दोहराए गए हैं","नहीं, inputs बहुत कम हैं","कह नहीं सकते"],"A","Sharing an output is fine; each input still has just one.","Output साझा होना ठीक है; हर input का फिर भी एक ही है।");
+  add("MTH-R26",2,"MTH11-2-3",2,"R={(1,2),(1,3),(2,4)}. Is R a function?","R={(1,2),(1,3),(2,4)}। क्या R function है?",
+    ["Yes","No, input 1 has two outputs","No, too many pairs","Yes, if reordered"],["हाँ","नहीं, input 1 के दो outputs हैं","नहीं, pairs बहुत ज़्यादा हैं","हाँ, दोबारा order करने पर"],"B","1 appears with both 2 and 3 as outputs.","1 के साथ 2 और 3 दोनों outputs आए हैं।");
+  add("MTH-R27",2,"MTH11-2-3",2,"Many inputs sharing the same output is:","कई inputs का output एक जैसा होना क्या है?",
+    ["never allowed in a function","always allowed in a function","only allowed if inputs are equal","a sign of an error"],["function में कभी allowed नहीं","function में हमेशा allowed","सिर्फ़ inputs बराबर हों तो allowed","एक error का संकेत"],"B","Many-one is a normal, allowed pattern.","Many-one एक सामान्य, allowed पैटर्न है।");
+  add("MTH-R28",2,"MTH11-2-3",3,"f(x)=x². Can f(2)=4 and f(−2)=4 both hold?","f(x)=x²। क्या f(2)=4 और f(−2)=4 दोनों हो सकते हैं?",
+    ["No, contradiction","Yes, different inputs can share an output","No, only positive inputs allowed","Yes, but only for x=0"],["नहीं, contradiction है","हाँ, अलग inputs का output साझा हो सकता है","नहीं, सिर्फ़ positive inputs allowed","हाँ, पर सिर्फ़ x=0 के लिए"],"B","2 and −2 are different inputs; sharing an output is fine.","2 और −2 अलग inputs हैं; output साझा होना ठीक है।");
+  add("MTH-R29",2,"MTH11-2-3",4,"A={1,2,3}. Pairs are (1,4),(2,5),(3,4). Is this a function from A?","A={1,2,3}। Pairs हैं (1,4),(2,5),(3,4)। क्या यह A से एक function है?",
+    ["Yes, every element of A has exactly one image","No, 4 repeats as an output","No, domain is incomplete","Cannot tell"],["हाँ, A के हर element का ठीक एक image है","नहीं, 4 output के रूप में दोहराया गया है","नहीं, domain अधूरा है","कह नहीं सकते"],"A","Repeating an output is allowed; each input still has one image.","Output दोहराना allowed है; हर input का फिर भी एक image है।");
+
+  /* ---- Ch2 Topic 4: Domain, Codomain, Range (10) ---- */
+  add("MTH-R30",2,"MTH11-2-4",1,"The values allowed into a function are its:","Function में डालने वाली allowed values क्या हैं?",
+    ["range","codomain","domain","graph"],["range","codomain","domain","graph"],"C","Domain means allowed inputs.","Domain का अर्थ allowed inputs है।");
+  add("MTH-R31",2,"MTH11-2-4",1,"The values that actually come out are the function's:","जो values सच में बाहर आती हैं वे function का क्या हैं?",
+    ["domain","codomain","range","rule"],["domain","codomain","range","rule"],"C","Range is what actually comes out.","Range वही है जो सच में बाहर आता है।");
+  add("MTH-R32",2,"MTH11-2-4",1,"Find the domain of f(x) = 1/(x−5).","f(x) = 1/(x−5) का domain निकालिए।",
+    ["ℝ","ℝ − {5}","ℝ − {0}","{5}"],["ℝ","ℝ − {5}","ℝ − {0}","{5}"],"B","x=5 makes the denominator 0.","x=5 पर denominator 0 हो जाता है।");
+  add("MTH-R33",2,"MTH11-2-4",2,"Find the domain of f(x) = 1/(x+2).","f(x) = 1/(x+2) का domain निकालिए।",
+    ["ℝ − {2}","ℝ − {−2}","ℝ","{−2}"],["ℝ − {2}","ℝ − {−2}","ℝ","{−2}"],"B","x=−2 makes the denominator 0.","x=−2 पर denominator 0 हो जाता है।");
+  add("MTH-R34",2,"MTH11-2-4",2,"f(x)=(x+1)/((x−2)(x+3)). Which values are excluded?","f(x)=(x+1)/((x−2)(x+3))। कौन-से values excluded हैं?",
+    ["{2,−3}","{−2,3}","{1,−1}","{2,3}"],["{2,−3}","{−2,3}","{1,−1}","{2,3}"],"A","The denominator is 0 at x=2 and x=−3.","Denominator x=2 और x=−3 पर 0 होता है।");
+  add("MTH-R35",2,"MTH11-2-4",2,"Why is x=1 excluded from the domain of f(x)=1/(x−1)?","f(x)=1/(x−1) के domain से x=1 को क्यों हटाया गया है?",
+    ["The numerator is 0 there","The denominator is 0 there","1 is not a real number","It is not excluded"],["वहाँ numerator 0 है","वहाँ denominator 0 है","1 real number नहीं है","यह excluded नहीं है"],"B","Division by 0 is not allowed.","0 से भाग allowed नहीं है।");
+  add("MTH-R36",2,"MTH11-2-4",3,"f(x)=(x²+1)/(x²−9). Find the excluded values.","f(x)=(x²+1)/(x²−9)। Excluded values निकालिए।",
+    ["{3,−3}","{9,−9}","{1,−1}","{0}"],["{3,−3}","{9,−9}","{1,−1}","{0}"],"A","x²=9 gives x=3 or x=−3.","x²=9 से x=3 या x=−3 मिलता है।");
+  add("MTH-R37",2,"MTH11-2-4",3,"f(x)=(2x+1)/((x−1)(x−6)). What is the domain?","f(x)=(2x+1)/((x−1)(x−6))। Domain क्या है?",
+    ["ℝ − {1,6}","ℝ − {−1,−6}","ℝ","ℝ − {2,1}"],["ℝ − {1,6}","ℝ − {−1,−6}","ℝ","ℝ − {2,1}"],"A","The denominator is 0 at x=1 and x=6.","Denominator x=1 और x=6 पर 0 होता है।");
+  add("MTH-R38",2,"MTH11-2-4",4,"f(x)=(x²−4)/(x−2). What is the domain?","f(x)=(x²−4)/(x−2)। Domain क्या है?",
+    ["ℝ","ℝ − {2}","ℝ − {−2}","ℝ − {2,−2}"],["ℝ","ℝ − {2}","ℝ − {−2}","ℝ − {2,−2}"],"B","At x=2 the formula itself is 0/0, undefined — only that one point is excluded.","x=2 पर formula ख़ुद 0/0 है, undefined — सिर्फ़ वही एक point excluded है।");
+  add("MTH-R39",2,"MTH11-2-4",5,"Find the domain of f(x) = 1/√(x−4).","f(x) = 1/√(x−4) का domain निकालिए।",
+    ["ℝ − {4}","x ≥ 4","x > 4","x ≤ 4"],["ℝ − {4}","x ≥ 4","x > 4","x ≤ 4"],"C","x−4 must be positive: not negative (square root) and not zero (denominator).","x−4 positive होना चाहिए: negative नहीं (square root) और zero नहीं (denominator)।");
+
+  /* ---- Ch2 Topic 5: Identity, Constant, Polynomial, Rational (10) ---- */
+  add("MTH-R40",2,"MTH11-2-5",1,"For the identity function f(x)=x, f(7) is:","Identity function f(x)=x के लिए, f(7) क्या है?",
+    ["0","1","7","49"],["0","1","7","49"],"C","The identity function returns its input unchanged.","Identity function अपना input बिना बदले लौटाता है।");
+  add("MTH-R41",2,"MTH11-2-5",1,"For the constant function f(x)=9, f(50) is:","Constant function f(x)=9 के लिए, f(50) क्या है?",
+    ["50","9","0","59"],["50","9","0","59"],"B","A constant function ignores its input.","Constant function अपने input को नज़रअंदाज़ करता है।");
+  add("MTH-R42",2,"MTH11-2-5",1,"Which is a polynomial function?","कौन-सा polynomial function है?",
+    ["f(x)=1/x","f(x)=x²+3x+1","f(x)=√x","f(x)=|x|"],["f(x)=1/x","f(x)=x²+3x+1","f(x)=√x","f(x)=|x|"],"B","Built from powers of x, added together.","x की powers से बना, जोड़कर।");
+  add("MTH-R43",2,"MTH11-2-5",2,"The domain of any polynomial function is:","किसी भी polynomial function का domain क्या है?",
+    ["ℝ minus some points","only positive numbers","ℝ (all real numbers)","only integers"],["ℝ में से कुछ points कम","सिर्फ़ positive numbers","ℝ (सभी real numbers)","सिर्फ़ integers"],"C","No denominator or square root to restrict it.","इसमें कोई denominator या square root restrict नहीं करता।");
+  add("MTH-R44",2,"MTH11-2-5",2,"The range of the constant function f(x)=−4 is:","Constant function f(x)=−4 का range क्या है?",
+    ["ℝ","{−4}","{0}","{4}"],["ℝ","{−4}","{0}","{4}"],"B","Only −4 is ever produced.","सिर्फ़ −4 ही हमेशा मिलता है।");
+  add("MTH-R45",2,"MTH11-2-5",2,"A rational function is a ratio of:","Rational function किसका ratio है?",
+    ["two constants","two polynomials","two square roots","two sets"],["दो constants","दो polynomials","दो square roots","दो sets"],"B","One polynomial divided by another.","एक polynomial को दूसरे से divide किया हुआ।");
+  add("MTH-R46",2,"MTH11-2-5",3,"For f(x)=x, what does the graph look like?","f(x)=x के लिए, graph कैसा दिखता है?",
+    ["a flat horizontal line","a line through the origin at 45°","a U-shaped curve","a V-shape"],["एक सपाट horizontal line","origin से 45° वाली line","एक U-आकार curve","एक V-आकार"],"B","Every point has equal x and y, a 45° line.","हर point पर x और y बराबर हैं, 45° की line।");
+  add("MTH-R47",2,"MTH11-2-5",3,"Which function has the SAME output for every input?","कौन-सा function हर input का एक जैसा output देता है?",
+    ["identity","constant","polynomial","rational"],["identity","constant","polynomial","rational"],"B","A constant function never changes its output.","Constant function अपना output कभी नहीं बदलता।");
+  add("MTH-R48",2,"MTH11-2-5",3,"f(x)=5/(x−1) is best described as:","f(x)=5/(x−1) को सबसे अच्छा क्या कहेंगे?",
+    ["identity","constant","polynomial","rational"],["identity","constant","polynomial","rational"],"D","It is one expression divided by another — rational.","यह एक expression को दूसरे से divide किया हुआ है — rational।");
+  add("MTH-R49",2,"MTH11-2-5",4,"Is f(x)=x³−2x a polynomial function?","क्या f(x)=x³−2x एक polynomial function है?",
+    ["Yes, built from powers of x added together","No, because of the minus sign","No, because x³ is not allowed","Yes, but only for x>0"],["हाँ, x की powers जोड़कर बना है","नहीं, minus sign की वजह से","नहीं, x³ allowed नहीं है","हाँ, पर सिर्फ़ x>0 के लिए"],"A","Subtraction is just adding a negative term — still a polynomial.","Subtraction, negative term जोड़ना ही है — फिर भी polynomial है।");
+
+  /* ---- Ch2 Topic 6: Modulus, Signum, Greatest Integer (10) ---- */
+  add("MTH-R50",2,"MTH11-2-6",1,"|−8| equals:","|−8| बराबर है:",
+    ["−8","8","0","−1"],["−8","8","0","−1"],"B","Modulus gives the distance from 0, always positive or 0.","Modulus 0 से दूरी देता है, हमेशा positive या 0।");
+  add("MTH-R51",2,"MTH11-2-6",1,"The range of the signum function is:","Signum function का range क्या है?",
+    ["ℝ","{−1,0,1}","{0,1}","all integers"],["ℝ","{−1,0,1}","{0,1}","सभी integers"],"B","Signum only ever outputs −1, 0 or 1.","Signum हमेशा सिर्फ़ −1, 0 या 1 देता है।");
+  add("MTH-R52",2,"MTH11-2-6",1,"[5.9] equals:","[5.9] बराबर है:",
+    ["5","6","5.9","0"],["5","6","5.9","0"],"A","The greatest integer ≤ 5.9 is 5.","5.9 से छोटा या बराबर सबसे बड़ा integer 5 है।");
+  add("MTH-R53",2,"MTH11-2-6",2,"sgn(−7) equals:","sgn(−7) बराबर है:",
+    ["−7","−1","0","1"],["−7","−1","0","1"],"B","Any negative input gives −1.","कोई भी negative input −1 देता है।");
+  add("MTH-R54",2,"MTH11-2-6",2,"[−3.1] equals:","[−3.1] बराबर है:",
+    ["−3","−4","3","4"],["−3","−4","3","4"],"B","−4 is the greatest integer ≤ −3.1 (round down, not toward zero).","−4, −3.1 से छोटा या बराबर सबसे बड़ा integer है (नीचे round करें, zero की ओर नहीं)।");
+  add("MTH-R55",2,"MTH11-2-6",2,"|x| = 0 only when:","|x| = 0 तभी होता है जब:",
+    ["x = 1","x = −1","x = 0","never"],["x = 1","x = −1","x = 0","कभी नहीं"],"C","Only 0 is at distance 0 from itself.","सिर्फ़ 0 की ख़ुद से दूरी 0 है।");
+  add("MTH-R56",2,"MTH11-2-6",3,"Which value is NOT in the range of the greatest integer function?","कौन-सी value greatest integer function के range में नहीं है?",
+    ["5","−2","0","2.5"],["5","−2","0","2.5"],"D","The range is only whole numbers; 2.5 is not one.","Range सिर्फ़ whole numbers हैं; 2.5 उनमें से नहीं है।");
+  add("MTH-R57",2,"MTH11-2-6",3,"sgn(0) equals:","sgn(0) बराबर है:",
+    ["−1","0","1","undefined"],["−1","0","1","undefined"],"B","The signum function is defined to give 0 exactly at 0.","Signum function ठीक 0 पर 0 देने के लिए defined है।");
+  add("MTH-R58",2,"MTH11-2-6",3,"[2.999] equals:","[2.999] बराबर है:",
+    ["2","3","2.999","0"],["2","3","2.999","0"],"A","The greatest integer ≤ 2.999 is 2, however close to 3 it looks.","2.999 से छोटा या बराबर सबसे बड़ा integer 2 है, चाहे वह 3 के कितना ही पास दिखे।");
+  add("MTH-R59",2,"MTH11-2-6",4,"For which x is |x| = x always true?","किन x के लिए |x| = x हमेशा सच है?",
+    ["only x=0","only x<0","x ≥ 0","all real x"],["सिर्फ़ x=0","सिर्फ़ x<0","x ≥ 0","सभी real x"],"C","For non-negative x, the distance from 0 is x itself.","Non-negative x के लिए, 0 से दूरी ख़ुद x ही है।");
+
+  /* ---- Ch2 Topic 7: Algebra of Real Functions (10) ---- */
+  add("MTH-R60",2,"MTH11-2-7",1,"(f+g)(x) means:","(f+g)(x) का मतलब है:",
+    ["f(x)+g(x)","f(g(x))","f(x)×g(x)","f(x)−g(x)"],["f(x)+g(x)","f(g(x))","f(x)×g(x)","f(x)−g(x)"],"A","Add the two outputs together.","दोनों outputs को जोड़िए।");
+  add("MTH-R61",2,"MTH11-2-7",1,"f(x)=2, g(x)=5. Find (f+g)(x).","f(x)=2, g(x)=5। (f+g)(x) निकालिए।",
+    ["3","7","10","2"],["3","7","10","2"],"B","2 + 5 = 7.","2 + 5 = 7।");
+  add("MTH-R62",2,"MTH11-2-7",1,"f(x)=x, g(x)=3. Find (f·g)(4).","f(x)=x, g(x)=3। (f·g)(4) निकालिए।",
+    ["7","12","4","3"],["7","12","4","3"],"B","f(4)=4, g(4)=3, product = 12.","f(4)=4, g(4)=3, गुणनफल = 12।");
+  add("MTH-R63",2,"MTH11-2-7",2,"f(x)=x+2, g(x)=x. Find (f−g)(10).","f(x)=x+2, g(x)=x। (f−g)(10) निकालिए।",
+    ["12","8","2","10"],["12","8","2","10"],"C","f(10)=12, g(10)=10, difference = 2.","f(10)=12, g(10)=10, अंतर = 2।");
+  add("MTH-R64",2,"MTH11-2-7",2,"(f/g)(x) is defined only when:","(f/g)(x) तभी defined है जब:",
+    ["f(x)=0","g(x)=0","g(x)≠0","f(x)≠g(x)"],["f(x)=0","g(x)=0","g(x)≠0","f(x)≠g(x)"],"C","Division needs a nonzero denominator.","Division के लिए denominator नonzero होना चाहिए।");
+  add("MTH-R65",2,"MTH11-2-7",2,"f(x)=x², g(x)=x+1. Find (f+g)(3).","f(x)=x², g(x)=x+1। (f+g)(3) निकालिए।",
+    ["9","4","13","12"],["9","4","13","12"],"C","f(3)=9, g(3)=4, sum = 13.","f(3)=9, g(3)=4, योग = 13।");
+  add("MTH-R66",2,"MTH11-2-7",3,"f(x)=x+1, g(x)=x−1. Find (f·g)(5).","f(x)=x+1, g(x)=x−1। (f·g)(5) निकालिए।",
+    ["24","10","6","25"],["24","10","6","25"],"A","f(5)=6, g(5)=4, product = 24.","f(5)=6, g(5)=4, गुणनफल = 24।");
+  add("MTH-R67",2,"MTH11-2-7",3,"The domain of (f+g) is:","(f+g) का domain क्या है?",
+    ["the domain of f only","the domain of g only","where both f and g are defined","always all of ℝ"],["सिर्फ़ f का domain","सिर्फ़ g का domain","जहाँ f और g दोनों defined हों","हमेशा पूरा ℝ"],"C","Both must give a real output for the sum to make sense.","योग के लिए f और g दोनों का real output ज़रूरी है।");
+  add("MTH-R68",2,"MTH11-2-7",4,"f(x)=1/x, g(x)=x. Find the domain of (f/g)(x).","f(x)=1/x, g(x)=x। (f/g)(x) का domain निकालिए।",
+    ["ℝ","ℝ − {0}","ℝ − {1}","ℝ − {0,1}"],["ℝ","ℝ − {0}","ℝ − {1}","ℝ − {0,1}"],"B","f itself needs x≠0, and g(x)≠0 also needs x≠0 — the same single restriction.","f को ख़ुद x≠0 चाहिए, और g(x)≠0 के लिए भी x≠0 चाहिए — वही एक restriction।");
+  add("MTH-R69",2,"MTH11-2-7",5,"f(x)=√x, g(x)=x−4. Find the domain of (f/g)(x).","f(x)=√x, g(x)=x−4। (f/g)(x) का domain निकालिए।",
+    ["x ≥ 0, x ≠ 4","x > 0 only","x ≥ 4 only","all real numbers"],["x ≥ 0, x ≠ 4","x > 0 only","x ≥ 4 only","सभी real numbers"],"A","f needs x≥0; g(x)≠0 removes x=4 as well.","f के लिए x≥0 चाहिए; g(x)≠0 से x=4 भी हट जाता है।");
 
   window.SL_DATA.questions = window.SL_DATA.questions.concat(Q);
 })();
