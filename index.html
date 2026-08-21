@@ -4654,6 +4654,33 @@ var DIAGRAMS = {
       +'</svg>';
   },
 
+  "number-line-inequality": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    var vals=["-2","-1","0","1","2","3","4","5","6"];
+    function line(y){
+      var h='<line x1="50" y1="'+y+'" x2="410" y2="'+y+'" stroke="var(--line-strong)" stroke-width="1.5"/>';
+      vals.forEach(function(v,i){
+        var x=50+i*45;
+        h+='<line x1="'+x+'" y1="'+(y-5)+'" x2="'+x+'" y2="'+(y+5)+'" stroke="var(--line-strong)" stroke-width="1.5"/>'
+          +'<text x="'+x+'" y="'+(y+22)+'" text-anchor="middle" font-size="13" fill="var(--muted)">'+v+'</text>';
+      });
+      return h;
+    }
+    return '<svg viewBox="0 0 460 220" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="230" y="16" text-anchor="middle" font-size="15" font-weight="bold" fill="var(--primary)">'+d("Reading the circle on a number line","Number line पर circle पढ़ना")+'</text>'
+      + line(58)
+      +'<line x1="230" y1="58" x2="410" y2="58" stroke="var(--red)" stroke-width="4"/>'
+      +'<path d="M 405,53 L 415,58 L 405,63" fill="none" stroke="var(--red)" stroke-width="2.5"/>'
+      +'<circle cx="230" cy="58" r="6" fill="var(--red)"/>'
+      +'<text x="230" y="103" text-anchor="middle" font-size="13" fill="var(--red)">'+d("x ≥ 2 — filled circle: 2 IS included","x ≥ 2 — भरा circle: 2 शामिल है")+'</text>'
+      + line(148)
+      +'<line x1="50" y1="148" x2="365" y2="148" stroke="var(--teal)" stroke-width="4"/>'
+      +'<path d="M 55,143 L 45,148 L 55,153" fill="none" stroke="var(--teal)" stroke-width="2.5"/>'
+      +'<circle cx="365" cy="148" r="6" fill="var(--bg)" stroke="var(--teal)" stroke-width="3"/>'
+      +'<text x="230" y="193" text-anchor="middle" font-size="13" fill="var(--teal)">'+d("x < 5 — open circle: 5 is NOT included","x < 5 — खुला circle: 5 शामिल नहीं है")+'</text>'
+      +'</svg>';
+  },
+
 };
 
 /* Interactive widgets: sliders students can move to feel the relationship. */

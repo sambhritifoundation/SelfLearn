@@ -449,6 +449,113 @@ window.SL_DATA = window.SL_DATA || {subjects:[], questions:[]};
         b("z = 1 + √3 i.","z = 1 + √3 i।")))
   ];
 
+  var inequalities=[
+
+    topic("MTH11-5-0",
+      b("0. Revise: Equations and the Balance Scale","0. दोहराइए: Equations और Balance Scale"),
+      b(
+        "Think of an equation like $2x+3=7$ as a balance scale, perfectly level. Whatever you do to one side, you must do to the other, or the scale tips.\n\nSubtract 3 from both sides: $2x=4$. Divide both sides by 2: $x=2$.\n\nAn equation has exactly **one** balance point. This chapter looks at what happens when the two sides are not equal, but one is bigger — an **inequality**. The same balance-scale idea still applies, with one new twist you will meet soon.",
+        "$2x+3=7$ जैसे equation को एक बिल्कुल level balance scale सोचिए। एक तरफ़ जो भी करें, दूसरी तरफ़ भी करना पड़ेगा, नहीं तो scale झुक जाएगा।\n\nदोनों तरफ़ से 3 घटाइए: $2x=4$। दोनों तरफ़ को 2 से divide कीजिए: $x=2$।\n\nEquation का बैलेंस point ठीक **एक** होता है। यह chapter देखता है कि जब दोनों तरफ़ बराबर न हों, बल्कि एक बड़ा हो — तब क्या होता है, यानी **inequality**। वही balance-scale वाला विचार यहाँ भी लागू होता है, बस एक नया मोड़ जल्दी मिलेगा।"),
+      worked(
+        b("Solve 2x + 3 = 7.","2x + 3 = 7 हल कीजिए।"),
+        [
+          ["Subtract 3 from both sides: 2x = 4.","दोनों तरफ़ से 3 घटाइए: 2x = 4।","This keeps the scale balanced.","इससे scale balanced रहता है।"],
+          ["Divide both sides by 2: x = 2.","दोनों तरफ़ को 2 से divide कीजिए: x = 2।","Dividing both sides equally keeps the balance.","दोनों तरफ़ बराबर divide करने से balance रहता है।"]
+        ],
+        b("x = 2.","x = 2।"))),
+
+    topic("MTH11-5-1",
+      b("1. What is an Inequality?","1. Inequality क्या है?"),
+      b(
+        "A speed limit sign does not say ‘drive at exactly 80 km/h’ — it says **at most** 80. A voting age rule does not fix one age — it says **at least** 18. These are **inequalities**: statements about a whole range, not one exact value.\n\n$$x<a\\ (\\text{less than})\\qquad x>a\\ (\\text{greater than})$$\n$$x\\leq a\\ (\\text{at most})\\qquad x\\geq a\\ (\\text{at least})$$\n\nAn equation like $x=5$ has exactly one solution. An inequality like $x<5$ has **infinitely many** — every number smaller than 5.",
+        "Speed limit का sign यह नहीं कहता ‘ठीक 80 km/h चलाइए’ — वह कहता है **ज़्यादा से ज़्यादा** 80। Voting age किसी एक age पर नहीं रुकती — वह कहती है **कम से कम** 18। ये **inequalities** हैं: एक पूरे range के बारे में statement, एक exact value के बारे में नहीं।\n\n$$x<a\\ (\\text{से छोटा})\\qquad x>a\\ (\\text{से बड़ा})$$\n$$x\\leq a\\ (\\text{ज़्यादा से ज़्यादा})\\qquad x\\geq a\\ (\\text{कम से कम})$$\n\n$x=5$ जैसे equation का ठीक एक solution होता है। $x<5$ जैसी inequality के **अनगिनत** solutions होते हैं — 5 से छोटा हर number।"),
+      worked(
+        b("A lift can carry at most 300 kg. Write this as an inequality, using w for weight.","एक lift ज़्यादा से ज़्यादा 300 kg उठा सकती है। इसे inequality की तरह लिखिए, weight के लिए w इस्तेमाल करके।"),
+        [
+          ["‘At most 300’ means 300 is allowed, and so is anything less.","‘ज़्यादा से ज़्यादा 300’ का मतलब है 300 allowed है, और उससे कम भी।","‘At most’ always includes the boundary value itself.","‘ज़्यादा से ज़्यादा’ में boundary value ख़ुद भी शामिल होती है।"],
+          ["Write w ≤ 300.","w ≤ 300 लिखिए।","≤ means ‘less than or equal to’, matching ‘at most’.","≤ का मतलब है ‘से छोटा या बराबर’, ‘ज़्यादा से ज़्यादा’ से मेल खाता है।"]
+        ],
+        b("w ≤ 300.","w ≤ 300।"))),
+
+    topic("MTH11-5-2",
+      b("2. Solving with Addition and Subtraction","2. जोड़कर और घटाकर हल करना"),
+      b(
+        "**Rule 1:** you may add or subtract the same number on both sides of an inequality, and the direction never changes.\n\n$$\\text{if }a<b,\\text{ then }a+c<b+c\\text{ and }a-c<b-c$$\n\nThis works exactly like solving an equation — move terms across by doing the opposite operation on both sides.",
+        "**Rule 1:** inequality के दोनों तरफ़ एक ही number जोड़ या घटा सकते हैं, और direction कभी नहीं बदलती।\n\n$$\\text{अगर }a<b,\\text{ तो }a+c<b+c\\text{ और }a-c<b-c$$\n\nयह ठीक equation हल करने जैसा है — दोनों तरफ़ opposite operation करके terms को पार ले जाइए।"),
+      worked(
+        b("Solve x + 5 < 9.","x + 5 < 9 हल कीजिए।"),
+        [
+          ["Subtract 5 from both sides.","दोनों तरफ़ से 5 घटाइए।","This isolates x on one side.","इससे x एक तरफ़ अकेला रह जाता है।"],
+          ["x < 4.","x < 4।","5−5 cancels on the left; 9−5=4 on the right.","बाईं ओर 5−5 cancel होता है; दाईं ओर 9−5=4।"]
+        ],
+        b("x < 4.","x < 4।"))),
+
+    topic("MTH11-5-3",
+      b("3. Solving with Multiplication and Division — the Sign Flip","3. गुणा और भाग से हल करना — Sign का पलटना"),
+      b(
+        "$2<5$ is true. Multiply both sides by $-1$: you get $-2$ and $-5$. But $-2$ is **bigger** than $-5$ (it sits to the right on the number line) — so to keep the statement true, the inequality must **flip**.\n\n**Rule 2:** multiplying or dividing both sides by a **positive** number keeps the direction. Multiplying or dividing by a **negative** number **reverses** it.\n\n$$\\text{if }a<b\\text{ and }c>0,\\text{ then }ac<bc$$\n$$\\text{if }a<b\\text{ and }c<0,\\text{ then }ac>bc$$\n\n⚠️ This is the single most common slip in this chapter — forgetting to flip when a negative number is involved.",
+        "$2<5$ सच है। दोनों तरफ़ $-1$ से गुणा कीजिए: $-2$ और $-5$ मिलते हैं। पर $-2$, $-5$ से **बड़ा** है (यह number line पर दाईं ओर है) — तो statement सच रखने के लिए, inequality को **पलटना** पड़ता है।\n\n**Rule 2:** दोनों तरफ़ किसी **positive** number से गुणा या भाग करने पर direction वही रहती है। किसी **negative** number से गुणा या भाग करने पर वह **पलट** जाती है।\n\n$$\\text{अगर }a<b\\text{ और }c>0,\\text{ तो }ac<bc$$\n$$\\text{अगर }a<b\\text{ और }c<0,\\text{ तो }ac>bc$$\n\n⚠️ इस chapter की सबसे आम ग़लती यही है — negative number होने पर पलटना भूल जाना।"),
+      worked(
+        b("Solve −3x < 12.","−3x < 12 हल कीजिए।"),
+        [
+          ["Divide both sides by −3, and flip the inequality.","दोनों तरफ़ को −3 से divide कीजिए, और inequality पलट दीजिए।","Dividing by a negative number always flips the direction.","Negative number से divide करने पर direction हमेशा पलटती है।"],
+          ["x > −4.","x > −4।","12 ÷ (−3) = −4, and < becomes > because of the flip.","12 ÷ (−3) = −4, और पलटने से < अब > बन जाता है।"]
+        ],
+        b("x > −4.","x > −4।"))),
+
+    topic("MTH11-5-4",
+      b("4. Representing Solutions on a Number Line","4. Solutions को Number Line पर दिखाना"),
+      b(
+        "An inequality's solution is a whole stretch of the number line, not one point. Two small drawing rules make the picture exact.\n\n{{diagram:number-line-inequality}}\n\nA **filled (dark) circle** means the boundary number is included — used for $\\leq$ or $\\geq$.\n\nAn **open circle** means the boundary number is NOT included — used for $<$ or $>$.\n\nThen draw a solid ray in the direction of every number that works.",
+        "Inequality का solution number line का पूरा हिस्सा होता है, एक point नहीं। दो छोटे drawing rules picture को exact बना देते हैं।\n\n{{diagram:number-line-inequality}}\n\n**भरा (dark) circle** का मतलब है boundary number शामिल है — यह $\\leq$ या $\\geq$ के लिए इस्तेमाल होता है।\n\n**खुला circle** का मतलब है boundary number शामिल नहीं है — यह $<$ या $>$ के लिए इस्तेमाल होता है।\n\nफिर उस दिशा में एक ठोस ray बनाइए जिधर हर काम करने वाला number है।"),
+      worked(
+        b("Represent x ≥ 2 on a number line. Is 2 included?","x ≥ 2 को number line पर दिखाइए। क्या 2 शामिल है?"),
+        [
+          ["≥ includes equality, so 2 counts as a solution.","≥ में equality शामिल है, इसलिए 2 भी एक solution है।","The boundary number itself satisfies x ≥ 2.","खुद boundary number भी x ≥ 2 को पूरा करता है।"],
+          ["Draw a filled circle at 2, with a ray extending right through all bigger numbers.","2 पर भरा circle बनाइए, दाईं ओर उन सभी बड़े numbers तक ray बढ़ाइए।","≥ means 2 and everything larger.","≥ का मतलब है 2 और उससे बड़ा सब कुछ।"]
+        ],
+        b("Filled circle at 2, ray pointing right.","2 पर भरा circle, दाईं ओर ray।"))),
+
+    topic("MTH11-5-5",
+      b("5. Word Problems with Inequalities","5. Inequalities वाले Word Problems"),
+      b(
+        "Word problems with ‘at least’, ‘at most’, ‘minimum’ or ‘maximum’ are inequalities in disguise. The method is the same as any word problem: name the unknown, write one inequality, then solve it.\n\n**Example (NCERT):** A student scored 62 and 48 in two tests. What is the minimum score needed in a third test to average **at least** 60?\n\nLet $x$ be the third score. ‘Average at least 60’ means:\n\n$$\\dfrac{62+48+x}{3}\\geq60$$\n\n$$110+x\\geq180\\qquad x\\geq70$$\n\nThe student needs at least 70.",
+        "‘कम से कम’, ‘ज़्यादा से ज़्यादा’, ‘minimum’ या ‘maximum’ वाले word problems असल में inequalities होते हैं। तरीका किसी भी word problem जैसा है: unknown को नाम दीजिए, एक inequality लिखिए, फिर हल कीजिए।\n\n**उदाहरण (NCERT):** एक student ने दो tests में 62 और 48 पाए। तीसरे test में कम से कम कितने marks चाहिए ताकि average **कम से कम** 60 हो?\n\nमानिए तीसरा score $x$ है। ‘Average कम से कम 60’ का मतलब है:\n\n$$\\dfrac{62+48+x}{3}\\geq60$$\n\n$$110+x\\geq180\\qquad x\\geq70$$\n\nStudent को कम से कम 70 चाहिए।"),
+      worked(
+        b("A shop sells notebooks at ₹15 each. Ravi has ₹200. How many notebooks can he buy at most?","एक दुकान notebooks ₹15 में बेचती है। Ravi के पास ₹200 हैं। वह ज़्यादा से ज़्यादा कितनी notebooks ख़रीद सकता है?"),
+        [
+          ["Let n be the number of notebooks. The cost must be at most 200: 15n ≤ 200.","मानिए n notebooks हैं। Cost ज़्यादा से ज़्यादा 200 होनी चाहिए: 15n ≤ 200।","‘At most 200’ becomes ≤ 200.","‘ज़्यादा से ज़्यादा 200’, ≤ 200 बन जाता है।"],
+          ["Divide by 15: n ≤ 13.33. Since notebooks are whole, n ≤ 13.","15 से divide कीजिए: n ≤ 13.33। Notebooks पूरी होती हैं, इसलिए n ≤ 13।","You cannot buy a fraction of a notebook, so round down.","Notebook का टुकड़ा नहीं ख़रीद सकते, इसलिए नीचे round कीजिए।"]
+        ],
+        b("Ravi can buy at most 13 notebooks.","Ravi ज़्यादा से ज़्यादा 13 notebooks ख़रीद सकता है।"))),
+
+    topic("MTH11-5-6",
+      b("6. Double (Compound) Inequalities","6. Double (Compound) Inequalities"),
+      b(
+        "Sometimes a variable is squeezed between two boundaries at once, written as one chain:\n\n$$-8\\leq5x-3<7$$\n\nSolve it by doing the **same operation to all three parts** together — left, middle and right.\n\nAdd 3 everywhere: $-5\\leq5x<10$.\n\nDivide everywhere by 5: $-1\\leq x<2$.\n\nThe solution is every $x$ from $-1$ (included) up to $2$ (not included) — one continuous stretch, not two separate problems.",
+        "कभी-कभी एक variable दो boundaries के बीच एक साथ दबा होता है, एक chain की तरह लिखा:\n\n$$-8\\leq5x-3<7$$\n\nइसे हल करने के लिए **तीनों हिस्सों पर एक जैसा operation** एक साथ कीजिए — बायाँ, बीच और दायाँ।\n\nहर जगह 3 जोड़िए: $-5\\leq5x<10$।\n\nहर जगह 5 से divide कीजिए: $-1\\leq x<2$।\n\nSolution है $-1$ (शामिल) से लेकर $2$ (शामिल नहीं) तक हर $x$ — एक लगातार हिस्सा, दो अलग-अलग problems नहीं।"),
+      worked(
+        b("Solve −2 ≤ 3x + 1 ≤ 10.","−2 ≤ 3x + 1 ≤ 10 हल कीजिए।"),
+        [
+          ["Subtract 1 from all three parts: −3 ≤ 3x ≤ 9.","तीनों हिस्सों से 1 घटाइए: −3 ≤ 3x ≤ 9।","Whatever happens to the middle must happen to both ends too.","बीच में जो होता है, दोनों सिरों पर भी होना चाहिए।"],
+          ["Divide all three parts by 3: −1 ≤ x ≤ 3.","तीनों हिस्सों को 3 से divide कीजिए: −1 ≤ x ≤ 3।","3 is positive, so no flip is needed.","3 positive है, इसलिए पलटने की ज़रूरत नहीं।"]
+        ],
+        b("−1 ≤ x ≤ 3.","−1 ≤ x ≤ 3।"))),
+
+    topic("MTH11-5-7",
+      b("7. Systems of Two Inequalities","7. दो Inequalities का System"),
+      b(
+        "Sometimes two separate conditions must **both** hold. Solve each one on its own, then keep only the values that satisfy **both**.\n\n**Example:** solve $2x+1>5$ and $3x-2<10$ together.\n\nFirst: $2x+1>5\\Rightarrow x>2$.\n\nSecond: $3x-2<10\\Rightarrow x<4$.\n\nBoth must be true, so the answer is where they overlap:\n\n$$2<x<4$$\n\nThis is exactly the compound-inequality shape from the last topic — a system is just two inequalities that happen to overlap.",
+        "कभी-कभी दो अलग conditions **दोनों** सच होनी चाहिए। हर एक को अलग हल कीजिए, फिर सिर्फ़ वे values रखिए जो **दोनों** को पूरा करते हैं।\n\n**उदाहरण:** $2x+1>5$ और $3x-2<10$ साथ हल कीजिए।\n\nपहला: $2x+1>5\\Rightarrow x>2$।\n\nदूसरा: $3x-2<10\\Rightarrow x<4$।\n\nदोनों सच होने चाहिए, इसलिए answer वहाँ है जहाँ वे overlap करते हैं:\n\n$$2<x<4$$\n\nयह ठीक पिछले topic वाला compound-inequality shape है — system बस दो inequalities हैं जो overlap कर जाती हैं।"),
+      worked(
+        b("Solve the system: x + 3 > 5 and 2x < 14.","System हल कीजिए: x + 3 > 5 और 2x < 14।"),
+        [
+          ["Solve each separately: x > 2, and x < 7.","हर एक को अलग हल कीजिए: x > 2, और x < 7।","Treat them as two independent inequalities first.","पहले इन्हें दो independent inequalities की तरह देखिए।"],
+          ["Keep only the overlap: 2 < x < 7.","सिर्फ़ overlap रखिए: 2 < x < 7।","Only values satisfying both conditions survive.","सिर्फ़ वे values बचती हैं जो दोनों conditions पूरी करें।"]
+        ],
+        b("2 < x < 7.","2 < x < 7।")))
+  ];
+
   window.SL_DATA.subjects = (window.SL_DATA.subjects||[]).filter(function(s){ return s.code!=="MATH11"; });
 
   window.SL_DATA.subjects.push({code:"MATH11",board:"CBSE",klass:11,icon:"📐",
@@ -500,7 +607,18 @@ window.SL_DATA = window.SL_DATA || {subjects:[], questions:[]};
         assessment:["MTH-C01","MTH-C03","MTH-C05","MTH-C06","MTH-C09","MTH-C12","MTH-C14","MTH-C17",
           "MTH-C20","MTH-C23","MTH-C26","MTH-C29","MTH-C32","MTH-C36","MTH-C39","MTH-C41",
           "MTH-C44","MTH-C47","MTH-C50","MTH-C53","MTH-C56","MTH-C58","MTH-C62","MTH-C65"],
-        topics:complex}
+        topics:complex},
+      {no:5,name:b("Linear Inequalities","Linear Inequalities"),
+        summary:b(
+          "**Linear Inequalities: what this chapter covers**\n\nAn inequality compares two sides without saying they are equal — using <, >, ≤ or ≥ — and has a whole range of solutions instead of one exact answer. Adding or subtracting the same number keeps the direction unchanged; multiplying or dividing by a negative number flips it. Solutions are drawn on a number line with a filled circle (included) or open circle (not included) plus a ray. Double inequalities squeeze a variable between two boundaries at once; a system keeps only the overlap of two separate inequalities.",
+          "**Linear Inequalities: इस chapter में क्या सीखेंगे**\n\nInequality दो तरफ़ को बराबर बताए बिना compare करती है — <, >, ≤ या ≥ इस्तेमाल करके — और इसका जवाब एक exact value नहीं, पूरा range होता है। एक ही number दोनों तरफ़ जोड़ने या घटाने से direction नहीं बदलती; negative number से गुणा या भाग करने पर वह पलट जाती है। Solutions को number line पर भरे circle (शामिल) या खुले circle (शामिल नहीं) और एक ray से दिखाते हैं। Double inequalities एक variable को दो boundaries के बीच एक साथ दबाती हैं; system में सिर्फ़ दो inequalities का overlap रखते हैं।"),
+        checkpoint:b(
+          "Getting most Warm-up and Standard questions right, across every topic in this chapter, means you are ready to move on. Scoring low? Go back to '0. Revise: Equations and the Balance Scale' and redo its example by hand — that is the fastest way forward, not a setback.",
+          "इस chapter के हर topic में ज़्यादातर Warm-up और Standard questions सही होना, मतलब आप आगे बढ़ने के लिए ready हैं। Score कम है? '0. Revise: Equations और Balance Scale' पर वापस जाइए और उसका example हाथ से दोबारा कीजिए — यही सबसे तेज़ रास्ता है, हार नहीं।"),
+        assessment:["MTH-I01","MTH-I03","MTH-I06","MTH-I09","MTH-I12","MTH-I15","MTH-I18","MTH-I21",
+          "MTH-I24","MTH-I27","MTH-I30","MTH-I33","MTH-I36","MTH-I39","MTH-I42","MTH-I45",
+          "MTH-I48","MTH-I51","MTH-I54","MTH-I57","MTH-I60","MTH-I63","MTH-I66","MTH-I69"],
+        topics:inequalities}
     ]});
 
   window.SL_DATA.questions = (window.SL_DATA.questions||[]).filter(function(q){ return q.subject!=="MATH11"; });
@@ -1129,6 +1247,160 @@ window.SL_DATA = window.SL_DATA || {subjects:[], questions:[]};
     ["30°","45°","60°","90°"],["30°","45°","60°","90°"],"A","tan 30° = 1/√3, a standard value.","tan 30° = 1/√3, एक standard value।");
   add("MTH-C66",4,"MTH11-4-7",5,"Write z=2(cos 60° + i sin 60°) in the form a+bi.","z=2(cos 60° + i sin 60°) को a+bi के रूप में लिखिए।",
     ["1+√3 i","√3+i","2+i","1+i"],["1+√3 i","√3+i","2+i","1+i"],"A","a=2cos60°=1, b=2sin60°=√3.","a=2cos60°=1, b=2sin60°=√3।");
+
+  /* ---- Ch5 Topic 0: Revise (5) ---- */
+  add("MTH-I01",5,"MTH11-5-0",1,"Solve x + 4 = 10.","x + 4 = 10 हल कीजिए।",
+    ["4","6","14","−6"],["4","6","14","−6"],"B","10 − 4 = 6.","10 − 4 = 6।");
+  add("MTH-I02",5,"MTH11-5-0",1,"In 3x = 12, what operation isolates x?","3x = 12 में, x को अलग करने के लिए क्या operation करेंगे?",
+    ["add 3","subtract 3","divide by 3","multiply by 3"],["3 जोड़ें","3 घटाएँ","3 से divide करें","3 से गुणा करें"],"C","Divide both sides by 3.","दोनों तरफ़ को 3 से divide कीजिए।");
+  add("MTH-I03",5,"MTH11-5-0",1,"An equation has how many solutions, typically?","एक equation में आम तौर पर कितने solutions होते हैं?",
+    ["none","exactly one","infinitely many","always two"],["कोई नहीं","ठीक एक","अनगिनत","हमेशा दो"],"B","A linear equation balances at one point.","एक linear equation एक ही point पर balance होता है।");
+  add("MTH-I04",5,"MTH11-5-0",2,"Solve 2x − 5 = 9.","2x − 5 = 9 हल कीजिए।",
+    ["2","7","14","4"],["2","7","14","4"],"B","2x = 14, so x = 7.","2x = 14, इसलिए x = 7।");
+  add("MTH-I05",5,"MTH11-5-0",2,"What must you do to both sides of a balanced equation to keep it balanced?","Balanced equation को balanced रखने के लिए दोनों तरफ़ क्या करना होगा?",
+    ["the same operation","different operations","nothing","only add, never subtract"],["एक जैसा operation","अलग-अलग operations","कुछ नहीं","सिर्फ़ जोड़ें, कभी न घटाएँ"],"A","Equal changes on both sides keep the balance.","दोनों तरफ़ बराबर बदलाव से balance रहता है।");
+
+  /* ---- Ch5 Topic 1: What is an Inequality? (8) ---- */
+  add("MTH-I06",5,"MTH11-5-1",1,"Which symbol means 'at least'?","'कम से कम' किस symbol से दिखाते हैं?",
+    ["<",">","≤","≥"],["<",">","≤","≥"],"D","≥ means greater than or equal to.","≥ का मतलब है बड़ा या बराबर।");
+  add("MTH-I07",5,"MTH11-5-1",1,"Which symbol means 'at most'?","'ज़्यादा से ज़्यादा' किस symbol से दिखाते हैं?",
+    ["<",">","≤","≥"],["<",">","≤","≥"],"C","≤ means less than or equal to.","≤ का मतलब है छोटा या बराबर।");
+  add("MTH-I08",5,"MTH11-5-1",1,"x < 5 means x is:","x < 5 का मतलब है x है:",
+    ["equal to 5","greater than 5","less than 5","at most 5"],["5 के बराबर","5 से बड़ा","5 से छोटा","ज़्यादा से ज़्यादा 5"],"C","< means strictly smaller.","< का मतलब है सख़्ती से छोटा।");
+  add("MTH-I09",5,"MTH11-5-1",2,"How many solutions does x > 3 have?","x > 3 के कितने solutions हैं?",
+    ["0","1","infinitely many","exactly 3"],["0","1","अनगिनत","ठीक 3"],"C","Every number bigger than 3 works.","3 से बड़ा हर number काम करता है।");
+  add("MTH-I10",5,"MTH11-5-1",2,"A rule saying 'age ≥ 18' allows:","'age ≥ 18' rule किसे allow करता है?",
+    ["only age 18","age 18 and older","only ages under 18","no valid ages"],["सिर्फ़ age 18","age 18 और उससे ज़्यादा","सिर्फ़ 18 से कम ages","कोई valid age नहीं"],"B","≥ includes 18 and everything above.","≥ में 18 और उससे ऊपर सब शामिल है।");
+  add("MTH-I11",5,"MTH11-5-1",2,"Which of these is an inequality, not an equation?","इनमें से कौन-सी inequality है, equation नहीं?",
+    ["x=5","x+2=7","x<5","2x=10"],["x=5","x+2=7","x<5","2x=10"],"C","It uses < instead of =.","यह = की जगह < इस्तेमाल करता है।");
+  add("MTH-I12",5,"MTH11-5-1",3,"Write 'a number n is at most 50' as an inequality.","'एक number n ज़्यादा से ज़्यादा 50 है' को inequality की तरह लिखिए।",
+    ["n<50","n≤50","n>50","n≥50"],["n<50","n≤50","n>50","n≥50"],"B","'At most' means ≤.","'ज़्यादा से ज़्यादा' का मतलब है ≤।");
+  add("MTH-I13",5,"MTH11-5-1",3,"Write 'the temperature t is greater than 30°C' as an inequality.","'temperature t, 30°C से ज़्यादा है' को inequality की तरह लिखिए।",
+    ["t≥30","t≤30","t>30","t<30"],["t≥30","t≤30","t>30","t<30"],"C","'Greater than' means strictly >.","'से ज़्यादा' का मतलब है सख़्ती से >।");
+
+  /* ---- Ch5 Topic 2: Addition and Subtraction (8) ---- */
+  add("MTH-I14",5,"MTH11-5-2",1,"Solve x + 3 < 8.","x + 3 < 8 हल कीजिए।",
+    ["x<5","x<11","x>5","x<3"],["x<5","x<11","x>5","x<3"],"A","8 − 3 = 5.","8 − 3 = 5।");
+  add("MTH-I15",5,"MTH11-5-2",1,"Solve x − 2 > 6.","x − 2 > 6 हल कीजिए।",
+    ["x>4","x>8","x<8","x>3"],["x>4","x>8","x<8","x>3"],"B","6 + 2 = 8.","6 + 2 = 8।");
+  add("MTH-I16",5,"MTH11-5-2",1,"Adding the same number to both sides of an inequality:","Inequality के दोनों तरफ़ एक जैसा number जोड़ने पर:",
+    ["flips the direction","keeps the direction the same","makes it an equation","has no rule"],["direction पलट जाती है","direction वही रहती है","यह equation बन जाता है","कोई rule नहीं"],"B","Rule 1: adding/subtracting never flips the direction.","Rule 1: जोड़ने/घटाने से direction कभी नहीं पलटती।");
+  add("MTH-I17",5,"MTH11-5-2",2,"Solve x + 7 ≤ 12.","x + 7 ≤ 12 हल कीजिए।",
+    ["x≤5","x≤19","x≥5","x≤7"],["x≤5","x≤19","x≥5","x≤7"],"A","12 − 7 = 5.","12 − 7 = 5।");
+  add("MTH-I18",5,"MTH11-5-2",2,"Solve x − 4 ≥ 1.","x − 4 ≥ 1 हल कीजिए।",
+    ["x≥5","x≥3","x≤5","x≥−3"],["x≥5","x≥3","x≤5","x≥−3"],"A","1 + 4 = 5.","1 + 4 = 5।");
+  add("MTH-I19",5,"MTH11-5-2",2,"Solve 5x < 4x + 3 (subtract 4x from both sides).","5x < 4x + 3 हल कीजिए (दोनों तरफ़ से 4x घटाइए)।",
+    ["x<3","x<7","x>3","x<−3"],["x<3","x<7","x>3","x<−3"],"A","5x − 4x < 3 gives x < 3.","5x − 4x < 3 से x < 3।");
+  add("MTH-I20",5,"MTH11-5-2",3,"Solve 3x + 2 > 2x + 9.","3x + 2 > 2x + 9 हल कीजिए।",
+    ["x>7","x>11","x<7","x>2"],["x>7","x>11","x<7","x>2"],"A","3x−2x > 9−2 gives x > 7.","3x−2x > 9−2 से x > 7।");
+  add("MTH-I21",5,"MTH11-5-2",3,"Solve 7x − 1 ≤ 6x + 4.","7x − 1 ≤ 6x + 4 हल कीजिए।",
+    ["x≤5","x≤3","x≥5","x≤−5"],["x≤5","x≤3","x≥5","x≤−5"],"A","7x−6x ≤ 4+1 gives x ≤ 5.","7x−6x ≤ 4+1 से x ≤ 5।");
+
+  /* ---- Ch5 Topic 3: Multiplication and Division (8) ---- */
+  add("MTH-I22",5,"MTH11-5-3",2,"Multiplying both sides of an inequality by a positive number:","Inequality के दोनों तरफ़ positive number से गुणा करने पर:",
+    ["flips the direction","keeps the direction the same","makes it false","turns it into an equation"],["direction पलट जाती है","direction वही रहती है","यह false बन जाता है","यह equation बन जाता है"],"B","Positive multiplication/division never flips.","Positive से गुणा/भाग करने पर कभी नहीं पलटता।");
+  add("MTH-I23",5,"MTH11-5-3",2,"Multiplying both sides of an inequality by a negative number:","Inequality के दोनों तरफ़ negative number से गुणा करने पर:",
+    ["keeps the direction the same","flips the direction","has no effect","is not allowed"],["direction वही रहती है","direction पलट जाती है","कोई असर नहीं","allowed नहीं है"],"B","Rule 2: negative multiplication/division always flips.","Rule 2: negative से गुणा/भाग करने पर हमेशा पलटता है।");
+  add("MTH-I24",5,"MTH11-5-3",2,"Solve 2x < 10.","2x < 10 हल कीजिए।",
+    ["x<5","x<20","x>5","x<12"],["x<5","x<20","x>5","x<12"],"A","Divide by 2, positive, no flip.","2 से divide कीजिए, positive है, पलटता नहीं।");
+  add("MTH-I25",5,"MTH11-5-3",2,"Solve −x > 4.","−x > 4 हल कीजिए।",
+    ["x>−4","x<−4","x>4","x<4"],["x>−4","x<−4","x>4","x<4"],"B","Multiply by −1 and flip: x < −4.","−1 से गुणा करके पलटिए: x < −4।");
+  add("MTH-I26",5,"MTH11-5-3",3,"Solve −2x ≤ 8.","−2x ≤ 8 हल कीजिए।",
+    ["x≤−4","x≥−4","x≤4","x≥4"],["x≤−4","x≥−4","x≤4","x≥4"],"B","Divide by −2 and flip: x ≥ −4.","−2 से divide करके पलटिए: x ≥ −4।");
+  add("MTH-I27",5,"MTH11-5-3",3,"Solve 3x > −12.","3x > −12 हल कीजिए।",
+    ["x>−4","x<−4","x>4","x<4"],["x>−4","x<−4","x>4","x<4"],"A","Divide by 3, positive, no flip: x > −4.","3 से divide कीजिए, positive है, पलटता नहीं: x > −4।");
+  add("MTH-I28",5,"MTH11-5-3",3,"Solve −5x < −20.","−5x < −20 हल कीजिए।",
+    ["x<4","x>4","x<−4","x>−4"],["x<4","x>4","x<−4","x>−4"],"B","Divide by −5 and flip: x > 4.","−5 से divide करके पलटिए: x > 4।");
+  add("MTH-I29",5,"MTH11-5-3",4,"Solve −4x + 3 > 11.","−4x + 3 > 11 हल कीजिए।",
+    ["x<−2","x>−2","x<2","x>2"],["x<−2","x>−2","x<2","x>2"],"A","−4x>8, divide by −4 and flip: x<−2.","−4x>8, −4 से divide करके पलटिए: x<−2।");
+
+  /* ---- Ch5 Topic 4: Number Line (10) ---- */
+  add("MTH-I30",5,"MTH11-5-4",1,"A filled circle on a number line means the boundary is:","Number line पर भरा circle मतलब boundary है:",
+    ["included","not included","undefined","always zero"],["शामिल","शामिल नहीं","undefined","हमेशा zero"],"A","Filled = the boundary counts as a solution.","भरा = boundary भी एक solution है।");
+  add("MTH-I31",5,"MTH11-5-4",1,"An open circle on a number line means the boundary is:","Number line पर खुला circle मतलब boundary है:",
+    ["included","not included","undefined","always zero"],["शामिल","शामिल नहीं","undefined","हमेशा zero"],"B","Open = the boundary does not count.","खुला = boundary नहीं गिनी जाती।");
+  add("MTH-I32",5,"MTH11-5-4",1,"Which symbol pairs with a filled circle?","भरे circle के साथ कौन-सा symbol जाता है?",
+    ["<",">","≥","none"],["<",">","≥","कोई नहीं"],"C","≥ (and ≤) include the boundary.","≥ (और ≤) में boundary शामिल होता है।");
+  add("MTH-I33",5,"MTH11-5-4",2,"Which symbol pairs with an open circle?","खुले circle के साथ कौन-सा symbol जाता है?",
+    ["≤","≥","<","neither"],["≤","≥","<","कोई नहीं"],"C","< (and >) exclude the boundary.","< (और >) में boundary शामिल नहीं होता।");
+  add("MTH-I34",5,"MTH11-5-4",2,"For x > 3, which circle and direction?","x > 3 के लिए, कौन-सा circle और दिशा?",
+    ["open circle at 3, ray right","filled circle at 3, ray right","open circle at 3, ray left","filled circle at 3, ray left"],["3 पर खुला circle, दाईं ओर ray","3 पर भरा circle, दाईं ओर ray","3 पर खुला circle, बाईं ओर ray","3 पर भरा circle, बाईं ओर ray"],"A","> excludes 3, and bigger numbers are to the right.","> में 3 शामिल नहीं, और बड़े numbers दाईं ओर हैं।");
+  add("MTH-I35",5,"MTH11-5-4",2,"For x ≤ −2, which circle and direction?","x ≤ −2 के लिए, कौन-सा circle और दिशा?",
+    ["open circle at −2, ray right","filled circle at −2, ray left","open circle at −2, ray left","filled circle at −2, ray right"],["−2 पर खुला circle, दाईं ओर ray","−2 पर भरा circle, बाईं ओर ray","−2 पर खुला circle, बाईं ओर ray","−2 पर भरा circle, दाईं ओर ray"],"B","≤ includes −2, and smaller numbers are to the left.","≤ में −2 शामिल है, और छोटे numbers बाईं ओर हैं।");
+  add("MTH-I36",5,"MTH11-5-4",3,"Is the boundary number itself ever a valid solution for x < a?","x < a के लिए, क्या boundary number कभी एक valid solution होता है?",
+    ["Yes, always","No, never","Only if a=0","Only for positive a"],["हाँ, हमेशा","नहीं, कभी नहीं","सिर्फ़ अगर a=0","सिर्फ़ positive a के लिए"],"B","Strict < always excludes the boundary.","सख़्त < में boundary हमेशा बाहर रहता है।");
+  add("MTH-I37",5,"MTH11-5-4",3,"On a number line for x ≥ 0, which numbers are shaded?","x ≥ 0 के number line पर कौन-से numbers shaded हैं?",
+    ["only positive numbers","0 and all positive numbers","only 0","all numbers"],["सिर्फ़ positive numbers","0 और सभी positive numbers","सिर्फ़ 0","सभी numbers"],"B","≥ includes 0 itself, plus everything larger.","≥ में 0 ख़ुद, और उससे बड़ा सब शामिल है।");
+  add("MTH-I38",5,"MTH11-5-4",3,"A ray on a number line represents:","Number line पर एक ray क्या दिखाता है?",
+    ["one single solution","infinitely many solutions in one direction","no solutions","exactly two solutions"],["एक ही solution","एक दिशा में अनगिनत solutions","कोई solution नहीं","ठीक दो solutions"],"B","Every point along the ray is a solution.","Ray पर हर point एक solution है।");
+  add("MTH-I39",5,"MTH11-5-4",4,"For −1 ≤ x < 3, how many circles are drawn, and what kind?","−1 ≤ x < 3 के लिए, कितने circles बनते हैं, और कौन-से?",
+    ["one filled circle only","one open circle only","one filled and one open circle","two filled circles"],["सिर्फ़ एक भरा circle","सिर्फ़ एक खुला circle","एक भरा और एक खुला circle","दो भरे circles"],"C","−1 is included (filled); 3 is not (open).","−1 शामिल है (भरा); 3 शामिल नहीं (खुला)।");
+
+  /* ---- Ch5 Topic 5: Word Problems (10) ---- */
+  add("MTH-I40",5,"MTH11-5-5",1,"'At least 5 apples' as an inequality (a = apples):","'कम से कम 5 apples' को inequality की तरह लिखें (a = apples):",
+    ["a<5","a≤5","a>5","a≥5"],["a<5","a≤5","a>5","a≥5"],"D","'At least' means ≥.","'कम से कम' का मतलब है ≥।");
+  add("MTH-I41",5,"MTH11-5-5",1,"'No more than 10 tickets' as an inequality (t = tickets):","'10 से ज़्यादा नहीं tickets' को inequality की तरह लिखें (t = tickets):",
+    ["t≤10","t≥10","t<10","t>10"],["t≤10","t≥10","t<10","t>10"],"A","'No more than' means ≤.","'ज़्यादा नहीं' का मतलब है ≤।");
+  add("MTH-I42",5,"MTH11-5-5",2,"A rope costs ₹8 per metre. With ₹100, at most how many metres m satisfy 8m ≤ 100?","एक rope ₹8 प्रति metre है। ₹100 में, 8m ≤ 100 को कितने metres m पूरा करते हैं?",
+    ["m≤12.5","m≤8","m≤800","m≤12"],["m≤12.5","m≤8","m≤800","m≤12"],"A","100 ÷ 8 = 12.5.","100 ÷ 8 = 12.5।");
+  add("MTH-I43",5,"MTH11-5-5",2,"Two test scores are 70 and 65. For an average of at least 75 over 3 tests, the inequality for the third score x is:","दो test scores 70 और 65 हैं। 3 tests में कम से कम 75 average के लिए, तीसरे score x की inequality है:",
+    ["(70+65+x)/3≥75","(70+65+x)/3≤75","70+65+x≥75","(70+65+x)/3=75"],["(70+65+x)/3≥75","(70+65+x)/3≤75","70+65+x≥75","(70+65+x)/3=75"],"A","Average is the sum divided by 3, at least 75.","Average है योग भाग 3, कम से कम 75।");
+  add("MTH-I44",5,"MTH11-5-5",2,"Solving (70+65+x)/3≥75 gives:","(70+65+x)/3≥75 हल करने पर मिलता है:",
+    ["x≥90","x≥135","x≥30","x≥45"],["x≥90","x≥135","x≥30","x≥45"],"A","135+x≥225, so x≥90.","135+x≥225, इसलिए x≥90।");
+  add("MTH-I45",5,"MTH11-5-5",3,"A box holds at most 25 kg. Each book weighs 2 kg. At most how many books b fit (2b≤25)?","एक box में ज़्यादा से ज़्यादा 25 kg आता है। हर book 2 kg की है। ज़्यादा से ज़्यादा कितनी books b आएँगी (2b≤25)?",
+    ["b≤12.5, so 12 books","b≤12.5, so 13 books","b≤50","b≤12.5 exactly"],["b≤12.5, इसलिए 12 books","b≤12.5, इसलिए 13 books","b≤50","ठीक b≤12.5"],"A","Books are whole, so round 12.5 down to 12.","Books पूरी होती हैं, इसलिए 12.5 को नीचे 12 round कीजिए।");
+  add("MTH-I46",5,"MTH11-5-5",3,"A student needs more than 40 marks out of 50 for distinction. As an inequality (m=marks):","Distinction के लिए 50 में से 40 से ज़्यादा marks चाहिए। Inequality की तरह (m=marks):",
+    ["m>40","m≥40","m<40","m≤40"],["m>40","m≥40","m<40","m≤40"],"A","'More than' means strictly >.","'से ज़्यादा' का मतलब है सख़्ती से >।");
+  add("MTH-I47",5,"MTH11-5-5",3,"Ravi has ₹150 and wants pens costing ₹12 each. At most how many pens p can he buy (12p≤150)?","Ravi के पास ₹150 हैं और ₹12 वाले pens चाहिए। ज़्यादा से ज़्यादा कितने pens p ख़रीद सकता है (12p≤150)?",
+    ["p≤12.5, so 12 pens","p≤12.5, so 13 pens","p≤18","p≤12 exactly"],["p≤12.5, इसलिए 12 pens","p≤12.5, इसलिए 13 pens","p≤18","ठीक p≤12"],"A","150 ÷ 12 = 12.5; round down since pens are whole.","150 ÷ 12 = 12.5; pens पूरे होते हैं इसलिए नीचे round कीजिए।");
+  add("MTH-I48",5,"MTH11-5-5",4,"A car must cover more than 180 km in less than 3 hours. Which inequality describes the speed s (km/h)?","एक car को 3 घंटे से कम में 180 km से ज़्यादा तय करना है। Speed s (km/h) की कौन-सी inequality सही है?",
+    ["s>60","s<60","s≥60","s≤60"],["s>60","s<60","s≥60","s≤60"],"A","Distance/time > 180/3 = 60.","दूरी/समय > 180/3 = 60।");
+  add("MTH-I49",5,"MTH11-5-5",4,"Sunita needs an average of at least 90 over 5 tests. Her first four scores are 87, 92, 94, 95. Which inequality gives the minimum fifth score x?","Sunita को 5 tests में कम से कम 90 average चाहिए। पहले चार scores 87, 92, 94, 95 हैं। पाँचवें score x की inequality क्या है?",
+    ["87+92+94+95+x≥450","(87+92+94+95+x)/5≥90","(87+92+94+95+x)/5≤90","87+92+94+95+x≤450"],["87+92+94+95+x≥450","(87+92+94+95+x)/5≥90","(87+92+94+95+x)/5≤90","87+92+94+95+x≤450"],"B","Average is the sum divided by 5, at least 90.","Average है योग भाग 5, कम से कम 90।");
+
+  /* ---- Ch5 Topic 6: Double Inequalities (10) ---- */
+  add("MTH-I50",5,"MTH11-5-6",2,"In a compound inequality like −3 ≤ 2x < 7, an operation must be applied to:","−3 ≤ 2x < 7 जैसी compound inequality में, operation किस पर लगाना होगा?",
+    ["only the left part","only the right part","only the middle","all three parts together"],["सिर्फ़ बाएँ हिस्से पर","सिर्फ़ दाएँ हिस्से पर","सिर्फ़ बीच पर","तीनों हिस्सों पर एक साथ"],"D","Every part must get the same treatment.","हर हिस्से पर एक जैसा treatment होना चाहिए।");
+  add("MTH-I51",5,"MTH11-5-6",2,"Solve −2 ≤ x + 1 ≤ 5 (subtract 1 from all parts).","−2 ≤ x + 1 ≤ 5 हल कीजिए (सभी हिस्सों से 1 घटाइए)।",
+    ["−3≤x≤4","−1≤x≤6","−3≤x≤6","−1≤x≤4"],["−3≤x≤4","−1≤x≤6","−3≤x≤6","−1≤x≤4"],"A","Subtract 1 from −2, x+1, and 5.","−2, x+1, और 5 में से 1 घटाइए।");
+  add("MTH-I52",5,"MTH11-5-6",2,"Solve 0 < x − 2 < 6 (add 2 to all parts).","0 < x − 2 < 6 हल कीजिए (सभी हिस्सों में 2 जोड़िए)।",
+    ["2<x<8","−2<x<4","2<x<6","0<x<8"],["2<x<8","−2<x<4","2<x<6","0<x<8"],"A","Add 2 to 0, x−2, and 6.","0, x−2, और 6 में 2 जोड़िए।");
+  add("MTH-I53",5,"MTH11-5-6",3,"Solve −6 ≤ 3x ≤ 9 (divide all parts by 3).","−6 ≤ 3x ≤ 9 हल कीजिए (सभी हिस्सों को 3 से divide कीजिए)।",
+    ["−2≤x≤3","−18≤x≤27","−3≤x≤2","−2≤x≤9"],["−2≤x≤3","−18≤x≤27","−3≤x≤2","−2≤x≤9"],"A","Divide −6, 3x, and 9 by 3.","−6, 3x, और 9 को 3 से divide कीजिए।");
+  add("MTH-I54",5,"MTH11-5-6",3,"Solve −8 ≤ 5x − 3 < 7. First step: add 3 to all parts. Result?","−8 ≤ 5x − 3 < 7 हल कीजिए। पहला step: सभी हिस्सों में 3 जोड़िए। Result?",
+    ["−5≤5x<10","−11≤5x<4","−5≤5x<4","−11≤5x<10"],["−5≤5x<10","−11≤5x<4","−5≤5x<4","−11≤5x<10"],"A","−8+3=−5, and 7+3=10.","−8+3=−5, और 7+3=10।");
+  add("MTH-I55",5,"MTH11-5-6",3,"Continuing −5 ≤ 5x < 10, divide all parts by 5. Result?","−5 ≤ 5x < 10 को जारी रखते हुए, सभी हिस्सों को 5 से divide कीजिए। Result?",
+    ["−1≤x<2","−25≤x<50","−1≤x<50","−25≤x<2"],["−1≤x<2","−25≤x<50","−1≤x<50","−25≤x<2"],"A","Divide −5, 5x, and 10 by 5.","−5, 5x, और 10 को 5 से divide कीजिए।");
+  add("MTH-I56",5,"MTH11-5-6",4,"Solve −4 < 2x − 6 < 10 (add 6, then divide by 2).","−4 < 2x − 6 < 10 हल कीजिए (6 जोड़िए, फिर 2 से divide कीजिए)।",
+    ["1<x<8","−10<x<4","1<x<4","−10<x<8"],["1<x<8","−10<x<4","1<x<4","−10<x<8"],"A","Add 6: 2<2x<16. Divide by 2: 1<x<8.","6 जोड़िए: 2<2x<16। 2 से divide: 1<x<8।");
+  add("MTH-I57",5,"MTH11-5-6",4,"Solve −9 ≤ −3x < 6. Careful: dividing by −3 flips both signs and reverses the order.","−9 ≤ −3x < 6 हल कीजिए। ध्यान दें: −3 से divide करने पर दोनों signs पलटते हैं और order भी उलट जाता है।",
+    ["−2<x≤3","−2≤x<3","3<x≤−2","−3<x≤2"],["−2<x≤3","−2≤x<3","3<x≤−2","−3<x≤2"],"A","Divide by −3: 3≥x>−2, rewritten as −2<x≤3.","−3 से divide कीजिए: 3≥x>−2, फिर से लिखा −2<x≤3।");
+  add("MTH-I58",5,"MTH11-5-6",5,"Solve 1 ≤ (x+2)/3 ≤ 4.","1 ≤ (x+2)/3 ≤ 4 हल कीजिए।",
+    ["1≤x≤10","3≤x≤12","−1≤x≤10","1≤x≤12"],["1≤x≤10","3≤x≤12","−1≤x≤10","1≤x≤12"],"A","Multiply by 3: 3≤x+2≤12. Subtract 2: 1≤x≤10.","3 से गुणा: 3≤x+2≤12। 2 घटाइए: 1≤x≤10।");
+  add("MTH-I59",5,"MTH11-5-6",5,"In a compound inequality, if you multiply all three parts by a negative number, you must:","Compound inequality में, अगर तीनों हिस्सों को negative number से गुणा करें, तो क्या करना होगा?",
+    ["do nothing extra","flip both inequality signs","flip only one sign","add 1 to each part"],["कुछ अतिरिक्त नहीं","दोनों inequality signs पलटें","सिर्फ़ एक sign पलटें","हर हिस्से में 1 जोड़ें"],"B","Both signs flip together, keeping the chain consistent.","दोनों signs साथ पलटते हैं, chain सही बना रहता है।");
+
+  /* ---- Ch5 Topic 7: Systems of Two Inequalities (10) ---- */
+  add("MTH-I60",5,"MTH11-5-7",2,"A system of two inequalities is solved by finding:","दो inequalities के system को कैसे हल करते हैं?",
+    ["the sum of both solutions","values satisfying only the first","values satisfying only the second","values satisfying both"],["दोनों solutions का योग","सिर्फ़ पहले को पूरा करने वाली values","सिर्फ़ दूसरे को पूरा करने वाली values","दोनों को पूरा करने वाली values"],"D","Only the overlap counts as the system's solution.","सिर्फ़ overlap ही system का solution है।");
+  add("MTH-I61",5,"MTH11-5-7",2,"x > 1 and x < 5 together give:","x > 1 और x < 5 साथ में देते हैं:",
+    ["1<x<5","x>5","x<1","no solution"],["1<x<5","x>5","x<1","कोई solution नहीं"],"A","Numbers bigger than 1 and smaller than 5.","1 से बड़े और 5 से छोटे numbers।");
+  add("MTH-I62",5,"MTH11-5-7",2,"x ≥ 2 and x ≤ 2 together give:","x ≥ 2 और x ≤ 2 साथ में देते हैं:",
+    ["no solution","x=2","x>2","x<2"],["कोई solution नहीं","x=2","x>2","x<2"],"B","Only 2 satisfies both at once.","सिर्फ़ 2 ही दोनों को पूरा करता है।");
+  add("MTH-I63",5,"MTH11-5-7",3,"x > 4 and x < 2 together give:","x > 4 और x < 2 साथ में देते हैं:",
+    ["2<x<4","no solution, since no number is both","x=3","x>4"],["2<x<4","कोई solution नहीं, क्योंकि कोई number दोनों नहीं हो सकता","x=3","x>4"],"B","No number can be both bigger than 4 and smaller than 2.","कोई number 4 से बड़ा और 2 से छोटा दोनों नहीं हो सकता।");
+  add("MTH-I64",5,"MTH11-5-7",3,"Solve the system: x − 1 > 2 and x + 3 < 10.","System हल कीजिए: x − 1 > 2 और x + 3 < 10।",
+    ["3<x<7","x>3","x<7","no solution"],["3<x<7","x>3","x<7","कोई solution नहीं"],"A","x>3 and x<7 overlap between 3 and 7.","x>3 और x<7, 3 और 7 के बीच overlap करते हैं।");
+  add("MTH-I65",5,"MTH11-5-7",3,"Solve the system: 2x > 6 and 3x < 18.","System हल कीजिए: 2x > 6 और 3x < 18।",
+    ["3<x<6","x>3","x<6","no solution"],["3<x<6","x>3","x<6","कोई solution नहीं"],"A","x>3 and x<6 overlap between 3 and 6.","x>3 और x<6, 3 और 6 के बीच overlap करते हैं।");
+  add("MTH-I66",5,"MTH11-5-7",4,"Solve the system: x + 3 > 5 and 2x < 14.","System हल कीजिए: x + 3 > 5 और 2x < 14।",
+    ["2<x<7","x>2","x<7","no solution"],["2<x<7","x>2","x<7","कोई solution नहीं"],"A","x>2 and x<7 overlap between 2 and 7.","x>2 और x<7, 2 और 7 के बीच overlap करते हैं।");
+  add("MTH-I67",5,"MTH11-5-7",4,"Solve the system: 3x − 2 ≤ 10 and x + 1 ≥ 0.","System हल कीजिए: 3x − 2 ≤ 10 और x + 1 ≥ 0।",
+    ["−1≤x≤4","x≤4","x≥−1","no solution"],["−1≤x≤4","x≤4","x≥−1","कोई solution नहीं"],"A","x≤4 and x≥−1 overlap between −1 and 4.","x≤4 और x≥−1, −1 और 4 के बीच overlap करते हैं।");
+  add("MTH-I68",5,"MTH11-5-7",5,"Solve the system: −2x < 8 and 3x − 1 < 11.","System हल कीजिए: −2x < 8 और 3x − 1 < 11।",
+    ["−4<x<4","x>−4","x<4","no solution"],["−4<x<4","x>−4","x<4","कोई solution नहीं"],"A","x>−4 (flip for negative divide) and x<4 overlap between −4 and 4.","x>−4 (negative divide पर पलटा) और x<4, −4 और 4 के बीच overlap करते हैं।");
+  add("MTH-I69",5,"MTH11-5-7",5,"Two consecutive even numbers are both greater than 10, and their sum is less than 40. If the smaller is x, which system describes this? (next even number is x+2)","दो लगातार even numbers दोनों 10 से बड़े हैं, और उनका योग 40 से कम है। अगर छोटा x है, कौन-सा system इसे बताता है? (अगला even number x+2 है)",
+    ["x>10 and 2x+2<40","x>10 and x+2<40","x≥10 and 2x+2≤40","x<10 and 2x+2<40"],["x>10 और 2x+2<40","x>10 और x+2<40","x≥10 और 2x+2≤40","x<10 और 2x+2<40"],"A","The sum x+(x+2)=2x+2 must be under 40, and x itself over 10.","योग x+(x+2)=2x+2, 40 से कम होना चाहिए, और ख़ुद x, 10 से ज़्यादा।");
 
   window.SL_DATA.questions = window.SL_DATA.questions.concat(Q);
 })();
