@@ -4890,6 +4890,31 @@ var DIAGRAMS = {
     h+='<text x="230" y="215" text-anchor="middle" font-size="12.5" font-style="italic" fill="var(--muted)">'+d("dispersion measures exactly this difference in spread","dispersion ठीक इसी spread के अंतर को मापता है")+'</text>';
     return '<svg viewBox="0 0 460 230" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'+h+'</svg>';
   },
+  "coin-toss-tree": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    var h='<text x="230" y="18" text-anchor="middle" font-size="16" font-weight="bold" fill="var(--primary)">'+d("Two coin tosses — every possible outcome","दो बार coin उछालना — हर संभव outcome")+'</text>';
+    h+='<circle cx="40" cy="150" r="6" fill="var(--ink)"/>';
+    h+='<line x1="40" y1="150" x2="170" y2="80" stroke="var(--line-strong)" stroke-width="2"/>';
+    h+='<line x1="40" y1="150" x2="170" y2="220" stroke="var(--line-strong)" stroke-width="2"/>';
+    h+='<text x="95" y="102" font-size="14" font-weight="bold" fill="var(--primary)">H</text>';
+    h+='<text x="95" y="200" font-size="14" font-weight="bold" fill="var(--teal)">T</text>';
+    h+='<circle cx="170" cy="80" r="6" fill="var(--primary)"/>';
+    h+='<circle cx="170" cy="220" r="6" fill="var(--teal)"/>';
+    h+='<line x1="170" y1="80" x2="300" y2="50" stroke="var(--line-strong)" stroke-width="2"/>';
+    h+='<line x1="170" y1="80" x2="300" y2="110" stroke="var(--line-strong)" stroke-width="2"/>';
+    h+='<line x1="170" y1="220" x2="300" y2="190" stroke="var(--line-strong)" stroke-width="2"/>';
+    h+='<line x1="170" y1="220" x2="300" y2="250" stroke="var(--line-strong)" stroke-width="2"/>';
+    h+='<text x="228" y="60" font-size="13" fill="var(--primary)">H</text>';
+    h+='<text x="228" y="128" font-size="13" fill="var(--teal)">T</text>';
+    h+='<text x="228" y="178" font-size="13" fill="var(--primary)">H</text>';
+    h+='<text x="228" y="246" font-size="13" fill="var(--teal)">T</text>';
+    [[300,50,"HH"],[300,110,"HT"],[300,190,"TH"],[300,250,"TT"]].forEach(function(p){
+      h+='<circle cx="'+p[0]+'" cy="'+p[1]+'" r="5" fill="var(--accent)"/>';
+      h+='<text x="'+(p[0]+14)+'" y="'+(p[1]+5)+'" font-size="15" font-weight="bold" fill="var(--ink)">'+p[2]+'</text>';
+    });
+    h+='<text x="230" y="288" text-anchor="middle" font-size="12.5" font-style="italic" fill="var(--muted)">'+d("Sample space = the full list of branch-ends: {HH, HT, TH, TT}","Sample space = हर branch के अंत की पूरी list: {HH, HT, TH, TT}")+'</text>';
+    return '<svg viewBox="0 0 460 300" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'+h+'</svg>';
+  },
 
 };
 

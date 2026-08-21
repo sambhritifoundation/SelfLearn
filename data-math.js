@@ -1360,6 +1360,113 @@ window.SL_DATA = window.SL_DATA || {subjects:[], questions:[]};
         b("Variance = 2 — the same as before.","Variance = 2 — पहले जैसा ही।")))
   ];
 
+  var prob=[
+
+    topic("MTH11-14-0",
+      b("0. Revise: Random Experiments and Sample Space","0. दोहराइए: Random Experiments और Sample Space"),
+      b(
+        "Toss a coin before a cricket match to decide who bats first. Before you toss it, you cannot say which side will land up — but you know exactly which sides are possible: heads or tails. This is a **random experiment**: an action whose exact result you cannot predict, but whose complete list of possible results you already know.\n\nThat complete list is called the **sample space**, written $S$. For one coin toss, $S=\\{\\text{H},\\text{T}\\}$. For rolling a die, $S=\\{1,2,3,4,5,6\\}$.\n\nNow toss two coins, one after another. The first can land H or T, and whichever way it lands, the second can also land H or T. Following every path gives every possible outcome.\n\n{{diagram:coin-toss-tree}}\n\nSo $S=\\{\\text{HH},\\text{HT},\\text{TH},\\text{TT}\\}$ — four outcomes, one for each complete path through the tree. This chapter is about attaching a number to each such outcome, and to groups of outcomes, that captures how likely it is.",
+        "Cricket match से पहले coin उछालते हैं यह तय करने के लिए कि पहले batting कौन करेगा। उछालने से पहले आप नहीं बता सकते कौन-सी side ऊपर आएगी — पर आप बिल्कुल जानते हैं कि कौन-सी sides possible हैं: heads या tails। यह एक **random experiment** है: एक ऐसा action जिसका ठीक-ठीक result आप बता नहीं सकते, पर जिसके possible results की पूरी list आप पहले से जानते हैं।\n\nयह पूरी list **sample space** कहलाती है, जिसे $S$ लिखते हैं। एक coin उछालने पर, $S=\\{\\text{H},\\text{T}\\}$। एक die फेंकने पर, $S=\\{1,2,3,4,5,6\\}$।\n\nअब दो coins एक के बाद एक उछालिए। पहला H या T आ सकता है, और वह जो भी आए, दूसरा भी H या T आ सकता है। हर रास्ते को tree में follow करने से हर संभव outcome मिल जाता है।\n\n{{diagram:coin-toss-tree}}\n\nतो $S=\\{\\text{HH},\\text{HT},\\text{TH},\\text{TT}\\}$ — चार outcomes, tree के हर पूरे रास्ते के लिए एक। यह chapter हर ऐसे outcome, और outcomes के समूहों को, एक ऐसा number जोड़ना सिखाता है जो बताए वह कितना likely है।"),
+      worked(
+        b("List the full sample space for tossing a coin three times.","एक coin को तीन बार उछालने का पूरा sample space बताइए।"),
+        [
+          ["The first toss is H or T. For each of those, the second toss is H or T. For each of those four, the third toss is H or T — that's 2×2×2 = 8 paths.","पहला toss H या T है। हर एक के लिए, दूसरा toss H या T है। उन चारों में से हर एक के लिए, तीसरा toss H या T है — यानी 2×2×2 = 8 रास्ते।","Each extra toss doubles the number of paths through the tree.","हर extra toss, tree के रास्तों की संख्या दोगुनी कर देता है।"],
+          ["Writing every path out: HHH, HHT, HTH, HTT, THH, THT, TTH, TTT.","हर रास्ता लिखकर: HHH, HHT, HTH, HTT, THH, THT, TTH, TTT।","Follow the H/T choice at each of the three tosses, in order.","तीनों tosses के H/T choice को क्रम में follow कीजिए।"]
+        ],
+        b("S = {HHH, HHT, HTH, HTT, THH, THT, TTH, TTT} — 8 outcomes.","S = {HHH, HHT, HTH, HTT, THH, THT, TTH, TTT} — 8 outcomes।"))),
+
+    topic("MTH11-14-1",
+      b("1. What is an Event?","1. Event क्या है?"),
+      b(
+        "An **event** is any subset of the sample space — a description that picks out some of the outcomes as \"this is what I'm interested in.\"\n\nRoll a die, so $S=\\{1,2,3,4,5,6\\}$. \"An even number appears\" picks out $\\{2,4,6\\}$ — that subset IS the event. If an event has exactly one outcome, it is a **simple event** (like \"the die shows 3\", $\\{3\\}$). If it has more than one, it is a **compound event** (like \"an even number appears\").\n\nTwo special cases matter. \"A multiple of 7 appears\" picks out no outcome at all — the empty set $\\emptyset$ — this is an **impossible event**. \"An odd or even number appears\" picks out every outcome — the whole sample space $S$ — this is a **sure event**.",
+        "एक **event**, sample space का कोई भी subset है — एक description जो कुछ outcomes को चुनकर कहती है \"मुझे इसी में दिलचस्पी है।\"\n\nएक die फेंकिए, तो $S=\\{1,2,3,4,5,6\\}$। \"Even number आता है\" $\\{2,4,6\\}$ चुनता है — वही subset event है। अगर किसी event में ठीक एक outcome है, तो वह **simple event** है (जैसे \"die पर 3 आता है\", $\\{3\\}$)। अगर एक से ज़्यादा हैं, तो वह **compound event** है (जैसे \"even number आता है\")।\n\nदो खास मामले ज़रूरी हैं। \"7 का multiple आता है\" कोई outcome नहीं चुनता — empty set $\\emptyset$ — यह एक **impossible event** है। \"Odd या even number आता है\" हर outcome चुनता है — पूरा sample space $S$ — यह एक **sure event** है।"),
+      worked(
+        b("For rolling a die (S = {1,2,3,4,5,6}), classify each: (a) 'the die shows 5', (b) 'the number is less than 4', (c) 'the number is a multiple of 8'.","Die फेंकने पर (S = {1,2,3,4,5,6}), हर एक को classify कीजिए: (a) 'die पर 5 आता है', (b) 'number 4 से कम है', (c) 'number 8 का multiple है'।"),
+        [
+          ["(a) picks out {5} — exactly one outcome, so it is a simple event.","(a) {5} चुनता है — ठीक एक outcome, इसलिए यह simple event है।","One element means simple.","एक element मतलब simple।"],
+          ["(b) picks out {1,2,3} — more than one outcome, so it is a compound event. (c) picks out {} — no outcome at all, so it is an impossible event.","(b) {1,2,3} चुनता है — एक से ज़्यादा outcomes, इसलिए यह compound event है। (c) {} चुनता है — कोई outcome नहीं, इसलिए यह impossible event है।","No multiple of 8 ever appears on a standard die.","एक साधारण die पर 8 का multiple कभी नहीं आता।"]
+        ],
+        b("(a) simple, (b) compound, (c) impossible.","(a) simple, (b) compound, (c) impossible।"))),
+
+    topic("MTH11-14-2",
+      b("2. Algebra of Events","2. Events का बीजगणित"),
+      b(
+        "Events are sets, so every set operation from the Sets chapter applies directly.\n\n{{diagram:sets-complement}}\n\n**Not $A$** (written $A'$): every outcome NOT in $A$ — the complement.\n\n{{diagram:sets-union}}\n\n**$A$ or $B$** (written $A\\cup B$): every outcome in $A$, in $B$, or in both.\n\n{{diagram:sets-intersection}}\n\n**$A$ and $B$** (written $A\\cap B$): only the outcomes common to both.\n\n{{diagram:sets-difference}}\n\n**$A$ but not $B$** (written $A-B$): in $A$, with anything shared with $B$ removed.",
+        "Events sets ही हैं, इसलिए Sets वाले chapter का हर set operation सीधे लागू होता है।\n\n{{diagram:sets-complement}}\n\n**Not $A$** ($A'$ लिखा जाता है): हर वह outcome जो $A$ में नहीं है — complement।\n\n{{diagram:sets-union}}\n\n**$A$ या $B$** ($A\\cup B$ लिखा जाता है): $A$ में, $B$ में, या दोनों में मौजूद हर outcome।\n\n{{diagram:sets-intersection}}\n\n**$A$ और $B$** ($A\\cap B$ लिखा जाता है): सिर्फ़ वे outcomes जो दोनों में common हैं।\n\n{{diagram:sets-difference}}\n\n**$A$ पर $B$ नहीं** ($A-B$ लिखा जाता है): $A$ में, जो $B$ के साथ common है वह हटाकर।"),
+      worked(
+        b("Roll a die (S = {1,...,6}). Let A = 'a prime number appears' and B = 'an odd number appears'. Find A or B, A and B, A but not B, and not A.","एक die फेंकिए (S = {1,...,6})। मान लीजिए A = 'prime number आता है' और B = 'odd number आता है'। A या B, A और B, A पर B नहीं, और not A निकालिए।"),
+        [
+          ["A = {2,3,5} and B = {1,3,5}. A or B = A∪B = {1,2,3,5} — every outcome in either set.","A = {2,3,5} और B = {1,3,5}। A या B = A∪B = {1,2,3,5} — दोनों में से किसी में भी मौजूद हर outcome।","List A first, then B, then combine without repeating shared outcomes.","पहले A लिखिए, फिर B, फिर shared outcomes को दोहराए बिना मिलाइए।"],
+          ["A and B = A∩B = {3,5} — common to both. A but not B = A−B = {2} — in A, minus the shared {3,5}. Not A = A' = {1,4,6} — everything outside A.","A और B = A∩B = {3,5} — दोनों में common। A पर B नहीं = A−B = {2} — A में से, shared {3,5} हटाकर। Not A = A' = {1,4,6} — A के बाहर सब कुछ।","Each operation just re-reads the two lists {2,3,5} and {1,3,5} differently.","हर operation, {2,3,5} और {1,3,5} की दो लिस्टों को बस अलग तरह से पढ़ता है।"]
+        ],
+        b("A or B={1,2,3,5}, A and B={3,5}, A but not B={2}, not A={1,4,6}.","A या B={1,2,3,5}, A और B={3,5}, A पर B नहीं={2}, not A={1,4,6}।"))),
+
+    topic("MTH11-14-3",
+      b("3. Mutually Exclusive and Exhaustive Events","3. Mutually Exclusive और Exhaustive Events"),
+      b(
+        "{{diagram:sets-disjoint}}\n\nTwo events are **mutually exclusive** if they can never happen together — their outcome-sets share nothing, $A\\cap B=\\emptyset$. Roll a die: \"an odd number\" $\\{1,3,5\\}$ and \"an even number\" $\\{2,4,6\\}$ share no outcome, so they are mutually exclusive.\n\nBut \"an odd number\" $\\{1,3,5\\}$ and \"a number less than 4\" $\\{1,2,3\\}$ both contain 3 — they are NOT mutually exclusive, since both can happen at once (rolling a 3).\n\nA group of events is **exhaustive** if, put together, they cover the entire sample space — at least one of them must happen. Define $A=\\{1,2,3\\}$, $B=\\{3,4\\}$, $C=\\{5,6\\}$ on a die: $A\\cup B\\cup C=S$, so these three are exhaustive — but not mutually exclusive, since $A$ and $B$ share 3. Being exhaustive and being mutually exclusive are two separate properties, and an event group can have either, both, or neither.",
+        "{{diagram:sets-disjoint}}\n\nदो events **mutually exclusive** हैं अगर वे कभी एक साथ नहीं हो सकते — उनके outcome-sets में कुछ भी common नहीं, $A\\cap B=\\emptyset$। Die फेंकिए: \"odd number\" $\\{1,3,5\\}$ और \"even number\" $\\{2,4,6\\}$ में कोई outcome common नहीं, इसलिए ये mutually exclusive हैं।\n\nपर \"odd number\" $\\{1,3,5\\}$ और \"4 से कम number\" $\\{1,2,3\\}$ दोनों में 3 है — ये mutually exclusive NAHI हैं, क्योंकि दोनों एक साथ हो सकते हैं (3 आने पर)।\n\nEvents का एक समूह **exhaustive** है अगर साथ मिलाकर वे पूरे sample space को cover करें — उनमें से कम से कम एक ज़रूर होना चाहिए। Die पर $A=\\{1,2,3\\}$, $B=\\{3,4\\}$, $C=\\{5,6\\}$ लीजिए: $A\\cup B\\cup C=S$, इसलिए ये तीनों exhaustive हैं — पर mutually exclusive नहीं, क्योंकि $A$ और $B$ में 3 common है। Exhaustive होना और mutually exclusive होना दो अलग गुण हैं, और events का एक समूह दोनों में से कोई भी, दोनों, या कोई भी नहीं रख सकता है।"),
+      worked(
+        b("A coin is tossed three times. Let A = 'no head appears', B = 'exactly one head appears', C = 'at least two heads appear'. Are A, B, C mutually exclusive and exhaustive?","एक coin तीन बार उछाला जाता है। मान लीजिए A = 'कोई head नहीं आता', B = 'ठीक एक head आता है', C = 'कम से कम दो heads आते हैं'। क्या A, B, C mutually exclusive और exhaustive हैं?"),
+        [
+          ["S has 8 outcomes. A={TTT}, B={HTT,THT,TTH}, C={HHT,HTH,THH,HHH}. Check overlaps: A∩B=∅, A∩C=∅, B∩C=∅ — no two share an outcome, so they are mutually exclusive.","S में 8 outcomes हैं। A={TTT}, B={HTT,THT,TTH}, C={HHT,HTH,THH,HHH}। Overlaps जाँचिए: A∩B=∅, A∩C=∅, B∩C=∅ — कोई दो एक outcome share नहीं करते, इसलिए ये mutually exclusive हैं।","Every outcome in S falls into exactly one of the three head-counts: 0, 1, or 2-or-more.","S का हर outcome तीन head-counts में से ठीक एक में आता है: 0, 1, या 2-या-ज़्यादा।"],
+          ["Count all outcomes: 1+3+4 = 8, matching n(S). So A∪B∪C = S — they are exhaustive too.","सभी outcomes गिनिए: 1+3+4 = 8, जो n(S) से मेल खाता है। तो A∪B∪C = S — ये exhaustive भी हैं।","Every one of the 8 outcomes is accounted for, none left over.","सभी 8 outcomes गिने गए, कोई बचा नहीं।"]
+        ],
+        b("Yes — A, B, C are both mutually exclusive and exhaustive.","हाँ — A, B, C दोनों mutually exclusive और exhaustive हैं।"))),
+
+    topic("MTH11-14-4",
+      b("4. Axiomatic Probability: Rules for P","4. Axiomatic Probability: P के नियम"),
+      b(
+        "**Probability** attaches a number $P(E)$ to every event $E$, following three basic rules (axioms):\n\n$$0\\leq P(E)\\leq 1\\qquad P(S)=1\\qquad \\text{if }E\\cap F=\\emptyset\\text{, then }P(E\\cup F)=P(E)+P(F)$$\n\nNo probability is negative or bigger than 1, the sure event $S$ gets probability 1, and mutually exclusive events simply add. One useful consequence: $P(\\emptyset)=0$ — the impossible event has zero chance.\n\nAny assignment of numbers to outcomes that follows all three rules is valid — even an unequal one. Roll a die: giving each of 1 through 6 the number $\\tfrac{1}{6}$ works (all positive, sum to 1). Giving them 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 does NOT work, even though every number is between 0 and 1 — they add up to 2.1, not 1.",
+        "**Probability**, हर event $E$ को एक number $P(E)$ देता है, तीन बुनियादी नियमों (axioms) के अनुसार:\n\n$$0\\leq P(E)\\leq 1\\qquad P(S)=1\\qquad \\text{अगर }E\\cap F=\\emptyset\\text{, तो }P(E\\cup F)=P(E)+P(F)$$\n\nकोई भी probability negative या 1 से बड़ी नहीं होती, sure event $S$ को probability 1 मिलती है, और mutually exclusive events बस जुड़ जाते हैं। एक उपयोगी नतीजा: $P(\\emptyset)=0$ — impossible event की chance शून्य होती है।\n\nOutcomes को numbers देने का कोई भी तरीका valid है अगर वह तीनों नियम माने — भले ही वह असमान हो। Die फेंकिए: 1 से 6 तक हर एक को $\\tfrac{1}{6}$ देना काम करता है (सभी positive, योग 1)। उन्हें 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 देना काम नहीं करता, भले ही हर number 0 और 1 के बीच हो — उनका योग 2.1 है, 1 नहीं।"),
+      worked(
+        b("A die is rolled. Two number-assignments are proposed: (a) each of 1-6 gets 1/6, (b) they get 0.1, 0.2, 0.3, 0.4, 0.5, 0.6. Which is a valid probability assignment?","एक die फेंका जाता है। Numbers देने के दो तरीके सुझाए गए हैं: (a) 1-6 में हर एक को 1/6 मिलता है, (b) उन्हें 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 मिलते हैं। कौन-सा valid probability assignment है?"),
+        [
+          ["(a) Every number is between 0 and 1. Sum: 1/6+1/6+1/6+1/6+1/6+1/6 = 6/6 = 1. Both rules hold, so (a) is valid.","(a) हर number 0 और 1 के बीच है। योग: 1/6+1/6+1/6+1/6+1/6+1/6 = 6/6 = 1। दोनों नियम पूरे होते हैं, इसलिए (a) valid है।","Check every number is in [0,1], then check the total.","हर number [0,1] में है यह जाँचिए, फिर total जाँचिए।"],
+          ["(b) Each number is between 0 and 1, but the sum is 0.1+0.2+0.3+0.4+0.5+0.6 = 2.1, not 1 — this rule fails, so (b) is NOT valid.","(b) हर number 0 और 1 के बीच है, पर योग 0.1+0.2+0.3+0.4+0.5+0.6 = 2.1 है, 1 नहीं — यह नियम पूरा नहीं होता, इसलिए (b) valid नहीं है।","Every number can individually look fine while the total still breaks the rule.","हर number अकेले ठीक लग सकता है, फिर भी total नियम तोड़ सकता है।"]
+        ],
+        b("(a) is valid, (b) is not.","(a) valid है, (b) नहीं।"))),
+
+    topic("MTH11-14-5",
+      b("5. Probability of Equally Likely Outcomes","5. बराबर संभावना वाले Outcomes की Probability"),
+      b(
+        "When every outcome in the sample space is equally likely — a fair coin, an unbiased die, a well-shuffled deck — probability becomes simple counting:\n\n$$P(E)=\\dfrac{n(E)}{n(S)}=\\dfrac{\\text{number of outcomes favourable to }E}{\\text{total number of outcomes}}$$\n\nNo need to reason about each outcome separately — just count how many outcomes satisfy the event, and how many outcomes exist in total.",
+        "जब sample space का हर outcome बराबर संभावना वाला हो — एक fair coin, एक unbiased die, एक अच्छी तरह shuffle की गई deck — probability बस counting बन जाती है:\n\n$$P(E)=\\dfrac{n(E)}{n(S)}=\\dfrac{E\\text{ के लिए favourable outcomes की संख्या}}{\\text{कुल outcomes की संख्या}}$$\n\nहर outcome के बारे में अलग से सोचने की ज़रूरत नहीं — बस गिनिए कि कितने outcomes event को satisfy करते हैं, और कुल कितने outcomes हैं।"),
+      worked(
+        b("One card is drawn from a well-shuffled deck of 52 cards. Find the probability that it is a diamond.","एक अच्छी तरह shuffle की गई 52 cards की deck से एक card निकाला जाता है। इसके diamond होने की probability निकालिए।"),
+        [
+          ["n(S) = 52, the total number of cards. A deck has 13 diamonds, so n(A) = 13.","n(S) = 52, cards की कुल संख्या। एक deck में 13 diamonds होते हैं, इसलिए n(A) = 13।","Count the favourable outcomes and the total outcomes separately.","Favourable outcomes और total outcomes अलग-अलग गिनिए।"],
+          ["P(A) = n(A)/n(S) = 13/52 = 1/4.","P(A) = n(A)/n(S) = 13/52 = 1/4।","Simplify the fraction: 13/52 divides to 1/4.","Fraction simplify कीजिए: 13/52, 1/4 बनता है।"]
+        ],
+        b("P(diamond) = 1/4.","P(diamond) = 1/4।"))),
+
+    topic("MTH11-14-6",
+      b("6. Probability of the Event 'A or B'","6. Event 'A या B' की Probability"),
+      b(
+        "{{diagram:sets-union}}\n\nWhen $A$ and $B$ overlap, simply adding $P(A)+P(B)$ counts the overlap twice — once inside each. The fix is to subtract it back out once:\n\n$$P(A\\text{ or }B)=P(A\\cup B)=P(A)+P(B)-P(A\\cap B)$$\n\nWhen $A$ and $B$ are mutually exclusive, $A\\cap B=\\emptyset$ so $P(A\\cap B)=0$, and the rule simplifies to the addition you'd expect: $P(A\\cup B)=P(A)+P(B)$.",
+        "{{diagram:sets-union}}\n\nजब $A$ और $B$ overlap करते हैं, सीधे $P(A)+P(B)$ जोड़ने पर overlap दो बार गिना जाता है — हर एक के अंदर एक बार। इसका इलाज है उसे एक बार वापस घटा देना:\n\n$$P(A\\text{ या }B)=P(A\\cup B)=P(A)+P(B)-P(A\\cap B)$$\n\nजब $A$ और $B$ mutually exclusive हों, $A\\cap B=\\emptyset$ इसलिए $P(A\\cap B)=0$, और नियम उसी सीधे जोड़ में सरल हो जाता है जिसकी उम्मीद है: $P(A\\cup B)=P(A)+P(B)$।"),
+      worked(
+        b("A coin is tossed three times (S has 8 equally likely outcomes). A = 'exactly two heads and they are the first two' = {HHT,HTH,THH}, B = {HTH,THH,HHH}. Find P(A or B).","एक coin तीन बार उछाला जाता है (S में 8 बराबर संभावना वाले outcomes हैं)। A = {HHT,HTH,THH}, B = {HTH,THH,HHH}। P(A या B) निकालिए।"),
+        [
+          ["P(A) = 3/8 and P(B) = 3/8, since each set has 3 of the 8 equally likely outcomes. A∩B = {HTH,THH}, so P(A∩B) = 2/8.","P(A) = 3/8 और P(B) = 3/8, क्योंकि हर set में 8 में से 3 बराबर संभावना वाले outcomes हैं। A∩B = {HTH,THH}, इसलिए P(A∩B) = 2/8।","Count each set's outcomes over the total of 8.","हर set के outcomes को कुल 8 पर गिनिए।"],
+          ["P(A∪B) = P(A)+P(B)−P(A∩B) = 3/8+3/8−2/8 = 4/8 = 1/2. Check by direct count: A∪B = {HHT,HTH,THH,HHH}, 4 outcomes out of 8 — matches.","P(A∪B) = P(A)+P(B)−P(A∩B) = 3/8+3/8−2/8 = 4/8 = 1/2। सीधे गिनकर जाँचिए: A∪B = {HHT,HTH,THH,HHH}, 8 में से 4 outcomes — मेल खाता है।","The formula and a direct count of the union must always agree.","Formula और union की सीधी गिनती हमेशा मेल खानी चाहिए।"]
+        ],
+        b("P(A or B) = 1/2.","P(A या B) = 1/2।"))),
+
+    topic("MTH11-14-7",
+      b("7. Probability of the Event 'not A'","7. Event 'not A' की Probability"),
+      b(
+        "{{diagram:sets-complement}}\n\n$A$ and 'not $A$' (written $A'$) are mutually exclusive — an outcome can't be both in $A$ and outside it — and together they cover everything, $A\\cup A'=S$. So their probabilities must add to $P(S)=1$:\n\n$$P(\\text{not }A)=P(A')=1-P(A)$$\n\nWhenever finding $P(A)$ directly looks hard, check whether $P(A')$ is easier — then subtract from 1.",
+        "{{diagram:sets-complement}}\n\n$A$ और 'not $A$' ($A'$ लिखा जाता है) mutually exclusive हैं — कोई outcome $A$ के अंदर और बाहर दोनों नहीं हो सकता — और साथ मिलकर वे सब कुछ cover करते हैं, $A\\cup A'=S$। इसलिए उनकी probabilities जुड़कर $P(S)=1$ बनना चाहिए:\n\n$$P(\\text{not }A)=P(A')=1-P(A)$$\n\nजब भी $P(A)$ सीधे निकालना मुश्किल लगे, जाँचिए कि क्या $P(A')$ आसान है — फिर 1 से घटा दीजिए।"),
+      worked(
+        b("A card is drawn from 10 cards numbered 1 to 10. Let A = 'the card is an even number', so A = {2,4,6,8}. Find P(not A).","1 से 10 तक नंबर वाले 10 cards में से एक card निकाला जाता है। मान लीजिए A = 'card even number है', तो A = {2,4,6,8}। P(not A) निकालिए।"),
+        [
+          ["n(S) = 10, n(A) = 4. P(A) = 4/10 = 2/5.","n(S) = 10, n(A) = 4। P(A) = 4/10 = 2/5।","Count the even numbers from 1 to 10 out of all 10.","1 से 10 में से even numbers गिनिए, सभी 10 में से।"],
+          ["P(not A) = 1 − P(A) = 1 − 2/5 = 3/5.","P(not A) = 1 − P(A) = 1 − 2/5 = 3/5।","Subtract from 1 rather than counting the odd numbers separately.","Odd numbers अलग से गिनने की जगह 1 से घटाइए।"]
+        ],
+        b("P(not A) = 3/5.","P(not A) = 3/5।")))
+  ];
+
   window.SL_DATA.subjects = (window.SL_DATA.subjects||[]).filter(function(s){ return s.code!=="MATH11"; });
 
   window.SL_DATA.subjects.push({code:"MATH11",board:"CBSE",klass:11,icon:"📐",
@@ -1510,7 +1617,18 @@ window.SL_DATA = window.SL_DATA || {subjects:[], questions:[]};
         assessment:["MTH-V01","MTH-V03","MTH-V05","MTH-V08","MTH-V11","MTH-V14","MTH-V17","MTH-V20",
           "MTH-V23","MTH-V26","MTH-V29","MTH-V32","MTH-V35","MTH-V38","MTH-V41","MTH-V44",
           "MTH-V47","MTH-V50","MTH-V53","MTH-V56","MTH-V59","MTH-V62","MTH-V65","MTH-V68"],
-        topics:stats}
+        topics:stats},
+      {no:14,name:b("Probability","Probability"),
+        summary:b(
+          "**Probability: what this chapter covers**\n\nA random experiment has a result you can't predict, but a complete list of possible results — the sample space — that you already know. An event is any subset of that list; it may contain one outcome, many, all of them (sure event) or none (impossible event). Because events are sets, every Sets-chapter operation applies: not A, A or B, A and B, A but not B. Two events are mutually exclusive if they share no outcome, and a group is exhaustive if together they cover the whole sample space — separate properties, not the same thing. Three axioms govern any valid probability assignment, and for equally likely outcomes probability reduces to simple counting: favourable outcomes over total outcomes. Two shortcut rules close the chapter: P(A or B) = P(A)+P(B)−P(A and B), and P(not A) = 1−P(A).",
+          "**Probability: इस chapter में क्या सीखेंगे**\n\nएक random experiment का result आप predict नहीं कर सकते, पर possible results की पूरी list — sample space — आप पहले से जानते हैं। Event, उस list का कोई भी subset है; उसमें एक outcome, कई, सभी (sure event) या कोई नहीं (impossible event) हो सकते हैं। चूँकि events sets हैं, Sets वाले chapter का हर operation लागू होता है: not A, A या B, A और B, A पर B नहीं। दो events mutually exclusive हैं अगर वे कोई outcome share नहीं करते, और एक समूह exhaustive है अगर साथ मिलकर वे पूरे sample space को cover करें — ये अलग-अलग गुण हैं, एक जैसे नहीं। तीन axioms किसी भी valid probability assignment को नियंत्रित करते हैं, और बराबर संभावना वाले outcomes के लिए probability सादी counting बन जाती है: favourable outcomes बटा total outcomes। दो shortcut नियम chapter बंद करते हैं: P(A या B) = P(A)+P(B)−P(A और B), और P(not A) = 1−P(A)।"),
+        checkpoint:b(
+          "Getting most Warm-up and Standard questions right, across every topic in this chapter, means you are ready to move on. Scoring low? Go back to '0. Revise: Random Experiments and Sample Space' and redo its example by hand — that is the fastest way forward, not a setback.",
+          "इस chapter के हर topic में ज़्यादातर Warm-up और Standard questions सही होना, मतलब आप आगे बढ़ने के लिए ready हैं। Score कम है? '0. दोहराइए: Random Experiments और Sample Space' पर वापस जाइए और उसका example हाथ से दोबारा कीजिए — यही सबसे तेज़ रास्ता है, हार नहीं।"),
+        assessment:["MTH-Z01","MTH-Z03","MTH-Z06","MTH-Z09","MTH-Z12","MTH-Z15","MTH-Z18","MTH-Z21",
+          "MTH-Z24","MTH-Z27","MTH-Z30","MTH-Z33","MTH-Z36","MTH-Z39","MTH-Z42","MTH-Z45",
+          "MTH-Z48","MTH-Z51","MTH-Z54","MTH-Z57","MTH-Z60","MTH-Z63","MTH-Z66","MTH-Z68"],
+        topics:prob}
     ]});
 
   window.SL_DATA.questions = (window.SL_DATA.questions||[]).filter(function(q){ return q.subject!=="MATH11"; });
@@ -3431,6 +3549,158 @@ window.SL_DATA = window.SL_DATA || {subjects:[], questions:[]};
     ["2","0","4","1"],["2","0","4","1"],"A","1(1)+2(0)+1(1) = 2.","1(1)+2(0)+1(1) = 2।");
   add("MTH-V68",13,"MTH11-13-7",5,"Using σ² = h²[(Σfiyi²/N)−(Σfiyi/N)²] with h=2, N=4, Σfiyi²=2, Σfiyi=0, find the variance.","σ² = h²[(Σfiyi²/N)−(Σfiyi/N)²] में h=2, N=4, Σfiyi²=2, Σfiyi=0 रखकर variance निकालिए।",
     ["2","4","0.5","8"],["2","4","0.5","8"],"A","4×[0.5−0] = 2, matching the direct method.","4×[0.5−0] = 2, direct method से मेल खाता है।");
+
+  /* ---- Ch14 Topic 0: Revise: Random Experiments and Sample Space (5) ---- */
+  add("MTH-Z01",14,"MTH11-14-0",1,"A random experiment is:","Random experiment है:",
+    ["an action whose result you cannot predict, but whose full range of results is known","an action whose result is always the same","an action with no possible outcomes","an action that never repeats"],["एक ऐसा action जिसका result आप predict नहीं कर सकते, पर जिसके सभी results पहले से पता हैं","एक ऐसा action जिसका result हमेशा same हो","एक ऐसा action जिसके कोई outcome संभव न हों","एक ऐसा action जो कभी न दोहराया जाए"],"A","The die-roll or coin-toss idea exactly.","Die फेंकने या coin उछालने वाला विचार बिल्कुल यही है।");
+  add("MTH-Z02",14,"MTH11-14-0",1,"The sample space is:","Sample space है:",
+    ["the complete list of every possible outcome","only the most likely outcome","the number of experiments performed","the average of all outcomes"],["हर संभव outcome की पूरी list","सिर्फ़ सबसे likely outcome","किए गए experiments की संख्या","सभी outcomes का average"],"A","Written S, it lists every possible result.","S लिखा जाता है, यह हर संभव result को सूचीबद्ध करता है।");
+  add("MTH-Z03",14,"MTH11-14-0",1,"For one coin toss, the sample space is:","एक coin उछालने पर, sample space है:",
+    ["{H, T}","{H}","{T}","{H, T, HT}"],["{H, T}","{H}","{T}","{H, T, HT}"],"A","Two possible landings, heads or tails.","दो संभव outcomes, heads या tails।");
+  add("MTH-Z04",14,"MTH11-14-0",2,"For rolling a die, how many outcomes does the sample space have?","Die फेंकने पर, sample space में कितने outcomes हैं?",
+    ["6","4","2","12"],["6","4","2","12"],"A","S = {1,2,3,4,5,6}.","S = {1,2,3,4,5,6}।");
+  add("MTH-Z05",14,"MTH11-14-0",2,"For tossing two coins, how many outcomes does the sample space have?","दो coins उछालने पर, sample space में कितने outcomes हैं?",
+    ["4","2","8","3"],["4","2","8","3"],"A","S = {HH, HT, TH, TT}.","S = {HH, HT, TH, TT}।");
+
+  /* ---- Ch14 Topic 1: What is an Event? (9) ---- */
+  add("MTH-Z06",14,"MTH11-14-1",1,"An event is:","Event है:",
+    ["any subset of the sample space","only a single outcome","the sample space minus one outcome","a number between 0 and 1"],["Sample space का कोई भी subset","सिर्फ़ एक outcome","Sample space में से एक outcome घटाकर","0 और 1 के बीच एक number"],"A","A description that picks out some outcomes.","एक description जो कुछ outcomes को चुनती है।");
+  add("MTH-Z07",14,"MTH11-14-1",1,"An event with exactly one outcome is called:","ठीक एक outcome वाला event कहलाता है:",
+    ["a simple event","a compound event","a sure event","an impossible event"],["Simple event","Compound event","Sure event","Impossible event"],"A","One outcome, one 'simple' event.","एक outcome, एक 'simple' event।");
+  add("MTH-Z08",14,"MTH11-14-1",2,"For rolling a die, 'the die shows 6' is a:","Die फेंकने पर, 'die पर 6 आता है' है:",
+    ["simple event","compound event","impossible event","sure event"],["Simple event","Compound event","Impossible event","Sure event"],"A","Exactly one outcome: {6}.","ठीक एक outcome: {6}।");
+  add("MTH-Z09",14,"MTH11-14-1",2,"For rolling a die, 'an even number appears' is a:","Die फेंकने पर, 'even number आता है' है:",
+    ["compound event","simple event","impossible event","sure event"],["Compound event","Simple event","Impossible event","Sure event"],"A","{2,4,6} — three outcomes.","{2,4,6} — तीन outcomes।");
+  add("MTH-Z10",14,"MTH11-14-1",3,"For rolling a die, 'a multiple of 7 appears' is an:","Die फेंकने पर, '7 का multiple आता है' है:",
+    ["impossible event","sure event","simple event","compound event"],["Impossible event","Sure event","Simple event","Compound event"],"A","No face of the die is a multiple of 7.","Die के किसी भी face पर 7 का multiple नहीं है।");
+  add("MTH-Z11",14,"MTH11-14-1",3,"For rolling a die, 'an odd or even number appears' is a:","Die फेंकने पर, 'odd या even number आता है' है:",
+    ["sure event","impossible event","simple event","compound but not sure event"],["Sure event","Impossible event","Simple event","Compound पर sure नहीं"],"A","Every outcome is odd or even — this is all of S.","हर outcome odd या even है — यह पूरा S है।");
+  add("MTH-Z12",14,"MTH11-14-1",4,"A sample space has 8 outcomes. How many simple events does it have?","एक sample space में 8 outcomes हैं। इसमें कितने simple events हैं?",
+    ["8","1","4","16"],["8","1","4","16"],"A","One simple event per outcome.","हर outcome के लिए एक simple event।");
+  add("MTH-Z13",14,"MTH11-14-1",4,"Which of these is the impossible event?","इनमें से कौन-सा impossible event है?",
+    ["∅","S","a simple event","a compound event"],["∅","S","एक simple event","एक compound event"],"A","The empty set — no outcome satisfies it.","Empty set — कोई outcome इसे satisfy नहीं करता।");
+  add("MTH-Z14",14,"MTH11-14-1",5,"For tossing two coins, describe 'at least one head appears' as a subset of S = {HH, HT, TH, TT}.","दो coins उछालने पर, 'कम से कम एक head आता है' को S = {HH, HT, TH, TT} के subset की तरह बताइए।",
+    ["{HH, HT, TH}","{HH}","{HT, TH, TT}","{HH, HT, TH, TT}"],["{HH, HT, TH}","{HH}","{HT, TH, TT}","{HH, HT, TH, TT}"],"A","Every outcome except TT has at least one head.","TT को छोड़कर हर outcome में कम से कम एक head है।");
+
+  /* ---- Ch14 Topic 2: Algebra of Events (9) ---- */
+  add("MTH-Z15",14,"MTH11-14-2",1,"'Not A' is also called:","'Not A' कहलाता है:",
+    ["the complementary event","a simple event","an exhaustive event","a sure event"],["Complementary event","Simple event","Exhaustive event","Sure event"],"A","Everything outside A.","A के बाहर सब कुछ।");
+  add("MTH-Z16",14,"MTH11-14-2",1,"'A or B' corresponds to the set operation:","'A या B' किस set operation से मेल खाता है?",
+    ["union","intersection","difference","complement"],["Union","Intersection","Difference","Complement"],"A","In A, in B, or in both.","A में, B में, या दोनों में।");
+  add("MTH-Z17",14,"MTH11-14-2",2,"'A and B' corresponds to the set operation:","'A और B' किस set operation से मेल खाता है?",
+    ["intersection","union","difference","complement"],["Intersection","Union","Difference","Complement"],"A","Only what is common to both.","सिर्फ़ जो दोनों में common है।");
+  add("MTH-Z18",14,"MTH11-14-2",2,"For a die (S={1,...,6}), A = {2,3,5} and B = {1,3,5}. Find A and B.","Die (S={1,...,6}) के लिए, A = {2,3,5} और B = {1,3,5}। A और B निकालिए।",
+    ["{3,5}","{1,2,3,5}","{2}","{1,4,6}"],["{3,5}","{1,2,3,5}","{2}","{1,4,6}"],"A","Common to both A and B.","A और B दोनों में common।");
+  add("MTH-Z19",14,"MTH11-14-2",3,"For A = {2,3,5} and B = {1,3,5}, find A or B.","A = {2,3,5} और B = {1,3,5} के लिए, A या B निकालिए।",
+    ["{1,2,3,5}","{3,5}","{2}","{1,4,6}"],["{1,2,3,5}","{3,5}","{2}","{1,4,6}"],"A","Every outcome in either set.","दोनों में से किसी में भी मौजूद हर outcome।");
+  add("MTH-Z20",14,"MTH11-14-2",3,"For A = {2,3,5} and B = {1,3,5}, find A but not B.","A = {2,3,5} और B = {1,3,5} के लिए, A पर B नहीं निकालिए।",
+    ["{2}","{3,5}","{1,2,3,5}","{1,4,6}"],["{2}","{3,5}","{1,2,3,5}","{1,4,6}"],"A","In A, minus the shared {3,5}.","A में से, shared {3,5} हटाकर।");
+  add("MTH-Z21",14,"MTH11-14-2",4,"For A = {2,3,5} on S = {1,...,6}, find not A.","S = {1,...,6} पर A = {2,3,5} के लिए, not A निकालिए।",
+    ["{1,4,6}","{2,3,5}","{3,5}","{2}"],["{1,4,6}","{2,3,5}","{3,5}","{2}"],"A","Everything in S except A.","S में से A को छोड़कर सब कुछ।");
+  add("MTH-Z22",14,"MTH11-14-2",4,"'A but not B' is the same set as:","'A पर B नहीं' किस set के बराबर है?",
+    ["A ∩ B′","A ∩ B","A ∪ B","B′"],["A ∩ B′","A ∩ B","A ∪ B","B′"],"A","In A, and also outside B.","A में, और B के बाहर भी।");
+  add("MTH-Z23",14,"MTH11-14-2",5,"For a die (S={1,...,6}), C = 'multiple of 3' = {3,6} and D = 'even number' = {2,4,6}. Find C and D.","Die (S={1,...,6}) के लिए, C = '3 का multiple' = {3,6} और D = 'even number' = {2,4,6}। C और D निकालिए।",
+    ["{6}","{2,3,4,6}","{3}","{2,4}"],["{6}","{2,3,4,6}","{3}","{2,4}"],"A","Only 6 is in both sets.","सिर्फ़ 6 दोनों sets में है।");
+
+  /* ---- Ch14 Topic 3: Mutually Exclusive and Exhaustive Events (9) ---- */
+  add("MTH-Z24",14,"MTH11-14-3",1,"Two events are mutually exclusive if:","दो events mutually exclusive हैं अगर:",
+    ["they share no outcome","they share every outcome","one is always bigger","their union is the sample space"],["वे कोई outcome share नहीं करते","वे हर outcome share करते हैं","एक हमेशा बड़ा है","उनका union sample space है"],"A","A∩B = ∅.","A∩B = ∅।");
+  add("MTH-Z25",14,"MTH11-14-3",1,"A group of events is exhaustive if:","Events का एक समूह exhaustive है अगर:",
+    ["together they cover the whole sample space","they are all simple events","they share no outcome","exactly one of them is impossible"],["साथ मिलकर वे पूरे sample space को cover करें","वे सभी simple events हैं","वे कोई outcome share नहीं करते","उनमें से ठीक एक impossible है"],"A","Their union equals S.","उनका union S के बराबर है।");
+  add("MTH-Z26",14,"MTH11-14-3",2,"For a die, 'odd number' {1,3,5} and 'even number' {2,4,6} are:","Die के लिए, 'odd number' {1,3,5} और 'even number' {2,4,6} हैं:",
+    ["mutually exclusive","not mutually exclusive","exhaustive but not disjoint","the same event"],["Mutually exclusive","Mutually exclusive नहीं","Exhaustive पर disjoint नहीं","एक ही event"],"A","No outcome is both odd and even.","कोई outcome odd और even दोनों नहीं है।");
+  add("MTH-Z27",14,"MTH11-14-3",2,"For a die, 'odd number' {1,3,5} and 'number less than 4' {1,2,3} are:","Die के लिए, 'odd number' {1,3,5} और '4 से कम number' {1,2,3} हैं:",
+    ["not mutually exclusive","mutually exclusive","exhaustive","impossible"],["Mutually exclusive नहीं","Mutually exclusive","Exhaustive","Impossible"],"A","Both contain 3, so they can happen together.","दोनों में 3 है, इसलिए वे एक साथ हो सकते हैं।");
+  add("MTH-Z28",14,"MTH11-14-3",3,"For a die, A={1,2,3}, B={3,4}, C={5,6}. Is A∪B∪C = S?","Die के लिए, A={1,2,3}, B={3,4}, C={5,6}। क्या A∪B∪C = S है?",
+    ["Yes","No","Only for A and B","Only for B and C"],["हाँ","नहीं","सिर्फ़ A और B के लिए","सिर्फ़ B और C के लिए"],"A","{1,2,3}∪{3,4}∪{5,6} = {1,2,3,4,5,6} = S.","{1,2,3}∪{3,4}∪{5,6} = {1,2,3,4,5,6} = S।");
+  add("MTH-Z29",14,"MTH11-14-3",3,"For the same A={1,2,3}, B={3,4}, C={5,6}, are they mutually exclusive?","उन्हीं A={1,2,3}, B={3,4}, C={5,6} के लिए, क्या वे mutually exclusive हैं?",
+    ["No, A and B share 3","Yes, all pairwise disjoint","Only A and C are disjoint","Cannot tell"],["नहीं, A और B में 3 common है","हाँ, सभी pairwise disjoint हैं","सिर्फ़ A और C disjoint हैं","बता नहीं सकते"],"A","A∩B = {3} ≠ ∅.","A∩B = {3} ≠ ∅।");
+  add("MTH-Z30",14,"MTH11-14-3",4,"Simple events of a sample space are always:","Sample space के simple events हमेशा होते हैं:",
+    ["mutually exclusive","exhaustive but not mutually exclusive","impossible","compound"],["Mutually exclusive","Exhaustive पर mutually exclusive नहीं","Impossible","Compound"],"A","Each simple event has exactly one outcome, so no two share one.","हर simple event में ठीक एक outcome है, इसलिए कोई दो share नहीं करते।");
+  add("MTH-Z31",14,"MTH11-14-3",4,"A coin is tossed thrice. A='no head'={TTT}, B='exactly one head'={HTT,THT,TTH}, C='at least two heads'={HHT,HTH,THH,HHH}. Are A, B, C exhaustive?","एक coin तीन बार उछाला जाता है। A='कोई head नहीं'={TTT}, B='ठीक एक head'={HTT,THT,TTH}, C='कम से कम दो heads'={HHT,HTH,THH,HHH}। क्या A, B, C exhaustive हैं?",
+    ["Yes, their union is S","No, one outcome is left out","Only A and B are exhaustive","Cannot tell without more information"],["हाँ, उनका union S है","नहीं, एक outcome छूट गया है","सिर्फ़ A और B exhaustive हैं","बिना ज़्यादा जानकारी के बता नहीं सकते"],"A","1+3+4 = 8 outcomes, matching n(S).","1+3+4 = 8 outcomes, जो n(S) से मेल खाते हैं।");
+  add("MTH-Z32",14,"MTH11-14-3",5,"For the same A, B, C above, are they mutually exclusive?","उन्हीं A, B, C के लिए, क्या वे mutually exclusive हैं?",
+    ["Yes, pairwise disjoint","No, A and B overlap","No, B and C overlap","Cannot tell"],["हाँ, pairwise disjoint हैं","नहीं, A और B overlap करते हैं","नहीं, B और C overlap करते हैं","बता नहीं सकते"],"A","No outcome falls into two of the three head-counts at once.","कोई outcome एक साथ दो head-counts में नहीं आता।");
+
+  /* ---- Ch14 Topic 4: Axiomatic Probability: Rules for P (9) ---- */
+  add("MTH-Z33",14,"MTH11-14-4",1,"Axiom P(S) equals:","Axiom P(S) बराबर है:",
+    ["1","0","0.5","undefined"],["1","0","0.5","undefined"],"A","The sure event always has probability 1.","Sure event की probability हमेशा 1 होती है।");
+  add("MTH-Z34",14,"MTH11-14-4",1,"For any event E, P(E) must satisfy:","किसी भी event E के लिए, P(E) को satisfy करना होगा:",
+    ["0 ≤ P(E) ≤ 1","P(E) ≥ 1","P(E) ≤ 0","P(E) = 1 always"],["0 ≤ P(E) ≤ 1","P(E) ≥ 1","P(E) ≤ 0","P(E) हमेशा 1"],"A","Never negative, never bigger than 1.","कभी negative नहीं, कभी 1 से बड़ी नहीं।");
+  add("MTH-Z35",14,"MTH11-14-4",2,"P(∅) equals:","P(∅) बराबर है:",
+    ["0","1","0.5","undefined"],["0","1","0.5","undefined"],"A","The impossible event has zero probability.","Impossible event की probability शून्य होती है।");
+  add("MTH-Z36",14,"MTH11-14-4",2,"If E and F are mutually exclusive, P(E∪F) equals:","अगर E और F mutually exclusive हैं, तो P(E∪F) बराबर है:",
+    ["P(E)+P(F)","P(E)×P(F)","P(E)−P(F)","1"],["P(E)+P(F)","P(E)×P(F)","P(E)−P(F)","1"],"A","Axiom (iii) — they simply add.","Axiom (iii) — वे बस जुड़ जाते हैं।");
+  add("MTH-Z37",14,"MTH11-14-4",3,"A die's outcomes 1-6 are each assigned 1/6. Do these satisfy the axioms?","Die के outcomes 1-6 में हर एक को 1/6 दिया गया है। क्या ये axioms satisfy करते हैं?",
+    ["Yes","No, the sum exceeds 1","No, some values are negative","No, some values exceed 1"],["हाँ","नहीं, योग 1 से ज़्यादा है","नहीं, कुछ values negative हैं","नहीं, कुछ values 1 से ज़्यादा हैं"],"A","Each is in [0,1] and 6×(1/6) = 1.","हर एक [0,1] में है और 6×(1/6) = 1।");
+  add("MTH-Z38",14,"MTH11-14-4",3,"Outcomes 1-6 are assigned 0.1, 0.2, 0.3, 0.4, 0.5, 0.6. Do these satisfy the axioms?","Outcomes 1-6 को 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 दिए गए हैं। क्या ये axioms satisfy करते हैं?",
+    ["No, the sum is 2.1, not 1","Yes","No, some values are negative","No, some values exceed 1"],["नहीं, योग 2.1 है, 1 नहीं","हाँ","नहीं, कुछ values negative हैं","नहीं, कुछ values 1 से ज़्यादा हैं"],"A","0.1+0.2+0.3+0.4+0.5+0.6 = 2.1 ≠ 1.","0.1+0.2+0.3+0.4+0.5+0.6 = 2.1 ≠ 1।");
+  add("MTH-Z39",14,"MTH11-14-4",4,"A sample space has 2 outcomes assigned p and 1−p. For this to be valid, p must satisfy:","एक sample space के 2 outcomes को p और 1−p दिए गए हैं। Valid होने के लिए, p को satisfy करना होगा:",
+    ["0 ≤ p ≤ 1","p > 1","p < 0","p = 0.5 only"],["0 ≤ p ≤ 1","p > 1","p < 0","सिर्फ़ p = 0.5"],"A","Both p and 1−p must stay in [0,1], and they already sum to 1.","p और 1−p दोनों [0,1] में रहने चाहिए, और वे पहले से योग में 1 हैं।");
+  add("MTH-Z40",14,"MTH11-14-4",4,"Outcomes 1-4 are assigned 1/8, 1/8, 1/8, 5/8. Is this a valid assignment?","Outcomes 1-4 को 1/8, 1/8, 1/8, 5/8 दिए गए हैं। क्या यह valid assignment है?",
+    ["Yes","No, the sum is not 1","No, 5/8 is negative","No, unequal values are not allowed"],["हाँ","नहीं, योग 1 नहीं है","नहीं, 5/8 negative है","नहीं, असमान values allowed नहीं"],"A","Sum = 1/8+1/8+1/8+5/8 = 1, all values in [0,1].","योग = 1/8+1/8+1/8+5/8 = 1, सभी values [0,1] में।");
+  add("MTH-Z41",14,"MTH11-14-4",5,"Outcomes 1-3 are assigned 0.5, 0.3, −0.2. Is this a valid assignment?","Outcomes 1-3 को 0.5, 0.3, −0.2 दिए गए हैं। क्या यह valid assignment है?",
+    ["No, −0.2 is negative","Yes, the sum is 0.6","Yes, all are less than 1","Cannot tell"],["नहीं, −0.2 negative है","हाँ, योग 0.6 है","हाँ, सभी 1 से कम हैं","बता नहीं सकते"],"A","Every probability must be ≥ 0, so a negative value breaks the axioms immediately.","हर probability ≥ 0 होनी चाहिए, इसलिए negative value axioms तुरंत तोड़ देती है।");
+
+  /* ---- Ch14 Topic 5: Probability of Equally Likely Outcomes (9) ---- */
+  add("MTH-Z42",14,"MTH11-14-5",1,"For equally likely outcomes, P(E) equals:","बराबर संभावना वाले outcomes के लिए, P(E) बराबर है:",
+    ["n(E)/n(S)","n(S)/n(E)","n(E)×n(S)","n(E)−n(S)"],["n(E)/n(S)","n(S)/n(E)","n(E)×n(S)","n(E)−n(S)"],"A","Favourable outcomes over total outcomes.","Favourable outcomes बटा total outcomes।");
+  add("MTH-Z43",14,"MTH11-14-5",1,"n(E) stands for:","n(E) का मतलब है:",
+    ["the number of outcomes favourable to E","the number of outcomes NOT in E","the total number of outcomes in S","the probability of E"],["E के लिए favourable outcomes की संख्या","E में न होने वाले outcomes की संख्या","S में कुल outcomes की संख्या","E की probability"],"A","How many outcomes make the event happen.","कितने outcomes event को होने देते हैं।");
+  add("MTH-Z44",14,"MTH11-14-5",2,"A die is rolled. Find P(getting a 4).","एक die फेंका जाता है। P(4 आना) निकालिए।",
+    ["1/6","1/4","4/6","1"],["1/6","1/4","4/6","1"],"A","1 favourable outcome out of 6.","6 में से 1 favourable outcome।");
+  add("MTH-Z45",14,"MTH11-14-5",2,"A die is rolled. Find P(getting an even number).","एक die फेंका जाता है। P(even number आना) निकालिए।",
+    ["1/2","1/6","1/3","2/3"],["1/2","1/6","1/3","2/3"],"A","3 favourable outcomes {2,4,6} out of 6 = 1/2.","{2,4,6} में से 3 favourable outcomes, 6 में से = 1/2।");
+  add("MTH-Z46",14,"MTH11-14-5",3,"One card is drawn from 52. Find P(a heart).","52 में से एक card निकाला जाता है। P(heart) निकालिए।",
+    ["1/4","1/13","1/2","13/4"],["1/4","1/13","1/2","13/4"],"A","13 hearts out of 52 = 1/4.","52 में से 13 hearts = 1/4।");
+  add("MTH-Z47",14,"MTH11-14-5",3,"One card is drawn from 52. Find P(an ace).","52 में से एक card निकाला जाता है। P(ace) निकालिए।",
+    ["1/13","1/4","4/52 only, no simpler form","1/2"],["1/13","1/4","सिर्फ़ 4/52, सरल रूप नहीं","1/2"],"A","4 aces out of 52 = 1/13.","52 में से 4 aces = 1/13।");
+  add("MTH-Z48",14,"MTH11-14-5",4,"A bag has 5 red and 3 blue balls. One ball is drawn. Find P(red).","एक थैले में 5 red और 3 blue balls हैं। एक ball निकाला जाता है। P(red) निकालिए।",
+    ["5/8","3/8","5/3","1/8"],["5/8","3/8","5/3","1/8"],"A","5 favourable out of 8 total.","कुल 8 में से 5 favourable।");
+  add("MTH-Z49",14,"MTH11-14-5",4,"Two coins are tossed. Find P(exactly one head).","दो coins उछाले जाते हैं। P(ठीक एक head) निकालिए।",
+    ["1/2","1/4","3/4","1"],["1/2","1/4","3/4","1"],"A","{HT,TH} out of {HH,HT,TH,TT} = 2/4 = 1/2.","{HH,HT,TH,TT} में से {HT,TH} = 2/4 = 1/2।");
+  add("MTH-Z50",14,"MTH11-14-5",5,"Three coins are tossed. Find P(exactly two heads).","तीन coins उछाले जाते हैं। P(ठीक दो heads) निकालिए।",
+    ["3/8","1/8","1/2","4/8"],["3/8","1/8","1/2","4/8"],"A","{HHT,HTH,THH} out of 8 outcomes = 3/8.","8 outcomes में से {HHT,HTH,THH} = 3/8।");
+
+  /* ---- Ch14 Topic 6: Probability of the Event 'A or B' (9) ---- */
+  add("MTH-Z51",14,"MTH11-14-6",1,"P(A or B) equals:","P(A या B) बराबर है:",
+    ["P(A)+P(B)−P(A and B)","P(A)+P(B)","P(A)×P(B)","P(A)−P(B)"],["P(A)+P(B)−P(A और B)","P(A)+P(B)","P(A)×P(B)","P(A)−P(B)"],"A","Subtract the double-counted overlap.","दो बार गिने गए overlap को घटाइए।");
+  add("MTH-Z52",14,"MTH11-14-6",1,"If A and B are mutually exclusive, P(A or B) equals:","अगर A और B mutually exclusive हैं, तो P(A या B) बराबर है:",
+    ["P(A)+P(B)","P(A)+P(B)−P(A and B)","P(A)×P(B)","1"],["P(A)+P(B)","P(A)+P(B)−P(A और B)","P(A)×P(B)","1"],"A","P(A and B) = 0, so no subtraction needed.","P(A और B) = 0, इसलिए घटाना नहीं पड़ता।");
+  add("MTH-Z53",14,"MTH11-14-6",2,"P(A)=0.4, P(B)=0.5, P(A and B)=0.1. Find P(A or B).","P(A)=0.4, P(B)=0.5, P(A और B)=0.1। P(A या B) निकालिए।",
+    ["0.8","0.9","1.0","0.4"],["0.8","0.9","1.0","0.4"],"A","0.4+0.5−0.1 = 0.8.","0.4+0.5−0.1 = 0.8।");
+  add("MTH-Z54",14,"MTH11-14-6",2,"P(A)=0.3, P(B)=0.2, A and B mutually exclusive. Find P(A or B).","P(A)=0.3, P(B)=0.2, A और B mutually exclusive हैं। P(A या B) निकालिए।",
+    ["0.5","0.6","0.1","0.06"],["0.5","0.6","0.1","0.06"],"A","0.3+0.2 = 0.5, no overlap to subtract.","0.3+0.2 = 0.5, घटाने के लिए कोई overlap नहीं।");
+  add("MTH-Z55",14,"MTH11-14-6",3,"A coin is tossed thrice (8 equally likely outcomes). A={HHT,HTH,THH}, B={HTH,THH,HHH}. Find P(A and B).","एक coin तीन बार उछाला जाता है (8 बराबर संभावना वाले outcomes)। A={HHT,HTH,THH}, B={HTH,THH,HHH}। P(A और B) निकालिए।",
+    ["2/8","3/8","4/8","1/8"],["2/8","3/8","4/8","1/8"],"A","A∩B = {HTH,THH}, 2 outcomes out of 8.","A∩B = {HTH,THH}, 8 में से 2 outcomes।");
+  add("MTH-Z56",14,"MTH11-14-6",3,"For the same A and B, find P(A or B).","उन्हीं A और B के लिए, P(A या B) निकालिए।",
+    ["1/2","3/8","1/4","5/8"],["1/2","3/8","1/4","5/8"],"A","3/8+3/8−2/8 = 4/8 = 1/2.","3/8+3/8−2/8 = 4/8 = 1/2।");
+  add("MTH-Z57",14,"MTH11-14-6",4,"P(A)=0.6, P(A or B)=0.8, P(A and B)=0.2. Find P(B).","P(A)=0.6, P(A या B)=0.8, P(A और B)=0.2। P(B) निकालिए।",
+    ["0.4","0.6","1.0","0.2"],["0.4","0.6","1.0","0.2"],"A","P(B) = P(A∪B)−P(A)+P(A∩B) = 0.8−0.6+0.2 = 0.4.","P(B) = P(A∪B)−P(A)+P(A∩B) = 0.8−0.6+0.2 = 0.4।");
+  add("MTH-Z58",14,"MTH11-14-6",4,"A die is rolled. A='multiple of 2'={2,4,6}, B='multiple of 3'={3,6}. Find P(A or B).","एक die फेंका जाता है। A='2 का multiple'={2,4,6}, B='3 का multiple'={3,6}। P(A या B) निकालिए।",
+    ["2/3","1/2","5/6","1/3"],["2/3","1/2","5/6","1/3"],"A","P(A)=3/6,P(B)=2/6,P(A∩B)=1/6. Sum: 3/6+2/6−1/6=4/6=2/3.","P(A)=3/6,P(B)=2/6,P(A∩B)=1/6। योग: 3/6+2/6−1/6=4/6=2/3।");
+  add("MTH-Z59",14,"MTH11-14-6",5,"A die is rolled. A='number ≤3'={1,2,3}, B='number ≥5'={5,6}. Find P(A or B).","एक die फेंका जाता है। A='number ≤3'={1,2,3}, B='number ≥5'={5,6}। P(A या B) निकालिए।",
+    ["5/6","1/2","2/3","1"],["5/6","1/2","2/3","1"],"A","A and B are mutually exclusive: P(A)=3/6,P(B)=2/6, sum=5/6.","A और B mutually exclusive हैं: P(A)=3/6,P(B)=2/6, योग=5/6।");
+
+  /* ---- Ch14 Topic 7: Probability of the Event 'not A' (9) ---- */
+  add("MTH-Z60",14,"MTH11-14-7",1,"P(not A) equals:","P(not A) बराबर है:",
+    ["1 − P(A)","P(A) − 1","1 + P(A)","P(A)"],["1 − P(A)","P(A) − 1","1 + P(A)","P(A)"],"A","A and not A together make up all of S.","A और not A मिलकर पूरा S बनाते हैं।");
+  add("MTH-Z61",14,"MTH11-14-7",1,"A and not A are:","A और not A हैं:",
+    ["mutually exclusive and exhaustive","only mutually exclusive","only exhaustive","neither"],["Mutually exclusive और exhaustive","सिर्फ़ mutually exclusive","सिर्फ़ exhaustive","कोई नहीं"],"A","No overlap, and together they cover S.","कोई overlap नहीं, और साथ मिलकर S को cover करते हैं।");
+  add("MTH-Z62",14,"MTH11-14-7",2,"P(A)=0.3. Find P(not A).","P(A)=0.3। P(not A) निकालिए।",
+    ["0.7","0.3","1.3","−0.3"],["0.7","0.3","1.3","−0.3"],"A","1 − 0.3 = 0.7.","1 − 0.3 = 0.7।");
+  add("MTH-Z63",14,"MTH11-14-7",2,"P(A)=1/4. Find P(not A).","P(A)=1/4। P(not A) निकालिए।",
+    ["3/4","1/4","4/1","1"],["3/4","1/4","4/1","1"],"A","1 − 1/4 = 3/4.","1 − 1/4 = 3/4।");
+  add("MTH-Z64",14,"MTH11-14-7",3,"P(a spade) = 1/4 when a card is drawn from 52. Find P(not a spade).","52 में से card निकालने पर P(spade) = 1/4। P(spade नहीं) निकालिए।",
+    ["3/4","1/4","1/2","1/13"],["3/4","1/4","1/2","1/13"],"A","1 − 1/4 = 3/4.","1 − 1/4 = 3/4।");
+  add("MTH-Z65",14,"MTH11-14-7",3,"10 cards numbered 1-10. A = {2,4,6,8} (even). Find P(not A).","1-10 नंबर वाले 10 cards। A = {2,4,6,8} (even)। P(not A) निकालिए।",
+    ["3/5","2/5","1/2","4/5"],["3/5","2/5","1/2","4/5"],"A","P(A)=4/10=2/5, so P(not A)=1−2/5=3/5.","P(A)=4/10=2/5, इसलिए P(not A)=1−2/5=3/5।");
+  add("MTH-Z66",14,"MTH11-14-7",4,"A die is rolled. A='multiple of 3'={3,6}. Find P(not A).","एक die फेंका जाता है। A='3 का multiple'={3,6}। P(not A) निकालिए।",
+    ["2/3","1/3","1/2","5/6"],["2/3","1/3","1/2","5/6"],"A","P(A)=2/6=1/3, so P(not A)=1−1/3=2/3.","P(A)=2/6=1/3, इसलिए P(not A)=1−1/3=2/3।");
+  add("MTH-Z67",14,"MTH11-14-7",4,"P(not A)=0.65. Find P(A).","P(not A)=0.65। P(A) निकालिए।",
+    ["0.35","0.65","1.65","0"],["0.35","0.65","1.65","0"],"A","P(A) = 1 − P(not A) = 1 − 0.65 = 0.35.","P(A) = 1 − P(not A) = 1 − 0.65 = 0.35।");
+  add("MTH-Z68",14,"MTH11-14-7",5,"A bag has 5 red and 3 blue balls (8 total). One is drawn. A='red'. Find P(not A).","एक थैले में 5 red और 3 blue balls हैं (कुल 8)। एक निकाला जाता है। A='red'। P(not A) निकालिए।",
+    ["3/8","5/8","5/3","1"],["3/8","5/8","5/3","1"],"A","P(A)=5/8, so P(not A)=1−5/8=3/8, matching P(blue) directly.","P(A)=5/8, इसलिए P(not A)=1−5/8=3/8, जो सीधे P(blue) से मेल खाता है।");
 
   window.SL_DATA.questions = window.SL_DATA.questions.concat(Q);
 })();
