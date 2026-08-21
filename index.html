@@ -362,6 +362,7 @@
 <script src="data-english.js"></script>
 <script src="data-math.js"></script>
 <script src="data-math-novice.js"></script>
+<script src="data-math-ch1-simple.js"></script>
 <script src="data-physics.js"></script>
 <script src="data-physics12.js"></script>
 <script>
@@ -9035,11 +9036,12 @@ function vTopic(code){
   h += vWorked(tp);
   h += vSpeakCheck(tp);
   h += vTierLadder(code);
+  var gentleStart = s.code === "MATH11" && c.no === 1 && qForTier(code,1).length;
   h += '<div class="card rowflex" style="margin-top:14px"><div>'
-    + '<h3>'+(qn ? sp("Practice this concept now","अभी इस अवधारणा का अभ्यास करें") : sp("No questions yet for this topic","इस विषय हेतु अभी प्रश्न नहीं हैं"))+'</h3>'
-    + (qn ? '<div class="sub">'+Math.min(qn,8)+' '+sp("questions · instant explanations","प्रश्न · तुरंत व्याख्या")+'</div>' : '')
+    + '<h3>'+(qn ? (gentleStart ? sp("Try the easy first step","पहले आसान चरण आज़माइए") : sp("Practice this concept now","अभी इस अवधारणा का अभ्यास करें")) : sp("No questions yet for this topic","इस विषय हेतु अभी प्रश्न नहीं हैं"))+'</h3>'
+    + (qn ? '<div class="sub">'+(gentleStart ? sp("5 warm-up questions · instant explanations","5 आसान प्रश्न · तुरंत व्याख्या") : Math.min(qn,8)+' '+sp("questions · instant explanations","प्रश्न · तुरंत व्याख्या"))+'</div>' : '')
     + '</div><div>'
-    + (qn ? '<button class="btn" onclick="startQuiz(\'topic\',\''+code+'\')">'+sp("Start practice →","अभ्यास शुरू करें →")+'</button>' : '')
+    + (qn ? '<button class="btn" onclick="'+(gentleStart ? "startQuiz('tier','"+code+"',1)" : "startQuiz('topic','"+code+"')")+'">'+(gentleStart ? sp("Start easy practice →","आसान अभ्यास शुरू करें →") : sp("Start practice →","अभ्यास शुरू करें →"))+'</button>' : '')
     + '</div></div>';
   h += '<div class="rowflex" style="margin-top:14px">'
     + (prev ? '<button class="btn ghost sm" onclick="go(\'topic\',{code:\''+prev.code+'\'})">← '+t(prev.name)+'</button>' : '<span></span>')
