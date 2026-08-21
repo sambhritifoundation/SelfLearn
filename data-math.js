@@ -663,6 +663,87 @@ window.SL_DATA = window.SL_DATA || {subjects:[], questions:[]};
         b("280 ways.","280 तरीके।")))
   ];
 
+  var binomial=[
+
+    topic("MTH11-7-0",
+      b("0. Revise: Multiplying Out (a+b)² and (a+b)³ by Hand","0. दोहराइए: (a+b)² और (a+b)³ को हाथ से गुणा करना"),
+      b(
+        "You already know $(a+b)^2=a^2+2ab+b^2$ — multiply $(a+b)(a+b)$ term by term and collect the two matching $ab$ pieces.\n\nDo the same for $(a+b)^3=(a+b)(a+b)^2$: multiply out and collect again.\n\n$$(a+b)^3=a^3+3a^2b+3ab^2+b^3$$\n\nNotice the pattern in the coefficients: $1,2,1$ for power 2, then $1,3,3,1$ for power 3. This chapter finds a shortcut for **any** power, without multiplying it all out by hand.",
+        "आप पहले से जानते हैं $(a+b)^2=a^2+2ab+b^2$ — $(a+b)(a+b)$ को term-by-term गुणा कीजिए और दो मिलते-जुलते $ab$ हिस्सों को इकट्ठा कीजिए।\n\n$(a+b)^3=(a+b)(a+b)^2$ के लिए भी वही कीजिए: गुणा करके फिर इकट्ठा कीजिए।\n\n$$(a+b)^3=a^3+3a^2b+3ab^2+b^3$$\n\nCoefficients का pattern देखिए: power 2 के लिए $1,2,1$, फिर power 3 के लिए $1,3,3,1$। यह chapter **किसी भी** power के लिए एक shortcut ढूँढता है, बिना हाथ से पूरा गुणा किए।"),
+      worked(
+        b("Expand (a+b)² by multiplying (a+b)(a+b).","(a+b)(a+b) गुणा करके (a+b)² expand कीजिए।"),
+        [
+          ["Multiply term by term: a·a + a·b + b·a + b·b.","Term by term गुणा कीजिए: a·a + a·b + b·a + b·b।","Every term in the first bracket meets every term in the second.","पहले bracket का हर term, दूसरे के हर term से मिलता है।"],
+          ["a·b and b·a are the same, so combine them: a² + 2ab + b².","a·b और b·a एक जैसे हैं, इसलिए मिलाइए: a² + 2ab + b²।","Two identical middle terms add up.","दो एक जैसे बीच वाले terms जुड़ जाते हैं।"]
+        ],
+        b("a² + 2ab + b².","a² + 2ab + b²।"))),
+
+    topic("MTH11-7-1",
+      b("1. Pascal's Triangle","1. Pascal's Triangle"),
+      b(
+        "Arrange the coefficients you just found — $1,1$ then $1,2,1$ then $1,3,3,1$ — into rows, and a pattern jumps out.\n\n{{diagram:pascals-triangle}}\n\nEvery number is the sum of the two numbers above it. Row $n$ gives every coefficient needed for $(a+b)^n$, without multiplying anything out.\n\nRow 4 reads $1,4,6,4,1$ — so $(a+b)^4=a^4+4a^3b+6a^2b^2+4ab^3+b^4$, straight off the triangle.",
+        "अभी मिले coefficients — $1,1$ फिर $1,2,1$ फिर $1,3,3,1$ — को rows में रखिए, और एक pattern सामने आ जाता है।\n\n{{diagram:pascals-triangle}}\n\nहर number अपने ऊपर वाले दो numbers का योग है। Row $n$, $(a+b)^n$ के लिए ज़रूरी हर coefficient देती है, बिना कुछ गुणा किए।\n\nRow 4 है $1,4,6,4,1$ — तो $(a+b)^4=a^4+4a^3b+6a^2b^2+4ab^3+b^4$, सीधे triangle से।"),
+      worked(
+        b("Use Pascal's triangle to write the coefficients for (a+b)⁴.","Pascal's triangle से (a+b)⁴ के coefficients लिखिए।"),
+        [
+          ["Row 3 is 1, 3, 3, 1. Row 4 comes from adding neighbouring pairs, with a 1 at each end.","Row 3 है 1, 3, 3, 1। Row 4, पड़ोसी जोड़ियों को जोड़कर बनती है, हर सिरे पर 1 के साथ।","1+3=4, 3+3=6, 3+1=4 — each new number sums its two neighbours above.","1+3=4, 3+3=6, 3+1=4 — हर नया number अपने ऊपर वाले दो पड़ोसियों का योग है।"],
+          ["Row 4 is 1, 4, 6, 4, 1.","Row 4 है 1, 4, 6, 4, 1।","Five numbers for the five terms of (a+b)⁴.","(a+b)⁴ के पाँच terms के लिए पाँच numbers।"]
+        ],
+        b("1, 4, 6, 4, 1.","1, 4, 6, 4, 1।"))),
+
+    topic("MTH11-7-2",
+      b("2. The Binomial Theorem","2. Binomial Theorem"),
+      b(
+        "Pascal's triangle numbers are exactly the combination values $^nC_r$ you met in the last chapter. Writing the theorem with them:\n\n$$(a+b)^n={}^nC_0a^n+{}^nC_1a^{n-1}b+{}^nC_2a^{n-2}b^2+\\cdots+{}^nC_nb^n$$\n\nThis works for any whole number $n$, without ever multiplying brackets by hand — and it is exactly Pascal's triangle written using the $^nC_r$ formula instead of drawing rows.",
+        "Pascal's triangle के numbers ठीक वही combination values $^nC_r$ हैं जो पिछले chapter में मिले थे। Theorem को उनसे लिखें:\n\n$$(a+b)^n={}^nC_0a^n+{}^nC_1a^{n-1}b+{}^nC_2a^{n-2}b^2+\\cdots+{}^nC_nb^n$$\n\nयह किसी भी whole number $n$ के लिए काम करता है, brackets को हाथ से गुणा किए बिना — और यह ठीक Pascal's triangle है, rows बनाने की जगह $^nC_r$ formula से लिखा हुआ।"),
+      worked(
+        b("Expand (x+2)³ using the binomial theorem.","Binomial theorem से (x+2)³ expand कीजिए।"),
+        [
+          ["Use ³C₀, ³C₁, ³C₂, ³C₃ = 1, 3, 3, 1 as coefficients, with powers of x decreasing and powers of 2 increasing.","³C₀, ³C₁, ³C₂, ³C₃ = 1, 3, 3, 1 को coefficients की तरह लीजिए, x की powers घटती और 2 की powers बढ़ती हुई।","This is row 3 of Pascal's triangle.","यह Pascal's triangle की row 3 है।"],
+          ["x³ + 3x²(2) + 3x(2)² + (2)³ = x³ + 6x² + 12x + 8.","x³ + 3x²(2) + 3x(2)² + (2)³ = x³ + 6x² + 12x + 8।","Simplify each term's numbers carefully.","हर term के numbers ध्यान से simplify कीजिए।"]
+        ],
+        b("x³ + 6x² + 12x + 8.","x³ + 6x² + 12x + 8।"))),
+
+    topic("MTH11-7-3",
+      b("3. Patterns Inside the Expansion","3. Expansion के अंदर के Patterns"),
+      b(
+        "A few facts hold for every binomial expansion $(a+b)^n$, worth knowing at a glance:\n\n- There are always $n+1$ terms — one more than the power.\n- The power of $a$ starts at $n$ and drops by 1 each term, ending at $0$.\n- The power of $b$ starts at $0$ and rises by 1 each term, ending at $n$.\n- In every single term, the two powers always add up to $n$.\n\nCheck this against $(a+b)^3=a^3+3a^2b+3ab^2+b^3$: 4 terms (since $n+1=4$), and each term's powers ($3{+}0$, $2{+}1$, $1{+}2$, $0{+}3$) all add to 3.",
+        "हर binomial expansion $(a+b)^n$ के लिए कुछ बातें हमेशा सच होती हैं, एक नज़र में याद रखने लायक:\n\n- हमेशा $n+1$ terms होती हैं — power से एक ज़्यादा।\n- $a$ की power $n$ से शुरू होकर हर term में 1 घटती है, $0$ पर ख़त्म।\n- $b$ की power $0$ से शुरू होकर हर term में 1 बढ़ती है, $n$ पर ख़त्म।\n- हर एक term में, दोनों powers का योग हमेशा $n$ होता है।\n\nइसे $(a+b)^3=a^3+3a^2b+3ab^2+b^3$ पर जाँचिए: 4 terms (क्योंकि $n+1=4$), और हर term की powers ($3{+}0$, $2{+}1$, $1{+}2$, $0{+}3$) सब 3 पर जोड़ती हैं।"),
+      worked(
+        b("How many terms are in the expansion of (a+b)⁷, and what do the powers of a and b add up to in each term?","(a+b)⁷ के expansion में कितने terms हैं, और हर term में a और b की powers का योग क्या है?"),
+        [
+          ["Number of terms = n+1 = 7+1 = 8.","Terms की संख्या = n+1 = 7+1 = 8।","This rule holds for every binomial expansion.","यह rule हर binomial expansion के लिए सच है।"],
+          ["The powers in every term add up to n = 7.","हर term में powers का योग n = 7 है।","This is true no matter which term you pick.","चाहे कोई भी term चुनें, यह सच है।"]
+        ],
+        b("8 terms; powers always add up to 7.","8 terms; powers हमेशा 7 पर जुड़ती हैं।"))),
+
+    topic("MTH11-7-4",
+      b("4. Special Cases","4. Special Cases"),
+      b(
+        "Three substitutions into the theorem are worth memorising, since they come up constantly.\n\n**Subtraction** ($b\\to-b$): the signs simply alternate.\n\n$$(x-y)^n={}^nC_0x^n-{}^nC_1x^{n-1}y+{}^nC_2x^{n-2}y^2-\\cdots$$\n\n**Setting $a=1$:**\n\n$$(1+x)^n={}^nC_0+{}^nC_1x+{}^nC_2x^2+\\cdots+{}^nC_nx^n$$\n\nPutting $x=1$ into this gives a bonus fact: $2^n={}^nC_0+{}^nC_1+\\cdots+{}^nC_n$ — every row of Pascal's triangle adds up to a power of 2.",
+        "Theorem में तीन substitutions याद रखने लायक हैं, क्योंकि वे बार-बार आते हैं।\n\n**घटाव** ($b\\to-b$): signs बस बारी-बारी बदलते हैं।\n\n$$(x-y)^n={}^nC_0x^n-{}^nC_1x^{n-1}y+{}^nC_2x^{n-2}y^2-\\cdots$$\n\n**$a=1$ रखने पर:**\n\n$$(1+x)^n={}^nC_0+{}^nC_1x+{}^nC_2x^2+\\cdots+{}^nC_nx^n$$\n\nइसमें $x=1$ रखने पर एक bonus fact मिलता है: $2^n={}^nC_0+{}^nC_1+\\cdots+{}^nC_n$ — Pascal's triangle की हर row जोड़ने पर 2 की एक power मिलती है।"),
+      worked(
+        b("Expand (x−2y)³ using the subtraction pattern.","घटाव वाले pattern से (x−2y)³ expand कीजिए।"),
+        [
+          ["Use row 3 (1,3,3,1) with alternating signs: x³ − 3x²(2y) + 3x(2y)² − (2y)³.","Row 3 (1,3,3,1) को बारी-बारी signs के साथ लीजिए: x³ − 3x²(2y) + 3x(2y)² − (2y)³।","Every other term flips sign because b is negative here.","हर दूसरा term sign बदलता है क्योंकि यहाँ b negative है।"],
+          ["Simplify: x³ − 6x²y + 12xy² − 8y³.","Simplify कीजिए: x³ − 6x²y + 12xy² − 8y³।","Work out the numbers in each term carefully.","हर term के numbers ध्यान से निकालिए।"]
+        ],
+        b("x³ − 6x²y + 12xy² − 8y³.","x³ − 6x²y + 12xy² − 8y³।"))),
+
+    topic("MTH11-7-5",
+      b("5. Using the Binomial Theorem","5. Binomial Theorem का इस्तेमाल"),
+      b(
+        "Some hard-looking calculations become easy once you spot a binomial in disguise.\n\n**Example:** compute $(99)^3$ without a calculator. Notice $99=100-1$.\n\n$$(99)^3=(100-1)^3=100^3-3(100)^2(1)+3(100)(1)^2-1^3$$\n$$=1000000-30000+300-1=970299$$\n\nThe same trick estimates enormous powers: for $(1.01)^{1000000}=(1+0.01)^{1000000}$, just the first two terms already beat $10{,}000$ — you don't need the rest of the expansion to answer ‘is it bigger than 10,000?’.",
+        "कुछ कठिन दिखने वाली calculations आसान हो जाती हैं, अगर आप उसमें छुपा binomial पहचान लें।\n\n**उदाहरण:** बिना calculator के $(99)^3$ निकालिए। ध्यान दीजिए $99=100-1$।\n\n$$(99)^3=(100-1)^3=100^3-3(100)^2(1)+3(100)(1)^2-1^3$$\n$$=1000000-30000+300-1=970299$$\n\nयही trick बहुत बड़ी powers अंदाज़ा लगाने में भी काम आता है: $(1.01)^{1000000}=(1+0.01)^{1000000}$ के लिए, सिर्फ़ पहले दो terms ही $10{,}000$ से बड़े हो जाते हैं — ‘क्या यह 10,000 से बड़ा है?’ का जवाब देने के लिए बाक़ी expansion की ज़रूरत नहीं।"),
+      worked(
+        b("Compute (102)³ using the binomial theorem (write 102 = 100 + 2).","Binomial theorem से (102)³ निकालिए (102 = 100 + 2 लिखिए)।"),
+        [
+          ["(100+2)³ = 100³ + 3(100)²(2) + 3(100)(2)² + 2³.","(100+2)³ = 100³ + 3(100)²(2) + 3(100)(2)² + 2³।","This is the standard (a+b)³ pattern with a=100, b=2.","यह standard (a+b)³ pattern है, a=100, b=2 के साथ।"],
+          ["= 1000000 + 60000 + 1200 + 8 = 1061208.","= 1000000 + 60000 + 1200 + 8 = 1061208।","Add all four terms together.","चारों terms को जोड़िए।"]
+        ],
+        b("(102)³ = 1,061,208.","(102)³ = 1,061,208।")))
+  ];
+
   window.SL_DATA.subjects = (window.SL_DATA.subjects||[]).filter(function(s){ return s.code!=="MATH11"; });
 
   window.SL_DATA.subjects.push({code:"MATH11",board:"CBSE",klass:11,icon:"📐",
@@ -736,7 +817,18 @@ window.SL_DATA = window.SL_DATA || {subjects:[], questions:[]};
         assessment:["MTH-P01","MTH-P03","MTH-P05","MTH-P06","MTH-P09","MTH-P12","MTH-P14","MTH-P17",
           "MTH-P20","MTH-P22","MTH-P25","MTH-P28","MTH-P31","MTH-P34","MTH-P37","MTH-P40",
           "MTH-P43","MTH-P46","MTH-P49","MTH-P52","MTH-P55","MTH-P58","MTH-P62","MTH-P65"],
-        topics:pnc}
+        topics:pnc},
+      {no:7,name:b("Binomial Theorem","Binomial Theorem"),
+        summary:b(
+          "**Binomial Theorem: what this chapter covers**\n\n(a+b)² and (a+b)³ hide a coefficient pattern — Pascal's triangle, where every number is the sum of the two above it. The binomial theorem writes (a+b)ⁿ for any n using exactly those numbers, which are the nCr values from the last chapter. Every expansion has n+1 terms, with the powers of a and b always adding to n. Special substitutions handle (x−y)ⁿ (alternating signs), (1+x)ⁿ, and (1−x)ⁿ. The theorem also turns hard arithmetic, like (99)³, into an easy sum by splitting numbers like 99=100−1.",
+          "**Binomial Theorem: इस chapter में क्या सीखेंगे**\n\n(a+b)² और (a+b)³ में एक coefficient pattern छुपा है — Pascal's triangle, जहाँ हर number अपने ऊपर वाले दो का योग है। Binomial theorem, किसी भी n के लिए (a+b)ⁿ को ठीक उन्हीं numbers से लिखता है, जो पिछले chapter के nCr values हैं। हर expansion में n+1 terms होती हैं, और a, b की powers हमेशा n पर जुड़ती हैं। Special substitutions से (x−y)ⁿ (बारी-बारी signs), (1+x)ⁿ, और (1−x)ⁿ हल होते हैं। यह theorem कठिन arithmetic को भी आसान बना देता है, जैसे (99)³ को 99=100−1 में तोड़कर।"),
+        checkpoint:b(
+          "Getting most Warm-up and Standard questions right, across every topic in this chapter, means you are ready to move on. Scoring low? Go back to '0. Revise: Multiplying Out (a+b)² and (a+b)³ by Hand' and redo its example by hand — that is the fastest way forward, not a setback.",
+          "इस chapter के हर topic में ज़्यादातर Warm-up और Standard questions सही होना, मतलब आप आगे बढ़ने के लिए ready हैं। Score कम है? '0. Revise: (a+b)² और (a+b)³ को हाथ से गुणा करना' पर वापस जाइए और उसका example हाथ से दोबारा कीजिए — यही सबसे तेज़ रास्ता है, हार नहीं।"),
+        assessment:["MTH-B01","MTH-B03","MTH-B05","MTH-B07","MTH-B09","MTH-B11","MTH-B13","MTH-B15",
+          "MTH-B17","MTH-B19","MTH-B21","MTH-B23","MTH-B25","MTH-B27","MTH-B29","MTH-B31",
+          "MTH-B33","MTH-B35","MTH-B37","MTH-B39","MTH-B41","MTH-B43","MTH-B45","MTH-B47"],
+        topics:binomial}
     ]});
 
   window.SL_DATA.questions = (window.SL_DATA.questions||[]).filter(function(q){ return q.subject!=="MATH11"; });
@@ -1673,6 +1765,114 @@ window.SL_DATA = window.SL_DATA || {subjects:[], questions:[]};
     ["⁸C₅","⁸P₅","8⁵","5!"],["⁸C₅","⁸P₅","8⁵","5!"],"B","The order of asking matters, so it's a permutation.","पूछने का order मायने रखता है, इसलिए यह permutation है।");
   add("MTH-P69",6,"MTH11-6-7",5,"A shop selects 5 items out of 8 to put on a sale display, with no particular order. Which formula applies?","एक दुकान 8 में से 5 items बिना किसी ख़ास order के sale display पर रखती है। कौन-सा formula लगता है?",
     ["⁸C₅","⁸P₅","8⁵","5!"],["⁸C₅","⁸P₅","8⁵","5!"],"A","No order needed, so it's a combination.","कोई order नहीं चाहिए, इसलिए यह combination है।");
+
+  /* ---- Ch7 Topic 0: Revise (8) ---- */
+  add("MTH-B01",7,"MTH11-7-0",1,"(a+b)² equals:","(a+b)² बराबर है:",
+    ["a²+b²","a²+2ab+b²","a²−2ab+b²","a²+ab+b²"],["a²+b²","a²+2ab+b²","a²−2ab+b²","a²+ab+b²"],"B","Multiply out and combine the two ab terms.","गुणा करके दोनों ab terms मिलाइए।");
+  add("MTH-B02",7,"MTH11-7-0",1,"The coefficient of ab in (a+b)² is:","(a+b)² में ab का coefficient है:",
+    ["1","2","0","−1"],["1","2","0","−1"],"B","ab appears twice: a·b and b·a.","ab दो बार आता है: a·b और b·a।");
+  add("MTH-B03",7,"MTH11-7-0",1,"(a+b)³ has how many terms?","(a+b)³ में कितने terms हैं?",
+    ["2","3","4","5"],["2","3","4","5"],"C","a³, a²b, ab², b³ — four terms.","a³, a²b, ab², b³ — चार terms।");
+  add("MTH-B04",7,"MTH11-7-0",2,"(a+b)³ equals:","(a+b)³ बराबर है:",
+    ["a³+b³","a³+3a²b+3ab²+b³","a³−3a²b+3ab²−b³","a³+3ab+b³"],["a³+b³","a³+3a²b+3ab²+b³","a³−3a²b+3ab²−b³","a³+3ab+b³"],"B","Multiply (a+b)(a+b)² out fully.","(a+b)(a+b)² को पूरा गुणा कीजिए।");
+  add("MTH-B05",7,"MTH11-7-0",2,"The coefficients of (a+b)³ are:","(a+b)³ के coefficients हैं:",
+    ["1,2,1","1,3,3,1","1,1,1,1","1,3,1"],["1,2,1","1,3,3,1","1,1,1,1","1,3,1"],"B","Matches the four terms of the expansion.","Expansion के चारों terms से मेल खाते हैं।");
+  add("MTH-B06",7,"MTH11-7-0",2,"In (a+b)(a+b), how many product terms appear before combining?","(a+b)(a+b) में मिलाने से पहले कितने product terms आते हैं?",
+    ["2","3","4","1"],["2","3","4","1"],"C","a·a, a·b, b·a, b·b — four products.","a·a, a·b, b·a, b·b — चार products।");
+  add("MTH-B07",7,"MTH11-7-0",3,"Why does ab appear with coefficient 2 in (a+b)²?","(a+b)² में ab का coefficient 2 क्यों है?",
+    ["Because a·b and b·a are both counted and combined","Because a and b are equal","It is just a convention","There is no reason"],["क्योंकि a·b और b·a दोनों गिने और मिलाए जाते हैं","क्योंकि a और b बराबर हैं","यह बस एक convention है","कोई reason नहीं"],"A","Two identical cross terms add together.","दो एक जैसे cross terms जुड़ जाते हैं।");
+  add("MTH-B08",7,"MTH11-7-0",3,"Expand (a−b)² using the same idea as (a+b)².","(a+b)² जैसे idea से (a−b)² expand कीजिए।",
+    ["a²−2ab+b²","a²+2ab+b²","a²−b²","a²−ab+b²"],["a²−2ab+b²","a²+2ab+b²","a²−b²","a²−ab+b²"],"A","Multiply (a−b)(a−b) out fully.","(a−b)(a−b) को पूरा गुणा कीजिए।");
+
+  /* ---- Ch7 Topic 1: Pascal's Triangle (8) ---- */
+  add("MTH-B09",7,"MTH11-7-1",1,"In Pascal's triangle, row 0 is:","Pascal's triangle में, row 0 है:",
+    ["1,1","1","0","1,0"],["1,1","1","0","1,0"],"B","Row 0 has just one number, 1.","Row 0 में बस एक number है, 1।");
+  add("MTH-B10",7,"MTH11-7-1",1,"In Pascal's triangle, row 2 is:","Pascal's triangle में, row 2 है:",
+    ["1,2,1","1,1,1","1,3,1","2,2"],["1,2,1","1,1,1","1,3,1","2,2"],"A","Matches (a+b)²'s coefficients.","(a+b)² के coefficients से मेल खाता है।");
+  add("MTH-B11",7,"MTH11-7-1",1,"Every number in Pascal's triangle (other than the edges) is:","Pascal's triangle में हर number (edges के अलावा) है:",
+    ["the product of the two numbers above it","the sum of the two numbers above it","always 1","the row number"],["अपने ऊपर वाले दो का गुणनफल","अपने ऊपर वाले दो का योग","हमेशा 1","row number"],"B","This building rule generates the whole triangle.","यही rule पूरा triangle बनाता है।");
+  add("MTH-B12",7,"MTH11-7-1",2,"The numbers at the edges of every row in Pascal's triangle are:","Pascal's triangle की हर row के edges पर numbers हैं:",
+    ["always 0","always 1","always n","always changing"],["हमेशा 0","हमेशा 1","हमेशा n","हमेशा बदलते"],"B","Each edge has nothing above but one number, so it stays 1.","हर edge के ऊपर सिर्फ़ एक number होता है, इसलिए वह 1 रहता है।");
+  add("MTH-B13",7,"MTH11-7-1",2,"Row 3 of Pascal's triangle is 1,3,3,1. What is row 4?","Pascal's triangle की row 3 है 1,3,3,1। Row 4 क्या है?",
+    ["1,4,6,4,1","1,3,4,3,1","1,4,4,1","1,4,5,4,1"],["1,4,6,4,1","1,3,4,3,1","1,4,4,1","1,4,5,4,1"],"A","3+3=6 in the middle, 1 at each edge.","बीच में 3+3=6, हर edge पर 1।");
+  add("MTH-B14",7,"MTH11-7-1",2,"How many numbers are in row 5 of Pascal's triangle?","Pascal's triangle की row 5 में कितने numbers हैं?",
+    ["5","6","7","4"],["5","6","7","4"],"B","Row n has n+1 numbers.","Row n में n+1 numbers होते हैं।");
+  add("MTH-B15",7,"MTH11-7-1",3,"In row 4 (1,4,6,4,1), how was the middle number 6 found?","Row 4 (1,4,6,4,1) में बीच का number 6 कैसे मिला?",
+    ["3+3 from row 3","4+4","1+1","6 is given directly"],["Row 3 से 3+3","4+4","1+1","6 सीधे दिया गया"],"A","The two 3's sitting above it in row 3 add together.","Row 3 में इसके ऊपर बैठे दोनों 3 जुड़ते हैं।");
+  add("MTH-B16",7,"MTH11-7-1",3,"What is row 6 of Pascal's triangle's second number (index 1)?","Pascal's triangle की row 6 का दूसरा number (index 1) क्या है?",
+    ["6","5","1","15"],["6","5","1","15"],"A","Row 6 is 1,6,15,20,15,6,1.","Row 6 है 1,6,15,20,15,6,1।");
+
+  /* ---- Ch7 Topic 2: The Binomial Theorem (8) ---- */
+  add("MTH-B17",7,"MTH11-7-2",1,"The binomial theorem writes (a+b)ⁿ using which coefficients?","Binomial theorem, (a+b)ⁿ को किन coefficients से लिखता है?",
+    ["ⁿPᵣ","ⁿCᵣ","n!","n"],["ⁿPᵣ","ⁿCᵣ","n!","n"],"B","Exactly the combination values from the last chapter.","ठीक पिछले chapter के combination values।");
+  add("MTH-B18",7,"MTH11-7-2",1,"In the binomial theorem, the first term of (a+b)ⁿ is:","Binomial theorem में, (a+b)ⁿ का पहला term है:",
+    ["ⁿC₀ aⁿ","ⁿCₙ bⁿ","ⁿC₁ a","aⁿ+bⁿ"],["ⁿC₀ aⁿ","ⁿCₙ bⁿ","ⁿC₁ a","aⁿ+bⁿ"],"A","Full power of a, no b yet.","a की पूरी power, b अभी नहीं।");
+  add("MTH-B19",7,"MTH11-7-2",1,"In the binomial theorem, the last term of (a+b)ⁿ is:","Binomial theorem में, (a+b)ⁿ का आख़िरी term है:",
+    ["ⁿC₀ aⁿ","ⁿCₙ bⁿ","ⁿC₁ b","a⁰b⁰"],["ⁿC₀ aⁿ","ⁿCₙ bⁿ","ⁿC₁ b","a⁰b⁰"],"B","Full power of b, no a left.","b की पूरी power, a नहीं बचा।");
+  add("MTH-B20",7,"MTH11-7-2",2,"Using ⁿC₀,ⁿC₁,ⁿC₂ = 1,2,1, expand (a+b)² via the theorem.","ⁿC₀,ⁿC₁,ⁿC₂ = 1,2,1 इस्तेमाल करके theorem से (a+b)² expand कीजिए।",
+    ["a²+2ab+b²","a²+ab+b²","2a²+2b²","a²−2ab+b²"],["a²+2ab+b²","a²+ab+b²","2a²+2b²","a²−2ab+b²"],"A","Matches the familiar expansion.","जाने-पहचाने expansion से मेल खाता है।");
+  add("MTH-B21",7,"MTH11-7-2",2,"Expand (x+1)³ using the binomial theorem.","Binomial theorem से (x+1)³ expand कीजिए।",
+    ["x³+3x²+3x+1","x³+3x+1","x³+x²+x+1","x³+1"],["x³+3x²+3x+1","x³+3x+1","x³+x²+x+1","x³+1"],"A","Row 3 coefficients (1,3,3,1) with b=1.","Row 3 के coefficients (1,3,3,1), b=1 के साथ।");
+  add("MTH-B22",7,"MTH11-7-2",2,"Expand (x+3)² using the binomial theorem.","Binomial theorem से (x+3)² expand कीजिए।",
+    ["x²+6x+9","x²+3x+9","x²+9x+6","x²+9"],["x²+6x+9","x²+3x+9","x²+9x+6","x²+9"],"A","x²+2(3)x+9 = x²+6x+9.","x²+2(3)x+9 = x²+6x+9।");
+  add("MTH-B23",7,"MTH11-7-2",3,"Expand (2x+1)³ using the binomial theorem.","Binomial theorem से (2x+1)³ expand कीजिए।",
+    ["8x³+12x²+6x+1","8x³+6x²+12x+1","2x³+12x²+6x+1","8x³+12x²+1"],["8x³+12x²+6x+1","8x³+6x²+12x+1","2x³+12x²+6x+1","8x³+12x²+1"],"A","(2x)³+3(2x)²(1)+3(2x)(1)²+1³.","(2x)³+3(2x)²(1)+3(2x)(1)²+1³।");
+  add("MTH-B24",7,"MTH11-7-2",3,"Expand (x+2)⁴ using row 4 of Pascal's triangle (1,4,6,4,1).","Pascal's triangle की row 4 (1,4,6,4,1) से (x+2)⁴ expand कीजिए।",
+    ["x⁴+8x³+24x²+32x+16","x⁴+4x³+6x²+4x+2","x⁴+8x³+16x²+32x+16","x⁴+4x³+24x²+8x+16"],["x⁴+8x³+24x²+32x+16","x⁴+4x³+6x²+4x+2","x⁴+8x³+16x²+32x+16","x⁴+4x³+24x²+8x+16"],"A","x⁴+4x³(2)+6x²(4)+4x(8)+16.","x⁴+4x³(2)+6x²(4)+4x(8)+16।");
+
+  /* ---- Ch7 Topic 3: Patterns Inside the Expansion (8) ---- */
+  add("MTH-B25",7,"MTH11-7-3",1,"The expansion of (a+b)⁵ has how many terms?","(a+b)⁵ के expansion में कितने terms हैं?",
+    ["5","6","4","10"],["5","6","4","10"],"B","n+1 = 5+1 = 6.","n+1 = 5+1 = 6।");
+  add("MTH-B26",7,"MTH11-7-3",1,"In (a+b)ⁿ, the power of a in the first term is:","(a+b)ⁿ में, पहले term में a की power है:",
+    ["0","1","n","n−1"],["0","1","n","n−1"],"C","The first term has the full power of a.","पहले term में a की पूरी power है।");
+  add("MTH-B27",7,"MTH11-7-3",1,"In (a+b)ⁿ, the power of b in the first term is:","(a+b)ⁿ में, पहले term में b की power है:",
+    ["0","1","n","n−1"],["0","1","n","n−1"],"A","b has not entered yet in the first term.","पहले term में b अभी शामिल नहीं हुआ।");
+  add("MTH-B28",7,"MTH11-7-3",2,"In every term of (a+b)ⁿ, the powers of a and b add up to:","(a+b)ⁿ के हर term में, a और b की powers का योग है:",
+    ["n","n+1","2n","n−1"],["n","n+1","2n","n−1"],"A","As one power drops, the other rises by the same amount.","एक power घटती है, दूसरी उतनी ही बढ़ती है।");
+  add("MTH-B29",7,"MTH11-7-3",2,"How many terms are in the expansion of (a+b)¹⁰?","(a+b)¹⁰ के expansion में कितने terms हैं?",
+    ["10","11","9","20"],["10","11","9","20"],"B","10+1 = 11.","10+1 = 11।");
+  add("MTH-B30",7,"MTH11-7-3",2,"In the expansion of (a+b)⁶, what are the powers of a and b in the term ⁶C₂a⁴b²?","(a+b)⁶ के expansion में, term ⁶C₂a⁴b² में a और b की powers क्या हैं?",
+    ["a⁴b²","a²b⁴","a⁵b¹","a³b³"],["a⁴b²","a²b⁴","a⁵b¹","a³b³"],"A","Read the powers directly off the term.","Powers term से सीधे पढ़िए।");
+  add("MTH-B31",7,"MTH11-7-3",3,"For (a+b)⁸, the term with a³ must have b to the power:","(a+b)⁸ में, a³ वाले term में b की power होनी चाहिए:",
+    ["3","5","8","11"],["3","5","8","11"],"B","3+5 = 8, matching the total power.","3+5 = 8, कुल power से मेल खाता है।");
+  add("MTH-B32",7,"MTH11-7-3",3,"Which of these could NOT be a term's powers in the expansion of (a+b)⁶?","(a+b)⁶ के expansion में इनमें से कौन-सी powers किसी term की नहीं हो सकतीं?",
+    ["a⁴b²","a²b⁴","a³b³","a²b³"],["a⁴b²","a²b⁴","a³b³","a²b³"],"D","2+3=5, not 6.","2+3=5, 6 नहीं।");
+
+  /* ---- Ch7 Topic 4: Special Cases (8) ---- */
+  add("MTH-B33",7,"MTH11-7-4",1,"In (x−y)ⁿ, the signs of successive terms:","(x−y)ⁿ में, लगातार terms के signs:",
+    ["are all positive","alternate between positive and negative","are all negative","depend on n only"],["सब positive हैं","positive और negative बारी-बारी हैं","सब negative हैं","सिर्फ़ n पर निर्भर हैं"],"B","Each −y flips the sign of the next term.","हर −y अगले term का sign पलट देता है।");
+  add("MTH-B34",7,"MTH11-7-4",1,"(1+x)ⁿ expands to:","(1+x)ⁿ expand होता है:",
+    ["ⁿC₀+ⁿC₁x+ⁿC₂x²+...","ⁿC₀x+ⁿC₁x²+...","ⁿC₀−ⁿC₁x+...","just 1+xⁿ"],["ⁿC₀+ⁿC₁x+ⁿC₂x²+...","ⁿC₀x+ⁿC₁x²+...","ⁿC₀−ⁿC₁x+...","बस 1+xⁿ"],"A","Setting a=1 in the theorem.","Theorem में a=1 रखने पर।");
+  add("MTH-B35",7,"MTH11-7-4",2,"Setting x=1 in (1+x)ⁿ gives:","(1+x)ⁿ में x=1 रखने पर मिलता है:",
+    ["2ⁿ = ⁿC₀+ⁿC₁+...+ⁿCₙ","n²","2n","nⁿ"],["2ⁿ = ⁿC₀+ⁿC₁+...+ⁿCₙ","n²","2n","nⁿ"],"A","Every Pascal's-triangle row sums to a power of 2.","हर Pascal's-triangle row 2 की power पर जुड़ती है।");
+  add("MTH-B36",7,"MTH11-7-4",2,"Expand (x−1)³ using the subtraction pattern.","घटाव वाले pattern से (x−1)³ expand कीजिए।",
+    ["x³−3x²+3x−1","x³+3x²+3x+1","x³−3x²−3x−1","x³−1"],["x³−3x²+3x−1","x³+3x²+3x+1","x³−3x²−3x−1","x³−1"],"A","Signs alternate starting positive.","Signs positive से शुरू होकर बारी-बारी बदलते हैं।");
+  add("MTH-B37",7,"MTH11-7-4",2,"Expand (x−2)² using the subtraction pattern.","घटाव वाले pattern से (x−2)² expand कीजिए।",
+    ["x²−4x+4","x²+4x+4","x²−4x−4","x²−2x+4"],["x²−4x+4","x²+4x+4","x²−4x−4","x²−2x+4"],"A","x²−2(2)x+4.","x²−2(2)x+4।");
+  add("MTH-B38",7,"MTH11-7-4",3,"What is the sum ⁿC₀+ⁿC₁+ⁿC₂+...+ⁿCₙ for n=4?","n=4 के लिए ⁿC₀+ⁿC₁+ⁿC₂+...+ⁿCₙ का योग क्या है?",
+    ["8","16","4","24"],["8","16","4","24"],"B","2⁴ = 16.","2⁴ = 16।");
+  add("MTH-B39",7,"MTH11-7-4",3,"Expand (2x−1)³ using the subtraction pattern.","घटाव वाले pattern से (2x−1)³ expand कीजिए।",
+    ["8x³−12x²+6x−1","8x³+12x²+6x+1","8x³−6x²+12x−1","2x³−12x²+6x−1"],["8x³−12x²+6x−1","8x³+12x²+6x+1","8x³−6x²+12x−1","2x³−12x²+6x−1"],"A","(2x)³−3(2x)²(1)+3(2x)(1)²−1³.","(2x)³−3(2x)²(1)+3(2x)(1)²−1³।");
+  add("MTH-B40",7,"MTH11-7-4",4,"For (1−x)ⁿ, setting x=1 (n≥1) gives:","(1−x)ⁿ में x=1 रखने पर (n≥1), मिलता है:",
+    ["0 = ⁿC₀−ⁿC₁+ⁿC₂−...","2ⁿ","1","n"],["0 = ⁿC₀−ⁿC₁+ⁿC₂−...","2ⁿ","1","n"],"A","(1−1)ⁿ=0, giving this alternating-sum identity.","(1−1)ⁿ=0, यही alternating-sum identity देता है।");
+
+  /* ---- Ch7 Topic 5: Using the Binomial Theorem (8) ---- */
+  add("MTH-B41",7,"MTH11-7-5",2,"To compute (99)³ easily, write 99 as:","(99)³ आसानी से निकालने के लिए, 99 को लिखिए:",
+    ["100−1","90+9","9×11","100+1"],["100−1","90+9","9×11","100+1"],"A","A round number minus a small one.","एक गोल number में से एक छोटा घटा हुआ।");
+  add("MTH-B42",7,"MTH11-7-5",2,"(100−1)³ expands to:","(100−1)³ expand होता है:",
+    ["100³−3(100)²+3(100)−1","100³+3(100)²+3(100)+1","100³−1","100³−3(100)+1"],["100³−3(100)²+3(100)−1","100³+3(100)²+3(100)+1","100³−1","100³−3(100)+1"],"A","The subtraction pattern with a=100, b=1.","घटाव वाला pattern, a=100, b=1 के साथ।");
+  add("MTH-B43",7,"MTH11-7-5",2,"Compute (99)³ using (100−1)³.","(100−1)³ से (99)³ निकालिए।",
+    ["970299","990299","999999","900299"],["970299","990299","999999","900299"],"A","1000000−30000+300−1 = 970299.","1000000−30000+300−1 = 970299।");
+  add("MTH-B44",7,"MTH11-7-5",3,"To compute (101)² easily, write 101 as:","(101)² आसानी से निकालने के लिए, 101 को लिखिए:",
+    ["100+1","100−1","10×10.1","99+2"],["100+1","100−1","10×10.1","99+2"],"A","A round number plus a small one.","एक गोल number में एक छोटा जोड़ा हुआ।");
+  add("MTH-B45",7,"MTH11-7-5",3,"Compute (101)² using (100+1)².","(100+1)² से (101)² निकालिए।",
+    ["10201","10101","11001","10001"],["10201","10101","11001","10001"],"A","10000+200+1 = 10201.","10000+200+1 = 10201।");
+  add("MTH-B46",7,"MTH11-7-5",3,"Compute (102)³ using (100+2)³.","(100+2)³ से (102)³ निकालिए।",
+    ["1061208","1060208","1006208","1160208"],["1061208","1060208","1006208","1160208"],"A","1000000+60000+1200+8 = 1061208.","1000000+60000+1200+8 = 1061208।");
+  add("MTH-B47",7,"MTH11-7-5",4,"For (1.02)¹⁰⁰, using only the first two terms of (1+0.02)¹⁰⁰ gives an approximate value of:","(1.02)¹⁰⁰ के लिए, (1+0.02)¹⁰⁰ के सिर्फ़ पहले दो terms इस्तेमाल करने पर लगभग value मिलती है:",
+    ["1+100×0.02 = 3","1+0.02 = 1.02","100×0.02 = 2","1−100×0.02"],["1+100×0.02 = 3","1+0.02 = 1.02","100×0.02 = 2","1−100×0.02"],"A","¹⁰⁰C₀+¹⁰⁰C₁(0.02) = 1+2 = 3.","¹⁰⁰C₀+¹⁰⁰C₁(0.02) = 1+2 = 3।");
+  add("MTH-B48",7,"MTH11-7-5",5,"Which statement about (1.01)^1000000 is true, using just the first two binomial terms?","(1.01)^1000000 के बारे में कौन-सा सच है, सिर्फ़ पहले दो binomial terms से?",
+    ["It is greater than 10,000, since 1+1000000×0.01 = 10001","It is less than 10,000","It equals exactly 10,000","It cannot be estimated this way"],["यह 10,000 से बड़ा है, क्योंकि 1+1000000×0.01 = 10001","यह 10,000 से छोटा है","यह ठीक 10,000 के बराबर है","इस तरह अंदाज़ा नहीं लगाया जा सकता"],"A","Just the first two terms already exceed 10,000.","सिर्फ़ पहले दो terms ही 10,000 से ज़्यादा हैं।");
 
   window.SL_DATA.questions = window.SL_DATA.questions.concat(Q);
 })();

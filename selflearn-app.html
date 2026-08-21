@@ -4681,6 +4681,23 @@ var DIAGRAMS = {
       +'</svg>';
   },
 
+  "pascals-triangle": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    var rows=[[1],[1,1],[1,2,1],[1,3,3,1],[1,4,6,4,1],[1,5,10,10,5,1]];
+    var h='<text x="230" y="18" text-anchor="middle" font-size="16" font-weight="bold" fill="var(--primary)">'+d("Pascal's Triangle","Pascal's Triangle")+'</text>';
+    rows.forEach(function(row,n){
+      var y=48+n*44;
+      var startX=230-(row.length-1)*20;
+      h+='<text x="60" y="'+(y+5)+'" text-anchor="middle" font-size="13" fill="var(--muted)">n='+n+'</text>';
+      row.forEach(function(v,k){
+        var x=startX+k*40;
+        h+='<text x="'+x+'" y="'+(y+5)+'" text-anchor="middle" font-size="16" font-weight="'+(v===1?'normal':'bold')+'" fill="'+(v===1?'var(--muted)':'var(--ink)')+'">'+v+'</text>';
+      });
+    });
+    h+='<text x="230" y="288" text-anchor="middle" font-size="12.5" font-style="italic" fill="var(--muted)">'+d("each number is the sum of the two above it","हर number अपने ऊपर वाले दो का योग है")+'</text>';
+    return '<svg viewBox="0 0 460 300" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'+h+'</svg>';
+  },
+
 };
 
 /* Interactive widgets: sliders students can move to feel the relationship. */
