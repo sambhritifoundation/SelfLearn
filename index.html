@@ -87,6 +87,17 @@
   .callout.story{border-color:var(--primary)} .callout.observe{border-color:var(--accent);background:var(--accent-light)}
   .callout.mistake{border-color:var(--red);background:var(--red-light)} .callout.why{border-color:var(--green);background:var(--green-light)}
   .callout.check{border-color:var(--accent);background:var(--accent-light)}
+  /* A compact tutoring route comes before dense lesson notes. It gives a novice
+     a reason, plain-language meaning and a safe first attempt before symbols. */
+  .tutor-route{margin:12px 0 16px;padding:14px;border:1px solid #c7d2fe;border-radius:11px;background:linear-gradient(135deg,#f5f7ff,#fff)}
+  .tutor-route h2{font-size:1rem;margin:0 0 4px}.tutor-route>p{font-size:.9rem;color:var(--muted);margin-bottom:10px}
+  .tutor-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:10px 0}
+  .tutor-step{border-radius:8px;background:var(--card);border:1px solid var(--line);padding:9px;font-size:.84rem}
+  .tutor-step b{display:block;color:var(--primary);font-size:.74rem;text-transform:uppercase;letter-spacing:.35px;margin-bottom:3px}
+  .tutor-try{display:flex;align-items:flex-start;gap:9px;padding:10px;border-radius:8px;background:var(--accent-light);font-size:.9rem}
+  .tutor-try button{flex:0 0 auto}
+  .tutor-hint{margin-top:8px;padding:9px 10px;border-left:3px solid var(--accent);background:#fff;font-size:.88rem}
+  @media(max-width:650px){.tutor-steps{grid-template-columns:1fr}.tutor-try{flex-direction:column}}
   /* accessibility: visible focus + comfortable tap targets */
   a:focus-visible,button:focus-visible,.option:focus-visible,select:focus-visible,input:focus-visible,[tabindex]:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:6px}
   .btn,.option{min-height:42px}
@@ -350,6 +361,7 @@
 <script src="data-accountancy.js"></script>
 <script src="data-english.js"></script>
 <script src="data-math.js"></script>
+<script src="data-math-novice.js"></script>
 <script src="data-physics.js"></script>
 <script src="data-physics12.js"></script>
 <script>
@@ -8920,6 +8932,27 @@ function vTierLadder(code){
   return h + '</div>';
 }
 
+/* The support prompts are content data (data-math-novice.js), while this is
+   deliberately reusable presentation.  A learner meets the human idea before
+   the textbook name and symbols, then receives optional, non-punitive hints. */
+function vTutorRoute(code){
+  var pack = window.SL_NOVICE && window.SL_NOVICE[code];
+  if(!pack) return "";
+  var g = pack[LANG] || pack.en;
+  var notation = String(g.notation || "").replace(/\\\((.*?)\\\)/g, "$$$1$");
+  var h = '<section class="tutor-route" aria-label="'+esc(sp("A gentle start","आराम से शुरुआत"))+'">'
+    + '<h2>🌱 '+sp("Start with the idea","पहले विचार समझें")+'</h2>'
+    + '<p>'+sp("You do not need to memorise anything yet. Read the three small steps, then try one question.","अभी कुछ याद करने की ज़रूरत नहीं। ये तीन छोटे चरण पढ़िए, फिर एक प्रश्न आज़माइए।")+'</p>'
+    + '<div class="tutor-steps">'
+    + '<div class="tutor-step"><b>'+sp("1 · familiar idea","1 · जाना-पहचाना विचार")+'</b>'+fmtInline(g.everyday)+'</div>'
+    + '<div class="tutor-step"><b>'+sp("2 · textbook name","2 · NCERT नाम")+'</b>'+fmtInline(g.term)+'</div>'
+    + '<div class="tutor-step"><b>'+sp("3 · maths shorthand","3 · गणित का संकेत")+'</b>'+fmtInline(notation)+'</div>'
+    + '</div><div class="tutor-try"><div><b>'+sp("Your first small try:","आपकी पहली छोटी कोशिश:")+'</b> '+fmtInline(g.try)+'</div>'
+    + '<details><summary class="btn ghost sm">'+sp("Need a hint?","संकेत चाहिए?")+'</summary>'
+    + '<div class="tutor-hint"><b>'+sp("Hint 1:","संकेत 1:")+'</b> '+sp("Use the everyday situation above to decide what each symbol or word is doing.","ऊपर वाली रोज़मर्रा की स्थिति से तय कीजिए कि हर symbol या शब्द क्या कर रहा है।")+'<br><b>'+sp("Hint 2:","संकेत 2:")+'</b> '+fmtInline(g.mistake)+'</div></details></div></section>';
+  return h;
+}
+
 function vTopic(code){
   var info = topicByCode(code); if(!info) return "Not found";
   setLastVisited({topic:code});
@@ -8938,6 +8971,7 @@ function vTopic(code){
     + (tp.exam ? '<span class="chip green">'+sp("Exam-important","परीक्षा-महत्वपूर्ण")+'</span>' : '')
     + (a2!==null ? '<span class="chip '+(a2>=80?"green":(a2>=60?"amber":"red"))+'">'+sp("Your accuracy: ","आपकी शुद्धता: ")+a2+'%</span>' : '')
     + '</div><h1 style="margin:10px 0 12px">'+t(tp.name)+'</h1>'
+    + vTutorRoute(code)
     + '<div class="notes">'+fmtNotes(t(tp.notes), tp.images)+'</div></div>';
   /* Language units follow a fixed four-skill loop: hear it, learn the phrases,
      drill them aloud, then say them back. Deliberately NOT wired to inline
