@@ -4831,6 +4831,45 @@ var DIAGRAMS = {
       +'</svg>';
   },
 
+  "limit-approaching-graph": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 460 300" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="230" y="18" text-anchor="middle" font-size="16" font-weight="bold" fill="var(--primary)">'+d("f(x) can approach a value even with a hole at x=2","x=2 पर hole हो, फिर भी f(x) एक value के पास पहुँच सकता है")+'</text>'
+      +'<line x1="55" y1="260" x2="420" y2="260" stroke="var(--line-strong)" stroke-width="1.5"/>'
+      +'<line x1="60" y1="30" x2="60" y2="265" stroke="var(--line-strong)" stroke-width="1.5"/>'
+      +'<line x1="60" y1="260" x2="300" y2="20" stroke="var(--primary)" stroke-width="3"/>'
+      +'<circle cx="180" cy="140" r="7" fill="var(--bg)" stroke="var(--red)" stroke-width="3"/>'
+      +'<circle cx="150" cy="170" r="4" fill="var(--teal)"/>'
+      +'<circle cx="210" cy="110" r="4" fill="var(--accent)"/>'
+      +'<text x="115" y="185" font-size="12.5" fill="var(--teal)">'+d("x→2⁻","x→2⁻")+'</text>'
+      +'<text x="222" y="105" font-size="12.5" fill="var(--accent)">'+d("x→2⁺","x→2⁺")+'</text>'
+      +'<line x1="180" y1="140" x2="60" y2="140" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="4,3"/>'
+      +'<line x1="180" y1="140" x2="180" y2="260" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="4,3"/>'
+      +'<text x="48" y="144" text-anchor="end" font-size="13" fill="var(--muted)">4</text>'
+      +'<text x="180" y="278" text-anchor="middle" font-size="13" fill="var(--muted)">2</text>'
+      +'<text x="230" y="288" text-anchor="middle" font-size="12.5" font-style="italic" fill="var(--muted)">'+d("both sides head toward 4 — the limit is 4, even though f(2) itself is undefined","दोनों तरफ़ से 4 की ओर — limit 4 है, भले ही f(2) undefined हो")+'</text>'
+      +'</svg>';
+  },
+
+  "secant-to-tangent": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 460 300" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="230" y="18" text-anchor="middle" font-size="16" font-weight="bold" fill="var(--primary)">'+d("As Q slides toward P, the secant becomes the tangent","Q, P की ओर सरकता है, secant tangent बन जाता है")+'</text>'
+      +'<path d="M60,260 Q180,60 400,140" fill="none" stroke="var(--ink)" stroke-width="3"/>'
+      +'<line x1="67" y1="203" x2="277" y2="87" stroke="var(--accent)" stroke-width="2.5"/>'
+      +'<text x="285" y="83" font-size="13" font-weight="bold" fill="var(--accent)">'+d("tangent at P","P पर tangent")+'</text>'
+      +'<line x1="172" y1="145" x2="277" y2="117" stroke="var(--teal)" stroke-width="2" stroke-dasharray="4,3"/>'
+      +'<text x="290" y="120" font-size="13" fill="var(--teal)">'+d("secant PQ","secant PQ")+'</text>'
+      +'<circle cx="172" cy="145" r="5.5" fill="var(--red)"/>'
+      +'<text x="155" y="138" font-size="14" font-weight="bold" fill="var(--red)">P</text>'
+      +'<circle cx="277" cy="117" r="5" fill="var(--teal)"/>'
+      +'<text x="285" y="128" font-size="13" font-weight="bold" fill="var(--teal)">Q</text>'
+      +'<path d="M 260,120 Q 220,132 185,143" fill="none" stroke="var(--muted)" stroke-width="1.5" marker-end="url(#arrowhead12)"/>'
+      +'<defs><marker id="arrowhead12" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--muted)"/></marker></defs>'
+      +'<text x="230" y="288" text-anchor="middle" font-size="12.5" font-style="italic" fill="var(--muted)">'+d("the derivative is exactly this limiting slope, as the gap shrinks to zero","derivative ठीक यही limiting slope है, जब gap शून्य की ओर सिकुड़ता है")+'</text>'
+      +'</svg>';
+  },
+
 };
 
 /* Interactive widgets: sliders students can move to feel the relationship. */

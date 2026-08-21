@@ -1146,6 +1146,113 @@ window.SL_DATA = window.SL_DATA || {subjects:[], questions:[]};
         b("No, it is not a right-angled triangle.","नहीं, यह right-angled triangle नहीं है।")))
   ];
 
+  var calculus=[
+
+    topic("MTH11-12-0",
+      b("0. Revise: Rate of Change You Already Know","0. दोहराइए: Rate of Change जो आप पहले से जानते हैं"),
+      b(
+        "A car covers 100 km in 2 hours — its **average speed** is $\\dfrac{100}{2}=50$ km/h. This is a rate: how much one quantity changes for a given change in another.\n\nIn Chapter 9, you met the same idea as **slope**: rise over run, $\\dfrac{y_2-y_1}{x_2-x_1}$.\n\n{{diagram:slope-rise-run}}\n\nAverage speed and slope are the same calculation, wearing different clothes. This chapter asks a sharper question: not the average rate over a whole stretch, but the rate at one single instant. Answering it needs one new idea — the **limit**.",
+        "एक car 100 km, 2 घंटों में तय करती है — इसकी **average speed** है $\\dfrac{100}{2}=50$ km/h। यह एक rate है: एक quantity, दूसरे में दिए बदलाव पर कितना बदलती है।\n\nChapter 9 में, आपने यही विचार **slope** की तरह देखा था: rise over run, $\\dfrac{y_2-y_1}{x_2-x_1}$।\n\n{{diagram:slope-rise-run}}\n\nAverage speed और slope, एक ही calculation है, बस अलग कपड़ों में। यह chapter एक ज़्यादा तीखा सवाल पूछता है: पूरे हिस्से का average rate नहीं, बल्कि एक ही पल का rate। इसका जवाब देने के लिए एक नया विचार चाहिए — **limit**।"),
+      worked(
+        b("A car covers 150 km in 3 hours. Find its average speed.","एक car 150 km, 3 घंटों में तय करती है। इसकी average speed निकालिए।"),
+        [
+          ["Average speed = total distance ÷ total time.","Average speed = कुल distance ÷ कुल time।","This is the basic definition of a rate.","यही rate की मूल परिभाषा है।"],
+          ["150 ÷ 3 = 50 km/h.","150 ÷ 3 = 50 km/h।","Straightforward division.","सीधा division।"]
+        ],
+        b("50 km/h.","50 km/h।"))),
+
+    topic("MTH11-12-1",
+      b("1. The Idea of a Limit","1. Limit का विचार"),
+      b(
+        "Consider $f(x)=\\dfrac{x^2-4}{x-2}$. Plug in $x=2$ directly and you get $\\dfrac{0}{0}$ — undefined. But look at what happens for $x$ **near** 2, not exactly 2.\n\n{{diagram:limit-approaching-graph}}\n\nSimplify first: for $x\\neq2$, $\\dfrac{x^2-4}{x-2}=\\dfrac{(x-2)(x+2)}{x-2}=x+2$. As $x$ gets closer and closer to 2 — from either side — the value gets closer and closer to $4$.\n\nThis is a **limit**: what a function approaches, not necessarily what it equals.\n\n$$\\lim_{x\\to2}\\dfrac{x^2-4}{x-2}=4$$\n\nThe function has a ‘hole’ at $x=2$, but the limit exists anyway — a limit describes the journey, not the destination.",
+        "$f(x)=\\dfrac{x^2-4}{x-2}$ लीजिए। सीधे $x=2$ रखने पर $\\dfrac{0}{0}$ मिलता है — undefined। पर देखिए 2 के **पास** वाले $x$ पर क्या होता है, ठीक 2 पर नहीं।\n\n{{diagram:limit-approaching-graph}}\n\nपहले simplify कीजिए: $x\\neq2$ के लिए, $\\dfrac{x^2-4}{x-2}=\\dfrac{(x-2)(x+2)}{x-2}=x+2$। $x$ जैसे-जैसे 2 के पास आता है — किसी भी तरफ़ से — value भी $4$ के पास आती जाती है।\n\nयही **limit** है: function किस value के पास पहुँचता है, ज़रूरी नहीं कि वह value बराबर हो।\n\n$$\\lim_{x\\to2}\\dfrac{x^2-4}{x-2}=4$$\n\nFunction में $x=2$ पर एक ‘hole’ है, पर limit फिर भी है — limit रास्ते को बताता है, मंज़िल को नहीं।"),
+      worked(
+        b("Find lim(x→3) (x² − 9)/(x − 3).","lim(x→3) (x² − 9)/(x − 3) निकालिए।"),
+        [
+          ["Factor the top: x²−9 = (x−3)(x+3), so the expression simplifies to x+3 for x≠3.","ऊपर factor कीजिए: x²−9 = (x−3)(x+3), इसलिए x≠3 के लिए expression x+3 बन जाता है।","Direct substitution gives 0/0, so simplify first.","सीधे रखने पर 0/0 मिलता है, इसलिए पहले simplify कीजिए।"],
+          ["Now substitute x=3 into the simplified form: 3+3=6.","अब simplified form में x=3 रखिए: 3+3=6।","Once the (x−3) cancels, direct substitution works fine.","(x−3) cancel होने के बाद, सीधे रखना ठीक काम करता है।"]
+        ],
+        b("The limit is 6.","Limit 6 है।"))),
+
+    topic("MTH11-12-2",
+      b("2. Left-Hand and Right-Hand Limits","2. Left-Hand और Right-Hand Limits"),
+      b(
+        "‘Approaching from both sides’ hides two separate journeys: approaching from below ($x\\to a^-$, the **left-hand limit**) and from above ($x\\to a^+$, the **right-hand limit**).\n\nA limit exists only when both journeys arrive at the **same** place.\n\n$$\\lim_{x\\to a}f(x)\\text{ exists}\\iff\\lim_{x\\to a^-}f(x)=\\lim_{x\\to a^+}f(x)$$\n\nFor $f(x)=\\dfrac{x}{|x|}$ near $x=0$: from the left, $f(x)=-1$ always; from the right, $f(x)=+1$ always. The two sides disagree, so the limit at $0$ simply does not exist — no single number describes both approaches.",
+        "‘दोनों तरफ़ से पास आना’ असल में दो अलग यात्राएँ हैं: नीचे से आना ($x\\to a^-$, **left-hand limit**) और ऊपर से आना ($x\\to a^+$, **right-hand limit**)।\n\nLimit तभी होता है जब दोनों यात्राएँ **एक ही** जगह पहुँचें।\n\n$$\\lim_{x\\to a}f(x)\\text{ है}\\iff\\lim_{x\\to a^-}f(x)=\\lim_{x\\to a^+}f(x)$$\n\n$f(x)=\\dfrac{x}{|x|}$ के लिए $x=0$ के पास: बाईं ओर से, $f(x)=-1$ हमेशा; दाईं ओर से, $f(x)=+1$ हमेशा। दोनों तरफ़ अलग-अलग हैं, इसलिए $0$ पर limit बिल्कुल नहीं है — कोई एक number दोनों approaches को नहीं बताता।"),
+      worked(
+        b("For f(x) = x/|x|, find the left-hand and right-hand limits as x→0. Does the limit exist?","f(x) = x/|x| के लिए, x→0 पर left-hand और right-hand limits निकालिए। क्या limit है?"),
+        [
+          ["For x slightly less than 0 (negative), |x|=−x, so f(x) = x/(−x) = −1.","0 से थोड़ा कम (negative) x के लिए, |x|=−x, इसलिए f(x) = x/(−x) = −1।","Every negative x gives the same value here.","यहाँ हर negative x एक जैसा value देता है।"],
+          ["For x slightly more than 0 (positive), |x|=x, so f(x) = x/x = 1. Since −1 ≠ 1, the limit does not exist.","0 से थोड़ा ज़्यादा (positive) x के लिए, |x|=x, इसलिए f(x) = x/x = 1। चूँकि −1 ≠ 1, limit नहीं है।","The two one-sided limits disagree, so there is no single overall limit.","दोनों one-sided limits अलग हैं, इसलिए कोई एक overall limit नहीं है।"]
+        ],
+        b("LHL = −1, RHL = 1. The limit does not exist.","LHL = −1, RHL = 1। Limit नहीं है।"))),
+
+    topic("MTH11-12-3",
+      b("3. Algebra of Limits","3. Limits का Algebra"),
+      b(
+        "Limits combine exactly the way you would hope — piece by piece.\n\n$$\\lim[f(x)+g(x)]=\\lim f(x)+\\lim g(x)$$\n$$\\lim[f(x)-g(x)]=\\lim f(x)-\\lim g(x)$$\n$$\\lim[f(x)\\cdot g(x)]=\\lim f(x)\\cdot\\lim g(x)$$\n$$\\lim\\left[\\dfrac{f(x)}{g(x)}\\right]=\\dfrac{\\lim f(x)}{\\lim g(x)}\\quad(\\text{if }\\lim g(x)\\neq0)$$\n\nThese rules turn a complicated limit into several simple ones you already know how to find, then recombine.",
+        "Limits बिल्कुल वैसे ही जुड़ते हैं जैसा उम्मीद हो — टुकड़ा-टुकड़ा।\n\n$$\\lim[f(x)+g(x)]=\\lim f(x)+\\lim g(x)$$\n$$\\lim[f(x)-g(x)]=\\lim f(x)-\\lim g(x)$$\n$$\\lim[f(x)\\cdot g(x)]=\\lim f(x)\\cdot\\lim g(x)$$\n$$\\lim\\left[\\dfrac{f(x)}{g(x)}\\right]=\\dfrac{\\lim f(x)}{\\lim g(x)}\\quad(\\text{अगर }\\lim g(x)\\neq0)$$\n\nये rules एक कठिन limit को कई साधारण limits में बदल देते हैं जो आप पहले से हल कर सकते हैं, फिर उन्हें वापस जोड़ देते हैं।"),
+      worked(
+        b("Find lim(x→2) [3x² + 5], using the algebra of limits.","lim(x→2) [3x² + 5] निकालिए, limits के algebra से।"),
+        [
+          ["Split it: lim(3x²) + lim(5) = 3·lim(x²) + 5.","इसे तोड़िए: lim(3x²) + lim(5) = 3·lim(x²) + 5।","Sum rule and constant-multiple rule, applied together.","Sum rule और constant-multiple rule, साथ लगाए हुए।"],
+          ["lim(x²) as x→2 is 2²=4, so the total is 3(4)+5 = 17.","x→2 पर lim(x²) है 2²=4, इसलिए total है 3(4)+5 = 17।","This matches simply substituting x=2 directly — a shortcut for polynomials.","यह सीधे x=2 रखने जैसा ही है — polynomials के लिए एक shortcut।"]
+        ],
+        b("The limit is 17.","Limit 17 है।"))),
+
+    topic("MTH11-12-4",
+      b("4. Limits of Polynomials and Rational Functions","4. Polynomials और Rational Functions की Limits"),
+      b(
+        "For a **polynomial** $p(x)$, finding a limit is the easiest case of all — direct substitution always works.\n\n$$\\lim_{x\\to a}p(x)=p(a)$$\n\nFor a **rational function** $\\dfrac{f(x)}{g(x)}$, try direct substitution first. If $g(a)\\neq0$, you are done immediately.\n\nIf substitution gives $\\dfrac{0}{0}$, that is not the final answer — it is a signal to **factor and cancel**, exactly as in the first topic, then substitute again into what remains.",
+        "**Polynomial** $p(x)$ के लिए, limit निकालना सबसे आसान case है — सीधे substitution हमेशा काम करता है।\n\n$$\\lim_{x\\to a}p(x)=p(a)$$\n\n**Rational function** $\\dfrac{f(x)}{g(x)}$ के लिए, पहले सीधे substitution try कीजिए। अगर $g(a)\\neq0$, तुरंत हो गया।\n\nअगर substitution से $\\dfrac{0}{0}$ मिले, तो यह final answer नहीं है — यह **factor करके cancel करने** का संकेत है, बिल्कुल पहले topic जैसा, फिर बचे हुए में दोबारा substitute कीजिए।"),
+      worked(
+        b("Find lim(x→1) (x³ − 1)/(x − 1).","lim(x→1) (x³ − 1)/(x − 1) निकालिए।"),
+        [
+          ["Direct substitution gives 0/0, so factor: x³−1 = (x−1)(x²+x+1).","सीधे substitution से 0/0 मिलता है, इसलिए factor कीजिए: x³−1 = (x−1)(x²+x+1)।","Recognise the difference-of-cubes pattern.","Difference-of-cubes pattern पहचानिए।"],
+          ["Cancel (x−1), leaving x²+x+1. Substitute x=1: 1+1+1=3.","(x−1) cancel कीजिए, x²+x+1 बचता है। x=1 रखिए: 1+1+1=3।","Now substitution works cleanly on the simplified form.","अब simplified form पर substitution साफ़-साफ़ काम करता है।"]
+        ],
+        b("The limit is 3.","Limit 3 है।"))),
+
+    topic("MTH11-12-5",
+      b("5. Limits of Trigonometric Functions","5. Trigonometric Functions की Limits"),
+      b(
+        "One special limit anchors this whole topic, and it is worth memorising:\n\n$$\\lim_{x\\to0}\\dfrac{\\sin x}{x}=1$$\n\n(with $x$ measured in radians). It looks like $\\dfrac{0}{0}$ at first glance, but the ratio genuinely settles at exactly $1$ as $x$ shrinks toward $0$ — you can check this with a calculator for small $x$, like $x=0.01$.\n\nMost trigonometric limits reduce to this one with a little algebra — matching the angle inside $\\sin$ to the denominator.",
+        "एक special limit इस पूरे topic का आधार है, और इसे याद रखना फ़ायदेमंद है:\n\n$$\\lim_{x\\to0}\\dfrac{\\sin x}{x}=1$$\n\n($x$ radians में)। पहली नज़र में यह $\\dfrac{0}{0}$ जैसा लगता है, पर $x$ के $0$ की ओर सिकुड़ने पर, यह ratio सच में ठीक $1$ पर टिक जाता है — छोटे $x$ के लिए calculator से जाँच सकते हैं, जैसे $x=0.01$।\n\nज़्यादातर trigonometric limits थोड़े algebra से इसी पर आकर टिकते हैं — $\\sin$ के अंदर वाले angle को denominator से मिलाकर।"),
+      worked(
+        b("Find lim(x→0) sin(3x)/x, using lim(x→0) sin x/x = 1.","lim(x→0) sin(3x)/x निकालिए, lim(x→0) sin x/x = 1 इस्तेमाल करके।"),
+        [
+          ["Multiply and divide by 3: sin(3x)/x = 3 × [sin(3x)/(3x)].","3 से गुणा-भाग कीजिए: sin(3x)/x = 3 × [sin(3x)/(3x)]।","This matches the angle inside sin to its own denominator.","यह sin के अंदर वाले angle को अपने denominator से मिलाता है।"],
+          ["As x→0, 3x→0 too, so sin(3x)/(3x)→1. The answer is 3×1=3.","x→0 पर, 3x भी →0, इसलिए sin(3x)/(3x)→1। Answer है 3×1=3।","The standard limit applies once the angle and denominator match.","एक बार angle और denominator मिल जाएँ, standard limit लागू होता है।"]
+        ],
+        b("The limit is 3.","Limit 3 है।"))),
+
+    topic("MTH11-12-6",
+      b("6. The Derivative: Instantaneous Rate of Change","6. Derivative: तुरंत का Rate of Change"),
+      b(
+        "Average speed over a whole trip can hide a lot — a car might speed up and slow down along the way. The speed **at one instant** is what a speedometer shows.\n\nOn a graph, the average rate between two points is the slope of the line joining them — a **secant**. As the second point slides closer and closer to the first, that secant line settles into the **tangent** line.\n\n{{diagram:secant-to-tangent}}\n\nThe **derivative** of $f$ at $x$ is exactly this limiting slope:\n\n$$f'(x)=\\lim_{h\\to0}\\dfrac{f(x+h)-f(x)}{h}$$\n\nThis is called finding the derivative **from first principles** — building it directly from the limit definition, before any shortcuts.",
+        "पूरी trip की average speed बहुत कुछ छुपा सकती है — car रास्ते में तेज़ और धीमी दोनों हो सकती है। **एक पल** की speed वही है जो speedometer दिखाता है।\n\nGraph पर, दो points के बीच average rate, उन्हें जोड़ने वाली line का slope है — एक **secant**। जैसे-जैसे दूसरा point पहले के पास सरकता है, वह secant line **tangent** line में बदल जाती है।\n\n{{diagram:secant-to-tangent}}\n\n$x$ पर $f$ का **derivative** ठीक यही limiting slope है:\n\n$$f'(x)=\\lim_{h\\to0}\\dfrac{f(x+h)-f(x)}{h}$$\n\nइसे derivative **first principles** से निकालना कहते हैं — किसी shortcut से पहले, सीधे limit की परिभाषा से बनाना।"),
+      worked(
+        b("Find the derivative of f(x) = x² from first principles.","f(x) = x² का derivative first principles से निकालिए।"),
+        [
+          ["f(x+h) − f(x) = (x+h)² − x² = 2xh + h². Divide by h: 2x + h.","f(x+h) − f(x) = (x+h)² − x² = 2xh + h²। h से divide कीजिए: 2x + h।","Expand (x+h)² fully, then subtract x² — most terms simplify.","(x+h)² पूरा expand कीजिए, फिर x² घटाइए — ज़्यादातर terms simplify होते हैं।"],
+          ["As h→0, 2x+h → 2x.","h→0 पर, 2x+h → 2x।","h simply vanishes in the limit, leaving 2x.","Limit में h बस ग़ायब हो जाता है, 2x बचता है।"]
+        ],
+        b("f'(x) = 2x.","f'(x) = 2x।"))),
+
+    topic("MTH11-12-7",
+      b("7. Standard Derivatives and Algebra of Derivatives","7. Standard Derivatives और Derivatives का Algebra"),
+      b(
+        "Working every derivative from first principles is slow. A handful of standard results, once proven, can be reused forever.\n\n$$\\dfrac{d}{dx}(x^n)=nx^{n-1}\\qquad\\dfrac{d}{dx}(\\text{constant})=0\\qquad\\dfrac{d}{dx}(\\sin x)=\\cos x\\qquad\\dfrac{d}{dx}(\\cos x)=-\\sin x$$\n\nDerivatives combine just like limits did:\n\n$$(f+g)'=f'+g'\\qquad(f-g)'=f'-g'\\qquad(cf)'=cf'$$\n\nWith these rules, differentiating a whole polynomial is just applying the power rule term by term.",
+        "हर derivative first principles से निकालना धीमा है। कुछ standard results, एक बार साबित होने पर, हमेशा दोबारा इस्तेमाल हो सकते हैं।\n\n$$\\dfrac{d}{dx}(x^n)=nx^{n-1}\\qquad\\dfrac{d}{dx}(\\text{constant})=0\\qquad\\dfrac{d}{dx}(\\sin x)=\\cos x\\qquad\\dfrac{d}{dx}(\\cos x)=-\\sin x$$\n\nDerivatives भी वैसे ही जुड़ते हैं जैसे limits जुड़ते थे:\n\n$$(f+g)'=f'+g'\\qquad(f-g)'=f'-g'\\qquad(cf)'=cf'$$\n\nइन rules से, पूरे polynomial को differentiate करना बस हर term पर power rule लगाना है।"),
+      worked(
+        b("Find the derivative of f(x) = 3x² + 5x − 7.","f(x) = 3x² + 5x − 7 का derivative निकालिए।"),
+        [
+          ["Differentiate each term separately, using the power rule.","हर term को अलग-अलग differentiate कीजिए, power rule इस्तेमाल करके।","d/dx(3x²)=6x, d/dx(5x)=5, d/dx(−7)=0.","d/dx(3x²)=6x, d/dx(5x)=5, d/dx(−7)=0।"],
+          ["Add the pieces back together: 6x + 5 + 0.","टुकड़ों को वापस जोड़िए: 6x + 5 + 0।","The sum rule lets you differentiate term by term.","Sum rule से term by term differentiate कर सकते हैं।"]
+        ],
+        b("f'(x) = 6x + 5.","f'(x) = 6x + 5।")))
+  ];
+
   window.SL_DATA.subjects = (window.SL_DATA.subjects||[]).filter(function(s){ return s.code!=="MATH11"; });
 
   window.SL_DATA.subjects.push({code:"MATH11",board:"CBSE",klass:11,icon:"📐",
@@ -1274,7 +1381,18 @@ window.SL_DATA = window.SL_DATA || {subjects:[], questions:[]};
         assessment:["MTH-D01","MTH-D03","MTH-D05","MTH-D07","MTH-D09","MTH-D11","MTH-D13","MTH-D15",
           "MTH-D17","MTH-D19","MTH-D21","MTH-D23","MTH-D25","MTH-D27","MTH-D29","MTH-D31",
           "MTH-D33","MTH-D35","MTH-D37","MTH-D39","MTH-D41","MTH-D43","MTH-D45","MTH-D47"],
-        topics:geo3d}
+        topics:geo3d},
+      {no:12,name:b("Limits and Derivatives","Limits और Derivatives"),
+        summary:b(
+          "**Limits and Derivatives: what this chapter covers**\n\nAverage speed and slope are the same rate calculation you already know. A limit describes what a function approaches near a point, even if it's undefined right at that point — found via direct substitution for polynomials, or factor-and-cancel when substitution gives 0/0. A limit exists only when the left-hand and right-hand limits agree. Limits combine by adding, subtracting, multiplying and dividing piece by piece, and one special limit, sin x/x → 1, unlocks trigonometric limits. The derivative is the limiting slope of a secant as the second point slides onto the first — the instantaneous rate of change — with standard shortcuts like d/dx(xⁿ)=nxⁿ⁻¹ replacing the slower first-principles definition.",
+          "**Limits और Derivatives: इस chapter में क्या सीखेंगे**\n\nAverage speed और slope, वही rate calculation है जो आप पहले से जानते हैं। Limit बताता है कि किसी point के पास function किस value के पास पहुँचता है, भले ही वह ठीक उस point पर undefined हो — polynomials के लिए सीधे substitution से, या substitution से 0/0 मिलने पर factor-and-cancel से। Limit तभी होता है जब left-hand और right-hand limits मिलते हों। Limits जोड़, घटाव, गुणा और भाग से टुकड़ा-टुकड़ा जुड़ते हैं, और एक special limit, sin x/x → 1, trigonometric limits खोल देता है। Derivative, secant का limiting slope है जब दूसरा point पहले पर सरक जाए — तुरंत का rate of change — d/dx(xⁿ)=nxⁿ⁻¹ जैसे standard shortcuts, धीमी first-principles परिभाषा की जगह लेते हैं।"),
+        checkpoint:b(
+          "Getting most Warm-up and Standard questions right, across every topic in this chapter, means you are ready to move on. Scoring low? Go back to '0. Revise: Rate of Change You Already Know' and redo its example by hand — that is the fastest way forward, not a setback.",
+          "इस chapter के हर topic में ज़्यादातर Warm-up और Standard questions सही होना, मतलब आप आगे बढ़ने के लिए ready हैं। Score कम है? '0. Revise: Rate of Change जो आप पहले से जानते हैं' पर वापस जाइए और उसका example हाथ से दोबारा कीजिए — यही सबसे तेज़ रास्ता है, हार नहीं।"),
+        assessment:["MTH-M01","MTH-M03","MTH-M05","MTH-M06","MTH-M09","MTH-M12","MTH-M14","MTH-M17",
+          "MTH-M20","MTH-M22","MTH-M25","MTH-M28","MTH-M30","MTH-M33","MTH-M36","MTH-M39",
+          "MTH-M42","MTH-M45","MTH-M48","MTH-M51","MTH-M54","MTH-M58","MTH-M62","MTH-M66"],
+        topics:calculus}
     ]});
 
   window.SL_DATA.questions = (window.SL_DATA.questions||[]).filter(function(q){ return q.subject!=="MATH11"; });
@@ -2889,6 +3007,160 @@ window.SL_DATA = window.SL_DATA || {subjects:[], questions:[]};
     ["Yes","No, since 3+4≠8","Cannot tell","Only if reordered"],["हाँ","नहीं, क्योंकि 3+4≠8","कह नहीं सकते","सिर्फ़ फिर से order करने पर"],"B","3+4=7, not 8.","3+4=7, 8 नहीं।");
   add("MTH-D48",11,"MTH11-11-5",4,"Besides testing for right angles, what else can distances between 3D points confirm?","Right angles जाँचने के अलावा, 3D points के बीच की distances और क्या बता सकती हैं?",
     ["Only right angles, nothing else","Whether points are collinear, and general shape properties","The colour of the points","Nothing useful"],["सिर्फ़ right angles, कुछ नहीं","क्या points collinear हैं, और shape की general properties","Points का रंग","कुछ काम का नहीं"],"B","Distance alone reveals a lot about a shape's structure.","सिर्फ़ distance किसी shape की structure के बारे में बहुत कुछ बता देती है।");
+
+  /* ---- Ch12 Topic 0: Revise (5) ---- */
+  add("MTH-M01",12,"MTH11-12-0",1,"Average speed is calculated as:","Average speed कैसे निकालते हैं?",
+    ["distance × time","distance ÷ time","time ÷ distance","distance + time"],["distance × time","distance ÷ time","time ÷ distance","distance + time"],"B","Rate is a division.","Rate एक division है।");
+  add("MTH-M02",12,"MTH11-12-0",1,"A car covers 200 km in 4 hours. Find its average speed.","एक car 200 km, 4 घंटों में तय करती है। इसकी average speed निकालिए।",
+    ["800","50","196","204"],["800","50","196","204"],"B","200 ÷ 4 = 50.","200 ÷ 4 = 50।");
+  add("MTH-M03",12,"MTH11-12-0",1,"Slope is calculated as:","Slope कैसे निकालते हैं?",
+    ["rise × run","rise ÷ run","run ÷ rise","rise + run"],["rise × run","rise ÷ run","run ÷ rise","rise + run"],"B","Change in y over change in x.","x में बदलाव पर y में बदलाव।");
+  add("MTH-M04",12,"MTH11-12-0",2,"A car covers 240 km in 3 hours. Find its average speed.","एक car 240 km, 3 घंटों में तय करती है। इसकी average speed निकालिए।",
+    ["720","80","237","243"],["720","80","237","243"],"B","240 ÷ 3 = 80.","240 ÷ 3 = 80।");
+  add("MTH-M05",12,"MTH11-12-0",2,"Average rate of change and slope are:","Average rate of change और slope हैं:",
+    ["unrelated concepts","the same calculation in different contexts","always different formulas","only used in physics"],["असंबंधित concepts","अलग contexts में एक जैसी calculation","हमेशा अलग formulas","सिर्फ़ physics में इस्तेमाल"],"B","Both are rise over run, in disguise.","दोनों rise over run हैं, बस अलग रूप में।");
+
+  /* ---- Ch12 Topic 1: The Idea of a Limit (8) ---- */
+  add("MTH-M06",12,"MTH11-12-1",1,"A limit describes:","Limit क्या बताता है?",
+    ["what a function equals exactly","what a function approaches","only whole numbers","the domain of a function"],["function क्या ठीक-ठीक बराबर है","function किस value के पास पहुँचता है","सिर्फ़ whole numbers","function का domain"],"B","The value the function heads toward.","वह value जिस ओर function जाता है।");
+  add("MTH-M07",12,"MTH11-12-1",1,"lim(x→a) f(x) asks:","lim(x→a) f(x) क्या पूछता है?",
+    ["what f(a) equals","what f(x) approaches as x gets close to a","the derivative of f at a","the domain of f"],["f(a) क्या है","x, a के पास आने पर f(x) किस पास पहुँचता है","a पर f का derivative","f का domain"],"B","Approaching, not necessarily equalling.","पास पहुँचना, ज़रूरी नहीं बराबर होना।");
+  add("MTH-M08",12,"MTH11-12-1",1,"For f(x)=(x²−4)/(x−2), direct substitution of x=2 gives:","f(x)=(x²−4)/(x−2) में सीधे x=2 रखने पर मिलता है:",
+    ["4","0/0 (undefined)","2","0"],["4","0/0 (undefined)","2","0"],"B","Both top and bottom become 0.","ऊपर और नीचे दोनों 0 हो जाते हैं।");
+  add("MTH-M09",12,"MTH11-12-1",2,"Simplify (x²−4)/(x−2) for x≠2.","x≠2 के लिए (x²−4)/(x−2) simplify कीजिए।",
+    ["x+2","x−2","x²−2","2x"],["x+2","x−2","x²−2","2x"],"A","Factor and cancel (x−2).","(x−2) को factor करके cancel कीजिए।");
+  add("MTH-M10",12,"MTH11-12-1",2,"Find lim(x→2) (x²−4)/(x−2).","lim(x→2) (x²−4)/(x−2) निकालिए।",
+    ["0","undefined","4","2"],["0","undefined","4","2"],"C","Simplify to x+2, then substitute x=2.","x+2 में simplify करके x=2 रखिए।");
+  add("MTH-M11",12,"MTH11-12-1",2,"A function can have a limit at a point even if:","एक function किसी point पर limit रख सकता है भले ही:",
+    ["the function is undefined there","the function is always defined there","the limit never equals the function value","limits never exist"],["वहाँ function undefined हो","वहाँ function हमेशा defined हो","limit कभी function value के बराबर न हो","limits कभी नहीं होते"],"A","The 'hole' example shows this exactly.","'Hole' वाला उदाहरण ठीक यही दिखाता है।");
+  add("MTH-M12",12,"MTH11-12-1",3,"Find lim(x→5) (x²−25)/(x−5).","lim(x→5) (x²−25)/(x−5) निकालिए।",
+    ["0","10","25","5"],["0","10","25","5"],"B","Simplifies to x+5, then 5+5=10.","x+5 में simplify होकर 5+5=10।");
+  add("MTH-M13",12,"MTH11-12-1",3,"Find lim(x→−3) (x²−9)/(x+3).","lim(x→−3) (x²−9)/(x+3) निकालिए।",
+    ["−6","6","0","9"],["−6","6","0","9"],"A","Simplifies to x−3, then −3−3=−6.","x−3 में simplify होकर −3−3=−6।");
+
+  /* ---- Ch12 Topic 2: Left-Hand and Right-Hand Limits (8) ---- */
+  add("MTH-M14",12,"MTH11-12-2",1,"The left-hand limit is written as:","Left-hand limit कैसे लिखते हैं?",
+    ["lim(x→a⁺)","lim(x→a⁻)","lim(x→0)","lim(x→∞)"],["lim(x→a⁺)","lim(x→a⁻)","lim(x→0)","lim(x→∞)"],"B","Approaching from below.","नीचे से पास आना।");
+  add("MTH-M15",12,"MTH11-12-2",1,"The right-hand limit is written as:","Right-hand limit कैसे लिखते हैं?",
+    ["lim(x→a⁺)","lim(x→a⁻)","lim(x→0)","lim(x→∞)"],["lim(x→a⁺)","lim(x→a⁻)","lim(x→0)","lim(x→∞)"],"A","Approaching from above.","ऊपर से पास आना।");
+  add("MTH-M16",12,"MTH11-12-2",1,"A limit exists at x=a only when:","x=a पर limit तभी होता है जब:",
+    ["LHL and RHL are both defined","LHL and RHL are equal","LHL is bigger than RHL","f(a) is defined"],["LHL और RHL दोनों defined हों","LHL और RHL बराबर हों","LHL, RHL से बड़ा हो","f(a) defined हो"],"B","Both sides must agree exactly.","दोनों तरफ़ बिल्कुल मिलने चाहिए।");
+  add("MTH-M17",12,"MTH11-12-2",2,"For f(x)=x/|x|, the left-hand limit as x→0 is:","f(x)=x/|x| के लिए, x→0 पर left-hand limit है:",
+    ["1","−1","0","undefined"],["1","−1","0","undefined"],"B","Negative x gives f(x)=−1.","Negative x पर f(x)=−1।");
+  add("MTH-M18",12,"MTH11-12-2",2,"For f(x)=x/|x|, the right-hand limit as x→0 is:","f(x)=x/|x| के लिए, x→0 पर right-hand limit है:",
+    ["1","−1","0","undefined"],["1","−1","0","undefined"],"A","Positive x gives f(x)=1.","Positive x पर f(x)=1।");
+  add("MTH-M19",12,"MTH11-12-2",2,"Since LHL≠RHL for f(x)=x/|x| at x=0, the limit:","चूँकि f(x)=x/|x| में x=0 पर LHL≠RHL, limit:",
+    ["equals 0","equals 1","equals −1","does not exist"],["0 के बराबर है","1 के बराबर है","−1 के बराबर है","नहीं है"],"D","Disagreeing sides mean no single limit.","अलग-अलग तरफ़ों का मतलब है कोई एक limit नहीं।");
+  add("MTH-M20",12,"MTH11-12-2",3,"If LHL=5 and RHL=5 at x=a, the limit at a is:","अगर x=a पर LHL=5 और RHL=5, a पर limit है:",
+    ["5","undefined","0","10"],["5","undefined","0","10"],"A","Both sides agree, so the limit is that shared value.","दोनों तरफ़ मिलते हैं, इसलिए limit वही साझा value है।");
+  add("MTH-M21",12,"MTH11-12-2",3,"If LHL=3 and RHL=7 at x=a, the limit at a:","अगर x=a पर LHL=3 और RHL=7, a पर limit:",
+    ["is 3","is 7","is 5 (average)","does not exist"],["3 है","7 है","5 है (average)","नहीं है"],"D","Disagreement means the limit fails to exist.","अलग होने का मतलब है limit नहीं है।");
+
+  /* ---- Ch12 Topic 3: Algebra of Limits (8) ---- */
+  add("MTH-M22",12,"MTH11-12-3",1,"lim[f(x)+g(x)] equals:","lim[f(x)+g(x)] बराबर है:",
+    ["lim f(x) + lim g(x)","lim f(x) × lim g(x)","lim f(x) − lim g(x)","lim[f(x)×g(x)]"],["lim f(x) + lim g(x)","lim f(x) × lim g(x)","lim f(x) − lim g(x)","lim[f(x)×g(x)]"],"A","The sum rule for limits.","Limits का sum rule।");
+  add("MTH-M23",12,"MTH11-12-3",1,"lim[f(x)×g(x)] equals:","lim[f(x)×g(x)] बराबर है:",
+    ["lim f(x) + lim g(x)","lim f(x) × lim g(x)","lim f(x) / lim g(x)","lim f(x)"],["lim f(x) + lim g(x)","lim f(x) × lim g(x)","lim f(x) / lim g(x)","lim f(x)"],"B","The product rule for limits.","Limits का product rule।");
+  add("MTH-M24",12,"MTH11-12-3",1,"lim[f(x)/g(x)] equals lim f(x)/lim g(x), provided:","lim[f(x)/g(x)], lim f(x)/lim g(x) के बराबर है, बशर्ते:",
+    ["lim f(x)≠0","lim g(x)≠0","both are 0","f and g are equal"],["lim f(x)≠0","lim g(x)≠0","दोनों 0 हों","f और g बराबर हों"],"B","Division by zero must be avoided.","0 से division से बचना चाहिए।");
+  add("MTH-M25",12,"MTH11-12-3",2,"If lim(x→a) f(x)=6 and lim(x→a) g(x)=2, find lim[f(x)+g(x)].","अगर lim(x→a) f(x)=6 और lim(x→a) g(x)=2, lim[f(x)+g(x)] निकालिए।",
+    ["8","4","12","3"],["8","4","12","3"],"A","6+2=8.","6+2=8।");
+  add("MTH-M26",12,"MTH11-12-3",2,"If lim(x→a) f(x)=6 and lim(x→a) g(x)=2, find lim[f(x)×g(x)].","अगर lim(x→a) f(x)=6 और lim(x→a) g(x)=2, lim[f(x)×g(x)] निकालिए।",
+    ["8","4","12","3"],["8","4","12","3"],"C","6×2=12.","6×2=12।");
+  add("MTH-M27",12,"MTH11-12-3",2,"If lim(x→a) f(x)=10 and lim(x→a) g(x)=5, find lim[f(x)/g(x)].","अगर lim(x→a) f(x)=10 और lim(x→a) g(x)=5, lim[f(x)/g(x)] निकालिए।",
+    ["2","50","15","5"],["2","50","15","5"],"A","10÷5=2.","10÷5=2।");
+  add("MTH-M28",12,"MTH11-12-3",3,"Find lim(x→1) [4x+3] using the algebra of limits.","Limits के algebra से lim(x→1) [4x+3] निकालिए।",
+    ["7","3","4","1"],["7","3","4","1"],"A","4(1)+3=7.","4(1)+3=7।");
+  add("MTH-M29",12,"MTH11-12-3",3,"Find lim(x→3) [2x²−1] using the algebra of limits.","Limits के algebra से lim(x→3) [2x²−1] निकालिए।",
+    ["17","5","18","6"],["17","5","18","6"],"A","2(9)−1=17.","2(9)−1=17।");
+
+  /* ---- Ch12 Topic 4: Polynomial and Rational Limits (9) ---- */
+  add("MTH-M30",12,"MTH11-12-4",1,"For a polynomial p(x), lim(x→a) p(x) equals:","Polynomial p(x) के लिए, lim(x→a) p(x) बराबर है:",
+    ["0","p(a)","undefined","1"],["0","p(a)","undefined","1"],"B","Direct substitution always works for polynomials.","Polynomials के लिए सीधे substitution हमेशा काम करता है।");
+  add("MTH-M31",12,"MTH11-12-4",1,"For a rational function, if the denominator is nonzero at x=a, you find the limit by:","Rational function में, अगर x=a पर denominator nonzero है, limit कैसे निकालते हैं?",
+    ["factoring first always","direct substitution","ignoring the numerator","setting x=0"],["हमेशा पहले factor करके","सीधे substitution से","numerator को नज़रअंदाज़ करके","x=0 रखकर"],"B","No 0/0 issue, so substitution works immediately.","0/0 की कोई समस्या नहीं, substitution तुरंत काम करता है।");
+  add("MTH-M32",12,"MTH11-12-4",1,"If direct substitution gives 0/0, the correct next step is:","अगर सीधे substitution से 0/0 मिले, सही अगला step क्या है?",
+    ["say the limit is 0","say the limit doesn't exist","factor and cancel, then substitute again","give up"],["कहिए limit 0 है","कहिए limit नहीं है","factor करके cancel कीजिए, फिर दोबारा substitute कीजिए","छोड़ दीजिए"],"C","0/0 is a signal to simplify, not a final answer.","0/0 simplify करने का संकेत है, final answer नहीं।");
+  add("MTH-M33",12,"MTH11-12-4",2,"Find lim(x→4) (x²−16)/(x−4).","lim(x→4) (x²−16)/(x−4) निकालिए।",
+    ["8","0","16","4"],["8","0","16","4"],"A","Simplifies to x+4, then 4+4=8.","x+4 में simplify होकर 4+4=8।");
+  add("MTH-M34",12,"MTH11-12-4",2,"Find lim(x→2) (x³−8)/(x−2).","lim(x→2) (x³−8)/(x−2) निकालिए।",
+    ["12","8","4","6"],["12","8","4","6"],"A","x³−8=(x−2)(x²+2x+4); at x=2: 4+4+4=12.","x³−8=(x−2)(x²+2x+4); x=2 पर: 4+4+4=12।");
+  add("MTH-M35",12,"MTH11-12-4",2,"Find lim(x→1) (x³−1)/(x−1).","lim(x→1) (x³−1)/(x−1) निकालिए।",
+    ["3","1","0","9"],["3","1","0","9"],"A","x³−1=(x−1)(x²+x+1); at x=1: 1+1+1=3.","x³−1=(x−1)(x²+x+1); x=1 पर: 1+1+1=3।");
+  add("MTH-M36",12,"MTH11-12-4",3,"Find lim(x→5) (x²−7x+10)/(x−5).","lim(x→5) (x²−7x+10)/(x−5) निकालिए।",
+    ["3","−3","5","10"],["3","−3","5","10"],"A","x²−7x+10=(x−5)(x−2); at x=5: 5−2=3.","x²−7x+10=(x−5)(x−2); x=5 पर: 5−2=3।");
+  add("MTH-M37",12,"MTH11-12-4",3,"Find lim(x→2) (x²−4)/(x²−5x+6).","lim(x→2) (x²−4)/(x²−5x+6) निकालिए।",
+    ["−4","4","2","−2"],["−4","4","2","−2"],"A","Simplifies to (x+2)/(x−3); at x=2: 4/(−1)=−4.","(x+2)/(x−3) में simplify होकर; x=2 पर: 4/(−1)=−4।");
+  add("MTH-M38",12,"MTH11-12-4",4,"Find lim(x→0) (x²+3x)/x.","lim(x→0) (x²+3x)/x निकालिए।",
+    ["3","0","undefined","x"],["3","0","undefined","x"],"A","Factor x(x+3)/x=x+3; at x=0: 3.","x(x+3)/x=x+3 factor करके; x=0 पर: 3।");
+
+  /* ---- Ch12 Topic 5: Limits of Trigonometric Functions (9) ---- */
+  add("MTH-M39",12,"MTH11-12-5",1,"lim(x→0) sin x/x equals:","lim(x→0) sin x/x बराबर है:",
+    ["0","1","undefined","x"],["0","1","undefined","x"],"B","The single most important trig limit.","सबसे ज़रूरी trig limit।");
+  add("MTH-M40",12,"MTH11-12-5",1,"The standard limit sin x/x → 1 requires x to be measured in:","Standard limit sin x/x → 1 के लिए x किसमें मापा जाना चाहिए?",
+    ["degrees","radians","either","grades"],["degrees","radians","कोई भी","grades"],"B","Radians are essential for this exact result.","इस exact result के लिए radians ज़रूरी हैं।");
+  add("MTH-M41",12,"MTH11-12-5",1,"As x→0, sin x behaves like:","x→0 पर, sin x कैसा व्यवहार करता है?",
+    ["0","x itself (approximately)","1","undefined"],["0","लगभग x जैसा","1","undefined"],"B","This is exactly why sin x/x approaches 1.","इसीलिए sin x/x, 1 के पास पहुँचता है।");
+  add("MTH-M42",12,"MTH11-12-5",2,"Find lim(x→0) sin(2x)/x.","lim(x→0) sin(2x)/x निकालिए।",
+    ["2","1","0","x"],["2","1","0","x"],"A","2 × [sin(2x)/(2x)] → 2×1=2.","2 × [sin(2x)/(2x)] → 2×1=2।");
+  add("MTH-M43",12,"MTH11-12-5",2,"Find lim(x→0) sin(5x)/x.","lim(x→0) sin(5x)/x निकालिए।",
+    ["5","1","0","x"],["5","1","0","x"],"A","5 × [sin(5x)/(5x)] → 5×1=5.","5 × [sin(5x)/(5x)] → 5×1=5।");
+  add("MTH-M44",12,"MTH11-12-5",2,"Find lim(x→0) sin(x)/(3x).","lim(x→0) sin(x)/(3x) निकालिए।",
+    ["1/3","3","1","0"],["1/3","3","1","0"],"A","(1/3) × [sin x/x] → 1/3.","(1/3) × [sin x/x] → 1/3।");
+  add("MTH-M45",12,"MTH11-12-5",3,"Find lim(x→0) sin(4x)/sin(2x).","lim(x→0) sin(4x)/sin(2x) निकालिए।",
+    ["2","4","1","0.5"],["2","4","1","0.5"],"A","Both behave like their angles near 0: 4x/2x=2.","0 के पास दोनों अपने angle जैसे व्यवहार करते हैं: 4x/2x=2।");
+  add("MTH-M46",12,"MTH11-12-5",3,"Find lim(x→0) x/sin x.","lim(x→0) x/sin x निकालिए।",
+    ["1","0","undefined","x"],["1","0","undefined","x"],"A","The reciprocal of sin x/x, which is also 1.","sin x/x का reciprocal, जो भी 1 है।");
+  add("MTH-M47",12,"MTH11-12-5",4,"Find lim(x→0) sin(3x)/sin(5x).","lim(x→0) sin(3x)/sin(5x) निकालिए।",
+    ["3/5","5/3","1","0"],["3/5","5/3","1","0"],"A","Both behave like their angles near 0: 3x/5x=3/5.","0 के पास दोनों अपने angle जैसे व्यवहार करते हैं: 3x/5x=3/5।");
+
+  /* ---- Ch12 Topic 6: The Derivative (10) ---- */
+  add("MTH-M48",12,"MTH11-12-6",1,"The derivative measures:","Derivative क्या मापता है?",
+    ["average rate of change over an interval","instantaneous rate of change at a point","the total distance travelled","the area under a curve"],["एक interval में average rate of change","एक point पर तुरंत का rate of change","कुल तय की गई दूरी","curve के नीचे का area"],"B","The rate at one exact instant.","एक ठीक पल का rate।");
+  add("MTH-M49",12,"MTH11-12-6",1,"A secant line connects:","Secant line किसे जोड़ती है?",
+    ["one point on a curve to itself","two points on a curve","a curve to the x-axis","two separate curves"],["curve पर एक point को ख़ुद से","curve पर दो points को","curve को x-axis से","दो अलग curves को"],"B","A line through two points on the curve.","Curve पर दो points से गुज़रती line।");
+  add("MTH-M50",12,"MTH11-12-6",1,"A tangent line at a point:","किसी point पर tangent line:",
+    ["crosses the curve at many points","touches the curve at just that one point (locally)","is always horizontal","is always vertical"],["curve को कई points पर काटती है","सिर्फ़ उस एक point पर curve को छूती है (locally)","हमेशा horizontal होती है","हमेशा vertical होती है"],"B","A local, single-point touch.","Local, एक-point वाला touch।");
+  add("MTH-M51",12,"MTH11-12-6",2,"The derivative first-principles formula is:","Derivative का first-principles formula है:",
+    ["lim(h→0)[f(x+h)−f(x)]/h","lim(h→0)[f(x+h)+f(x)]/h","lim(h→0)[f(x+h)×f(x)]/h","f(x+h)−f(x)"],["lim(h→0)[f(x+h)−f(x)]/h","lim(h→0)[f(x+h)+f(x)]/h","lim(h→0)[f(x+h)×f(x)]/h","f(x+h)−f(x)"],"A","The limit of the secant's slope, as h→0.","h→0 पर, secant के slope का limit।");
+  add("MTH-M52",12,"MTH11-12-6",2,"As Q slides toward P on a curve, the secant line approaches the:","Curve पर Q, P की ओर सरकने पर, secant line किसके पास पहुँचती है?",
+    ["x-axis","y-axis","tangent line","origin"],["x-axis","y-axis","tangent line","origin"],"C","The defining picture of a derivative.","Derivative की परिभाषित picture।");
+  add("MTH-M53",12,"MTH11-12-6",2,"Find f(x+h)−f(x) for f(x)=x², before dividing by h.","f(x)=x² के लिए, h से divide करने से पहले f(x+h)−f(x) निकालिए।",
+    ["2xh+h²","h²","2x","x²+h²"],["2xh+h²","h²","2x","x²+h²"],"A","(x+h)²−x² expands to 2xh+h².","(x+h)²−x², expand होकर 2xh+h² बनता है।");
+  add("MTH-M54",12,"MTH11-12-6",3,"Divide 2xh+h² by h.","2xh+h² को h से divide कीजिए।",
+    ["2x+h","2x","h","2xh"],["2x+h","2x","h","2xh"],"A","Each term has a common factor of h.","हर term में h common factor है।");
+  add("MTH-M55",12,"MTH11-12-6",3,"As h→0, 2x+h approaches:","h→0 पर, 2x+h किसके पास पहुँचता है?",
+    ["2x","0","x","h"],["2x","0","x","h"],"A","h simply vanishes in the limit.","Limit में h बस ग़ायब हो जाता है।");
+  add("MTH-M56",12,"MTH11-12-6",4,"Find the derivative of f(x)=x² using first principles, in full.","f(x)=x² का derivative first principles से, पूरा निकालिए।",
+    ["f'(x)=2x","f'(x)=x²","f'(x)=2","f'(x)=x"],["f'(x)=2x","f'(x)=x²","f'(x)=2","f'(x)=x"],"A","The complete first-principles result.","पूरा first-principles result।");
+  add("MTH-M57",12,"MTH11-12-6",4,"Find the derivative of f(x)=x³ using the pattern from x² (do not expand fully — just apply the power rule).","Power rule लगाकर (पूरा expand किए बिना) f(x)=x³ का derivative निकालिए।",
+    ["3x²","x²","3x³","2x²"],["3x²","x²","3x³","2x²"],"A","d/dx(xⁿ)=nxⁿ⁻¹, with n=3.","d/dx(xⁿ)=nxⁿ⁻¹, n=3 के साथ।");
+
+  /* ---- Ch12 Topic 7: Standard Derivatives and Algebra (12) ---- */
+  add("MTH-M58",12,"MTH11-12-7",1,"d/dx(xⁿ) equals:","d/dx(xⁿ) बराबर है:",
+    ["nxⁿ⁻¹","xⁿ⁻¹","nxⁿ","xⁿ"],["nxⁿ⁻¹","xⁿ⁻¹","nxⁿ","xⁿ"],"A","The power rule.","Power rule।");
+  add("MTH-M59",12,"MTH11-12-7",1,"d/dx(constant) equals:","d/dx(constant) बराबर है:",
+    ["the constant itself","0","1","undefined"],["ख़ुद constant","0","1","undefined"],"B","A constant never changes.","एक constant कभी नहीं बदलता।");
+  add("MTH-M60",12,"MTH11-12-7",1,"d/dx(sin x) equals:","d/dx(sin x) बराबर है:",
+    ["cos x","−cos x","−sin x","sin x"],["cos x","−cos x","−sin x","sin x"],"A","One of the standard trig derivatives.","Standard trig derivatives में से एक।");
+  add("MTH-M61",12,"MTH11-12-7",2,"d/dx(cos x) equals:","d/dx(cos x) बराबर है:",
+    ["sin x","cos x","−sin x","−cos x"],["sin x","cos x","−sin x","−cos x"],"C","Note the negative sign here.","यहाँ negative sign ध्यान दीजिए।");
+  add("MTH-M62",12,"MTH11-12-7",2,"Find d/dx(x⁵).","d/dx(x⁵) निकालिए।",
+    ["5x⁴","x⁴","5x⁵","x⁵"],["5x⁴","x⁴","5x⁵","x⁵"],"A","Power rule with n=5.","n=5 के साथ power rule।");
+  add("MTH-M63",12,"MTH11-12-7",2,"Find d/dx(x⁷).","d/dx(x⁷) निकालिए।",
+    ["7x⁶","x⁶","7x⁷","6x⁷"],["7x⁶","x⁶","7x⁷","6x⁷"],"A","Power rule with n=7.","n=7 के साथ power rule।");
+  add("MTH-M64",12,"MTH11-12-7",2,"(f+g)' equals:","(f+g)' बराबर है:",
+    ["f'+g'","f'×g'","f'−g'","f'/g'"],["f'+g'","f'×g'","f'−g'","f'/g'"],"A","Derivatives add just like limits do.","Derivatives, limits जैसे ही जुड़ते हैं।");
+  add("MTH-M65",12,"MTH11-12-7",3,"Find the derivative of f(x)=4x³.","f(x)=4x³ का derivative निकालिए।",
+    ["12x²","4x²","12x³","3x²"],["12x²","4x²","12x³","3x²"],"A","4×3x²=12x².","4×3x²=12x²।");
+  add("MTH-M66",12,"MTH11-12-7",3,"Find the derivative of f(x)=x²+3x.","f(x)=x²+3x का derivative निकालिए।",
+    ["2x+3","2x","3","x+3"],["2x+3","2x","3","x+3"],"A","Differentiate each term separately.","हर term को अलग-अलग differentiate कीजिए।");
+  add("MTH-M67",12,"MTH11-12-7",3,"Find the derivative of f(x)=5x⁴−2x.","f(x)=5x⁴−2x का derivative निकालिए।",
+    ["20x³−2","20x³","5x³−2","4x³−2"],["20x³−2","20x³","5x³−2","4x³−2"],"A","5×4x³−2=20x³−2.","5×4x³−2=20x³−2।");
+  add("MTH-M68",12,"MTH11-12-7",4,"Find the derivative of f(x)=x³−6x²+9x.","f(x)=x³−6x²+9x का derivative निकालिए।",
+    ["3x²−12x+9","3x²−6x+9","x²−12x+9","3x²−12x"],["3x²−12x+9","3x²−6x+9","x²−12x+9","3x²−12x"],"A","Differentiate term by term: 3x²,−12x,+9.","Term by term differentiate कीजिए: 3x²,−12x,+9।");
+  add("MTH-M69",12,"MTH11-12-7",5,"Find the derivative of f(x)=2x³+3x²−5x+1.","f(x)=2x³+3x²−5x+1 का derivative निकालिए।",
+    ["6x²+6x−5","6x²+6x","6x²−5","6x+6x−5"],["6x²+6x−5","6x²+6x","6x²−5","6x+6x−5"],"A","6x²,+6x,−5,and 0 for the constant.","6x²,+6x,−5, और constant के लिए 0।");
 
   window.SL_DATA.questions = window.SL_DATA.questions.concat(Q);
 })();
