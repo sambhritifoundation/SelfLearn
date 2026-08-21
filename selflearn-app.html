@@ -4721,6 +4721,41 @@ var DIAGRAMS = {
     return '<svg viewBox="0 0 460 300" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'+h+'</svg>';
   },
 
+  "slope-rise-run": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 460 300" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="230" y="18" text-anchor="middle" font-size="16" font-weight="bold" fill="var(--primary)">'+d("Slope = rise ÷ run","Slope = rise ÷ run")+'</text>'
+      +'<line x1="60" y1="260" x2="420" y2="260" stroke="var(--line-strong)" stroke-width="1.5"/>'
+      +'<line x1="60" y1="30" x2="60" y2="260" stroke="var(--line-strong)" stroke-width="1.5"/>'
+      +'<line x1="95" y1="225" x2="375" y2="15" stroke="var(--primary)" stroke-width="3"/>'
+      +'<circle cx="130" cy="190" r="5" fill="var(--red)"/>'
+      +'<circle cx="340" cy="50" r="5" fill="var(--red)"/>'
+      +'<line x1="130" y1="190" x2="340" y2="190" stroke="var(--teal)" stroke-width="2" stroke-dasharray="4,3"/>'
+      +'<line x1="340" y1="190" x2="340" y2="50" stroke="var(--accent)" stroke-width="2" stroke-dasharray="4,3"/>'
+      +'<text x="235" y="207" text-anchor="middle" font-size="13" fill="var(--teal)">'+d("run = 3","run = 3")+'</text>'
+      +'<text x="352" y="122" font-size="13" fill="var(--accent)">'+d("rise = 2","rise = 2")+'</text>'
+      +'<text x="118" y="180" text-anchor="end" font-size="13" font-weight="bold" fill="var(--ink)">A</text>'
+      +'<text x="350" y="45" font-size="13" font-weight="bold" fill="var(--ink)">B</text>'
+      +'<text x="230" y="288" text-anchor="middle" font-size="12.5" font-style="italic" fill="var(--muted)">'+d("m = rise/run = 2/3 — go across 3, up 2","m = rise/run = 2/3 — 3 आगे, 2 ऊपर")+'</text>'
+      +'</svg>';
+  },
+
+  "point-to-line-distance": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 460 300" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="230" y="18" text-anchor="middle" font-size="16" font-weight="bold" fill="var(--primary)">'+d("Distance from a point to a line","Point से line तक की दूरी")+'</text>'
+      +'<line x1="50" y1="70" x2="410" y2="240" stroke="var(--primary)" stroke-width="3"/>'
+      +'<text x="55" y="60" font-size="13" fill="var(--primary)">'+d("line L","line L")+'</text>'
+      +'<circle cx="220" cy="60" r="5" fill="var(--red)"/>'
+      +'<text x="230" y="58" font-size="13" font-weight="bold" fill="var(--ink)">P</text>'
+      +'<circle cx="264" cy="164" r="4.5" fill="var(--accent)"/>'
+      +'<line x1="220" y1="60" x2="264" y2="164" stroke="var(--accent)" stroke-width="2" stroke-dasharray="4,3"/>'
+      +'<path d="M 254,155 L 262,148 L 269,157" fill="none" stroke="var(--accent)" stroke-width="1.5"/>'
+      +'<text x="200" y="118" font-size="13" font-weight="bold" fill="var(--accent)">d</text>'
+      +'<text x="230" y="288" text-anchor="middle" font-size="12.5" font-style="italic" fill="var(--muted)">'+d("d is measured along the perpendicular, the shortest path","d perpendicular के साथ नापी जाती है, सबसे छोटा रास्ता")+'</text>'
+      +'</svg>';
+  },
+
 };
 
 /* Interactive widgets: sliders students can move to feel the relationship. */

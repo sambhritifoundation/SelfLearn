@@ -851,6 +851,113 @@ window.SL_DATA = window.SL_DATA || {subjects:[], questions:[]};
         b("6.4 mm thick.","6.4 mm मोटा।")))
   ];
 
+  var lines=[
+
+    topic("MTH11-9-0",
+      b("0. Revise: The Coordinate Plane, Distance and Midpoint","0. दोहराइए: Coordinate Plane, Distance और Midpoint"),
+      b(
+        "From Class 10: any point on a flat plane can be named by two numbers, $(x,y)$ — how far right, and how far up.\n\nThe **distance** between two points $(x_1,y_1)$ and $(x_2,y_2)$ comes from Pythagoras' theorem:\n\n$$d=\\sqrt{(x_2-x_1)^2+(y_2-y_1)^2}$$\n\nThe **midpoint** of the segment joining them is simply the average of the coordinates:\n\n$$\\left(\\dfrac{x_1+x_2}{2},\\dfrac{y_1+y_2}{2}\\right)$$\n\nThis chapter studies straight lines drawn through such points — how steep they are, and how to write their equation.",
+        "Class 10 से: किसी भी flat plane पर एक point को दो numbers से नाम दे सकते हैं, $(x,y)$ — कितना दाईं ओर, और कितना ऊपर।\n\nदो points $(x_1,y_1)$ और $(x_2,y_2)$ के बीच की **distance**, Pythagoras' theorem से आती है:\n\n$$d=\\sqrt{(x_2-x_1)^2+(y_2-y_1)^2}$$\n\nउन्हें जोड़ने वाले segment का **midpoint** बस coordinates का average है:\n\n$$\\left(\\dfrac{x_1+x_2}{2},\\dfrac{y_1+y_2}{2}\\right)$$\n\nयह chapter ऐसे points से गुज़रती straight lines को पढ़ता है — वे कितनी ढलानदार हैं, और उनका equation कैसे लिखें।"),
+      worked(
+        b("Find the distance and midpoint between (1,2) and (4,6).","(1,2) और (4,6) के बीच की distance और midpoint निकालिए।"),
+        [
+          ["Distance: √((4−1)²+(6−2)²) = √(9+16) = √25 = 5.","Distance: √((4−1)²+(6−2)²) = √(9+16) = √25 = 5।","Substitute the coordinates into the distance formula.","Coordinates को distance formula में रखिए।"],
+          ["Midpoint: ((1+4)/2, (2+6)/2) = (2.5, 4).","Midpoint: ((1+4)/2, (2+6)/2) = (2.5, 4)।","Average the x's together, and the y's together.","x को अलग average कीजिए, y को अलग।"]
+        ],
+        b("Distance = 5, Midpoint = (2.5, 4).","Distance = 5, Midpoint = (2.5, 4)।"))),
+
+    topic("MTH11-9-1",
+      b("1. Slope of a Line","1. Line का Slope"),
+      b(
+        "A line's **slope** measures how steep it is — how much it rises for every step across.\n\n{{diagram:slope-rise-run}}\n\nFor two points $(x_1,y_1)$ and $(x_2,y_2)$ on the line:\n\n$$m=\\dfrac{y_2-y_1}{x_2-x_1}$$\n\nA positive slope climbs left to right. A negative slope falls. A horizontal line has slope $0$. A vertical line has **no slope** — the formula would divide by zero.",
+        "एक line का **slope** बताता है कि वह कितनी ढलानदार है — हर कदम आगे बढ़ने पर कितनी ऊपर उठती है।\n\n{{diagram:slope-rise-run}}\n\nLine पर दो points $(x_1,y_1)$ और $(x_2,y_2)$ के लिए:\n\n$$m=\\dfrac{y_2-y_1}{x_2-x_1}$$\n\nPositive slope बाएँ से दाएँ चढ़ती है। Negative slope गिरती है। Horizontal line का slope $0$ होता है। Vertical line का **कोई slope नहीं** होता — formula 0 से divide करेगा।"),
+      worked(
+        b("Find the slope of the line through (1,1) and (4,3).","(1,1) और (4,3) से गुज़रती line का slope निकालिए।"),
+        [
+          ["m = (3−1)/(4−1).","m = (3−1)/(4−1)।","Subtract y's on top, x's on the bottom, matching points.","ऊपर y घटाइए, नीचे x, मिलते-जुलते points से।"],
+          ["m = 2/3.","m = 2/3।","Simplify the fraction.","Fraction simplify कीजिए।"]
+        ],
+        b("Slope = 2/3.","Slope = 2/3।"))),
+
+    topic("MTH11-9-2",
+      b("2. Parallel and Perpendicular Lines","2. Parallel और Perpendicular Lines"),
+      b(
+        "Slope tells you instantly how two lines relate, without drawing them.\n\n**Parallel lines** never meet — they climb at exactly the same rate.\n\n$$m_1=m_2$$\n\n**Perpendicular lines** cross at a right angle — one's slope is the other's negative reciprocal.\n\n$$m_1\\times m_2=-1$$\n\nExample: slope $2$ and slope $-\\dfrac12$ are perpendicular, since $2\\times\\left(-\\dfrac12\\right)=-1$.",
+        "Slope बता देता है कि दो lines कैसे जुड़ी हैं, उन्हें बनाए बिना।\n\n**Parallel lines** कभी नहीं मिलतीं — वे बिल्कुल एक ही रफ़्तार से चढ़ती हैं।\n\n$$m_1=m_2$$\n\n**Perpendicular lines** एक सीधे angle पर काटती हैं — एक का slope दूसरे का negative reciprocal होता है।\n\n$$m_1\\times m_2=-1$$\n\nउदाहरण: slope $2$ और slope $-\\dfrac12$ perpendicular हैं, क्योंकि $2\\times\\left(-\\dfrac12\\right)=-1$।"),
+      worked(
+        b("A line has slope 4. What slope would a line perpendicular to it have?","एक line का slope 4 है। इसके perpendicular line का slope क्या होगा?"),
+        [
+          ["Perpendicular slopes multiply to −1: 4 × m₂ = −1.","Perpendicular slopes का गुणनफल −1 होता है: 4 × m₂ = −1।","This is the defining rule for perpendicular lines.","यह perpendicular lines की परिभाषित rule है।"],
+          ["m₂ = −1/4.","m₂ = −1/4।","Divide both sides by 4.","दोनों तरफ़ को 4 से divide कीजिए।"]
+        ],
+        b("The perpendicular slope is −1/4.","Perpendicular slope −1/4 है।"))),
+
+    topic("MTH11-9-3",
+      b("3. Angle Between Two Lines","3. दो Lines के बीच का Angle"),
+      b(
+        "Two intersecting lines with slopes $m_1$ and $m_2$ meet at an angle $\\theta$ found from:\n\n$$\\tan\\theta=\\left|\\dfrac{m_2-m_1}{1+m_1m_2}\\right|$$\n\nThe absolute-value bars keep the answer as the smaller, positive angle between the lines.\n\nCheck it against what you already know: if $m_1m_2=-1$ (perpendicular), the denominator becomes $0$, so $\\tan\\theta$ is undefined — exactly matching $\\theta=90°$.",
+        "Slopes $m_1$ और $m_2$ वाली दो काटती हुई lines एक angle $\\theta$ पर मिलती हैं, जो इससे निकलता है:\n\n$$\\tan\\theta=\\left|\\dfrac{m_2-m_1}{1+m_1m_2}\\right|$$\n\nAbsolute-value bars answer को छोटे, positive angle के रूप में रखते हैं।\n\nइसे पहले से जाने हुए के साथ जाँचिए: अगर $m_1m_2=-1$ (perpendicular), denominator $0$ हो जाता है, इसलिए $\\tan\\theta$ undefined है — ठीक $\\theta=90°$ जैसा।"),
+      worked(
+        b("Find the angle between lines with slopes 1 and 0.","Slopes 1 और 0 वाली lines के बीच का angle निकालिए।"),
+        [
+          ["tan θ = |(0−1)/(1+1×0)| = |−1/1| = 1.","tan θ = |(0−1)/(1+1×0)| = |−1/1| = 1।","Substitute m₁=1, m₂=0 into the formula.","Formula में m₁=1, m₂=0 रखिए।"],
+          ["tan θ = 1 means θ = 45°, a standard angle from Chapter 3.","tan θ = 1 का मतलब है θ = 45°, Chapter 3 का standard angle।","This matches the exact trigonometric values you already know.","यह पहले से जाने trigonometric values से मेल खाता है।"]
+        ],
+        b("θ = 45°.","θ = 45°।"))),
+
+    topic("MTH11-9-4",
+      b("4. Point-Slope and Two-Point Forms","4. Point-Slope और Two-Point Forms"),
+      b(
+        "**Point-slope form**: if you know one point $(x_1,y_1)$ on a line and its slope $m$, the equation is immediate.\n\n$$y-y_1=m(x-x_1)$$\n\n**Two-point form**: if you know two points instead, first find the slope, then use it in the point-slope form.\n\n$$y-y_1=\\dfrac{y_2-y_1}{x_2-x_1}(x-x_1)$$\n\nThe two-point form is really just ‘find $m$, then use point-slope’ — one extra step, nothing new to memorise.",
+        "**Point-slope form**: अगर line पर एक point $(x_1,y_1)$ और उसका slope $m$ पता है, तो equation तुरंत मिल जाता है।\n\n$$y-y_1=m(x-x_1)$$\n\n**Two-point form**: अगर दो points पता हैं, तो पहले slope निकालिए, फिर point-slope form में इस्तेमाल कीजिए।\n\n$$y-y_1=\\dfrac{y_2-y_1}{x_2-x_1}(x-x_1)$$\n\nTwo-point form असल में ‘पहले m निकालो, फिर point-slope इस्तेमाल करो’ है — एक extra step, याद करने को कुछ नया नहीं।"),
+      worked(
+        b("Find the equation of the line through (1,−1) and (3,5).","(1,−1) और (3,5) से गुज़रती line का equation निकालिए।"),
+        [
+          ["First find the slope: m = (5−(−1))/(3−1) = 6/2 = 3.","पहले slope निकालिए: m = (5−(−1))/(3−1) = 6/2 = 3।","Two-point form always starts by finding m.","Two-point form हमेशा m निकालने से शुरू होता है।"],
+          ["Use point-slope with (1,−1): y−(−1) = 3(x−1), so y = 3x−4.","(1,−1) के साथ point-slope इस्तेमाल कीजिए: y−(−1) = 3(x−1), इसलिए y = 3x−4।","Simplify by distributing and moving terms.","Distribute करके और terms move करके simplify कीजिए।"]
+        ],
+        b("y = 3x − 4.","y = 3x − 4।"))),
+
+    topic("MTH11-9-5",
+      b("5. Slope-Intercept and Intercept Forms","5. Slope-Intercept और Intercept Forms"),
+      b(
+        "**Slope-intercept form**: the most familiar shape, when you know the slope and where the line crosses the y-axis.\n\n$$y=mx+c$$\n\nHere $m$ is the slope and $c$ is the y-intercept — read straight off the equation, no calculation needed.\n\n**Intercept form**: useful when you know exactly where the line crosses each axis — $a$ on the x-axis, $b$ on the y-axis.\n\n$$\\dfrac{x}{a}+\\dfrac{y}{b}=1$$",
+        "**Slope-intercept form**: सबसे जाना-पहचाना shape, जब slope और line का y-axis पर काटने का point पता हो।\n\n$$y=mx+c$$\n\nयहाँ $m$ slope है और $c$ y-intercept है — equation से सीधे पढ़ लीजिए, कोई calculation नहीं चाहिए।\n\n**Intercept form**: तब काम आता है जब पता हो कि line हर axis को ठीक कहाँ काटती है — x-axis पर $a$, y-axis पर $b$।\n\n$$\\dfrac{x}{a}+\\dfrac{y}{b}=1$$"),
+      worked(
+        b("Find the equation of a line with x-intercept 4 and y-intercept 3.","x-intercept 4 और y-intercept 3 वाली line का equation निकालिए।"),
+        [
+          ["Use the intercept form with a=4, b=3: x/4 + y/3 = 1.","a=4, b=3 के साथ intercept form इस्तेमाल कीजिए: x/4 + y/3 = 1।","Substitute the two given intercepts directly.","दिए गए दोनों intercepts सीधे रखिए।"],
+          ["Multiply through by 12 to clear fractions: 3x + 4y = 12.","Fractions हटाने के लिए 12 से गुणा कीजिए: 3x + 4y = 12।","12 is the smallest number both 4 and 3 divide into evenly.","12 सबसे छोटा number है जिसे 4 और 3 दोनों बराबर बाँटते हैं।"]
+        ],
+        b("3x + 4y = 12.","3x + 4y = 12।"))),
+
+    topic("MTH11-9-6",
+      b("6. General Form and Distance of a Point From a Line","6. General Form और Point से Line की Distance"),
+      b(
+        "Every line, however it started, can be written in one common shape, the **general form**:\n\n$$Ax+By+C=0$$\n\nFrom this form, the slope is $-\\dfrac{A}{B}$.\n\nTo find how far a point $(x_1,y_1)$ sits from a line in general form:\n\n{{diagram:point-to-line-distance}}\n\n$$d=\\dfrac{|Ax_1+By_1+C|}{\\sqrt{A^2+B^2}}$$\n\nThe distance is always measured along the perpendicular — the shortest path from the point to the line.",
+        "हर line को, चाहे वह कहीं से भी शुरू हुई हो, एक साझा shape में लिख सकते हैं, **general form**:\n\n$$Ax+By+C=0$$\n\nइस form से, slope है $-\\dfrac{A}{B}$।\n\nGeneral form वाली line से किसी point $(x_1,y_1)$ की दूरी पाने के लिए:\n\n{{diagram:point-to-line-distance}}\n\n$$d=\\dfrac{|Ax_1+By_1+C|}{\\sqrt{A^2+B^2}}$$\n\nDistance हमेशा perpendicular के साथ नापी जाती है — point से line तक का सबसे छोटा रास्ता।"),
+      worked(
+        b("Find the distance of the point (1,1) from the line 3x + 4y − 12 = 0.","Point (1,1) की line 3x + 4y − 12 = 0 से दूरी निकालिए।"),
+        [
+          ["Identify A=3, B=4, C=−12, and substitute (1,1): |3(1)+4(1)−12|.","A=3, B=4, C=−12 पहचानिए, और (1,1) रखिए: |3(1)+4(1)−12|।","Plug the point straight into Ax+By+C.","Point को सीधे Ax+By+C में रखिए।"],
+          ["|3+4−12| = |−5| = 5. Divide by √(3²+4²) = 5. So d = 5/5 = 1.","|3+4−12| = |−5| = 5। √(3²+4²) = 5 से divide कीजिए। तो d = 5/5 = 1।","The denominator uses A and B only, not C.","Denominator में सिर्फ़ A और B हैं, C नहीं।"]
+        ],
+        b("Distance = 1.","Distance = 1।"))),
+
+    topic("MTH11-9-7",
+      b("7. Distance Between Two Parallel Lines","7. दो Parallel Lines के बीच की Distance"),
+      b(
+        "Two parallel lines share the same $A$ and $B$ (the same slope) but differ in $C$:\n\n$$Ax+By+C_1=0\\qquad Ax+By+C_2=0$$\n\nThe gap between them, measured perpendicular to both, is:\n\n$$d=\\dfrac{|C_1-C_2|}{\\sqrt{A^2+B^2}}$$\n\nThis is really the point-to-line distance formula from the last topic, applied to any point on one line, measured against the other — the $A x_1+By_1$ part always cancels out, leaving just the $C$'s.",
+        "दो parallel lines का $A$ और $B$ एक जैसा होता है (एक जैसा slope), पर $C$ अलग होता है:\n\n$$Ax+By+C_1=0\\qquad Ax+By+C_2=0$$\n\nदोनों के बीच की दूरी, दोनों के perpendicular नापी हुई, है:\n\n$$d=\\dfrac{|C_1-C_2|}{\\sqrt{A^2+B^2}}$$\n\nयह असल में पिछले topic वाला point-to-line distance formula है, एक line पर किसी point पर लगाया गया, दूसरी line के ख़िलाफ़ नापा हुआ — $A x_1+By_1$ वाला हिस्सा हमेशा cancel हो जाता है, बस $C$ बचते हैं।"),
+      worked(
+        b("Find the distance between the parallel lines 3x + 4y − 12 = 0 and 3x + 4y + 8 = 0.","Parallel lines 3x + 4y − 12 = 0 और 3x + 4y + 8 = 0 के बीच की distance निकालिए।"),
+        [
+          ["Identify C₁=−12, C₂=8, and A=3, B=4 (same for both lines).","C₁=−12, C₂=8, और A=3, B=4 पहचानिए (दोनों lines के लिए एक जैसे)।","Both lines must have matching A and B to be parallel.","Parallel होने के लिए दोनों lines का A और B एक जैसा होना चाहिए।"],
+          ["d = |−12−8|/√(3²+4²) = 20/5 = 4.","d = |−12−8|/√(3²+4²) = 20/5 = 4।","Subtract the C's, then divide by the same √(A²+B²) as before.","C को घटाइए, फिर पहले जैसे ही √(A²+B²) से divide कीजिए।"]
+        ],
+        b("Distance = 4.","Distance = 4।")))
+  ];
+
   window.SL_DATA.subjects = (window.SL_DATA.subjects||[]).filter(function(s){ return s.code!=="MATH11"; });
 
   window.SL_DATA.subjects.push({code:"MATH11",board:"CBSE",klass:11,icon:"📐",
@@ -946,7 +1053,18 @@ window.SL_DATA = window.SL_DATA || {subjects:[], questions:[]};
         assessment:["MTH-Q01","MTH-Q03","MTH-Q05","MTH-Q06","MTH-Q09","MTH-Q12","MTH-Q14","MTH-Q17",
           "MTH-Q20","MTH-Q22","MTH-Q25","MTH-Q28","MTH-Q31","MTH-Q34","MTH-Q37","MTH-Q40",
           "MTH-Q43","MTH-Q46","MTH-Q49","MTH-Q52","MTH-Q55","MTH-Q58","MTH-Q62","MTH-Q67"],
-        topics:sequences}
+        topics:sequences},
+      {no:9,name:b("Straight Lines","Straight Lines"),
+        summary:b(
+          "**Straight Lines: what this chapter covers**\n\nDistance and midpoint recap Class 10. A line's slope m=(y2-y1)/(x2-x1) measures steepness — equal slopes mean parallel lines, slopes multiplying to −1 mean perpendicular lines, and the angle between any two lines follows from tan θ. The same line can be written five ways — point-slope, two-point, slope-intercept, intercept, and the general form Ax+By+C=0 — pick whichever form matches what you're given. The distance from a point to a line, and between two parallel lines, both reduce to one formula involving A, B and C.",
+          "**Straight Lines: इस chapter में क्या सीखेंगे**\n\nDistance और midpoint, Class 10 का दोहराव हैं। Line का slope m=(y2-y1)/(x2-x1) ढलान मापता है — बराबर slopes का मतलब parallel lines, −1 पर गुणा होने वाले slopes का मतलब perpendicular lines, और किसी भी दो lines के बीच का angle tan θ से निकलता है। एक ही line को पाँच तरीकों से लिख सकते हैं — point-slope, two-point, slope-intercept, intercept, और general form Ax+By+C=0 — जो भी दिया हो उससे मेल खाता form चुनिए। Point से line की दूरी, और दो parallel lines के बीच की दूरी, दोनों एक ही formula में सिमट जाते हैं, जिसमें A, B और C होते हैं।"),
+        checkpoint:b(
+          "Getting most Warm-up and Standard questions right, across every topic in this chapter, means you are ready to move on. Scoring low? Go back to '0. Revise: The Coordinate Plane, Distance and Midpoint' and redo its example by hand — that is the fastest way forward, not a setback.",
+          "इस chapter के हर topic में ज़्यादातर Warm-up और Standard questions सही होना, मतलब आप आगे बढ़ने के लिए ready हैं। Score कम है? '0. Revise: Coordinate Plane, Distance और Midpoint' पर वापस जाइए और उसका example हाथ से दोबारा कीजिए — यही सबसे तेज़ रास्ता है, हार नहीं।"),
+        assessment:["MTH-L01","MTH-L03","MTH-L05","MTH-L06","MTH-L09","MTH-L12","MTH-L14","MTH-L17",
+          "MTH-L20","MTH-L22","MTH-L25","MTH-L28","MTH-L30","MTH-L33","MTH-L36","MTH-L39",
+          "MTH-L42","MTH-L45","MTH-L48","MTH-L51","MTH-L54","MTH-L58","MTH-L61","MTH-L64"],
+        topics:lines}
     ]});
 
   window.SL_DATA.questions = (window.SL_DATA.questions||[]).filter(function(q){ return q.subject!=="MATH11"; });
@@ -2145,6 +2263,160 @@ window.SL_DATA = window.SL_DATA || {subjects:[], questions:[]};
     ["1023","1024","512","2046"],["1023","1024","512","2046"],"A","1×(2¹⁰−1)/(2−1) = 1023.","1×(2¹⁰−1)/(2−1) = 1023।");
   add("MTH-Q69",8,"MTH11-8-7",5,"Bacteria in a dish triple every hour, starting from 50. Using aₙ=50×3ⁿ⁻¹, how many bacteria are there at hour 4 (n=4)?","एक dish में bacteria हर घंटे तीन गुना होते हैं, 50 से शुरू होकर। aₙ=50×3ⁿ⁻¹ से, घंटे 4 (n=4) पर कितने bacteria हैं?",
     ["1350","4050","450","150"],["1350","4050","450","150"],"A","50×3³ = 50×27 = 1350.","50×3³ = 50×27 = 1350।");
+
+  /* ---- Ch9 Topic 0: Revise (5) ---- */
+  add("MTH-L01",9,"MTH11-9-0",1,"Distance formula between (x1,y1) and (x2,y2) is:","(x1,y1) और (x2,y2) के बीच distance formula है:",
+    ["√((x2−x1)+(y2−y1))","√((x2−x1)²+(y2−y1)²)","(x2−x1)²+(y2−y1)²","(x1+x2)/2"],["√((x2−x1)+(y2−y1))","√((x2−x1)²+(y2−y1)²)","(x2−x1)²+(y2−y1)²","(x1+x2)/2"],"B","Pythagoras' theorem on the coordinate plane.","Coordinate plane पर Pythagoras' theorem।");
+  add("MTH-L02",9,"MTH11-9-0",1,"Midpoint formula for (x1,y1) and (x2,y2) is:","(x1,y1) और (x2,y2) का midpoint formula है:",
+    ["(x1+x2, y1+y2)","((x1+x2)/2, (y1+y2)/2)","(x2−x1, y2−y1)","(x1×x2, y1×y2)"],["(x1+x2, y1+y2)","((x1+x2)/2, (y1+y2)/2)","(x2−x1, y2−y1)","(x1×x2, y1×y2)"],"B","Average the x's and the y's separately.","x को अलग average कीजिए, y को अलग।");
+  add("MTH-L03",9,"MTH11-9-0",1,"Find the distance between (0,0) and (3,4).","(0,0) और (3,4) के बीच की distance निकालिए।",
+    ["5","7","3","4"],["5","7","3","4"],"A","√(9+16) = 5.","√(9+16) = 5।");
+  add("MTH-L04",9,"MTH11-9-0",2,"Find the midpoint of (2,4) and (6,8).","(2,4) और (6,8) का midpoint निकालिए।",
+    ["(4,6)","(8,12)","(2,2)","(3,4)"],["(4,6)","(8,12)","(2,2)","(3,4)"],"A","((2+6)/2, (4+8)/2) = (4,6).","((2+6)/2, (4+8)/2) = (4,6)।");
+  add("MTH-L05",9,"MTH11-9-0",2,"Find the distance between (1,1) and (4,5).","(1,1) और (4,5) के बीच की distance निकालिए।",
+    ["5","4","3","7"],["5","4","3","7"],"A","√(9+16) = 5.","√(9+16) = 5।");
+
+  /* ---- Ch9 Topic 1: Slope of a Line (8) ---- */
+  add("MTH-L06",9,"MTH11-9-1",1,"The slope formula for points (x1,y1) and (x2,y2) is:","(x1,y1) और (x2,y2) points का slope formula है:",
+    ["(y2−y1)/(x2−x1)","(x2−x1)/(y2−y1)","(y2+y1)/(x2+x1)","y2−y1"],["(y2−y1)/(x2−x1)","(x2−x1)/(y2−y1)","(y2+y1)/(x2+x1)","y2−y1"],"A","Change in y over change in x.","x में बदलाव पर y में बदलाव।");
+  add("MTH-L07",9,"MTH11-9-1",1,"A horizontal line has slope:","Horizontal line का slope है:",
+    ["0","1","undefined","negative"],["0","1","undefined","negative"],"A","No rise for any run.","किसी भी run में कोई rise नहीं।");
+  add("MTH-L08",9,"MTH11-9-1",1,"A vertical line has slope:","Vertical line का slope है:",
+    ["0","1","undefined","negative"],["0","1","undefined","negative"],"C","The formula would divide by zero.","Formula 0 से divide करेगा।");
+  add("MTH-L09",9,"MTH11-9-1",2,"Find the slope through (0,0) and (2,6).","(0,0) और (2,6) से गुज़रती line का slope निकालिए।",
+    ["2","3","6","12"],["2","3","6","12"],"B","6/2 = 3.","6/2 = 3।");
+  add("MTH-L10",9,"MTH11-9-1",2,"Find the slope through (2,3) and (5,3).","(2,3) और (5,3) से गुज़रती line का slope निकालिए।",
+    ["0","1","3","undefined"],["0","1","3","undefined"],"A","(3−3)/(5−2) = 0.","(3−3)/(5−2) = 0।");
+  add("MTH-L11",9,"MTH11-9-1",2,"Find the slope through (2,1) and (2,7).","(2,1) और (2,7) से गुज़रती line का slope निकालिए।",
+    ["0","6","undefined","3"],["0","6","undefined","3"],"C","Dividing by (2−2)=0 is not allowed.","(2−2)=0 से divide करना allowed नहीं।");
+  add("MTH-L12",9,"MTH11-9-1",3,"Find the slope through (−1,2) and (3,−6).","(−1,2) और (3,−6) से गुज़रती line का slope निकालिए।",
+    ["−2","2","−4","4"],["−2","2","−4","4"],"A","(−6−2)/(3−(−1)) = −8/4 = −2.","(−6−2)/(3−(−1)) = −8/4 = −2।");
+  add("MTH-L13",9,"MTH11-9-1",3,"A positive slope means the line:","Positive slope का मतलब है line:",
+    ["falls left to right","climbs left to right","is horizontal","is vertical"],["बाएँ से दाएँ गिरती है","बाएँ से दाएँ चढ़ती है","horizontal है","vertical है"],"B","y increases as x increases.","x बढ़ने पर y भी बढ़ता है।");
+
+  /* ---- Ch9 Topic 2: Parallel and Perpendicular Lines (8) ---- */
+  add("MTH-L14",9,"MTH11-9-2",1,"Two lines are parallel when their slopes are:","दो lines parallel होती हैं जब उनके slopes:",
+    ["equal","negative reciprocals","both zero","both undefined"],["बराबर हों","negative reciprocals हों","दोनों zero हों","दोनों undefined हों"],"A","Same steepness, never meeting.","एक जैसी ढलान, कभी नहीं मिलतीं।");
+  add("MTH-L15",9,"MTH11-9-2",1,"Two lines are perpendicular when the product of their slopes is:","दो lines perpendicular होती हैं जब उनके slopes का गुणनफल:",
+    ["0","1","−1","undefined"],["0","1","−1","undefined"],"C","The defining perpendicular condition.","Perpendicular की परिभाषित condition।");
+  add("MTH-L16",9,"MTH11-9-2",1,"A line with slope 3 is parallel to a line with slope:","Slope 3 वाली line, किस slope वाली line के parallel है?",
+    ["3","−3","1/3","−1/3"],["3","−3","1/3","−1/3"],"A","Parallel lines share the same slope.","Parallel lines का slope एक जैसा होता है।");
+  add("MTH-L17",9,"MTH11-9-2",2,"A line with slope 2 is perpendicular to a line with slope:","Slope 2 वाली line, किस slope वाली line के perpendicular है?",
+    ["2","−2","1/2","−1/2"],["2","−2","1/2","−1/2"],"D","2 × (−1/2) = −1.","2 × (−1/2) = −1।");
+  add("MTH-L18",9,"MTH11-9-2",2,"Are lines with slopes 5 and 5 parallel or perpendicular?","Slopes 5 और 5 वाली lines parallel हैं या perpendicular?",
+    ["parallel","perpendicular","neither","both"],["parallel","perpendicular","कोई नहीं","दोनों"],"A","Equal slopes.","बराबर slopes।");
+  add("MTH-L19",9,"MTH11-9-2",2,"Are lines with slopes 3 and −1/3 parallel or perpendicular?","Slopes 3 और −1/3 वाली lines parallel हैं या perpendicular?",
+    ["parallel","perpendicular","neither","both"],["parallel","perpendicular","कोई नहीं","दोनों"],"B","3 × (−1/3) = −1.","3 × (−1/3) = −1।");
+  add("MTH-L20",9,"MTH11-9-2",3,"A line has slope −2/5. Find the slope of a perpendicular line.","एक line का slope −2/5 है। Perpendicular line का slope निकालिए।",
+    ["5/2","−5/2","2/5","−2/5"],["5/2","−5/2","2/5","−2/5"],"A","Flip and negate: −2/5 → 5/2.","पलटिए और negate कीजिए: −2/5 → 5/2।");
+  add("MTH-L21",9,"MTH11-9-2",3,"A line has slope 0 (horizontal). What is the slope of a line perpendicular to it?","एक line का slope 0 है (horizontal)। इसके perpendicular line का slope क्या है?",
+    ["0","1","undefined (vertical)","−1"],["0","1","undefined (vertical)","−1"],"C","A vertical line is perpendicular to a horizontal one.","Vertical line, horizontal line के perpendicular होती है।");
+
+  /* ---- Ch9 Topic 3: Angle Between Two Lines (8) ---- */
+  add("MTH-L22",9,"MTH11-9-3",1,"The formula for the angle between two lines uses which trig function?","दो lines के बीच angle के formula में कौन-सा trig function इस्तेमाल होता है?",
+    ["sin","cos","tan","sec"],["sin","cos","tan","sec"],"C","tan θ = |(m2−m1)/(1+m1m2)|.","tan θ = |(m2−m1)/(1+m1m2)|।");
+  add("MTH-L23",9,"MTH11-9-3",1,"In the angle formula, if m1=m2, what is θ?","Angle formula में, अगर m1=m2, θ क्या है?",
+    ["90°","0°","45°","undefined"],["90°","0°","45°","undefined"],"B","The numerator becomes 0.","Numerator 0 हो जाता है।");
+  add("MTH-L24",9,"MTH11-9-3",2,"Find the angle between lines with slopes 1 and 0.","Slopes 1 और 0 वाली lines के बीच का angle निकालिए।",
+    ["30°","45°","60°","90°"],["30°","45°","60°","90°"],"B","tan θ = |(0−1)/(1+0)| = 1.","tan θ = |(0−1)/(1+0)| = 1।");
+  add("MTH-L25",9,"MTH11-9-3",2,"Find tan θ for lines with slopes 2 and 3.","Slopes 2 और 3 वाली lines का tan θ निकालिए।",
+    ["1/5","1/7","5/7","7"],["1/5","1/7","5/7","7"],"B","|(3−2)/(1+6)| = 1/7.","|(3−2)/(1+6)| = 1/7।");
+  add("MTH-L26",9,"MTH11-9-3",2,"If m1×m2=−1, the angle between the lines is:","अगर m1×m2=−1, lines के बीच का angle है:",
+    ["0°","45°","90°","180°"],["0°","45°","90°","180°"],"C","The perpendicular condition.","Perpendicular की condition।");
+  add("MTH-L27",9,"MTH11-9-3",3,"Find the angle between lines with slopes √3 and 0.","Slopes √3 और 0 वाली lines के बीच का angle निकालिए।",
+    ["30°","45°","60°","90°"],["30°","45°","60°","90°"],"C","tan θ = |(0−√3)/(1+0)| = √3, so θ=60°.","tan θ = |(0−√3)/(1+0)| = √3, इसलिए θ=60°।");
+  add("MTH-L28",9,"MTH11-9-3",3,"Why do the absolute value bars appear in the angle formula?","Angle formula में absolute value bars क्यों हैं?",
+    ["To avoid negative angles","To make the formula longer","They are optional","They change the formula's meaning"],["Negative angles से बचने के लिए","Formula को लम्बा बनाने के लिए","ये optional हैं","ये formula का मतलब बदल देते हैं"],"A","Keeps the smaller, positive angle between the lines.","Lines के बीच का छोटा, positive angle रखता है।");
+  add("MTH-L29",9,"MTH11-9-3",4,"Find the angle between lines with slopes −1 and 0.","Slopes −1 और 0 वाली lines के बीच का angle निकालिए।",
+    ["45°","90°","135°","60°"],["45°","90°","135°","60°"],"A","tan θ = |(0−(−1))/(1+0)| = 1.","tan θ = |(0−(−1))/(1+0)| = 1।");
+
+  /* ---- Ch9 Topic 4: Point-Slope and Two-Point Forms (9) ---- */
+  add("MTH-L30",9,"MTH11-9-4",1,"Point-slope form is:","Point-slope form है:",
+    ["y−y1=m(x−x1)","y=mx+c","x/a+y/b=1","Ax+By+C=0"],["y−y1=m(x−x1)","y=mx+c","x/a+y/b=1","Ax+By+C=0"],"A","One point plus slope, directly.","एक point और slope, सीधे।");
+  add("MTH-L31",9,"MTH11-9-4",1,"In two-point form, the first step is to find the:","Two-point form में, पहला step क्या पाना है?",
+    ["y-intercept","slope","x-intercept","general form"],["y-intercept","slope","x-intercept","general form"],"B","Then apply point-slope with either point.","फिर किसी भी point के साथ point-slope लगाइए।");
+  add("MTH-L32",9,"MTH11-9-4",2,"Find the equation of a line through (2,3) with slope 4.","(2,3) से गुज़रती slope 4 वाली line का equation निकालिए।",
+    ["y=4x−5","y=4x+5","y=4x−11","y=4x+11"],["y=4x−5","y=4x+5","y=4x−11","y=4x+11"],"A","y−3=4(x−2) simplifies to y=4x−5.","y−3=4(x−2), simplify होने पर y=4x−5।");
+  add("MTH-L33",9,"MTH11-9-4",2,"Find the equation of a line through (0,0) with slope 5.","(0,0) से गुज़रती slope 5 वाली line का equation निकालिए।",
+    ["y=5x","y=x+5","y=5","y=x−5"],["y=5x","y=x+5","y=5","y=x−5"],"A","y−0=5(x−0).","y−0=5(x−0)।");
+  add("MTH-L34",9,"MTH11-9-4",2,"Find the slope of the line through (2,5) and (6,13) before writing its equation.","(2,5) और (6,13) से गुज़रती line का equation लिखने से पहले, slope निकालिए।",
+    ["2","4","8","1/2"],["2","4","8","1/2"],"A","(13−5)/(6−2) = 8/4 = 2.","(13−5)/(6−2) = 8/4 = 2।");
+  add("MTH-L35",9,"MTH11-9-4",3,"Find the equation of the line through (2,5) and (6,13).","(2,5) और (6,13) से गुज़रती line का equation निकालिए।",
+    ["y=2x+1","y=2x−1","y=2x+5","y=2x−5"],["y=2x+1","y=2x−1","y=2x+5","y=2x−5"],"A","y−5=2(x−2) simplifies to y=2x+1.","y−5=2(x−2), simplify होने पर y=2x+1।");
+  add("MTH-L36",9,"MTH11-9-4",3,"Find the equation of the line through (−2,0) with slope −3.","(−2,0) से गुज़रती slope −3 वाली line का equation निकालिए।",
+    ["y=−3x−6","y=−3x+6","y=−3x−2","y=−3x+2"],["y=−3x−6","y=−3x+6","y=−3x−2","y=−3x+2"],"A","y−0=−3(x−(−2)) = −3x−6.","y−0=−3(x−(−2)) = −3x−6।");
+  add("MTH-L37",9,"MTH11-9-4",3,"Find the equation of the line through (1,2) and (4,2).","(1,2) और (4,2) से गुज़रती line का equation निकालिए।",
+    ["y=2","x=2","y=2x","y=0"],["y=2","x=2","y=2x","y=0"],"A","Same y-value both points — a horizontal line.","दोनों points का y-value एक जैसा — horizontal line।");
+  add("MTH-L38",9,"MTH11-9-4",4,"Find the equation of the line through (3,−1) and (3,5).","(3,−1) और (3,5) से गुज़रती line का equation निकालिए।",
+    ["x=3","y=3","x=−1","y=5"],["x=3","y=3","x=−1","y=5"],"A","Same x-value both points — a vertical line.","दोनों points का x-value एक जैसा — vertical line।");
+
+  /* ---- Ch9 Topic 5: Slope-Intercept and Intercept Forms (9) ---- */
+  add("MTH-L39",9,"MTH11-9-5",1,"In y=mx+c, c represents the:","y=mx+c में, c क्या है?",
+    ["slope","x-intercept","y-intercept","angle"],["slope","x-intercept","y-intercept","angle"],"C","Where the line crosses the y-axis.","Line जहाँ y-axis को काटती है।");
+  add("MTH-L40",9,"MTH11-9-5",1,"For y=3x+7, the slope is:","y=3x+7 के लिए, slope है:",
+    ["3","7","10","−3"],["3","7","10","−3"],"A","The coefficient of x.","x का coefficient।");
+  add("MTH-L41",9,"MTH11-9-5",1,"For y=3x+7, the y-intercept is:","y=3x+7 के लिए, y-intercept है:",
+    ["3","7","10","−3"],["3","7","10","−3"],"B","The constant term.","Constant term।");
+  add("MTH-L42",9,"MTH11-9-5",2,"The intercept form of a line is:","Line का intercept form है:",
+    ["y=mx+c","x/a+y/b=1","y−y1=m(x−x1)","Ax+By+C=0"],["y=mx+c","x/a+y/b=1","y−y1=m(x−x1)","Ax+By+C=0"],"B","a is the x-intercept, b the y-intercept.","a, x-intercept है, b, y-intercept है।");
+  add("MTH-L43",9,"MTH11-9-5",2,"For a line with x-intercept 5 and y-intercept 2, the intercept form is:","x-intercept 5 और y-intercept 2 वाली line का intercept form है:",
+    ["x/5+y/2=1","x/2+y/5=1","5x+2y=1","x+y=7"],["x/5+y/2=1","x/2+y/5=1","5x+2y=1","x+y=7"],"A","a=5, b=2, substituted directly.","a=5, b=2, सीधे रखे गए।");
+  add("MTH-L44",9,"MTH11-9-5",2,"Find the equation of a line with x-intercept 6 and y-intercept 2.","x-intercept 6 और y-intercept 2 वाली line का equation निकालिए।",
+    ["x+3y=6","x+3y=12","3x+y=6","x+y=8"],["x+3y=6","x+3y=12","3x+y=6","x+y=8"],"A","x/6+y/2=1, multiply by 6: x+3y=6.","x/6+y/2=1, 6 से गुणा: x+3y=6।");
+  add("MTH-L45",9,"MTH11-9-5",3,"A line has equation y=2x−5. What are its slope and y-intercept?","Line का equation y=2x−5 है। इसका slope और y-intercept क्या हैं?",
+    ["slope=2, y-intercept=−5","slope=−5, y-intercept=2","slope=2, y-intercept=5","slope=−2, y-intercept=−5"],["slope=2, y-intercept=−5","slope=−5, y-intercept=2","slope=2, y-intercept=5","slope=−2, y-intercept=−5"],"A","Read m and c straight off the equation.","m और c को equation से सीधे पढ़िए।");
+  add("MTH-L46",9,"MTH11-9-5",3,"Find the equation of a line with x-intercept −2 and y-intercept 4.","x-intercept −2 और y-intercept 4 वाली line का equation निकालिए।",
+    ["2x−y+4=0","2x−y−4=0","2x+y+4=0","x−2y+4=0"],["2x−y+4=0","2x−y−4=0","2x+y+4=0","x−2y+4=0"],"A","x/(−2)+y/4=1 rearranges to 2x−y+4=0.","x/(−2)+y/4=1, फिर से लिखने पर 2x−y+4=0।");
+  add("MTH-L47",9,"MTH11-9-5",4,"Convert y=½x+3 into intercept form.","y=½x+3 को intercept form में बदलिए।",
+    ["x/(−6)+y/3=1","x/6+y/3=1","x/(−6)+y/(−3)=1","x/3+y/6=1"],["x/(−6)+y/3=1","x/6+y/3=1","x/(−6)+y/(−3)=1","x/3+y/6=1"],"A","Rearranging gives x-intercept −6 and y-intercept 3.","फिर से लिखने पर x-intercept −6 और y-intercept 3 मिलते हैं।");
+
+  /* ---- Ch9 Topic 6: General Form and Point-to-Line Distance (10) ---- */
+  add("MTH-L48",9,"MTH11-9-6",1,"The general form of a line's equation is:","Line के equation का general form है:",
+    ["y=mx+c","Ax+By+C=0","x/a+y/b=1","y−y1=m(x−x1)"],["y=mx+c","Ax+By+C=0","x/a+y/b=1","y−y1=m(x−x1)"],"B","Every line can be written this way.","हर line को इस तरह लिखा जा सकता है।");
+  add("MTH-L49",9,"MTH11-9-6",1,"From Ax+By+C=0, the slope is:","Ax+By+C=0 से, slope है:",
+    ["A/B","−A/B","B/A","−B/A"],["A/B","−A/B","B/A","−B/A"],"B","Solve for y to see the slope.","y के लिए हल करके slope देखिए।");
+  add("MTH-L50",9,"MTH11-9-6",1,"Find the slope of the line 2x+3y−6=0.","Line 2x+3y−6=0 का slope निकालिए।",
+    ["2/3","−2/3","3/2","−3/2"],["2/3","−2/3","3/2","−3/2"],"B","−A/B = −2/3.","−A/B = −2/3।");
+  add("MTH-L51",9,"MTH11-9-6",2,"The distance formula from point (x1,y1) to line Ax+By+C=0 is:","Point (x1,y1) से line Ax+By+C=0 तक की distance formula है:",
+    ["|Ax1+By1+C|/√(A²+B²)","(Ax1+By1+C)/(A+B)","√(A²+B²)/(Ax1+By1+C)","|A+B+C|"],["|Ax1+By1+C|/√(A²+B²)","(Ax1+By1+C)/(A+B)","√(A²+B²)/(Ax1+By1+C)","|A+B+C|"],"A","Substitute the point, take absolute value, divide by √(A²+B²).","Point रखिए, absolute value लीजिए, √(A²+B²) से divide कीजिए।");
+  add("MTH-L52",9,"MTH11-9-6",2,"Find the distance of (0,0) from the line 3x+4y−10=0.","(0,0) की line 3x+4y−10=0 से distance निकालिए।",
+    ["2","10","5","1"],["2","10","5","1"],"A","|0+0−10|/5 = 2.","|0+0−10|/5 = 2।");
+  add("MTH-L53",9,"MTH11-9-6",2,"Find the distance of (2,1) from the line 4x+3y−11=0.","(2,1) की line 4x+3y−11=0 से distance निकालिए।",
+    ["0","1","2","5"],["0","1","2","5"],"A","|8+3−11|/5 = 0/5 = 0 — the point lies on the line.","|8+3−11|/5 = 0/5 = 0 — point line पर है।");
+  add("MTH-L54",9,"MTH11-9-6",3,"Find the distance of (1,1) from the line 3x+4y−12=0.","(1,1) की line 3x+4y−12=0 से distance निकालिए।",
+    ["1","5","12","0"],["1","5","12","0"],"A","|3+4−12|/5 = 5/5 = 1.","|3+4−12|/5 = 5/5 = 1।");
+  add("MTH-L55",9,"MTH11-9-6",3,"Why is the numerator of the distance formula an absolute value?","Distance formula के numerator में absolute value क्यों है?",
+    ["To ensure distance is never negative","To make the formula longer","It changes the line's slope","There is no reason"],["ताकि distance कभी negative न हो","Formula को लम्बा बनाने के लिए","यह line का slope बदल देता है","कोई reason नहीं"],"A","A distance should always be 0 or positive.","Distance हमेशा 0 या positive होनी चाहिए।");
+  add("MTH-L56",9,"MTH11-9-6",4,"Find the distance of (0,0) from the line 5x+12y−13=0.","(0,0) की line 5x+12y−13=0 से distance निकालिए।",
+    ["1","13","5","12"],["1","13","5","12"],"A","|0+0−13|/√(25+144) = 13/13 = 1.","|0+0−13|/√(25+144) = 13/13 = 1।");
+  add("MTH-L57",9,"MTH11-9-6",4,"A point lies exactly ON a line if its distance from the line is:","एक point line पर ठीक तभी है जब उसकी line से distance है:",
+    ["1","0","undefined","negative"],["1","0","undefined","negative"],"B","Zero distance means no gap at all.","Zero distance का मतलब है कोई gap नहीं।");
+
+  /* ---- Ch9 Topic 7: Distance Between Two Parallel Lines (12) ---- */
+  add("MTH-L58",9,"MTH11-9-7",2,"Two parallel lines in general form share the same:","General form में दो parallel lines का एक जैसा क्या होता है?",
+    ["C value","A and B values","y-intercept","x-intercept"],["C value","A और B values","y-intercept","x-intercept"],"B","Same slope means matching A and B.","एक जैसा slope मतलब मिलते A और B।");
+  add("MTH-L59",9,"MTH11-9-7",2,"The formula for distance between parallel lines Ax+By+C1=0 and Ax+By+C2=0 is:","Parallel lines Ax+By+C1=0 और Ax+By+C2=0 के बीच distance का formula है:",
+    ["|C1−C2|/√(A²+B²)","|C1+C2|/√(A²+B²)","(C1−C2)/(A−B)","√(C1²+C2²)"],["|C1−C2|/√(A²+B²)","|C1+C2|/√(A²+B²)","(C1−C2)/(A−B)","√(C1²+C2²)"],"A","Only the C's differ, so only they matter here.","सिर्फ़ C अलग हैं, इसलिए यहाँ सिर्फ़ वही मायने रखते हैं।");
+  add("MTH-L60",9,"MTH11-9-7",2,"Find the distance between 2x+3y+1=0 and 2x+3y+11=0.","2x+3y+1=0 और 2x+3y+11=0 के बीच की distance निकालिए।",
+    ["10/√13","12/√13","10","2"],["10/√13","12/√13","10","2"],"A","|1−11|/√(4+9) = 10/√13.","|1−11|/√(4+9) = 10/√13।");
+  add("MTH-L61",9,"MTH11-9-7",3,"Find the distance between 3x+4y−12=0 and 3x+4y+8=0.","3x+4y−12=0 और 3x+4y+8=0 के बीच की distance निकालिए।",
+    ["4","20","5","1"],["4","20","5","1"],"A","|−12−8|/5 = 20/5 = 4.","|−12−8|/5 = 20/5 = 4।");
+  add("MTH-L62",9,"MTH11-9-7",3,"Find the distance between x+y−5=0 and x+y−9=0.","x+y−5=0 और x+y−9=0 के बीच की distance निकालिए।",
+    ["4/√2","4","2√2","8"],["4/√2","4","2√2","8"],"C","|−5−(−9)|/√2 = 4/√2 = 2√2.","|−5−(−9)|/√2 = 4/√2 = 2√2।");
+  add("MTH-L63",9,"MTH11-9-7",3,"Are the lines 2x+5y−3=0 and 2x+5y+7=0 parallel?","क्या lines 2x+5y−3=0 और 2x+5y+7=0 parallel हैं?",
+    ["Yes, same A and B","No, different A and B","Cannot tell","Only if C matches"],["हाँ, एक जैसे A और B","नहीं, अलग A और B","कह नहीं सकते","सिर्फ़ C मिले तो"],"A","Matching A and B means matching slope.","मिलते A और B मतलब मिलता slope।");
+  add("MTH-L64",9,"MTH11-9-7",4,"Find the distance between 6x+8y−4=0 and 3x+4y+6=0. (Hint: match the coefficients first.)","6x+8y−4=0 और 3x+4y+6=0 के बीच की distance निकालिए। (संकेत: पहले coefficients मिलाइए।)",
+    ["Divide the first by 2 to get 3x+4y−2=0, then distance = |−2−6|/5 = 8/5","They cannot be compared","distance = |−4−6|/10","distance = 2"],["पहले को 2 से divide करके 3x+4y−2=0 पाइए, फिर distance = |−2−6|/5 = 8/5","इन्हें compare नहीं कर सकते","distance = |−4−6|/10","distance = 2"],"A","Halving the first equation makes A,B match the second.","पहले equation को आधा करने पर A,B दूसरे से मेल खाते हैं।");
+  add("MTH-L65",9,"MTH11-9-7",4,"Using the simplified forms from the previous question, compute the distance.","पिछले question के simplified forms से, distance निकालिए।",
+    ["8/5","4/5","10/5","2"],["8/5","4/5","10/5","2"],"A","|−2−6|/5 = 8/5.","|−2−6|/5 = 8/5।");
+  add("MTH-L66",9,"MTH11-9-7",4,"If two lines have different A:B ratios, are they parallel?","अगर दो lines के A:B ratios अलग हैं, क्या वे parallel हैं?",
+    ["Yes, always","No, they must intersect somewhere","Only sometimes","Cannot tell"],["हाँ, हमेशा","नहीं, वे कहीं न कहीं ज़रूर काटेंगी","सिर्फ़ कभी-कभी","कह नहीं सकते"],"B","Different slopes mean they are not parallel, so they meet.","अलग slopes का मतलब है वे parallel नहीं, इसलिए मिलती हैं।");
+  add("MTH-L67",9,"MTH11-9-7",5,"Find the distance between the parallel lines x+2y−3=0 and x+2y+7=0.","Parallel lines x+2y−3=0 और x+2y+7=0 के बीच की distance निकालिए।",
+    ["10/√5","2√5","10","5"],["10/√5","2√5","10","5"],"B","|−3−7|/√5 = 10/√5 = 2√5.","|−3−7|/√5 = 10/√5 = 2√5।");
+  add("MTH-L68",9,"MTH11-9-7",5,"A road is given by 3x+4y−15=0. Its parallel road is 4 units away, with a more negative C than −15. Find its equation.","एक road 3x+4y−15=0 है। इसकी parallel road 4 units दूर है, जिसका C, −15 से ज़्यादा negative है। इसका equation निकालिए।",
+    ["3x+4y+5=0","3x+4y−35=0","3x+4y−15=0","3x+4y+35=0"],["3x+4y+5=0","3x+4y−35=0","3x+4y−15=0","3x+4y+35=0"],"B","|−15−C|=20 gives C=5 or C=−35; the more negative option is −35.","|−15−C|=20 से C=5 या C=−35 मिलता है; ज़्यादा negative option −35 है।");
+  add("MTH-L69",9,"MTH11-9-7",5,"Verify: find the distance between 3x+4y−15=0 and 3x+4y−35=0.","जाँचिए: 3x+4y−15=0 और 3x+4y−35=0 के बीच की distance निकालिए।",
+    ["4","8","20","1"],["4","8","20","1"],"A","|−15−(−35)|/5 = 20/5 = 4.","|−15−(−35)|/5 = 20/5 = 4।");
 
   window.SL_DATA.questions = window.SL_DATA.questions.concat(Q);
 })();
