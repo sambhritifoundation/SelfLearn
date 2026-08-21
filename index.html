@@ -4806,6 +4806,31 @@ var DIAGRAMS = {
       +'</svg>';
   },
 
+  "3d-coordinate-plot": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 460 300" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="230" y="18" text-anchor="middle" font-size="16" font-weight="bold" fill="var(--primary)">'+d("Plotting P(3,4,2): walk x, then y, then z","P(3,4,2) plot करना: पहले x, फिर y, फिर z")+'</text>'
+      +'<line x1="200" y1="220" x2="75" y2="280" stroke="var(--ink)" stroke-width="2"/>'
+      +'<path d="M 70,268 L 75,280 L 87,277" fill="none" stroke="var(--ink)" stroke-width="1.5"/>'
+      +'<text x="62" y="290" font-size="14" font-weight="bold" fill="var(--ink)">x</text>'
+      +'<line x1="200" y1="220" x2="410" y2="220" stroke="var(--ink)" stroke-width="2"/>'
+      +'<path d="M 398,213 L 410,220 L 398,227" fill="none" stroke="var(--ink)" stroke-width="1.5"/>'
+      +'<text x="420" y="225" font-size="14" font-weight="bold" fill="var(--ink)">y</text>'
+      +'<line x1="200" y1="220" x2="200" y2="100" stroke="var(--ink)" stroke-width="2"/>'
+      +'<path d="M 193,112 L 200,100 L 207,112" fill="none" stroke="var(--ink)" stroke-width="1.5"/>'
+      +'<text x="208" y="95" font-size="14" font-weight="bold" fill="var(--ink)">z</text>'
+      +'<text x="185" y="235" font-size="13" fill="var(--muted)">O</text>'
+      +'<line x1="200" y1="220" x2="125" y2="256" stroke="var(--primary)" stroke-width="2.5" stroke-dasharray="4,3"/>'
+      +'<text x="140" y="250" font-size="12.5" fill="var(--primary)">x=3</text>'
+      +'<line x1="125" y1="256" x2="265" y2="256" stroke="var(--teal)" stroke-width="2.5" stroke-dasharray="4,3"/>'
+      +'<text x="175" y="272" font-size="12.5" fill="var(--teal)">y=4</text>'
+      +'<line x1="265" y1="256" x2="265" y2="196" stroke="var(--accent)" stroke-width="2.5" stroke-dasharray="4,3"/>'
+      +'<text x="272" y="228" font-size="12.5" fill="var(--accent)">z=2</text>'
+      +'<circle cx="265" cy="196" r="6" fill="var(--red)"/>'
+      +'<text x="275" y="192" font-size="14" font-weight="bold" fill="var(--red)">P(3,4,2)</text>'
+      +'</svg>';
+  },
+
 };
 
 /* Interactive widgets: sliders students can move to feel the relationship. */

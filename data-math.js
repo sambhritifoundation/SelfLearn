@@ -1065,6 +1065,87 @@ window.SL_DATA = window.SL_DATA || {subjects:[], questions:[]};
         b("a=4, b=3, c=5, e=1.25.","a=4, b=3, c=5, e=1.25।")))
   ];
 
+  var geo3d=[
+
+    topic("MTH11-11-0",
+      b("0. Revise: From 2D to 3D — What Changes","0. दोहराइए: 2D से 3D — क्या बदलता है"),
+      b(
+        "On a flat page, two perpendicular axes ($x$ and $y$) are enough to name any point — $(x,y)$.\n\nA room is not flat. To name a spot in the room — say, a fly buzzing in mid-air — you also need to know how high it is. One more perpendicular axis, $z$, does that job.\n\n$$\\text{2D: }(x,y)\\qquad\\text{3D: }(x,y,z)$$\n\nEverything you already know about 2D distance carries forward — you will simply add one more squared term for the new axis.",
+        "एक flat page पर, दो perpendicular axes ($x$ और $y$) किसी भी point को नाम देने के लिए काफ़ी हैं — $(x,y)$।\n\nएक कमरा flat नहीं होता। कमरे में किसी जगह को नाम देने के लिए — जैसे हवा में भिनभिनाती एक मक्खी — यह भी जानना पड़ता है कि वह कितनी ऊँची है। एक और perpendicular axis, $z$, यही काम करता है।\n\n$$\\text{2D: }(x,y)\\qquad\\text{3D: }(x,y,z)$$\n\n2D distance के बारे में जो कुछ आप पहले से जानते हैं, वह आगे भी काम आता है — बस नए axis के लिए एक और squared term जुड़ जाता है।"),
+      worked(
+        b("Recall: find the 2D distance between (0,0) and (3,4).","याद कीजिए: (0,0) और (3,4) के बीच 2D distance निकालिए।"),
+        [
+          ["Use √((x2−x1)² + (y2−y1)²) = √(3² + 4²).","√((x2−x1)² + (y2−y1)²) = √(3² + 4²) इस्तेमाल कीजिए।","This is the Class 10 distance formula, in two dimensions.","यह Class 10 का distance formula है, दो dimensions में।"],
+          ["√(9+16) = √25 = 5.","√(9+16) = √25 = 5।","A clean, familiar answer — the classic 3-4-5 triangle.","एक साफ़, जाना-पहचाना answer — classic 3-4-5 triangle।"]
+        ],
+        b("Distance = 5.","Distance = 5।"))),
+
+    topic("MTH11-11-1",
+      b("1. The Three Coordinate Axes and Octants","1. तीन Coordinate Axes और Octants"),
+      b(
+        "Take three planes, all meeting at one point and all mutually perpendicular — like the corner where two walls meet the floor of a room. These give three axes: $x$, $y$ and $z$, crossing at the **origin** $O=(0,0,0)$.\n\nJust as two perpendicular axes split a flat page into 4 quadrants, three perpendicular planes split all of space into **8 octants**. Each octant is identified by the sign pattern of $(x,y,z)$ — for example, octant I is $(+,+,+)$, and octant VII is $(-,-,-)$.\n\nRead the signs straight off the coordinates to name the octant — no picture needed once you know the pattern.",
+        "तीन planes लीजिए, सब एक point पर मिलते हुए और सब आपस में perpendicular — जैसे कमरे का वह कोना जहाँ दो दीवारें फ़र्श से मिलती हैं। ये तीन axes देते हैं: $x$, $y$ और $z$, जो **origin** $O=(0,0,0)$ पर काटते हैं।\n\nजैसे दो perpendicular axes एक flat page को 4 quadrants में बाँटते हैं, वैसे ही तीन perpendicular planes पूरे space को **8 octants** में बाँटते हैं। हर octant, $(x,y,z)$ के sign pattern से पहचाना जाता है — जैसे, octant I है $(+,+,+)$, और octant VII है $(-,-,-)$।\n\nOctant का नाम जानने के लिए coordinates से signs सीधे पढ़िए — एक बार pattern पता होने पर picture की ज़रूरत नहीं।"),
+      worked(
+        b("Find the octant in which the point (−3,1,2) lies.","Point (−3,1,2) किस octant में है, निकालिए।"),
+        [
+          ["Read the signs: x is negative, y is positive, z is positive.","Signs पढ़िए: x negative है, y positive है, z positive है।","Just look at each coordinate's sign, one at a time.","हर coordinate का sign एक-एक करके देखिए।"],
+          ["The pattern (−,+,+) matches octant II.","Pattern (−,+,+), octant II से मेल खाता है।","Match the sign pattern against the standard octant table.","Sign pattern को standard octant table से मिलाइए।"]
+        ],
+        b("Octant II.","Octant II।"))),
+
+    topic("MTH11-11-2",
+      b("2. Plotting a Point in 3D Space","2. 3D Space में एक Point Plot करना"),
+      b(
+        "To locate $P(x,y,z)$: start at the origin, walk a distance $x$ along the x-axis, then $y$ parallel to the y-axis, then $z$ parallel to the z-axis (upward if positive, downward if negative).\n\n{{diagram:3d-coordinate-plot}}\n\nA few landmarks are worth knowing by heart: the origin is $(0,0,0)$; any point on the x-axis looks like $(x,0,0)$; any point in the YZ-plane looks like $(0,y,z)$ — the coordinate for whichever axis or plane you are ON becomes zero for what you are NOT on.",
+        "$P(x,y,z)$ का पता लगाने के लिए: origin से शुरू कीजिए, x-axis के साथ दूरी $x$ चलिए, फिर y-axis के समानांतर $y$, फिर z-axis के समानांतर $z$ (positive हो तो ऊपर, negative हो तो नीचे)।\n\n{{diagram:3d-coordinate-plot}}\n\nकुछ landmarks याद रखने लायक हैं: origin है $(0,0,0)$; x-axis पर किसी भी point का रूप है $(x,0,0)$; YZ-plane में किसी भी point का रूप है $(0,y,z)$ — जिस axis या plane पर आप हैं, उसके लिए जो नहीं हैं उसका coordinate शून्य हो जाता है।"),
+      worked(
+        b("A point P(2,4,5) is plotted, and F is directly below P on the XZ-plane (y=0). Find F's coordinates.","Point P(2,4,5) plot किया गया है, और F, P के ठीक नीचे XZ-plane (y=0) पर है। F के coordinates निकालिए।"),
+        [
+          ["F lies on the XZ-plane, so its y-coordinate must be 0.","F, XZ-plane पर है, इसलिए इसका y-coordinate 0 होना चाहिए।","Any point on the XZ-plane has y=0, by definition.","परिभाषा से, XZ-plane पर किसी भी point का y=0 होता है।"],
+          ["Keep P's x and z the same: F = (2,0,5).","P के x और z वही रखिए: F = (2,0,5)।","Only the y-coordinate changes to reach the plane.","Plane तक पहुँचने के लिए सिर्फ़ y-coordinate बदलता है।"]
+        ],
+        b("F = (2,0,5).","F = (2,0,5)।"))),
+
+    topic("MTH11-11-3",
+      b("3. Distance Between Two Points in 3D","3. 3D में दो Points के बीच की Distance"),
+      b(
+        "The 2D distance formula gains exactly one term — for the new $z$-axis.\n\n$$PQ=\\sqrt{(x_2-x_1)^2+(y_2-y_1)^2+(z_2-z_1)^2}$$\n\nIf one point is the origin, this simplifies further:\n\n$$OQ=\\sqrt{x_2^2+y_2^2+z_2^2}$$\n\nEverything else works exactly as it did in Chapter 9 — substitute, square, add, take the square root.",
+        "2D distance formula में ठीक एक term बढ़ जाता है — नए $z$-axis के लिए।\n\n$$PQ=\\sqrt{(x_2-x_1)^2+(y_2-y_1)^2+(z_2-z_1)^2}$$\n\nअगर एक point origin है, तो यह और सरल हो जाता है:\n\n$$OQ=\\sqrt{x_2^2+y_2^2+z_2^2}$$\n\nबाक़ी सब कुछ ठीक वैसे ही काम करता है जैसे Chapter 9 में था — रखिए, square कीजिए, जोड़िए, square root लीजिए।"),
+      worked(
+        b("Find the distance between P(1,−3,4) and Q(−4,1,2).","P(1,−3,4) और Q(−4,1,2) के बीच की distance निकालिए।"),
+        [
+          ["PQ² = (−4−1)² + (1−(−3))² + (2−4)² = 25 + 16 + 4.","PQ² = (−4−1)² + (1−(−3))² + (2−4)² = 25 + 16 + 4।","Substitute each pair of coordinates carefully, keeping the signs straight.","हर coordinates की जोड़ी ध्यान से रखिए, signs सही रखते हुए।"],
+          ["PQ = √45 = 3√5 units.","PQ = √45 = 3√5 units।","45 = 9×5, and √9=3 comes out of the root.","45 = 9×5, और √9=3 root से बाहर आता है।"]
+        ],
+        b("PQ = 3√5 units.","PQ = 3√5 units।"))),
+
+    topic("MTH11-11-4",
+      b("4. Using Distance: Checking Collinearity","4. Distance का इस्तेमाल: Collinearity जाँचना"),
+      b(
+        "Three points are **collinear** if they all lie on one straight line. The distance formula gives an easy test: find all three pairwise distances, and check whether the two shorter ones add up exactly to the longest.\n\n$$PQ+QR=PR\\ \\Rightarrow\\ P,Q,R\\text{ are collinear}$$\n\nThis works because on a straight line, the middle point splits the total distance into two pieces that add back to the whole — off a straight line, that never happens exactly.",
+        "तीन points **collinear** हैं अगर वे सब एक सीधी line पर हों। Distance formula एक आसान test देता है: तीनों जोड़ीदार distances निकालिए, और जाँचिए कि दो छोटी दूरियाँ मिलकर ठीक सबसे लम्बी के बराबर होती हैं या नहीं।\n\n$$PQ+QR=PR\\ \\Rightarrow\\ P,Q,R\\text{ collinear हैं}$$\n\nयह इसलिए काम करता है क्योंकि सीधी line पर, बीच वाला point कुल दूरी को दो हिस्सों में बाँटता है जो वापस जुड़कर पूरी दूरी बनाते हैं — सीधी line से बाहर, यह कभी बिल्कुल सही नहीं बैठता।"),
+      worked(
+        b("Are the points P(−2,3,5), Q(1,2,3) and R(7,0,−1) collinear?","क्या points P(−2,3,5), Q(1,2,3) और R(7,0,−1) collinear हैं?"),
+        [
+          ["Find all three distances: PQ=√14, QR=2√14, PR=3√14.","तीनों distances निकालिए: PQ=√14, QR=2√14, PR=3√14।","Apply the distance formula to each pair of points.","Points की हर जोड़ी पर distance formula लगाइए।"],
+          ["Check: PQ+QR = √14+2√14 = 3√14 = PR. The test holds.","जाँचिए: PQ+QR = √14+2√14 = 3√14 = PR। Test सही बैठता है।","The two shorter distances add exactly to the longest.","दो छोटी दूरियाँ मिलकर ठीक सबसे लम्बी के बराबर हैं।"]
+        ],
+        b("Yes, the points are collinear.","हाँ, points collinear हैं।"))),
+
+    topic("MTH11-11-5",
+      b("5. Using Distance: Right Triangles and Other Shapes","5. Distance का इस्तेमाल: Right Triangles और बाक़ी Shapes"),
+      b(
+        "The distance formula also tests the shape of a triangle formed by three points — without drawing anything.\n\nFor a **right-angled triangle**, check whether the Pythagoras relationship holds among the three squared side lengths:\n\n$$\\text{(shortest side)}^2+\\text{(next side)}^2=\\text{(longest side)}^2$$\n\nIf it holds exactly, the triangle has a right angle. If not, it doesn't — no protractor needed, just arithmetic.",
+        "Distance formula, तीन points से बने triangle का shape भी जाँचता है — कुछ बनाए बिना।\n\n**Right-angled triangle** के लिए, जाँचिए कि तीनों squared side lengths के बीच Pythagoras वाला संबंध सही बैठता है या नहीं:\n\n$$\\text{(सबसे छोटी side)}^2+\\text{(अगली side)}^2=\\text{(सबसे लम्बी side)}^2$$\n\nअगर यह ठीक-ठीक सही बैठे, triangle में right angle है। अगर नहीं, तो नहीं — किसी protractor की ज़रूरत नहीं, बस arithmetic।"),
+      worked(
+        b("Are A(3,6,9), B(10,20,30) and C(25,−41,5) the vertices of a right-angled triangle?","क्या A(3,6,9), B(10,20,30) और C(25,−41,5), एक right-angled triangle के vertices हैं?"),
+        [
+          ["Find all three squared distances: AB²=686, BC²=4571, CA²=2709.","तीनों squared distances निकालिए: AB²=686, BC²=4571, CA²=2709।","Squaring first avoids messy square roots until the very end.","पहले square करने से आख़िर तक गड़बड़ square roots से बचते हैं।"],
+          ["Check the largest against the sum of the other two: 686+2709=3395, but BC²=4571. They don't match.","सबसे बड़े को बाक़ी दो के योग से जाँचिए: 686+2709=3395, पर BC²=4571। ये मेल नहीं खाते।","If the Pythagoras relationship fails, there is no right angle.","अगर Pythagoras वाला संबंध सही न बैठे, कोई right angle नहीं है।"]
+        ],
+        b("No, it is not a right-angled triangle.","नहीं, यह right-angled triangle नहीं है।")))
+  ];
+
   window.SL_DATA.subjects = (window.SL_DATA.subjects||[]).filter(function(s){ return s.code!=="MATH11"; });
 
   window.SL_DATA.subjects.push({code:"MATH11",board:"CBSE",klass:11,icon:"📐",
@@ -1182,7 +1263,18 @@ window.SL_DATA = window.SL_DATA || {subjects:[], questions:[]};
         assessment:["MTH-K01","MTH-K03","MTH-K05","MTH-K06","MTH-K09","MTH-K12","MTH-K14","MTH-K17",
           "MTH-K20","MTH-K22","MTH-K25","MTH-K28","MTH-K31","MTH-K34","MTH-K37","MTH-K40",
           "MTH-K43","MTH-K46","MTH-K49","MTH-K52","MTH-K55","MTH-K58","MTH-K62","MTH-K65"],
-        topics:conics}
+        topics:conics},
+      {no:11,name:b("Introduction to Three Dimensional Geometry","3D Geometry का परिचय"),
+        summary:b(
+          "**Introduction to 3D Geometry: what this chapter covers**\n\nA third perpendicular axis, z, extends 2D coordinates (x,y) into 3D coordinates (x,y,z). Three coordinate planes divide space into 8 octants, identified by the sign pattern of the coordinates. Plotting a point means walking along x, then y, then z from the origin. The distance formula gains one more squared term for z: PQ=√((x2-x1)²+(y2-y1)²+(z2-z1)²). That one formula tests collinearity (do the shorter distances add to the longest?) and right angles (does the Pythagoras relationship hold among the squared sides?) without drawing anything.",
+          "**3D Geometry का परिचय: इस chapter में क्या सीखेंगे**\n\nएक तीसरा perpendicular axis, z, 2D coordinates (x,y) को 3D coordinates (x,y,z) में फैलाता है। तीन coordinate planes space को 8 octants में बाँटते हैं, जो coordinates के sign pattern से पहचाने जाते हैं। एक point plot करने का मतलब है origin से x, फिर y, फिर z के साथ चलना। Distance formula में z के लिए एक और squared term जुड़ जाता है: PQ=√((x2-x1)²+(y2-y1)²+(z2-z1)²)। यही एक formula collinearity जाँचता है (क्या छोटी दूरियाँ मिलकर सबसे लम्बी बनती हैं?) और right angles जाँचता है (क्या squared sides के बीच Pythagoras वाला संबंध सही बैठता है?), कुछ बनाए बिना।"),
+        checkpoint:b(
+          "Getting most Warm-up and Standard questions right, across every topic in this chapter, means you are ready to move on. Scoring low? Go back to '0. Revise: From 2D to 3D — What Changes' and redo its example by hand — that is the fastest way forward, not a setback.",
+          "इस chapter के हर topic में ज़्यादातर Warm-up और Standard questions सही होना, मतलब आप आगे बढ़ने के लिए ready हैं। Score कम है? '0. Revise: 2D से 3D — क्या बदलता है' पर वापस जाइए और उसका example हाथ से दोबारा कीजिए — यही सबसे तेज़ रास्ता है, हार नहीं।"),
+        assessment:["MTH-D01","MTH-D03","MTH-D05","MTH-D07","MTH-D09","MTH-D11","MTH-D13","MTH-D15",
+          "MTH-D17","MTH-D19","MTH-D21","MTH-D23","MTH-D25","MTH-D27","MTH-D29","MTH-D31",
+          "MTH-D33","MTH-D35","MTH-D37","MTH-D39","MTH-D41","MTH-D43","MTH-D45","MTH-D47"],
+        topics:geo3d}
     ]});
 
   window.SL_DATA.questions = (window.SL_DATA.questions||[]).filter(function(q){ return q.subject!=="MATH11"; });
@@ -2689,6 +2781,114 @@ window.SL_DATA = window.SL_DATA || {subjects:[], questions:[]};
     ["e=c/a in both","c²=a²−b² in both","c²=a²+b² in both","both have e<1"],["दोनों में e=c/a","दोनों में c²=a²−b²","दोनों में c²=a²+b²","दोनों में e<1"],"A","Only the eccentricity formula's shape is shared; the c-relation differs.","सिर्फ़ eccentricity formula का shape साझा है; c का संबंध अलग है।");
   add("MTH-K69",10,"MTH11-10-7",5,"A hyperbola has foci (±5,0) and a=3. Find b and the equation.","Hyperbola के foci (±5,0) हैं और a=3 है। b और equation निकालिए।",
     ["b=4, x²/9−y²/16=1","b=4, x²/16−y²/9=1","b=16, x²/9−y²/256=1","b=4, x²/9+y²/16=1"],["b=4, x²/9−y²/16=1","b=4, x²/16−y²/9=1","b=16, x²/9−y²/256=1","b=4, x²/9+y²/16=1"],"A","c=5, a=3, b²=25−9=16, so b=4.","c=5, a=3, b²=25−9=16, इसलिए b=4।");
+
+  /* ---- Ch11 Topic 0: Revise (8) ---- */
+  add("MTH-D01",11,"MTH11-11-0",1,"In 2D, a point is named by how many coordinates?","2D में, एक point कितने coordinates से नाम पाता है?",
+    ["1","2","3","4"],["1","2","3","4"],"B","x and y.","x और y।");
+  add("MTH-D02",11,"MTH11-11-0",1,"In 3D, a point is named by how many coordinates?","3D में, एक point कितने coordinates से नाम पाता है?",
+    ["1","2","3","4"],["1","2","3","4"],"C","x, y and z.","x, y और z।");
+  add("MTH-D03",11,"MTH11-11-0",1,"The new axis added when moving from 2D to 3D is called the:","2D से 3D जाने पर जो नया axis जुड़ता है उसे क्या कहते हैं?",
+    ["x-axis","y-axis","z-axis","w-axis"],["x-axis","y-axis","z-axis","w-axis"],"C","The z-axis captures height.","z-axis ऊँचाई पकड़ता है।");
+  add("MTH-D04",11,"MTH11-11-0",2,"Find the 2D distance between (0,0) and (6,8).","(0,0) और (6,8) के बीच 2D distance निकालिए।",
+    ["10","14","48","100"],["10","14","48","100"],"A","√(36+64) = 10.","√(36+64) = 10।");
+  add("MTH-D05",11,"MTH11-11-0",2,"Find the 2D distance between (1,1) and (4,5).","(1,1) और (4,5) के बीच 2D distance निकालिए।",
+    ["5","4","3","7"],["5","4","3","7"],"A","√(9+16) = 5.","√(9+16) = 5।");
+  add("MTH-D06",11,"MTH11-11-0",2,"The z-coordinate typically represents:","z-coordinate आम तौर पर क्या दिखाता है?",
+    ["left-right position","height above or below a plane","an angle","a colour"],["बाएँ-दाएँ position","किसी plane से ऊपर या नीचे की ऊँचाई","एक angle","एक रंग"],"B","The third, out-of-plane direction.","तीसरी, plane से बाहर वाली दिशा।");
+  add("MTH-D07",11,"MTH11-11-0",3,"Find the 2D distance between (2,3) and (2,7).","(2,3) और (2,7) के बीच 2D distance निकालिए।",
+    ["4","0","7","3"],["4","0","7","3"],"A","√(0+16) = 4.","√(0+16) = 4।");
+  add("MTH-D08",11,"MTH11-11-0",3,"Why does the 3D distance formula have one more term than the 2D formula?","3D distance formula में 2D formula से एक term ज़्यादा क्यों है?",
+    ["For no real reason","Because there is one more coordinate axis to account for","Because 3D points are bigger","It doesn't have an extra term"],["कोई असली reason नहीं","क्योंकि एक और coordinate axis का हिसाब रखना है","क्योंकि 3D points बड़े होते हैं","इसमें कोई extra term नहीं है"],"B","One new axis, one new squared term.","एक नया axis, एक नया squared term।");
+
+  /* ---- Ch11 Topic 1: Axes and Octants (8) ---- */
+  add("MTH-D09",11,"MTH11-11-1",1,"How many mutually perpendicular axes does 3D space use?","3D space कितने आपस में perpendicular axes इस्तेमाल करता है?",
+    ["1","2","3","4"],["1","2","3","4"],"C","x, y and z.","x, y और z।");
+  add("MTH-D10",11,"MTH11-11-1",1,"The point where all three axes meet is called the:","जहाँ तीनों axes मिलते हैं उसे क्या कहते हैं?",
+    ["vertex","origin","centre","focus"],["vertex","origin","centre","focus"],"B","The starting point of the whole system.","पूरे system का शुरुआती point।");
+  add("MTH-D11",11,"MTH11-11-1",1,"The coordinates of the origin are:","Origin के coordinates हैं:",
+    ["(1,1,1)","(0,0,0)","(0,0)","undefined"],["(1,1,1)","(0,0,0)","(0,0)","undefined"],"B","All three axes read zero there.","वहाँ तीनों axes पर 0 है।");
+  add("MTH-D12",11,"MTH11-11-1",2,"3D space is divided into how many octants?","3D space कितने octants में बँटा है?",
+    ["4","6","8","12"],["4","6","8","12"],"C","Three planes create eight regions.","तीन planes आठ regions बनाते हैं।");
+  add("MTH-D13",11,"MTH11-11-1",2,"Octant I has which sign pattern?","Octant I का sign pattern क्या है?",
+    ["(+,+,+)","(−,−,−)","(+,−,+)","(−,+,−)"],["(+,+,+)","(−,−,−)","(+,−,+)","(−,+,−)"],"A","All three coordinates positive.","तीनों coordinates positive।");
+  add("MTH-D14",11,"MTH11-11-1",2,"Octant VII has which sign pattern?","Octant VII का sign pattern क्या है?",
+    ["(+,+,+)","(−,−,−)","(+,−,+)","(−,+,−)"],["(+,+,+)","(−,−,−)","(+,−,+)","(−,+,−)"],"B","All three coordinates negative.","तीनों coordinates negative।");
+  add("MTH-D15",11,"MTH11-11-1",3,"Find the octant of the point (2,3,4).","Point (2,3,4) का octant निकालिए।",
+    ["I","II","III","IV"],["I","II","III","IV"],"A","All positive coordinates.","सभी coordinates positive।");
+  add("MTH-D16",11,"MTH11-11-1",3,"Find the octant of the point (−3,1,−2).","Point (−3,1,−2) का octant निकालिए।",
+    ["II","VI","IV","VIII"],["II","VI","IV","VIII"],"B","Sign pattern (−,+,−) matches octant VI.","Sign pattern (−,+,−), octant VI से मेल खाता है।");
+
+  /* ---- Ch11 Topic 2: Plotting a Point (8) ---- */
+  add("MTH-D17",11,"MTH11-11-2",1,"To plot P(x,y,z), you walk along how many axes in turn?","P(x,y,z) plot करने के लिए, बारी-बारी कितने axes पर चलते हैं?",
+    ["1","2","3","4"],["1","2","3","4"],"C","x, then y, then z.","पहले x, फिर y, फिर z।");
+  add("MTH-D18",11,"MTH11-11-2",1,"Any point on the x-axis has the form:","x-axis पर किसी भी point का रूप है:",
+    ["(x,0,0)","(0,y,0)","(0,0,z)","(x,y,0)"],["(x,0,0)","(0,y,0)","(0,0,z)","(x,y,0)"],"A","Only the x-coordinate is nonzero.","सिर्फ़ x-coordinate nonzero है।");
+  add("MTH-D19",11,"MTH11-11-2",1,"Any point in the YZ-plane has the form:","YZ-plane में किसी भी point का रूप है:",
+    ["(x,0,0)","(0,y,z)","(x,y,0)","(x,0,z)"],["(x,0,0)","(0,y,z)","(x,y,0)","(x,0,z)"],"B","The x-coordinate is zero on this plane.","इस plane पर x-coordinate 0 है।");
+  add("MTH-D20",11,"MTH11-11-2",2,"Any point in the XY-plane has the form:","XY-plane में किसी भी point का रूप है:",
+    ["(x,y,0)","(0,y,z)","(x,0,z)","(0,0,z)"],["(x,y,0)","(0,y,z)","(x,0,z)","(0,0,z)"],"A","The z-coordinate is zero on this plane.","इस plane पर z-coordinate 0 है।");
+  add("MTH-D21",11,"MTH11-11-2",2,"Any point on the z-axis has the form:","z-axis पर किसी भी point का रूप है:",
+    ["(x,0,0)","(0,y,0)","(0,0,z)","(x,y,z)"],["(x,0,0)","(0,y,0)","(0,0,z)","(x,y,z)"],"C","Only the z-coordinate is nonzero.","सिर्फ़ z-coordinate nonzero है।");
+  add("MTH-D22",11,"MTH11-11-2",2,"A point P is (5,0,0). Where does it lie?","एक point P (5,0,0) है। यह कहाँ है?",
+    ["origin","x-axis","y-axis","XY-plane"],["origin","x-axis","y-axis","XY-plane"],"B","Only x is nonzero.","सिर्फ़ x nonzero है।");
+  add("MTH-D23",11,"MTH11-11-2",3,"A point P(4,6,7) has F directly on the XZ-plane. Find F.","Point P(4,6,7) का F, XZ-plane पर सीधे है। F निकालिए।",
+    ["(4,0,7)","(0,6,7)","(4,6,0)","(4,0,0)"],["(4,0,7)","(0,6,7)","(4,6,0)","(4,0,0)"],"A","y=0 for the XZ-plane; keep x and z.","XZ-plane के लिए y=0; x और z रखिए।");
+  add("MTH-D24",11,"MTH11-11-2",3,"A point P(2,4,5) has G on the YZ-plane. Find G.","Point P(2,4,5) का G, YZ-plane पर है। G निकालिए।",
+    ["(0,4,5)","(2,0,5)","(2,4,0)","(2,0,0)"],["(0,4,5)","(2,0,5)","(2,4,0)","(2,0,0)"],"A","x=0 for the YZ-plane; keep y and z.","YZ-plane के लिए x=0; y और z रखिए।");
+
+  /* ---- Ch11 Topic 3: Distance in 3D (8) ---- */
+  add("MTH-D25",11,"MTH11-11-3",1,"The 3D distance formula between (x1,y1,z1) and (x2,y2,z2) is:","(x1,y1,z1) और (x2,y2,z2) के बीच 3D distance formula है:",
+    ["√((x2−x1)²+(y2−y1)²)","√((x2−x1)²+(y2−y1)²+(z2−z1)²)","(x2−x1)+(y2−y1)+(z2−z1)","x2+y2+z2"],["√((x2−x1)²+(y2−y1)²)","√((x2−x1)²+(y2−y1)²+(z2−z1)²)","(x2−x1)+(y2−y1)+(z2−z1)","x2+y2+z2"],"B","Three squared differences, added, rooted.","तीन squared differences, जोड़े हुए, root लिए हुए।");
+  add("MTH-D26",11,"MTH11-11-3",1,"The distance from the origin to (x,y,z) is:","Origin से (x,y,z) तक की distance है:",
+    ["x+y+z","√(x²+y²+z²)","xyz","x²+y²+z²"],["x+y+z","√(x²+y²+z²)","xyz","x²+y²+z²"],"B","Origin's coordinates are all 0, simplifying the formula.","Origin के सभी coordinates 0 हैं, formula सरल हो जाता है।");
+  add("MTH-D27",11,"MTH11-11-3",1,"Find the distance from the origin to (1,2,2).","Origin से (1,2,2) तक की distance निकालिए।",
+    ["3","5","9","√5"],["3","5","9","√5"],"A","√(1+4+4) = √9 = 3.","√(1+4+4) = √9 = 3।");
+  add("MTH-D28",11,"MTH11-11-3",2,"Find the distance between (0,0,0) and (2,3,6).","(0,0,0) और (2,3,6) के बीच की distance निकालिए।",
+    ["7","11","49","√11"],["7","11","49","√11"],"A","√(4+9+36) = √49 = 7.","√(4+9+36) = √49 = 7।");
+  add("MTH-D29",11,"MTH11-11-3",2,"Find the distance between (1,2,3) and (4,6,3).","(1,2,3) और (4,6,3) के बीच की distance निकालिए।",
+    ["5","7","25","13"],["5","7","25","13"],"A","√(9+16+0) = √25 = 5.","√(9+16+0) = √25 = 5।");
+  add("MTH-D30",11,"MTH11-11-3",2,"Find the distance between (1,−1,2) and (2,1,−1).","(1,−1,2) और (2,1,−1) के बीच की distance निकालिए।",
+    ["√14","14","√22","22"],["√14","14","√22","22"],"A","√(1+4+9) = √14.","√(1+4+9) = √14।");
+  add("MTH-D31",11,"MTH11-11-3",3,"Find the distance between (3,4,5) and (3,4,9).","(3,4,5) और (3,4,9) के बीच की distance निकालिए।",
+    ["4","0","16","8"],["4","0","16","8"],"A","Only z differs: √(0+0+16) = 4.","सिर्फ़ z अलग है: √(0+0+16) = 4।");
+  add("MTH-D32",11,"MTH11-11-3",3,"Find the distance between (−1,0,3) and (2,4,3).","(−1,0,3) और (2,4,3) के बीच की distance निकालिए।",
+    ["5","25","3","7"],["5","25","3","7"],"A","√(9+16+0) = √25 = 5.","√(9+16+0) = √25 = 5।");
+
+  /* ---- Ch11 Topic 4: Checking Collinearity (8) ---- */
+  add("MTH-D33",11,"MTH11-11-4",1,"Three points are collinear if they:","तीन points collinear हैं अगर वे:",
+    ["form a triangle","all lie on one straight line","are all equal","form a right angle"],["एक triangle बनाएँ","सब एक सीधी line पर हों","सब बराबर हों","एक right angle बनाएँ"],"B","Same straight path.","एक ही सीधा रास्ता।");
+  add("MTH-D34",11,"MTH11-11-4",1,"The collinearity test using distances checks whether:","Distances से collinearity test क्या जाँचता है?",
+    ["all three distances are equal","the two shorter distances add to the longest","all distances are zero","the distances form a right triangle"],["तीनों distances बराबर हों","दो छोटी distances मिलकर सबसे लम्बी बनें","सभी distances शून्य हों","distances एक right triangle बनाएँ"],"B","Only true when the middle point sits exactly on the line.","सिर्फ़ तभी सच जब बीच वाला point ठीक line पर हो।");
+  add("MTH-D35",11,"MTH11-11-4",2,"If PQ=3, QR=4, PR=7, are P,Q,R collinear?","अगर PQ=3, QR=4, PR=7, क्या P,Q,R collinear हैं?",
+    ["Yes, since 3+4=7","No","Cannot tell","Only if PQ=QR"],["हाँ, क्योंकि 3+4=7","नहीं","कह नहीं सकते","सिर्फ़ अगर PQ=QR हो"],"A","The shorter two add exactly to the longest.","दो छोटी मिलकर ठीक सबसे लम्बी बनती हैं।");
+  add("MTH-D36",11,"MTH11-11-4",2,"If PQ=5, QR=5, PR=8, are P,Q,R collinear?","अगर PQ=5, QR=5, PR=8, क्या P,Q,R collinear हैं?",
+    ["Yes, since 5+5=8","No, since 5+5≠8","Cannot tell","Only if all sides are equal"],["हाँ, क्योंकि 5+5=8","नहीं, क्योंकि 5+5≠8","कह नहीं सकते","सिर्फ़ अगर सभी sides बराबर हों"],"B","5+5=10, which does not equal 8.","5+5=10, जो 8 के बराबर नहीं है।");
+  add("MTH-D37",11,"MTH11-11-4",2,"If PQ=2, QR=6, PR=8, are P,Q,R collinear?","अगर PQ=2, QR=6, PR=8, क्या P,Q,R collinear हैं?",
+    ["Yes, since 2+6=8","No","Cannot tell","Only sometimes"],["हाँ, क्योंकि 2+6=8","नहीं","कह नहीं सकते","सिर्फ़ कभी-कभी"],"A","2+6=8 exactly.","2+6=8 बिल्कुल सही।");
+  add("MTH-D38",11,"MTH11-11-4",3,"For points with PQ=√5, QR=2√5, PR=3√5, are they collinear?","PQ=√5, QR=2√5, PR=3√5 वाले points के लिए, क्या वे collinear हैं?",
+    ["Yes, since √5+2√5=3√5","No","Cannot tell","Only if all distances are equal"],["हाँ, क्योंकि √5+2√5=3√5","नहीं","कह नहीं सकते","सिर्फ़ अगर सभी distances बराबर हों"],"A","The shorter two add exactly to the longest.","दो छोटी मिलकर ठीक सबसे लम्बी बनती हैं।");
+  add("MTH-D39",11,"MTH11-11-4",3,"Why does PQ+QR=PR indicate collinearity, not just coincidence?","PQ+QR=PR, coincidence नहीं बल्कि collinearity क्यों दिखाता है?",
+    ["Because this exact equality only happens when Q lies directly between P and R on a straight line","It doesn't really indicate anything","Because all triangles satisfy this","It only works in 2D"],["क्योंकि यह equality तभी होती है जब Q, P और R के बीच ठीक एक सीधी line पर हो","यह असल में कुछ नहीं दिखाता","क्योंकि सभी triangles यह satisfy करते हैं","यह सिर्फ़ 2D में काम करता है"],"A","Off a straight line, the triangle inequality is always strict.","सीधी line से बाहर, triangle inequality हमेशा सख़्त होती है।");
+  add("MTH-D40",11,"MTH11-11-4",4,"For points with PQ=10, QR=15, PR=20, are they collinear?","PQ=10, QR=15, PR=20 वाले points के लिए, क्या वे collinear हैं?",
+    ["Yes","No, since 10+15≠20","Cannot tell","Only if PR were 25"],["हाँ","नहीं, क्योंकि 10+15≠20","कह नहीं सकते","सिर्फ़ अगर PR 25 होता"],"B","10+15=25, not 20.","10+15=25, 20 नहीं।");
+
+  /* ---- Ch11 Topic 5: Right Triangles and Other Shapes (8) ---- */
+  add("MTH-D41",11,"MTH11-11-5",1,"To test if a triangle has a right angle using distances, you check:","Distances से triangle में right angle जाँचने के लिए, क्या देखते हैं?",
+    ["if all sides are equal","if the Pythagoras relationship holds among the squared sides","if any two sides are parallel","if the perimeter is even"],["सभी sides बराबर हों या नहीं","squared sides के बीच Pythagoras वाला संबंध सही बैठे या नहीं","कोई दो sides parallel हों या नहीं","perimeter even हो या नहीं"],"B","The classic converse-of-Pythagoras test.","Classic converse-of-Pythagoras test।");
+  add("MTH-D42",11,"MTH11-11-5",1,"In a right triangle, which side has the largest squared length?","Right triangle में, कौन-सी side का squared length सबसे बड़ा है?",
+    ["any side","the side opposite the right angle (hypotenuse)","the shortest side","none, they're all equal"],["कोई भी side","right angle के सामने वाली side (hypotenuse)","सबसे छोटी side","कोई नहीं, सब बराबर हैं"],"B","The hypotenuse is always the longest side.","Hypotenuse हमेशा सबसे लम्बी side होती है।");
+  add("MTH-D43",11,"MTH11-11-5",2,"Triangle sides squared are 9, 16, 25. Is it right-angled?","Triangle की sides squared 9, 16, 25 हैं। क्या यह right-angled है?",
+    ["Yes, since 9+16=25","No","Cannot tell","Only if all sides are equal"],["हाँ, क्योंकि 9+16=25","नहीं","कह नहीं सकते","सिर्फ़ अगर सभी sides बराबर हों"],"A","9+16=25, matching the largest.","9+16=25, सबसे बड़े से मेल खाता है।");
+  add("MTH-D44",11,"MTH11-11-5",2,"Triangle sides squared are 4, 9, 25. Is it right-angled?","Triangle की sides squared 4, 9, 25 हैं। क्या यह right-angled है?",
+    ["Yes","No, since 4+9≠25","Cannot tell","Only sometimes"],["हाँ","नहीं, क्योंकि 4+9≠25","कह नहीं सकते","सिर्फ़ कभी-कभी"],"B","4+9=13, not 25.","4+9=13, 25 नहीं।");
+  add("MTH-D45",11,"MTH11-11-5",2,"Triangle sides squared are 1, 1, 2. Is it right-angled?","Triangle की sides squared 1, 1, 2 हैं। क्या यह right-angled है?",
+    ["Yes, since 1+1=2","No","Cannot tell","Only for 3D triangles"],["हाँ, क्योंकि 1+1=2","नहीं","कह नहीं सकते","सिर्फ़ 3D triangles के लिए"],"A","1+1=2 exactly.","1+1=2 बिल्कुल सही।");
+  add("MTH-D46",11,"MTH11-11-5",3,"If a triangle's squared distances are 50, 50, 100, is it right-angled?","अगर triangle की squared distances 50, 50, 100 हैं, क्या यह right-angled है?",
+    ["Yes, since 50+50=100","No","Cannot tell","Only if it's equilateral"],["हाँ, क्योंकि 50+50=100","नहीं","कह नहीं सकते","सिर्फ़ अगर यह equilateral हो"],"A","50+50=100, matching the largest.","50+50=100, सबसे बड़े से मेल खाता है।");
+  add("MTH-D47",11,"MTH11-11-5",3,"A triangle has squared sides 3, 4, 8. Is it right-angled?","एक triangle की squared sides 3, 4, 8 हैं। क्या यह right-angled है?",
+    ["Yes","No, since 3+4≠8","Cannot tell","Only if reordered"],["हाँ","नहीं, क्योंकि 3+4≠8","कह नहीं सकते","सिर्फ़ फिर से order करने पर"],"B","3+4=7, not 8.","3+4=7, 8 नहीं।");
+  add("MTH-D48",11,"MTH11-11-5",4,"Besides testing for right angles, what else can distances between 3D points confirm?","Right angles जाँचने के अलावा, 3D points के बीच की distances और क्या बता सकती हैं?",
+    ["Only right angles, nothing else","Whether points are collinear, and general shape properties","The colour of the points","Nothing useful"],["सिर्फ़ right angles, कुछ नहीं","क्या points collinear हैं, और shape की general properties","Points का रंग","कुछ काम का नहीं"],"B","Distance alone reveals a lot about a shape's structure.","सिर्फ़ distance किसी shape की structure के बारे में बहुत कुछ बता देती है।");
 
   window.SL_DATA.questions = window.SL_DATA.questions.concat(Q);
 })();
