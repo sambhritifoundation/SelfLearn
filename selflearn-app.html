@@ -4586,6 +4586,52 @@ var DIAGRAMS = {
       +'</svg>';
   },
 
+  "unit-circle-angle": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 460 300" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="230" y="18" text-anchor="middle" font-size="16" font-weight="bold" fill="var(--primary)">'+d("Unit circle: sin θ and cos θ are coordinates","Unit circle: sin θ और cos θ ही coordinates हैं")+'</text>'
+      +'<line x1="20" y1="150" x2="320" y2="150" stroke="var(--line-strong)" stroke-width="1.5"/>'
+      +'<line x1="170" y1="30" x2="170" y2="270" stroke="var(--line-strong)" stroke-width="1.5"/>'
+      +'<circle cx="170" cy="150" r="85" fill="none" stroke="var(--primary)" stroke-width="2.5"/>'
+      +'<text x="280" y="62" font-size="15" font-weight="bold" fill="var(--muted)">I</text>'
+      +'<text x="70" y="62" font-size="15" font-weight="bold" fill="var(--muted)">II</text>'
+      +'<text x="65" y="245" font-size="15" font-weight="bold" fill="var(--muted)">III</text>'
+      +'<text x="275" y="245" font-size="15" font-weight="bold" fill="var(--muted)">IV</text>'
+      +'<line x1="170" y1="150" x2="235.1" y2="95.3" stroke="var(--red)" stroke-width="2.5"/>'
+      +'<line x1="235.1" y1="95.3" x2="235.1" y2="150" stroke="var(--teal)" stroke-width="2" stroke-dasharray="4,3"/>'
+      +'<line x1="170" y1="95.3" x2="235.1" y2="95.3" stroke="var(--accent)" stroke-width="2" stroke-dasharray="4,3"/>'
+      +'<circle cx="235.1" cy="95.3" r="4.5" fill="var(--red)"/>'
+      +'<text x="245" y="82" font-size="14" font-weight="bold" fill="var(--ink)">P (cos θ, sin θ)</text>'
+      +'<text x="199" y="140" font-size="14" fill="var(--red)">θ</text>'
+      +'<text x="240" y="128" font-size="13" fill="var(--teal)">sin θ</text>'
+      +'<text x="188" y="90" font-size="13" fill="var(--accent)">cos θ</text>'
+      +'<rect x="20" y="278" width="300" height="20" fill="none"/>'
+      +'<text x="230" y="292" text-anchor="middle" font-size="12.5" font-style="italic" fill="var(--muted)">'+d("the radius is always 1, so the coordinates ARE the ratios","radius हमेशा 1 है, इसलिए coordinates ही ratios हैं")+'</text>'
+      +'</svg>';
+  },
+
+  "trig-signs-astc": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 460 300" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="230" y="18" text-anchor="middle" font-size="16" font-weight="bold" fill="var(--primary)">'+d("Which functions are positive where?","कहाँ कौन-सा function positive है?")+'</text>'
+      +'<rect x="230" y="30" width="190" height="115" fill="var(--primary)" fill-opacity="0.15"/>'
+      +'<rect x="40" y="30" width="190" height="115" fill="var(--teal)" fill-opacity="0.15"/>'
+      +'<rect x="40" y="145" width="190" height="115" fill="var(--accent)" fill-opacity="0.15"/>'
+      +'<rect x="230" y="145" width="190" height="115" fill="var(--green)" fill-opacity="0.15"/>'
+      +'<line x1="40" y1="145" x2="420" y2="145" stroke="var(--line-strong)" stroke-width="1.5"/>'
+      +'<line x1="230" y1="30" x2="230" y2="260" stroke="var(--line-strong)" stroke-width="1.5"/>'
+      +'<text x="325" y="70" text-anchor="middle" font-size="16" font-weight="bold" fill="var(--primary)">'+d("All positive","सब positive")+'</text>'
+      +'<text x="325" y="92" text-anchor="middle" font-size="12.5" fill="var(--ink)">'+d("sin, cos, tan","sin, cos, tan")+'</text>'
+      +'<text x="135" y="70" text-anchor="middle" font-size="16" font-weight="bold" fill="var(--teal)">'+d("Sin positive","Sin positive")+'</text>'
+      +'<text x="135" y="92" text-anchor="middle" font-size="12.5" fill="var(--ink)">'+d("only sin (cos, tan negative)","सिर्फ़ sin (cos, tan negative)")+'</text>'
+      +'<text x="135" y="200" text-anchor="middle" font-size="16" font-weight="bold" fill="var(--accent)">'+d("Tan positive","Tan positive")+'</text>'
+      +'<text x="135" y="222" text-anchor="middle" font-size="12.5" fill="var(--ink)">'+d("only tan (sin, cos negative)","सिर्फ़ tan (sin, cos negative)")+'</text>'
+      +'<text x="325" y="200" text-anchor="middle" font-size="16" font-weight="bold" fill="var(--green)">'+d("Cos positive","Cos positive")+'</text>'
+      +'<text x="325" y="222" text-anchor="middle" font-size="12.5" fill="var(--ink)">'+d("only cos (sin, tan negative)","सिर्फ़ cos (sin, tan negative)")+'</text>'
+      +'<text x="230" y="280" text-anchor="middle" font-size="12.5" font-style="italic" fill="var(--muted)">'+d("Remember it as: All Students Take Calculus","याद रखें: All Students Take Calculus")+'</text>'
+      +'</svg>';
+  },
+
 };
 
 /* Interactive widgets: sliders students can move to feel the relationship. */

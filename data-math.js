@@ -235,6 +235,113 @@ window.SL_DATA = window.SL_DATA || {subjects:[], questions:[]};
         b("(f·g)(2) = 12.","(f·g)(2) = 12।")))
   ];
 
+  var trig=[
+
+    topic("MTH11-3-0",
+      b("0. Revise: Angles and Triangles You Already Know","0. दोहराइए: Angles और Triangles जो आप पहले से जानते हैं"),
+      b(
+        "In Class 10, you met three ratios inside a right triangle: $\\sin\\theta=\\dfrac{\\text{opposite}}{\\text{hypotenuse}}$, $\\cos\\theta=\\dfrac{\\text{adjacent}}{\\text{hypotenuse}}$, $\\tan\\theta=\\dfrac{\\text{opposite}}{\\text{adjacent}}$.\n\nThose only worked for angles between $0°$ and $90°$ — the angles that actually fit inside a triangle.\n\nA wheel keeps turning past $90°$, past $360°$, even backwards. Class 11 stretches sin, cos and tan to work for **any** angle at all, using a circle instead of a triangle. This chapter builds that.",
+        "Class 10 में, आपने right triangle के अंदर तीन ratios देखे: $\\sin\\theta=\\dfrac{\\text{opposite}}{\\text{hypotenuse}}$, $\\cos\\theta=\\dfrac{\\text{adjacent}}{\\text{hypotenuse}}$, $\\tan\\theta=\\dfrac{\\text{opposite}}{\\text{adjacent}}$।\n\nये सिर्फ़ $0°$ से $90°$ के बीच वाले angles के लिए काम करते थे — जो triangle के अंदर सच में fit होते हैं।\n\nएक पहिया $90°$ के बाद भी घूमता रहता है, $360°$ के बाद भी, यहाँ तक कि उल्टा भी। Class 11 में sin, cos और tan को **किसी भी** angle के लिए फैलाते हैं, triangle की जगह circle का इस्तेमाल करके। यह chapter वहीं से शुरू होता है।"),
+      worked(
+        b("Recall: what is sin 30° from Class 10?","याद कीजिए: Class 10 से sin 30° क्या है?"),
+        [
+          ["Picture the special 30-60-90 triangle.","Special 30-60-90 triangle सोचिए।","This triangle's side ratios are always the same, memorised once.","इस triangle के side ratios हमेशा same हैं, एक बार याद किए हुए।"],
+          ["The side opposite 30° is half the hypotenuse, so sin 30° = 1/2.","30° के सामने वाली side, hypotenuse की आधी है, इसलिए sin 30° = 1/2।","That is exactly the definition: opposite over hypotenuse.","यही तो definition है: opposite भाग hypotenuse।"]
+        ],
+        b("sin 30° = 1/2.","sin 30° = 1/2।"))),
+
+    topic("MTH11-3-1",
+      b("1. Degree and Radian Measure","1. Degree और Radian Measure"),
+      b(
+        "You already measure a full turn as $360°$. Mathematics has a second, more natural unit: the **radian**.\n\nOne radian is the angle made when the arc length equals the radius. A full turn measures $2\\pi$ radians.\n\n$$2\\pi\\ \\text{radians}=360°\\qquad\\pi\\ \\text{radians}=180°$$\n\nTo convert:\n\n$$\\text{radian measure}=\\dfrac{\\pi}{180}\\times\\text{degree measure}$$\n\nExample: $60°=\\dfrac{\\pi}{180}\\times60=\\dfrac{\\pi}{3}$ radians.\n\nRadians matter because arc length becomes a one-step formula: for a circle of radius $r$, an angle of $\\theta$ radians marks out an arc of length $l=r\\theta$.",
+        "आप पूरे turn को $360°$ से नापते हैं। Mathematics में एक दूसरी, ज़्यादा natural unit है: **radian**।\n\nएक radian वह angle है जब arc length, radius के बराबर हो। पूरा turn $2\\pi$ radians का होता है।\n\n$$2\\pi\\ \\text{radians}=360°\\qquad\\pi\\ \\text{radians}=180°$$\n\nConvert करने के लिए:\n\n$$\\text{radian measure}=\\dfrac{\\pi}{180}\\times\\text{degree measure}$$\n\nउदाहरण: $60°=\\dfrac{\\pi}{180}\\times60=\\dfrac{\\pi}{3}$ radians।\n\nRadians इसलिए मायने रखते हैं क्योंकि arc length एक ही step का formula बन जाता है: radius $r$ वाले circle में, $\\theta$ radians का angle $l=r\\theta$ लम्बाई का arc बनाता है।"),
+      worked(
+        b("A crane arm 2 m long sweeps through an angle of 60°. How far does its tip move?","एक crane की भुजा 2 m लम्बी है और 60° का angle घूमती है। उसकी नोक कितनी दूरी तय करती है?"),
+        [
+          ["Convert 60° to radians first: 60° = π/3 radians.","पहले 60° को radians में बदलिए: 60° = π/3 radians।","The formula l = rθ needs θ in radians, not degrees.","Formula l = rθ के लिए θ radians में चाहिए, degrees में नहीं।"],
+          ["Use l = rθ = 2 × (π/3) = 2π/3 m.","l = rθ = 2 × (π/3) = 2π/3 m इस्तेमाल कीजिए।","Multiply the radius by the angle in radians.","Radius को radians वाले angle से गुणा कीजिए।"]
+        ],
+        b("The tip moves 2π/3 m (about 2.09 m).","नोक 2π/3 m (लगभग 2.09 m) चलती है।"))),
+
+    topic("MTH11-3-2",
+      b("2. The Unit Circle and the Six Trigonometric Functions","2. Unit Circle और छह Trigonometric Functions"),
+      b(
+        "Draw a circle of radius 1, centred at the origin — the **unit circle**. Let a radius sweep out an angle $\\theta$ from the positive x-axis. It lands on a point $P$.\n\n{{diagram:unit-circle-angle}}\n\n**Definition:** $\\cos\\theta$ is the x-coordinate of $P$; $\\sin\\theta$ is the y-coordinate.\n\n$$P=(\\cos\\theta,\\sin\\theta)$$\n\nThe other four functions are built from these two:\n\n$$\\tan\\theta=\\dfrac{\\sin\\theta}{\\cos\\theta}\\qquad\\cot\\theta=\\dfrac{\\cos\\theta}{\\sin\\theta}\\qquad\\sec\\theta=\\dfrac{1}{\\cos\\theta}\\qquad\\text{cosec}\\ \\theta=\\dfrac{1}{\\sin\\theta}$$\n\nThis is why the old right-triangle ratios still work for small angles — a right triangle drawn inside the unit circle gives exactly the same numbers.",
+        "1 radius का circle बनाइए, origin पर centred — यह **unit circle** है। मानिए एक radius, positive x-axis से $\\theta$ angle घूमता है। यह एक point $P$ पर पहुँचता है।\n\n{{diagram:unit-circle-angle}}\n\n**परिभाषा:** $\\cos\\theta$, $P$ का x-coordinate है; $\\sin\\theta$, y-coordinate है।\n\n$$P=(\\cos\\theta,\\sin\\theta)$$\n\nबाक़ी चार functions इन्हीं दो से बनते हैं:\n\n$$\\tan\\theta=\\dfrac{\\sin\\theta}{\\cos\\theta}\\qquad\\cot\\theta=\\dfrac{\\cos\\theta}{\\sin\\theta}\\qquad\\sec\\theta=\\dfrac{1}{\\cos\\theta}\\qquad\\text{cosec}\\ \\theta=\\dfrac{1}{\\sin\\theta}$$\n\nइसीलिए पुराने right-triangle ratios छोटे angles के लिए अब भी काम करते हैं — unit circle के अंदर बना right triangle बिल्कुल वही numbers देता है।"),
+      worked(
+        b("If cos θ = 0.6 and sin θ = 0.8, find tan θ.","अगर cos θ = 0.6 और sin θ = 0.8 हैं, tan θ निकालिए।"),
+        [
+          ["Use the definition tan θ = sin θ / cos θ.","परिभाषा tan θ = sin θ / cos θ इस्तेमाल कीजिए।","tan is always built from sin and cos this way.","tan हमेशा इसी तरह sin और cos से बनता है।"],
+          ["tan θ = 0.8 / 0.6 = 4/3.","tan θ = 0.8 / 0.6 = 4/3।","Simplify the fraction 0.8/0.6, same as 8/6.","0.8/0.6 fraction को simplify कीजिए, 8/6 जैसा।"]
+        ],
+        b("tan θ = 4/3.","tan θ = 4/3।"))),
+
+    topic("MTH11-3-3",
+      b("3. Sign of Trigonometric Functions","3. Trigonometric Functions का Sign"),
+      b(
+        "On the unit circle, x-coordinates and y-coordinates change sign as $P$ moves around.\n\n{{diagram:trig-signs-astc}}\n\n- **Quadrant I** ($0°$ to $90°$): x and y both positive — every function is positive.\n- **Quadrant II** ($90°$ to $180°$): x negative, y positive — only sin (and cosec) positive.\n- **Quadrant III** ($180°$ to $270°$): x and y both negative — only tan (and cot) positive, since a negative divided by a negative is positive.\n- **Quadrant IV** ($270°$ to $360°$): x positive, y negative — only cos (and sec) positive.\n\nThe old phrase **‘All Students Take Calculus’** names which function is positive, quadrant by quadrant: All, Sin, Tan, Cos.",
+        "Unit circle पर, $P$ घूमने के साथ x-coordinates और y-coordinates का sign बदलता है।\n\n{{diagram:trig-signs-astc}}\n\n- **Quadrant I** ($0°$ से $90°$): x और y दोनों positive — हर function positive है।\n- **Quadrant II** ($90°$ से $180°$): x negative, y positive — सिर्फ़ sin (और cosec) positive।\n- **Quadrant III** ($180°$ से $270°$): x और y दोनों negative — सिर्फ़ tan (और cot) positive, क्योंकि negative भाग negative, positive होता है।\n- **Quadrant IV** ($270°$ से $360°$): x positive, y negative — सिर्फ़ cos (और sec) positive।\n\nपुराना जुमला **‘All Students Take Calculus’**, quadrant दर quadrant बताता है कि कौन-सा function positive है: All, Sin, Tan, Cos।"),
+      worked(
+        b("Is sin 150° positive or negative?","sin 150° positive है या negative?"),
+        [
+          ["150° is between 90° and 180°, so it is in Quadrant II.","150°, 90° और 180° के बीच है, यानी यह Quadrant II में है।","Quadrant II covers exactly this range.","Quadrant II ठीक यही range है।"],
+          ["In Quadrant II, sin is positive.","Quadrant II में, sin positive है।","Only sin (and cosec) stay positive there.","वहाँ सिर्फ़ sin (और cosec) positive रहते हैं।"]
+        ],
+        b("sin 150° is positive.","sin 150° positive है।"))),
+
+    topic("MTH11-3-4",
+      b("4. Domain and Range of Trigonometric Functions","4. Trigonometric Functions का Domain और Range"),
+      b(
+        "$\\sin\\theta$ and $\\cos\\theta$ are coordinates of a point going around a circle forever — every real number $\\theta$ is allowed.\n\n$$\\text{Domain of sin, cos}=\\mathbb{R}$$\n\nA circle of radius 1 never lets a coordinate go past $1$ or below $-1$.\n\n$$\\text{Range of sin, cos}=[-1,1]$$\n\n$\\tan\\theta=\\dfrac{\\sin\\theta}{\\cos\\theta}$ breaks wherever $\\cos\\theta=0$ — at $90°,270°,\\ldots$ — so those points are excluded from its domain. Its range is unbounded: all of $\\mathbb{R}$.",
+        "$\\sin\\theta$ और $\\cos\\theta$, हमेशा घूमते circle पर एक point के coordinates हैं — हर real $\\theta$ allowed है।\n\n$$\\text{sin, cos का Domain}=\\mathbb{R}$$\n\n1 radius का circle किसी coordinate को $1$ से ऊपर या $-1$ से नीचे कभी नहीं जाने देता।\n\n$$\\text{sin, cos का Range}=[-1,1]$$\n\n$\\tan\\theta=\\dfrac{\\sin\\theta}{\\cos\\theta}$ वहाँ टूटता है जहाँ $\\cos\\theta=0$ — यानी $90°,270°,\\ldots$ पर — इसलिए ये points इसके domain से बाहर हैं। इसका range unbounded है: पूरा $\\mathbb{R}$।"),
+      worked(
+        b("Is tan 90° defined?","क्या tan 90° defined है?"),
+        [
+          ["Check cos 90°: it equals 0.","cos 90° check कीजिए: यह 0 के बराबर है।","tan θ = sin θ / cos θ needs a nonzero denominator.","tan θ = sin θ / cos θ के लिए denominator nonzero चाहिए।"],
+          ["Dividing by 0 is not allowed, so tan 90° is undefined.","0 से divide करना allowed नहीं, इसलिए tan 90° undefined है।","90° is exactly one of the excluded points.","90° ठीक उन excluded points में से एक है।"]
+        ],
+        b("No, tan 90° is undefined.","नहीं, tan 90° undefined है।"))),
+
+    topic("MTH11-3-5",
+      b("5. Standard Angles and the Basic Identity","5. Standard Angles और Basic Identity"),
+      b(
+        "A handful of angles come up constantly. Worth knowing by heart:\n\n| θ | 0° | 30° | 45° | 60° | 90° |\n|---|---|---|---|---|---|\n| sin θ | 0 | 1/2 | √2/2 | √3/2 | 1 |\n| cos θ | 1 | √3/2 | √2/2 | 1/2 | 0 |\n\nAnd one identity ties sin and cos together for **every** angle, not just these five. On the unit circle, $P=(\\cos\\theta,\\sin\\theta)$ always sits at distance 1 from the centre — that is just $x^2+y^2=1$ for the circle.\n\n$$\\sin^2\\theta+\\cos^2\\theta=1$$\n\nKnow one of sin or cos, and this identity finds the other.",
+        "कुछ angles बार-बार आते हैं। इन्हें याद रखना फ़ायदेमंद है:\n\n| θ | 0° | 30° | 45° | 60° | 90° |\n|---|---|---|---|---|---|\n| sin θ | 0 | 1/2 | √2/2 | √3/2 | 1 |\n| cos θ | 1 | √3/2 | √2/2 | 1/2 | 0 |\n\nऔर एक identity sin और cos को **हर** angle के लिए जोड़ती है, सिर्फ़ इन पाँच के लिए नहीं। Unit circle पर, $P=(\\cos\\theta,\\sin\\theta)$ हमेशा centre से दूरी 1 पर होता है — यह बस circle का $x^2+y^2=1$ है।\n\n$$\\sin^2\\theta+\\cos^2\\theta=1$$\n\nsin या cos में से एक जानिए, यह identity दूसरा निकाल देती है।"),
+      worked(
+        b("If sin θ = 3/5 and θ is in Quadrant I, find cos θ.","अगर sin θ = 3/5 और θ, Quadrant I में है, cos θ निकालिए।"),
+        [
+          ["Use sin²θ + cos²θ = 1: cos²θ = 1 − (3/5)² = 1 − 9/25 = 16/25.","sin²θ + cos²θ = 1 इस्तेमाल कीजिए: cos²θ = 1 − (3/5)² = 1 − 9/25 = 16/25।","Rearrange the identity to isolate cos²θ.","Identity को rearrange करके cos²θ अलग कीजिए।"],
+          ["cos θ = 4/5, positive since Quadrant I keeps cos positive.","cos θ = 4/5, positive है क्योंकि Quadrant I में cos positive रहता है।","√(16/25) = 4/5, and the quadrant fixes the sign.","√(16/25) = 4/5, और quadrant sign तय करता है।"]
+        ],
+        b("cos θ = 4/5.","cos θ = 4/5।"))),
+
+    topic("MTH11-3-6",
+      b("6. Sum and Difference Formulas","6. Sum और Difference Formulas"),
+      b(
+        "Four formulas let you combine two known angles into one:\n\n$$\\cos(x+y)=\\cos x\\cos y-\\sin x\\sin y$$\n$$\\cos(x-y)=\\cos x\\cos y+\\sin x\\sin y$$\n$$\\sin(x+y)=\\sin x\\cos y+\\cos x\\sin y$$\n$$\\sin(x-y)=\\sin x\\cos y-\\cos x\\sin y$$\n\n⚠️ $\\cos(x+y)$ is **not** $\\cos x+\\cos y$ — a very common slip. The angle sum needs the full formula, not a simple split.\n\nThese come from comparing distances between points on the unit circle; your textbook proves it in full. For now, treat them as tools — learn to use them, then meet the proof later.",
+        "चार formulas दो जाने-पहचाने angles को एक में मिला देते हैं:\n\n$$\\cos(x+y)=\\cos x\\cos y-\\sin x\\sin y$$\n$$\\cos(x-y)=\\cos x\\cos y+\\sin x\\sin y$$\n$$\\sin(x+y)=\\sin x\\cos y+\\cos x\\sin y$$\n$$\\sin(x-y)=\\sin x\\cos y-\\cos x\\sin y$$\n\n⚠️ $\\cos(x+y)$, $\\cos x+\\cos y$ के **बराबर नहीं** है — यह एक बहुत आम ग़लती है। Angle sum के लिए पूरा formula चाहिए, सीधा split नहीं।\n\nये unit circle पर points के बीच की दूरियाँ compare करने से आते हैं; आपकी textbook इसका पूरा proof देती है। अभी के लिए, इन्हें tool की तरह इस्तेमाल करना सीखिए — proof बाद में मिलेगा।"),
+      worked(
+        b("Find cos 75° using cos(45° + 30°).","cos(45° + 30°) का इस्तेमाल करके cos 75° निकालिए।"),
+        [
+          ["Apply cos(x+y) = cos x cos y − sin x sin y with x=45°, y=30°.","x=45°, y=30° लेकर cos(x+y) = cos x cos y − sin x sin y लगाइए।","75° = 45° + 30°, and both are standard angles you know.","75° = 45° + 30°, और दोनों जाने-पहचाने standard angles हैं।"],
+          ["= (√2/2)(√3/2) − (√2/2)(1/2) = (√6 − √2)/4.","= (√2/2)(√3/2) − (√2/2)(1/2) = (√6 − √2)/4।","Substitute the known values and simplify the fraction.","जाने-पहचाने values रखकर fraction simplify कीजिए।"]
+        ],
+        b("cos 75° = (√6 − √2)/4.","cos 75° = (√6 − √2)/4।"))),
+
+    topic("MTH11-3-7",
+      b("7. Using the Formulas","7. Formulas का इस्तेमाल"),
+      b(
+        "Any angle that is a sum or difference of two standard angles can now be found exactly — no calculator needed.\n\n$$15°=45°-30°\\qquad105°=60°+45°\\qquad75°=45°+30°$$\n\nPick the pair of standard angles that add or subtract to your target, then apply the matching formula.\n\nThe same formulas also simplify expressions in exams — spotting $\\sin x\\cos y+\\cos x\\sin y$ hiding inside a longer question and collapsing it back to $\\sin(x+y)$ is a common, useful move.",
+        "अब कोई भी ऐसा angle exactly निकाल सकते हैं जो दो standard angles का sum या difference हो — calculator की ज़रूरत नहीं।\n\n$$15°=45°-30°\\qquad105°=60°+45°\\qquad75°=45°+30°$$\n\nवह जोड़ी चुनिए जो जोड़ने या घटाने पर आपका target angle बनाए, फिर matching formula लगाइए।\n\यही formulas exams में expressions को simplify भी करते हैं — किसी लम्बे question के अंदर छुपे $\\sin x\\cos y+\\cos x\\sin y$ को पहचानकर वापस $\\sin(x+y)$ में समेटना एक आम, काम का तरीका है।"),
+      worked(
+        b("Find sin 15° using sin(45° − 30°).","sin(45° − 30°) का इस्तेमाल करके sin 15° निकालिए।"),
+        [
+          ["Apply sin(x−y) = sin x cos y − cos x sin y with x=45°, y=30°.","x=45°, y=30° लेकर sin(x−y) = sin x cos y − cos x sin y लगाइए।","15° = 45° − 30°, both standard angles.","15° = 45° − 30°, दोनों standard angles।"],
+          ["= (√2/2)(√3/2) − (√2/2)(1/2) = (√6 − √2)/4.","= (√2/2)(√3/2) − (√2/2)(1/2) = (√6 − √2)/4।","Same substitution pattern as before, just with sin's formula.","पहले जैसा ही substitution, बस sin के formula के साथ।"]
+        ],
+        b("sin 15° = (√6 − √2)/4.","sin 15° = (√6 − √2)/4।")))
+  ];
+
   window.SL_DATA.subjects = (window.SL_DATA.subjects||[]).filter(function(s){ return s.code!=="MATH11"; });
 
   window.SL_DATA.subjects.push({code:"MATH11",board:"CBSE",klass:11,icon:"📐",
@@ -264,7 +371,18 @@ window.SL_DATA = window.SL_DATA || {subjects:[], questions:[]};
         assessment:["MTH-R01","MTH-R03","MTH-R06","MTH-R09","MTH-R12","MTH-R15","MTH-R18","MTH-R21",
           "MTH-R24","MTH-R27","MTH-R30","MTH-R33","MTH-R36","MTH-R39","MTH-R42","MTH-R45",
           "MTH-R48","MTH-R51","MTH-R54","MTH-R57","MTH-R60","MTH-R63","MTH-R66","MTH-R69"],
-        topics:relations}
+        topics:relations},
+      {no:3,name:b("Trigonometric Functions","Trigonometric Functions"),
+        summary:b(
+          "**Trigonometric Functions: what this chapter covers**\n\nDegree and radian are two units for the same angle; radians make the arc-length formula l=rθ a one-liner. The unit circle defines sin θ and cos θ as coordinates for any angle at all, not just angles inside a triangle — tan, cot, sec and cosec are built from those two. Signs flip by quadrant (All, Sin, Tan, Cos). Domain of sin/cos is all real numbers, range is [-1,1]; tan is undefined wherever cos θ=0. The identity sin²θ+cos²θ=1 links them at every angle. Sum and difference formulas combine two known angles to find a third.",
+          "**Trigonometric Functions: इस chapter में क्या सीखेंगे**\n\nDegree और radian, एक ही angle की दो units हैं; radians से arc-length formula l=rθ एक ही line का हो जाता है। Unit circle, sin θ और cos θ को किसी भी angle के coordinates की तरह defines करता है, सिर्फ़ triangle के अंदर वाले angles के लिए नहीं — tan, cot, sec और cosec इन्हीं दो से बनते हैं। Quadrant बदलने पर signs बदलते हैं (All, Sin, Tan, Cos)। sin/cos का domain सभी real numbers है, range [-1,1] है; जहाँ cos θ=0 हो वहाँ tan undefined है। Identity sin²θ+cos²θ=1, हर angle पर इन्हें जोड़ती है। Sum और difference formulas दो जाने-पहचाने angles से तीसरा निकालते हैं।"),
+        checkpoint:b(
+          "Getting most Warm-up and Standard questions right, across every topic in this chapter, means you are ready to move on. Scoring low? Go back to '0. Revise: Angles and Triangles You Already Know' and redo its example by hand — that is the fastest way forward, not a setback.",
+          "इस chapter के हर topic में ज़्यादातर Warm-up और Standard questions सही होना, मतलब आप आगे बढ़ने के लिए ready हैं। Score कम है? '0. Revise: Angles और Triangles जो आप पहले से जानते हैं' पर वापस जाइए और उसका example हाथ से दोबारा कीजिए — यही सबसे तेज़ रास्ता है, हार नहीं।"),
+        assessment:["MTH-T01","MTH-T03","MTH-T05","MTH-T06","MTH-T09","MTH-T12","MTH-T15","MTH-T18",
+          "MTH-T21","MTH-T24","MTH-T27","MTH-T30","MTH-T33","MTH-T36","MTH-T39","MTH-T42",
+          "MTH-T46","MTH-T49","MTH-T52","MTH-T55","MTH-T58","MTH-T61","MTH-T64","MTH-T67"],
+        topics:trig}
     ]});
 
   window.SL_DATA.questions = (window.SL_DATA.questions||[]).filter(function(q){ return q.subject!=="MATH11"; });
@@ -591,6 +709,160 @@ window.SL_DATA = window.SL_DATA || {subjects:[], questions:[]};
     ["ℝ","ℝ − {0}","ℝ − {1}","ℝ − {0,1}"],["ℝ","ℝ − {0}","ℝ − {1}","ℝ − {0,1}"],"B","f itself needs x≠0, and g(x)≠0 also needs x≠0 — the same single restriction.","f को ख़ुद x≠0 चाहिए, और g(x)≠0 के लिए भी x≠0 चाहिए — वही एक restriction।");
   add("MTH-R69",2,"MTH11-2-7",5,"f(x)=√x, g(x)=x−4. Find the domain of (f/g)(x).","f(x)=√x, g(x)=x−4। (f/g)(x) का domain निकालिए।",
     ["x ≥ 0, x ≠ 4","x > 0 only","x ≥ 4 only","all real numbers"],["x ≥ 0, x ≠ 4","x > 0 only","x ≥ 4 only","सभी real numbers"],"A","f needs x≥0; g(x)≠0 removes x=4 as well.","f के लिए x≥0 चाहिए; g(x)≠0 से x=4 भी हट जाता है।");
+
+  /* ---- Ch3 Topic 0: Revise (5) ---- */
+  add("MTH-T01",3,"MTH11-3-0",1,"In a right triangle, sin θ is:","Right triangle में, sin θ है:",
+    ["adjacent/hypotenuse","opposite/hypotenuse","opposite/adjacent","hypotenuse/opposite"],["adjacent/hypotenuse","opposite/hypotenuse","opposite/adjacent","hypotenuse/opposite"],"B","sin is opposite over hypotenuse.","sin, opposite भाग hypotenuse है।");
+  add("MTH-T02",3,"MTH11-3-0",1,"In a right triangle, cos θ is:","Right triangle में, cos θ है:",
+    ["opposite/hypotenuse","adjacent/hypotenuse","adjacent/opposite","hypotenuse/adjacent"],["opposite/hypotenuse","adjacent/hypotenuse","adjacent/opposite","hypotenuse/adjacent"],"B","cos is adjacent over hypotenuse.","cos, adjacent भाग hypotenuse है।");
+  add("MTH-T03",3,"MTH11-3-0",1,"tan θ equals:","tan θ बराबर है:",
+    ["opposite/hypotenuse","adjacent/hypotenuse","opposite/adjacent","hypotenuse/adjacent"],["opposite/hypotenuse","adjacent/hypotenuse","opposite/adjacent","hypotenuse/adjacent"],"C","tan is opposite over adjacent.","tan, opposite भाग adjacent है।");
+  add("MTH-T04",3,"MTH11-3-0",2,"The old right-triangle ratios work only for angles between:","पुराने right-triangle ratios किन angles के बीच काम करते हैं?",
+    ["0° and 45°","0° and 90°","0° and 180°","any angle"],["0° और 45°","0° और 90°","0° और 180°","कोई भी angle"],"B","A right triangle's acute angles are always between 0° and 90°.","Right triangle के acute angles हमेशा 0° और 90° के बीच होते हैं।");
+  add("MTH-T05",3,"MTH11-3-0",2,"sin 60° from Class 10 is:","Class 10 से sin 60° है:",
+    ["1/2","√2/2","√3/2","1"],["1/2","√2/2","√3/2","1"],"C","A memorised value from the 30-60-90 triangle.","30-60-90 triangle से याद किया हुआ value।");
+
+  /* ---- Ch3 Topic 1: Degree and Radian Measure (9) ---- */
+  add("MTH-T06",3,"MTH11-3-1",1,"A full turn measures how many radians?","पूरा turn कितने radians का होता है?",
+    ["π","2π","360","180"],["π","2π","360","180"],"B","A complete revolution is 2π radians.","पूरा revolution 2π radians का होता है।");
+  add("MTH-T07",3,"MTH11-3-1",1,"180° equals how many radians?","180° कितने radians के बराबर है?",
+    ["π/2","π","2π","π/4"],["π/2","π","2π","π/4"],"B","Half a turn is π radians.","आधा turn π radians है।");
+  add("MTH-T08",3,"MTH11-3-1",1,"Convert 90° to radians.","90° को radians में बदलिए।",
+    ["π/2","π/3","π/4","π"],["π/2","π/3","π/4","π"],"A","A quarter turn is π/2.","चौथाई turn π/2 है।");
+  add("MTH-T09",3,"MTH11-3-1",2,"Convert 45° to radians.","45° को radians में बदलिए।",
+    ["π/6","π/4","π/3","π/2"],["π/6","π/4","π/3","π/2"],"B","(π/180) × 45 = π/4.","(π/180) × 45 = π/4।");
+  add("MTH-T10",3,"MTH11-3-1",2,"Convert 30° to radians.","30° को radians में बदलिए।",
+    ["π/2","π/3","π/4","π/6"],["π/2","π/3","π/4","π/6"],"D","(π/180) × 30 = π/6.","(π/180) × 30 = π/6।");
+  add("MTH-T11",3,"MTH11-3-1",2,"π/3 radians equals how many degrees?","π/3 radians कितने degrees के बराबर है?",
+    ["30°","45°","60°","90°"],["30°","45°","60°","90°"],"C","(180/π) × π/3 = 60°.","(180/π) × π/3 = 60°।");
+  add("MTH-T12",3,"MTH11-3-1",3,"A circle of radius 5 cm has an arc subtending π/2 radians at the centre. Find the arc length.","5 cm radius वाले circle में एक arc केंद्र पर π/2 radians का angle बनाता है। Arc length निकालिए।",
+    ["5π/2 cm","5π cm","2.5 cm","10π cm"],["5π/2 cm","5π cm","2.5 cm","10π cm"],"A","l = rθ = 5 × π/2 = 5π/2.","l = rθ = 5 × π/2 = 5π/2।");
+  add("MTH-T13",3,"MTH11-3-1",3,"An arc of length 6 cm on a circle of radius 4 cm subtends an angle of:","4 cm radius वाले circle पर 6 cm का arc कितना angle बनाता है?",
+    ["1.5 radians","2/3 radian","24 radians","10 radians"],["1.5 radians","2/3 radian","24 radians","10 radians"],"A","θ = l/r = 6/4 = 1.5.","θ = l/r = 6/4 = 1.5।");
+  add("MTH-T14",3,"MTH11-3-1",3,"Convert 3π/2 radians to degrees.","3π/2 radians को degrees में बदलिए।",
+    ["90°","180°","270°","360°"],["90°","180°","270°","360°"],"C","(180/π) × 3π/2 = 270°.","(180/π) × 3π/2 = 270°।");
+
+  /* ---- Ch3 Topic 2: Unit Circle and Six Functions (9) ---- */
+  add("MTH-T15",3,"MTH11-3-2",1,"On the unit circle, cos θ is the point's:","Unit circle पर, cos θ point का क्या है?",
+    ["y-coordinate","x-coordinate","distance from origin","angle"],["y-coordinate","x-coordinate","origin से दूरी","angle"],"B","cos θ is defined as the x-coordinate.","cos θ को x-coordinate की तरह defined किया गया है।");
+  add("MTH-T16",3,"MTH11-3-2",1,"On the unit circle, sin θ is the point's:","Unit circle पर, sin θ point का क्या है?",
+    ["x-coordinate","y-coordinate","radius","angle"],["x-coordinate","y-coordinate","radius","angle"],"B","sin θ is defined as the y-coordinate.","sin θ को y-coordinate की तरह defined किया गया है।");
+  add("MTH-T17",3,"MTH11-3-2",1,"tan θ is defined as:","tan θ की परिभाषा है:",
+    ["cos θ/sin θ","sin θ/cos θ","sin θ × cos θ","sin θ + cos θ"],["cos θ/sin θ","sin θ/cos θ","sin θ × cos θ","sin θ + cos θ"],"B","tan θ = sin θ / cos θ.","tan θ = sin θ / cos θ।");
+  add("MTH-T18",3,"MTH11-3-2",2,"sec θ is defined as:","sec θ की परिभाषा है:",
+    ["1/sin θ","1/cos θ","1/tan θ","sin θ/cos θ"],["1/sin θ","1/cos θ","1/tan θ","sin θ/cos θ"],"B","sec θ = 1/cos θ.","sec θ = 1/cos θ।");
+  add("MTH-T19",3,"MTH11-3-2",2,"cosec θ is defined as:","cosec θ की परिभाषा है:",
+    ["1/sin θ","1/cos θ","1/tan θ","cos θ/sin θ"],["1/sin θ","1/cos θ","1/tan θ","cos θ/sin θ"],"A","cosec θ = 1/sin θ.","cosec θ = 1/sin θ।");
+  add("MTH-T20",3,"MTH11-3-2",2,"cot θ is defined as:","cot θ की परिभाषा है:",
+    ["sin θ/cos θ","cos θ/sin θ","1/sin θ","1/cos θ"],["sin θ/cos θ","cos θ/sin θ","1/sin θ","1/cos θ"],"B","cot θ = cos θ / sin θ.","cot θ = cos θ / sin θ।");
+  add("MTH-T21",3,"MTH11-3-2",3,"If sin θ = 0.5 and cos θ = √3/2, find cot θ.","अगर sin θ = 0.5 और cos θ = √3/2 हैं, cot θ निकालिए।",
+    ["√3","1/√3","2","√3/2"],["√3","1/√3","2","√3/2"],"A","cot θ = cos θ/sin θ = (√3/2)/(1/2) = √3.","cot θ = cos θ/sin θ = (√3/2)/(1/2) = √3।");
+  add("MTH-T22",3,"MTH11-3-2",3,"If cos θ = 0.6, find sec θ.","अगर cos θ = 0.6, sec θ निकालिए।",
+    ["0.6","1.2","5/3","3/5"],["0.6","1.2","5/3","3/5"],"C","sec θ = 1/0.6 = 5/3.","sec θ = 1/0.6 = 5/3।");
+  add("MTH-T23",3,"MTH11-3-2",3,"If sin θ = 0.5, find cosec θ.","अगर sin θ = 0.5, cosec θ निकालिए।",
+    ["0.5","1","2","4"],["0.5","1","2","4"],"C","cosec θ = 1/0.5 = 2.","cosec θ = 1/0.5 = 2।");
+
+  /* ---- Ch3 Topic 3: Sign of Trigonometric Functions (9) ---- */
+  add("MTH-T24",3,"MTH11-3-3",1,"In Quadrant I, which functions are positive?","Quadrant I में कौन-से functions positive हैं?",
+    ["only sin","only cos","only tan","all"],["सिर्फ़ sin","सिर्फ़ cos","सिर्फ़ tan","सभी"],"D","x and y are both positive there.","वहाँ x और y दोनों positive हैं।");
+  add("MTH-T25",3,"MTH11-3-3",1,"In Quadrant II, which function is positive?","Quadrant II में कौन-सा function positive है?",
+    ["sin","cos","tan","none"],["sin","cos","tan","कोई नहीं"],"A","y is positive, x is negative there.","वहाँ y positive है, x negative है।");
+  add("MTH-T26",3,"MTH11-3-3",1,"In Quadrant III, which function is positive?","Quadrant III में कौन-सा function positive है?",
+    ["sin","cos","tan","none"],["sin","cos","tan","कोई नहीं"],"C","x and y are both negative, so tan (their ratio) is positive.","x और y दोनों negative हैं, इसलिए tan (उनका ratio) positive है।");
+  add("MTH-T27",3,"MTH11-3-3",2,"In Quadrant IV, which function is positive?","Quadrant IV में कौन-सा function positive है?",
+    ["sin","cos","tan","none"],["sin","cos","tan","कोई नहीं"],"B","x is positive, y is negative there.","वहाँ x positive है, y negative है।");
+  add("MTH-T28",3,"MTH11-3-3",2,"Is cos 200° positive or negative?","cos 200° positive है या negative?",
+    ["positive","negative","zero","cannot tell"],["positive","negative","zero","कह नहीं सकते"],"B","200° is in Quadrant III, where cos is negative.","200°, Quadrant III में है, जहाँ cos negative है।");
+  add("MTH-T29",3,"MTH11-3-3",2,"Is tan 300° positive or negative?","tan 300° positive है या negative?",
+    ["positive","negative","zero","undefined"],["positive","negative","zero","undefined"],"B","300° is in Quadrant IV, where tan is negative.","300°, Quadrant IV में है, जहाँ tan negative है।");
+  add("MTH-T30",3,"MTH11-3-3",3,"Is sin 100° positive or negative?","sin 100° positive है या negative?",
+    ["positive","negative","zero","undefined"],["positive","negative","zero","undefined"],"A","100° is in Quadrant II, where sin is positive.","100°, Quadrant II में है, जहाँ sin positive है।");
+  add("MTH-T31",3,"MTH11-3-3",3,"‘All Students Take Calculus’ lists the positive function in quadrants I, II, III, IV as:","‘All Students Take Calculus’, quadrants I, II, III, IV में positive function किस क्रम में बताता है?",
+    ["All, Sin, Tan, Cos","All, Cos, Tan, Sin","Sin, All, Cos, Tan","All, Tan, Sin, Cos"],["All, Sin, Tan, Cos","All, Cos, Tan, Sin","Sin, All, Cos, Tan","All, Tan, Sin, Cos"],"A","The mnemonic's own letters give this exact order.","इस mnemonic के अक्षर ही यह क्रम देते हैं।");
+  add("MTH-T32",3,"MTH11-3-3",4,"θ is in Quadrant III. Which is true?","θ, Quadrant III में है। कौन-सा सही है?",
+    ["sin θ>0, cos θ>0","sin θ<0, cos θ<0","sin θ>0, cos θ<0","sin θ<0, cos θ>0"],["sin θ>0, cos θ>0","sin θ<0, cos θ<0","sin θ>0, cos θ<0","sin θ<0, cos θ>0"],"B","Both coordinates are negative in Quadrant III.","Quadrant III में दोनों coordinates negative हैं।");
+
+  /* ---- Ch3 Topic 4: Domain and Range (9) ---- */
+  add("MTH-T33",3,"MTH11-3-4",1,"The domain of sin θ is:","sin θ का domain है:",
+    ["[-1,1]","all real numbers","only 0° to 360°","only positive numbers"],["[-1,1]","सभी real numbers","सिर्फ़ 0° से 360°","सिर्फ़ positive numbers"],"B","Any real angle is allowed.","कोई भी real angle allowed है।");
+  add("MTH-T34",3,"MTH11-3-4",1,"The range of cos θ is:","cos θ का range है:",
+    ["all real numbers","[0,1]","[-1,1]","[-1,0]"],["सभी real numbers","[0,1]","[-1,1]","[-1,0]"],"C","A unit-circle coordinate never exceeds 1 or goes below −1.","Unit-circle coordinate कभी 1 से ऊपर या −1 से नीचे नहीं जाता।");
+  add("MTH-T35",3,"MTH11-3-4",1,"Can sin θ ever equal 2?","क्या sin θ कभी 2 के बराबर हो सकता है?",
+    ["Yes","No, range stops at 1","Only for large θ","Only in Quadrant I"],["हाँ","नहीं, range 1 पर रुकता है","सिर्फ़ बड़े θ के लिए","सिर्फ़ Quadrant I में"],"B","2 is outside the range [-1,1].","2, range [-1,1] के बाहर है।");
+  add("MTH-T36",3,"MTH11-3-4",2,"tan θ is undefined whenever:","tan θ कब undefined होता है?",
+    ["sin θ = 0","cos θ = 0","sin θ = 1","cos θ = 1"],["sin θ = 0","cos θ = 0","sin θ = 1","cos θ = 1"],"B","Dividing by cos θ = 0 is not allowed.","cos θ = 0 से divide करना allowed नहीं है।");
+  add("MTH-T37",3,"MTH11-3-4",2,"Which of these is NOT a possible value of cos θ?","इनमें से कौन-सा cos θ का possible value नहीं है?",
+    ["0.5","−0.9","1.2","0"],["0.5","−0.9","1.2","0"],"C","1.2 is outside [-1,1].","1.2, [-1,1] के बाहर है।");
+  add("MTH-T38",3,"MTH11-3-4",2,"The range of tan θ is:","tan θ का range है:",
+    ["[-1,1]","[0,1]","all real numbers","[-∞,0]"],["[-1,1]","[0,1]","सभी real numbers","[-∞,0]"],"C","tan θ is unbounded, unlike sin and cos.","tan θ unbounded है, sin और cos के उलट।");
+  add("MTH-T39",3,"MTH11-3-4",3,"At which angle is tan θ undefined, between 0° and 180°?","0° और 180° के बीच, tan θ किस angle पर undefined है?",
+    ["0°","90°","180°","45°"],["0°","90°","180°","45°"],"B","cos 90° = 0.","cos 90° = 0।");
+  add("MTH-T40",3,"MTH11-3-4",3,"Which value is impossible for sin θ?","sin θ के लिए कौन-सा value असंभव है?",
+    ["-1","0","1","1.5"],["-1","0","1","1.5"],"D","1.5 is outside [-1,1].","1.5, [-1,1] के बाहर है।");
+  add("MTH-T41",3,"MTH11-3-4",4,"Why is the domain of tan θ smaller than the domain of sin θ?","tan θ का domain, sin θ के domain से छोटा क्यों है?",
+    ["tan needs cos θ ≠ 0 in its denominator","tan is always smaller in value","sin has no domain restriction ever","there is no real difference"],["tan के denominator में cos θ ≠ 0 चाहिए","tan हमेशा value में छोटा है","sin पर कभी domain restriction नहीं","असल में कोई फ़र्क़ नहीं"],"A","tan θ = sin θ/cos θ breaks wherever cos θ = 0.","tan θ = sin θ/cos θ वहाँ टूटता है जहाँ cos θ = 0।");
+
+  /* ---- Ch3 Topic 5: Standard Angles and Basic Identity (10) ---- */
+  add("MTH-T42",3,"MTH11-3-5",1,"sin 0° equals:","sin 0° बराबर है:",
+    ["0","1","-1","undefined"],["0","1","-1","undefined"],"A","The point starts at (1,0), so y=0.","Point (1,0) से शुरू होता है, इसलिए y=0।");
+  add("MTH-T43",3,"MTH11-3-5",1,"cos 0° equals:","cos 0° बराबर है:",
+    ["0","1","-1","undefined"],["0","1","-1","undefined"],"B","The point starts at (1,0), so x=1.","Point (1,0) से शुरू होता है, इसलिए x=1।");
+  add("MTH-T44",3,"MTH11-3-5",1,"sin 90° equals:","sin 90° बराबर है:",
+    ["0","1","-1","1/2"],["0","1","-1","1/2"],"B","At 90° the point is (0,1), so y=1.","90° पर point (0,1) है, इसलिए y=1।");
+  add("MTH-T45",3,"MTH11-3-5",2,"cos 90° equals:","cos 90° बराबर है:",
+    ["0","1","-1","1/2"],["0","1","-1","1/2"],"A","At 90° the point is (0,1), so x=0.","90° पर point (0,1) है, इसलिए x=0।");
+  add("MTH-T46",3,"MTH11-3-5",2,"sin 45° equals:","sin 45° बराबर है:",
+    ["1/2","√2/2","√3/2","1"],["1/2","√2/2","√3/2","1"],"B","A standard memorised value.","एक जाना-पहचाना याद किया हुआ value।");
+  add("MTH-T47",3,"MTH11-3-5",2,"The identity sin²θ + cos²θ equals:","Identity sin²θ + cos²θ बराबर है:",
+    ["0","1","2","θ"],["0","1","2","θ"],"B","This follows from x²+y²=1 on the unit circle.","यह unit circle के x²+y²=1 से आता है।");
+  add("MTH-T48",3,"MTH11-3-5",3,"If cos θ = 1/2, find sin²θ.","अगर cos θ = 1/2, sin²θ निकालिए।",
+    ["1/4","3/4","1/2","1"],["1/4","3/4","1/2","1"],"B","sin²θ = 1 − (1/2)² = 3/4.","sin²θ = 1 − (1/2)² = 3/4।");
+  add("MTH-T49",3,"MTH11-3-5",3,"If sin θ = 4/5 and θ is in Quadrant I, find cos θ.","अगर sin θ = 4/5 और θ, Quadrant I में है, cos θ निकालिए।",
+    ["3/5","4/5","1/5","5/4"],["3/5","4/5","1/5","5/4"],"A","cos²θ = 1 − 16/25 = 9/25, so cos θ = 3/5.","cos²θ = 1 − 16/25 = 9/25, इसलिए cos θ = 3/5।");
+  add("MTH-T50",3,"MTH11-3-5",4,"If sin θ = −3/5 and θ is in Quadrant III, find cos θ.","अगर sin θ = −3/5 और θ, Quadrant III में है, cos θ निकालिए।",
+    ["4/5","−4/5","3/5","−3/5"],["4/5","−4/5","3/5","−3/5"],"B","cos²θ = 16/25; Quadrant III keeps cos negative.","cos²θ = 16/25; Quadrant III में cos negative रहता है।");
+  add("MTH-T51",3,"MTH11-3-5",4,"Which pair could NOT both be true for the same θ?","कौन-सी जोड़ी एक ही θ के लिए सच नहीं हो सकती?",
+    ["sin θ=0.6, cos θ=0.8","sin θ=0.5, cos θ=0.5","sin θ=1, cos θ=0","sin θ=0, cos θ=1"],["sin θ=0.6, cos θ=0.8","sin θ=0.5, cos θ=0.5","sin θ=1, cos θ=0","sin θ=0, cos θ=1"],"B","0.5²+0.5²=0.5, which does not equal 1.","0.5²+0.5²=0.5, जो 1 के बराबर नहीं है।");
+
+  /* ---- Ch3 Topic 6: Sum and Difference Formulas (9) ---- */
+  add("MTH-T52",3,"MTH11-3-6",2,"cos(x+y) equals:","cos(x+y) बराबर है:",
+    ["cos x + cos y","cos x cos y − sin x sin y","cos x cos y + sin x sin y","sin x cos y + cos x sin y"],["cos x + cos y","cos x cos y − sin x sin y","cos x cos y + sin x sin y","sin x cos y + cos x sin y"],"B","The standard cos sum formula.","Standard cos sum formula।");
+  add("MTH-T53",3,"MTH11-3-6",2,"sin(x+y) equals:","sin(x+y) बराबर है:",
+    ["sin x + sin y","cos x cos y − sin x sin y","sin x cos y + cos x sin y","sin x cos y − cos x sin y"],["sin x + sin y","cos x cos y − sin x sin y","sin x cos y + cos x sin y","sin x cos y − cos x sin y"],"C","The standard sin sum formula.","Standard sin sum formula।");
+  add("MTH-T54",3,"MTH11-3-6",2,"cos(x−y) equals:","cos(x−y) बराबर है:",
+    ["cos x cos y − sin x sin y","cos x cos y + sin x sin y","cos x − cos y","sin x sin y − cos x cos y"],["cos x cos y − sin x sin y","cos x cos y + sin x sin y","cos x − cos y","sin x sin y − cos x cos y"],"B","The sign flips to + for a difference.","Difference के लिए sign + में बदल जाता है।");
+  add("MTH-T55",3,"MTH11-3-6",3,"sin(x−y) equals:","sin(x−y) बराबर है:",
+    ["sin x cos y + cos x sin y","sin x cos y − cos x sin y","sin x − sin y","cos x sin y − sin x cos y"],["sin x cos y + cos x sin y","sin x cos y − cos x sin y","sin x − sin y","cos x sin y − sin x cos y"],"B","The connecting sign flips to − for a difference.","Difference के लिए जोड़ने वाला sign − में बदल जाता है।");
+  add("MTH-T56",3,"MTH11-3-6",3,"Is cos(x+y) equal to cos x + cos y in general?","क्या cos(x+y), आम तौर पर cos x + cos y के बराबर है?",
+    ["Yes, always","No, that is a common mistake","Yes, but only for x=y","No, they are never related"],["हाँ, हमेशा","नहीं, यह एक आम ग़लती है","हाँ, पर सिर्फ़ x=y के लिए","नहीं, इनका कोई संबंध नहीं"],"B","The angle sum needs the full formula, not a simple split.","Angle sum के लिए पूरा formula चाहिए, सीधा split नहीं।");
+  add("MTH-T57",3,"MTH11-3-6",3,"Find cos 90° using cos(60°+30°).","cos(60°+30°) से cos 90° निकालिए।",
+    ["0","1","1/2","√3/2"],["0","1","1/2","√3/2"],"A","(1/2)(√3/2) − (√3/2)(1/2) = 0.","(1/2)(√3/2) − (√3/2)(1/2) = 0।");
+  add("MTH-T58",3,"MTH11-3-6",4,"Find sin 90° using sin(60°+30°).","sin(60°+30°) से sin 90° निकालिए।",
+    ["0","1/2","√3/2","1"],["0","1/2","√3/2","1"],"D","(√3/2)(√3/2) + (1/2)(1/2) = 3/4 + 1/4 = 1.","(√3/2)(√3/2) + (1/2)(1/2) = 3/4 + 1/4 = 1।");
+  add("MTH-T59",3,"MTH11-3-6",4,"Find cos 15° using cos(45°−30°).","cos(45°−30°) से cos 15° निकालिए।",
+    ["(√6+√2)/4","(√6−√2)/4","√2/4","√6/4"],["(√6+√2)/4","(√6−√2)/4","√2/4","√6/4"],"A","(√2/2)(√3/2) + (√2/2)(1/2) = (√6+√2)/4.","(√2/2)(√3/2) + (√2/2)(1/2) = (√6+√2)/4।");
+  add("MTH-T60",3,"MTH11-3-6",5,"Find sin 105° using sin(60°+45°).","sin(60°+45°) से sin 105° निकालिए।",
+    ["(√6+√2)/4","(√6−√2)/4","(√2+√3)/4","1"],["(√6+√2)/4","(√6−√2)/4","(√2+√3)/4","1"],"A","(√3/2)(√2/2) + (1/2)(√2/2) = (√6+√2)/4.","(√3/2)(√2/2) + (1/2)(√2/2) = (√6+√2)/4।");
+
+  /* ---- Ch3 Topic 7: Using the Formulas (9) ---- */
+  add("MTH-T61",3,"MTH11-3-7",3,"Which pair of standard angles sums to 105°?","कौन-सी जोड़ी जोड़ने पर 105° बनाती है?",
+    ["45°+60°","30°+60°","90°+15°","45°+45°"],["45°+60°","30°+60°","90°+15°","45°+45°"],"A","45° + 60° = 105°, both standard angles.","45° + 60° = 105°, दोनों standard angles।");
+  add("MTH-T62",3,"MTH11-3-7",3,"Which pair of standard angles gives a difference of 15°?","कौन-सी जोड़ी घटाने पर 15° का difference देती है?",
+    ["45°−30°","60°−30°","90°−45°","30°−0°"],["45°−30°","60°−30°","90°−45°","30°−0°"],"A","45° − 30° = 15°.","45° − 30° = 15°।");
+  add("MTH-T63",3,"MTH11-3-7",4,"Find cos 105° using cos(60°+45°).","cos(60°+45°) से cos 105° निकालिए।",
+    ["(√2−√6)/4","(√6+√2)/4","(√6−√2)/4","−(√6+√2)/4"],["(√2−√6)/4","(√6+√2)/4","(√6−√2)/4","−(√6+√2)/4"],"A","(1/2)(√2/2) − (√3/2)(√2/2) = (√2−√6)/4.","(1/2)(√2/2) − (√3/2)(√2/2) = (√2−√6)/4।");
+  add("MTH-T64",3,"MTH11-3-7",4,"Using sin(x−y), find sin 30° from sin(90°−60°).","sin(x−y) का इस्तेमाल करके sin(90°−60°) से sin 30° निकालिए।",
+    ["1/2","√3/2","1","0"],["1/2","√3/2","1","0"],"A","(1)(1/2) − (0)(√3/2) = 1/2.","(1)(1/2) − (0)(√3/2) = 1/2।");
+  add("MTH-T65",3,"MTH11-3-7",4,"cos(x−y) − cos(x+y) simplifies to a multiple of:","cos(x−y) − cos(x+y) किसका multiple बन जाता है?",
+    ["sin x sin y","cos x cos y","sin x cos y","cos x sin y"],["sin x sin y","cos x cos y","sin x cos y","cos x sin y"],"A","The cos x cos y terms cancel, leaving 2 sin x sin y.","cos x cos y वाले terms cancel हो जाते हैं, 2 sin x sin y बचता है।");
+  add("MTH-T66",3,"MTH11-3-7",5,"Simplify sin(x+y) + sin(x−y).","sin(x+y) + sin(x−y) को simplify कीजिए।",
+    ["2 sin x cos y","2 cos x sin y","2 sin x sin y","2 cos x cos y"],["2 sin x cos y","2 cos x sin y","2 sin x sin y","2 cos x cos y"],"A","The cos x sin y terms cancel, leaving 2 sin x cos y.","cos x sin y वाले terms cancel हो जाते हैं, 2 sin x cos y बचता है।");
+  add("MTH-T67",3,"MTH11-3-7",5,"Going from sin(x+y) to sin(x−y), the connecting sign:","sin(x+y) से sin(x−y) जाने पर, जोड़ने वाला sign:",
+    ["stays the same, +","becomes −","becomes ×","becomes ÷"],["वैसा ही रहता है, +","− बन जाता है","× बन जाता है","÷ बन जाता है"],"B","The middle sign flips from + to − for a difference.","Difference के लिए बीच वाला sign + से − में बदल जाता है।");
+  add("MTH-T68",3,"MTH11-3-7",5,"How would you find tan(x+y) once you know sin(x+y) and cos(x+y) separately?","अगर sin(x+y) और cos(x+y) अलग-अलग पता हों, tan(x+y) कैसे निकालेंगे?",
+    ["divide sin(x+y) by cos(x+y)","add them","multiply them","subtract them"],["sin(x+y) को cos(x+y) से divide कीजिए","उन्हें जोड़िए","उन्हें गुणा कीजिए","उन्हें घटाइए"],"A","tan is always sin divided by cos, even for a combined angle.","tan हमेशा sin भाग cos है, combined angle के लिए भी।");
+  add("MTH-T69",3,"MTH11-3-7",5,"Using the sum formula, cos 120° [=cos(90°+30°)] equals:","Sum formula से, cos 120° [=cos(90°+30°)] बराबर है:",
+    ["−1/2","1/2","−√3/2","√3/2"],["−1/2","1/2","−√3/2","√3/2"],"A","(0)(√3/2) − (1)(1/2) = −1/2.","(0)(√3/2) − (1)(1/2) = −1/2।");
 
   window.SL_DATA.questions = window.SL_DATA.questions.concat(Q);
 })();
