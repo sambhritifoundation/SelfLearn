@@ -556,6 +556,113 @@ window.SL_DATA = window.SL_DATA || {subjects:[], questions:[]};
         b("2 < x < 7.","2 < x < 7।")))
   ];
 
+  var pnc=[
+
+    topic("MTH11-6-0",
+      b("0. Revise: Counting Choices You Already Make","0. दोहराइए: Choices गिनना जो आप पहले से करते हैं"),
+      b(
+        "A café sells 3 drink sizes and 2 flavours. To count every possible order, you don't need to list them all one by one — you can just **multiply**.\n\n$$3\\text{ sizes}\\times2\\text{ flavours}=6\\text{ orders}$$\n\nThis one idea — multiplying the number of choices at each step — is the seed of this entire chapter. Permutations and combinations are just careful, organised ways of counting, built on exactly this.",
+        "एक café में 3 drink sizes और 2 flavours मिलते हैं। हर possible order गिनने के लिए, एक-एक करके list करने की ज़रूरत नहीं — बस **गुणा** कर सकते हैं।\n\n$$3\\text{ sizes}\\times2\\text{ flavours}=6\\text{ orders}$$\n\nयही एक विचार — हर step पर choices की संख्या गुणा करना — इस पूरे chapter का बीज है। Permutations और combinations बस इसी पर बने, संगठित तरीके से गिनने के careful तरीके हैं।"),
+      worked(
+        b("A shop has 4 phone cases and 3 screen guards. How many case+guard combinations are there?","एक दुकान में 4 phone cases और 3 screen guards हैं। कितने case+guard combinations हैं?"),
+        [
+          ["Each of the 4 cases can be paired with any of the 3 guards.","4 में से हर case, 3 में से किसी भी guard के साथ जोड़ा जा सकता है।","No possible pairing is left out.","कोई possible pairing नहीं छूटती।"],
+          ["Multiply: 4 × 3 = 12.","गुणा कीजिए: 4 × 3 = 12।","This is the same multiplication idea as the café example.","यह café वाले उदाहरण जैसा ही गुणा है।"]
+        ],
+        b("12 combinations.","12 combinations।"))),
+
+    topic("MTH11-6-1",
+      b("1. The Fundamental Principle of Counting","1. Counting का Fundamental Principle"),
+      b(
+        "You already met this exact picture in the Cartesian product chapter — a tailor pairing colours with items.\n\n{{diagram:cartesian-grid}}\n\n**Fundamental Principle of Counting:** if one step can happen in $m$ ways, and a second, independent step can then happen in $n$ ways, the two together can happen in $m\\times n$ ways.\n\nThis stretches to any number of steps — three independent choices multiply three numbers together, and so on. Counting big numbers of arrangements always starts here.",
+        "आपने यह ठीक यही picture Cartesian product वाले chapter में देखी थी — एक दर्ज़ी colours को items से जोड़ रहा है।\n\n{{diagram:cartesian-grid}}\n\n**Fundamental Principle of Counting:** अगर एक step $m$ तरीकों से हो सकता है, और एक दूसरा, independent step $n$ तरीकों से हो सकता है, तो दोनों साथ $m\\times n$ तरीकों से हो सकते हैं।\n\nयह किसी भी संख्या के steps तक फैलता है — तीन independent choices, तीन numbers को गुणा कर देती हैं, वग़ैरह। बड़े arrangements गिनने की शुरुआत हमेशा यहीं से होती है।"),
+      worked(
+        b("A restaurant offers 4 starters and 5 main courses. How many starter+main combinations are possible?","एक restaurant में 4 starters और 5 main courses हैं। कितने starter+main combinations possible हैं?"),
+        [
+          ["The starter choice (4 ways) and main-course choice (5 ways) are independent.","Starter choice (4 तरीके) और main-course choice (5 तरीके) independent हैं।","Choosing a starter does not affect which main courses are available.","Starter चुनने से main courses पर कोई असर नहीं पड़ता।"],
+          ["Multiply: 4 × 5 = 20.","गुणा कीजिए: 4 × 5 = 20।","The fundamental principle turns two steps into one multiplication.","Fundamental principle दो steps को एक गुणा में बदल देता है।"]
+        ],
+        b("20 combinations.","20 combinations।"))),
+
+    topic("MTH11-6-2",
+      b("2. Factorial Notation","2. Factorial Notation"),
+      b(
+        "Arranging 5 people in a line involves a repeated multiplication: 5 choices for the first spot, 4 left for the second, 3 for the third, and so on.\n\n$$5\\times4\\times3\\times2\\times1$$\n\nThis exact pattern comes up so often that it has its own symbol: $n!$, read ‘$n$ factorial’.\n\n$$n!=n\\times(n-1)\\times(n-2)\\times\\cdots\\times2\\times1$$\n\nOne special rule, defined for convenience rather than derived: $0!=1$.",
+        "5 लोगों को एक line में arrange करने में एक दोहराया हुआ गुणा है: पहली जगह के लिए 5 choices, दूसरी के लिए बची 4, तीसरी के लिए 3, वग़ैरह।\n\n$$5\\times4\\times3\\times2\\times1$$\n\nयह पैटर्न इतनी बार आता है कि इसका अपना symbol है: $n!$, इसे ‘$n$ factorial’ पढ़ते हैं।\n\n$$n!=n\\times(n-1)\\times(n-2)\\times\\cdots\\times2\\times1$$\n\nएक special rule, derive नहीं बल्कि सुविधा के लिए defined: $0!=1$।"),
+      worked(
+        b("Compute 5!","5! निकालिए।"),
+        [
+          ["Write out the full product: 5 × 4 × 3 × 2 × 1.","पूरा product लिखिए: 5 × 4 × 3 × 2 × 1।","This is exactly what n! means for n=5.","n=5 के लिए n! का यही मतलब है।"],
+          ["Multiply step by step: 5×4=20, ×3=60, ×2=120, ×1=120.","एक-एक करके गुणा कीजिए: 5×4=20, ×3=60, ×2=120, ×1=120।","The final multiplication by 1 never changes the value.","आख़िर में 1 से गुणा करने पर value नहीं बदलती।"]
+        ],
+        b("5! = 120.","5! = 120।"))),
+
+    topic("MTH11-6-3",
+      b("3. Permutations of Distinct Objects","3. अलग-अलग Objects के Permutations"),
+      b(
+        "A **permutation** is an arrangement where **order matters** — first place, second place, and so on are all different outcomes.\n\nThe number of ways to arrange $r$ objects, chosen from $n$ distinct objects, is written $^nP_r$:\n\n$$^nP_r=\\dfrac{n!}{(n-r)!}$$\n\nThink of it as filling $r$ spots one at a time: $n$ choices for the first spot, $n-1$ for the next, and so on for $r$ spots — the factorials package this up neatly.\n\nWhen $r=n$ (arranging everything), $^nP_n=n!$.",
+        "**Permutation** एक ऐसा arrangement है जहाँ **order मायने रखता है** — पहली जगह, दूसरी जगह, वग़ैरह सब अलग outcomes हैं।\n\n$n$ अलग-अलग objects में से $r$ को arrange करने के तरीके $^nP_r$ लिखते हैं:\n\n$$^nP_r=\\dfrac{n!}{(n-r)!}$$\n\nइसे $r$ जगहें एक-एक करके भरना सोचिए: पहली जगह के लिए $n$ choices, अगली के लिए $n-1$, वग़ैरह $r$ जगहों तक — factorials इसे साफ़-साफ़ समेट देते हैं।\n\nजब $r=n$ (सब कुछ arrange करना), तो $^nP_n=n!$।"),
+      worked(
+        b("In how many ways can 3 students, out of 5, be arranged in a line for a photo?","5 में से 3 students को photo के लिए line में कितने तरीकों से arrange कर सकते हैं?"),
+        [
+          ["This is a permutation: n=5, r=3, since the order in line matters.","यह permutation है: n=5, r=3, क्योंकि line में order मायने रखता है।","Standing first vs second vs third are different outcomes.","पहले, दूसरे, तीसरे खड़े होने अलग outcomes हैं।"],
+          ["⁵P₃ = 5!/(5−3)! = 120/2 = 60.","⁵P₃ = 5!/(5−3)! = 120/2 = 60।","Divide 5! by the factorial of the leftover, unused spots.","5! को बची हुई, इस्तेमाल न हुई जगहों के factorial से divide कीजिए।"]
+        ],
+        b("60 ways.","60 तरीके।"))),
+
+    topic("MTH11-6-4",
+      b("4. Repetition Allowed or Not Allowed","4. Repetition Allowed या Not Allowed"),
+      b(
+        "Read a counting problem carefully — can the same item be reused, or not?\n\nA 3-digit code from digits $0$-$9$, **if a digit can repeat**: each of the 3 positions independently has 10 choices.\n\n$$10\\times10\\times10=10^3=1000$$\n\nThe same code, **if digits cannot repeat**: the first position has 10 choices, but each next position has one fewer option left — this is exactly $^{10}P_3$.\n\n$$^{10}P_3=10\\times9\\times8=720$$\n\nSame-looking question, two very different answers — the repetition rule changes everything.",
+        "किसी counting problem को ध्यान से पढ़िए — क्या एक ही item फिर इस्तेमाल हो सकता है, या नहीं?\n\n$0$-$9$ के digits से 3-digit code, **अगर digit दोहरा सकता है**: तीनों positions में से हर एक के अलग-अलग 10 choices हैं।\n\n$$10\\times10\\times10=10^3=1000$$\n\nवही code, **अगर digits नहीं दोहरा सकते**: पहली position के 10 choices हैं, पर हर अगली position में एक option कम बचता है — यह ठीक $^{10}P_3$ है।\n\n$$^{10}P_3=10\\times9\\times8=720$$\n\nदेखने में एक जैसा question, पर दो बिल्कुल अलग answers — repetition का rule सब कुछ बदल देता है।"),
+      worked(
+        b("A 4-letter password uses the letters A, B, C, D, E. How many passwords are possible if letters CANNOT repeat?","एक 4-letter password A, B, C, D, E letters से बनता है। अगर letters दोहरा नहीं सकते, तो कितने passwords possible हैं?"),
+        [
+          ["No repetition, order matters — this is ⁵P₄.","कोई repetition नहीं, order मायने रखता है — यह ⁵P₄ है।","5 letters available, arranging 4 of them without reuse.","5 letters उपलब्ध हैं, बिना दोहराए 4 arrange करने हैं।"],
+          ["⁵P₄ = 5!/(5−4)! = 120/1 = 120.","⁵P₄ = 5!/(5−4)! = 120/1 = 120।","With only 1 letter left unused, (5−4)! = 1! = 1.","सिर्फ़ 1 letter बचा, (5−4)! = 1! = 1।"]
+        ],
+        b("120 passwords.","120 passwords।"))),
+
+    topic("MTH11-6-5",
+      b("5. Permutations When Objects Are Not All Distinct","5. जब सभी Objects अलग-अलग न हों"),
+      b(
+        "Arranging the letters of ROSE (4 different letters) gives $4!=24$ arrangements. But arranging the letters of BALL is different — the two L's are identical, so swapping them produces the exact same word.\n\nDivide out the repeats:\n\n$$\\text{arrangements}=\\dfrac{n!}{p_1!\\,p_2!\\,\\cdots}$$\n\nwhere $p_1,p_2,\\ldots$ count how many times each repeated letter appears.\n\nFor BALL: $n=4$ letters total, L repeats twice.\n\n$$\\dfrac{4!}{2!}=\\dfrac{24}{2}=12$$",
+        "ROSE (4 अलग-अलग letters) के letters arrange करने पर $4!=24$ arrangements मिलते हैं। पर BALL के letters अलग हैं — दोनों L एक जैसे हैं, इसलिए उन्हें बदलने पर वही शब्द बनता है।\n\nदोहराव को बाहर निकालिए:\n\n$$\\text{arrangements}=\\dfrac{n!}{p_1!\\,p_2!\\,\\cdots}$$\n\nजहाँ $p_1,p_2,\\ldots$ बताते हैं कि हर दोहराया letter कितनी बार आता है।\n\nBALL के लिए: कुल $n=4$ letters, L दो बार आता है।\n\n$$\\dfrac{4!}{2!}=\\dfrac{24}{2}=12$$"),
+      worked(
+        b("How many arrangements are there of the letters in LEVEL?","LEVEL के letters के कितने arrangements हैं?"),
+        [
+          ["LEVEL has 5 letters total; L repeats twice and E repeats twice.","LEVEL में कुल 5 letters हैं; L दो बार और E दो बार आता है।","Spot every repeated letter before applying the formula.","Formula लगाने से पहले हर दोहराया letter पहचानिए।"],
+          ["Divide: 5!/(2!×2!) = 120/4 = 30.","Divide कीजिए: 5!/(2!×2!) = 120/4 = 30।","Each repeated letter gets its own factorial in the denominator.","हर दोहराए letter का अपना factorial denominator में जाता है।"]
+        ],
+        b("30 arrangements.","30 arrangements।"))),
+
+    topic("MTH11-6-6",
+      b("6. Combinations","6. Combinations"),
+      b(
+        "A **combination** is a selection where **order does not matter** — picking Priya-then-Rahul for a committee is the same outcome as picking Rahul-then-Priya.\n\nThe number of ways to choose $r$ objects from $n$ distinct objects is written $^nC_r$:\n\n$$^nC_r=\\dfrac{n!}{r!\\,(n-r)!}$$\n\nCompare this to $^nP_r$: a combination is a permutation with the internal ordering removed — divided out by $r!$, the number of ways those $r$ chosen objects could themselves be arranged.",
+        "**Combination** एक selection है जहाँ **order मायने नहीं रखता** — committee के लिए पहले Priya फिर Rahul चुनना, पहले Rahul फिर Priya चुनने जैसा ही outcome है।\n\n$n$ अलग-अलग objects में से $r$ चुनने के तरीके $^nC_r$ लिखते हैं:\n\n$$^nC_r=\\dfrac{n!}{r!\\,(n-r)!}$$\n\nइसे $^nP_r$ से compare कीजिए: combination एक permutation है जिसमें अंदर की ordering हटा दी गई है — $r!$ से divide किया हुआ, यानी वे चुने हुए $r$ objects ख़ुद कितने तरीकों से arrange हो सकते थे।"),
+      worked(
+        b("In how many ways can a committee of 3 be chosen from 5 students?","5 students में से 3 की committee कितने तरीकों से चुन सकते हैं?"),
+        [
+          ["This is a combination: n=5, r=3, since the order of choosing does not matter.","यह combination है: n=5, r=3, क्योंकि चुनने का order मायने नहीं रखता।","A committee of {A,B,C} is the same regardless of the order chosen.","{A,B,C} की committee, किसी भी order में चुनी जाए, एक ही है।"],
+          ["⁵C₃ = 5!/(3!×2!) = 120/(6×2) = 10.","⁵C₃ = 5!/(3!×2!) = 120/(6×2) = 10।","Divide by both the chosen group's factorial and the leftover's.","चुने हुए group के factorial और बचे हुए के factorial, दोनों से divide कीजिए।"]
+        ],
+        b("10 ways.","10 तरीके।"))),
+
+    topic("MTH11-6-7",
+      b("7. Relating Permutations and Combinations","7. Permutations और Combinations का संबंध"),
+      b(
+        "The two formulas are directly linked:\n\n$$^nP_r={}^nC_r\\times r!$$\n\nChoose the group first ($^nC_r$ ways), then arrange that group internally ($r!$ ways) — multiplying the two gives every ordered arrangement, $^nP_r$.\n\n**The real skill is deciding which one a problem needs.** Ask: does the order of the chosen items change the outcome? If yes, it is a permutation. If the items just need to be picked, with no internal order, it is a combination.",
+        "दोनों formulas सीधे जुड़े हैं:\n\n$$^nP_r={}^nC_r\\times r!$$\n\nपहले group चुनिए ($^nC_r$ तरीके), फिर उस group को अंदर arrange कीजिए ($r!$ तरीके) — दोनों गुणा करने पर हर ordered arrangement मिलता है, $^nP_r$।\n\n**असली हुनर यह तय करना है कि problem को किसकी ज़रूरत है।** पूछिए: क्या चुनी हुई चीज़ों का order outcome बदलता है? अगर हाँ, तो यह permutation है। अगर चीज़ें बस चुननी हैं, कोई अंदरूनी order नहीं, तो यह combination है।"),
+      worked(
+        b("A quiz team of 4 is chosen from 8 students, and then one of the 4 is made captain. In how many ways can this happen?","8 students में से 4 की quiz team चुनी जाती है, फिर उन 4 में से एक को captain बनाया जाता है। यह कितने तरीकों से हो सकता है?"),
+        [
+          ["First choose the team of 4 — order doesn't matter here: ⁸C₄ = 70.","पहले 4 की team चुनिए — यहाँ order मायने नहीं रखता: ⁸C₄ = 70।","Choosing a team is a combination, not a permutation.","Team चुनना combination है, permutation नहीं।"],
+          ["Then choose the captain from those 4: 4 ways. Multiply: 70 × 4 = 280.","फिर उन 4 में से captain चुनिए: 4 तरीके। गुणा कीजिए: 70 × 4 = 280।","This is the fundamental counting principle again — two independent steps.","यह फिर से fundamental counting principle है — दो independent steps।"]
+        ],
+        b("280 ways.","280 तरीके।")))
+  ];
+
   window.SL_DATA.subjects = (window.SL_DATA.subjects||[]).filter(function(s){ return s.code!=="MATH11"; });
 
   window.SL_DATA.subjects.push({code:"MATH11",board:"CBSE",klass:11,icon:"📐",
@@ -618,7 +725,18 @@ window.SL_DATA = window.SL_DATA || {subjects:[], questions:[]};
         assessment:["MTH-I01","MTH-I03","MTH-I06","MTH-I09","MTH-I12","MTH-I15","MTH-I18","MTH-I21",
           "MTH-I24","MTH-I27","MTH-I30","MTH-I33","MTH-I36","MTH-I39","MTH-I42","MTH-I45",
           "MTH-I48","MTH-I51","MTH-I54","MTH-I57","MTH-I60","MTH-I63","MTH-I66","MTH-I69"],
-        topics:inequalities}
+        topics:inequalities},
+      {no:6,name:b("Permutations and Combinations","Permutations और Combinations"),
+        summary:b(
+          "**Permutations and Combinations: what this chapter covers**\n\nThe fundamental principle of counting says independent choices multiply. n! (n factorial) is the repeated multiplication n×(n−1)×...×1, with 0!=1 by convention. A permutation (ⁿPᵣ) arranges r out of n objects where order matters; a combination (ⁿCᵣ) selects r out of n where it doesn't. Repetition allowed vs not changes the formula completely. When some objects repeat, arrangements are divided by each repeat's factorial. ⁿPᵣ = ⁿCᵣ × r! links the two directly.",
+          "**Permutations और Combinations: इस chapter में क्या सीखेंगे**\n\nFundamental principle of counting कहता है कि independent choices गुणा होती हैं। n! (n factorial), n×(n−1)×...×1 का दोहराया गुणा है, और परंपरा से 0!=1 है। Permutation (ⁿPᵣ), n में से r objects arrange करता है जहाँ order मायने रखता है; combination (ⁿCᵣ), n में से r चुनता है जहाँ order मायने नहीं रखता। Repetition allowed या नहीं, formula पूरी तरह बदल देता है। जब कुछ objects दोहराते हैं, arrangements को हर दोहराव के factorial से divide करते हैं। ⁿPᵣ = ⁿCᵣ × r! दोनों को सीधे जोड़ता है।"),
+        checkpoint:b(
+          "Getting most Warm-up and Standard questions right, across every topic in this chapter, means you are ready to move on. Scoring low? Go back to '0. Revise: Counting Choices You Already Make' and redo its example by hand — that is the fastest way forward, not a setback.",
+          "इस chapter के हर topic में ज़्यादातर Warm-up और Standard questions सही होना, मतलब आप आगे बढ़ने के लिए ready हैं। Score कम है? '0. Revise: Counting Choices जो आप पहले से करते हैं' पर वापस जाइए और उसका example हाथ से दोबारा कीजिए — यही सबसे तेज़ रास्ता है, हार नहीं।"),
+        assessment:["MTH-P01","MTH-P03","MTH-P05","MTH-P06","MTH-P09","MTH-P12","MTH-P14","MTH-P17",
+          "MTH-P20","MTH-P22","MTH-P25","MTH-P28","MTH-P31","MTH-P34","MTH-P37","MTH-P40",
+          "MTH-P43","MTH-P46","MTH-P49","MTH-P52","MTH-P55","MTH-P58","MTH-P62","MTH-P65"],
+        topics:pnc}
     ]});
 
   window.SL_DATA.questions = (window.SL_DATA.questions||[]).filter(function(q){ return q.subject!=="MATH11"; });
@@ -1401,6 +1519,160 @@ window.SL_DATA = window.SL_DATA || {subjects:[], questions:[]};
     ["−4<x<4","x>−4","x<4","no solution"],["−4<x<4","x>−4","x<4","कोई solution नहीं"],"A","x>−4 (flip for negative divide) and x<4 overlap between −4 and 4.","x>−4 (negative divide पर पलटा) और x<4, −4 और 4 के बीच overlap करते हैं।");
   add("MTH-I69",5,"MTH11-5-7",5,"Two consecutive even numbers are both greater than 10, and their sum is less than 40. If the smaller is x, which system describes this? (next even number is x+2)","दो लगातार even numbers दोनों 10 से बड़े हैं, और उनका योग 40 से कम है। अगर छोटा x है, कौन-सा system इसे बताता है? (अगला even number x+2 है)",
     ["x>10 and 2x+2<40","x>10 and x+2<40","x≥10 and 2x+2≤40","x<10 and 2x+2<40"],["x>10 और 2x+2<40","x>10 और x+2<40","x≥10 और 2x+2≤40","x<10 और 2x+2<40"],"A","The sum x+(x+2)=2x+2 must be under 40, and x itself over 10.","योग x+(x+2)=2x+2, 40 से कम होना चाहिए, और ख़ुद x, 10 से ज़्यादा।");
+
+  /* ---- Ch6 Topic 0: Revise (5) ---- */
+  add("MTH-P01",6,"MTH11-6-0",1,"A menu has 2 soups and 3 salads. How many soup+salad combos?","एक menu में 2 soups और 3 salads हैं। कितने soup+salad combos हैं?",
+    ["5","6","8","23"],["5","6","8","23"],"B","2 × 3 = 6.","2 × 3 = 6।");
+  add("MTH-P02",6,"MTH11-6-0",1,"The fundamental principle of counting uses which operation to combine independent choices?","Fundamental principle of counting, independent choices को जोड़ने के लिए कौन-सा operation इस्तेमाल करता है?",
+    ["addition","subtraction","multiplication","division"],["addition","subtraction","multiplication","division"],"C","Independent steps multiply together.","Independent steps साथ गुणा होते हैं।");
+  add("MTH-P03",6,"MTH11-6-0",1,"3 shirts and 4 pants give how many outfits?","3 shirts और 4 pants कितने outfits देते हैं?",
+    ["7","12","34","43"],["7","12","34","43"],"B","3 × 4 = 12.","3 × 4 = 12।");
+  add("MTH-P04",6,"MTH11-6-0",2,"If step 1 has 5 ways and step 2 has 3 ways (independent), the total is:","अगर step 1 के 5 तरीके और step 2 के 3 तरीके हैं (independent), total क्या है?",
+    ["8","15","2","53"],["8","15","2","53"],"B","5 × 3 = 15.","5 × 3 = 15।");
+  add("MTH-P05",6,"MTH11-6-0",2,"A bike shop has 6 frame colours and 2 seat types. How many bike combinations?","एक bike shop में 6 frame colours और 2 seat types हैं। कितने bike combinations हैं?",
+    ["8","12","62","36"],["8","12","62","36"],"B","6 × 2 = 12.","6 × 2 = 12।");
+
+  /* ---- Ch6 Topic 1: Fundamental Principle of Counting (8) ---- */
+  add("MTH-P06",6,"MTH11-6-1",1,"4 starters and 5 mains give how many combinations?","4 starters और 5 mains कितने combinations देते हैं?",
+    ["9","20","45","54"],["9","20","45","54"],"B","4 × 5 = 20.","4 × 5 = 20।");
+  add("MTH-P07",6,"MTH11-6-1",1,"A padlock has 3 dials, each with 10 digits. How many total combinations (repetition allowed)?","एक padlock में 3 dials हैं, हर एक में 10 digits। कुल कितने combinations (repetition allowed)?",
+    ["30","100","1000","300"],["30","100","1000","300"],"C","10 × 10 × 10 = 1000.","10 × 10 × 10 = 1000।");
+  add("MTH-P08",6,"MTH11-6-1",1,"2 independent choices with m and n ways give a total of:","m और n तरीकों वाले 2 independent choices का total क्या है?",
+    ["m+n","m−n","m×n","m/n"],["m+n","m−n","m×n","m/n"],"C","Independent choices multiply.","Independent choices गुणा होती हैं।");
+  add("MTH-P09",6,"MTH11-6-1",2,"A café has 3 sizes, 4 flavours, and 2 toppings (all independent). Total orders?","एक café में 3 sizes, 4 flavours, और 2 toppings हैं (सब independent)। Total orders?",
+    ["9","24","20","12"],["9","24","20","12"],"B","3 × 4 × 2 = 24.","3 × 4 × 2 = 24।");
+  add("MTH-P10",6,"MTH11-6-1",2,"A code has 2 letters (26 choices each) followed by 2 digits (10 choices each). Total codes?","एक code में 2 letters (हर एक के 26 choices) फिर 2 digits (हर एक के 10 choices)। Total codes?",
+    ["260","67600","72","676"],["260","67600","72","676"],"B","26 × 26 × 10 × 10 = 67600.","26 × 26 × 10 × 10 = 67600।");
+  add("MTH-P11",6,"MTH11-6-1",2,"5 shirts, 3 pants, 2 pairs of shoes. Total outfits?","5 shirts, 3 pants, 2 pairs shoes। Total outfits?",
+    ["10","30","15","8"],["10","30","15","8"],"B","5 × 3 × 2 = 30.","5 × 3 × 2 = 30।");
+  add("MTH-P12",6,"MTH11-6-1",3,"A restaurant has 3 starters, 4 mains, and 2 desserts. How many complete 3-course meals?","एक restaurant में 3 starters, 4 mains, और 2 desserts हैं। कितने पूरे 3-course meals बनते हैं?",
+    ["9","24","20","12"],["9","24","20","12"],"B","3 × 4 × 2 = 24.","3 × 4 × 2 = 24।");
+  add("MTH-P13",6,"MTH11-6-1",3,"How many 2-digit numbers can be formed using digits 1-9 if repetition is allowed?","1-9 digits से repetition allowed के साथ कितने 2-digit numbers बन सकते हैं?",
+    ["18","81","72","45"],["18","81","72","45"],"B","9 × 9 = 81.","9 × 9 = 81।");
+
+  /* ---- Ch6 Topic 2: Factorial Notation (8) ---- */
+  add("MTH-P14",6,"MTH11-6-2",1,"Compute 3!.","3! निकालिए।",
+    ["3","6","9","1"],["3","6","9","1"],"B","3×2×1 = 6.","3×2×1 = 6।");
+  add("MTH-P15",6,"MTH11-6-2",1,"Compute 4!.","4! निकालिए।",
+    ["12","16","24","20"],["12","16","24","20"],"C","4×3×2×1 = 24.","4×3×2×1 = 24।");
+  add("MTH-P16",6,"MTH11-6-2",1,"0! equals:","0! बराबर है:",
+    ["0","1","undefined","−1"],["0","1","undefined","−1"],"B","Defined as 1 by convention.","परंपरा से 1 defined है।");
+  add("MTH-P17",6,"MTH11-6-2",2,"Compute 6!.","6! निकालिए।",
+    ["36","120","720","360"],["36","120","720","360"],"C","6×5×4×3×2×1 = 720.","6×5×4×3×2×1 = 720।");
+  add("MTH-P18",6,"MTH11-6-2",2,"6!/4! simplifies to:","6!/4! simplify होने पर:",
+    ["30","6","2","24"],["30","6","2","24"],"A","6×5 = 30, the rest cancels.","6×5 = 30, बाक़ी cancel हो जाता है।");
+  add("MTH-P19",6,"MTH11-6-2",2,"7!/5! simplifies to:","7!/5! simplify होने पर:",
+    ["42","2","7","35"],["42","2","7","35"],"A","7×6 = 42.","7×6 = 42।");
+  add("MTH-P20",6,"MTH11-6-2",3,"8!/6! simplifies to:","8!/6! simplify होने पर:",
+    ["56","2","8","48"],["56","2","8","48"],"A","8×7 = 56.","8×7 = 56।");
+  add("MTH-P21",6,"MTH11-6-2",3,"n!/(n−1)! simplifies to:","n!/(n−1)! simplify होने पर:",
+    ["n","1","n−1","n!"],["n","1","n−1","n!"],"A","Every term except n cancels.","n के अलावा हर term cancel हो जाता है।");
+
+  /* ---- Ch6 Topic 3: Permutations of Distinct Objects (9) ---- */
+  add("MTH-P22",6,"MTH11-6-3",1,"⁵P₂ equals:","⁵P₂ बराबर है:",
+    ["10","20","25","7"],["10","20","25","7"],"B","5×4 = 20.","5×4 = 20।");
+  add("MTH-P23",6,"MTH11-6-3",1,"⁴P₄ equals:","⁴P₄ बराबर है:",
+    ["4","16","24","1"],["4","16","24","1"],"C","⁴P₄ = 4! = 24.","⁴P₄ = 4! = 24।");
+  add("MTH-P24",6,"MTH11-6-3",1,"ⁿP₀ always equals:","ⁿP₀ हमेशा बराबर है:",
+    ["0","1","n","n!"],["0","1","n","n!"],"B","Arranging zero objects has exactly one way — doing nothing.","शून्य objects arrange करने का ठीक एक तरीका है — कुछ न करना।");
+  add("MTH-P25",6,"MTH11-6-3",2,"⁶P₂ equals:","⁶P₂ बराबर है:",
+    ["12","30","36","15"],["12","30","36","15"],"B","6×5 = 30.","6×5 = 30।");
+  add("MTH-P26",6,"MTH11-6-3",2,"In how many ways can 2 out of 4 books be arranged on a shelf?","4 में से 2 books shelf पर कितने तरीकों से arrange हो सकती हैं?",
+    ["6","8","12","4"],["6","8","12","4"],"C","⁴P₂ = 4×3 = 12.","⁴P₂ = 4×3 = 12।");
+  add("MTH-P27",6,"MTH11-6-3",2,"⁷P₃ equals:","⁷P₃ बराबर है:",
+    ["21","210","35","42"],["21","210","35","42"],"B","7×6×5 = 210.","7×6×5 = 210।");
+  add("MTH-P28",6,"MTH11-6-3",3,"In how many ways can first, second and third prizes be given to 3 of 8 contestants?","8 में से 3 contestants को first, second, third prizes कितने तरीकों से दे सकते हैं?",
+    ["56","336","24","512"],["56","336","24","512"],"B","⁸P₃ = 8×7×6 = 336.","⁸P₃ = 8×7×6 = 336।");
+  add("MTH-P29",6,"MTH11-6-3",3,"⁶P₃ equals:","⁶P₃ बराबर है:",
+    ["20","60","120","720"],["20","60","120","720"],"C","6×5×4 = 120.","6×5×4 = 120।");
+  add("MTH-P30",6,"MTH11-6-3",4,"How many 4-letter arrangements can be made from 6 distinct letters, using each letter at most once?","6 अलग-अलग letters से, हर letter ज़्यादा से ज़्यादा एक बार इस्तेमाल करके, कितने 4-letter arrangements बन सकते हैं?",
+    ["24","360","720","1296"],["24","360","720","1296"],"B","⁶P₄ = 6×5×4×3 = 360.","⁶P₄ = 6×5×4×3 = 360।");
+
+  /* ---- Ch6 Topic 4: Repetition Allowed or Not (9) ---- */
+  add("MTH-P31",6,"MTH11-6-4",1,"A 2-digit code from digits 0-9, repetition allowed: total codes?","0-9 digits से 2-digit code, repetition allowed: कुल codes?",
+    ["20","90","100","19"],["20","90","100","19"],"C","10 × 10 = 100.","10 × 10 = 100।");
+  add("MTH-P32",6,"MTH11-6-4",1,"A 2-digit code from digits 0-9, repetition NOT allowed: total codes?","0-9 digits से 2-digit code, repetition NOT allowed: कुल codes?",
+    ["90","100","20","81"],["90","100","20","81"],"A","10 × 9 = 90.","10 × 9 = 90।");
+  add("MTH-P33",6,"MTH11-6-4",2,"3-letter passwords from 5 distinct letters, repetition allowed: total?","5 अलग letters से 3-letter passwords, repetition allowed: total?",
+    ["15","60","125","243"],["15","60","125","243"],"C","5³ = 125.","5³ = 125।");
+  add("MTH-P34",6,"MTH11-6-4",2,"3-letter passwords from 5 distinct letters, repetition NOT allowed: total?","5 अलग letters से 3-letter passwords, repetition NOT allowed: total?",
+    ["60","125","15","243"],["60","125","15","243"],"A","⁵P₃ = 5×4×3 = 60.","⁵P₃ = 5×4×3 = 60।");
+  add("MTH-P35",6,"MTH11-6-4",2,"Which formula applies when repetition IS allowed, for r positions and n choices each?","हर position में n choices और repetition allowed होने पर कौन-सा formula लगता है?",
+    ["nʳ","ⁿPᵣ","ⁿCᵣ","n×r"],["nʳ","ⁿPᵣ","ⁿCᵣ","n×r"],"A","Each of the r positions independently has n choices.","r positions में से हर एक के अलग-अलग n choices हैं।");
+  add("MTH-P36",6,"MTH11-6-4",3,"A 4-digit PIN using digits 0-9, repetition allowed: total PINs?","0-9 digits से 4-digit PIN, repetition allowed: total PINs?",
+    ["40","5040","10000","6561"],["40","5040","10000","6561"],"C","10⁴ = 10000.","10⁴ = 10000।");
+  add("MTH-P37",6,"MTH11-6-4",3,"A 4-digit PIN using digits 0-9, repetition NOT allowed: total PINs?","0-9 digits से 4-digit PIN, repetition NOT allowed: total PINs?",
+    ["5040","10000","40","720"],["5040","10000","40","720"],"A","¹⁰P₄ = 10×9×8×7 = 5040.","¹⁰P₄ = 10×9×8×7 = 5040।");
+  add("MTH-P38",6,"MTH11-6-4",3,"How many 3-letter words can be formed from A,B,C,D (repetition allowed)?","A,B,C,D से (repetition allowed) कितने 3-letter words बन सकते हैं?",
+    ["12","24","64","81"],["12","24","64","81"],"C","4³ = 64.","4³ = 64।");
+  add("MTH-P39",6,"MTH11-6-4",4,"How many 3-letter words can be formed from A,B,C,D (repetition NOT allowed)?","A,B,C,D से (repetition NOT allowed) कितने 3-letter words बन सकते हैं?",
+    ["24","64","12","4"],["24","64","12","4"],"A","⁴P₃ = 4×3×2 = 24.","⁴P₃ = 4×3×2 = 24।");
+
+  /* ---- Ch6 Topic 5: Not All Distinct (9) ---- */
+  add("MTH-P40",6,"MTH11-6-5",1,"How many arrangements does the word ROSE have (4 distinct letters)?","Word ROSE (4 अलग letters) के कितने arrangements हैं?",
+    ["4","16","24","12"],["4","16","24","12"],"C","4! = 24.","4! = 24।");
+  add("MTH-P41",6,"MTH11-6-5",1,"How many arrangements does the word BALL have (4 letters, L repeats twice)?","Word BALL (4 letters, L दो बार) के कितने arrangements हैं?",
+    ["24","12","6","4"],["24","12","6","4"],"B","4!/2! = 12.","4!/2! = 12।");
+  add("MTH-P42",6,"MTH11-6-5",2,"For a word with n letters where one letter repeats p times, the arrangement formula is:","n letters वाले word में, अगर एक letter p बार दोहराता है, arrangement formula है:",
+    ["n!/p!","n!×p!","n!−p!","n!/p"],["n!/p!","n!×p!","n!−p!","n!/p"],"A","Divide out the repeated letter's internal orderings.","दोहराए letter की अंदरूनी orderings को divide कर दीजिए।");
+  add("MTH-P43",6,"MTH11-6-5",2,"How many arrangements does the word LEVEL have (5 letters, L twice, E twice)?","Word LEVEL (5 letters, L दो बार, E दो बार) के कितने arrangements हैं?",
+    ["120","60","30","15"],["120","60","30","15"],"C","5!/(2!×2!) = 120/4 = 30.","5!/(2!×2!) = 120/4 = 30।");
+  add("MTH-P44",6,"MTH11-6-5",2,"How many arrangements does the word CIVIC have (5 letters, C twice, I twice)?","Word CIVIC (5 letters, C दो बार, I दो बार) के कितने arrangements हैं?",
+    ["120","60","30","20"],["120","60","30","20"],"C","5!/(2!×2!) = 30.","5!/(2!×2!) = 30।");
+  add("MTH-P45",6,"MTH11-6-5",3,"How many arrangements does the word BANANA have (6 letters, A three times, N twice)?","Word BANANA (6 letters, A तीन बार, N दो बार) के कितने arrangements हैं?",
+    ["720","60","120","360"],["720","60","120","360"],"B","6!/(3!×2!) = 720/12 = 60.","6!/(3!×2!) = 720/12 = 60।");
+  add("MTH-P46",6,"MTH11-6-5",3,"How many arrangements does the word STATS have (5 letters, S twice, T twice)?","Word STATS (5 letters, S दो बार, T दो बार) के कितने arrangements हैं?",
+    ["120","30","60","15"],["120","30","60","15"],"B","5!/(2!×2!) = 120/4 = 30.","5!/(2!×2!) = 120/4 = 30।");
+  add("MTH-P47",6,"MTH11-6-5",4,"The word HELLO has 5 letters with L repeating twice. How many arrangements?","Word HELLO में 5 letters हैं और L दो बार आता है। कितने arrangements हैं?",
+    ["120","60","30","24"],["120","60","30","24"],"B","5!/2! = 60.","5!/2! = 60।");
+  add("MTH-P48",6,"MTH11-6-5",4,"Why must we divide by p! for each repeated letter?","हर दोहराए letter के लिए p! से क्यों divide करते हैं?",
+    ["To make the count smaller by mistake","Because swapping identical letters gives the same word, so those swaps were overcounted","Because factorial always divides","There is no real reason"],["ग़लती से count छोटा करने के लिए","क्योंकि identical letters बदलने पर वही word बनता है, इसलिए वे swaps दोहरे गिने गए थे","क्योंकि factorial हमेशा divide करता है","कोई असली reason नहीं"],"B","Identical-letter swaps were counted as different in n!, wrongly.","Identical-letter swaps को n! में ग़लती से अलग गिना गया था।");
+
+  /* ---- Ch6 Topic 6: Combinations (9) ---- */
+  add("MTH-P49",6,"MTH11-6-6",1,"⁵C₂ equals:","⁵C₂ बराबर है:",
+    ["20","10","5","25"],["20","10","5","25"],"B","5!/(2!×3!) = 10.","5!/(2!×3!) = 10।");
+  add("MTH-P50",6,"MTH11-6-6",1,"ⁿC₀ always equals:","ⁿC₀ हमेशा बराबर है:",
+    ["0","1","n","n!"],["0","1","n","n!"],"B","There is exactly one way to choose nothing.","कुछ न चुनने का ठीक एक तरीका है।");
+  add("MTH-P51",6,"MTH11-6-6",1,"ⁿCₙ always equals:","ⁿCₙ हमेशा बराबर है:",
+    ["0","1","n","n!"],["0","1","n","n!"],"B","There is exactly one way to choose everything.","सब कुछ चुनने का ठीक एक तरीका है।");
+  add("MTH-P52",6,"MTH11-6-6",2,"In how many ways can a team of 2 be chosen from 4 players?","4 players में से 2 की team कितने तरीकों से चुन सकते हैं?",
+    ["4","6","8","12"],["4","6","8","12"],"B","⁴C₂ = 6.","⁴C₂ = 6।");
+  add("MTH-P53",6,"MTH11-6-6",2,"⁶C₃ equals:","⁶C₃ बराबर है:",
+    ["15","20","120","6"],["15","20","120","6"],"B","6!/(3!×3!) = 20.","6!/(3!×3!) = 20।");
+  add("MTH-P54",6,"MTH11-6-6",2,"⁷C₂ equals:","⁷C₂ बराबर है:",
+    ["14","21","42","7"],["14","21","42","7"],"B","7×6/2 = 21.","7×6/2 = 21।");
+  add("MTH-P55",6,"MTH11-6-6",3,"In how many ways can 3 fruits be chosen from a basket of 6 different fruits?","6 अलग फलों में से 3 फल कितने तरीकों से चुन सकते हैं?",
+    ["18","20","120","6"],["18","20","120","6"],"B","⁶C₃ = 20.","⁶C₃ = 20।");
+  add("MTH-P56",6,"MTH11-6-6",3,"⁹C₂ equals:","⁹C₂ बराबर है:",
+    ["18","36","72","45"],["18","36","72","45"],"B","9×8/2 = 36.","9×8/2 = 36।");
+  add("MTH-P57",6,"MTH11-6-6",3,"Does the order of picking matter in a combination?","Combination में चुनने का order मायने रखता है?",
+    ["Yes, always","No, never","Only sometimes","Only for large n"],["हाँ, हमेशा","नहीं, कभी नहीं","सिर्फ़ कभी-कभी","सिर्फ़ बड़े n के लिए"],"B","Order never matters in a combination, by definition.","परिभाषा से, combination में order कभी मायने नहीं रखता।");
+
+  /* ---- Ch6 Topic 7: Relating Permutations and Combinations (12) ---- */
+  add("MTH-P58",6,"MTH11-6-7",2,"The relationship between permutations and combinations is:","Permutations और combinations के बीच संबंध है:",
+    ["ⁿPᵣ = ⁿCᵣ × r!","ⁿPᵣ = ⁿCᵣ + r!","ⁿPᵣ = ⁿCᵣ − r!","ⁿPᵣ = ⁿCᵣ / r!"],["ⁿPᵣ = ⁿCᵣ × r!","ⁿPᵣ = ⁿCᵣ + r!","ⁿPᵣ = ⁿCᵣ − r!","ⁿPᵣ = ⁿCᵣ / r!"],"A","Choose the group, then arrange it internally.","पहले group चुनिए, फिर उसे अंदर arrange कीजिए।");
+  add("MTH-P59",6,"MTH11-6-7",2,"Choosing a committee (no roles) is an example of a:","Committee चुनना (कोई roles नहीं) किसका उदाहरण है?",
+    ["permutation","combination","factorial","neither"],["permutation","combination","factorial","neither"],"B","Order of selection does not matter.","चुनने का order मायने नहीं रखता।");
+  add("MTH-P60",6,"MTH11-6-7",2,"Arranging books on a shelf in a specific order is an example of a:","Books को shelf पर एक ख़ास order में arrange करना किसका उदाहरण है?",
+    ["permutation","combination","factorial","neither"],["permutation","combination","factorial","neither"],"A","Order changes the outcome here.","यहाँ order outcome बदलता है।");
+  add("MTH-P61",6,"MTH11-6-7",2,"If ⁵C₂=10, what is ⁵P₂?","अगर ⁵C₂=10, ⁵P₂ क्या है?",
+    ["10","20","5","2"],["10","20","5","2"],"B","10 × 2! = 20.","10 × 2! = 20।");
+  add("MTH-P62",6,"MTH11-6-7",3,"If ⁶C₃=20, what is ⁶P₃?","अगर ⁶C₃=20, ⁶P₃ क्या है?",
+    ["20","120","40","60"],["20","120","40","60"],"B","20 × 3! = 20 × 6 = 120.","20 × 3! = 20 × 6 = 120।");
+  add("MTH-P63",6,"MTH11-6-7",3,"Selecting a 5-a-side team from 10 players (no positions assigned) needs:","10 players में से 5-a-side team चुनना (कोई position तय नहीं) किसकी ज़रूरत है?",
+    ["¹⁰P₅","¹⁰C₅","10⁵","5!"],["¹⁰P₅","¹⁰C₅","10⁵","5!"],"B","Order of selection does not matter here.","यहाँ चुनने का order मायने नहीं रखता।");
+  add("MTH-P64",6,"MTH11-6-7",3,"Assigning 3 distinct prizes (1st, 2nd, 3rd) to 3 of 10 contestants needs:","10 में से 3 contestants को 3 अलग prizes (1st, 2nd, 3rd) देना किसकी ज़रूरत है?",
+    ["¹⁰C₃","¹⁰P₃","10³","3!"],["¹⁰C₃","¹⁰P₃","10³","3!"],"B","Each prize is a distinct position, so order matters.","हर prize एक अलग position है, इसलिए order मायने रखता है।");
+  add("MTH-P65",6,"MTH11-6-7",4,"A 4-person team is chosen from 9 students, then a captain is chosen from those 4. Which expression gives the total ways?","9 students में से 4 की team चुनी जाती है, फिर उन 4 में से captain चुना जाता है। कौन-सी expression total ways देती है?",
+    ["⁹C₄ × 4","⁹P₄","⁹C₄","⁹C₄ + 4"],["⁹C₄ × 4","⁹P₄","⁹C₄","⁹C₄ + 4"],"A","Choose the team (combination), then the captain (fundamental principle).","पहले team चुनिए (combination), फिर captain (fundamental principle)।");
+  add("MTH-P66",6,"MTH11-6-7",4,"Compute the total ways from the previous question: ⁹C₄ × 4.","पिछले question से total ways निकालिए: ⁹C₄ × 4।",
+    ["504","126","36","630"],["504","126","36","630"],"A","⁹C₄ = 126, and 126 × 4 = 504.","⁹C₄ = 126, और 126 × 4 = 504।");
+  add("MTH-P67",6,"MTH11-6-7",4,"A password needs exactly 3 different letters from A-E, and their order matters. Which formula applies?","एक password A-E में से ठीक 3 अलग letters चाहता है, और उनका order मायने रखता है। कौन-सा formula लगता है?",
+    ["⁵P₃","⁵C₃","5³","3!"],["⁵P₃","⁵C₃","5³","3!"],"A","Order matters and letters do not repeat.","Order मायने रखता है और letters दोहराते नहीं।");
+  add("MTH-P68",6,"MTH11-6-7",5,"A quiz selects 5 questions out of 8 to ask, in the order they will be asked. Which formula applies?","एक quiz 8 में से 5 questions चुनता है, उसी order में जिसमें पूछे जाएँगे। कौन-सा formula लगता है?",
+    ["⁸C₅","⁸P₅","8⁵","5!"],["⁸C₅","⁸P₅","8⁵","5!"],"B","The order of asking matters, so it's a permutation.","पूछने का order मायने रखता है, इसलिए यह permutation है।");
+  add("MTH-P69",6,"MTH11-6-7",5,"A shop selects 5 items out of 8 to put on a sale display, with no particular order. Which formula applies?","एक दुकान 8 में से 5 items बिना किसी ख़ास order के sale display पर रखती है। कौन-सा formula लगता है?",
+    ["⁸C₅","⁸P₅","8⁵","5!"],["⁸C₅","⁸P₅","8⁵","5!"],"A","No order needed, so it's a combination.","कोई order नहीं चाहिए, इसलिए यह combination है।");
 
   window.SL_DATA.questions = window.SL_DATA.questions.concat(Q);
 })();
