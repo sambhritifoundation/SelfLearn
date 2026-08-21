@@ -4870,6 +4870,27 @@ var DIAGRAMS = {
       +'</svg>';
   },
 
+  "dispersion-dotplot": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    var h='<text x="230" y="18" text-anchor="middle" font-size="16" font-weight="bold" fill="var(--primary)">'+d("Same mean, very different spread","एक जैसा mean, बहुत अलग spread")+'</text>';
+    h+='<line x1="50" y1="70" x2="410" y2="70" stroke="var(--line-strong)" stroke-width="1.5"/>';
+    [10,30,50,70,90].forEach(function(v){
+      var x=50+3.6*v;
+      h+='<circle cx="'+x+'" cy="70" r="6" fill="var(--primary)"/>';
+    });
+    h+='<text x="50" y="95" font-size="13" font-weight="bold" fill="var(--primary)">'+d("Team A — widely spread","Team A — बहुत बिखरा हुआ")+'</text>';
+    h+='<line x1="50" y1="170" x2="410" y2="170" stroke="var(--line-strong)" stroke-width="1.5"/>';
+    [46,48,50,52,54].forEach(function(v){
+      var x=50+3.6*v;
+      h+='<circle cx="'+x+'" cy="170" r="6" fill="var(--teal)"/>';
+    });
+    h+='<text x="50" y="195" font-size="13" font-weight="bold" fill="var(--teal)">'+d("Team B — tightly clustered","Team B — कसकर इकट्ठा")+'</text>';
+    h+='<line x1="230" y1="50" x2="230" y2="190" stroke="var(--red)" stroke-width="2" stroke-dasharray="4,3"/>';
+    h+='<text x="230" y="42" text-anchor="middle" font-size="13" font-weight="bold" fill="var(--red)">'+d("same mean = 50","same mean = 50")+'</text>';
+    h+='<text x="230" y="215" text-anchor="middle" font-size="12.5" font-style="italic" fill="var(--muted)">'+d("dispersion measures exactly this difference in spread","dispersion ठीक इसी spread के अंतर को मापता है")+'</text>';
+    return '<svg viewBox="0 0 460 230" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'+h+'</svg>';
+  },
+
 };
 
 /* Interactive widgets: sliders students can move to feel the relationship. */

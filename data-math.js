@@ -1253,6 +1253,113 @@ window.SL_DATA = window.SL_DATA || {subjects:[], questions:[]};
         b("f'(x) = 6x + 5.","f'(x) = 6x + 5।")))
   ];
 
+  var stats=[
+
+    topic("MTH11-13-0",
+      b("0. Revise: Mean and Median You Already Know","0. दोहराइए: Mean और Median जो आप पहले से जानते हैं"),
+      b(
+        "From Class 10: the **mean** is the sum of all values divided by how many there are. The **median** is the middle value once the data is sorted. Both are **measures of central tendency** — a single number describing where the data is centred.\n\nBut consider two batsmen's last 10 scores. Batsman A: 30, 91, 0, 64, 42, 80, 30, 5, 117, 71. Batsman B: 53, 46, 48, 50, 53, 53, 58, 60, 57, 52. Both have the **same mean: 53**.\n\n{{diagram:dispersion-dotplot}}\n\nAre these two batsmen equally reliable? Clearly not — A swings wildly between 0 and 117, while B stays close to 53 every time. The mean alone hides this. This chapter studies **dispersion** — a number that captures exactly this difference in spread.",
+        "Class 10 से: **mean**, सभी values का योग है, उनकी संख्या से divide किया हुआ। **Median**, data को sort करने पर बीच वाला value है। दोनों **measures of central tendency** हैं — एक number जो बताता है data कहाँ केंद्रित है।\n\nपर दो batsmen के पिछले 10 scores देखिए। Batsman A: 30, 91, 0, 64, 42, 80, 30, 5, 117, 71। Batsman B: 53, 46, 48, 50, 53, 53, 58, 60, 57, 52। दोनों का **mean same है: 53**।\n\n{{diagram:dispersion-dotplot}}\n\nक्या ये दोनों batsmen बराबर भरोसेमंद हैं? बिलकुल नहीं — A, 0 से 117 के बीच बुरी तरह झूलता है, जबकि B हर बार 53 के पास रहता है। सिर्फ़ mean यह छुपा देता है। यह chapter **dispersion** पढ़ता है — एक number जो ठीक इसी spread के अंतर को पकड़ता है।"),
+      worked(
+        b("Verify: is the mean of Batsman A's scores (30, 91, 0, 64, 42, 80, 30, 5, 117, 71) really 53?","जाँचिए: क्या Batsman A के scores (30, 91, 0, 64, 42, 80, 30, 5, 117, 71) का mean सच में 53 है?"),
+        [
+          ["Add all ten scores: 30+91+0+64+42+80+30+5+117+71 = 530.","सभी दस scores जोड़िए: 30+91+0+64+42+80+30+5+117+71 = 530।","Careful addition, one number at a time.","सावधानी से जोड़, एक-एक number करके।"],
+          ["Divide by 10: 530 ÷ 10 = 53.","10 से divide कीजिए: 530 ÷ 10 = 53।","Mean = sum ÷ count.","Mean = sum ÷ count।"]
+        ],
+        b("Yes, the mean is 53.","हाँ, mean 53 है।"))),
+
+    topic("MTH11-13-1",
+      b("1. Range","1. Range"),
+      b(
+        "The simplest measure of dispersion just looks at the two extremes.\n\n$$\\text{Range}=\\text{maximum value}-\\text{minimum value}$$\n\nA bigger range means the data stretches wider; a smaller range means it huddles closer together. It is easy to compute, but it only looks at two numbers out of the whole dataset — one unusually large or small value can throw it off completely.",
+        "Dispersion का सबसे आसान measure सिर्फ़ दो extremes देखता है।\n\n$$\\text{Range}=\\text{maximum value}-\\text{minimum value}$$\n\nबड़ा range मतलब data ज़्यादा फैला हुआ है; छोटा range मतलब यह ज़्यादा पास-पास है। इसे निकालना आसान है, पर यह पूरे dataset में से सिर्फ़ दो numbers देखता है — एक असामान्य रूप से बड़ा या छोटा value इसे पूरी तरह बिगाड़ सकता है।"),
+      worked(
+        b("Find the range of Batsman A's scores (30,91,0,64,42,80,30,5,117,71) and Batsman B's scores (53,46,48,50,53,53,58,60,57,52).","Batsman A के scores (30,91,0,64,42,80,30,5,117,71) और Batsman B के scores (53,46,48,50,53,53,58,60,57,52) का range निकालिए।"),
+        [
+          ["Batsman A: maximum is 117, minimum is 0. Range = 117−0 = 117.","Batsman A: maximum 117 है, minimum 0 है। Range = 117−0 = 117।","Just spot the biggest and smallest values.","बस सबसे बड़ा और सबसे छोटा value पहचानिए।"],
+          ["Batsman B: maximum is 60, minimum is 46. Range = 60−46 = 14.","Batsman B: maximum 60 है, minimum 46 है। Range = 60−46 = 14।","A much smaller range, matching the tighter clustering.","बहुत छोटा range, कसकर इकट्ठा होने से मेल खाता है।"]
+        ],
+        b("Range A = 117, Range B = 14 — A is far more spread out.","Range A = 117, Range B = 14 — A कहीं ज़्यादा फैला हुआ है।"))),
+
+    topic("MTH11-13-2",
+      b("2. Mean Deviation About the Mean","2. Mean के इर्द-गिर्द Mean Deviation"),
+      b(
+        "Range ignores everything except the extremes. **Mean deviation** uses every single value instead — it averages how far each value sits from the mean.\n\nSince some values sit below the mean (negative distance) and some above (positive), simply adding the differences would cancel out to something near zero. Taking the **absolute value** of each distance fixes that — every distance counts as positive, however you measure it.\n\n$$\\text{Mean deviation about mean}=\\dfrac{1}{n}\\sum_{i=1}^{n}|x_i-\\bar x|$$",
+        "Range extremes के अलावा सब कुछ नज़रअंदाज़ करता है। **Mean deviation** इसकी जगह हर एक value इस्तेमाल करता है — यह average निकालता है कि हर value, mean से कितनी दूर है।\n\nकुछ values mean से नीचे हैं (negative दूरी) और कुछ ऊपर (positive), इसलिए सीधे अंतर जोड़ने पर वे cancel होकर लगभग शून्य बन जाएँगे। हर दूरी का **absolute value** लेने से यह ठीक हो जाता है — हर दूरी positive गिनी जाती है, चाहे किसी भी तरफ़ हो।\n\n$$\\text{Mean deviation about mean}=\\dfrac{1}{n}\\sum_{i=1}^{n}|x_i-\\bar x|$$"),
+      worked(
+        b("Find the mean deviation about the mean for the data 2, 4, 6, 8, 10.","Data 2, 4, 6, 8, 10 के लिए mean के इर्द-गिर्द mean deviation निकालिए।"),
+        [
+          ["The mean is 6. Find |xi−6| for each value: |2−6|=4, |4−6|=2, |6−6|=0, |8−6|=2, |10−6|=4.","Mean 6 है। हर value के लिए |xi−6| निकालिए: |2−6|=4, |4−6|=2, |6−6|=0, |8−6|=2, |10−6|=4।","Every distance is made positive by the absolute value.","Absolute value से हर दूरी positive बन जाती है।"],
+          ["Add these: 4+2+0+2+4=12. Divide by n=5: 12÷5=2.4.","इन्हें जोड़िए: 4+2+0+2+4=12। n=5 से divide कीजिए: 12÷5=2.4।","This is the average of the absolute distances.","यह absolute दूरियों का average है।"]
+        ],
+        b("Mean deviation about the mean = 2.4.","Mean के इर्द-गिर्द mean deviation = 2.4।"))),
+
+    topic("MTH11-13-3",
+      b("3. Mean Deviation About the Median","3. Median के इर्द-गिर्द Mean Deviation"),
+      b(
+        "The exact same idea works with the median as the centre instead of the mean.\n\n$$\\text{Mean deviation about median}=\\dfrac{1}{n}\\sum_{i=1}^{n}|x_i-M|$$\n\nSort the data first, find the median $M$, then average the absolute distances from $M$ instead of from $\\bar x$. Everything else about the method is identical.",
+        "बिल्कुल यही विचार median को केंद्र मानकर भी काम करता है, mean की जगह।\n\n$$\\text{Mean deviation about median}=\\dfrac{1}{n}\\sum_{i=1}^{n}|x_i-M|$$\n\nपहले data sort कीजिए, median $M$ निकालिए, फिर $\\bar x$ की जगह $M$ से absolute दूरियों का average लीजिए। तरीके में बाक़ी सब कुछ वही है।"),
+      worked(
+        b("Find the mean deviation about the median for the data 2, 3, 5, 8, 10.","Data 2, 3, 5, 8, 10 के लिए median के इर्द-गिर्द mean deviation निकालिए।"),
+        [
+          ["The data is already sorted, with 5 values, so the median is the middle one: M=5.","Data पहले से sorted है, 5 values के साथ, इसलिए median बीच वाला है: M=5।","With an odd count, the median is the exact middle value.","Odd count में, median ठीक बीच वाला value है।"],
+          ["Find |xi−5|: 3,2,0,3,5. Add: 13. Divide by 5: 13÷5=2.6.","|xi−5| निकालिए: 3,2,0,3,5। जोड़िए: 13। 5 से divide कीजिए: 13÷5=2.6।","Same absolute-value-and-average process, centred on M instead.","वही absolute-value-and-average process, बस M पर केंद्रित।"]
+        ],
+        b("Mean deviation about the median = 2.6.","Median के इर्द-गिर्द mean deviation = 2.6।"))),
+
+    topic("MTH11-13-4",
+      b("4. Variance: Squaring the Deviations","4. Variance: Deviations को Square करना"),
+      b(
+        "Absolute value is not the only way to make every distance positive — **squaring** works too, and it turns out to have nicer mathematical properties for later use.\n\n$$\\text{Variance }\\sigma^2=\\dfrac{1}{n}\\sum_{i=1}^{n}(x_i-\\bar x)^2$$\n\nSquaring also does something absolute value does not: it punishes big deviations much more than small ones — a value twice as far from the mean contributes four times as much to the variance, not just twice.",
+        "हर दूरी को positive बनाने का absolute value ही एकमात्र तरीका नहीं है — **square करना** भी काम करता है, और आगे इस्तेमाल के लिए इसके गणितीय गुण बेहतर हैं।\n\n$$\\text{Variance }\\sigma^2=\\dfrac{1}{n}\\sum_{i=1}^{n}(x_i-\\bar x)^2$$\n\nSquare करना वह भी करता है जो absolute value नहीं करता: यह बड़े deviations को छोटों से कहीं ज़्यादा सज़ा देता है — mean से दोगुनी दूर एक value, variance में सिर्फ़ दोगुना नहीं बल्कि चार गुना योगदान देता है।"),
+      worked(
+        b("Find the variance of the data 2, 4, 6, 8, 10.","Data 2, 4, 6, 8, 10 का variance निकालिए।"),
+        [
+          ["The mean is 6. Find (xi−6)² for each: 16, 4, 0, 4, 16.","Mean 6 है। हर एक के लिए (xi−6)² निकालिए: 16, 4, 0, 4, 16।","Square each deviation instead of taking its absolute value.","हर deviation को absolute value की जगह square कीजिए।"],
+          ["Add: 16+4+0+4+16=40. Divide by n=5: 40÷5=8.","जोड़िए: 16+4+0+4+16=40। n=5 से divide कीजिए: 40÷5=8।","This average of squared deviations is the variance.","Squared deviations का यह average ही variance है।"]
+        ],
+        b("Variance = 8.","Variance = 8।"))),
+
+    topic("MTH11-13-5",
+      b("5. Standard Deviation","5. Standard Deviation"),
+      b(
+        "Variance has an awkward side effect: squaring the deviations also squares the **units**. If the data is in rupees, variance comes out in rupees-squared — hard to interpret directly.\n\n**Standard deviation** fixes this by undoing the square:\n\n$$\\sigma=\\sqrt{\\text{variance}}=\\sqrt{\\dfrac{1}{n}\\sum_{i=1}^{n}(x_i-\\bar x)^2}$$\n\nStandard deviation is back in the same units as the original data, making it the most commonly reported measure of spread.",
+        "Variance का एक अजीब side effect है: deviations को square करने से **units** भी square हो जाती हैं। अगर data रुपयों में है, variance रुपये-square में आता है — सीधे समझना मुश्किल।\n\n**Standard deviation** square को वापस पलटकर यह ठीक करता है:\n\n$$\\sigma=\\sqrt{\\text{variance}}=\\sqrt{\\dfrac{1}{n}\\sum_{i=1}^{n}(x_i-\\bar x)^2}$$\n\nStandard deviation, original data की उन्हीं units में वापस आ जाता है, इसलिए यह spread का सबसे ज़्यादा बताया जाने वाला measure है।"),
+      worked(
+        b("Find the standard deviation of the data 2, 4, 6, 8, 10 (variance = 8, from the last topic).","Data 2, 4, 6, 8, 10 का standard deviation निकालिए (variance = 8, पिछले topic से)।"),
+        [
+          ["Standard deviation is the square root of the variance: √8.","Standard deviation, variance का square root है: √8।","Just one step, once the variance is already known.","Variance पता होने पर, बस एक step।"],
+          ["√8 = 2√2 ≈ 2.83.","√8 = 2√2 ≈ 2.83।","Simplify √8 as √(4×2) = 2√2.","√8 को √(4×2) = 2√2 की तरह simplify कीजिए।"]
+        ],
+        b("Standard deviation ≈ 2.83.","Standard deviation ≈ 2.83।"))),
+
+    topic("MTH11-13-6",
+      b("6. Variance and SD for Grouped Data","6. Grouped Data के लिए Variance और SD"),
+      b(
+        "When data is organised into a frequency table — some values repeated many times — each deviation must be weighted by how often it occurs.\n\n$$\\sigma^2=\\dfrac{1}{N}\\sum_{i}f_i(x_i-\\bar x)^2\\qquad\\text{where }N=\\sum_if_i$$\n\nThe mean itself must also be found the weighted way first: $\\bar x=\\dfrac{1}{N}\\sum_if_ix_i$. Everything after that follows the same pattern as before — just with an $f_i$ multiplied in at each step.",
+        "जब data को एक frequency table में रखा जाता है — कुछ values कई बार दोहराई जाती हैं — हर deviation को उसकी frequency से weight करना पड़ता है।\n\n$$\\sigma^2=\\dfrac{1}{N}\\sum_{i}f_i(x_i-\\bar x)^2\\qquad\\text{जहाँ }N=\\sum_if_i$$\n\nखुद mean भी पहले weighted तरीके से निकालना होगा: $\\bar x=\\dfrac{1}{N}\\sum_if_ix_i$। इसके बाद बाक़ी सब कुछ वही पहले जैसा pattern है — बस हर step में एक $f_i$ गुणा हुआ।"),
+      worked(
+        b("Find the variance for x: 2, 4, 6 with frequencies f: 1, 2, 1.","x: 2, 4, 6 और frequencies f: 1, 2, 1 का variance निकालिए।"),
+        [
+          ["N=1+2+1=4. Mean = (2×1+4×2+6×1)/4 = (2+8+6)/4 = 16/4 = 4.","N=1+2+1=4। Mean = (2×1+4×2+6×1)/4 = (2+8+6)/4 = 16/4 = 4।","Weight each x by its own frequency before dividing by N.","N से divide करने से पहले हर x को उसकी frequency से weight कीजिए।"],
+          ["(xi−4)² are 4,0,4. Weighted: 4×1+0×2+4×1=8. Variance = 8/4 = 2.","(xi−4)² हैं 4,0,4। Weighted: 4×1+0×2+4×1=8। Variance = 8/4 = 2।","Multiply each squared deviation by its frequency before summing.","जोड़ने से पहले हर squared deviation को उसकी frequency से गुणा कीजिए।"]
+        ],
+        b("Variance = 2.","Variance = 2।"))),
+
+    topic("MTH11-13-7",
+      b("7. Shortcut (Step-Deviation) Method","7. Shortcut (Step-Deviation) तरीका"),
+      b(
+        "Large or awkward numbers make direct calculation slow. The **step-deviation method** rescales the data around a convenient assumed mean $A$ and a class width $h$, then rescales the answer back at the end.\n\n$$y_i=\\dfrac{x_i-A}{h}\\qquad\\sigma^2=h^2\\left[\\dfrac{1}{N}\\sum f_iy_i^2-\\left(\\dfrac{1}{N}\\sum f_iy_i\\right)^2\\right]$$\n\nThis looks like more steps, but every $y_i$ becomes a small, easy integer — the actual arithmetic gets much lighter, and the final answer matches the direct method exactly.",
+        "बड़े या अटपटे numbers direct calculation को धीमा बना देते हैं। **Step-deviation method**, data को एक सुविधाजनक assumed mean $A$ और class width $h$ के इर्द-गिर्द फिर से scale करता है, फिर आख़िर में answer को वापस scale करता है।\n\n$$y_i=\\dfrac{x_i-A}{h}\\qquad\\sigma^2=h^2\\left[\\dfrac{1}{N}\\sum f_iy_i^2-\\left(\\dfrac{1}{N}\\sum f_iy_i\\right)^2\\right]$$\n\nयह ज़्यादा steps जैसा लगता है, पर हर $y_i$ एक छोटा, आसान integer बन जाता है — असली arithmetic काफ़ी हल्का हो जाता है, और final answer direct method से बिल्कुल मेल खाता है।"),
+      worked(
+        b("Using A=4, h=2, find the variance for x: 2, 4, 6 with f: 1, 2, 1 (same data as the last topic).","A=4, h=2 इस्तेमाल करके, x: 2, 4, 6, f: 1, 2, 1 का variance निकालिए (पिछले topic का ही data)।"),
+        [
+          ["yi = (xi−4)/2 gives −1, 0, 1. Then Σfiyi = 1(−1)+2(0)+1(1) = 0, and Σfiyi² = 1(1)+2(0)+1(1) = 2.","yi = (xi−4)/2 से मिलता है −1, 0, 1। फिर Σfiyi = 1(−1)+2(0)+1(1) = 0, और Σfiyi² = 1(1)+2(0)+1(1) = 2।","Small integers are much easier to square and add than the original x values.","असली x values से छोटे integers को square-जोड़ना कहीं आसान है।"],
+          ["σ² = h²[(2/4) − (0/4)²] = 4×[0.5−0] = 2 — matching the direct method exactly.","σ² = h²[(2/4) − (0/4)²] = 4×[0.5−0] = 2 — direct method से बिल्कुल मेल खाता है।","Same final answer, reached with lighter arithmetic.","वही final answer, हल्के arithmetic से मिला।"]
+        ],
+        b("Variance = 2 — the same as before.","Variance = 2 — पहले जैसा ही।")))
+  ];
+
   window.SL_DATA.subjects = (window.SL_DATA.subjects||[]).filter(function(s){ return s.code!=="MATH11"; });
 
   window.SL_DATA.subjects.push({code:"MATH11",board:"CBSE",klass:11,icon:"📐",
@@ -1392,7 +1499,18 @@ window.SL_DATA = window.SL_DATA || {subjects:[], questions:[]};
         assessment:["MTH-M01","MTH-M03","MTH-M05","MTH-M06","MTH-M09","MTH-M12","MTH-M14","MTH-M17",
           "MTH-M20","MTH-M22","MTH-M25","MTH-M28","MTH-M30","MTH-M33","MTH-M36","MTH-M39",
           "MTH-M42","MTH-M45","MTH-M48","MTH-M51","MTH-M54","MTH-M58","MTH-M62","MTH-M66"],
-        topics:calculus}
+        topics:calculus},
+      {no:13,name:b("Statistics","Statistics"),
+        summary:b(
+          "**Statistics: what this chapter covers**\n\nTwo datasets can share the same mean and still behave very differently — one tightly clustered, the other wildly spread. This chapter measures that spread. Range looks only at the two extremes. Mean deviation averages the absolute distance of every value from the mean (or median). Variance squares those distances instead, and standard deviation undoes the square to bring the answer back into the original units. The same formulas extend to grouped, frequency-weighted data, and a step-deviation shortcut keeps the arithmetic light when the numbers are large or awkward.",
+          "**Statistics: इस chapter में क्या सीखेंगे**\n\nदो datasets का mean same हो सकता है, फिर भी वे बहुत अलग व्यवहार कर सकते हैं — एक कसकर इकट्ठा, दूसरा बुरी तरह फैला हुआ। यह chapter उसी फैलाव को मापता है। Range सिर्फ़ दो extremes देखता है। Mean deviation, हर value की mean (या median) से absolute दूरी का average निकालता है। Variance उन दूरियों को square करता है, और standard deviation, square को पलटकर answer को वापस original units में लाता है। वही formulas grouped, frequency-weighted data तक फैलते हैं, और एक step-deviation shortcut, numbers बड़े या अटपटे होने पर arithmetic हल्का रखता है।"),
+        checkpoint:b(
+          "Getting most Warm-up and Standard questions right, across every topic in this chapter, means you are ready to move on. Scoring low? Go back to '0. Revise: Mean and Median You Already Know' and redo its example by hand — that is the fastest way forward, not a setback.",
+          "इस chapter के हर topic में ज़्यादातर Warm-up और Standard questions सही होना, मतलब आप आगे बढ़ने के लिए ready हैं। Score कम है? '0. दोहराइए: Mean और Median जो आप पहले से जानते हैं' पर वापस जाइए और उसका example हाथ से दोबारा कीजिए — यही सबसे तेज़ रास्ता है, हार नहीं।"),
+        assessment:["MTH-V01","MTH-V03","MTH-V05","MTH-V08","MTH-V11","MTH-V14","MTH-V17","MTH-V20",
+          "MTH-V23","MTH-V26","MTH-V29","MTH-V32","MTH-V35","MTH-V38","MTH-V41","MTH-V44",
+          "MTH-V47","MTH-V50","MTH-V53","MTH-V56","MTH-V59","MTH-V62","MTH-V65","MTH-V68"],
+        topics:stats}
     ]});
 
   window.SL_DATA.questions = (window.SL_DATA.questions||[]).filter(function(q){ return q.subject!=="MATH11"; });
@@ -3161,6 +3279,158 @@ window.SL_DATA = window.SL_DATA || {subjects:[], questions:[]};
     ["3x²−12x+9","3x²−6x+9","x²−12x+9","3x²−12x"],["3x²−12x+9","3x²−6x+9","x²−12x+9","3x²−12x"],"A","Differentiate term by term: 3x²,−12x,+9.","Term by term differentiate कीजिए: 3x²,−12x,+9।");
   add("MTH-M69",12,"MTH11-12-7",5,"Find the derivative of f(x)=2x³+3x²−5x+1.","f(x)=2x³+3x²−5x+1 का derivative निकालिए।",
     ["6x²+6x−5","6x²+6x","6x²−5","6x+6x−5"],["6x²+6x−5","6x²+6x","6x²−5","6x+6x−5"],"A","6x²,+6x,−5,and 0 for the constant.","6x²,+6x,−5, और constant के लिए 0।");
+
+  /* ---- Ch13 Topic 0: Revise: Mean and Median (5) ---- */
+  add("MTH-V01",13,"MTH11-13-0",1,"Mean is calculated as:","Mean कैसे निकालते हैं?",
+    ["sum × count","sum ÷ count","count ÷ sum","sum − count"],["sum × count","sum ÷ count","count ÷ sum","sum − count"],"B","Add all values, divide by how many.","सभी values जोड़िए, उनकी संख्या से divide कीजिए।");
+  add("MTH-V02",13,"MTH11-13-0",1,"For sorted data, the median is:","Sorted data में, median है:",
+    ["the largest value","the smallest value","the middle value","the average of all values"],["सबसे बड़ा value","सबसे छोटा value","बीच वाला value","सभी values का average"],"C","The middle one once sorted.","Sort करने पर बीच वाला।");
+  add("MTH-V03",13,"MTH11-13-0",1,"If two datasets have the same mean, must they also have the same spread?","अगर दो datasets का mean same है, तो क्या उनका spread भी same होना ज़रूरी है?",
+    ["Yes, always","No, spread can differ","Only if the data size is same","Only if the median also matches"],["हाँ, हमेशा","नहीं, spread अलग हो सकता है","सिर्फ़ data size same हो तो","सिर्फ़ median भी मिले तो"],"B","The batsman example shows same mean, very different spread.","Batsman वाला example दिखाता है: mean same, spread बहुत अलग।");
+  add("MTH-V04",13,"MTH11-13-0",2,"Find the mean of 4, 8, 12.","4, 8, 12 का mean निकालिए।",
+    ["6","8","12","4"],["6","8","12","4"],"B","(4+8+12)÷3 = 24÷3 = 8.","(4+8+12)÷3 = 24÷3 = 8।");
+  add("MTH-V05",13,"MTH11-13-0",2,"Find the median of 3, 7, 9, 10, 20.","3, 7, 9, 10, 20 का median निकालिए।",
+    ["10","7","9","9.8"],["10","7","9","9.8"],"C","Already sorted, 5 values — the middle one is 9.","पहले से sorted, 5 values — बीच वाला 9 है।");
+
+  /* ---- Ch13 Topic 1: Range (9) ---- */
+  add("MTH-V06",13,"MTH11-13-1",1,"Range equals:","Range बराबर है:",
+    ["maximum + minimum","maximum − minimum","maximum ÷ minimum","(maximum + minimum) ÷ 2"],["maximum + minimum","maximum − minimum","maximum ÷ minimum","(maximum + minimum) ÷ 2"],"B","Biggest value minus smallest value.","सबसे बड़ा value घटा सबसे छोटा value।");
+  add("MTH-V07",13,"MTH11-13-1",1,"Range depends only on:","Range केवल किस पर निर्भर करता है?",
+    ["the two extreme values","every single value","the mean","the median"],["दो extreme values पर","हर एक value पर","mean पर","median पर"],"A","It ignores everything in between.","यह बीच का सब कुछ नज़रअंदाज़ करता है।");
+  add("MTH-V08",13,"MTH11-13-1",2,"Find the range of 5, 9, 2, 14, 7.","5, 9, 2, 14, 7 का range निकालिए।",
+    ["12","14","2","7"],["12","14","2","7"],"A","14−2 = 12.","14−2 = 12।");
+  add("MTH-V09",13,"MTH11-13-1",2,"Find the range of 100, 102, 101, 99, 103.","100, 102, 101, 99, 103 का range निकालिए।",
+    ["4","103","99","2"],["4","103","99","2"],"A","103−99 = 4.","103−99 = 4।");
+  add("MTH-V10",13,"MTH11-13-1",3,"A dataset has range 0. What must be true?","एक dataset का range 0 है। क्या सच होना चाहिए?",
+    ["All values are equal","All values are zero","The dataset has only 2 values","The mean is 0"],["सभी values बराबर हैं","सभी values zero हैं","Dataset में सिर्फ़ 2 values हैं","Mean 0 है"],"A","Max = min only when every value matches.","Max = min तभी जब हर value मिलता हो।");
+  add("MTH-V11",13,"MTH11-13-1",3,"Find the range of 40, 45, 50, 55, 60.","40, 45, 50, 55, 60 का range निकालिए।",
+    ["20","60","40","15"],["20","60","40","15"],"A","60−40 = 20.","60−40 = 20।");
+  add("MTH-V12",13,"MTH11-13-1",4,"Set P has range 5, Set Q has range 50. Which is more spread out?","Set P का range 5 है, Set Q का range 50 है। कौन ज़्यादा फैला हुआ है?",
+    ["P","Q","Both equally","Cannot tell"],["P","Q","दोनों बराबर","बता नहीं सकते"],"B","A bigger range means wider spread.","बड़ा range मतलब ज़्यादा फैलाव।");
+  add("MTH-V13",13,"MTH11-13-1",4,"If the minimum value of a dataset increases by 3 (maximum unchanged), the range:","अगर dataset के minimum value में 3 की बढ़ोतरी हो (maximum वही रहे), तो range:",
+    ["increases by 3","decreases by 3","stays the same","doubles"],["3 से बढ़ता है","3 से घटता है","वैसा ही रहता है","दोगुना हो जाता है"],"B","Max−(min+3) = old range−3.","Max−(min+3) = पुराना range−3।");
+  add("MTH-V14",13,"MTH11-13-1",5,"A dataset of 10 values has range 40. One value is removed and the new range becomes 25. That removed value must have been:","10 values के dataset का range 40 है। एक value हटाने पर नया range 25 हो जाता है। हटाई गई value ज़रूर थी:",
+    ["exactly the mean","exactly the median","one of the two extremes (max or min)","the smallest positive value"],["ठीक mean","ठीक median","दो extremes में से एक (max या min)","सबसे छोटा positive value"],"C","Only removing an extreme can shrink the range.","Range सिर्फ़ किसी extreme को हटाने से ही घटता है।");
+
+  /* ---- Ch13 Topic 2: Mean Deviation About the Mean (9) ---- */
+  add("MTH-V15",13,"MTH11-13-2",1,"Mean deviation about the mean averages:","Mean के इर्द-गिर्द mean deviation किसका average निकालता है?",
+    ["the values themselves","the absolute distance of each value from the mean","the squared distance from the mean","the distance from the median"],["values खुद","हर value की mean से absolute दूरी","mean से squared दूरी","median से दूरी"],"B","Absolute distances from the mean, averaged.","Mean से absolute दूरियों का average।");
+  add("MTH-V16",13,"MTH11-13-2",1,"Why use absolute value instead of plain differences?","सादे अंतर की जगह absolute value क्यों इस्तेमाल करते हैं?",
+    ["Plain differences always cancel to near zero","Absolute value is easier to type","Plain differences are always negative","There is no reason"],["सादे अंतर लगभग शून्य में cancel हो जाते हैं","Absolute value लिखना आसान है","सादे अंतर हमेशा negative होते हैं","कोई कारण नहीं"],"A","Positive and negative deviations would cancel out.","Positive और negative deviations cancel हो जाते।");
+  add("MTH-V17",13,"MTH11-13-2",2,"Find the mean deviation about the mean for 1, 3, 5, 7, 9 (mean = 5).","1, 3, 5, 7, 9 (mean = 5) के लिए mean के इर्द-गिर्द mean deviation निकालिए।",
+    ["2.4","5","12","2"],["2.4","5","12","2"],"A","|4|+|2|+0+|2|+|4| = 12, ÷5 = 2.4.","|4|+|2|+0+|2|+|4| = 12, ÷5 = 2.4।");
+  add("MTH-V18",13,"MTH11-13-2",2,"Find the mean deviation about the mean for 10, 20, 30 (mean = 20).","10, 20, 30 (mean = 20) के लिए mean के इर्द-गिर्द mean deviation निकालिए।",
+    ["6.67","20","10","0"],["6.67","20","10","0"],"A","10+0+10 = 20, ÷3 ≈ 6.67.","10+0+10 = 20, ÷3 ≈ 6.67।");
+  add("MTH-V19",13,"MTH11-13-2",3,"Find the mean deviation about the mean for 2,4,4,4,5,5,7,9 (mean = 5).","2,4,4,4,5,5,7,9 (mean = 5) के लिए mean के इर्द-गिर्द mean deviation निकालिए।",
+    ["1.5","12","5","3"],["1.5","12","5","3"],"A","Absolute deviations sum to 12, ÷8 = 1.5.","Absolute deviations का योग 12, ÷8 = 1.5।");
+  add("MTH-V20",13,"MTH11-13-2",3,"Mean deviation about the mean of a dataset is 0. What must be true?","किसी dataset का mean के इर्द-गिर्द mean deviation 0 है। क्या सच होना चाहिए?",
+    ["Every value equals the mean","The mean is 0","The dataset has an even count","The range is 0"],["हर value mean के बराबर है","Mean 0 है","Dataset की count even है","Range 0 है"],"A","Zero average distance means no distance at all.","शून्य average दूरी मतलब कोई दूरी नहीं।");
+  add("MTH-V21",13,"MTH11-13-2",4,"For the data 6, 6, 6, 6, the mean deviation about the mean is:","Data 6, 6, 6, 6 के लिए, mean के इर्द-गिर्द mean deviation है:",
+    ["0","6","24","1"],["0","6","24","1"],"A","Every value equals the mean, so every deviation is 0.","हर value mean के बराबर है, इसलिए हर deviation 0 है।");
+  add("MTH-V22",13,"MTH11-13-2",4,"Dataset X has a larger mean deviation about the mean than dataset Y, though both share the same mean. This tells us:","Dataset X का mean के इर्द-गिर्द mean deviation, dataset Y से बड़ा है, हालाँकि mean दोनों का same है। इससे पता चलता है:",
+    ["X is more spread out","Y is more spread out","X and Y are identical","Nothing can be concluded"],["X ज़्यादा फैला हुआ है","Y ज़्यादा फैला हुआ है","X और Y एक जैसे हैं","कुछ नहीं कहा जा सकता"],"A","A bigger average distance means wider spread.","बड़ी average दूरी मतलब ज़्यादा फैलाव।");
+  add("MTH-V23",13,"MTH11-13-2",5,"Find the mean deviation about the mean for 3, 6, 6, 7, 8, 11, 15, 16 (mean = 9).","3, 6, 6, 7, 8, 11, 15, 16 (mean = 9) के लिए mean के इर्द-गिर्द mean deviation निकालिए।",
+    ["3.75","9","30","6"],["3.75","9","30","6"],"A","Absolute deviations sum to 30, ÷8 = 3.75.","Absolute deviations का योग 30, ÷8 = 3.75।");
+
+  /* ---- Ch13 Topic 3: Mean Deviation About the Median (9) ---- */
+  add("MTH-V24",13,"MTH11-13-3",1,"Mean deviation about the median measures distance from:","Median के इर्द-गिर्द mean deviation किससे दूरी मापता है?",
+    ["the mean","the median","the mode","the range"],["mean से","median से","mode से","range से"],"B","Same idea, centred on the median instead.","वही विचार, बस median पर केंद्रित।");
+  add("MTH-V25",13,"MTH11-13-3",1,"Before finding the median deviation, the data must first be:","Median deviation निकालने से पहले, data को पहले करना होगा:",
+    ["squared","sorted in order","divided by n","multiplied by 2"],["square","क्रम में sort","n से divide","2 से गुणा"],"B","The median needs sorted data to find the middle.","Median के लिए sorted data चाहिए, बीच वाला ढूँढने के लिए।");
+  add("MTH-V26",13,"MTH11-13-3",2,"Find the median of 4, 6, 8, 10, 12.","4, 6, 8, 10, 12 का median निकालिए।",
+    ["8","6","10","9"],["8","6","10","9"],"A","5 sorted values — the middle one is 8.","5 sorted values — बीच वाला 8 है।");
+  add("MTH-V27",13,"MTH11-13-3",2,"Find the mean deviation about the median for 1, 2, 3, 4, 5 (median = 3).","1, 2, 3, 4, 5 (median = 3) के लिए median के इर्द-गिर्द mean deviation निकालिए।",
+    ["1.2","3","6","2"],["1.2","3","6","2"],"A","2+1+0+1+2 = 6, ÷5 = 1.2.","2+1+0+1+2 = 6, ÷5 = 1.2।");
+  add("MTH-V28",13,"MTH11-13-3",3,"Find the mean deviation about the median for 6, 7, 10, 12, 15 (median = 10).","6, 7, 10, 12, 15 (median = 10) के लिए median के इर्द-गिर्द mean deviation निकालिए।",
+    ["2.8","10","14","4"],["2.8","10","14","4"],"A","4+3+0+2+5 = 14, ÷5 = 2.8.","4+3+0+2+5 = 14, ÷5 = 2.8।");
+  add("MTH-V29",13,"MTH11-13-3",3,"For an even number of data points, the median is:","Even संख्या के data points के लिए, median है:",
+    ["the larger of the two middle values","the average of the two middle values","the smallest value","undefined"],["दो बीच वाले values में बड़ा","दो बीच वाले values का average","सबसे छोटा value","undefined"],"B","Average the two central sorted values.","दो बीच वाले sorted values का average।");
+  add("MTH-V30",13,"MTH11-13-3",4,"Find the median of 2, 4, 6, 8 (even count).","2, 4, 6, 8 (even count) का median निकालिए।",
+    ["5","4","6","10"],["5","4","6","10"],"A","Average of 4 and 6 = 5.","4 और 6 का average = 5।");
+  add("MTH-V31",13,"MTH11-13-3",4,"Find the mean deviation about the median for 2, 4, 6, 8, 10, 12, 14 (median = 8).","2, 4, 6, 8, 10, 12, 14 (median = 8) के लिए median के इर्द-गिर्द mean deviation निकालिए।",
+    ["3.43","8","24","4"],["3.43","8","24","4"],"A","6+4+2+0+2+4+6 = 24, ÷7 ≈ 3.43.","6+4+2+0+2+4+6 = 24, ÷7 ≈ 3.43।");
+  add("MTH-V32",13,"MTH11-13-3",5,"Find the mean deviation about the median for 3, 6, 6, 7, 8, 11, 15, 16 (median = 7.5).","3, 6, 6, 7, 8, 11, 15, 16 (median = 7.5) के लिए median के इर्द-गिर्द mean deviation निकालिए।",
+    ["3.5","7.5","28","4"],["3.5","7.5","28","4"],"A","Absolute deviations from 7.5 sum to 28, ÷8 = 3.5.","7.5 से absolute deviations का योग 28, ÷8 = 3.5।");
+
+  /* ---- Ch13 Topic 4: Variance (9) ---- */
+  add("MTH-V33",13,"MTH11-13-4",1,"Variance is the average of:","Variance किसका average है?",
+    ["the values themselves","the squared deviations from the mean","the absolute deviations from the mean","the range"],["values खुद","mean से squared deviations","mean से absolute deviations","range"],"B","Square each deviation, then average.","हर deviation को square कीजिए, फिर average लीजिए।");
+  add("MTH-V34",13,"MTH11-13-4",1,"Compared to absolute value, squaring the deviations:","Absolute value की तुलना में, deviations को square करना:",
+    ["treats all deviations equally","punishes larger deviations more","ignores small deviations completely","gives a smaller answer always"],["सभी deviations को बराबर मानता है","बड़े deviations को ज़्यादा सज़ा देता है","छोटे deviations को पूरी तरह नज़रअंदाज़ करता है","हमेशा छोटा answer देता है"],"B","A deviation twice as big contributes four times as much.","दोगुना बड़ा deviation, चार गुना योगदान देता है।");
+  add("MTH-V35",13,"MTH11-13-4",2,"Find the variance of 3, 5, 7 (mean = 5).","3, 5, 7 (mean = 5) का variance निकालिए।",
+    ["2.67","8","4","5"],["2.67","8","4","5"],"A","4+0+4 = 8, ÷3 ≈ 2.67.","4+0+4 = 8, ÷3 ≈ 2.67।");
+  add("MTH-V36",13,"MTH11-13-4",2,"Find the variance of 1, 1, 1, 1 (mean = 1).","1, 1, 1, 1 (mean = 1) का variance निकालिए।",
+    ["0","1","4","2"],["0","1","4","2"],"A","Every value equals the mean, so variance is 0.","हर value mean के बराबर है, इसलिए variance 0 है।");
+  add("MTH-V37",13,"MTH11-13-4",3,"Find the variance of 2, 6, 10 (mean = 6).","2, 6, 10 (mean = 6) का variance निकालिए।",
+    ["10.67","6","32","16"],["10.67","6","32","16"],"A","16+0+16 = 32, ÷3 ≈ 10.67.","16+0+16 = 32, ÷3 ≈ 10.67।");
+  add("MTH-V38",13,"MTH11-13-4",3,"A value twice as far from the mean as another contributes how many times as much to the variance?","किसी दूसरे value से mean से दोगुनी दूर एक value, variance में कितने गुना योगदान देता है?",
+    ["2 times","3 times","4 times","the same amount"],["2 गुना","3 गुना","4 गुना","बराबर योगदान"],"C","Squaring doubles the distance into a fourfold contribution.","Square करने से दोगुनी दूरी, चार गुना योगदान बन जाती है।");
+  add("MTH-V39",13,"MTH11-13-4",4,"Find the variance of 4, 8, 8, 12 (mean = 8).","4, 8, 8, 12 (mean = 8) का variance निकालिए।",
+    ["8","4","16","32"],["8","4","16","32"],"A","16+0+0+16 = 32, ÷4 = 8.","16+0+0+16 = 32, ÷4 = 8।");
+  add("MTH-V40",13,"MTH11-13-4",4,"If every value in a dataset increases by a constant c, the variance:","अगर dataset की हर value में एक constant c जोड़ा जाए, तो variance:",
+    ["increases by c","increases by c²","stays the same","becomes 0"],["c से बढ़ता है","c² से बढ़ता है","वैसा ही रहता है","0 हो जाता है"],"C","Shifting every value shifts the mean too — the spread is unchanged.","हर value shift होने से mean भी shift होता है — फैलाव नहीं बदलता।");
+  add("MTH-V41",13,"MTH11-13-4",5,"Find the variance of 5, 10, 15, 20, 25 (mean = 15).","5, 10, 15, 20, 25 (mean = 15) का variance निकालिए।",
+    ["50","15","250","25"],["50","15","250","25"],"A","100+25+0+25+100 = 250, ÷5 = 50.","100+25+0+25+100 = 250, ÷5 = 50।");
+
+  /* ---- Ch13 Topic 5: Standard Deviation (9) ---- */
+  add("MTH-V42",13,"MTH11-13-5",1,"Standard deviation is:","Standard deviation है:",
+    ["the square of the variance","the square root of the variance","the same as the mean deviation","always equal to the range"],["Variance का square","Variance का square root","Mean deviation जैसा ही","हमेशा range के बराबर"],"B","Undoing the squaring in variance.","Variance में square को पलटना।");
+  add("MTH-V43",13,"MTH11-13-5",1,"Why take the square root of the variance?","Variance का square root क्यों लेते हैं?",
+    ["To make the number bigger","To bring the units back to the original scale","To make the answer negative","There is no reason"],["Number को बड़ा बनाने के लिए","Units को original scale में वापस लाने के लिए","Answer को negative बनाने के लिए","कोई कारण नहीं"],"B","Variance has squared units; the square root undoes that.","Variance की units squared होती हैं; square root इसे पलट देता है।");
+  add("MTH-V44",13,"MTH11-13-5",2,"If variance = 16, standard deviation is:","अगर variance = 16 है, तो standard deviation है:",
+    ["4","8","16","256"],["4","8","16","256"],"A","√16 = 4.","√16 = 4।");
+  add("MTH-V45",13,"MTH11-13-5",2,"If variance = 25, standard deviation is:","अगर variance = 25 है, तो standard deviation है:",
+    ["5","10","25","625"],["5","10","25","625"],"A","√25 = 5.","√25 = 5।");
+  add("MTH-V46",13,"MTH11-13-5",3,"For 5, 10, 15, 20, 25 (variance = 50), the standard deviation is approximately:","5, 10, 15, 20, 25 (variance = 50) के लिए, standard deviation लगभग है:",
+    ["7.07","50","25","5"],["7.07","50","25","5"],"A","√50 ≈ 7.07.","√50 ≈ 7.07।");
+  add("MTH-V47",13,"MTH11-13-5",3,"A dataset has standard deviation 0. What must be true?","एक dataset का standard deviation 0 है। क्या सच होना चाहिए?",
+    ["All values are equal","The mean is 0","The dataset is empty","The range is negative"],["सभी values बराबर हैं","Mean 0 है","Dataset खाली है","Range negative है"],"A","Zero spread means every value matches the mean.","शून्य फैलाव मतलब हर value mean से मेल खाता है।");
+  add("MTH-V48",13,"MTH11-13-5",4,"Dataset P has SD = 3, dataset Q has SD = 12, both with the same mean. Which is more spread out?","Dataset P का SD = 3 है, dataset Q का SD = 12 है, दोनों का mean same है। कौन ज़्यादा फैला हुआ है?",
+    ["P","Q","Both equally","Cannot tell"],["P","Q","दोनों बराबर","बता नहीं सकते"],"B","A larger standard deviation means wider spread.","बड़ा standard deviation मतलब ज़्यादा फैलाव।");
+  add("MTH-V49",13,"MTH11-13-5",4,"If every value in a dataset is multiplied by 2, the standard deviation:","अगर dataset की हर value को 2 से गुणा किया जाए, तो standard deviation:",
+    ["stays the same","doubles","quadruples","becomes 0"],["वैसा ही रहता है","दोगुना हो जाता है","चार गुना हो जाता है","0 हो जाता है"],"B","Scaling values scales the SD by the same factor.","Values को scale करने से SD भी उसी factor से scale होता है।");
+  add("MTH-V50",13,"MTH11-13-5",5,"Find the standard deviation of 4, 8, 8, 12 (variance = 8).","4, 8, 8, 12 (variance = 8) का standard deviation निकालिए।",
+    ["2.83","8","4","16"],["2.83","8","4","16"],"A","√8 = 2√2 ≈ 2.83.","√8 = 2√2 ≈ 2.83।");
+
+  /* ---- Ch13 Topic 6: Variance and SD for Grouped Data (9) ---- */
+  add("MTH-V51",13,"MTH11-13-6",1,"For grouped data, each deviation must be weighted by its:","Grouped data के लिए, हर deviation को किससे weight करना होगा?",
+    ["frequency","square root","median","range"],["Frequency से","Square root से","Median से","Range से"],"A","Repeated values count extra, once per occurrence.","बार-बार आने वाली values, हर बार अलग गिनी जाती हैं।");
+  add("MTH-V52",13,"MTH11-13-6",1,"N in the grouped variance formula stands for:","Grouped variance formula में N का मतलब है:",
+    ["the number of distinct x values","the total of all frequencies","the largest frequency","the mean"],["अलग-अलग x values की संख्या","सभी frequencies का योग","सबसे बड़ी frequency","Mean"],"B","Total count of data points, from all the frequencies added.","Data points की कुल संख्या, सभी frequencies जोड़कर।");
+  add("MTH-V53",13,"MTH11-13-6",2,"Find N for x: 1, 2, 3 with f: 2, 3, 5.","x: 1, 2, 3 और f: 2, 3, 5 के लिए N निकालिए।",
+    ["10","6","3","8"],["10","6","3","8"],"A","2+3+5 = 10.","2+3+5 = 10।");
+  add("MTH-V54",13,"MTH11-13-6",2,"Find the weighted mean for x: 2, 4 with f: 3, 1 (N = 4).","x: 2, 4 और f: 3, 1 (N = 4) के लिए weighted mean निकालिए।",
+    ["2.5","3","4","2"],["2.5","3","4","2"],"A","(2×3+4×1)÷4 = 10÷4 = 2.5.","(2×3+4×1)÷4 = 10÷4 = 2.5।");
+  add("MTH-V55",13,"MTH11-13-6",3,"For x: 1, 2, 3 with f: 1, 2, 3 (N = 6), find the mean.","x: 1, 2, 3 और f: 1, 2, 3 (N = 6) के लिए mean निकालिए।",
+    ["2.33","2","3","14"],["2.33","2","3","14"],"A","(1+4+9)÷6 = 14÷6 ≈ 2.33.","(1+4+9)÷6 = 14÷6 ≈ 2.33।");
+  add("MTH-V56",13,"MTH11-13-6",3,"For x: 3, 5, 7 with f: 2, 2, 2 (equal frequencies), the variance equals:","x: 3, 5, 7 और f: 2, 2, 2 (बराबर frequencies) के लिए, variance बराबर है:",
+    ["the unweighted variance of 3, 5, 7","zero","double the unweighted variance","the range"],["3, 5, 7 के unweighted variance के","शून्य","Unweighted variance से दोगुना","Range के"],"A","Equal frequencies just repeat the same pattern proportionally — the variance is unchanged.","बराबर frequencies वही pattern अनुपात में दोहराती हैं — variance नहीं बदलता।");
+  add("MTH-V57",13,"MTH11-13-6",4,"For x: 1, 3, 5 with f: 1, 2, 1 (N = 4), find the mean.","x: 1, 3, 5 और f: 1, 2, 1 (N = 4) के लिए mean निकालिए।",
+    ["3","2","4","12"],["3","2","4","12"],"A","(1+6+5)÷4 = 12÷4 = 3.","(1+6+5)÷4 = 12÷4 = 3।");
+  add("MTH-V58",13,"MTH11-13-6",4,"Using mean = 3 from the previous question, find the variance for x: 1, 3, 5 with f: 1, 2, 1.","पिछले question के mean = 3 का इस्तेमाल करके, x: 1, 3, 5 और f: 1, 2, 1 का variance निकालिए।",
+    ["2","4","8","1"],["2","4","8","1"],"A","Weighted squared deviations sum to 8, ÷4 = 2.","Weighted squared deviations का योग 8, ÷4 = 2।");
+  add("MTH-V59",13,"MTH11-13-6",5,"For x: 2, 4, 6 with f: 1, 2, 1 (mean = 4), the variance is:","x: 2, 4, 6 और f: 1, 2, 1 (mean = 4) के लिए, variance है:",
+    ["2","4","8","1"],["2","4","8","1"],"A","Weighted squared deviations sum to 8, ÷N=4 = 2.","Weighted squared deviations का योग 8, ÷N=4 = 2।");
+
+  /* ---- Ch13 Topic 7: Shortcut (Step-Deviation) Method (9) ---- */
+  add("MTH-V60",13,"MTH11-13-7",1,"The step-deviation method rescales data using an assumed mean A and a:","Step-deviation method, data को एक assumed mean A और किसकी मदद से rescale करता है?",
+    ["class width h","the range","the median","the mode"],["Class width h","Range","Median","Mode"],"A","yi = (xi−A)/h uses the class width to rescale.","yi = (xi−A)/h, class width से rescale करता है।");
+  add("MTH-V61",13,"MTH11-13-7",1,"The step-deviation formula yi equals:","Step-deviation formula yi बराबर है:",
+    ["(xi−A)/h","(xi+A)/h","xi/h−A","xi−A×h"],["(xi−A)/h","(xi+A)/h","xi/h−A","xi−A×h"],"A","Subtract the assumed mean, then divide by the class width.","Assumed mean घटाइए, फिर class width से divide कीजिए।");
+  add("MTH-V62",13,"MTH11-13-7",2,"For x = 10 with A = 8, h = 2, find y.","x = 10, A = 8, h = 2 के लिए y निकालिए।",
+    ["1","2","−1","9"],["1","2","−1","9"],"A","(10−8)÷2 = 1.","(10−8)÷2 = 1।");
+  add("MTH-V63",13,"MTH11-13-7",2,"For x = 4 with A = 8, h = 2, find y.","x = 4, A = 8, h = 2 के लिए y निकालिए।",
+    ["−2","2","−1","4"],["−2","2","−1","4"],"A","(4−8)÷2 = −2.","(4−8)÷2 = −2।");
+  add("MTH-V64",13,"MTH11-13-7",3,"The step-deviation method is most useful when:","Step-deviation method सबसे ज़्यादा उपयोगी है जब:",
+    ["the data values are large or awkward to compute directly","the dataset has only 2 values","the mean is already 0","the range is 0"],["Data values बड़ी या सीधे calculate करने में अटपटी हों","Dataset में सिर्फ़ 2 values हों","Mean पहले से 0 हो","Range 0 हो"],"A","It turns awkward numbers into small, easy integers.","यह अटपटे numbers को छोटे, आसान integers में बदल देता है।");
+  add("MTH-V65",13,"MTH11-13-7",3,"Using A = 4, h = 2 for x: 2, 4, 6 with f: 1, 2, 1, the y-values are:","A = 4, h = 2 इस्तेमाल करके x: 2, 4, 6 और f: 1, 2, 1 के लिए y-values हैं:",
+    ["−1, 0, 1","1, 0, −1","0, 1, 2","−2, 0, 2"],["−1, 0, 1","1, 0, −1","0, 1, 2","−2, 0, 2"],"A","(2−4)/2=−1, (4−4)/2=0, (6−4)/2=1.","(2−4)/2=−1, (4−4)/2=0, (6−4)/2=1।");
+  add("MTH-V66",13,"MTH11-13-7",4,"For x: 2, 4, 6 with f: 1, 2, 1 and y-values −1, 0, 1, find Σfiyi.","x: 2, 4, 6, f: 1, 2, 1 और y-values −1, 0, 1 के लिए Σfiyi निकालिए।",
+    ["0","2","−2","1"],["0","2","−2","1"],"A","1(−1)+2(0)+1(1) = 0.","1(−1)+2(0)+1(1) = 0।");
+  add("MTH-V67",13,"MTH11-13-7",4,"For the same data, find Σfiyi².","इसी data के लिए Σfiyi² निकालिए।",
+    ["2","0","4","1"],["2","0","4","1"],"A","1(1)+2(0)+1(1) = 2.","1(1)+2(0)+1(1) = 2।");
+  add("MTH-V68",13,"MTH11-13-7",5,"Using σ² = h²[(Σfiyi²/N)−(Σfiyi/N)²] with h=2, N=4, Σfiyi²=2, Σfiyi=0, find the variance.","σ² = h²[(Σfiyi²/N)−(Σfiyi/N)²] में h=2, N=4, Σfiyi²=2, Σfiyi=0 रखकर variance निकालिए।",
+    ["2","4","0.5","8"],["2","4","0.5","8"],"A","4×[0.5−0] = 2, matching the direct method.","4×[0.5−0] = 2, direct method से मेल खाता है।");
 
   window.SL_DATA.questions = window.SL_DATA.questions.concat(Q);
 })();
