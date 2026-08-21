@@ -4394,7 +4394,176 @@ var DIAGRAMS = {
       +'<text x="320" y="150" text-anchor="middle" font-size="7.5" fill="var(--ink-soft)">'+d("output: pulses, double freq","output: pulses, दोगुना freq")+'</text>'
       +'<text x="230" y="195" text-anchor="middle" font-size="7.5" fill="var(--ink-soft)">'+d("a capacitor across the load smooths pulses toward the peak","load के आर-पार एक capacitor pulses को चरम की ओर चिकना करता है")+'</text>'
       +'</svg>';
-  }
+  },
+
+  /* ---- Relations and Functions (Class 11 Ch2) ---- */
+  "cartesian-grid": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    var ax=[110,230], ay=[240,180,120];
+    var axLabel=[d("red","लाल"),d("blue","नीला")];
+    var ayLabel=["shirt","coat","bag"];
+    var dots="";
+    for(var i=0;i<ax.length;i++){
+      for(var j=0;j<ay.length;j++){
+        dots += '<line x1="'+ax[i]+'" y1="60" x2="'+ax[i]+'" y2="'+ay[j]+'" stroke="var(--line)" stroke-width="1" stroke-dasharray="3,3"/>'
+              + '<line x1="60" y1="'+ay[j]+'" x2="'+ax[i]+'" y2="'+ay[j]+'" stroke="var(--line)" stroke-width="1" stroke-dasharray="3,3"/>'
+              + '<circle cx="'+ax[i]+'" cy="'+ay[j]+'" r="7" fill="var(--primary)"/>';
+      }
+    }
+    var axTicks = ax.map(function(x,i){ return '<text x="'+x+'" y="270" text-anchor="middle" font-size="15" fill="var(--ink)">'+axLabel[i]+'</text>'; }).join('');
+    var ayTicks = ay.map(function(y,j){ return '<text x="45" y="'+(y+5)+'" text-anchor="end" font-size="15" fill="var(--ink)">'+ayLabel[j]+'</text>'; }).join('');
+    return '<svg viewBox="0 0 460 300" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="230" y="18" text-anchor="middle" font-size="17" font-weight="bold" fill="var(--primary)">'+d("Every dot is one pairing — the tailor’s A × B","हर dot एक जोड़ी है — दर्ज़ी का A × B")+'</text>'
+      +'<line x1="60" y1="60" x2="60" y2="255" stroke="var(--line-strong)" stroke-width="2"/>'
+      +'<line x1="60" y1="255" x2="290" y2="255" stroke="var(--line-strong)" stroke-width="2"/>'
+      + dots + axTicks + ayTicks
+      +'<rect x="310" y="90" width="130" height="150" rx="8" fill="var(--card)" stroke="var(--line-strong)"/>'
+      +'<text x="375" y="112" text-anchor="middle" font-size="15" font-weight="bold" fill="var(--ink)">'+d("A = colours","A = रंग")+'</text>'
+      +'<text x="375" y="132" text-anchor="middle" font-size="15" fill="var(--ink)">2</text>'
+      +'<text x="375" y="160" text-anchor="middle" font-size="15" font-weight="bold" fill="var(--ink)">'+d("B = items","B = चीज़ें")+'</text>'
+      +'<text x="375" y="180" text-anchor="middle" font-size="15" fill="var(--ink)">3</text>'
+      +'<text x="375" y="210" text-anchor="middle" font-size="15" font-weight="bold" fill="var(--primary)">2 × 3 = 6</text>'
+      +'</svg>';
+  },
+
+  "relation-arrow": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    var P=["a","b","c"];
+    var Q=["Ali","Bhanu","Binoy","Chandra","Divya"];
+    var py=[80,150,220], qy=[55,110,165,220,275];
+    var pDots = P.map(function(p,i){
+      return '<circle cx="90" cy="'+py[i]+'" r="6" fill="var(--primary)"/>'
+        + '<text x="72" y="'+(py[i]+5)+'" text-anchor="end" font-size="16" font-weight="bold" fill="var(--ink)">'+p+'</text>';
+    }).join('');
+    var qDots = Q.map(function(q,i){
+      return '<circle cx="370" cy="'+qy[i]+'" r="6" fill="var(--teal)"/>'
+        + '<text x="388" y="'+(qy[i]+5)+'" font-size="15" fill="var(--ink)">'+q+'</text>';
+    }).join('');
+    function arrow(x1,y1,x2,y2,id){
+      return '<line x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'" stroke="var(--primary)" stroke-width="2" marker-end="url(#ra'+id+')"/>'
+        +'<defs><marker id="ra'+id+'" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--primary)"/></marker></defs>';
+    }
+    return '<svg viewBox="0 0 460 300" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="230" y="18" text-anchor="middle" font-size="16" font-weight="bold" fill="var(--primary)">'+d("R = x is the first letter of the name y","R = x, नाम y का पहला अक्षर है")+'</text>'
+      +'<rect x="30" y="35" width="140" height="220" rx="70" fill="var(--bg)" stroke="var(--line-strong)" stroke-width="2"/>'
+      +'<rect x="290" y="35" width="150" height="255" rx="20" fill="var(--bg)" stroke="var(--line-strong)" stroke-width="2"/>'
+      +'<text x="100" y="288" text-anchor="middle" font-size="14" fill="var(--muted)">P</text>'
+      +'<text x="365" y="305" text-anchor="middle" font-size="14" fill="var(--muted)">Q</text>'
+      + arrow(96,80,364,55,1)
+      + arrow(96,150,364,110,2)
+      + arrow(96,150,364,165,3)
+      + arrow(96,220,364,220,4)
+      + pDots + qDots
+      +'</svg>';
+  },
+
+  "function-vs-not": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    function panel(ox, good, head, cap){
+      var ay=[55,105,155], by=[70,140];
+      var dotsA = ay.map(function(y,i){ return '<circle cx="'+(ox+30)+'" cy="'+y+'" r="6" fill="var(--primary)"/>'; }).join('');
+      var dotsB = by.map(function(y,i){ return '<circle cx="'+(ox+170)+'" cy="'+y+'" r="6" fill="var(--teal)"/>'; }).join('');
+      var arrows;
+      if(good){
+        arrows = [[0,0],[1,1],[2,0]].map(function(pair,idx){
+          return '<line x1="'+(ox+36)+'" y1="'+ay[pair[0]]+'" x2="'+(ox+164)+'" y2="'+by[pair[1]]+'" stroke="var(--green)" stroke-width="2.5"/>';
+        }).join('');
+      } else {
+        arrows = '<line x1="'+(ox+36)+'" y1="'+ay[0]+'" x2="'+(ox+164)+'" y2="'+by[0]+'" stroke="var(--red)" stroke-width="2.5"/>'
+               + '<line x1="'+(ox+36)+'" y1="'+ay[0]+'" x2="'+(ox+164)+'" y2="'+by[1]+'" stroke="var(--red)" stroke-width="2.5"/>'
+               + '<line x1="'+(ox+36)+'" y1="'+ay[1]+'" x2="'+(ox+164)+'" y2="'+by[1]+'" stroke="var(--muted)" stroke-width="2"/>'
+               + '<line x1="'+(ox+36)+'" y1="'+ay[2]+'" x2="'+(ox+164)+'" y2="'+by[0]+'" stroke="var(--muted)" stroke-width="2"/>';
+      }
+      return '<text x="'+(ox+100)+'" y="26" text-anchor="middle" font-size="16" font-weight="bold" fill="'+(good?"var(--green)":"var(--red)")+'">'+head+'</text>'
+        +'<rect x="'+(ox+8)+'" y="35" width="45" height="140" rx="22" fill="var(--bg)" stroke="var(--line-strong)"/>'
+        +'<rect x="'+(ox+150)+'" y="50" width="45" height="110" rx="10" fill="var(--bg)" stroke="var(--line-strong)"/>'
+        + arrows + dotsA + dotsB
+        +'<rect x="'+(ox+2)+'" y="195" width="196" height="46" rx="7" fill="var(--card)" stroke="var(--line-strong)"/>'
+        +'<text x="'+(ox+100)+'" y="215" text-anchor="middle" font-size="13.5" fill="var(--ink)">'+cap[0]+'</text>'
+        +'<text x="'+(ox+100)+'" y="233" text-anchor="middle" font-size="13.5" fill="var(--ink)">'+cap[1]+'</text>';
+    }
+    return '<svg viewBox="0 0 420 250" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      + panel(4, true,  d("Function","Function"),
+              [d("Every dot in A has","A के हर dot से"), d("exactly ONE arrow out","ठीक एक arrow निकलता है")])
+      + panel(212, false, d("Not a function","Function नहीं"),
+              [d("One dot has TWO arrows,","एक dot से दो arrow,"), d("one dot has NONE","एक dot से कोई नहीं")])
+      +'</svg>';
+  },
+
+  "graph-panel-lines": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    function axes(ox){
+      return '<line x1="'+(ox+10)+'" y1="120" x2="'+(ox+210)+'" y2="120" stroke="var(--line-strong)" stroke-width="1.5"/>'
+        + '<line x1="'+(ox+110)+'" y1="20" x2="'+(ox+110)+'" y2="230" stroke="var(--line-strong)" stroke-width="1.5"/>';
+    }
+    var panel1 = axes(0)
+      +'<text x="110" y="16" text-anchor="middle" font-size="15" font-weight="bold" fill="var(--ink)">'+d("Straight lines","सीधी रेखाएँ")+'</text>'
+      +'<line x1="30" y1="200" x2="190" y2="40" stroke="var(--primary)" stroke-width="3"/>'
+      +'<text x="185" y="35" font-size="13" fill="var(--primary)" font-weight="bold">'+d("identity y=x","identity y=x")+'</text>'
+      +'<line x1="10" y1="70" x2="220" y2="70" stroke="var(--teal)" stroke-width="3"/>'
+      +'<text x="150" y="63" font-size="13" fill="var(--teal)" font-weight="bold">'+d("constant y=c","constant y=c")+'</text>'
+      +'<rect x="4" y="236" width="212" height="34" rx="7" fill="var(--card)" stroke="var(--line-strong)"/>'
+      +'<text x="110" y="258" text-anchor="middle" font-size="12.5" font-style="italic" fill="var(--ink)">'+d("45° through origin, and a flat line","origin से 45°, और एक सपाट रेखा")+'</text>';
+    var ox2=228;
+    var pts=[]; for(var px=-9; px<=9; px++){ pts.push([ox2+110+px*11, 210-(px*px)*2.4]); }
+    var path = pts.map(function(p,i){ return (i===0?'M':'L')+p[0]+','+p[1]; }).join(' ');
+    var panel2 = axes(ox2)
+      +'<text x="'+(ox2+110)+'" y="16" text-anchor="middle" font-size="15" font-weight="bold" fill="var(--ink)">'+d("Polynomial (y=x²)","Polynomial (y=x²)")+'</text>'
+      +'<path d="'+path+'" fill="none" stroke="var(--accent)" stroke-width="3"/>'
+      +'<rect x="'+(ox2-6)+'" y="236" width="212" height="34" rx="7" fill="var(--card)" stroke="var(--line-strong)"/>'
+      +'<text x="'+(ox2+110)+'" y="258" text-anchor="middle" font-size="12.5" font-style="italic" fill="var(--ink)">'+d("a curve, not a straight line","एक वक्र, सीधी रेखा नहीं")+'</text>';
+    return '<svg viewBox="0 0 460 280" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      + panel1 + panel2 + '</svg>';
+  },
+
+  "graph-panel-special": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    function axes(ox){
+      return '<line x1="'+(ox+10)+'" y1="120" x2="'+(ox+210)+'" y2="120" stroke="var(--line-strong)" stroke-width="1.5"/>'
+        + '<line x1="'+(ox+110)+'" y1="20" x2="'+(ox+110)+'" y2="230" stroke="var(--line-strong)" stroke-width="1.5"/>';
+    }
+    var panel1 = axes(0)
+      +'<text x="110" y="16" text-anchor="middle" font-size="15" font-weight="bold" fill="var(--ink)">'+d("Modulus y=|x|","Modulus y=|x|")+'</text>'
+      +'<polyline points="20,50 110,200 200,50" fill="none" stroke="var(--primary)" stroke-width="3"/>'
+      +'<rect x="4" y="236" width="212" height="34" rx="7" fill="var(--card)" stroke="var(--line-strong)"/>'
+      +'<text x="110" y="258" text-anchor="middle" font-size="12.5" font-style="italic" fill="var(--ink)">'+d("a V sitting on the origin","origin पर टिका एक V")+'</text>';
+    var ox2=228;
+    var steps=[-2,-1,0,1,2];
+    var stepPath="";
+    steps.forEach(function(k){
+      var x1=ox2+110+k*22, x2=x1+22, y=150-k*20;
+      stepPath += '<line x1="'+x1+'" y1="'+y+'" x2="'+x2+'" y2="'+y+'" stroke="var(--teal)" stroke-width="3"/>'
+        + '<circle cx="'+x1+'" cy="'+y+'" r="4" fill="var(--teal)"/>'
+        + '<circle cx="'+x2+'" cy="'+y+'" r="4" fill="var(--bg)" stroke="var(--teal)" stroke-width="2"/>';
+    });
+    var panel2 = axes(ox2)
+      +'<text x="'+(ox2+110)+'" y="16" text-anchor="middle" font-size="15" font-weight="bold" fill="var(--ink)">'+d("Greatest integer y=[x]","Greatest integer y=[x]")+'</text>'
+      + stepPath
+      +'<rect x="'+(ox2-6)+'" y="236" width="212" height="34" rx="7" fill="var(--card)" stroke="var(--line-strong)"/>'
+      +'<text x="'+(ox2+110)+'" y="258" text-anchor="middle" font-size="12.5" font-style="italic" fill="var(--ink)">'+d("a staircase, jumping by 1 each step","एक सीढ़ी, हर क़दम 1 उछलती हुई")+'</text>';
+    return '<svg viewBox="0 0 460 280" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      + panel1 + panel2 + '</svg>';
+  },
+
+  "domain-restriction": function(L){
+    var d=function(a,b){return L==="hi"?b:a;};
+    return '<svg viewBox="0 0 460 200" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'
+      +'<text x="230" y="24" text-anchor="middle" font-size="16" font-weight="bold" fill="var(--primary)">'+d("Domain = ℝ, except two rotten planks","Domain = ℝ, बस दो सड़े तख्तों को छोड़कर")+'</text>'
+      +'<line x1="40" y1="100" x2="420" y2="100" stroke="var(--green)" stroke-width="6"/>'
+      +'<line x1="40" y1="100" x2="140" y2="100" stroke="var(--green)" stroke-width="6"/>'
+      +'<circle cx="140" cy="100" r="8" fill="var(--bg)" stroke="var(--red)" stroke-width="3"/>'
+      +'<line x1="140" y1="100" x2="300" y2="100" stroke="var(--green)" stroke-width="6"/>'
+      +'<circle cx="300" cy="100" r="8" fill="var(--bg)" stroke="var(--red)" stroke-width="3"/>'
+      +'<line x1="300" y1="100" x2="420" y2="100" stroke="var(--green)" stroke-width="6"/>'
+      +'<path d="M40,100 L25,92 M40,100 L25,108" stroke="var(--green)" stroke-width="3" fill="none"/>'
+      +'<path d="M420,100 L405,92 M420,100 L405,108" stroke="var(--green)" stroke-width="3" fill="none"/>'
+      +'<text x="140" y="128" text-anchor="middle" font-size="16" font-weight="bold" fill="var(--red)">1</text>'
+      +'<text x="300" y="128" text-anchor="middle" font-size="16" font-weight="bold" fill="var(--red)">4</text>'
+      +'<rect x="30" y="150" width="400" height="38" rx="8" fill="var(--card)" stroke="var(--line-strong)"/>'
+      +'<text x="230" y="174" text-anchor="middle" font-size="13.5" fill="var(--ink)">'+d("f(x) = (x²+3x+5) / (x²−5x+4) — domain is ℝ − {1, 4}","f(x) = (x²+3x+5) / (x²−5x+4) — domain है ℝ − {1, 4}")+'</text>'
+      +'</svg>';
+  },
+
 };
 
 /* Interactive widgets: sliders students can move to feel the relationship. */
@@ -8322,7 +8491,9 @@ function vSubject(code){
       h += '<span class="chip '+chipCls+' clickable" style="margin-bottom:5px" onclick="go(\'topic\',{code:\''+tp.code+'\'})">'
         + t(tp.name)+(a2!==null?" · "+a2+"%":"")+'</span> ';
     });
-    h += '</div></div><div style="display:flex;flex-direction:column;gap:6px">'
+    h += '</div>'
+      + (c.checkpoint && !Array.isArray(c.checkpoint) ? '<div class="scopebox" style="margin-top:10px">🚦 '+fmtNotes(t(c.checkpoint))+'</div>' : '')
+      + '</div><div style="display:flex;flex-direction:column;gap:6px">'
       + '<button class="btn sm" onclick="go(\'topic\',{code:\''+c.topics[0].code+'\'})">'+sp("Start","शुरू करें")+'</button>'
       + (c.summary ? '<button class="btn ghost sm" onclick="go(\'summary\',{code:\''+s.code+'\',chapter:'+c.no+'})">📄 '+sp("Summary & Assignment","सारांश व असाइनमेंट")+'</button>' : '')
       + (c.assignment ? '<button class="btn ghost sm" onclick="go(\'assignment\',{code:\''+s.code+'\',chapter:'+c.no+'})">📋 '+sp("Practical Activity","व्यावहारिक गतिविधि")+'</button>' : '')
