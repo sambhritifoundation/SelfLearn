@@ -8725,7 +8725,7 @@ function saveSession(s){ var l=sessions(); l.push(s); localStorage.setItem(PK("s
 
 /* ================= router ================= */
 var VIEW = { name:"home" };
-function go(name, args){ VIEW = Object.assign({name:name}, args||{}); render(); window.scrollTo(0,0); }
+function go(name, args){ try{ window.speechSynthesis.cancel(); }catch(e){} if(typeof AUDIO_PLAYER!=="undefined") AUDIO_PLAYER.playing=false; VIEW = Object.assign({name:name}, args||{}); render(); window.scrollTo(0,0); }
 function render(){
   var el = document.getElementById("app");
   var v = VIEW.name;
@@ -9303,9 +9303,13 @@ function vTutorRoute(code){
    read via the browser's own speechSynthesis (see the TTS block above) --
    entirely separate from tp.notes, which is written to be READ (LaTeX, bold,
    tables) and would come out as garbled symbol-soup if spoken verbatim.
-   Renders nothing when a topic has no audio script, or the browser can't speak. */
+   Renders nothing when a topic has no audio script, or the browser can't speak.
+   Topics with tp.audioPlayer=true get the richer seek/play/pause player
+   (vAudioPlayerCard); all other topics with just tp.audio keep the original
+   simple two-button version, unchanged. */
 function vAudioExplainer(tp){
   if(!tp.audio || !TTS_OK) return "";
+  if(tp.audioPlayer) return vAudioPlayerCard(tp);
   return '<div class="card" style="margin:10px 0 12px;background:var(--primary-light)">'
     + '<div class="chip amber">🎧 '+sp("Audio Explainer","ऑडियो समझाइए")+'</div>'
     + '<div style="margin-top:8px;color:var(--muted);font-size:.92rem">'+sp("A teacher explains this topic out loud, in simple words.","एक teacher इस topic को आसान शब्दों में ज़ोर से समझाते हैं।")+'</div>'
@@ -9313,6 +9317,106 @@ function vAudioExplainer(tp){
     + sayBtn(tp.audio.en, 0.95, "🔊 English", "en")
     + sayBtn(tp.audio.hi, 0.95, "🔊 हिन्दी", "hi")
     + '</div></div>';
+}
+/* ---- Segmented audio player: adds play/pause + a seek slider so a student
+   can jump back and re-hear one part without replaying the whole script.
+   Splits each language's script on blank lines (the same paragraph breaks
+   already used for spoken pacing) into segments, and queues them as
+   separate SpeechSynthesisUtterances chained via onend.
+   Native speechSynthesis.pause()/resume() is unreliable on Android Chrome
+   (a documented WebSpeech gotcha, and this site's real device target per
+   the TTS block's own comment) -- silently cancelling instead of pausing on
+   some devices. So pause AND seek both use the same reliable mechanism:
+   cancel the current utterance and re-speak from a remembered segment
+   start, rather than depending on native pause(). Trade-off: pausing loses
+   the exact mid-sentence position, restarting that segment from its start
+   on resume -- deliberate, for reliability across devices over precision. */
+var AUDIO_PLAYER = { code:null, lang:"en", segs:[], idx:0, playing:false };
+function _audioSegments(text){
+  return String(text||"").split(/\n\n+/).map(function(x){ return x.trim(); }).filter(Boolean);
+}
+function audioPlayerLoad(code, lang){
+  var info = topicByCode(code); if(!info) return;
+  var tp = info.topic; if(!tp.audio) return;
+  window.speechSynthesis.cancel();
+  AUDIO_PLAYER.code = code;
+  AUDIO_PLAYER.lang = lang;
+  AUDIO_PLAYER.segs = _audioSegments(tp.audio[lang]);
+  AUDIO_PLAYER.idx = 0;
+  AUDIO_PLAYER.playing = false;
+  _audioPlayerSyncUI();
+  audioPlayerSpeakFrom(0);
+}
+function audioPlayerSpeakFrom(idx){
+  window.speechSynthesis.cancel();
+  if(idx < 0) idx = 0;
+  if(!AUDIO_PLAYER.segs.length || idx >= AUDIO_PLAYER.segs.length){
+    AUDIO_PLAYER.playing = false; AUDIO_PLAYER.idx = Math.max(0, AUDIO_PLAYER.segs.length-1);
+    _audioPlayerSyncUI(); return;
+  }
+  AUDIO_PLAYER.idx = idx;
+  AUDIO_PLAYER.playing = true;
+  var u = new SpeechSynthesisUtterance(AUDIO_PLAYER.segs[idx]);
+  var v = _pickVoice(AUDIO_PLAYER.lang);
+  if(v){ u.voice = v; u.lang = v.lang; } else { u.lang = AUDIO_PLAYER.lang==="hi" ? "hi-IN" : "en-IN"; }
+  u.rate = 0.95; u.pitch = 1;
+  var myIdx = idx, myCode = AUDIO_PLAYER.code, myLang = AUDIO_PLAYER.lang;
+  u.onend = function(){
+    if(AUDIO_PLAYER.code===myCode && AUDIO_PLAYER.lang===myLang && AUDIO_PLAYER.idx===myIdx && AUDIO_PLAYER.playing){
+      audioPlayerSpeakFrom(myIdx+1);
+    }
+  };
+  u.onerror = function(){ AUDIO_PLAYER.playing = false; _audioPlayerSyncUI(); };
+  window.speechSynthesis.speak(u);
+  _audioPlayerSyncUI();
+}
+function audioPlayerToggle(){
+  if(!AUDIO_PLAYER.segs.length) return;
+  if(AUDIO_PLAYER.playing){
+    window.speechSynthesis.cancel();
+    AUDIO_PLAYER.playing = false;
+    _audioPlayerSyncUI();
+  } else {
+    audioPlayerSpeakFrom(AUDIO_PLAYER.idx);
+  }
+}
+function audioPlayerSeek(idx){
+  audioPlayerSpeakFrom(parseInt(idx,10) || 0);
+}
+function _audioPlayerSyncUI(){
+  var btn = document.getElementById("audioPlayBtn");
+  var slider = document.getElementById("audioSeekSlider");
+  var label = document.getElementById("audioSegLabel");
+  var enBtn = document.getElementById("audioLangEn");
+  var hiBtn = document.getElementById("audioLangHi");
+  if(btn) btn.textContent = AUDIO_PLAYER.playing ? "⏸" : "▶";
+  if(slider){
+    slider.max = Math.max(0, AUDIO_PLAYER.segs.length-1);
+    slider.value = AUDIO_PLAYER.idx;
+  }
+  if(label){
+    label.textContent = AUDIO_PLAYER.segs.length
+      ? (LANG==="hi" ? ("हिस्सा "+(AUDIO_PLAYER.idx+1)+" / "+AUDIO_PLAYER.segs.length) : ("Part "+(AUDIO_PLAYER.idx+1)+" of "+AUDIO_PLAYER.segs.length))
+      : (LANG==="hi" ? "भाषा चुनिए" : "Choose a language");
+  }
+  var onStyle = "border-color:var(--primary);background:var(--primary-light)";
+  if(enBtn) enBtn.setAttribute("style", AUDIO_PLAYER.lang==="en" && AUDIO_PLAYER.code ? onStyle : "");
+  if(hiBtn) hiBtn.setAttribute("style", AUDIO_PLAYER.lang==="hi" && AUDIO_PLAYER.code ? onStyle : "");
+}
+function vAudioPlayerCard(tp){
+  return '<div class="card" style="margin:10px 0 12px;background:var(--primary-light)">'
+    + '<div class="chip amber">🎧 '+sp("Audio Explainer","ऑडियो समझाइए")+'</div>'
+    + '<div style="margin-top:8px;color:var(--muted);font-size:.92rem">'+sp("A teacher explains this topic out loud, in simple words. Drag the slider to go back and hear any part again.","एक teacher इस topic को आसान शब्दों में ज़ोर से समझाते हैं। किसी भी हिस्से को दोबारा सुनने के लिए slider खींचिए।")+'</div>'
+    + '<div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">'
+    + '<button class="say" type="button" id="audioLangEn" onclick="audioPlayerLoad(\''+esc(tp.code)+'\',\'en\')">🔊 English</button>'
+    + '<button class="say" type="button" id="audioLangHi" onclick="audioPlayerLoad(\''+esc(tp.code)+'\',\'hi\')">🔊 हिन्दी</button>'
+    + '</div>'
+    + '<div style="margin-top:12px;display:flex;align-items:center;gap:10px">'
+    + '<button class="say" type="button" id="audioPlayBtn" onclick="audioPlayerToggle()" aria-label="'+esc(LANG==="hi"?"चलाइए या रोकिए":"Play or pause")+'">▶</button>'
+    + '<input type="range" id="audioSeekSlider" min="0" max="0" step="1" value="0" style="flex:1" oninput="audioPlayerSeek(this.value)" aria-label="'+esc(LANG==="hi"?"किसी हिस्से पर जाइए":"Seek to a part")+'">'
+    + '</div>'
+    + '<div style="margin-top:6px;color:var(--muted);font-size:.85rem" id="audioSegLabel">'+esc(LANG==="hi"?"भाषा चुनिए":"Choose a language")+'</div>'
+    + '</div>';
 }
 function vTopic(code){
   var info = topicByCode(code); if(!info) return "Not found";
