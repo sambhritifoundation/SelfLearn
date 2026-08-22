@@ -204,6 +204,16 @@
   .say:hover{border-color:var(--primary)}
   .say.playing{border-color:var(--primary);background:var(--primary-light)}
   .say[disabled]{opacity:.45;cursor:not-allowed}
+  /* Audio-explainer spotlight: dim every diagram row except the one the
+     narration is on right now. Purely additive — rows carry no class at
+     all until the player sets one, so the diagram is unchanged by default. */
+  .ptrow{transition:opacity .25s ease}
+  .ptrow.dim{opacity:.25}
+  .ptrow.on text{fill:var(--primary);font-weight:700}
+  .audiocap{margin-top:10px;padding:10px 12px;border-radius:10px;background:var(--card);
+    border:1px solid var(--line);font-size:.95rem;line-height:1.55;color:var(--ink);min-height:1.2em}
+  .audiocap b{color:var(--primary);display:block;font-size:.82rem;letter-spacing:.02em;
+    text-transform:uppercase;margin-bottom:4px}
   .chunkgrid{display:grid;grid-template-columns:1fr;gap:9px;margin-top:10px}
   @media(min-width:620px){.chunkgrid{grid-template-columns:1fr 1fr}}
   .chunkcard{border:2px solid var(--line);border-radius:11px;padding:10px 11px;background:var(--card)}
@@ -4688,11 +4698,15 @@ var DIAGRAMS = {
     rows.forEach(function(row,n){
       var y=48+n*44;
       var startX=230-(row.length-1)*20;
+      /* Each row is its own group so the audio explainer can spotlight the
+         row it is currently talking about (see _audioHighlight). */
+      h+='<g class="ptrow" data-prow="'+n+'">';
       h+='<text x="60" y="'+(y+5)+'" text-anchor="middle" font-size="13" fill="var(--muted)">n='+n+'</text>';
       row.forEach(function(v,k){
         var x=startX+k*40;
         h+='<text x="'+x+'" y="'+(y+5)+'" text-anchor="middle" font-size="16" font-weight="'+(v===1?'normal':'bold')+'" fill="'+(v===1?'var(--muted)':'var(--ink)')+'">'+v+'</text>';
       });
+      h+='</g>';
     });
     h+='<text x="230" y="288" text-anchor="middle" font-size="12.5" font-style="italic" fill="var(--muted)">'+d("each number is the sum of the two above it","हर number अपने ऊपर वाले दो का योग है")+'</text>';
     return '<svg viewBox="0 0 460 300" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit">'+h+'</svg>';
@@ -8725,7 +8739,7 @@ function saveSession(s){ var l=sessions(); l.push(s); localStorage.setItem(PK("s
 
 /* ================= router ================= */
 var VIEW = { name:"home" };
-function go(name, args){ try{ window.speechSynthesis.cancel(); }catch(e){} if(typeof AUDIO_PLAYER!=="undefined") AUDIO_PLAYER.playing=false; VIEW = Object.assign({name:name}, args||{}); render(); window.scrollTo(0,0); }
+function go(name, args){ if(typeof audioPlayerReset==="function") audioPlayerReset(); VIEW = Object.assign({name:name}, args||{}); render(); window.scrollTo(0,0); }
 function render(){
   var el = document.getElementById("app");
   var v = VIEW.name;
@@ -9314,8 +9328,8 @@ function vAudioExplainer(tp){
     + '<div class="chip amber">🎧 '+sp("Audio Explainer","ऑडियो समझाइए")+'</div>'
     + '<div style="margin-top:8px;color:var(--muted);font-size:.92rem">'+sp("A teacher explains this topic out loud, in simple words.","एक teacher इस topic को आसान शब्दों में ज़ोर से समझाते हैं।")+'</div>'
     + '<div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">'
-    + sayBtn(tp.audio.en, 0.95, "🔊 English", "en")
-    + sayBtn(tp.audio.hi, 0.95, "🔊 हिन्दी", "hi")
+    + sayBtn(_audioFullText(tp.audio.en), 0.95, "🔊 English", "en")
+    + sayBtn(_audioFullText(tp.audio.hi), 0.95, "🔊 हिन्दी", "hi")
     + '</div></div>';
 }
 /* ---- Segmented audio player: adds play/pause + a seek slider so a student
@@ -9331,91 +9345,161 @@ function vAudioExplainer(tp){
    start, rather than depending on native pause(). Trade-off: pausing loses
    the exact mid-sentence position, restarting that segment from its start
    on resume -- deliberate, for reliability across devices over precision. */
-var AUDIO_PLAYER = { code:null, lang:"en", segs:[], idx:0, playing:false };
-function _audioSegments(text){
-  return String(text||"").split(/\n\n+/).map(function(x){ return x.trim(); }).filter(Boolean);
+var AUDIO_PLAYER = { code:null, lang:"en", segs:[], idx:0, playing:false, gen:0, scrubbing:false };
+/* Normalises a script into segments. Accepts either a plain string (split on
+   its blank-line paragraph breaks — the original shape, still used by any
+   topic with a simple tp.audio string) or a rich array of
+   {t:conceptTitle, s:spokenText, row:optionalDiagramRow} objects. */
+function _audioSegments(x){
+  if(Object.prototype.toString.call(x) === "[object Array]"){
+    return x.map(function(g){ return {t:(g&&g.t)||"", s:String((g&&g.s)||"").trim(), row:(g&&g.row)}; })
+            .filter(function(g){ return g.s; });
+  }
+  return String(x||"").split(/\n\n+/).map(function(p){ return {t:"", s:p.trim(), row:undefined}; })
+                      .filter(function(g){ return g.s; });
+}
+function _audioFullText(x){
+  return _audioSegments(x).map(function(g){ return g.s; }).join("\n\n");
+}
+/* Every action that cancels speech bumps this counter. Utterance handlers
+   capture the value they were created under and no-op if it has moved on.
+   Without this, cancelling to seek fires the OLD utterance's error handler
+   AFTER the new one has started, which used to flip playing=false and leave
+   the button showing "play" while audio was still running — so pause then
+   restarted the segment instead of pausing it. */
+function _audioBump(){ AUDIO_PLAYER.gen = (AUDIO_PLAYER.gen||0)+1; return AUDIO_PLAYER.gen; }
+function _audioStop(){ _audioBump(); try{ window.speechSynthesis.cancel(); }catch(e){} }
+function audioPlayerReset(){
+  _audioStop();
+  AUDIO_PLAYER.code=null; AUDIO_PLAYER.segs=[]; AUDIO_PLAYER.idx=0;
+  AUDIO_PLAYER.playing=false; AUDIO_PLAYER.scrubbing=false;
 }
 function audioPlayerLoad(code, lang){
   var info = topicByCode(code); if(!info) return;
   var tp = info.topic; if(!tp.audio) return;
-  window.speechSynthesis.cancel();
+  _audioStop();
   AUDIO_PLAYER.code = code;
   AUDIO_PLAYER.lang = lang;
   AUDIO_PLAYER.segs = _audioSegments(tp.audio[lang]);
   AUDIO_PLAYER.idx = 0;
   AUDIO_PLAYER.playing = false;
-  _audioPlayerSyncUI();
+  AUDIO_PLAYER.scrubbing = false;
   audioPlayerSpeakFrom(0);
 }
 function audioPlayerSpeakFrom(idx){
-  window.speechSynthesis.cancel();
+  var myGen = _audioBump();
+  try{ window.speechSynthesis.cancel(); }catch(e){}
   if(idx < 0) idx = 0;
   if(!AUDIO_PLAYER.segs.length || idx >= AUDIO_PLAYER.segs.length){
-    AUDIO_PLAYER.playing = false; AUDIO_PLAYER.idx = Math.max(0, AUDIO_PLAYER.segs.length-1);
+    AUDIO_PLAYER.playing = false;
+    AUDIO_PLAYER.idx = Math.max(0, AUDIO_PLAYER.segs.length-1);
     _audioPlayerSyncUI(); return;
   }
   AUDIO_PLAYER.idx = idx;
   AUDIO_PLAYER.playing = true;
-  var u = new SpeechSynthesisUtterance(AUDIO_PLAYER.segs[idx]);
+  var u = new SpeechSynthesisUtterance(AUDIO_PLAYER.segs[idx].s);
   var v = _pickVoice(AUDIO_PLAYER.lang);
   if(v){ u.voice = v; u.lang = v.lang; } else { u.lang = AUDIO_PLAYER.lang==="hi" ? "hi-IN" : "en-IN"; }
   u.rate = 0.95; u.pitch = 1;
-  var myIdx = idx, myCode = AUDIO_PLAYER.code, myLang = AUDIO_PLAYER.lang;
   u.onend = function(){
-    if(AUDIO_PLAYER.code===myCode && AUDIO_PLAYER.lang===myLang && AUDIO_PLAYER.idx===myIdx && AUDIO_PLAYER.playing){
-      audioPlayerSpeakFrom(myIdx+1);
-    }
+    if(AUDIO_PLAYER.gen !== myGen) return;   /* superseded by a newer action */
+    audioPlayerSpeakFrom(idx+1);
   };
-  u.onerror = function(){ AUDIO_PLAYER.playing = false; _audioPlayerSyncUI(); };
-  window.speechSynthesis.speak(u);
+  u.onerror = function(){
+    if(AUDIO_PLAYER.gen !== myGen) return;   /* a cancel we already moved past */
+    AUDIO_PLAYER.playing = false; _audioPlayerSyncUI();
+  };
+  try{ window.speechSynthesis.speak(u); }catch(e){ AUDIO_PLAYER.playing = false; }
   _audioPlayerSyncUI();
 }
 function audioPlayerToggle(){
   if(!AUDIO_PLAYER.segs.length) return;
   if(AUDIO_PLAYER.playing){
-    window.speechSynthesis.cancel();
+    _audioStop();
     AUDIO_PLAYER.playing = false;
     _audioPlayerSyncUI();
   } else {
     audioPlayerSpeakFrom(AUDIO_PLAYER.idx);
   }
 }
-function audioPlayerSeek(idx){
-  audioPlayerSpeakFrom(parseInt(idx,10) || 0);
+/* Dragging fires input continuously; speaking on every tick would cancel and
+   restart dozens of times. So the drag only previews (silent), and playback
+   commits once on release via change. */
+function audioPlayerScrub(val){
+  if(!AUDIO_PLAYER.segs.length) return;
+  AUDIO_PLAYER.scrubbing = true;
+  _audioStop();
+  AUDIO_PLAYER.playing = false;
+  var n = parseInt(val,10); if(isNaN(n)) n = 0;
+  AUDIO_PLAYER.idx = Math.max(0, Math.min(n, AUDIO_PLAYER.segs.length-1));
+  _audioPlayerSyncUI();
+}
+function audioPlayerSeek(val){
+  if(!AUDIO_PLAYER.segs.length) return;
+  AUDIO_PLAYER.scrubbing = false;
+  var n = parseInt(val,10); if(isNaN(n)) n = 0;
+  audioPlayerSpeakFrom(Math.max(0, Math.min(n, AUDIO_PLAYER.segs.length-1)));
+}
+/* Spotlights the diagram row the current segment is about. No-ops on every
+   other topic, since nothing else renders .ptrow groups. */
+function _audioHighlight(){
+  var rows = document.querySelectorAll(".ptrow");
+  if(!rows.length) return;
+  var seg = AUDIO_PLAYER.segs[AUDIO_PLAYER.idx];
+  var want = (AUDIO_PLAYER.code && seg && seg.row !== undefined && seg.row !== null) ? String(seg.row) : null;
+  for(var i=0;i<rows.length;i++){
+    if(want === null) rows[i].setAttribute("class","ptrow");
+    else rows[i].setAttribute("class", rows[i].getAttribute("data-prow")===want ? "ptrow on" : "ptrow dim");
+  }
 }
 function _audioPlayerSyncUI(){
   var btn = document.getElementById("audioPlayBtn");
   var slider = document.getElementById("audioSeekSlider");
   var label = document.getElementById("audioSegLabel");
+  var cap = document.getElementById("audioCaption");
   var enBtn = document.getElementById("audioLangEn");
   var hiBtn = document.getElementById("audioLangHi");
+  var seg = AUDIO_PLAYER.segs[AUDIO_PLAYER.idx];
   if(btn) btn.textContent = AUDIO_PLAYER.playing ? "⏸" : "▶";
   if(slider){
     slider.max = Math.max(0, AUDIO_PLAYER.segs.length-1);
-    slider.value = AUDIO_PLAYER.idx;
+    /* never write back mid-drag, it fights the user's thumb */
+    if(!AUDIO_PLAYER.scrubbing) slider.value = AUDIO_PLAYER.idx;
   }
   if(label){
     label.textContent = AUDIO_PLAYER.segs.length
-      ? (LANG==="hi" ? ("हिस्सा "+(AUDIO_PLAYER.idx+1)+" / "+AUDIO_PLAYER.segs.length) : ("Part "+(AUDIO_PLAYER.idx+1)+" of "+AUDIO_PLAYER.segs.length))
+      ? (LANG==="hi" ? ("हिस्सा "+(AUDIO_PLAYER.idx+1)+" / "+AUDIO_PLAYER.segs.length)
+                     : ("Part "+(AUDIO_PLAYER.idx+1)+" of "+AUDIO_PLAYER.segs.length))
       : (LANG==="hi" ? "भाषा चुनिए" : "Choose a language");
+  }
+  if(cap){
+    if(AUDIO_PLAYER.segs.length && seg){
+      cap.innerHTML = (seg.t ? "<b>"+esc(seg.t)+"</b>" : "") + esc(seg.s);
+    } else {
+      cap.innerHTML = '<span style="color:var(--muted)">'
+        + esc(LANG==="hi" ? "सुनने के लिए ऊपर भाषा चुनिए।" : "Pick a language above to start listening.")
+        + '</span>';
+    }
   }
   var onStyle = "border-color:var(--primary);background:var(--primary-light)";
   if(enBtn) enBtn.setAttribute("style", AUDIO_PLAYER.lang==="en" && AUDIO_PLAYER.code ? onStyle : "");
   if(hiBtn) hiBtn.setAttribute("style", AUDIO_PLAYER.lang==="hi" && AUDIO_PLAYER.code ? onStyle : "");
+  _audioHighlight();
 }
 function vAudioPlayerCard(tp){
   return '<div class="card" style="margin:10px 0 12px;background:var(--primary-light)">'
     + '<div class="chip amber">🎧 '+sp("Audio Explainer","ऑडियो समझाइए")+'</div>'
-    + '<div style="margin-top:8px;color:var(--muted);font-size:.92rem">'+sp("A teacher explains this topic out loud, in simple words. Drag the slider to go back and hear any part again.","एक teacher इस topic को आसान शब्दों में ज़ोर से समझाते हैं। किसी भी हिस्से को दोबारा सुनने के लिए slider खींचिए।")+'</div>'
+    + '<div style="margin-top:8px;color:var(--muted);font-size:.92rem">'+sp("A teacher explains this topic out loud. Drag the slider to go back and hear any part again.","एक teacher इस topic को ज़ोर से समझाते हैं। किसी भी हिस्से को दोबारा सुनने के लिए slider खींचिए।")+'</div>'
     + '<div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">'
     + '<button class="say" type="button" id="audioLangEn" onclick="audioPlayerLoad(\''+esc(tp.code)+'\',\'en\')">🔊 English</button>'
     + '<button class="say" type="button" id="audioLangHi" onclick="audioPlayerLoad(\''+esc(tp.code)+'\',\'hi\')">🔊 हिन्दी</button>'
     + '</div>'
     + '<div style="margin-top:12px;display:flex;align-items:center;gap:10px">'
     + '<button class="say" type="button" id="audioPlayBtn" onclick="audioPlayerToggle()" aria-label="'+esc(LANG==="hi"?"चलाइए या रोकिए":"Play or pause")+'">▶</button>'
-    + '<input type="range" id="audioSeekSlider" min="0" max="0" step="1" value="0" style="flex:1" oninput="audioPlayerSeek(this.value)" aria-label="'+esc(LANG==="hi"?"किसी हिस्से पर जाइए":"Seek to a part")+'">'
+    + '<input type="range" id="audioSeekSlider" min="0" max="0" step="1" value="0" style="flex:1" oninput="audioPlayerScrub(this.value)" onchange="audioPlayerSeek(this.value)" aria-label="'+esc(LANG==="hi"?"किसी हिस्से पर जाइए":"Seek to a part")+'">'
     + '</div>'
     + '<div style="margin-top:6px;color:var(--muted);font-size:.85rem" id="audioSegLabel">'+esc(LANG==="hi"?"भाषा चुनिए":"Choose a language")+'</div>'
+    + '<div class="audiocap" id="audioCaption"><span style="color:var(--muted)">'+esc(LANG==="hi"?"सुनने के लिए ऊपर भाषा चुनिए।":"Pick a language above to start listening.")+'</span></div>'
     + '</div>';
 }
 function vTopic(code){
