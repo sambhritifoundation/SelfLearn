@@ -8535,23 +8535,25 @@ if(TTS_OK){
 /* Indian English first — it is the accent these learners will actually hear and
    be understood in locally. Fall back through other English voices, never to a
    non-English voice (which would mangle the pronunciation entirely). */
-function _pickVoice(){
+function _pickVoice(lang){
   if(!_slVoices.length) _loadVoices();
-  var order = ["en-IN","en_IN","en-GB","en_GB","en-US","en_US"];
+  var isHi = lang === "hi";
+  var order = isHi ? ["hi-IN","hi_IN"] : ["en-IN","en_IN","en-GB","en_GB","en-US","en_US"];
   for(var i=0;i<order.length;i++){
     var v = _slVoices.find(function(x){ return x.lang && x.lang.replace("_","-").toLowerCase()===order[i].replace("_","-").toLowerCase(); });
     if(v) return v;
   }
-  return _slVoices.find(function(x){ return x.lang && /^en/i.test(x.lang); }) || null;
+  var fallbackRe = isHi ? /^hi/i : /^en/i;
+  return _slVoices.find(function(x){ return x.lang && fallbackRe.test(x.lang); }) || null;
 }
-function speak(text, rate, btn){
+function speak(text, rate, btn, lang){
   if(!TTS_OK){ toast(LANG==="hi"?"इस browser में आवाज़ उपलब्ध नहीं है":"Audio is not available in this browser"); return; }
   if(!text) return;
   try{
     window.speechSynthesis.cancel();          /* never let two lines overlap */
     var u = new SpeechSynthesisUtterance(String(text));
-    var v = _pickVoice();
-    if(v){ u.voice = v; u.lang = v.lang; } else { u.lang = "en-IN"; }
+    var v = _pickVoice(lang);
+    if(v){ u.voice = v; u.lang = v.lang; } else { u.lang = lang==="hi" ? "hi-IN" : "en-IN"; }
     u.rate = rate || 1;
     u.pitch = 1;
     if(btn){
@@ -8563,18 +8565,21 @@ function speak(text, rate, btn){
 }
 /* Build a speak button. The phrase rides in a data- attribute rather than inside
    an onclick string, so apostrophes and quotes in natural English ("What's your
-   name?") can never break the generated markup. */
-function sayBtn(text, rate, label){
+   name?") can never break the generated markup. lang defaults to English ("en")
+   so every pre-existing caller (all English phrase drills) keeps behaving exactly
+   as before; pass "hi" for Hindi text so the right voice gets picked. */
+function sayBtn(text, rate, label, lang){
   if(!TTS_OK) return "";
   return '<button class="say" type="button" data-say="'+esc(text)+'"'
     + (rate ? ' data-rate="'+rate+'"' : '')
+    + (lang ? ' data-lang="'+lang+'"' : '')
     + ' aria-label="'+esc((LANG==="hi"?"सुनिए: ":"Listen: ")+text)+'">'+(label||"🔊")+'</button>';
 }
 /* One delegated listener serves every speak button on every screen. */
 document.addEventListener("click", function(ev){
   var b = ev.target.closest && ev.target.closest("[data-say]");
   if(!b) return;
-  speak(b.getAttribute("data-say"), parseFloat(b.getAttribute("data-rate"))||1, b);
+  speak(b.getAttribute("data-say"), parseFloat(b.getAttribute("data-rate"))||1, b, b.getAttribute("data-lang")||"en");
 });
 
 /* ================= data access ================= */
@@ -9294,6 +9299,21 @@ function vTutorRoute(code){
   return h;
 }
 
+/* A short, natural-language "teacher explains it out loud" script per topic,
+   read via the browser's own speechSynthesis (see the TTS block above) --
+   entirely separate from tp.notes, which is written to be READ (LaTeX, bold,
+   tables) and would come out as garbled symbol-soup if spoken verbatim.
+   Renders nothing when a topic has no audio script, or the browser can't speak. */
+function vAudioExplainer(tp){
+  if(!tp.audio || !TTS_OK) return "";
+  return '<div class="card" style="margin:10px 0 12px;background:var(--primary-light)">'
+    + '<div class="chip amber">🎧 '+sp("Audio Explainer","ऑडियो समझाइए")+'</div>'
+    + '<div style="margin-top:8px;color:var(--muted);font-size:.92rem">'+sp("A teacher explains this topic out loud, in simple words.","एक teacher इस topic को आसान शब्दों में ज़ोर से समझाते हैं।")+'</div>'
+    + '<div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">'
+    + sayBtn(tp.audio.en, 0.95, "🔊 English", "en")
+    + sayBtn(tp.audio.hi, 0.95, "🔊 हिन्दी", "hi")
+    + '</div></div>';
+}
 function vTopic(code){
   var info = topicByCode(code); if(!info) return "Not found";
   setLastVisited({topic:code});
@@ -9312,6 +9332,7 @@ function vTopic(code){
     + (tp.exam ? '<span class="chip green">'+sp("Exam-important","परीक्षा-महत्वपूर्ण")+'</span>' : '')
     + (a2!==null ? '<span class="chip '+(a2>=80?"green":(a2>=60?"amber":"red"))+'">'+sp("Your accuracy: ","आपकी शुद्धता: ")+a2+'%</span>' : '')
     + '</div><h1 style="margin:10px 0 12px">'+t(tp.name)+'</h1>'
+    + vAudioExplainer(tp)
     + vTutorRoute(code)
     + '<div class="notes">'+fmtNotes(t(tp.notes), tp.images)+'</div></div>';
   /* Language units follow a fixed four-skill loop: hear it, learn the phrases,
