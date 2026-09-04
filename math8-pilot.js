@@ -4,29 +4,7 @@
   var api = window.SL8 = {};
   function B(en,hi){return LANG==='hi'?hi:en;}
   function is8(){return !!(QUIZ && QUIZ.qs.length && QUIZ.qs[0].subject==='MATH8');}
-  // Roman-Hinglish uses an English voice, preferring en-IN through _pickVoice.
-  // Do not alter voice choice or timing for any pre-existing course.
-  api.playbackRate=0.88;
-  var originalAudio=vAudioExplainer, originalSpeakFrom=audioPlayerSpeakFrom;
-  vAudioExplainer=function(tp){var h=originalAudio(tp);if(!/^M8-/.test(tp.code)||!TTS_OK)return h;
-    h=h.replace('🔊 हिन्दी','🔊 Hinglish');
-    return h+'<div class="m8-controls"><label for="m8-audio-speed">'+B('Listening speed','सुनने की गति')+'</label><select id="m8-audio-speed" onchange="SL8.setAudioRate(this.value)">'+[[.78,'Extra slow','बहुत आराम से'],[.88,'Gentle','आराम से'],[1,'Normal','सामान्य']].map(function(x){return '<option value="'+x[0]+'" '+(api.playbackRate===x[0]?'selected':'')+'>'+B(x[1],x[2])+'</option>';}).join('')+'</select></div>';
-  };
-  api.setAudioRate=function(value){var n=Number(value);if([.78,.88,1].indexOf(n)<0)return;api.playbackRate=n;if(AUDIO_PLAYER.playing&&/^M8-/.test(AUDIO_PLAYER.code||''))audioPlayerSpeakFrom(AUDIO_PLAYER.idx);};
-  audioPlayerSpeakFrom=function(idx){
-    var info=AUDIO_PLAYER.code&&topicByCode(AUDIO_PLAYER.code);
-    if(!info||info.subject.code!=='MATH8')return originalSpeakFrom(idx);
-    var gen=_audioBump();try{window.speechSynthesis.cancel();}catch(e){}
-    idx=Math.max(0,idx);
-    if(!AUDIO_PLAYER.segs.length||idx>=AUDIO_PLAYER.segs.length){AUDIO_PLAYER.playing=false;AUDIO_PLAYER.idx=Math.max(0,AUDIO_PLAYER.segs.length-1);_audioPlayerSyncUI();return;}
-    AUDIO_PLAYER.idx=idx;AUDIO_PLAYER.playing=true;
-    var u=new SpeechSynthesisUtterance(AUDIO_PLAYER.segs[idx].s),voice=_pickVoice('en');
-    u.lang=voice?voice.lang:'en-IN';if(voice)u.voice=voice;u.rate=api.playbackRate;u.pitch=1;
-    u.onend=function(){if(AUDIO_PLAYER.gen===gen)audioPlayerSpeakFrom(idx+1);};
-    u.onerror=function(){if(AUDIO_PLAYER.gen!==gen)return;AUDIO_PLAYER.playing=false;_audioPlayerSyncUI();toast(B('Audio could not play. Try another browser or read the transcript.','Audio नहीं चल सका। दूसरा browser या नीचे script आज़माइए।'));};
-    try{window.speechSynthesis.speak(u);}catch(e){u.onerror();}
-    _audioPlayerSyncUI();
-  };
+  // Use the shared Hindi player unchanged, exactly like Pascal's Triangle.
   function svg(inner,label){return '<svg viewBox="0 0 360 290" role="img" aria-label="'+esc(label)+'" xmlns="http://www.w3.org/2000/svg">'+inner+'</svg>';}
   function grid(n,old,label){
     var size=220/n, h='';
@@ -114,7 +92,7 @@
 
   var originalTopic=vTopic;
   vTopic=function(code){var h=originalTopic(code);if(!/^M8-/.test(code))return h;var tp=topicByCode(code).topic;
-    var transcript='<details class="m8-transcript"><summary>'+B('Read the audio transcript','Audio की script पढ़िए')+'</summary><p class="m8-note">'+B('Hinglish playback uses Roman Hindi with familiar English maths words and prefers an Indian-English voice. Device voices vary. Resume restarts the current short section.','Hinglish में आसान हिन्दी की बात Roman अक्षरों और परिचित English maths शब्दों में है। Indian-English आवाज़ को प्राथमिकता है; device के अनुसार आवाज़ बदलती है। Resume पर मौजूदा छोटा हिस्सा फिर शुरू होता है।')+'</p>'+_audioSegments(t(tp.audio)).map(function(seg){return (seg.t?'<h4>'+esc(seg.t)+'</h4>':'')+'<p>'+esc(seg.s)+'</p>';}).join('')+'</details>';
+    var transcript='<details class="m8-transcript"><summary>'+B('Read the audio transcript','Audio की script पढ़िए')+'</summary><p class="m8-note">'+B('Hindi narration uses the same Hindi voice selection as Pascal’s Triangle, with Hindi number words and familiar English maths terms. A Hindi device voice is needed for reliable pronunciation. Resume restarts the current section.','Pascal’s Triangle की तरह हिन्दी आवाज़ में समझाया गया है। संख्याएँ हिन्दी शब्दों में हैं और परिचित English maths शब्द साथ में हैं। साफ़ उच्चारण के लिए device में हिन्दी आवाज़ चाहिए। Resume पर मौजूदा हिस्सा फिर शुरू होता है।')+'</p>'+_audioSegments(t(tp.audio)).map(function(seg){return (seg.t?'<h4>'+esc(seg.t)+'</h4>':'')+'<p>'+esc(seg.s)+'</p>';}).join('')+'</details>';
     h=h.replace('<div class="notes">',transcript+'<div class="notes">');
     var formats=[['all','All 8 questions','सभी 8 प्रश्न'],['mcq','Single answer','एक सही उत्तर'],['multi','Multiple answers','कई सही उत्तर'],['fill','Fill blanks','खाली जगह'],['match','Match','मिलान'],['subjective','Written response','लिखित उत्तर']];
     var saved='';try{var records=JSON.parse(localStorage.getItem(PK('sl_m8_written'))||'{}');qForTopic(code).filter(function(q){return q.type==='subjective'&&records[q.id];}).forEach(function(q){var r=records[q.id];saved+='<details class="m8-transcript"><summary>'+B('Your last saved written response','आपका पिछला सहेजा हुआ लिखित उत्तर')+'</summary><p>'+esc(t(q.q))+'</p><p style="white-space:pre-wrap">'+esc(r.text)+'</p><p>'+r.checks.length+'/'+q.rubric.length+' '+B('criteria self-checked','बिंदु खुद जाँचे')+'</p></details>';});}catch(e){}
