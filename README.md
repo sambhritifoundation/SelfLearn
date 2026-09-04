@@ -23,6 +23,17 @@ A bilingual (Hindi–English), practice-first learning portal by Sambhriti Found
 
 ## Run locally
 
+### Class 8 Mathematics pilot
+
+The app also contains **A Square and a Cube** for Class 8: ten bilingual
+micro-topics, browser-voice audio with transcripts, interactive diagrams and 80
+questions across five formats. Open `index.html#math8` to start the pilot.
+Current NCERT conceptual alignment is checked; exact JAC textbook mapping awaits
+teacher confirmation. See [the baseline and audit guide](study-material/MATH8-PILOT.md).
+
+New content is in `data-math8.js`, with scoped support in `math8-pilot.js` and
+`math8-pilot.css`. Run `node scripts/test-math8.cjs` for regression checks.
+
 Open `index.html` in any browser — no build step, no server needed. Keep the `data-*.js` files alongside it.
 
 ## Adding content

@@ -1,0 +1,34 @@
+/* Scoped extension: retain SelfLearn's existing theme and course layouts. */
+.m8-lab { white-space:normal; font-size:1rem; line-height:1.65; }
+.m8-lab h3 { margin:0 0 8px; }
+.m8-lab label { display:block; font-size:1rem; margin:12px 0 6px; }
+.m8-lab input[type=range] { width:100%; min-height:44px; accent-color:var(--primary); }
+.m8-lab select { max-width:100%; min-height:44px; font-size:1rem; }
+.m8-output { margin-top:14px; }
+.m8-output svg { display:block; width:100%; max-width:420px; height:auto; margin:12px auto; }
+.m8-equation { font-size:1.25rem; font-weight:700; padding:14px; background:var(--primary-light); border-radius:10px; overflow-wrap:anywhere; }
+.m8-groups { display:flex; gap:10px; flex-wrap:wrap; margin:12px 0; }
+.m8-group { border:2px solid var(--primary); padding:8px 12px; border-radius:10px; font-weight:600; }
+.m8-group.incomplete { border-style:dashed; border-color:var(--accent); }
+.m8-layers { display:grid; grid-template-columns:repeat(auto-fit,minmax(110px,1fr)); gap:8px; }
+.m8-layers figure { margin:0; text-align:center; border:1px solid var(--line); border-radius:8px; padding:8px; }
+.m8-layers figcaption { font-size:.9rem; }
+.m8-layers svg { margin:4px auto; }
+.m8-controls, .m8-formats { display:flex; flex-wrap:wrap; gap:8px; margin:12px 0; }
+.m8-formats .btn { min-height:44px; }
+.m8-transcript { margin:12px 0; border:1px solid var(--line); border-radius:10px; padding:12px; }
+.m8-transcript summary { cursor:pointer; min-height:30px; font-weight:600; }
+.m8-transcript p { margin:12px 0; line-height:1.75; }
+.m8-choice { display:flex; align-items:flex-start; gap:12px; cursor:pointer; width:100%; box-sizing:border-box; }
+.m8-choice input { width:22px; height:22px; flex:0 0 22px; margin:3px 0 0; accent-color:var(--primary); }
+.m8-choice.correct { border-color:var(--green); }
+.m8-choice.wrong { border-color:var(--red); }
+.m8-written { width:100%; min-height:150px; box-sizing:border-box; font:inherit; line-height:1.6; }
+.m8-rubric { display:block; font-size:1rem; line-height:1.6; padding:8px 0; }
+.m8-rubric input { width:20px; height:20px; margin-right:8px; }
+.m8-note { font-size:.95rem; color:var(--muted); line-height:1.65; }
+.m8-results details { padding:14px 0; border-bottom:1px solid var(--line); }
+.m8-results summary { cursor:pointer; line-height:1.65; }
+.m8-feedback { padding:10px; margin:10px 0; border-left:4px solid var(--primary); }
+.m8-lab :focus-visible, .m8-formats :focus-visible, .m8-choice:focus-within { outline:3px solid var(--primary); outline-offset:3px; }
+@media(max-width:480px) { .m8-equation { font-size:1.1rem; padding:10px; } .m8-layers { grid-template-columns:repeat(2,minmax(0,1fr)); } }

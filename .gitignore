@@ -3,3 +3,5 @@
 Thumbs.db
 desktop.ini
 push-to-github.bat
+dist/
+*.tar.gz
