@@ -3,7 +3,7 @@
 ## Scope and provenance
 
 Original supplementary teaching for **A Square and a Cube**: ten micro-topics,
-80 questions, bilingual browser-voice scripts, ten interactive teaching visuals,
+80 questions, bilingual written notes, ten interactive teaching visuals,
 ten worked examples, a 20-question chapter assignment, ten-question revision,
 and a paper-based school-design activity.
 
@@ -23,7 +23,7 @@ The course introduction exposes this limitation.
 1. A relatable question before the definition.
 2. A prediction and an interactive mathematical representation.
 3. Short, natural English and Hindi/Hinglish teaching blocks.
-4. Dedicated spoken explanations, not formula notation read mechanically.
+4. Readable explanations in both languages, without an audio requirement.
 5. Why the method works, a misconception, and a check or reflection.
 6. A worked example with a reason for every revealed step.
 7. Eight questions: 3 single-answer MCQs, 1 multiple-answer MCQ, 2 numerical
@@ -37,8 +37,6 @@ Understanding, not speed, is the goal.
 
 - `data-math8.js`: subject `MATH8`, topics `M8-1-1` through `M8-1-10`, questions
   `M8-Q001` through `M8-Q080`. Author original lessons and rich questions here.
-- `audio-math8-hinglish.js`: titled Hindi speech segments, deliberately modelled on
-  the short titled teaching segments of Class 11 Ch 7 Pascal's Triangle.
 - `math8-pilot.js`: scoped adapter for diagrams, new response types and export.
 - `math8-pilot.css`: scoped `.m8-*` styling using the existing theme.
 - The two HTML app entry points must remain byte-identical. `#math8` opens the pilot.
@@ -63,23 +61,11 @@ Understanding, not speed, is the goal.
 
 No backend, cross-device sync or automatic uploads are introduced.
 
-## Audio limitations
+## Audio
 
-Each topic has independent English and conversational Devanagari Hindi scripts.
-Hindi narration uses familiar English maths terms, but numbers, arithmetic and
-measurements are spoken in Hindi words. The speech pack divides the original
-Hindi teaching script into four short, titled sections, like Pascal's Triangle.
-Written notes are unchanged. The shared player provides language choice,
-play/pause, seeking and captions; transcripts work without speech support.
-
-Audio is **device text-to-speech, not recorded human narration**. The pilot now
-uses the shared player unchanged, including Pascal's Triangle's Hindi voice
-selection (hi-IN preferred) and rate 0.95. English retains its English voice.
-No pilot voice override or custom speed control remains. When no Hindi voice is
-available, the shared player requests hi-IN from the browser; it does not force
-English. A Hindi-capable device voice is needed for reliable pronunciation.
-Some voices need a network. Resume restarts the current section. Test on the
-intended Android device: code-level voice parity does not certify audible quality.
+Audio explainers and transcript panels have been removed from the Class 8 pilot
+at the user’s request. Other courses retain their existing audio. Earlier
+narration drafts remain in source history; they are not lesson audio data.
 
 ## Spreadsheet compatibility
 

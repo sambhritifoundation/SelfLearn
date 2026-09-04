@@ -18,7 +18,7 @@ assert.equal(chapter.topics.length,10);assert.equal(qs.length,80);
 assert.equal(new Set(data.questions.map(q=>q.id)).size,data.questions.length,'duplicate IDs');
 const counts={};qs.forEach(q=>{assert(sandbox.SL8.validQuestion(q),q.id);counts[q.type]=(counts[q.type]||0)+1;});
 assert.deepEqual(counts,{mcq:30,multi:10,fill:20,match:10,subjective:10});
-for(const tp of chapter.topics){assert.equal(qs.filter(q=>q.topic===tp.code).length,8);for(const lang of ['en','hi']){assert(tp.notes[lang].length>500);assert(sandbox._audioSegments(tp.audio[lang]).length>=3);assert(tp.worked[0].problem[lang]);sandbox.LANG=lang;const rendered=sandbox.vTopic(tp.code);assert(!rendered.includes('{{diagram:'),tp.code);assert(rendered.includes('m8-lab-'));assert(rendered.includes('m8-transcript'));assert(rendered.includes('SL8.practice'));}assert.equal(tp.audio.hi.length,4);assert(tp.audio.hi.every(s=>s.t&&s.s));assert(/[\u0900-\u097f]/.test(sandbox._audioFullText(tp.audio.hi)));assert(!/[0-9]|\b(one|two|three|four|five|six|seven|eight|nine|ten|twos|threes|plus|minus|times)\b/i.test(sandbox._audioFullText(tp.audio.hi)));}
+for(const tp of chapter.topics){assert.equal(qs.filter(q=>q.topic===tp.code).length,8);for(const lang of ['en','hi']){assert(tp.notes[lang].length>500);assert(tp.worked[0].problem[lang]);sandbox.LANG=lang;const rendered=sandbox.vTopic(tp.code);assert(!rendered.includes('{{diagram:'),tp.code);assert(rendered.includes('m8-lab-'));assert(!rendered.includes('Read the audio transcript'));assert(rendered.includes('SL8.practice'));}assert.equal(tp.audio,undefined);assert.equal(tp.audioPlayer,undefined);}
 // Independently computed objective-answer expectations, by lesson.
 const expected=[
  ['A','C','B',['A','B','D'],49,24],['C','C','C',['A','C'],36,16],['A','B','C',['A','B'],11,.75],
@@ -40,26 +40,25 @@ sandbox.SL8.practice('M8-1-1','multi');sandbox.SL8.select('A',true);sandbox.SL8.
 sandbox.SL8.practice('M8-1-3','fill');element('shortAns').value='११';sandbox.answerShort();assert.equal(sandbox.QUIZ.results[0],true);
 sandbox.SL8.practice('M8-1-1','subjective');sandbox.SL8.draft('8 rows of 8 make 64.');sandbox.SL8.reveal();sandbox.SL8.rubric(0,true);sandbox.SL8.finishWritten();assert.equal(sandbox.QUIZ.results[0],'reviewed');assert(sandbox.vResult().includes('no automatic score'));assert(memory.has('sl_m8_written'));
 assert.equal(sandbox.rowToQ({question_json:'{"subject":"MATH8"}'}),null);
-// Use the identical shared player and Hindi voice path as Pascal's Triangle.
+// Removing pilot audio must leave the shared player and Class 11 audio intact.
 assert.equal(sandbox.audioPlayerSpeakFrom,sharedSpeakFrom);
 assert.equal(sandbox.vAudioExplainer,sharedAudio);
 let spoken;
-const voices=[{lang:'en-IN',name:'Test Indian English'},{lang:'hi-IN',name:'Test Hindi'}];
+const voices=[{lang:'en-IN',name:'Test English'},{lang:'hi-IN',name:'Test Hindi'}];
 sandbox.speechSynthesis={getVoices:()=>voices,cancel(){},speak(u){spoken=u;}};
 sandbox.SpeechSynthesisUtterance=function(text){this.text=text;};sandbox.TTS_OK=true;sandbox._slVoices=[];
-sandbox.audioPlayerLoad('MTH11-7-1','hi');
-const reference={lang:spoken.lang,rate:spoken.rate,voice:spoken.voice};
-assert.equal(reference.lang,'hi-IN');assert.equal(reference.rate,.95);
+sandbox.audioPlayerLoad('MTH11-7-1','hi');assert.equal(spoken.lang,'hi-IN');
+assert(sandbox.vAudioExplainer(sandbox.topicByCode('MTH11-7-1').topic).length>0);
 for(const tp of chapter.topics){
-  sandbox.audioPlayerLoad(tp.code,'hi');
-  assert.equal(spoken.lang,reference.lang);assert.equal(spoken.voice,reference.voice);assert.equal(spoken.rate,reference.rate);
-  assert(/[\u0900-\u097f]/.test(spoken.text));
+  assert.equal(sandbox.vAudioExplainer(tp),'');
+  for(const lang of ['en','hi']){
+    sandbox.LANG=lang;const rendered=sandbox.vTopic(tp.code);
+    assert(!rendered.includes('audioPlayerLoad('));assert(!rendered.includes('Read the audio transcript'));
+    assert(!rendered.includes('Audio की script पढ़िए'));
+  }
 }
-const stale=spoken.onend;sandbox.audioPlayerLoad('M8-1-1','hi');stale();assert.equal(sandbox.AUDIO_PLAYER.idx,0,'stale speech completion advanced playback');
-sandbox.audioPlayerLoad('M8-1-1','en');assert.equal(spoken.lang,'en-IN');
-voices.pop();sandbox._slVoices=[];
-sandbox.audioPlayerLoad('M8-1-1','hi');assert.equal(spoken.lang,'hi-IN');assert.equal(spoken.voice,undefined,'must not force English when Hindi voice is absent');
-assert(sandbox.vAudioExplainer(chapter.topics[0]).includes('हिन्दी'));
+assert(!/audio/i.test(subject.intro.en));assert(!/audio/i.test(subject.intro.hi));
+sandbox.LANG='en';
 // Existing courses still render and retain original quiz formats.
 for(const s of data.subjects.filter(s=>s.code!=='MATH8')){assert(sandbox.vSubject(s.code).includes(s.name.en));assert(sandbox.vTopic(s.chapters[0].topics[0].code).length>100);}
 console.log('PASS: 10 bilingual lessons, 80 questions, 10 diagrams, answer keys, 998 factor cases, numeric/multiple-answer scoring, subjective separation, spreadsheet round trips, and existing-course render smoke tests.');

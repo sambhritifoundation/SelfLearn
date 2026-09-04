@@ -4,7 +4,6 @@
   var api = window.SL8 = {};
   function B(en,hi){return LANG==='hi'?hi:en;}
   function is8(){return !!(QUIZ && QUIZ.qs.length && QUIZ.qs[0].subject==='MATH8');}
-  // Use the shared Hindi player unchanged, exactly like Pascal's Triangle.
   function svg(inner,label){return '<svg viewBox="0 0 360 290" role="img" aria-label="'+esc(label)+'" xmlns="http://www.w3.org/2000/svg">'+inner+'</svg>';}
   function grid(n,old,label){
     var size=220/n, h='';
@@ -92,8 +91,6 @@
 
   var originalTopic=vTopic;
   vTopic=function(code){var h=originalTopic(code);if(!/^M8-/.test(code))return h;var tp=topicByCode(code).topic;
-    var transcript='<details class="m8-transcript"><summary>'+B('Read the audio transcript','Audio की script पढ़िए')+'</summary><p class="m8-note">'+B('Hindi narration uses the same Hindi voice selection as Pascal’s Triangle, with Hindi number words and familiar English maths terms. A Hindi device voice is needed for reliable pronunciation. Resume restarts the current section.','Pascal’s Triangle की तरह हिन्दी आवाज़ में समझाया गया है। संख्याएँ हिन्दी शब्दों में हैं और परिचित English maths शब्द साथ में हैं। साफ़ उच्चारण के लिए device में हिन्दी आवाज़ चाहिए। Resume पर मौजूदा हिस्सा फिर शुरू होता है।')+'</p>'+_audioSegments(t(tp.audio)).map(function(seg){return (seg.t?'<h4>'+esc(seg.t)+'</h4>':'')+'<p>'+esc(seg.s)+'</p>';}).join('')+'</details>';
-    h=h.replace('<div class="notes">',transcript+'<div class="notes">');
     var formats=[['all','All 8 questions','सभी 8 प्रश्न'],['mcq','Single answer','एक सही उत्तर'],['multi','Multiple answers','कई सही उत्तर'],['fill','Fill blanks','खाली जगह'],['match','Match','मिलान'],['subjective','Written response','लिखित उत्तर']];
     var saved='';try{var records=JSON.parse(localStorage.getItem(PK('sl_m8_written'))||'{}');qForTopic(code).filter(function(q){return q.type==='subjective'&&records[q.id];}).forEach(function(q){var r=records[q.id];saved+='<details class="m8-transcript"><summary>'+B('Your last saved written response','आपका पिछला सहेजा हुआ लिखित उत्तर')+'</summary><p>'+esc(t(q.q))+'</p><p style="white-space:pre-wrap">'+esc(r.text)+'</p><p>'+r.checks.length+'/'+q.rubric.length+' '+B('criteria self-checked','बिंदु खुद जाँचे')+'</p></details>';});}catch(e){}
     return h+'<section class="card" style="margin-top:16px"><h3>'+B('Choose a practice format','अभ्यास का तरीका चुनिए')+'</h3><p class="m8-note">'+B('All eight questions are available, not a random sample. Written responses are self-reviewed and excluded from automatic accuracy.','आठों प्रश्न उपलब्ध हैं, random sample नहीं। लिखित उत्तर self-review हैं और automatic accuracy में शामिल नहीं हैं।')+'</p><div class="m8-formats">'+formats.map(function(f){return '<button class="btn ghost sm" onclick="SL8.practice(\''+code+'\',\''+f[0]+'\')">'+B(f[1],f[2])+'</button>';}).join('')+'</div>'+saved+'</section>';
