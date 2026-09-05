@@ -2,10 +2,10 @@
 const assert=require('node:assert/strict'),path=require('node:path'),fs=require('node:fs');
 const modules=process.env.SL_NODE_MODULES;if(!modules)throw new Error('Set SL_NODE_MODULES to the bundled node_modules directory.');
 const {chromium}=require(path.join(modules,'playwright'));
-(async()=>{const installedChrome='C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe';const browser=await chromium.launch({headless:true,...(fs.existsSync(installedChrome)?{executablePath:installedChrome}:{})});const errors=[],blockedExternal=[];
+(async()=>{fs.mkdirSync('tmp',{recursive:true});const installedChrome='C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe';const browser=await chromium.launch({headless:true,...(fs.existsSync(installedChrome)?{executablePath:installedChrome}:{})});const errors=[],blockedExternal=[];
   for(const width of [1280,390]){const page=await browser.newPage({viewport:{width,height:900}});page.on('console',m=>{if(m.type()==='error'){const x='console '+m.text();(x.includes('ERR_NETWORK_ACCESS_DENIED')?blockedExternal:errors).push(x);}});page.on('pageerror',e=>errors.push('page '+e.message));
     await page.goto('http://127.0.0.1:8765/#science8');await page.waitForTimeout(150);
-    assert.equal(await page.locator('.chapter-card').count(),18);assert((await page.locator('h1').first().innerText()).includes('Science'));
+    assert.equal(await page.locator('.chapter-card').count(),19);assert((await page.locator('h1').first().innerText()).includes('Science'));
     assert((await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)),'subject overflow '+width);
     if(width===1280)await page.screenshot({path:'tmp/science8-catalogue.png',fullPage:true});
     for(const lang of ['en','hi']){await page.evaluate(lang=>{LANG=lang;go('subject',{code:'SCI8'});},lang);for(let c=1;c<=18;c++)for(let t=1;t<=4;t++){const code=`S8-${c}-${t}`;await page.evaluate(code=>go('topic',{code}),code);await page.waitForTimeout(5);
@@ -14,6 +14,8 @@ const {chromium}=require(path.join(modules,'playwright'));
         const before=await page.locator('.m8-output').innerHTML();await page.locator('.m8-lab input[type=range]').evaluate(el=>{el.value='3';el.dispatchEvent(new Event('input',{bubbles:true}));});const after=await page.locator('.m8-output').innerHTML();assert.notEqual(after,before,code+' explorer unchanged');assert.equal(await page.locator('.m8-lab output').innerText(),'3 / 3');
         assert((await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)),code+' overflow '+width+' '+lang);
         if(width===1280&&lang==='en'&&code==='S8-5-4')await page.screenshot({path:'tmp/science8-topic.png',fullPage:true});
-      }}await page.close();}
-  assert.deepEqual(errors,[]);await browser.close();console.log('PASS: browser-rendered 288 topic views (72 × 2 languages × 2 widths), all explorers, practice controls, responsive widths, and zero application errors. '+blockedExternal.length+' expected CDN request(s) were blocked by the local sandbox.');
+      }
+      for(let t=1;t<=4;t++){const code=`S8-19-${t}`;await page.evaluate(code=>go('topic',{code}),code);await page.waitForTimeout(20);assert.equal(await page.locator('.friction-story-hero img').count(),1,code+' story image');assert(await page.locator('.friction-story-hero img').evaluate(x=>x.complete&&x.naturalWidth>0),code+' image load');assert.equal(await page.locator('.friction-choice-row button').count(),3,code+' choices');const before=await page.locator('.friction-visual').innerHTML();await page.locator('.friction-choice-row button').nth(2).click();const after=await page.locator('.friction-visual').innerHTML();assert.notEqual(after,before,code+' choice unchanged');assert((await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)),code+' overflow '+width+' '+lang);if(width===1280&&lang==='en'&&t===1)await page.screenshot({path:'tmp/friction-story-pilot.png',fullPage:true});}
+    }await page.close();}
+  assert.deepEqual(errors,[]);await browser.close();console.log('PASS: browser-rendered 304 topic views, including every Friction story episode in both languages and widths; all choices, images, practice controls, responsive widths, and zero application errors. '+blockedExternal.length+' expected CDN request(s) were blocked by the local sandbox.');
 })().catch(e=>{console.error(e);process.exitCode=1;});

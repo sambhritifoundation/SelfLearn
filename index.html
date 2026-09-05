@@ -386,6 +386,7 @@
 <script src="data-math8.js"></script>
 <script src="data-math8-rest.js?v=20260905-rational"></script>
 <script src="data-science8.js?v=20260905-class8-science"></script>
+<script src="data-science8-friction-story.js?v=20260905-story-pilot"></script>
 <script src="data-physics.js"></script>
 <script src="data-physics12.js"></script>
 <script>
@@ -8865,7 +8866,7 @@ function vSubject(code){
   if(s.code==='MATH8'||s.code==='SCI8'){
     var totalTopics=s.chapters.reduce(function(n,c){return n+c.topics.length;},0);
     var totalQuestions=pubQuestions().filter(function(q){return q.subject===s.code;}).length;
-    var class8Prefix=s.code.toLowerCase(),indexPrefix=s.code==='MATH8'?'m8':'s8',courseMix=s.code==='MATH8'?sp('14 NCERT chapters + 1 JAC foundation unit','14 NCERT chapters + 1 JAC foundation unit'):sp('13 NCERT chapters + 5 JAC bridge units','13 NCERT chapters + 5 JAC bridge units');
+    var class8Prefix=s.code.toLowerCase(),indexPrefix=s.code==='MATH8'?'m8':'s8',courseMix=s.code==='MATH8'?sp('14 NCERT chapters + 1 JAC foundation unit','14 NCERT chapters + 1 JAC foundation unit'):sp('13 NCERT chapters + 5 JAC bridge units + 1 story pilot','13 NCERT chapters + 5 JAC bridge units + 1 story pilot');
     h += '<section class="card chapter-index" aria-labelledby="'+indexPrefix+'-chapter-index-title">'
       + '<h2 id="'+indexPrefix+'-chapter-index-title">'+sp('All Class 8 units','कक्षा 8 के सभी units')+'</h2>'
       + '<div class="sub">'+courseMix+' · '+totalTopics+' '+sp('micro-topics','सूक्ष्म-विषय')+' · '+totalQuestions+' '+sp('questions','प्रश्न')+'</div>'
@@ -10490,5 +10491,6 @@ setLang(LANG);
 </script>
 <script src="math8-pilot.js?v=20260905-illustrations"></script>
 <script src="science8-pilot.js?v=20260905-class8-science"></script>
+<script src="science8-friction-pilot.js?v=20260905-story-pilot"></script>
 </body>
 </html>

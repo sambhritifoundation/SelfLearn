@@ -38,3 +38,21 @@
 .m8-feedback { padding:10px; margin:10px 0; border-left:4px solid var(--primary); }
 .m8-lab :focus-visible, .m8-formats :focus-visible, .m8-choice:focus-within { outline:3px solid var(--primary); outline-offset:3px; }
 @media(max-width:480px) { .m8-equation { font-size:1.1rem; padding:10px; } .m8-layers { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+
+/* Friction story pilot: a narrative scene followed by a prediction lab. */
+.friction-story{margin:18px 0 22px}
+.friction-story-hero{margin:0;border-radius:14px;overflow:hidden;background:#111827;box-shadow:0 10px 28px rgba(15,23,42,.16)}
+.friction-story-hero img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover}
+.friction-story-hero figcaption{padding:11px 15px;background:#172554;color:#fff;font-size:.95rem;line-height:1.45}
+.friction-dialogue{position:relative;margin:-18px 18px 14px;padding:12px 16px;border:1px solid #c7d2fe;border-radius:12px;background:var(--card);box-shadow:0 7px 18px rgba(30,64,175,.12)}
+.friction-dialogue p{margin:5px 0;line-height:1.5}
+.friction-investigate{padding:16px;border:1px solid #c7d2fe;border-radius:14px;background:linear-gradient(180deg,var(--primary-light),var(--card))}
+.friction-investigate>h3{margin:0 0 5px}
+.friction-choice-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:14px 0}
+.friction-choice-row button{min-height:46px;padding:8px;border:2px solid #c7d2fe;border-radius:10px;background:var(--card);color:var(--ink);font:inherit;font-weight:750;cursor:pointer}
+.friction-choice-row button:hover,.friction-choice-row button:focus-visible{border-color:var(--primary);outline:3px solid var(--primary-light);outline-offset:1px}
+.friction-choice-row button.active{border-color:#b45309;background:#fef3c7;color:#713f12}
+.friction-visual{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(190px,.8fr);align-items:center;gap:14px;padding:10px 12px;border-radius:12px;background:var(--card)}
+.friction-visual svg{display:block;width:100%;max-height:350px}
+.friction-result{padding:15px;border-left:5px solid #f59e0b;border-radius:8px;background:#fffbeb;color:#713f12;font-weight:700;line-height:1.55}
+@media(max-width:680px){.friction-dialogue{margin:-10px 8px 12px;padding:10px 12px}.friction-choice-row{grid-template-columns:1fr}.friction-visual{grid-template-columns:1fr;padding:8px}.friction-story-hero figcaption{font-size:.88rem}}
