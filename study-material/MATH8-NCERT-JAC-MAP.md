@@ -1,8 +1,9 @@
 # Class 8 Mathematics — NCERT/JAC chapter map
 
 Checked 5 September 2026. NCERT means *Ganita Prakash*, Grade 8,
-Parts I and II (14 chapters). JAC means the current 13-chapter Class 8
-Mathematics sequence. Mapping is conceptual because chapter boundaries differ.
+Parts I and II (14 chapters). JAC means the latest order verified here: the
+13-chapter 2025–26 sequence. Mapping is conceptual because boundaries differ.
+Recheck a school-issued 2026–27 contents page before making examination claims.
 
 | SelfLearn | NCERT chapter | Closest JAC chapter(s) | Match and placement |
 |---:|---|---|---|
