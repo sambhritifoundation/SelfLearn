@@ -89,7 +89,155 @@
   api.step=function(delta){var el=document.getElementById('m8-lab-division');if(!el)return;var k=delta?Math.min(6,+el.dataset.step+1):1;el.dataset.step=k;el.querySelector('.m8-output').innerHTML=output('division',+el.dataset.value,k);var btn=el.querySelector('.m8-controls button'+(k===6?':last-child':':first-child'));if(btn)btn.focus();};
   Object.keys(configs).forEach(function(k){DIAGRAMS['m8-'+k]=function(){return lab(k);};});
 
-  function explorerValue(kind,n){
+  function sx(x,y,value,size,anchor,fill){return '<text x="'+x+'" y="'+y+'" text-anchor="'+(anchor||'middle')+'" font-size="'+(size||16)+'" fill="'+(fill||'currentColor')+'">'+esc(String(value))+'</text>';}
+  function boxRow(items,y,colors){
+    var gap=8,w=(300-gap*(items.length-1))/items.length;
+    return items.map(function(item,i){var x=30+i*(w+gap);return '<rect x="'+x+'" y="'+y+'" width="'+w+'" height="58" rx="7" fill="'+((colors&&colors[i])||'var(--primary-light)')+'" stroke="var(--primary)" stroke-width="2"/>'+sx(x+w/2,y+35,item,Math.max(11,Math.min(17,150/(String(item).length+5))));}).join('');
+  }
+  function segmentBar(values,labels,y){
+    var total=values.reduce(function(a,b){return a+b;},0),x=30,h='';
+    values.forEach(function(v,i){var w=300*v/total;h+='<rect x="'+x+'" y="'+y+'" width="'+w+'" height="62" fill="'+(i%2?'#f59e0b':'#4f46e5')+'" stroke="#fff" stroke-width="2"/>'+sx(x+w/2,y+37,labels[i],14,'middle','#fff');x+=w;});
+    return h;
+  }
+  function plotSvg(values,line){
+    var max=Math.max.apply(null,values),h='<line x1="42" y1="240" x2="330" y2="240" stroke="#334155" stroke-width="2"/><line x1="42" y1="35" x2="42" y2="240" stroke="#334155" stroke-width="2"/>',pts=[];
+    values.forEach(function(v,i){var x=75+i*(240/Math.max(1,values.length-1)),y=225-v/max*165;pts.push(x+','+y);if(line)h+='<circle cx="'+x+'" cy="'+y+'" r="6" fill="#4f46e5"/>'+sx(x,260,i+1,13);else h+='<rect x="'+(x-18)+'" y="'+y+'" width="36" height="'+(240-y)+'" fill="'+(i%2?'#f59e0b':'#4f46e5')+'"/>'+sx(x,260,i+1,13);});
+    if(line)h='<polyline points="'+pts.join(' ')+'" fill="none" stroke="#4f46e5" stroke-width="4"/>'+h;
+    return h;
+  }
+  function triangleSvg(a,b,c,context){return '<path d="M70 225 L70 70 L290 225 Z" fill="var(--primary-light)" stroke="var(--primary)" stroke-width="4"/><path d="M70 205 h20 v20" fill="none" stroke="#f59e0b" stroke-width="3"/>'+sx(48,150,a,16)+sx(180,252,b,16)+sx(200,140,c,16)+(context?sx(180,32,context,15):'');}
+  function topicValue(code,n){
+    var values={
+      'M8-2-1':'2^'+n+' = '+Math.pow(2,n)+' '+B('after '+n+' doublings','यानी '+n+' बार doubling'),
+      'M8-2-2':'2^'+n+' × 2² = 2^('+(n+2)+') = '+Math.pow(2,n+2),
+      'M8-2-3':'2^−'+n+' = 1/2^'+n+' = 1/'+Math.pow(2,n),
+      'M8-2-4':n+' × 10³ = '+(n*1000),
+      'M8-3-1':n+' '+B('groups of five + 3 more','पाँच के groups + 3 अधिक')+' = '+(5*n+3),
+      'M8-3-2':'121 base '+n+' = 1×'+n+'² + 2×'+n+' + 1 = '+(n*n+2*n+1),
+      'M8-3-3':n+' hundreds + 3 tens + 4 ones = '+(100*n+34),
+      'M8-3-4':n+',05,006 = '+n+' lakh + 5 thousand + 6',
+      'M8-4-1':B('Rectangle area','Rectangle area')+' = '+n+' × '+(n+2)+' = '+n*(n+2)+'; '+B('square area','square area')+' = '+n+'² = '+n*n,
+      'M8-4-2':(60+5*n)+'° + 90° + 100° + '+(110-5*n)+'° = 360°',
+      'M8-4-3':B('Opposite sides are equal: ','Opposite sides बराबर: ')+(n+2)+', '+n+', '+(n+2)+', '+n,
+      'M8-4-4':B('Kite adjacent pairs: ','Kite adjacent pairs: ')+(n+2)+', '+(n+2)+' · '+(n+4)+', '+(n+4)+'; '+B('trapezium parallel sides: ','trapezium parallel sides: ')+(n+2)+', '+(n+6),
+      'M8-5-1':B('First five multiples of ','पहले पाँच multiples of ')+n+': '+[1,2,3,4,5].map(function(k){return n*k;}).join(', '),
+      'M8-5-2':(120+n)+' → '+B('digit sum','digit sum')+' = '+(3+n)+( (3+n)%3===0 ? ' → '+B('divisible by 3','3 से divisible') : ' → '+B('not divisible by 3','3 से divisible नहीं')),
+      'M8-5-3':n+'7 = '+n+' tens + 7 ones = '+(10*n+7),
+      'M8-5-4':'A + A = B; A = '+n+', B = '+(2*n),
+      'M8-6-1':n+'(10 + 3) = '+(10*n)+' + '+(3*n)+' = '+(13*n),
+      'M8-6-2':'('+n+' + 2)² = '+n+'² + 4×'+n+' + 4 = '+Math.pow(n+2,2),
+      'M8-6-3':'3x + 2 = '+(3*n+2)+' → 3x = '+(3*n)+' → x = '+n,
+      'M8-6-4':n+'² + 3×'+n+' = '+n+'('+n+' + 3) = '+n*(n+3),
+      'M8-7-1':n+' kg × ₹20/kg = ₹'+(20*n),
+      'M8-7-2':(2*n)+' : '+(3*n)+' = 2 : 3',
+      'M8-7-3':'2 '+B('notebooks','notebooks')+' = ₹40; '+n+' '+B('notebooks','notebooks')+' = ₹'+(20*n),
+      'M8-7-4':'₹'+(5*n)+' '+B('shared in 2:3','को 2:3 में बाँटा')+' → ₹'+(2*n)+' + ₹'+(3*n),
+      'M8-8-1':n+'/8 = '+(n/8).toFixed(3).replace(/0+$/,'').replace(/\.$/,'')+' = '+(n*12.5)+'%',
+      'M8-8-2':(n*10)+'% '+B('of ₹200','of ₹200')+' = ₹'+(20*n),
+      'M8-8-3':B('Marked ₹','Marked ₹')+(100*n)+' − 10% '+B('discount','discount')+' = ₹'+(90*n),
+      'M8-8-4':'₹1000 × 1.1^'+n+' = ₹'+(1000*Math.pow(1.1,n)).toFixed(2),
+      'M8-9-1':'('+(3*n)+')² + ('+(4*n)+')² = ('+(5*n)+')²',
+      'M8-9-2':B('Square area','Square area')+' '+n+'² = '+n*n+'; '+B('each half','हर half')+' = '+(n*n/2),
+      'M8-9-3':'('+(3*n)+', '+(4*n)+', '+(5*n)+') '+B('is a right-triangle triple','right-triangle triple है'),
+      'M8-9-4':B('Two road legs','दो road legs')+' '+(3*n)+' m, '+(4*n)+' m → '+B('direct path','सीधा रास्ता')+' '+(5*n)+' m',
+      'M8-10-1':'1 cm = '+n+' km → 3 cm = '+(3*n)+' km',
+      'M8-10-2':(2*n)+' : '+(3*n)+' : '+(4*n)+' = 2 : 3 : 4',
+      'M8-10-3':n+'/8 '+B('of the circle','circle का')+' = '+(45*n)+'° = '+(12.5*n)+'%',
+      'M8-10-4':n+' '+B('workers','workers')+' × '+(24/n).toFixed(2).replace(/\.00$/,'')+' '+B('days','days')+' = 24 worker-days',
+      'M8-11-1':B('Three copies at each step','हर step में तीन copies')+' → 3^'+n+' = '+Math.pow(3,n)+' '+B('small parts','छोटे parts'),
+      'M8-11-2':B('Highlighted square is face ','Highlighted square face है ')+n+B(' of 6; all six fold into one cube.',' of 6; सभी छह मिलकर cube बनाते हैं।'),
+      'M8-11-3':B('Top view: 3 occupied positions; front heights: 1, ','Top view: 3 occupied positions; front heights: 1, ')+n+', 1.',
+      'M8-11-4':B('Unfold the faces: diagonal','Faces खोलिए: diagonal')+' = √('+(3*n)+'² + '+(4*n)+'²) = '+(5*n),
+      'M8-12-1':B('Mean of ','Mean of ')+n+', '+(n+2)+', '+(n+4)+' = '+(n+2),
+      'M8-12-2':B('Dot plot values: ','Dot plot values: ')+n+', '+n+', '+(n+1)+', '+(n+2)+', '+(n+2),
+      'M8-12-3':B('Line graph values: ','Line graph values: ')+n+', '+(n+2)+', '+(n+1)+', '+(n+4),
+      'M8-12-4':B('Values rise from ','Values ')+n+B(' to ',' से ')+(n+2)+B('. A vertical axis starting at ',' तक बढ़ीं। Vertical axis ')+(n-1)+B(' makes the same rise look steeper—read the scale.',' से शुरू हो तो वही rise अधिक steep दिखती है—scale पढ़िए।'),
+      'M8-13-1':'3x + 2 = '+(3*n+2)+' → x = '+n,
+      'M8-13-2':n+' → ×2 → +6 → ÷2 → '+(n+3),
+      'M8-13-3':B('Bottom','Bottom')+': '+n+', '+(n+2)+', '+(n+4)+' → '+B('top sum','top sum')+' = '+(4*n+8),
+      'M8-13-4':(10*n+7)+' − '+(70+n)+' = 9('+n+' − 7) = '+(9*(n-7)),
+      'M8-14-1':B('Rectangle area','Rectangle area')+' = '+n+' × '+(n+3)+' = '+n*(n+3),
+      'M8-14-2':'½ × '+(2*n)+' × '+n+' = '+n*n+' '+B('square units','square units'),
+      'M8-14-3':'½ × ['+(n+2)+' + '+(n+6)+'] × 4 = '+(4*n+16),
+      'M8-14-4':(n+4)+' × '+(n+3)+' − 2 × 2 = '+((n+4)*(n+3)-4)+' '+B('square units','square units')
+    };
+    return values[code]||null;
+  }
+  function topicSvg(code,n){
+    var m=/^M8-(\d+)-(\d+)$/.exec(code);if(!m)return '';var ch=+m[1],tp=+m[2],h='';
+    if(ch===2){
+      if(tp===1){var seq=[];for(var i=0;i<=Math.min(n,5);i++)seq.push(Math.pow(2,i));h=boxRow(seq,105);}
+      else if(tp===2)h=boxRow(['2^'+n,'× 2²','2^'+(n+2)],105,['var(--primary-light)','#fff3cd','#dcfce7']);
+      else if(tp===3)h=boxRow(['1','1/2','1/4','1/'+Math.pow(2,n)],105);
+      else h=boxRow([String(n),'× 10³',String(n*1000)],105,['var(--primary-light)','#fff3cd','#dcfce7']);
+    }else if(ch===3){
+      if(tp===1){for(var g=0;g<n;g++)for(var d=0;d<5;d++)h+='<line x1="'+(32+g*36+d*5)+'" y1="90" x2="'+(32+g*36+d*5)+'" y2="140" stroke="'+(g%2?'#f59e0b':'#4f46e5')+'" stroke-width="3"/>';h+=boxRow(['+ 3',String(5*n+3)],185);}
+      else if(tp===2)h=boxRow(['1 × '+n+'²','2 × '+n,'1'],105);
+      else if(tp===3)h=boxRow([n+' hundreds','3 tens','4 ones'],105);
+      else h=boxRow([n+' lakh','05 thousand','006 ones'],105);
+    }else if(ch===4){
+      if(tp===1)h='<rect x="45" y="75" width="150" height="110" fill="var(--primary-light)" stroke="#4f46e5" stroke-width="4"/><rect x="235" y="75" width="80" height="80" fill="#fff3cd" stroke="#f59e0b" stroke-width="4"/>'+sx(120,215,n+' × '+(n+2),15)+sx(275,185,n+' × '+n,15);
+      else if(tp===2)h='<polygon points="80,65 285,80 310,220 55,205" fill="var(--primary-light)" stroke="#4f46e5" stroke-width="4"/>'+sx(82,95,60+5*n+'°',14)+sx(274,110,'90°',14)+sx(282,204,'100°',14)+sx(85,190,110-5*n+'°',14);
+      else if(tp===3)h='<polygon points="85,70 285,70 245,220 45,220" fill="var(--primary-light)" stroke="#4f46e5" stroke-width="4"/>'+sx(185,52,n+2,15)+sx(185,247,n+2,15)+sx(58,145,n,15)+sx(272,145,n,15);
+      else h='<polygon points="85,75 175,45 285,215 45,215" fill="var(--primary-light)" stroke="#4f46e5" stroke-width="3"/><polygon points="210,70 315,70 285,210 175,210" fill="#fff3cd" stroke="#f59e0b" stroke-width="3"/>'+sx(92,112,n+2,13)+sx(135,72,n+2,13)+sx(72,205,n+4,13)+sx(245,205,n+4,13)+sx(90,260,'kite',15)+sx(260,260,'trapezium',15);
+    }else if(ch===5){
+      if(tp===1)h=boxRow([n,2*n,3*n,4*n,5*n],105);
+      else if(tp===2)h=boxRow(['1','2',n,'sum = '+(3+n)],105);
+      else if(tp===3)h=boxRow([n+' tens','7 ones',String(10*n+7)],105);
+      else h=boxRow(['A = '+n,'A + A','B = '+(2*n)],105,['var(--primary-light)','#fff3cd','#dcfce7']);
+    }else if(ch===6){
+      if(tp===1||tp===4)h='<rect x="40" y="70" width="280" height="150" fill="var(--primary-light)" stroke="#4f46e5" stroke-width="3"/><line x1="255" y1="70" x2="255" y2="220" stroke="#f59e0b" stroke-width="4"/>'+sx(145,150,n+' × 10',18)+sx(287,150,n+' × 3',18);
+      else if(tp===2)h='<rect x="70" y="55" width="210" height="210" fill="var(--primary-light)" stroke="#4f46e5" stroke-width="3"/><line x1="230" y1="55" x2="230" y2="265" stroke="#f59e0b" stroke-width="3"/><line x1="70" y1="215" x2="280" y2="215" stroke="#f59e0b" stroke-width="3"/>'+sx(150,145,n+'²',20)+sx(255,145,'2n',16)+sx(150,245,'2n',16)+sx(255,245,'4',16);
+      else h=boxRow(['3x + 2 = '+(3*n+2),'− 2 both sides','÷ 3 → x = '+n],105);
+    }else if(ch===7){
+      if(tp===1)h=boxRow([n+' kg','× ₹20','₹'+(20*n)],105);
+      else if(tp===2)h=segmentBar([2,3],['2 parts','3 parts'],105);
+      else if(tp===3)h=boxRow(['2 books ₹40',n+' books','₹'+(20*n)],105);
+      else h=segmentBar([2,3],['₹'+(2*n),'₹'+(3*n)],105);
+    }else if(ch===8){
+      if(tp===1)h=segmentBar([n,8-n],[n+'/8',8-n+'/8'],105);
+      else if(tp===2)h=segmentBar([n,10-n],[n*10+'%','rest'],105);
+      else if(tp===3)h=boxRow(['₹'+(100*n),'− 10%','₹'+(90*n)],105);
+      else h=plotSvg(Array.from({length:n+1},function(_,i){return Math.pow(1.1,i);}),true);
+    }else if(ch===9){
+      if(tp===2)h='<rect x="80" y="50" width="200" height="200" fill="var(--primary-light)" stroke="#4f46e5" stroke-width="4"/><line x1="80" y1="50" x2="280" y2="250" stroke="#f59e0b" stroke-width="4"/>'+sx(130,180,'½n²',18)+sx(230,120,'½n²',18);
+      else h=triangleSvg(3*n,4*n,5*n,tp===4?B('road corner','road corner'):B('right angle','right angle'));
+    }else if(ch===10){
+      if(tp===1)h='<path d="M45 205 C110 70 230 260 315 75" fill="none" stroke="#4f46e5" stroke-width="7" stroke-dasharray="12 7"/>'+sx(180,35,'map: 3 cm',16)+sx(180,278,'real: '+3*n+' km',16);
+      else if(tp===2)h=segmentBar([2,3,4],['2','3','4'],105);
+      else if(tp===3){var end=-90+45*n;h='<circle cx="180" cy="145" r="105" fill="var(--primary-light)" stroke="#4f46e5" stroke-width="3"/>'+(n===8?'<circle cx="180" cy="145" r="102" fill="#f59e0b" opacity=".85"/>':'<path d="M180 145 L180 40 A105 105 0 '+(n>4?1:0)+' 1 '+(180+105*Math.cos(end*Math.PI/180))+' '+(145+105*Math.sin(end*Math.PI/180))+' Z" fill="#f59e0b" opacity=".85"/>')+sx(180,150,45*n+'°',20);}
+      else h=boxRow([n+' workers',(24/n).toFixed(1)+' days','24 worker-days'],105);
+    }else if(ch===11){
+      if(tp===1){var count=Math.pow(3,n);h=boxRow(['1','3','9',String(count)],105);}
+      else if(tp===2){var faces=[[135,35],[65,105],[135,105],[205,105],[275,105],[135,175]];h='<g stroke="#4f46e5" stroke-width="2">'+faces.map(function(p,i){return '<rect x="'+p[0]+'" y="'+p[1]+'" width="70" height="70" fill="'+(i===n-1?'#f59e0b':'var(--primary-light)')+'"/>';}).join('')+'</g>'+sx(180,275,B('face ','face ')+n+B(' of 6',' of 6'),16);}
+      else if(tp===3){h='<g fill="#4f46e5" stroke="#fff"><rect x="80" y="170" width="55" height="55"/><rect x="200" y="170" width="55" height="55"/>';for(var layer=0;layer<n;layer++)h+='<rect x="140" y="'+(170-layer*42)+'" width="55" height="40"/>';h+='</g>'+sx(100,260,B('top: 3 positions','top: 3 positions'),14)+sx(255,260,B('front: 1,','front: 1,')+n+',1',14);}
+      else h='<rect x="55" y="55" width="250" height="175" fill="var(--primary-light)" stroke="#4f46e5" stroke-width="3"/><line x1="55" y1="230" x2="305" y2="55" stroke="#f59e0b" stroke-width="5"/>'+sx(180,270,B('unfolded surface path','खुली surface का रास्ता'),16);
+    }else if(ch===12){
+      if(tp===1)h=plotSvg([n,n+2,n+4],false)+sx(180,25,B('balance at ','balance at ')+(n+2),15);
+      else if(tp===2){var vals=[n,n,n+1,n+2,n+2];vals.forEach(function(v,i){h+='<circle cx="'+(70+(v-n)*90)+'" cy="'+(205-(i%2)*34)+'" r="9" fill="#4f46e5"/>';});h+=sx(70,245,n,14)+sx(160,245,n+1,14)+sx(250,245,n+2,14);}
+      else if(tp===3)h=plotSvg([n,n+2,n+1,n+4],true);
+      else h='<line x1="35" y1="235" x2="165" y2="235" stroke="#334155" stroke-width="2"/><line x1="35" y1="45" x2="35" y2="235" stroke="#334155" stroke-width="2"/><polyline points="55,190 95,165 135,140" fill="none" stroke="#4f46e5" stroke-width="4"/><line x1="195" y1="235" x2="330" y2="235" stroke="#334155" stroke-width="2"/><line x1="195" y1="45" x2="195" y2="235" stroke="#334155" stroke-width="2"/><polyline points="215,205 255,135 295,65" fill="none" stroke="#f59e0b" stroke-width="4"/>'+sx(100,268,B('axis starts 0','axis starts 0'),13)+sx(260,268,B('axis starts ','axis starts ')+(n-1),13)+sx(16,190,n,12)+sx(16,140,n+2,12)+sx(178,205,n,12)+sx(178,65,n+2,12);
+    }else if(ch===13){
+      if(tp===1)h=boxRow(['3x + 2',String(3*n+2),'x = '+n],105);
+      else if(tp===2)h=boxRow([n,'×2 = '+2*n,'+6 = '+(2*n+6),'÷2 = '+(n+3)],105);
+      else if(tp===3)h=boxRow([n,n+2,n+4],190)+boxRow([2*n+2,2*n+6],115)+boxRow([4*n+8],40);
+      else h=boxRow([String(10*n+7),'− '+(70+n),'9 × '+(n-7)],105);
+    }else if(ch===14){
+      if(tp===1)h='<rect x="55" y="65" width="250" height="165" fill="var(--primary-light)" stroke="#4f46e5" stroke-width="4"/>'+sx(180,260,n+3,16)+sx(35,150,n,16);
+      else if(tp===2)h='<polygon points="55,230 305,230 180,65" fill="var(--primary-light)" stroke="#4f46e5" stroke-width="4"/><line x1="180" y1="65" x2="180" y2="230" stroke="#f59e0b" stroke-width="3" stroke-dasharray="8 5"/>'+sx(180,260,2*n,16)+sx(205,150,n,16);
+      else if(tp===3)h='<polygon points="95,65 255,65 315,230 45,230" fill="var(--primary-light)" stroke="#4f46e5" stroke-width="4"/><line x1="95" y1="65" x2="95" y2="230" stroke="#f59e0b" stroke-width="3" stroke-dasharray="8 5"/>'+sx(175,52,n+2,15)+sx(180,260,n+6,15)+sx(70,150,'h=4',15);
+      else h='<path d="M55 55 H305 V235 H55 Z M225 155 H305 V235 H225 Z" fill="var(--primary-light)" fill-rule="evenodd" stroke="#4f46e5" stroke-width="4"/>'+sx(180,275,B('large rectangle − cut-out','बड़ा rectangle − cut-out'),15)+sx(266,205,'2×2',14);
+    }
+    return h;
+  }
+  function explorerRange(code,kind){
+    var c={min:1,max:8,value:3,label:B('Change the example','Example बदलकर देखिए')};
+    if(code==='M8-3-2'){c.min=3;c.value=5;}if(code==='M8-5-4'){c.max=4;c.value=3;}if(code==='M8-8-4'||code==='M8-11-1'||code==='M8-11-3'){c.max=5;c.value=3;}if(code==='M8-11-2'){c.max=6;c.value=1;}
+    if(kind.indexOf('rational')===0){c.label=B('Change the numerator','Numerator बदलकर देखिए');c.max=kind==='rational'?8:7;c.value=kind==='rational'?6:3;}
+    return c;
+  }
+  function explorerValue(kind,n,code){
+    var tv=topicValue(code,n);if(tv)return tv;
     if(kind==='power')return '2<sup>'+n+'</sup> = '+Math.pow(2,n);
     if(kind==='number')return n+' hundreds + '+n+' tens + '+n+' ones = '+(111*n);
     if(kind==='rational'){
@@ -109,8 +257,9 @@
     if(kind==='data')return B('Values: ','Values: ')+n+', '+(n+2)+', '+(n+4)+'; '+B('mean','mean')+' = '+(n+2);
     return n+' × '+(n+3)+' = '+n*(n+3)+' '+B('square units','square units');
   }
-  function explorerSvg(kind,n,label){
+  function explorerSvg(kind,n,label,code){
     var h='',a=Math.min(260,35+n*18),b=Math.min(190,40+n*12);
+    var topicArt=topicSvg(code,n);if(topicArt)return svg(topicArt,label);
     if(kind.indexOf('rational')===0){
       var x0=48,w=36,y=64,parts='';
       for(var j=0;j<8;j++)parts+='<rect x="'+(x0+j*w)+'" y="'+y+'" width="'+w+'" height="58" fill="'+(j<n?(j===n-1?'#f59e0b':'#4f46e5'):'#fff')+'" stroke="#334155" stroke-width="1.5"/>';
@@ -134,16 +283,16 @@
     return svg(h,label);
   }
   function conceptLab(tp){
-    var id='m8-concept-'+tp.code.toLowerCase(),kind=tp.lab.kind,isRational=kind.indexOf('rational')===0,n=kind==='rational'?6:3,max=isRational&&kind!=='rational'?7:8,label=t(tp.lab.title);
+    var id='m8-concept-'+tp.code.toLowerCase(),kind=tp.lab.kind,cfg=explorerRange(tp.code,kind),n=cfg.value,label=t(tp.lab.title);
     return '<section class="m8-lab" id="'+id+'"><h3>'+esc(label)+'</h3>'
-      + '<label for="'+id+'-input">'+(isRational?B('Change the numerator','Numerator बदलकर देखिए'):B('Change the example','Example बदलकर देखिए'))+' <output>'+n+'</output></label>'
-      + '<input id="'+id+'-input" type="range" min="1" max="'+max+'" value="'+n+'" oninput="SL8.explore(\''+tp.code+'\',this.value)">'
-      + '<div class="m8-output" aria-live="polite">'+explorerSvg(kind,n,label)+eq(explorerValue(kind,n))+'</div></section>';
+      + '<label for="'+id+'-input">'+cfg.label+' <output>'+n+'</output></label>'
+      + '<input id="'+id+'-input" type="range" min="'+cfg.min+'" max="'+cfg.max+'" value="'+n+'" oninput="SL8.explore(\''+tp.code+'\',this.value)">'
+      + '<div class="m8-output" aria-live="polite">'+explorerSvg(kind,n,label,tp.code)+eq(explorerValue(kind,n,tp.code))+'</div></section>';
   }
   api.explore=function(code,value){
-    var info=topicByCode(code),tp=info&&info.topic,max=tp&&tp.lab&&tp.lab.kind.indexOf('rational')===0&&tp.lab.kind!=='rational'?7:8,n=Math.max(1,Math.min(max,Math.round(Number(value)||1)));
+    var info=topicByCode(code),tp=info&&info.topic,cfg=tp&&tp.lab?explorerRange(code,tp.lab.kind):{min:1,max:8},n=Math.max(cfg.min,Math.min(cfg.max,Math.round(Number(value)||cfg.min)));
     if(!tp||!tp.lab)return;var el=document.getElementById('m8-concept-'+code.toLowerCase());if(!el)return;
-    el.querySelector('output').textContent=n;el.querySelector('.m8-output').innerHTML=explorerSvg(tp.lab.kind,n,t(tp.lab.title))+eq(explorerValue(tp.lab.kind,n));
+    el.querySelector('output').textContent=n;el.querySelector('.m8-output').innerHTML=explorerSvg(tp.lab.kind,n,t(tp.lab.title),code)+eq(explorerValue(tp.lab.kind,n,code));
   };
   var m8Course=window.SL_DATA.subjects.find(function(s){return s.code==='MATH8';});
   if(m8Course)m8Course.chapters.forEach(function(c){c.topics.forEach(function(tp){if(tp.lab)DIAGRAMS['m8-explore-'+tp.code.toLowerCase()]=function(){return conceptLab(tp);};});});
