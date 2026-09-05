@@ -17,6 +17,8 @@ const data=sandbox.SL_DATA,subject=data.subjects.find(s=>s.code==='MATH8'),chapt
 assert.equal(chapter.topics.length,10);assert.equal(qs.length,80);
 assert.equal(chapter.alignment.ncert,'1');assert.equal(chapter.alignment.jac,'5–6');
 for(const lang of ['en','hi']){sandbox.LANG=lang;const intro=sandbox.vSubjectIntro('MATH8');assert(intro.includes('m8-alignment'));assert(intro.includes('5–6'));assert.equal((intro.match(/<tbody>/g)||[]).length,1);}
+assert(subject.intro.en.includes('fourteen chapters'));assert(subject.intro.en.includes('thirteen chapters'));assert(subject.intro.en.includes('only content already available'));
+assert(subject.intro.hi.includes('चौदह chapters'));assert(subject.intro.hi.includes('तेरह chapters'));assert(subject.intro.hi.includes('केवल वही content'));
 assert.equal(new Set(data.questions.map(q=>q.id)).size,data.questions.length,'duplicate IDs');
 const counts={};qs.forEach(q=>{assert(sandbox.SL8.validQuestion(q),q.id);counts[q.type]=(counts[q.type]||0)+1;});
 assert.deepEqual(counts,{mcq:30,multi:10,fill:20,match:10,subjective:10});
