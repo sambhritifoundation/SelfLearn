@@ -92,6 +92,13 @@
   function explorerValue(kind,n){
     if(kind==='power')return '2<sup>'+n+'</sup> = '+Math.pow(2,n);
     if(kind==='number')return n+' hundreds + '+n+' tens + '+n+' ones = '+(111*n);
+    if(kind==='rational'){
+      var g=n%2===0?(n%4===0?4:2):1;
+      return n+' '+B('of 8 equal parts shaded','बराबर 8 हिस्सों में रंगे')+' = <b>'+n+'/8 = '+(n/g)+'/'+(8/g)+' = '+(n/8).toFixed(n%8===0?0:3).replace(/0+$/,'').replace(/\.$/,'')+'</b>';
+    }
+    if(kind==='rational-compare')return '<b>'+n+'/8 '+(n<4?'&lt;':n>4?'&gt;':'=')+' 4/8 = 1/2</b>';
+    if(kind==='rational-ops')return '<b>'+n+'/8 + 1/8 = '+(n+1)+'/8</b> · '+B('Equal denominators mean equal-sized parts.','Same denominator का मतलब बराबर आकार के हिस्से।');
+    if(kind==='rational-between')return '<b>'+n+'/8 &lt; '+(2*n+1)+'/16 &lt; '+(n+1)+'/8</b> · '+B('The middle value is the average.','बीच की value दोनों का average है।');
     if(kind==='quad')return n+' × 10° + '+(360-n*10)+'° = 360°';
     if(kind==='div')return B('First five multiples: ','पहले पाँच multiples: ')+[1,2,3,4,5].map(function(k){return n*k;}).join(', ');
     if(kind==='algebra')return n+'('+n+' + 3) = '+n*n+' + '+3*n+' = '+n*(n+3);
@@ -104,21 +111,37 @@
   }
   function explorerSvg(kind,n,label){
     var h='',a=Math.min(260,35+n*18),b=Math.min(190,40+n*12);
-    if(kind==='pyth')h='<path d="M70 220 L70 70 L270 220 Z" fill="var(--primary-light)" stroke="var(--primary)" stroke-width="4"/><text x="48" y="150" fill="currentColor">'+3*n+'</text><text x="165" y="248" fill="currentColor">'+4*n+'</text><text x="175" y="135" fill="currentColor">'+5*n+'</text>';
+    if(kind.indexOf('rational')===0){
+      var x0=48,w=36,y=64,parts='';
+      for(var j=0;j<8;j++)parts+='<rect x="'+(x0+j*w)+'" y="'+y+'" width="'+w+'" height="58" fill="'+(j<n?(j===n-1?'#f59e0b':'#4f46e5'):'#fff')+'" stroke="#334155" stroke-width="1.5"/>';
+      if(kind==='rational'){
+        var marker=x0+n*w;
+        h=parts+'<text x="192" y="148" text-anchor="middle" fill="currentColor">'+n+' / 8 '+B('parts shaded','हिस्से रंगे')+'</text><line x1="48" y1="210" x2="336" y2="210" stroke="#334155" stroke-width="3"/><text x="48" y="240" text-anchor="middle" fill="currentColor">0</text><text x="336" y="240" text-anchor="middle" fill="currentColor">1</text><circle cx="'+marker+'" cy="210" r="8" fill="#f59e0b"/><text x="'+marker+'" y="194" text-anchor="middle" fill="currentColor">'+n+'/8</text>';
+      }else if(kind==='rational-compare'){
+        var half=x0+4*w,point=x0+n*w;
+        h=parts+'<line x1="48" y1="210" x2="336" y2="210" stroke="#334155" stroke-width="3"/><circle cx="'+point+'" cy="210" r="8" fill="#4f46e5"/><circle cx="'+half+'" cy="210" r="8" fill="#f59e0b"/><text x="'+point+'" y="190" text-anchor="middle" fill="currentColor">'+n+'/8</text><text x="'+half+'" y="244" text-anchor="middle" fill="currentColor">4/8 = 1/2</text>';
+      }else if(kind==='rational-ops'){
+        h=parts+'<path d="M'+(x0+n*w)+' 138 v24 h'+w+' v-24" fill="none" stroke="#f59e0b" stroke-width="3"/><text x="'+(x0+(n+.5)*w)+'" y="184" text-anchor="middle" fill="currentColor">+ 1/8</text><text x="192" y="225" text-anchor="middle" fill="currentColor">'+n+'/8 + 1/8 = '+(n+1)+'/8</text>';
+      }else{
+        var left=x0+n*w,right=x0+(n+1)*w,mid=(left+right)/2;
+        h='<line x1="48" y1="150" x2="336" y2="150" stroke="#334155" stroke-width="3"/><circle cx="'+left+'" cy="150" r="7" fill="#4f46e5"/><circle cx="'+right+'" cy="150" r="7" fill="#4f46e5"/><circle cx="'+mid+'" cy="150" r="8" fill="#f59e0b"/><text x="'+left+'" y="185" text-anchor="middle" fill="currentColor">'+n+'/8</text><text x="'+right+'" y="185" text-anchor="middle" fill="currentColor">'+(n+1)+'/8</text><text x="'+mid+'" y="126" text-anchor="middle" fill="currentColor">'+(2*n+1)+'/16</text><text x="192" y="230" text-anchor="middle" fill="currentColor">'+B('A rational number between them','इनके बीच एक rational number')+'</text>';
+      }
+    }
+    else if(kind==='pyth')h='<path d="M70 220 L70 70 L270 220 Z" fill="var(--primary-light)" stroke="var(--primary)" stroke-width="4"/><text x="48" y="150" fill="currentColor">'+3*n+'</text><text x="165" y="248" fill="currentColor">'+4*n+'</text><text x="175" y="135" fill="currentColor">'+5*n+'</text>';
     else if(kind==='data')h=[0,1,2].map(function(i){var v=n+i*2;return '<rect x="'+(75+i*75)+'" y="'+(235-v*10)+'" width="42" height="'+v*10+'" fill="'+(i===1?'#b15e00':'#245c97')+'"/><text x="'+(96+i*75)+'" y="260" text-anchor="middle" fill="currentColor">'+v+'</text>';}).join('');
     else if(kind==='geometry')h='<path d="M95 85 L205 55 L270 105 L160 140 Z M95 85 L95 190 L160 240 L160 140 M160 240 L270 205 L270 105" fill="none" stroke="var(--primary)" stroke-width="4"/>';
     else h='<rect x="50" y="55" width="'+a+'" height="'+b+'" rx="8" fill="var(--primary-light)" stroke="var(--primary)" stroke-width="3"/><line x1="50" y1="'+(55+b/2)+'" x2="'+(50+a)+'" y2="'+(55+b/2)+'" stroke="#b15e00" stroke-width="3"/>';
     return svg(h,label);
   }
   function conceptLab(tp){
-    var id='m8-concept-'+tp.code.toLowerCase(),kind=tp.lab.kind,n=3,label=t(tp.lab.title);
+    var id='m8-concept-'+tp.code.toLowerCase(),kind=tp.lab.kind,isRational=kind.indexOf('rational')===0,n=kind==='rational'?6:3,max=isRational&&kind!=='rational'?7:8,label=t(tp.lab.title);
     return '<section class="m8-lab" id="'+id+'"><h3>'+esc(label)+'</h3>'
-      + '<label for="'+id+'-input">'+B('Change the example','Example बदलकर देखिए')+' <output>'+n+'</output></label>'
-      + '<input id="'+id+'-input" type="range" min="1" max="8" value="'+n+'" oninput="SL8.explore(\''+tp.code+'\',this.value)">'
+      + '<label for="'+id+'-input">'+(isRational?B('Change the numerator','Numerator बदलकर देखिए'):B('Change the example','Example बदलकर देखिए'))+' <output>'+n+'</output></label>'
+      + '<input id="'+id+'-input" type="range" min="1" max="'+max+'" value="'+n+'" oninput="SL8.explore(\''+tp.code+'\',this.value)">'
       + '<div class="m8-output" aria-live="polite">'+explorerSvg(kind,n,label)+eq(explorerValue(kind,n))+'</div></section>';
   }
   api.explore=function(code,value){
-    var info=topicByCode(code),tp=info&&info.topic,n=Math.max(1,Math.min(8,Math.round(Number(value)||1)));
+    var info=topicByCode(code),tp=info&&info.topic,max=tp&&tp.lab&&tp.lab.kind.indexOf('rational')===0&&tp.lab.kind!=='rational'?7:8,n=Math.max(1,Math.min(max,Math.round(Number(value)||1)));
     if(!tp||!tp.lab)return;var el=document.getElementById('m8-concept-'+code.toLowerCase());if(!el)return;
     el.querySelector('output').textContent=n;el.querySelector('.m8-output').innerHTML=explorerSvg(tp.lab.kind,n,t(tp.lab.title))+eq(explorerValue(tp.lab.kind,n));
   };

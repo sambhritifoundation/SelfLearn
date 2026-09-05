@@ -25,6 +25,10 @@ const counts={};qs.forEach(q=>{assert(sandbox.SL8.validQuestion(q),q.id);counts[
 assert.deepEqual(counts,{mcq:198,multi:66,fill:132,match:66,subjective:66});
 for(const tp of chapter.topics){assert.equal(qs.filter(q=>q.topic===tp.code).length,8);for(const lang of ['en','hi']){assert(tp.notes[lang].length>500);assert(tp.worked[0].problem[lang]);sandbox.LANG=lang;const rendered=sandbox.vTopic(tp.code);assert(!rendered.includes('{{diagram:'),tp.code);assert(rendered.includes('m8-lab-'));assert(!rendered.includes('Read the audio transcript'));assert(rendered.includes('SL8.practice'));}assert.equal(tp.audio,undefined);assert.equal(tp.audioPlayer,undefined);}
 for(const c of subject.chapters.slice(1)){assert.equal(c.topics.length,4);assert(c.alignment.ncert&&c.alignment.jac);assert.equal(c.revision.length,4);for(const tp of c.topics){assert.equal(qs.filter(q=>q.topic===tp.code).length,8);for(const lang of ['en','hi']){assert(tp.notes[lang].length>500,tp.code);sandbox.LANG=lang;const rendered=sandbox.vTopic(tp.code);assert(!rendered.includes('{{diagram:'),tp.code);assert(rendered.includes('m8-concept-'));assert(rendered.includes('SL8.practice'));}}}
+const rationalKinds=subject.chapters.find(c=>c.no===15).topics.map(tp=>tp.lab.kind);
+assert.equal(JSON.stringify(rationalKinds),JSON.stringify(['rational','rational-compare','rational-ops','rational-between']));
+sandbox.LANG='en';const rationalLesson=sandbox.vTopic('M8-15-1');assert(rationalLesson.includes('6/8 = 3/4 = 0.75'));assert(rationalLesson.includes('parts shaded'));assert(!rationalLesson.includes('hundreds'));
+sandbox.LANG='hi';assert(sandbox.vTopic('M8-15-1').includes('हिस्से रंगे'));
 for(const c of subject.chapters){const cq=qs.filter(q=>q.chapter===c.no);assert.equal(cq.length,c.no===1?80:32,'question count chapter '+c.no);for(const id of [...c.assessment,...c.revision])assert(cq.some(q=>q.id===id),'bad chapter question reference '+id);}
 for(const q of qs.filter(q=>q.opts))for(const lang of ['en','hi'])assert.equal(new Set(q.opts[lang]).size,q.opts[lang].length,'duplicate option '+q.id+' '+lang);
 // Independently computed objective-answer expectations, by lesson.
