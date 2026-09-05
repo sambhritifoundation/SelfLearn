@@ -15,6 +15,8 @@ let sharedSpeakFrom,sharedAudio;
 for(const [,attrs,body] of tags){const src=/src="([^"]+)"/.exec(attrs);if(src){if(src[1]==='math8-pilot.js'){sharedSpeakFrom=sandbox.audioPlayerSpeakFrom;sharedAudio=sandbox.vAudioExplainer;}if(!src[1].startsWith('http'))vm.runInContext(read(src[1]),sandbox,{filename:src[1]});}else if(body.trim())vm.runInContext(body,sandbox,{filename:'index-inline.js'});}
 const data=sandbox.SL_DATA,subject=data.subjects.find(s=>s.code==='MATH8'),chapter=subject.chapters[0],qs=data.questions.filter(q=>q.subject==='MATH8');
 assert.equal(chapter.topics.length,10);assert.equal(qs.length,80);
+assert.equal(chapter.alignment.ncert,'1');assert.equal(chapter.alignment.jac,'5–6');
+for(const lang of ['en','hi']){sandbox.LANG=lang;const intro=sandbox.vSubjectIntro('MATH8');assert(intro.includes('m8-alignment'));assert(intro.includes('5–6'));assert.equal((intro.match(/<tbody>/g)||[]).length,1);}
 assert.equal(new Set(data.questions.map(q=>q.id)).size,data.questions.length,'duplicate IDs');
 const counts={};qs.forEach(q=>{assert(sandbox.SL8.validQuestion(q),q.id);counts[q.type]=(counts[q.type]||0)+1;});
 assert.deepEqual(counts,{mcq:30,multi:10,fill:20,match:10,subjective:10});

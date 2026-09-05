@@ -27,6 +27,12 @@
 .m8-rubric { display:block; font-size:1rem; line-height:1.6; padding:8px 0; }
 .m8-rubric input { width:20px; height:20px; margin-right:8px; }
 .m8-note { font-size:.95rem; color:var(--muted); line-height:1.65; }
+.m8-alignment h2 { margin:0 0 6px; }
+.m8-table-wrap { overflow-x:auto; margin-top:14px; }
+.m8-alignment table { width:100%; border-collapse:collapse; min-width:520px; }
+.m8-alignment th, .m8-alignment td { padding:12px; border:1px solid var(--line); text-align:left; vertical-align:top; }
+.m8-alignment th { background:var(--primary-light); color:var(--text); }
+.m8-alignment .m8-note { margin:10px 0 0; }
 .m8-results details { padding:14px 0; border-bottom:1px solid var(--line); }
 .m8-results summary { cursor:pointer; line-height:1.65; }
 .m8-feedback { padding:10px; margin:10px 0; border-left:4px solid var(--primary); }

@@ -9694,6 +9694,16 @@ function vLegal(doc){
     + '<p class="sub" style="margin-top:16px">© '+YR+' '+ORG+'. '+sp("All Rights Reserved.","सर्वाधिकार सुरक्षित।")+'</p></div>'
     + '<div style="margin-top:14px"><button class="btn ghost" onclick="go(\'home\')">← '+sp("Back to Home","मुख्य पर लौटें")+'</button></div></div>';
 }
+function vChapterAlignment(s){
+  var rows=s.chapters.filter(function(c){return c.alignment;});
+  if(!rows.length)return '';
+  return '<div class="card m8-alignment" style="margin-top:16px">'
+    + '<h2>'+sp("Published chapter map","प्रकाशित अध्यायों का मिलान")+'</h2>'
+    + '<p class="sub">'+sp("The same lesson can have different chapter numbers in NCERT and JAC.","एक ही पाठ का NCERT और JAC में chapter number अलग हो सकता है।")+'</p>'
+    + '<div class="m8-table-wrap"><table><thead><tr><th>'+sp("Published here","यहाँ प्रकाशित")+'</th><th>NCERT</th><th>JAC</th></tr></thead><tbody>'
+    + rows.map(function(c){return '<tr><td>'+sp("Chapter "+c.no,"अध्याय "+c.no)+': '+t(c.name)+'</td><td>'+sp("Chapter ","अध्याय ")+esc(c.alignment.ncert)+'</td><td>'+sp("Chapter ","अध्याय ")+esc(c.alignment.jac)+'</td></tr>';}).join('')
+    + '</tbody></table></div><p class="m8-note">'+sp("JAC numbering follows the latest verified 2025–26 sequence.","JAC numbering नवीनतम सत्यापित 2025–26 क्रम के अनुसार है।")+'</p></div>';
+}
 function vSubjectIntro(code){
   var s=subj(code); if(!s || !s.intro) return "Not found";
   var first=(s.chapters[0]&&s.chapters[0].topics[0])?s.chapters[0].topics[0].code:null;
@@ -9701,6 +9711,7 @@ function vSubjectIntro(code){
     + '<div class="card"><span class="chip amber">🌟 '+sp("Start here","यहाँ से शुरू करें")+'</span>'
     + '<h1 style="margin:10px 0 12px">'+s.icon+' '+sp("Why "+t(s.name)+"?","क्यों पढ़ें "+t(s.name)+"?")+'</h1>'
     + '<div class="notes">'+fmtNotes(t(s.intro))+'</div></div>'
+    + vChapterAlignment(s)
     + '<div class="card" style="margin-top:16px"><div class="resultnav-row">'
     + '<button class="btn ghost" onclick="go(\'subject\',{code:\''+code+'\'})">← '+sp("See all chapters","सभी अध्याय देखें")+'</button>'
     + (first ? '<button class="btn" onclick="go(\'topic\',{code:\''+first+'\'})">'+sp("Start Chapter 1","अध्याय 1 शुरू करें")+' →</button>' : '')
