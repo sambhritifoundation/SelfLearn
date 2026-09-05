@@ -3,7 +3,9 @@
   'use strict';
   var api = window.SL8 = {};
   function B(en,hi){return LANG==='hi'?hi:en;}
-  function is8(){return !!(QUIZ && QUIZ.qs.length && QUIZ.qs[0].subject==='MATH8');}
+  function is8(){return !!(QUIZ && QUIZ.qs.length && ['MATH8','SCI8'].indexOf(QUIZ.qs[0].subject)>=0);}
+  function richCode(code){return /^(?:M8|S8)-/.test(code||'');}
+  function richSubject(code){var info=topicByCode(code);return info&&info.subject?info.subject.code:'MATH8';}
   function svg(inner,label){return '<svg viewBox="0 0 360 290" role="img" aria-label="'+esc(label)+'" xmlns="http://www.w3.org/2000/svg">'+inner+'</svg>';}
   function grid(n,old,label){
     var size=220/n, h='';
@@ -298,18 +300,18 @@
   if(m8Course)m8Course.chapters.forEach(function(c){c.topics.forEach(function(tp){if(tp.lab)DIAGRAMS['m8-explore-'+tp.code.toLowerCase()]=function(){return conceptLab(tp);};});});
 
   var originalTopic=vTopic;
-  vTopic=function(code){var h=originalTopic(code);if(!/^M8-/.test(code))return h;var tp=topicByCode(code).topic;
+  vTopic=function(code){var h=originalTopic(code);if(!richCode(code))return h;var tp=topicByCode(code).topic;
     var formats=[['all','All 8 questions','सभी 8 प्रश्न'],['mcq','Single answer','एक सही उत्तर'],['multi','Multiple answers','कई सही उत्तर'],['fill','Fill blanks','खाली जगह'],['match','Match','मिलान'],['subjective','Written response','लिखित उत्तर']];
     var saved='';try{var records=JSON.parse(localStorage.getItem(PK('sl_m8_written'))||'{}');qForTopic(code).filter(function(q){return q.type==='subjective'&&records[q.id];}).forEach(function(q){var r=records[q.id];saved+='<details class="m8-transcript"><summary>'+B('Your last saved written response','आपका पिछला सहेजा हुआ लिखित उत्तर')+'</summary><p>'+esc(t(q.q))+'</p><p style="white-space:pre-wrap">'+esc(r.text)+'</p><p>'+r.checks.length+'/'+q.rubric.length+' '+B('criteria self-checked','बिंदु खुद जाँचे')+'</p></details>';});}catch(e){}
     return h+'<section class="card" style="margin-top:16px"><h3>'+B('Choose a practice format','अभ्यास का तरीका चुनिए')+'</h3><p class="m8-note">'+B('All eight questions are available, not a random sample. Written responses are self-reviewed and excluded from automatic accuracy.','आठों प्रश्न उपलब्ध हैं, random sample नहीं। लिखित उत्तर self-review हैं और automatic accuracy में शामिल नहीं हैं।')+'</p><div class="m8-formats">'+formats.map(function(f){return '<button class="btn ghost sm" onclick="SL8.practice(\''+code+'\',\''+f[0]+'\')">'+B(f[1],f[2])+'</button>';}).join('')+'</div>'+saved+'</section>';
   };
   api.practice=function(code,type){var info=topicByCode(code),qs=qForTopic(code).filter(function(q){return type==='all'||q.type===type;});if(!info||!qs.length)return;
-    QUIZ={scope:'m8',key:code+'::'+type,title:t(info.topic.name),backTopic:code,backSubject:'MATH8',qs:qs,i:0,results:[],answered:false,t0:Date.now(),m8Type:type,written:{}};go('quiz');
+    QUIZ={scope:'class8-rich',key:code+'::'+type,title:t(info.topic.name),backTopic:code,backSubject:info.subject.code,qs:qs,i:0,results:[],answered:false,t0:Date.now(),m8Type:type,written:{}};go('quiz');
   };
   var originalStart=startQuiz;
-  startQuiz=function(scope,a,b){if(scope==='topic'&&/^M8-/.test(a)){api.practice(a,'all');return;}return originalStart(scope,a,b);};
+  startQuiz=function(scope,a,b){if(scope==='topic'&&richCode(a)){api.practice(a,'all');return;}return originalStart(scope,a,b);};
   var originalReplay=replayQuiz;
-  replayQuiz=function(){if(is8()&&QUIZ.scope==='m8'){api.practice(QUIZ.backTopic,QUIZ.m8Type);return;}originalReplay();};
+  replayQuiz=function(){if(is8()&&QUIZ.scope==='class8-rich'){api.practice(QUIZ.backTopic,QUIZ.m8Type);return;}originalReplay();};
   function current(){return QUIZ && QUIZ.qs[QUIZ.i];}
   var originalQuiz=vQuiz;
   vQuiz=function(){var h=originalQuiz(),q=current();if(!is8())return h;
@@ -324,7 +326,7 @@
       QUIZ.written=QUIZ.written||{};var w=QUIZ.written[q.id]||{text:'',checks:[],revealed:false};QUIZ.written[q.id]=w;
       body='<p class="m8-note">'+B('Explain your steps. You can work on paper and describe them here. This is self-review, not an automatic correctness judgement.','अपने steps समझाइए। कागज़ पर करके यहाँ तरीका लिख सकते हैं। यह self-review है, automatic सही-गलत का फैसला नहीं।')+'</p><label for="m8-written">'+B('Your explanation','आपकी व्याख्या')+'</label><textarea class="m8-written" id="m8-written" oninput="SL8.draft(this.value)" '+(QUIZ.answered?'readonly':'')+'>'+esc(w.text)+'</textarea><button class="btn" style="margin-top:10px" onclick="SL8.reveal()" '+(w.revealed?'disabled':'')+'>'+B('Compare with a model answer','Model उत्तर से तुलना करें')+'</button><div id="m8-review">'+(w.revealed?review(q,w):'')+'</div>';
     } else if(q.type==='fill'){
-      body='<label for="shortAns">'+B('Fill the blank (number only; fractions such as 3/4 are accepted)','खाली जगह भरिए (सिर्फ संख्या; 3/4 जैसे fractions भी)')+'</label><input class="shortinput" id="shortAns" inputmode="text" autocomplete="off" onkeydown="if(event.key===\'Enter\')answerShort()"><button class="btn" style="margin-top:10px" onclick="answerShort()">'+B('Check','जाँचें')+'</button>';
+      body='<label for="shortAns">'+B('Fill the blank (a number, fraction, or key term)','खाली जगह भरिए (संख्या, fraction या key term)')+'</label><input class="shortinput" id="shortAns" inputmode="text" autocomplete="off" onkeydown="if(event.key===\'Enter\')answerShort()"><button class="btn" style="margin-top:10px" onclick="answerShort()">'+B('Check','जाँचें')+'</button>';
     }
     if(body){var start=h.indexOf('id="qbody">')+'id="qbody">'.length,end=h.indexOf('</div><div id="exp">',start);h=h.slice(0,start)+body+h.slice(end);}
     return h;
@@ -340,9 +342,12 @@
     if(!/^[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:\/[+-]?(?:\d+(?:\.\d*)?|\.\d+))?$/.test(s))return null;var p=s.split('/'),v=Number(p[0])/(p.length===2?Number(p[1]):1);return Number.isFinite(v)?v:null;
   };
   var originalShort=answerShort;
-  answerShort=function(){var q=current();if(!is8()||q.type!=='fill')return originalShort();if(QUIZ.answered)return;var el=document.getElementById('shortAns'),v=api.numeric(el.value);
-    if(v===null){toast(B('Enter a number or fraction, without units.','बिना units के संख्या या fraction लिखिए।'));return;}
-    var ok=String(q.correct).split('|').some(function(a){return Math.abs(api.numeric(a)-v)<1e-9;});el.disabled=true;settle(ok,q,ok?'':'<p>'+B('Answer: ','उत्तर: ')+esc(String(q.correct).split('|')[0])+'</p>');
+  answerShort=function(){var q=current();if(!is8()||q.type!=='fill')return originalShort();if(QUIZ.answered)return;var el=document.getElementById('shortAns'),raw=String(el.value||'').trim();
+    if(!raw){toast(B('Enter your answer first.','पहले अपना उत्तर लिखिए।'));return;}
+    var v=api.numeric(raw),answers=String(q.correct).split('|'),numericAnswers=answers.map(api.numeric),ok;
+    if(v!==null&&numericAnswers.every(function(x){return x!==null;}))ok=numericAnswers.some(function(a){return Math.abs(a-v)<1e-9;});
+    else {var norm=function(s){return String(s).toLocaleLowerCase().replace(/[.,;:!?।]/g,'').replace(/[-–—_]/g,' ').replace(/\s+/g,' ').trim();};ok=answers.some(function(a){return norm(a)===norm(raw);});}
+    el.disabled=true;settle(ok,q,ok?'':'<p>'+B('Answer: ','उत्तर: ')+esc(answers[0])+'</p>');
   };
   api.draft=function(text){if(!QUIZ.answered)QUIZ.written[current().id].text=text;};
   function review(q,w){return '<div class="m8-feedback"><h3>'+B('One possible answer','एक संभावित उत्तर')+'</h3><p>'+fmtInline(t(q.model))+'</p><p>'+B('Tick only what your own answer includes. Unticked points show what to improve.','अपने उत्तर में जो है, सिर्फ वही tick करें। बाकी बिंदु बताते हैं कहाँ सुधार करें।')+'</p>'+q.rubric.map(function(r,i){return '<label class="m8-rubric"><input type="checkbox" '+(w.checks.indexOf(i)>=0?'checked':'')+' '+(QUIZ.answered?'disabled':'')+' onchange="SL8.rubric('+i+',this.checked)">'+esc(t(r))+'</label>';}).join('')+'<button class="btn" onclick="SL8.finishWritten()" '+(QUIZ.answered?'disabled':'')+'>'+B('Finish self-review','Self-review पूरा करें')+'</button></div>';}
@@ -369,23 +374,23 @@
   vResult=function(){if(!is8())return originalResult();var scored=QUIZ.results.filter(function(r){return typeof r==='boolean';}),correct=scored.filter(Boolean).length,reviewed=QUIZ.results.filter(function(r){return r==='reviewed';}).length;
     var h='<section class="card m8-results"><h1>'+B('Practice complete','अभ्यास पूरा')+'</h1><p>'+esc(QUIZ.title)+'</p><div class="m8-equation">'+(scored.length?correct+' / '+scored.length+' '+B('automatically scored','automatic जाँच'):B('Written practice · no automatic score','लिखित अभ्यास · automatic score नहीं'))+'</div><p>'+reviewed+' '+B('written responses self-reviewed. These do not count as right or wrong in your accuracy.','लिखित उत्तर self-review किए। ये accuracy में सही या गलत नहीं गिने जाते।')+'</p><h2>'+B('Review your reasoning','अपना तरीका दोहराइए')+'</h2>';
     QUIZ.qs.forEach(function(q,i){var r=QUIZ.results[i],w=QUIZ.written&&QUIZ.written[q.id];h+='<details><summary>'+B(r==='reviewed'?'Self-reviewed':r===true?'Correct':'Revisit',r==='reviewed'?'Self-review':r===true?'सही':'दोहराएँ')+' · '+fmtInline(t(q.q))+'</summary>'+(w?'<h3>'+B('Your response','आपका उत्तर')+'</h3><p style="white-space:pre-wrap">'+esc(w.text)+'</p><p>'+w.checks.length+'/'+q.rubric.length+' '+B('criteria checked','बिंदु tick किए')+'</p>':'')+'<p>'+fmtInline(t(q.exp))+'</p></details>';});
-    h+='<div class="m8-controls"><button class="btn" onclick="go(\'subject\',{code:\'MATH8\'})">'+B('Chapter topics','Chapter के topics')+'</button>';
+    h+='<div class="m8-controls"><button class="btn" onclick="go(\'subject\',{code:\''+QUIZ.backSubject+'\'})">'+B('Chapter topics','Chapter के topics')+'</button>';
     if(QUIZ.backTopic)h+='<button class="btn ghost" onclick="go(\'topic\',{code:\''+QUIZ.backTopic+'\'})">'+B('Back to this lesson','इस पाठ पर लौटें')+'</button><button class="btn ghost" onclick="SL8.practice(\''+QUIZ.backTopic+'\',\''+(QUIZ.m8Type||'all')+'\')">'+B('Practise again','फिर अभ्यास')+'</button>';
-    else h+='<button class="btn ghost" onclick="startAssessment(\'MATH8\',1)">'+B('Try chapter assignment','Chapter असाइनमेंट करें')+'</button>';
+    else h+='<button class="btn ghost" onclick="startAssessment(\''+QUIZ.backSubject+'\',1)">'+B('Try chapter assignment','Chapter असाइनमेंट करें')+'</button>';
     return h+'</div></section>';
   };
   // Prevent the legacy form from destroying rich fields; preserve JSON in exports.
   var originalAdminEdit=adminEdit;
-  adminEdit=function(){var q=EDIT_ID&&allQuestions().find(function(x){return x.id===EDIT_ID;});if(q&&q.subject==='MATH8')return '<div class="card"><h2>'+esc(q.id)+'</h2><p>This pilot is authored in data-math8.js. The legacy form cannot safely edit multi-answer, matching or rubric fields. Spreadsheet exports preserve the full record in question_json.</p><pre style="white-space:pre-wrap;overflow-wrap:anywhere">'+esc(JSON.stringify(q,null,2))+'</pre></div>';return originalAdminEdit();};
+  adminEdit=function(){var q=EDIT_ID&&allQuestions().find(function(x){return x.id===EDIT_ID;});if(q&&['MATH8','SCI8'].indexOf(q.subject)>=0)return '<div class="card"><h2>'+esc(q.id)+'</h2><p>This Class 8 course uses rich multi-answer, matching, fill and rubric fields. Spreadsheet exports preserve the full record in question_json.</p><pre style="white-space:pre-wrap;overflow-wrap:anywhere">'+esc(JSON.stringify(q,null,2))+'</pre></div>';return originalAdminEdit();};
   var originalQToRow=qToRow,originalRowToQ=rowToQ;
   HEADERS.push('question_json');
-  qToRow=function(q){var row=originalQToRow(q);row.push(q.subject==='MATH8'?JSON.stringify(q):'');return row;};
-  rowToQ=function(r){if(r.question_json){try{var q=JSON.parse(r.question_json);if(q.subject==='MATH8'&&api.validQuestion(q))return q;return null;}catch(e){return null;}}return originalRowToQ(r);};
-  api.validQuestion=function(q){if(!q||!/^M8-Q\d+$/.test(q.id)||q.subject!=='MATH8'||!topicByCode(q.topic)||!q.q||!q.q.en||!q.q.hi||!q.exp||!q.exp.en||!q.exp.hi||['published','draft','review'].indexOf(q.status)<0)return false;
+  qToRow=function(q){var row=originalQToRow(q);row.push(['MATH8','SCI8'].indexOf(q.subject)>=0?JSON.stringify(q):'');return row;};
+  rowToQ=function(r){if(r.question_json){try{var q=JSON.parse(r.question_json);if(['MATH8','SCI8'].indexOf(q.subject)>=0&&api.validQuestion(q))return q;return null;}catch(e){return null;}}return originalRowToQ(r);};
+  api.validQuestion=function(q){var prefix=q&&q.subject==='SCI8'?'S8':'M8';if(!q||!(new RegExp('^'+prefix+'-Q\\d+$')).test(q.id)||['MATH8','SCI8'].indexOf(q.subject)<0||!topicByCode(q.topic)||!q.q||!q.q.en||!q.q.hi||!q.exp||!q.exp.en||!q.exp.hi||['published','draft','review'].indexOf(q.status)<0)return false;
     if(q.type==='multi'||q.type==='mcq'){if(!q.opts||!Array.isArray(q.opts.en)||q.opts.en.length!==4||!Array.isArray(q.opts.hi)||q.opts.hi.length!==4)return false;var keys=q.type==='multi'?q.correct:[q.correct];return Array.isArray(keys)&&keys.length>0&&new Set(keys).size===keys.length&&keys.every(function(k){return /^[A-D]$/.test(k);});}
-    if(q.type==='fill')return String(q.correct).split('|').every(function(v){return api.numeric(v)!==null;});
+    if(q.type==='fill')return typeof q.correct==='string'&&String(q.correct).split('|').every(function(v){return v.trim().length>0;});
     if(q.type==='match')return Array.isArray(q.pairs)&&q.pairs.length>1&&q.pairs.every(function(p){return p.l&&p.l.en&&p.l.hi&&p.r&&p.r.en&&p.r.hi;});
     if(q.type==='subjective')return q.model&&q.model.en&&q.model.hi&&Array.isArray(q.rubric)&&q.rubric.length>0&&q.rubric.every(function(r){return r.en&&r.hi;});return false;
   };
-  if(location.hash==='#math8')go('subject',{code:'MATH8'});else render();
+  if(location.hash==='#math8')go('subject',{code:'MATH8'});else if(location.hash==='#science8'||location.hash==='#sci8')go('subject',{code:'SCI8'});else render();
 }());

@@ -385,6 +385,7 @@
 <script src="data-math.js"></script>
 <script src="data-math8.js"></script>
 <script src="data-math8-rest.js?v=20260905-rational"></script>
+<script src="data-science8.js?v=20260905-class8-science"></script>
 <script src="data-physics.js"></script>
 <script src="data-physics12.js"></script>
 <script>
@@ -8861,14 +8862,15 @@ function vSubject(code){
       + '<button class="btn" onclick="event.stopPropagation();go(\'intro\',{code:\''+s.code+'\'})">'+sp("Take a look","एक नज़र डालें")+' →</button>'
       + '</div></div>';
   }
-  if(s.code==='MATH8'){
+  if(s.code==='MATH8'||s.code==='SCI8'){
     var totalTopics=s.chapters.reduce(function(n,c){return n+c.topics.length;},0);
     var totalQuestions=pubQuestions().filter(function(q){return q.subject===s.code;}).length;
-    h += '<section class="card chapter-index" aria-labelledby="m8-chapter-index-title">'
-      + '<h2 id="m8-chapter-index-title">'+sp('All Class 8 units','कक्षा 8 के सभी units')+'</h2>'
-      + '<div class="sub">'+sp('14 NCERT chapters + 1 JAC foundation unit','14 NCERT chapters + 1 JAC foundation unit')+' · '+totalTopics+' '+sp('micro-topics','सूक्ष्म-विषय')+' · '+totalQuestions+' '+sp('questions','प्रश्न')+'</div>'
+    var class8Prefix=s.code.toLowerCase(),indexPrefix=s.code==='MATH8'?'m8':'s8',courseMix=s.code==='MATH8'?sp('14 NCERT chapters + 1 JAC foundation unit','14 NCERT chapters + 1 JAC foundation unit'):sp('13 NCERT chapters + 5 JAC bridge units','13 NCERT chapters + 5 JAC bridge units');
+    h += '<section class="card chapter-index" aria-labelledby="'+indexPrefix+'-chapter-index-title">'
+      + '<h2 id="'+indexPrefix+'-chapter-index-title">'+sp('All Class 8 units','कक्षा 8 के सभी units')+'</h2>'
+      + '<div class="sub">'+courseMix+' · '+totalTopics+' '+sp('micro-topics','सूक्ष्म-विषय')+' · '+totalQuestions+' '+sp('questions','प्रश्न')+'</div>'
       + '<div class="chapter-index-grid">'
-      + s.chapters.map(function(c){return '<button type="button" onclick="document.getElementById(\'math8-chapter-'+c.no+'\').scrollIntoView({behavior:\'smooth\',block:\'start\'})"><span class="chapter-index-no">'+sp('Unit '+c.no,'Unit '+c.no)+'</span><span class="chapter-index-name">'+t(c.name)+'</span></button>';}).join('')
+      + s.chapters.map(function(c){return '<button type="button" onclick="document.getElementById(\''+class8Prefix+'-chapter-'+c.no+'\').scrollIntoView({behavior:\'smooth\',block:\'start\'})"><span class="chapter-index-no">'+sp('Unit '+c.no,'Unit '+c.no)+'</span><span class="chapter-index-name">'+t(c.name)+'</span></button>';}).join('')
       + '</div></section>';
   }
   var lastLevel = null;
@@ -8876,7 +8878,8 @@ function vSubject(code){
     if(c.level && t(c.level)!==lastLevel){ lastLevel = t(c.level); h += '<div class="lvl">'+esc(lastLevel)+'</div>'; }
     var qn = qForChapter(s.code, c.no).length;
     var done = c.topics.filter(function(tp){ var st=topicStats(tp.code); return st&&st.n>0; }).length;
-    h += '<div'+(s.code==='MATH8'?' id="math8-chapter-'+c.no+'"':'')+' class="card rowflex'+(s.code==='MATH8'?' chapter-card':'')+'" style="margin-bottom:10px"><div style="flex:1;min-width:250px">'
+    var isClass8=s.code==='MATH8'||s.code==='SCI8',anchor=s.code.toLowerCase();
+    h += '<div'+(isClass8?' id="'+anchor+'-chapter-'+c.no+'"':'')+' class="card rowflex'+(isClass8?' chapter-card':'')+'" style="margin-bottom:10px"><div style="flex:1;min-width:250px">'
       + '<h3>'+chapLabel(c)+': '+t(c.name)+'</h3>'
       + '<div class="sub">'+c.topics.length+' '+sp("micro-topics","सूक्ष्म-विषय")+' · '+qn+' '+sp("questions","प्रश्न")+' · '+done+'/'+c.topics.length+' '+sp("practiced","अभ्यास किया")+'</div>'
       + '<div style="margin-top:8px">';
@@ -10486,5 +10489,6 @@ function adminCurr(){
 setLang(LANG);
 </script>
 <script src="math8-pilot.js?v=20260905-illustrations"></script>
+<script src="science8-pilot.js?v=20260905-class8-science"></script>
 </body>
 </html>

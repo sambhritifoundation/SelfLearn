@@ -33,6 +33,20 @@ Every unit carries its closest verified JAC chapter mapping.
 New content is in `data-math8.js`, with scoped support in `math8-pilot.js` and
 `math8-pilot.css`. Run `node scripts/test-math8.cjs` for regression checks.
 
+### Class 8 Science
+
+The science course covers all 13 chapters of **NCERT Curiosity Grade 8
+(2026–27)** and adds 5 labelled bridge units for the remaining topics in the
+verified JAC sequence: 72 bilingual micro-topics, 72 original interactive
+concept diagrams, and 576 questions across five formats. Each lesson includes
+three familiar examples, a misconception or safety limit, a worked explanation,
+and an explicit link to the next concept.
+
+Content is in `data-science8.js`; diagrams are in `science8-pilot.js`. Run
+`node scripts/test-science8.cjs` for the data/render audit and, while serving
+`dist` on port 8765, run `scripts/audit-science8-browser.cjs` for desktop and
+mobile browser QA.
+
 Open `index.html` in any browser — no build step, no server needed. Keep the `data-*.js` files alongside it.
 
 ## Adding content

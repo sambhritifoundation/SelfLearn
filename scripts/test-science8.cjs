@@ -1,0 +1,32 @@
+/* Structural, rendering, question-bank, and interaction audit for Class 8 Science. */
+const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict'),path=require('node:path');
+const root=path.resolve(__dirname,'..'),read=f=>fs.readFileSync(path.join(root,f),'utf8');
+const elements=new Map();
+function element(id){if(!elements.has(id))elements.set(id,{innerHTML:'',textContent:'',value:'',style:{},dataset:{},disabled:false,readOnly:false,classList:{add(){},remove(){},toggle(){}},setAttribute(){},getAttribute(){return '';},querySelectorAll(){return [];},querySelector(){return element(id+'child');},insertAdjacentHTML(){},focus(){},addEventListener(){}});return elements.get(id);}
+const memory=new Map(),sandbox={console,Math,Date,JSON,Set,Number,Array,String,Boolean,RegExp,Object,parseInt,parseFloat,isNaN,encodeURIComponent,decodeURIComponent,
+  localStorage:{getItem:k=>memory.get(k)||null,setItem:(k,v)=>memory.set(k,v),removeItem:k=>memory.delete(k)},
+  document:{getElementById:element,querySelector:()=>null,querySelectorAll:()=>[],addEventListener(){},body:{classList:{toggle(){}}}},
+  navigator:{},location:{hash:''},setTimeout:()=>1,clearTimeout(){},setInterval:()=>1,clearInterval(){},requestAnimationFrame:()=>1,cancelAnimationFrame(){},scrollTo(){},addEventListener(){},matchMedia:()=>({matches:false}),alert(){},confirm:()=>true};
+sandbox.window=sandbox;vm.createContext(sandbox);
+const html=read('index.html');assert.equal(html,read('selflearn-app.html'),'app copies drifted');
+for(const [,attrs,body] of html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/g)){const src=/src="([^"]+)"/.exec(attrs);if(src){const file=src[1].split('?')[0];if(!file.startsWith('http'))vm.runInContext(read(file),sandbox,{filename:file});}else if(body.trim())vm.runInContext(body,sandbox,{filename:'index-inline.js'});}
+const subject=sandbox.SL_DATA.subjects.find(s=>s.code==='SCI8'),qs=sandbox.SL_DATA.questions.filter(q=>q.subject==='SCI8');
+assert(subject,'SCI8 subject missing');assert.equal(subject.chapters.length,18);assert.equal(subject.chapters.reduce((n,c)=>n+c.topics.length,0),72);assert.equal(qs.length,576);
+assert.equal(subject.chapters.filter(c=>c.alignment.ncert!=='—').length,13);assert.equal(subject.chapters.filter(c=>c.alignment.jac!=='—').length,14);
+assert(subject.intro.en.includes('thirteen chapters'));assert(subject.intro.en.includes('five clearly marked JAC bridge units'));
+assert.equal(new Set(qs.map(q=>q.id)).size,qs.length);
+const counts={};for(const q of qs){assert(sandbox.SL8.validQuestion(q),q.id);counts[q.type]=(counts[q.type]||0)+1;if(q.opts)for(const lang of ['en','hi'])assert.equal(new Set(q.opts[lang]).size,4,'duplicate option '+q.id+' '+lang);}
+assert.deepEqual(counts,{mcq:216,multi:72,fill:144,match:72,subjective:72});
+for(const lang of ['en','hi']){sandbox.LANG=lang;const intro=sandbox.vSubjectIntro('SCI8'),catalogue=sandbox.vSubject('SCI8');assert(intro.includes('m8-alignment'));assert.equal((intro.match(/<tr>/g)||[]).length,19);assert(catalogue.includes('chapter-index-grid'));assert.equal((catalogue.match(/id="sci8-chapter-/g)||[]).length,18);assert(catalogue.includes(lang==='en'?'13 NCERT chapters + 5 JAC bridge units':'13 NCERT chapters + 5 JAC bridge units'));}
+for(const c of subject.chapters){assert.equal(c.topics.length,4);assert.equal(c.assessment.length,12);assert.equal(c.revision.length,8);assert(c.summary.en.includes('What comes next'));assert(c.summary.hi.includes('आगे क्या आएगा'));
+  for(const tp of c.topics){const tq=qs.filter(q=>q.topic===tp.code);assert.equal(tq.length,8,tp.code);for(const lang of ['en','hi']){sandbox.LANG=lang;assert(tp.notes[lang].length>650,tp.code+' short notes '+lang);const rendered=sandbox.vTopic(tp.code);assert(!rendered.includes('{{diagram:'),tp.code);assert(rendered.includes('<svg'),tp.code);assert(rendered.includes('SL8.exploreScience'),tp.code);assert(rendered.includes('Three examples around you')||rendered.includes('अपने आसपास के तीन examples'),tp.code);assert(rendered.includes('What this prepares you for')||rendered.includes('आगे किस काम आएगा'),tp.code);assert(!/undefined|NaN/.test(rendered),tp.code+' invalid render');}}
+}
+// All 72 visuals must be tied to their own topic labels in both languages.
+for(const lang of ['en','hi']){sandbox.LANG=lang;const visuals=[];for(const c of subject.chapters)for(const tp of c.topics){const h=sandbox.DIAGRAMS['s8-'+tp.code.toLowerCase()]();for(const label of tp.lab.labels)assert(h.includes(sandbox.t(label).length>22?sandbox.esc(sandbox.t(label).slice(0,21)) : sandbox.esc(sandbox.t(label))),tp.code+' missing label');visuals.push(h);}assert.equal(new Set(visuals).size,72,'reused science visuals '+lang);}
+// Spreadsheet rich-JSON round trips preserve every format.
+sandbox.LANG='en';for(const q of qs){const row=sandbox.qToRow(q),obj=Object.fromEntries(sandbox.HEADERS.map((h,i)=>[h,row[i]]));assert.equal(JSON.stringify(sandbox.rowToQ(obj)),JSON.stringify(q),'roundtrip '+q.id);sandbox.QUIZ={qs:[q],i:0,results:[],answered:false,title:'Science test',scope:'class8-rich',backSubject:'SCI8',written:{},t0:Date.now()};const h=sandbox.vQuiz();assert(h.includes('id="qbody"'));if(q.type==='multi')assert(h.includes('checkbox'));if(q.type==='subjective')assert(h.includes('textarea'));}
+// Exercise one question of every interactive format, including text fill.
+sandbox.SL8.practice('S8-1-1','multi');sandbox.SL8.select('A',true);sandbox.SL8.select('B',true);sandbox.SL8.answerMulti();assert.equal(sandbox.QUIZ.results[0],true);
+sandbox.SL8.practice('S8-1-1','fill');element('shortAns').value='testable question';sandbox.answerShort();assert.equal(sandbox.QUIZ.results[0],true);
+sandbox.SL8.practice('S8-1-1','subjective');sandbox.SL8.draft('A testable question links a change with evidence from a local example.');sandbox.SL8.reveal();sandbox.SL8.rubric(0,true);sandbox.SL8.finishWritten();assert.equal(sandbox.QUIZ.results[0],'reviewed');assert(sandbox.vResult().includes("SCI8"));
+console.log('PASS: 18 aligned science units, 72 bilingual micro-topics, 72 original interactive diagrams, 576 five-format questions, chapter transitions, rich scoring, and spreadsheet round trips.');
