@@ -13,10 +13,9 @@ Used for conceptual alignment, not copied stories or exercises. Extra square-roo
 estimation and digit-pair practice is included. This is not exhaustive
 exercise-by-exercise textbook coverage.
 
-**JAC mapping remains provisional.** The current JAC/JCERT textbook edition and
-annual sequence were not established from an authoritative current source.
-Obtain the school's contents page before claiming exact chapter/exam alignment.
-The course introduction exposes this limitation.
+The cross-board chapter numbering and overlap are recorded in
+`MATH8-NCERT-JAC-MAP.md`. This pilot is **NCERT Chapter 1** and spans
+**JAC Chapters 5–6**.
 
 ## Replicable lesson contract
 
