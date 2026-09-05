@@ -12,11 +12,12 @@ sandbox.window=sandbox;vm.createContext(sandbox);
 const html=read('index.html');assert.equal(html,read('selflearn-app.html'),'app copies drifted');
 const tags=[...html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/g)];
 let sharedSpeakFrom,sharedAudio;
-for(const [,attrs,body] of tags){const src=/src="([^"]+)"/.exec(attrs);if(src){if(src[1]==='math8-pilot.js'){sharedSpeakFrom=sandbox.audioPlayerSpeakFrom;sharedAudio=sandbox.vAudioExplainer;}if(!src[1].startsWith('http'))vm.runInContext(read(src[1]),sandbox,{filename:src[1]});}else if(body.trim())vm.runInContext(body,sandbox,{filename:'index-inline.js'});}
+for(const [,attrs,body] of tags){const src=/src="([^"]+)"/.exec(attrs);if(src){const file=src[1].split('?')[0];if(file==='math8-pilot.js'){sharedSpeakFrom=sandbox.audioPlayerSpeakFrom;sharedAudio=sandbox.vAudioExplainer;}if(!file.startsWith('http'))vm.runInContext(read(file),sandbox,{filename:file});}else if(body.trim())vm.runInContext(body,sandbox,{filename:'index-inline.js'});}
 const data=sandbox.SL_DATA,subject=data.subjects.find(s=>s.code==='MATH8'),chapter=subject.chapters[0],qs=data.questions.filter(q=>q.subject==='MATH8');
 assert.equal(subject.chapters.length,15);assert.equal(subject.chapters.reduce((n,c)=>n+c.topics.length,0),66);assert.equal(qs.length,528);
 assert.equal(chapter.alignment.ncert,'1');assert.equal(chapter.alignment.jac,'5–6');
 for(const lang of ['en','hi']){sandbox.LANG=lang;const intro=sandbox.vSubjectIntro('MATH8');assert(intro.includes('m8-alignment'));assert(intro.includes('5–6'));assert.equal((intro.match(/<tbody>/g)||[]).length,1);assert.equal((intro.match(/<tr>/g)||[]).length,16);}
+for(const lang of ['en','hi']){sandbox.LANG=lang;const catalogue=sandbox.vSubject('MATH8');assert(catalogue.includes('chapter-index-grid'));assert.equal((catalogue.match(/id="math8-chapter-/g)||[]).length,15);assert.equal((catalogue.match(/document\.getElementById\('math8-chapter-/g)||[]).length,15);assert(catalogue.includes(lang==='en'?'All Class 8 units':'कक्षा 8 के सभी units'));}
 assert(subject.intro.en.includes('fourteen chapters'));assert(subject.intro.en.includes('thirteen chapters'));assert(subject.intro.en.includes('only content already available'));
 assert(subject.intro.hi.includes('चौदह chapters'));assert(subject.intro.hi.includes('तेरह chapters'));assert(subject.intro.hi.includes('केवल वही content'));
 assert.equal(new Set(data.questions.map(q=>q.id)).size,data.questions.length,'duplicate IDs');

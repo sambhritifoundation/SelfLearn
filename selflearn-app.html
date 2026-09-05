@@ -21,6 +21,7 @@
 <meta property="og:description" content="Bilingual, CBSE-aligned learning portal by Sambhriti Foundation for Education.">
 <meta property="og:url" content="https://sambhriti.in">
 <link rel="author" href="https://sambhriti.in">
+<link rel="icon" href="data:,">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <style>
   :root{
@@ -54,6 +55,16 @@
   .g2{grid-template-columns:repeat(2,1fr)} .g3{grid-template-columns:repeat(3,1fr)} .g4{grid-template-columns:repeat(4,1fr)}
   @media(max-width:860px){.g2,.g3,.g4{grid-template-columns:1fr}}
   .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px}
+  .chapter-index{margin:0 0 18px;background:linear-gradient(135deg,var(--primary-light),var(--card));border-color:var(--primary)}
+  .chapter-index h2{margin-bottom:3px}
+  .chapter-index-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:13px}
+  .chapter-index button{display:flex;gap:8px;align-items:flex-start;text-align:left;width:100%;min-height:48px;padding:9px 11px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink);font:inherit;cursor:pointer}
+  .chapter-index button:hover,.chapter-index button:focus-visible{border-color:var(--primary);box-shadow:0 0 0 2px var(--primary-light);outline:0}
+  .chapter-index-no{flex:0 0 auto;color:var(--primary);font-weight:800}
+  .chapter-index-name{font-size:.84rem;font-weight:650;line-height:1.3}
+  .chapter-card{scroll-margin-top:92px}
+  @media(max-width:760px){.chapter-index-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media(max-width:440px){.chapter-index-grid{grid-template-columns:1fr}}
   .btn{display:inline-block;border:0;background:var(--primary);color:#fff;padding:10px 20px;border-radius:9px;font-size:.93rem;font-weight:700;cursor:pointer;font-family:inherit}
   .resultnav-row{display:flex;gap:10px;align-items:stretch}
   .resultnav-row .btn{flex:1;text-align:center}
@@ -373,7 +384,7 @@
 <script src="data-english.js"></script>
 <script src="data-math.js"></script>
 <script src="data-math8.js"></script>
-<script src="data-math8-rest.js"></script>
+<script src="data-math8-rest.js?v=20260905-complete"></script>
 <script src="data-physics.js"></script>
 <script src="data-physics12.js"></script>
 <script>
@@ -8850,12 +8861,22 @@ function vSubject(code){
       + '<button class="btn" onclick="event.stopPropagation();go(\'intro\',{code:\''+s.code+'\'})">'+sp("Take a look","एक नज़र डालें")+' →</button>'
       + '</div></div>';
   }
+  if(s.code==='MATH8'){
+    var totalTopics=s.chapters.reduce(function(n,c){return n+c.topics.length;},0);
+    var totalQuestions=pubQuestions().filter(function(q){return q.subject===s.code;}).length;
+    h += '<section class="card chapter-index" aria-labelledby="m8-chapter-index-title">'
+      + '<h2 id="m8-chapter-index-title">'+sp('All Class 8 units','कक्षा 8 के सभी units')+'</h2>'
+      + '<div class="sub">'+sp('14 NCERT chapters + 1 JAC foundation unit','14 NCERT chapters + 1 JAC foundation unit')+' · '+totalTopics+' '+sp('micro-topics','सूक्ष्म-विषय')+' · '+totalQuestions+' '+sp('questions','प्रश्न')+'</div>'
+      + '<div class="chapter-index-grid">'
+      + s.chapters.map(function(c){return '<button type="button" onclick="document.getElementById(\'math8-chapter-'+c.no+'\').scrollIntoView({behavior:\'smooth\',block:\'start\'})"><span class="chapter-index-no">'+sp('Unit '+c.no,'Unit '+c.no)+'</span><span class="chapter-index-name">'+t(c.name)+'</span></button>';}).join('')
+      + '</div></section>';
+  }
   var lastLevel = null;
   s.chapters.forEach(function(c){
     if(c.level && t(c.level)!==lastLevel){ lastLevel = t(c.level); h += '<div class="lvl">'+esc(lastLevel)+'</div>'; }
     var qn = qForChapter(s.code, c.no).length;
     var done = c.topics.filter(function(tp){ var st=topicStats(tp.code); return st&&st.n>0; }).length;
-    h += '<div class="card rowflex" style="margin-bottom:10px"><div style="flex:1;min-width:250px">'
+    h += '<div'+(s.code==='MATH8'?' id="math8-chapter-'+c.no+'"':'')+' class="card rowflex'+(s.code==='MATH8'?' chapter-card':'')+'" style="margin-bottom:10px"><div style="flex:1;min-width:250px">'
       + '<h3>'+chapLabel(c)+': '+t(c.name)+'</h3>'
       + '<div class="sub">'+c.topics.length+' '+sp("micro-topics","सूक्ष्म-विषय")+' · '+qn+' '+sp("questions","प्रश्न")+' · '+done+'/'+c.topics.length+' '+sp("practiced","अभ्यास किया")+'</div>'
       + '<div style="margin-top:8px">';
