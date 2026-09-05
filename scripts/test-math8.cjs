@@ -14,15 +14,18 @@ const tags=[...html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/g)];
 let sharedSpeakFrom,sharedAudio;
 for(const [,attrs,body] of tags){const src=/src="([^"]+)"/.exec(attrs);if(src){if(src[1]==='math8-pilot.js'){sharedSpeakFrom=sandbox.audioPlayerSpeakFrom;sharedAudio=sandbox.vAudioExplainer;}if(!src[1].startsWith('http'))vm.runInContext(read(src[1]),sandbox,{filename:src[1]});}else if(body.trim())vm.runInContext(body,sandbox,{filename:'index-inline.js'});}
 const data=sandbox.SL_DATA,subject=data.subjects.find(s=>s.code==='MATH8'),chapter=subject.chapters[0],qs=data.questions.filter(q=>q.subject==='MATH8');
-assert.equal(chapter.topics.length,10);assert.equal(qs.length,80);
+assert.equal(subject.chapters.length,15);assert.equal(subject.chapters.reduce((n,c)=>n+c.topics.length,0),66);assert.equal(qs.length,528);
 assert.equal(chapter.alignment.ncert,'1');assert.equal(chapter.alignment.jac,'5–6');
-for(const lang of ['en','hi']){sandbox.LANG=lang;const intro=sandbox.vSubjectIntro('MATH8');assert(intro.includes('m8-alignment'));assert(intro.includes('5–6'));assert.equal((intro.match(/<tbody>/g)||[]).length,1);}
+for(const lang of ['en','hi']){sandbox.LANG=lang;const intro=sandbox.vSubjectIntro('MATH8');assert(intro.includes('m8-alignment'));assert(intro.includes('5–6'));assert.equal((intro.match(/<tbody>/g)||[]).length,1);assert.equal((intro.match(/<tr>/g)||[]).length,16);}
 assert(subject.intro.en.includes('fourteen chapters'));assert(subject.intro.en.includes('thirteen chapters'));assert(subject.intro.en.includes('only content already available'));
 assert(subject.intro.hi.includes('चौदह chapters'));assert(subject.intro.hi.includes('तेरह chapters'));assert(subject.intro.hi.includes('केवल वही content'));
 assert.equal(new Set(data.questions.map(q=>q.id)).size,data.questions.length,'duplicate IDs');
 const counts={};qs.forEach(q=>{assert(sandbox.SL8.validQuestion(q),q.id);counts[q.type]=(counts[q.type]||0)+1;});
-assert.deepEqual(counts,{mcq:30,multi:10,fill:20,match:10,subjective:10});
+assert.deepEqual(counts,{mcq:198,multi:66,fill:132,match:66,subjective:66});
 for(const tp of chapter.topics){assert.equal(qs.filter(q=>q.topic===tp.code).length,8);for(const lang of ['en','hi']){assert(tp.notes[lang].length>500);assert(tp.worked[0].problem[lang]);sandbox.LANG=lang;const rendered=sandbox.vTopic(tp.code);assert(!rendered.includes('{{diagram:'),tp.code);assert(rendered.includes('m8-lab-'));assert(!rendered.includes('Read the audio transcript'));assert(rendered.includes('SL8.practice'));}assert.equal(tp.audio,undefined);assert.equal(tp.audioPlayer,undefined);}
+for(const c of subject.chapters.slice(1)){assert.equal(c.topics.length,4);assert(c.alignment.ncert&&c.alignment.jac);assert.equal(c.revision.length,4);for(const tp of c.topics){assert.equal(qs.filter(q=>q.topic===tp.code).length,8);for(const lang of ['en','hi']){assert(tp.notes[lang].length>500,tp.code);sandbox.LANG=lang;const rendered=sandbox.vTopic(tp.code);assert(!rendered.includes('{{diagram:'),tp.code);assert(rendered.includes('m8-concept-'));assert(rendered.includes('SL8.practice'));}}}
+for(const c of subject.chapters){const cq=qs.filter(q=>q.chapter===c.no);assert.equal(cq.length,c.no===1?80:32,'question count chapter '+c.no);for(const id of [...c.assessment,...c.revision])assert(cq.some(q=>q.id===id),'bad chapter question reference '+id);}
+for(const q of qs.filter(q=>q.opts))for(const lang of ['en','hi'])assert.equal(new Set(q.opts[lang]).size,q.opts[lang].length,'duplicate option '+q.id+' '+lang);
 // Independently computed objective-answer expectations, by lesson.
 const expected=[
  ['A','C','B',['A','B','D'],49,24],['C','C','C',['A','C'],36,16],['A','B','C',['A','B'],11,.75],
@@ -65,4 +68,4 @@ assert(!/audio/i.test(subject.intro.en));assert(!/audio/i.test(subject.intro.hi)
 sandbox.LANG='en';
 // Existing courses still render and retain original quiz formats.
 for(const s of data.subjects.filter(s=>s.code!=='MATH8')){assert(sandbox.vSubject(s.code).includes(s.name.en));assert(sandbox.vTopic(s.chapters[0].topics[0].code).length>100);}
-console.log('PASS: 10 bilingual lessons, 80 questions, 10 diagrams, answer keys, 998 factor cases, numeric/multiple-answer scoring, subjective separation, spreadsheet round trips, and existing-course render smoke tests.');
+console.log('PASS: 15 aligned units, 66 bilingual micro-topics, 528 questions, interactive diagrams, answer keys, 998 factor cases, five-format scoring, spreadsheet round trips, and existing-course render smoke tests.');

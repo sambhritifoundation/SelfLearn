@@ -89,6 +89,42 @@
   api.step=function(delta){var el=document.getElementById('m8-lab-division');if(!el)return;var k=delta?Math.min(6,+el.dataset.step+1):1;el.dataset.step=k;el.querySelector('.m8-output').innerHTML=output('division',+el.dataset.value,k);var btn=el.querySelector('.m8-controls button'+(k===6?':last-child':':first-child'));if(btn)btn.focus();};
   Object.keys(configs).forEach(function(k){DIAGRAMS['m8-'+k]=function(){return lab(k);};});
 
+  function explorerValue(kind,n){
+    if(kind==='power')return '2<sup>'+n+'</sup> = '+Math.pow(2,n);
+    if(kind==='number')return n+' hundreds + '+n+' tens + '+n+' ones = '+(111*n);
+    if(kind==='quad')return n+' × 10° + '+(360-n*10)+'° = 360°';
+    if(kind==='div')return B('First five multiples: ','पहले पाँच multiples: ')+[1,2,3,4,5].map(function(k){return n*k;}).join(', ');
+    if(kind==='algebra')return n+'('+n+' + 3) = '+n*n+' + '+3*n+' = '+n*(n+3);
+    if(kind==='ratio')return (2*n)+' : '+(3*n)+' = 2 : 3';
+    if(kind==='percent')return (n*10)+'% '+B('of 200','का 200')+' = '+(20*n);
+    if(kind==='pyth')return (3*n)+'² + '+(4*n)+'² = '+(5*n)+'²';
+    if(kind==='geometry')return n+' × '+n+' × '+n+' = '+n*n*n+' '+B('unit cubes','unit cubes');
+    if(kind==='data')return B('Values: ','Values: ')+n+', '+(n+2)+', '+(n+4)+'; '+B('mean','mean')+' = '+(n+2);
+    return n+' × '+(n+3)+' = '+n*(n+3)+' '+B('square units','square units');
+  }
+  function explorerSvg(kind,n,label){
+    var h='',a=Math.min(260,35+n*18),b=Math.min(190,40+n*12);
+    if(kind==='pyth')h='<path d="M70 220 L70 70 L270 220 Z" fill="var(--primary-light)" stroke="var(--primary)" stroke-width="4"/><text x="48" y="150" fill="currentColor">'+3*n+'</text><text x="165" y="248" fill="currentColor">'+4*n+'</text><text x="175" y="135" fill="currentColor">'+5*n+'</text>';
+    else if(kind==='data')h=[0,1,2].map(function(i){var v=n+i*2;return '<rect x="'+(75+i*75)+'" y="'+(235-v*10)+'" width="42" height="'+v*10+'" fill="'+(i===1?'#b15e00':'#245c97')+'"/><text x="'+(96+i*75)+'" y="260" text-anchor="middle" fill="currentColor">'+v+'</text>';}).join('');
+    else if(kind==='geometry')h='<path d="M95 85 L205 55 L270 105 L160 140 Z M95 85 L95 190 L160 240 L160 140 M160 240 L270 205 L270 105" fill="none" stroke="var(--primary)" stroke-width="4"/>';
+    else h='<rect x="50" y="55" width="'+a+'" height="'+b+'" rx="8" fill="var(--primary-light)" stroke="var(--primary)" stroke-width="3"/><line x1="50" y1="'+(55+b/2)+'" x2="'+(50+a)+'" y2="'+(55+b/2)+'" stroke="#b15e00" stroke-width="3"/>';
+    return svg(h,label);
+  }
+  function conceptLab(tp){
+    var id='m8-concept-'+tp.code.toLowerCase(),kind=tp.lab.kind,n=3,label=t(tp.lab.title);
+    return '<section class="m8-lab" id="'+id+'"><h3>'+esc(label)+'</h3>'
+      + '<label for="'+id+'-input">'+B('Change the example','Example बदलकर देखिए')+' <output>'+n+'</output></label>'
+      + '<input id="'+id+'-input" type="range" min="1" max="8" value="'+n+'" oninput="SL8.explore(\''+tp.code+'\',this.value)">'
+      + '<div class="m8-output" aria-live="polite">'+explorerSvg(kind,n,label)+eq(explorerValue(kind,n))+'</div></section>';
+  }
+  api.explore=function(code,value){
+    var info=topicByCode(code),tp=info&&info.topic,n=Math.max(1,Math.min(8,Math.round(Number(value)||1)));
+    if(!tp||!tp.lab)return;var el=document.getElementById('m8-concept-'+code.toLowerCase());if(!el)return;
+    el.querySelector('output').textContent=n;el.querySelector('.m8-output').innerHTML=explorerSvg(tp.lab.kind,n,t(tp.lab.title))+eq(explorerValue(tp.lab.kind,n));
+  };
+  var m8Course=window.SL_DATA.subjects.find(function(s){return s.code==='MATH8';});
+  if(m8Course)m8Course.chapters.forEach(function(c){c.topics.forEach(function(tp){if(tp.lab)DIAGRAMS['m8-explore-'+tp.code.toLowerCase()]=function(){return conceptLab(tp);};});});
+
   var originalTopic=vTopic;
   vTopic=function(code){var h=originalTopic(code);if(!/^M8-/.test(code))return h;var tp=topicByCode(code).topic;
     var formats=[['all','All 8 questions','सभी 8 प्रश्न'],['mcq','Single answer','एक सही उत्तर'],['multi','Multiple answers','कई सही उत्तर'],['fill','Fill blanks','खाली जगह'],['match','Match','मिलान'],['subjective','Written response','लिखित उत्तर']];

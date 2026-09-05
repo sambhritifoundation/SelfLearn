@@ -26,7 +26,7 @@ Recheck a school-issued 2026–27 contents page before making examination claims
 
 | JAC chapter | SelfLearn/NCERT placement |
 |---|---|
-| 1. Rational Numbers | Add a JAC foundation unit before SelfLearn 1; no direct new-NCERT chapter. |
+| 1. Rational Numbers | Published as SelfLearn Unit 15 after the 14-unit NCERT sequence; JAC teachers can assign it before Unit 1. |
 | 2. Linear Equations in One Variable | SelfLearn 13. |
 | 3. Understanding Quadrilaterals | SelfLearn 4; Unit 11 is supplementary. |
 | 4. Data Handling | SelfLearn 10 and 12. |
