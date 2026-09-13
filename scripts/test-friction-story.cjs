@@ -17,6 +17,7 @@ const requiredLabels={
   's8-friction-decision':['Tyre','Tyre tread','Road surface']
 };
 for(const [key,labels] of Object.entries(requiredLabels)){s.LANG='en';const h=s.DIAGRAMS[key]();assert(h.includes('<img'));assert(h.includes('<svg'));assert(h.includes('Predict first'));assert(h.includes('friction-component-key'));for(const label of labels)assert(h.includes(label),`${key} is missing ${label}`);}
+for(const [key,labels] of Object.entries({'s8-friction-slip':['टायर','सड़क','घर्षण बल'],'s8-friction-brake':['ब्रेक-पैड','पहिए का रिम','हब'],'s8-friction-hub':['हब का खोल','गोलीदार बेयरिंग','धुरी','गर्मी'],'s8-friction-decision':['टायर','खाँचे','सड़क']})){s.LANG='hi';const h=s.DIAGRAMS[key]();for(const label of labels)assert(h.includes(label),`${key} has an incorrect Hindi label: ${label}`);}
 const css=read('math8-pilot.css');assert(css.includes('.friction-svg-label'));assert(css.includes('font-size:14px'));assert(css.includes('.friction-component-key'));
 assert(fs.statSync(path.join(root,'assets/science8/friction/cycle-repair-story.webp')).size<350000,'story image too heavy');
 console.log('PASS: Friction pilot has four continuous story episodes, one optimised original scene, four specific prediction labs, 32 mixed questions, bilingual narrative, and safety limits.');

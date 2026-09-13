@@ -352,7 +352,7 @@
 <body>
 <nav class="appnav" aria-label="Main navigation"><div class="appnav-inner">
   <div class="logo" role="button" tabindex="0" aria-label="SelfLearn home" onclick="go('home')">Self<span>Learn</span></div>
-  <div class="navlinks">
+  <div class="navlinks"><button onclick="location.href='examprep.html'">ExamPrep</button>
     <button onclick="go('home')"><span class="en">Learn</span><span class="hi">सीखें</span></button>
     <button onclick="go('dashboard')"><span class="en">My Progress</span><span class="hi">मेरी प्रगति</span></button>
     <!-- Admin nav hidden until role-based access control exists; show only to admin-role users then. Route/vAdmin() left intact below. -->
@@ -8850,6 +8850,14 @@ function vHome(){
 }
 
 /* ================= SUBJECT (chapters) ================= */
+function boardTags(c){
+  if(!c || !c.alignment) return '';
+  function one(board,value,cls){
+    var empty=value==='—',prefix=empty?sp('Not a direct chapter','सीधा अध्याय नहीं'):sp('Ch ','अध्याय ');
+    return '<span class="board-tag '+cls+'"><b>'+board+'</b> · '+(empty?prefix:prefix+esc(value))+'</span>';
+  }
+  return '<span class="board-tags" aria-label="'+esc(sp('Textbook chapter alignment','पाठ्यपुस्तक अध्याय मिलान'))+'">'+one('NCERT',c.alignment.ncert,'ncert')+one('JAC',c.alignment.jac,'jac')+'</span>';
+}
 function vSubject(code){
   var s = subj(code); if(!s) return "Not found";
   var h = '<div class="crumb"><a onclick="go(\'home\')">'+sp("Home","मुख्य")+'</a> › <b>'+t(s.name)+'</b></div>'
@@ -8871,7 +8879,7 @@ function vSubject(code){
       + '<h2 id="'+indexPrefix+'-chapter-index-title">'+sp('All Class 8 units','कक्षा 8 के सभी units')+'</h2>'
       + '<div class="sub">'+courseMix+' · '+totalTopics+' '+sp('micro-topics','सूक्ष्म-विषय')+' · '+totalQuestions+' '+sp('questions','प्रश्न')+'</div>'
       + '<div class="chapter-index-grid">'
-      + s.chapters.map(function(c){return '<button type="button" onclick="document.getElementById(\''+class8Prefix+'-chapter-'+c.no+'\').scrollIntoView({behavior:\'smooth\',block:\'start\'})"><span class="chapter-index-no">'+sp('Unit '+c.no,'Unit '+c.no)+'</span><span class="chapter-index-name">'+t(c.name)+'</span></button>';}).join('')
+      + s.chapters.map(function(c){return '<button type="button" onclick="document.getElementById(\''+class8Prefix+'-chapter-'+c.no+'\').scrollIntoView({behavior:\'smooth\',block:\'start\'})"><span class="chapter-index-no">'+sp('SelfLearn Unit '+c.no,'SelfLearn इकाई '+c.no)+'</span><span class="chapter-index-name">'+t(c.name)+'</span>'+boardTags(c)+'</button>';}).join('')
       + '</div></section>';
   }
   var lastLevel = null;
@@ -8881,7 +8889,7 @@ function vSubject(code){
     var done = c.topics.filter(function(tp){ var st=topicStats(tp.code); return st&&st.n>0; }).length;
     var isClass8=s.code==='MATH8'||s.code==='SCI8',anchor=s.code.toLowerCase();
     h += '<div'+(isClass8?' id="'+anchor+'-chapter-'+c.no+'"':'')+' class="card rowflex'+(isClass8?' chapter-card':'')+'" style="margin-bottom:10px"><div style="flex:1;min-width:250px">'
-      + '<h3>'+chapLabel(c)+': '+t(c.name)+'</h3>'
+      + '<h3>'+chapLabel(c)+': '+t(c.name)+'</h3>'+boardTags(c)
       + '<div class="sub">'+c.topics.length+' '+sp("micro-topics","सूक्ष्म-विषय")+' · '+qn+' '+sp("questions","प्रश्न")+' · '+done+'/'+c.topics.length+' '+sp("practiced","अभ्यास किया")+'</div>'
       + '<div style="margin-top:8px">';
     c.topics.forEach(function(tp){
@@ -9541,13 +9549,13 @@ function vTopic(code){
   var next = idx<c.topics.length-1 ? c.topics[idx+1] : null;
   var st = topicStats(code); var a2 = acc(st);
   var h = '<div class="crumb"><a onclick="go(\'home\')">'+sp("Home","मुख्य")+'</a> › <a onclick="go(\'subject\',{code:\''+s.code+'\'})">'+t(s.name)+'</a> › '
-    + sp("Ch "+c.no,"अध्याय "+c.no)+': '+t(c.name)+' › <b>'+t(tp.name)+'</b></div>';
+    + (s.code==='SCI8'?sp("SelfLearn Unit "+c.no,"SelfLearn इकाई "+c.no):sp("Ch "+c.no,"अध्याय "+c.no))+': '+t(c.name)+' › <b>'+t(tp.name)+'</b></div>';
   h += progressStrip(s, c, idx);
   h += '<div class="card"><div>'
     + '<span class="chip">'+sp("Concept","अवधारणा")+'</span>'
     + (tp.exam ? '<span class="chip green">'+sp("Exam-important","परीक्षा-महत्वपूर्ण")+'</span>' : '')
     + (a2!==null ? '<span class="chip '+(a2>=80?"green":(a2>=60?"amber":"red"))+'">'+sp("Your accuracy: ","आपकी शुद्धता: ")+a2+'%</span>' : '')
-    + '</div><h1 style="margin:10px 0 12px">'+t(tp.name)+'</h1>'
+    + '</div>'+boardTags(c)+'<h1 style="margin:10px 0 12px">'+t(tp.name)+'</h1>'
     + vAudioExplainer(tp)
     + vTutorRoute(code)
     + '<div class="notes">'+fmtNotes(t(tp.notes), tp.images)+'</div></div>';
@@ -9727,7 +9735,7 @@ function vChapterAlignment(s){
     + '<h2>'+sp("Published chapter map","प्रकाशित अध्यायों का मिलान")+'</h2>'
     + '<p class="sub">'+sp("The same lesson can have different chapter numbers in NCERT and JAC.","एक ही पाठ का NCERT और JAC में chapter number अलग हो सकता है।")+'</p>'
     + '<div class="m8-table-wrap"><table><thead><tr><th>'+sp("Published here","यहाँ प्रकाशित")+'</th><th>NCERT</th><th>JAC</th></tr></thead><tbody>'
-    + rows.map(function(c){var nc=c.alignment.ncert==='—'?sp("No direct chapter","सीधा chapter नहीं"):sp("Chapter ","अध्याय ")+esc(c.alignment.ncert),jc=c.alignment.jac==='—'?sp("No direct chapter","सीधा chapter नहीं"):sp("Chapter ","अध्याय ")+esc(c.alignment.jac);return '<tr><td>'+sp("Chapter "+c.no,"अध्याय "+c.no)+': '+t(c.name)+'</td><td>'+nc+'</td><td>'+jc+'</td></tr>';}).join('')
+    + rows.map(function(c){var nc=c.alignment.ncert==='—'?sp("No direct chapter","सीधा अध्याय नहीं"):sp("Chapter ","अध्याय ")+esc(c.alignment.ncert),jc=c.alignment.jac==='—'?sp("No direct chapter","सीधा अध्याय नहीं"):sp("Chapter ","अध्याय ")+esc(c.alignment.jac);return '<tr><td>'+sp("SelfLearn Unit "+c.no,"SelfLearn इकाई "+c.no)+': '+t(c.name)+'</td><td>'+nc+'</td><td>'+jc+'</td></tr>';}).join('')
     + '</tbody></table></div><p class="m8-note">'+sp("JAC numbering follows the latest verified 2025–26 sequence.","JAC numbering नवीनतम सत्यापित 2025–26 क्रम के अनुसार है।")+'</p></div>';
 }
 function vSubjectIntro(code){

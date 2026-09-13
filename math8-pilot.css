@@ -62,4 +62,10 @@
 .friction-component-key strong{margin-right:2px}
 .friction-component-key span{padding:5px 9px;border:1px solid #94a3b8;border-radius:999px;background:#fff;color:#0f172a;font-weight:700}
 .friction-result{padding:15px;border-left:5px solid #f59e0b;border-radius:8px;background:#fffbeb;color:#713f12;font-weight:700;line-height:1.55}
+.board-tags{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 2px}
+.board-tag{display:inline-flex;align-items:center;max-width:100%;padding:5px 9px;border:1px solid #94a3b8;border-radius:999px;background:var(--card);color:var(--text);font-size:.88rem;line-height:1.35;white-space:normal}
+.board-tag.ncert{border-color:#60a5fa;background:#eff6ff;color:#1e3a8a}
+.board-tag.jac{border-color:#f59e0b;background:#fffbeb;color:#78350f}
+.chapter-index .board-tags{margin-top:7px}
+.chapter-index .board-tag{font-size:.78rem;padding:3px 6px}
 @media(max-width:760px){.friction-dialogue{margin:-10px 8px 12px;padding:10px 12px}.friction-choice-row{grid-template-columns:1fr}.friction-visual{grid-template-columns:1fr;padding:10px}.friction-story-hero figcaption{font-size:.95rem}}
