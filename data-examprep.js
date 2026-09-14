@@ -106,7 +106,7 @@ window.EXAMPREP = {
     ['14 — Statistics','Empirical relationship','If mean = 60 and median = 50, the mode is',['20','70','30','None of these'],'C','Mode = 3 × median − 2 × mean = 150 − 120 = 30.'],
     ['15 — Probability','Probability of an event','The probability of getting a tail when a fair coin is tossed is',['2/3','1/2','1/5','0'],'B','The equally likely outcomes are head and tail, so P(tail) = 1/2.']
   ];
-  rows.forEach((r,i)=>window.EXAMPREP.questions.push({qid:'EP-JAC-10-M-2026-A-'+String(i+1).padStart(2,'0'),class:'10',subject:'Maths',topic:r[0],subTopic:r[1],question:r[2],options:r[3],correct:r[4],difficulty:'PYQ',explanation:r[5],imageUrl:'',type:'mcq',marks:1,sourceType:'JAC PYQ',sourceRef:`${source}, Q${i+1}`}));
+  rows.forEach((r,i)=>window.EXAMPREP.questions.push({qid:'EP-JAC-10-M-2026-A-'+String(i+1).padStart(2,'0'),class:'10',subject:'Maths',topic:r[0],subTopic:r[1],question:r[2],options:r[3],correct:r[4],difficulty:'PYQ',explanation:r[5],imageUrl:'',type:'mcq',marks:1,sourceType:'JAC PYQ 2026',sourceRef:`${source}, Q${i+1}`}));
 })();
 
 /* Extracted from the supplied JAC Class 10 Science Theory Annual 2026 recording.
@@ -144,12 +144,40 @@ window.EXAMPREP = {
     ['8 — How do Organisms Reproduce?','Sexual reproduction in plants','What is present in the anther?',['Ovules','Ovary','Egg cells','Pollen grains'],'D','The anther contains pollen grains, which carry the male gametes.'],
     ['9 — Heredity and Evolution','Heredity','What is the number of chromosomes in humans?',['46','42','48','40'],'A','Human somatic cells normally contain 46 chromosomes (23 pairs).']
   ];
-  rows.forEach((r,i)=>window.EXAMPREP.questions.push({qid:'EP-JAC-10-S-2026-A-'+String(i+1).padStart(2,'0'),class:'10',subject:'Science',topic:r[0],subTopic:r[1],question:r[2],options:r[3],correct:r[4],difficulty:'PYQ',explanation:r[5],imageUrl:'',type:'mcq',marks:1,sourceType:'JAC PYQ (recording)',sourceRef:`${source}, Q${i+1}`}));
+  rows.forEach((r,i)=>window.EXAMPREP.questions.push({qid:'EP-JAC-10-S-2026-A-'+String(i+1).padStart(2,'0'),class:'10',subject:'Science',topic:r[0],subTopic:r[1],question:r[2],options:r[3],correct:r[4],difficulty:'PYQ',explanation:r[5],imageUrl:'',type:'mcq',marks:1,sourceType:'JAC PYQ 2026 (recording)',sourceRef:`${source}, Q${i+1}`}));
+})();
+
+/* Extracted from the supplied JAC Class 10 Mathematics 2024-25 session paper.
+   It is presented in ExamPrep as PYQ 2025, matching the learner-facing exam year. */
+(() => {
+  const source='JAC Class 10 Mathematics PYQ 2025 (Session 2024-25)';
+  const mcq=[
+    ['12 — Areas Related to Circles','Perimeter of a semicircle','Which expression gives the perimeter of a semicircle of radius r?',['2πr','πr','2πr + r','πr + 2r'],'D','The perimeter includes the semicircular arc πr and the diameter 2r.'],
+    ['12 — Areas Related to Circles','Area of a sector','Which expression gives the area of a sector of radius r and angle θ?',['πrθ/360°','2πrθ/360°','πr²/360°','πr²θ/360°'],'D','A sector is θ/360 of a full circle, so its area is θ/360 × πr².'],
+    ['12 — Areas Related to Circles','Arc length','Which expression gives the length of an arc subtending angle θ at the centre of a circle of radius r?',['πrθ/180°','2πrθ/360°','πr/180°','πrθ/360°'],'B','Arc length is θ/360 × 2πr.'],
+    ['14 — Statistics','Mean, median and mode','Which is the basic relationship among mean, median and mode?',['Median = Mode + 2 Mean','Mode = 3 Median − 2 Mean','Mean = 2 Median − Mode','Median = Mean + Mode'],'B','The empirical relation is Mode = 3 Median − 2 Mean.'],
+    ['14 — Statistics','Measures of central tendency','Which is the most appropriate measure of central tendency?',['Mean','Median','Mode','None of these'],'A','For the general data set intended in this objective question, the mean is the standard measure of central tendency.'],
+    ['5 — Arithmetic Progressions','Natural numbers','The sum of the first ten natural numbers is',['20','40','55','0'],'C','1 + 2 + … + 10 = 10×11/2 = 55.'],
+    ['14 — Statistics','Cumulative frequency','A cumulative frequency curve is also called a/an',['Ogive','Mean','Mode','Median'],'A','The graph of cumulative frequency is called an ogive.'],
+    ['15 — Probability','Complementary events','The value of P(E) + P(not E) for an event E is',['1','1.5','0.5','2'],'A','An event and its complement exhaust all possible outcomes, so their probabilities sum to 1.'],
+    ['15 — Probability','Impossible events','The probability of an impossible event is',['1/2','1','0','−1'],'C','An event that cannot occur has probability 0.'],
+    ['15 — Probability','Coin toss','The probability of getting a head when tossing a fair coin is',['2/3','1/2','3/2','2'],'B','There are two equally likely outcomes, head and tail.']
+  ];
+  mcq.forEach((r,i)=>window.EXAMPREP.questions.push({qid:'EP-JAC-10-M-2025-A-'+String(i+1).padStart(2,'0'),class:'10',subject:'Maths',topic:r[0],subTopic:r[1],question:r[2],options:r[3],correct:r[4],difficulty:'PYQ',explanation:r[5],imageUrl:'',type:'mcq',marks:1,sourceType:'JAC PYQ 2025',sourceRef:`${source}, Q${i+1}`}));
+  const written=[
+    ['13 — Surface Areas and Volumes','Volume of a cylinder','Find the volume of a long circular cylinder of radius 7 cm and height 5 cm.','πr²h = (22/7) × 7² × 5 = 770 cm³.',['1 mark: use V = πr²h.','1 mark: substitute r = 7 cm and h = 5 cm to obtain 770 cm³.'],2],
+    ['14 — Statistics','Mean','If the mean of x, 2, 3, 5 and 4 is 4, find x.','(x + 2 + 3 + 5 + 4)/5 = 4, so x + 14 = 20 and x = 6.',['1 mark: form the mean equation.','1 mark: x = 6.'],2],
+    ['13 — Surface Areas and Volumes','Curved surface area of a cone','The oblique height of a cone is 16 cm and the radius of its base is 14 cm. Find its curved surface area.','CSA = πrl = (22/7) × 14 × 16 = 704 cm².',['1 mark: use CSA = πrl.','1 mark: substitute correctly.','1 mark: 704 cm².'],3],
+    ['14 — Statistics','Mean of grouped data','Find the mean for the following distribution: class intervals 50–52, 52–54, 54–56, 56–58, 58–60 with frequencies 15, 110, 135, 115, 25.','Class marks are 51, 53, 55, 57 and 59. Σf = 400 and Σfx = 22050; mean = 22050/400 = 55.125.',['1 mark: correct class marks.','1 mark: calculate Σf and Σfx.','1 mark: mean = 55.125.'],3],
+    ['14 — Statistics','Mode of grouped data','Find the mode for the distribution: class intervals 10–20, 20–30, 30–40, 40–50, 50–60 with frequencies 6, 8, 15, 9, 8.','The modal class is 30–40. Mode = 30 + [(15−8)/(2×15−8−9)]×10 = 30 + 70/13 ≈ 35.38.',['1 mark: identify modal class 30–40.','2 marks: substitute correctly in the mode formula.','2 marks: mode ≈ 35.38.'],5],
+    ['15 — Probability','Complement of an event','A die is thrown twice. Find the probability that 5 will come at least once.','P(5 does not occur in either throw) = (5/6)² = 25/36. Therefore P(5 occurs at least once) = 1 − 25/36 = 11/36.',['2 marks: use the complement event.','2 marks: calculate (5/6)² = 25/36.','1 mark: answer 11/36.'],5]
+  ];
+  written.forEach((r,i)=>window.EXAMPREP.written.push({qid:'EP-JAC-10-M-2025-W'+String(i+11).padStart(2,'0'),class:'10',subject:'Maths',topic:r[0],subTopic:r[1],question:r[2],type:'short',marks:r[5],difficulty:'PYQ',explanation:r[3],rubric:r[4],sourceType:'JAC PYQ 2025',sourceRef:`${source}, Q${i+11}`}));
 })();
 
 /* Hindi companion text for the Science PYQs. */
 (() => {
-  const q=window.EXAMPREP.questions.filter(x=>x.subject==='Science'&&x.sourceType==='JAC PYQ (recording)');
+  const q=window.EXAMPREP.questions.filter(x=>x.subject==='Science'&&x.sourceType==='JAC PYQ 2026 (recording)');
   const rows=[
     ['गोलाकार दर्पण','गोलाकार दर्पण का ज्यामितीय केंद्र क्या कहलाता है?',['ध्रुव','प्रकाशिक केंद्र','फोकस','वक्रता केंद्र'],'परावर्तक सतह का मध्य बिंदु दर्पण का ध्रुव कहलाता है।'],
     ['दर्पणों के उपयोग','शेविंग के लिए कौन-सा दर्पण उपयुक्त है?',['समतल दर्पण','उत्तल दर्पण','अवतल दर्पण','इनमें से कोई नहीं'],'चेहरा दर्पण के पास होने पर अवतल दर्पण बड़ा और सीधा प्रतिबिंब बनाता है।'],
@@ -182,5 +210,30 @@ window.EXAMPREP = {
     ['आनुवंशिकता','मनुष्यों में गुणसूत्रों की संख्या कितनी होती है?',['46','42','48','40'],'मनुष्य की देह कोशिकाओं में सामान्यतः 46 गुणसूत्र (23 जोड़े) होते हैं।']
   ];
   rows.forEach((x,i)=>Object.assign(q[i],{subTopicHi:x[0],questionHi:x[1],optionsHi:x[2],explanationHi:x[3]}));
+})();
+
+/* Hindi companion text for the Mathematics PYQ 2025 questions. */
+(() => {
+  const all=[...window.EXAMPREP.questions,...window.EXAMPREP.written];
+  const q=all.filter(x=>x.sourceType==='JAC PYQ 2025');
+  const rows=[
+    ['अर्धवृत्त का परिमाप','त्रिज्या r वाले अर्धवृत्त का परिमाप कौन-सा व्यंजक देता है?',['2πr','πr','2πr + r','πr + 2r'],'परिमाप में अर्धवृत्ताकार चाप πr और व्यास 2r दोनों शामिल होते हैं।'],
+    ['त्रिज्यखंड का क्षेत्रफल','त्रिज्या r और कोण θ वाले त्रिज्यखंड का क्षेत्रफल कौन-सा व्यंजक देता है?',['πrθ/360°','2πrθ/360°','πr²/360°','πr²θ/360°'],'त्रिज्यखंड पूरे वृत्त का θ/360 भाग होता है, इसलिए क्षेत्रफल θ/360 × πr² है।'],
+    ['चाप की लंबाई','त्रिज्या r वाले वृत्त के केंद्र पर θ कोण बनाने वाले चाप की लंबाई कौन-सा व्यंजक देता है?',['πrθ/180°','2πrθ/360°','πr/180°','πrθ/360°'],'चाप की लंबाई θ/360 × 2πr होती है।'],
+    ['माध्य, माध्यिका और बहुलक','माध्य, माध्यिका और बहुलक के बीच मूल संबंध क्या है?',['माध्यिका = बहुलक + 2 माध्य','बहुलक = 3 माध्यिका − 2 माध्य','माध्य = 2 माध्यिका − बहुलक','माध्यिका = माध्य + बहुलक'],'अनुभवजन्य संबंध है: बहुलक = 3 माध्यिका − 2 माध्य।'],
+    ['केंद्रीय प्रवृत्ति के माप','केंद्रीय प्रवृत्ति का सबसे उपयुक्त माप कौन-सा है?',['माध्य','माध्यिका','बहुलक','इनमें से कोई नहीं'],'इस सामान्य आँकड़ा-समूह के लिए माध्य केंद्रीय प्रवृत्ति का मानक माप है।'],
+    ['प्राकृतिक संख्याएँ','प्रथम दस प्राकृतिक संख्याओं का योग कितना है?',['20','40','55','0'],'1 + 2 + … + 10 = 10×11/2 = 55।'],
+    ['संचयी बारंबारता','संचयी बारंबारता वक्र को क्या कहते हैं?',['ओजाइव','माध्य','बहुलक','माध्यिका'],'संचयी बारंबारता के ग्राफ को ओजाइव कहते हैं।'],
+    ['पूरक घटनाएँ','घटना E के लिए P(E) + P(not E) का मान क्या है?',['1','1.5','0.5','2'],'किसी घटना और उसकी पूरक घटना की प्रायिकताओं का योग 1 होता है।'],
+    ['असंभव घटनाएँ','एक असंभव घटना की प्रायिकता क्या है?',['1/2','1','0','−1'],'जो घटना हो ही नहीं सकती, उसकी प्रायिकता 0 होती है।'],
+    ['सिक्का उछालना','एक निष्पक्ष सिक्का उछालने पर चित आने की प्रायिकता क्या है?',['2/3','1/2','3/2','2'],'चित और पट दो समान रूप से संभावित परिणाम हैं।'],
+    ['बेलन का आयतन','त्रिज्या 7 सेमी और ऊँचाई 5 सेमी वाले वृत्तीय बेलन का आयतन ज्ञात कीजिए.','πr²h = (22/7) × 7² × 5 = 770 सेमी³।'],
+    ['माध्य','यदि x, 2, 3, 5 और 4 का माध्य 4 है, तो x ज्ञात कीजिए.','(x + 2 + 3 + 5 + 4)/5 = 4, अतः x + 14 = 20 और x = 6।'],
+    ['शंकु का वक्र पृष्ठीय क्षेत्रफल','एक शंकु की तिर्यक ऊँचाई 16 सेमी और आधार की त्रिज्या 14 सेमी है। उसका वक्र पृष्ठीय क्षेत्रफल ज्ञात कीजिए.','वक्र पृष्ठीय क्षेत्रफल = πrl = (22/7) × 14 × 16 = 704 सेमी²।'],
+    ['वर्गीकृत आँकड़ों का माध्य','वर्गांतर 50–52, 52–54, 54–56, 56–58, 58–60 और बारंबारताएँ 15, 110, 135, 115, 25 के लिए माध्य ज्ञात कीजिए.','वर्ग-चिह्न 51, 53, 55, 57, 59 हैं। Σf = 400, Σfx = 22050; माध्य = 22050/400 = 55.125।'],
+    ['वर्गीकृत आँकड़ों का बहुलक','वर्गांतर 10–20, 20–30, 30–40, 40–50, 50–60 और बारंबारताएँ 6, 8, 15, 9, 8 के लिए बहुलक ज्ञात कीजिए.','बहुलक वर्ग 30–40 है। बहुलक = 30 + [(15−8)/(2×15−8−9)]×10 ≈ 35.38।'],
+    ['घटना की पूरक प्रायिकता','एक पासे को दो बार फेंका जाता है। कम-से-कम एक बार 5 आने की प्रायिकता ज्ञात कीजिए.','दोनों बार 5 न आने की प्रायिकता (5/6)² = 25/36 है। अतः कम-से-कम एक बार 5 आने की प्रायिकता 1 − 25/36 = 11/36 है।']
+  ];
+  rows.forEach((x,i)=>Object.assign(q[i],{subTopicHi:x[0],questionHi:x[1],optionsHi:Array.isArray(x[2])?x[2]:undefined,explanationHi:x[3]??x[2]}));
 })();
 
