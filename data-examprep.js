@@ -70,3 +70,80 @@ window.EXAMPREP = {
   written.forEach((x,i)=>Object.assign(w[i],{questionHi:x[0],explanationHi:x[1],subTopicHi:i===1?'अभाज्य गुणनखंड':i>1&&i<4?'अपरिमेय संख्याएँ':i===4?'अनुप्रयोग':'HCF और LCM'}));
 })();
 
+/* Verified from the supplied JAC Class 10 Mathematics Annual 2026 paper.
+   The scanned file includes Section A, Questions 1-30 only. */
+(() => {
+  const source='JAC Class 10 Mathematics Annual 2026, Section A';
+  const rows=[
+    ['1 — Real Numbers','Prime factorisation','Which of the following is the prime factorisation of 5005?',['6 × 7 × 11 × 13','5 × 7 × 11 × 7 × 13','5 × 7 × 11 × 13','None of these'],'C','5005 = 5 × 1001 = 5 × 7 × 11 × 13.'],
+    ['1 — Real Numbers','HCF','The HCF of two consecutive positive integers is',['0','1','3','None of these'],'B','Consecutive integers have no common factor other than 1.'],
+    ['1 — Real Numbers','Rational numbers','Which of the following is a rational number?',['√1764','0.010010001…','π','None of these'],'A','√1764 = 42, which is rational.'],
+    ['2 — Polynomials','Zeroes of a polynomial','From the shown graph of y = p(x), how many zeroes does p(x) have?',['2','3','1','4'],'D','The curve intersects the x-axis at four points, so p(x) has four zeroes.'],
+    ['2 — Polynomials','Relationship between zeroes and coefficients','The sum of the zeroes of x² − 7x + 12 is',['6','7','−7','12'],'B','For ax² + bx + c, the sum of zeroes is −b/a. Here it is 7.'],
+    ['3 — Pair of Linear Equations in Two Variables','Consistency','If 4x + 3y = 5 and 2x + ky = 1 are inconsistent, k equals',['1','2','4','3/2'],'D','For inconsistent equations, a₁/a₂ = b₁/b₂ ≠ c₁/c₂. Thus 4/2 = 3/k, so k = 3/2.'],
+    ['3 — Pair of Linear Equations in Two Variables','Solving a pair','The solution of 2x + y = 6 and 5x − y = 1 is',['x = 4, y = 3','x = 1, y = 4','x = 4, y = 1','x = −1, y = 8'],'B','Adding the equations gives 7x = 7, so x = 1 and y = 4.'],
+    ['4 — Quadratic Equations','Identifying a quadratic equation','Which of the following is a quadratic equation?',['(x − 3)² = x² − 7x + 5','(x + 1)² = x² − 5x + 7','(x + 1)² = 2(x − 3)','x² + 4x + 1 = (x + 3)²'],'C','Only option C simplifies to x² + 5 = 0, which has degree 2.'],
+    ['4 — Quadratic Equations','Discriminant','The discriminant of 2x² − 8x + 4 = 0 is',['32','64','96','92'],'A','D = b² − 4ac = (−8)² − 4(2)(4) = 32.'],
+    ['5 — Arithmetic Progressions','Common difference','The common difference of the A.P. 0.6, 1.7, 2.8, 3.9, … is',['1.1','11','0.6','6'],'A','Subtract consecutive terms: 1.7 − 0.6 = 1.1.'],
+    ['5 — Arithmetic Progressions','Nth term','The 10th term of the A.P. 2, 7, 12, … is',['245','47','52','57'],'B','a₁₀ = 2 + 9(5) = 47.'],
+    ['7 — Coordinate Geometry','Distance formula','The distance between (2, 3) and (5, 7) is',['4','3','5','None of these'],'C','√[(5−2)² + (7−3)²] = √25 = 5.'],
+    ['7 — Coordinate Geometry','Section formula','The midpoint of the line segment joining (2, 5) and (4, 7) is',['(1, 2)','(5/2, 7/2)','(3, 7)','(3, 6)'],'D','The midpoint is ((2+4)/2, (5+7)/2) = (3, 6).'],
+    ['6 — Triangles','Similar triangles','Corresponding sides of similar triangles are',['Equal','Proportional','Complementary','Supplementary'],'B','The ratio of each pair of corresponding sides is the same.'],
+    ['6 — Triangles','Basic proportionality theorem','In ΔABC, DE ∥ BC. If BD = 7.2 cm, AE = 1.8 cm and EC = 5.4 cm, AD is',['21.6 cm','2.6 cm','2.4 cm','3.6 cm'],'C','AD/BD = AE/EC = 1.8/5.4 = 1/3, so AD = 2.4 cm.'],
+    ['6 — Triangles','Similarity criteria','In the given figure, ΔABC ~ ΔPQR by which criterion?',['A-A-A','S-S-S','S-A-S','A-A-S'],'A','The corresponding angles are 40°, 80° and 60°, so AAA similarity applies.'],
+    ['10 — Circles','Tangents','Tangents PA and PB from P to a circle with centre O meet at 80°. ∠POA equals',['60°','50°','100°','80°'],'B','OP bisects the angle between equal tangents. In right triangle OAP, ∠APO = 40°, so ∠POA = 50°.'],
+    ['10 — Circles','Tangents','How many tangents can a circle have?',['One','Two','Infinite','None of these'],'C','There is one tangent at every point on the circle, so there are infinitely many.'],
+    ['10 — Circles','Parallel tangents','The distance between two parallel tangents to a circle is 18 cm. The radius is',['18 cm','28 cm','36 cm','9 cm'],'D','The distance between parallel tangents is the diameter, so the radius is 18/2 = 9 cm.'],
+    ['8 — Introduction to Trigonometry','Trigonometric ratios','If tan A = 0.75, sin A is',['0.80','0.60','0.25','None of these'],'B','Use opposite:adjacent = 3:4, giving hypotenuse 5 and sin A = 3/5 = 0.60.'],
+    ['8 — Introduction to Trigonometry','Trigonometric ratios','If 2 sin θ = √3, θ is',['0°','60°','45°','30°'],'B','sin θ = √3/2, so θ = 60° for an acute angle.'],
+    ['8 — Introduction to Trigonometry','Identities','9 sec² A − 9 tan² A is',['−9','0','9','None of these'],'C','sec² A − tan² A = 1, hence the value is 9.'],
+    ['8 — Introduction to Trigonometry','Complementary angles','If sin A = 1/2 and cos B = 1/2, A + B is',['0°','30°','60°','90°'],'D','For acute angles, sin A = 1/2 gives A = 30° and cos B = 1/2 gives B = 60°, so A + B = 90°.'],
+    ['9 — Some Applications of Trigonometry','Heights and distances','From a point 30 m from a tower, the angle of elevation of its top is 45°. The tower’s height is',['30 m','15√3 m','10 m','20√3 m'],'A','tan 45° = height/30 = 1, so the height is 30 m.'],
+    ['12 — Areas Related to Circles','Arc length','What is the length of the arc of a circle of radius 7 cm subtending 60° at the centre?',['22 cm','22/3 cm','44 cm','44/3 cm'],'B','Arc length = 60/360 × 2π × 7 = 7π/3 = 22/3 cm, using π = 22/7.'],
+    ['12 — Areas Related to Circles','Area of a sector','The area of a sector of radius 14 cm and central angle 90° is',['102 cm²','154 cm²','212 cm²','308 cm²'],'B','Area = 90/360 × π × 14² = 154 cm², using π = 22/7.'],
+    ['13 — Surface Areas and Volumes','Cone','A cone has height 12 cm and base diameter 10 cm. Its slant height is',['13 cm','17 cm','5 cm','√149 cm'],'A','Radius = 5 cm; l = √(12² + 5²) = 13 cm.'],
+    ['13 — Surface Areas and Volumes','Combined solids','Two cubes of volume 27 cm³ are joined face to face. The total surface area of the resulting solid is',['109.4 cm²','126 cm²','150 cm²','90 cm²'],'D','Each cube has side 3 cm. The joined solid is a 6 × 3 × 3 cuboid: TSA = 2(18 + 18 + 9) = 90 cm².'],
+    ['14 — Statistics','Empirical relationship','If mean = 60 and median = 50, the mode is',['20','70','30','None of these'],'C','Mode = 3 × median − 2 × mean = 150 − 120 = 30.'],
+    ['15 — Probability','Probability of an event','The probability of getting a tail when a fair coin is tossed is',['2/3','1/2','1/5','0'],'B','The equally likely outcomes are head and tail, so P(tail) = 1/2.']
+  ];
+  rows.forEach((r,i)=>window.EXAMPREP.questions.push({qid:'EP-JAC-10-M-2026-A-'+String(i+1).padStart(2,'0'),class:'10',subject:'Maths',topic:r[0],subTopic:r[1],question:r[2],options:r[3],correct:r[4],difficulty:'PYQ',explanation:r[5],imageUrl:'',type:'mcq',marks:1,sourceType:'JAC PYQ',sourceRef:`${source}, Q${i+1}`}));
+})();
+
+/* Extracted from the supplied JAC Class 10 Science Theory Annual 2026 recording.
+   The available paper pages contain Section A, Questions 1-29; Question 30 was not present. */
+(() => {
+  const source='JAC Class 10 Science (Theory) Annual 2026, Section A (recording source)';
+  const rows=[
+    ['10 — Light - Reflection and Refraction','Spherical mirrors','What is the geometrical centre of a spherical mirror called?',['Pole','Optical centre','Focus','Centre of curvature'],'A','The pole is the midpoint of the reflecting surface of a spherical mirror.'],
+    ['10 — Light - Reflection and Refraction','Uses of mirrors','Which mirror is suitable for shaving?',['Plane mirror','Convex mirror','Concave mirror','None of these'],'C','A concave mirror gives an enlarged, upright image when the face is close to it.'],
+    ['11 — The Human Eye and the Colourful World','Lenses','What is the S.I. unit of power of a lens?',['Dioptre (D)','Metre','Centimetre','Millimetre'],'A','Lens power is measured in dioptres, where 1 D = 1 m⁻¹.'],
+    ['11 — The Human Eye and the Colourful World','Accommodation','Which structure changes the focal length of the eye lens during accommodation?',['Pupil','Retina','Ciliary muscles','Optic nerve'],'C','Ciliary muscles alter the curvature, and therefore the focal length, of the eye lens.'],
+    ['11 — The Human Eye and the Colourful World','Defects of vision','Which lens is used to correct nearsightedness?',['Convex lens','Concave lens','Bifocal lens','Cylindrical lens'],'B','A concave lens diverges incoming rays to correct myopia (nearsightedness).'],
+    ['11 — The Human Eye and the Colourful World','Dispersion','The main reason for the formation of a rainbow is',['Reflection','Refraction','Dispersion','All of these'],'D','A rainbow involves refraction, dispersion and internal reflection of sunlight in water droplets.'],
+    ['12 — Electricity','Resistance','What is the S.I. unit of resistance?',['Ohm','Ampere','Volt','Coulomb'],'A','Electrical resistance is measured in ohms (Ω).'],
+    ['12 — Electricity','Electrical energy','1 kilowatt-hour is equal to',['3.6 × 10⁶ J','3.6 × 10⁵ J','0.36 × 10⁴ J','36 × 10⁶ J'],'A','1 kWh = 1000 W × 3600 s = 3.6 × 10⁶ J.'],
+    ['12 — Electricity','Resistance','The resistance of a conductor depends on',['Its length','Its cross-sectional area','The nature of its material','All of these'],'D','Resistance depends on length, cross-sectional area and the material (resistivity).'],
+    ['13 — Magnetic Effects of Electric Current','Electromagnets','What type of rod is usually used to make an electromagnet?',['Steel','Brass','Soft iron','None of these'],'C','Soft iron is easily magnetised and demagnetised, so it is used as an electromagnet core.'],
+    ['1 — Chemical Reactions and Equations','Displacement reactions','Zn(s) + CuSO₄(aq) → ZnSO₄(aq) + Cu(s) is an example of which reaction?',['Combination','Decomposition','Displacement','Double displacement'],'C','More reactive zinc displaces copper from copper sulphate solution.'],
+    ['2 — Acids, Bases and Salts','Oxidation prevention','Which gas is filled in a chips packet?',['Oxygen','Nitrogen','Hydrogen','Carbon dioxide'],'B','Nitrogen prevents oxidation of the fats and oils in chips.'],
+    ['1 — Chemical Reactions and Equations','Double displacement reactions','Which type of reaction commonly forms a precipitate?',['Displacement','Combination','Double displacement','Decomposition'],'C','A double displacement reaction can produce an insoluble solid called a precipitate.'],
+    ['2 — Acids, Bases and Salts','Salts','Which chemical is used to remove permanent hardness of water?',['Washing soda','Baking soda','Bleaching powder','Gypsum'],'A','Washing soda (sodium carbonate) is used to remove permanent hardness of water.'],
+    ['2 — Acids, Bases and Salts','pH scale','What is the pH value of acids?',['7','Less than 7','More than 7','None of these'],'B','Acidic solutions have a pH less than 7.'],
+    ['2 — Acids, Bases and Salts','Metal oxides','What is the nature of metallic oxides?',['Acidic','Basic','Neutral','None of these'],'B','Most metallic oxides are basic in nature.'],
+    ['4 — Carbon and its Compounds','Hydrocarbons','Which of the following is an unsaturated hydrocarbon?',['C₂H₄','C₃H₈','CH₄','C₅H₁₂'],'A','Ethene, C₂H₄, contains a carbon-carbon double bond and is unsaturated.'],
+    ['4 — Carbon and its Compounds','Ionic compounds','Which of the following is not an ionic compound?',['NaCl','MgCl₂','CO₂','Na₂O'],'C','Carbon dioxide is a covalent molecular compound.'],
+    ['4 — Carbon and its Compounds','Functional groups','What is the functional group of alcohols?',['−CHO','−OH','−COOH','−CO−'],'B','Alcohols contain the hydroxyl functional group, −OH.'],
+    ['4 — Carbon and its Compounds','Isomerism','How many isomers does pentane have?',['2','3','4','5'],'B','Pentane has three structural isomers: n-pentane, isopentane and neopentane.'],
+    ['6 — Life Processes','Nutrition','What type of nutrition does Amoeba have?',['Autotrophic','Heterotrophic','Saprophytic','Holozoic'],'D','Amoeba ingests food and digests it internally, which is holozoic nutrition.'],
+    ['6 — Life Processes','Digestion','Gastric glands are found in which organ?',['Lungs','Stomach','Liver','Small intestine'],'B','Gastric glands are present in the lining of the stomach.'],
+    ['6 — Life Processes','Nutrition','Which is the largest gland in the human body?',['Pituitary','Liver','Ovary','Thyroid'],'B','The liver is the largest gland in the human body.'],
+    ['6 — Life Processes','Control and coordination','What is the main thinking part of the brain?',['Forebrain','Midbrain','Hindbrain','Spinal cord'],'A','The forebrain, especially the cerebrum, is the main thinking region.'],
+    ['7 — Control and Coordination','Plant hormones','The folding of leaves occurs under the influence of which plant hormone?',['Auxin','Gibberellin','Cytokinin','Abscisic acid'],'A','Auxin-driven differential growth can produce movements such as folding of leaves.'],
+    ['7 — Control and Coordination','Hormones','Diabetes is caused by the deficiency of which hormone?',['Adrenaline','Thyroxine','Estrogen','Insulin'],'D','Insulin deficiency prevents normal regulation of blood glucose concentration.'],
+    ['8 — How do Organisms Reproduce?','Asexual reproduction','By which method does reproduction take place in Planaria?',['Budding','Regeneration','Fission','Spore formation'],'B','Planaria can reproduce by regeneration from body fragments.'],
+    ['8 — How do Organisms Reproduce?','Sexual reproduction in plants','What is present in the anther?',['Ovules','Ovary','Egg cells','Pollen grains'],'D','The anther contains pollen grains, which carry the male gametes.'],
+    ['9 — Heredity and Evolution','Heredity','What is the number of chromosomes in humans?',['46','42','48','40'],'A','Human somatic cells normally contain 46 chromosomes (23 pairs).']
+  ];
+  rows.forEach((r,i)=>window.EXAMPREP.questions.push({qid:'EP-JAC-10-S-2026-A-'+String(i+1).padStart(2,'0'),class:'10',subject:'Science',topic:r[0],subTopic:r[1],question:r[2],options:r[3],correct:r[4],difficulty:'PYQ',explanation:r[5],imageUrl:'',type:'mcq',marks:1,sourceType:'JAC PYQ (recording)',sourceRef:`${source}, Q${i+1}`}));
+})();
+
