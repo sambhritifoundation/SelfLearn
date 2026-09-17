@@ -1,5 +1,6 @@
 const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict'),http=require('node:http'),path=require('node:path');
 const ctx={window:{}};for(const f of ['data-examprep.js','data-examprep-pyq.js','data-examprep-qb.js'])vm.runInNewContext(fs.readFileSync(f,'utf8'),ctx);const b=ctx.window.EXAMPREP,all=[...b.questions,...b.written];
+assert.match(fs.readFileSync('examprep.html','utf8'),/\.language-picker select\{[^}]*background-color:#fff;[^}]*color:#243449/);
 assert.equal(b.questions.length,301);assert.equal(b.written.length,125);assert.equal(new Set(all.map(q=>q.qid)).size,426);
 for(const q of b.questions){assert.equal(q.options.length,4);assert.equal(new Set(q.options).size,4);assert.match(q.correct,/^[ABCD]$/);assert(q.explanation&&q.sourceRef);}
 const pyq=b.questions.filter(q=>q.subject==='Maths'&&q.sourceType==='JAC PYQ 2026');assert.equal(pyq.length,30);assert.equal(new Set(pyq.map(q=>q.topic)).size,14);assert(pyq.every(q=>q.sourceRef.startsWith('JAC Class 10 Mathematics Annual 2026')));
