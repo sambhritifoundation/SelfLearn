@@ -30,9 +30,14 @@ const server=http.createServer((req,res)=>{const file=path.join(root,decodeURICo
     assert.equal(await page.locator('#palette button').count(),39);
     assert((await page.locator('.note').textContent()).includes('Test Student'));
     await page.addScriptTag({path:path.join(modules,'pdf-lib/dist/pdf-lib.min.js')});
-    await page.locator('input[name=answer]').first().check();
+    await page.locator('input[name=answer][value="C"]').check();
+    await page.locator('#palette button').nth(9).click();
+    await page.locator('#written').fill('2Al + 6HCl → 2AlCl3 + 3H2. The balanced equation has equal atoms on both sides.');
     await page.locator('#submit').click();
     await page.locator('#delivery-status.pending').waitFor({timeout:30000});
+    assert((await page.locator('#provisional-summary').textContent()).includes('Needs teacher review'));
+    assert((await page.locator('#provisional-summary').textContent()).includes('3/80'));
+    assert((await page.locator('.rubric-score').nth(1).textContent()).includes('2/2'));
     assert.equal(deliveries.length,2);
     assert(!deliveries[1].url().includes('/ajax/'));
     assert(deliveries[1].url().includes(encodeURIComponent('teacher@example.org')));
