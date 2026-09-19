@@ -46,6 +46,10 @@ const server = http.createServer((req, res) => {
     await page.locator('input[name=multi-answer]').first().check();
     await page.locator('input[name=multi-answer]').nth(1).check();
     assert.equal(await page.locator('.answered').count(), 1);
+    await page.locator('#palette button').nth(53).click();
+    assert((await page.locator('.question').textContent()).includes('lim (n → ∞)'));
+    assert(!(await page.locator('.question').textContent()).includes('Piecewise-function context'));
+    assert((await page.locator('.notation-help').textContent()).includes('a sub n squared'));
     assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1));
     assert.deepEqual(errors, []);
     console.log('PASS: IITM ES exam landing page, selectors, timer, audio and MSQ interactions verified.');

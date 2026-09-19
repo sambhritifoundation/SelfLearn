@@ -15,7 +15,7 @@ const contexts={
   circuitA:'Circuit A for Q74–Q78: R1=R2=10 kΩ and R3=5 kΩ. A 6 V source feeds R1 from node L to X; a 3 V source connects through R2 from X to node R; a 12 V source connects to node M; R3 connects X to M. All source negative terminals share ground. vx is measured + at X and − at M; ix points down through R3 from X to M.',
   circuitB:'Circuit B for Q79–Q84: Load R=5 kΩ and VR(t)=0.2V1(t)+0.4V2(t). V1 feeds node X through R1, V2 feeds X through R2, and load R connects X to ground. VR is positive at X.'
 };
-const clean=s=>String(s||'').replace(/```(?:c|asm|text)?\n?/g,'').replace(/```/g,'').replace(/\*\*/g,'').replace(/\*/g,'').replace(/\$\$/g,'').replace(/\$/g,'').replace(/`/g,'').replace(/✓\s*/g,'').replace(/\s+\n/g,'\n').replace(/\n{3,}/g,'\n\n').trim();
+const clean=s=>String(s||'').replace(/```(?:c|asm|text)?\n?/g,'').replace(/```/g,'').replace(/\*\*/g,'').replace(/\*/g,'').replace(/\$\$/g,'').replace(/\$/g,'').replace(/`/g,'').replace(/✓\s*/g,'').replace(/\\lim_\{n\\to\\infty\}/g,'lim (n → ∞)').replace(/\\to/g,'→').replace(/\\infty/g,'∞').replace(/\\lfloor/g,'⌊').replace(/\\rfloor/g,'⌋').replace(/\\text\{([^}]+)\}/g,' $1 ').replace(/\\,/g,' ').replace(/\s+\n/g,'\n').replace(/\n{3,}/g,'\n\n').trim();
 function context(n){if(n>=2&&n<=6)return contexts.reading;if(n>=7&&n<=11)return contexts.listening;if(n>=37&&n<=40)return contexts.dialogue;if(n>=48&&n<=49)return contexts.garden;if(n>=50&&n<=52)return contexts.components;if(n>=53&&n<=54)return contexts.sequence;if(n>=55&&n<=56)return contexts.piecewise;if(n>=74&&n<=78)return contexts.circuitA;if(n>=79&&n<=84)return contexts.circuitB;return''}
 const special={
   1:{options:['Yes','No'],correct:'A'},42:{options:['Yes','No'],correct:'A'},58:{options:['Yes','No'],correct:'A'},85:{options:['Yes','No'],correct:'A'},
@@ -28,7 +28,7 @@ const records=[];
 for(let i=0;i<parts.length;i++){
   const n=+parts[i][1],start=parts[i].index+parts[i][0].length,end=i+1<parts.length?parts[i+1].index:md.indexOf('\n---',start),raw=md.slice(start,end<0?md.length:end),meta=raw.match(/`Question ID\s+(\d+)\s+·\s+(MCQ|MSQ|SA)\s+·\s+(\d+)\s+marks?`/);
   if(!meta)throw new Error(`Missing metadata for Q${n}`);
-  let body=raw.slice((meta.index||0)+meta[0].length).trim(),options=[],correct=[];
+  let body=raw.slice((meta.index||0)+meta[0].length).replace(/\n## [\s\S]*$/,'').trim(),options=[],correct=[];
   const bullets=body.split('\n').filter(line=>/^- /.test(line));
   if(bullets.length){options=bullets.map(line=>clean(line.replace(/^- /,'')));correct=bullets.map((line,index)=>line.includes('✓')?'ABCDE'[index]:null).filter(Boolean)}
   if(special[n]){options=special[n].options;correct=[special[n].correct]}
@@ -38,6 +38,7 @@ for(let i=0;i<parts.length;i++){
   const prefix=context(n);let question=clean((prefix?prefix+'\n\n':'')+body);const type=meta[2].toLowerCase(),base={qid:`IITM-ES-QPQ1-Q${String(n).padStart(3,'0')}`,sourceQuestionId:meta[1],globalNumber:n,class:'IITM BS',subject:subjects(n),topic:'Qualifier Test — 2023-08-06',subTopic:topics(n),question,difficulty:n%5===0?'Hard':n%2===0?'Medium':'Easy',explanation:answer?`Verified answer: ${answer}`:`Verified answer: ${correct.join(', ')}`,imageUrl:'',type:type==='sa'?'numeric':type,marks:+meta[3],sourceType:'IITM ES Qualifier 2023',sourceRef:`Verified reconstruction of IITM BS Electronic Systems Qualifier 2023-08-06, Q${n}`};
   if(options.length){base.options=options;base.correct=type==='msq'?correct:correct[0]}
   if(answer){base.expectedAnswer=answer;base.needsTeacherReview=false}
+  if(n===53||n===54)base.notationHelp={read:n===53?'a_n means the nth term of the sequence. lim (n → ∞) asks what value the expression approaches as n grows without bound.':'b_n = 2a_n^2 − 7a_n defines a new sequence. a_n^2 means “a sub n squared”. lim (n → ∞) b_n asks for the long-run value of b_n.',type:'For this question, enter only the final number. You can type powers with ^ (for example, a_n^2), an arrow with ->, and infinity as inf if you want to show working.'};
   if(n>=7&&n<=11){const segments={7:{start:13,end:15,label:'00:13–00:15',original:'0:17'},8:{start:39,end:42,label:'00:39–00:42',original:'1:05'},9:{start:17,end:24,label:'00:17–00:24'},10:{start:24,end:33,label:'00:24–00:33'},11:{start:43,end:49,label:'00:43–00:49'}}[n];base.question=`Original exam question Q${n}. Listen to model-audio segment ${segments.label}.\n${clean(body.replace(/^What is heard at `[^`]+`\?/,'What word is heard in this segment?'))}`;base.audioUrl='assets/examprep/iitm-es-qualifier-2023/model-listening-q7-q11.mp3';base.audioDisclaimer='Model practice audio reconstructed from visible questions; not the original IIT Madras recording.';base.originalAudioUnavailable=true;base.audioStartSeconds=segments.start;base.audioEndSeconds=segments.end;base.audioTimestamp=segments.label;base.modelTimestamp=`0:${String(segments.start).padStart(2,'0')}`;if(segments.original)base.originalSourceTimestamp=segments.original}
   records.push(base);
 }
