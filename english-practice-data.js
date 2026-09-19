@@ -250,6 +250,7 @@ window.SL_ENGLISH_PRACTICE = [
   },
   {
     title: 'Two views, one decision', level: 'Flexible communication', hi: 'दो विचार, एक निर्णय',
+    partner: 'Meera',
     focus: 'Compare evidence and preferences using concession, relative clauses and future consequences.',
     audio: 'Asha prefers an online course because she has been working evenings and needs flexible hours. Ravi points out that the classroom course, which includes weekly group discussions, would give them more speaking practice. Both courses cost the same, although the classroom option requires a bus journey. Asha says she would choose the classroom course if recorded lessons were available when she missed a session. Ravi has not checked that yet. They agree to ask the tutor before paying, rather than assume that either course will meet every need.',
     checks: [
@@ -264,7 +265,15 @@ window.SL_ENGLISH_PRACTICE = [
     follow: 'A friend asks, “Which is definitely better?” Give a qualified answer tied to their needs.',
     reply: 'It depends on your schedule and how much live practice you need. If recordings are available, the classroom course might meet both needs. We should check before choosing.',
     rubric: ['I represented both options fairly.', 'I separated known facts from missing information.', 'My recommendation followed from the learner’s needs.'],
-    transfer: 'Compare two transport or study options for 90 seconds. Include one concession and one follow-up question.'
+    transfer: 'Compare two transport or study options for 90 seconds. Include one concession and one follow-up question.',
+    conversation: [
+      {system:'I work in the evenings. Would an online course suit me better?',model:'Online learning offers flexible hours, which may suit your work schedule.',hints:['online','flexible|schedule|hours'],correction:'Connect the online option to the learner’s need for flexible hours.'},
+      {system:'What advantage does the classroom course have?',model:'The classroom course includes group discussions, so it may give you more speaking practice.',hints:['classroom','discussion|speaking'],correction:'Name the classroom feature and its likely benefit.'},
+      {system:'The courses cost the same. What other trade-off matters?',model:'The classroom course requires travel, although it offers more live interaction.',hints:['travel|bus|journey','although|but'],correction:'Use although or but to express the trade-off.'},
+      {system:'Which course is definitely better?',model:'It depends on your schedule and how much live practice you need.',hints:['depends','schedule|practice|need'],correction:'Avoid an absolute claim; tie the answer to the learner’s needs.'},
+      {system:'What information are we still missing?',model:'We need to know whether recorded lessons and flexible attendance are available.',hints:['recorded|recording','attendance|flexible'],correction:'Identify the missing information before recommending a choice.'},
+      {system:'What should I do before paying?',model:'Ask the tutor about recordings and attendance, then compare both options.',hints:['ask','tutor','compare|before'],correction:'Recommend a specific next step before the decision.'}
+    ]
   },
   {
     title: 'What the numbers do not say', level: 'Fluent practice', hi: 'आँकड़ों से आगे',
