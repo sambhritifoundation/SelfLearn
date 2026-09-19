@@ -223,6 +223,7 @@ window.SL_ENGLISH_PRACTICE = [
   },
   {
     title: 'Read between the lines', level: 'Flexible communication', hi: 'बात का आशय समझना',
+    partner: 'Dev',
     focus: 'Infer a polite concern from evidence; combine hedging, modals and conditionals.',
     audio: 'The new timetable is certainly ambitious. In theory, finishing all the sessions before lunch would give everyone a free afternoon. I am just wondering whether five sessions without a break might be a little tiring, especially for people travelling from outside town. If we shortened each session slightly, we could fit in a proper break. I would support the plan if that change were possible. Otherwise, I suspect people might leave before the final discussion, which would be a shame.',
     checks: [
@@ -237,7 +238,15 @@ window.SL_ENGLISH_PRACTICE = [
     follow: 'A teammate replies, “Breaks waste time.” Respond to their concern while defending your suggestion.',
     reply: 'I understand the time pressure. A short break may help us work more carefully afterwards. Could we try one ten-minute break and see whether it helps?',
     rubric: ['I acknowledged the other view.', 'I explained a concern without presenting a guess as fact.', 'I proposed a workable conditional alternative.'],
-    transfer: 'Argue the other side for 45 seconds, then find a compromise. Clear reasoning matters more than speaking quickly.'
+    transfer: 'Argue the other side for 45 seconds, then find a compromise. Clear reasoning matters more than speaking quickly.',
+    conversation: [
+      {system:'If we study for three hours without stopping, we can finish early.',model:'I can see why finishing early would be useful.',hints:['see|understand','useful|helpful|benefit'],correction:'Acknowledge the benefit before raising your concern.'},
+      {system:'So you agree that we should have no break?',model:'I am wondering whether three hours without a break might be tiring.',hints:['wondering|might|may','break|tiring'],correction:'Soften the concern with “I am wondering whether … might …”.'},
+      {system:'Breaks waste time. Why should we take one?',model:'A short break may help us concentrate better afterwards.',hints:['may|might|could','concentrate|focus'],correction:'Respond to the concern with a possible benefit, not a certainty.'},
+      {system:'What alternative do you suggest?',model:'If we took a ten-minute break, we could still finish by six.',hints:['if','could|would'],correction:'Offer a conditional alternative with “If we …, we could …”.'},
+      {system:'How do we know the break will help?',model:'We do not know for certain, but we could try it and compare our work.',hints:['not|do not','could|try|compare'],correction:'Keep the uncertainty and suggest a way to test the idea.'},
+      {system:'All right. What exactly are we agreeing to?',model:'We will try one ten-minute break and see whether our concentration improves.',hints:['ten|10','break','see|check|compare'],correction:'State the compromise and how you will judge it.'}
+    ]
   },
   {
     title: 'Two views, one decision', level: 'Flexible communication', hi: 'दो विचार, एक निर्णय',
