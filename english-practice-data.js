@@ -142,6 +142,7 @@ window.SL_ENGLISH_PRACTICE = [
   },
   {
     title: 'Plans that change', level: 'Connected stories', hi: 'बदलती योजनाएँ',
+    partner: 'Kabir',
     focus: 'Track arrangements, intentions and offers: present continuous + going to + will.',
     audio: 'We are meeting outside the station at nine on Saturday. We are going to visit the science fair. I have already booked the tickets. If it rains, we will take a taxi from the station. You do not need to book one now. I will call you on Friday to confirm the plan.',
     checks: [
@@ -156,7 +157,15 @@ window.SL_ENGLISH_PRACTICE = [
     follow: 'Your partner says, “I cannot arrive until five.” Negotiate a new time and confirm it.',
     reply: 'That is fine. Shall we meet at five instead? I will let the others know. So, five at the library?',
     rubric: ['I gave a definite time and place.', 'I distinguished preparation from future plans.', 'I negotiated and confirmed a change.'],
-    transfer: 'Make a new plan with a different place and problem. Speak for one minute without reading the frame.'
+    transfer: 'Make a new plan with a different place and problem. Speak for one minute without reading the frame.',
+    conversation: [
+      {system:'When are we meeting for our study session?',model:'We are meeting at the library at four.',hints:['meeting','four|4|time'],correction:'Use the present continuous for the arrangement: “We are meeting …”.'},
+      {system:'What are we going to study?',model:'We are going to revise science.',hints:['going to','study|revise'],correction:'State the intention with “We are going to …”.'},
+      {system:'Have you prepared anything already?',model:'Yes, I have already printed the questions.',hints:['have','already'],correction:'Use the present perfect with already: “I have already …”.'},
+      {system:'I cannot arrive until five. Can we change the time?',model:'That is fine. Let us meet at five instead.',hints:['five|5','meet'],correction:'Accept or negotiate, then confirm the new time.'},
+      {system:'What will we do if the library is full?',model:'If it is full, we will study at my house.',hints:['if','will'],correction:'Give a backup plan with “If …, we will …”.'},
+      {system:'Please confirm our final plan.',model:'We are meeting at five at the library. I will message you before I leave.',hints:['five|5','library','will'],correction:'Confirm the final time, place, and one future action.'}
+    ]
   },
   {
     title: 'A repair that still matters', level: 'Independent communication', hi: 'मरम्मत की बात',
