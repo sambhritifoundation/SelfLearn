@@ -67,7 +67,7 @@ const server=http.createServer((req,res)=>{
    await page.reload();
    await page.evaluate(()=>{LANG='en';Object.defineProperty(window,'SpeechRecognition',{configurable:true,value:undefined});Object.defineProperty(window,'webkitSpeechRecognition',{configurable:true,value:undefined});speechSynthesis.speak=u=>setTimeout(()=>u.onend(),0);EnglishPractice.open('speaking',0);});
    await page.locator('#ep-start-chat').click();
-   const replies=['Hello Akshat, I am Riya. I am from Patna.','Nice to meet you too. I study in Class 8.','Science.','I usually come to school by bus.','Yes, I have lunch with my friends.','Yes, see you tomorrow.'];
+   const replies=['Hello Akshata, I am Riya. I am from Patna.','Nice to meet you too. I study in Class 8.','Science.','I usually come to school by bus.','Yes, I have lunch with my friends.','I like to play badminton.','Yes, the library is next to the science room.','Of course, I can show you the library after class.','Yes, we play football.','Yes, let us meet at lunch tomorrow.','Yes, see you tomorrow.'];
    for(const reply of replies){
     await page.waitForFunction(()=>!document.getElementById('ep-stop-turn').disabled);
     await page.locator('#ep-stop-turn').click();
@@ -76,11 +76,11 @@ const server=http.createServer((req,res)=>{
     await page.getByRole('button',{name:'Check my response',exact:true}).click();
    }
    await page.waitForFunction(()=>document.getElementById('ep-chat-status').textContent.includes('Conversation complete'));
-   assert.equal(await page.locator('.ep-bubble.excellent').count(),5);
+   assert.equal(await page.locator('.ep-bubble.excellent').count(),10);
    assert.equal(await page.locator('.ep-bubble.correction').count(),1);
-   assert.equal(await page.locator('.ep-bubble.learner').count(),6);
-   assert.equal(await page.locator('.ep-bubble.system').count(),6);
-   assert.equal(await page.locator('#ep-model-text').textContent(),'Yes, I would like that. See you tomorrow, Akshat!');
+   assert.equal(await page.locator('.ep-bubble.learner').count(),11);
+   assert.equal(await page.locator('.ep-bubble.system').count(),11);
+   assert.equal(await page.locator('#ep-model-text').textContent(),'Yes, I would like that. See you tomorrow, Akshata!');
    assert(await page.locator('#ep-start-chat').isEnabled());
    await page.locator('#ep-start-chat').click();await page.waitForFunction(()=>!document.getElementById('ep-stop-turn').disabled);await page.locator('#ep-end-chat').click();
    assert.match(await page.locator('#ep-chat-status').innerText(),/Conversation stopped/);
@@ -125,6 +125,6 @@ const server=http.createServer((req,res)=>{
   }
   assert.deepEqual(errors,[]);
   assert.equal(fs.readFileSync(path.join(root,'index.html'),'utf8'),fs.readFileSync(path.join(root,'selflearn-app.html'),'utf8'));
-  console.log('PASS: 96 bilingual desktop/mobile lesson views, six-turn speaking conversation, corrections, stop flow, 24 answer sets, completion gates, learner isolation, microphone fallback, audio controls, existing subjects and ExamPrep; no application errors.');
+  console.log('PASS: 96 bilingual desktop/mobile lesson views, eleven-turn speaking conversation, corrections, stop flow, 24 answer sets, completion gates, learner isolation, microphone fallback, audio controls, existing subjects and ExamPrep; no application errors.');
  }finally{await browser.close();}
 })().catch(e=>{console.error(e);process.exitCode=1;}).finally(()=>server.close());

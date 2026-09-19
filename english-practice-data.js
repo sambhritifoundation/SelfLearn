@@ -18,12 +18,17 @@ window.SL_ENGLISH_PRACTICE = [
     rubric: ['I greeted my partner.', 'I said a name and a place clearly.', 'I asked a question and left space for a reply.'],
     transfer: 'Greet a family member twice, changing the name and town. Aim for three clear sentences, without reading the second time.'
     ,conversation: [
-      {system:'Hello, I am Akshat. I am from Ranchi. Where are you from?', model:'Hello, Akshat. I am Riya. I am from Patna.', hints:['hello','i am','from'], correction:'Start with “Hello, Akshat.” Then say “I am …” and “I am from …”.'},
+      {system:'Hello, I am Akshata. I am from Ranchi. Where are you from?', model:'Hello, Akshata. I am Riya. I am from Patna.', hints:['hello','i am','from'], correction:'Start with “Hello, Akshata.” Then say “I am …” and “I am from …”.'},
       {system:'Nice to meet you! Which class do you study in?', model:'Nice to meet you too. I study in Class 8.', hints:['nice to meet','class'], correction:'Reply “Nice to meet you too,” then use “I study in Class …”.'},
       {system:'What is your favourite subject?', model:'My favourite subject is science because I enjoy experiments.', hints:['favourite subject','is'], correction:'Use “My favourite subject is …”. You may add a reason with “because”.'},
       {system:'That sounds interesting. How do you usually come to school?', model:'I usually come to school by bus.', hints:['usually','school'], correction:'Describe your routine with “I usually come to school by …”.'},
       {system:'Do you have lunch at school?', model:'Yes, I do. I have lunch with my friends.', hints:['yes|no','lunch'], correction:'Begin with “Yes, I do” or “No, I don’t,” then add one detail.'},
-      {system:'It was lovely meeting you. Shall we talk again tomorrow?', model:'Yes, I would like that. See you tomorrow, Akshat!', hints:['yes|sure|would like','tomorrow|see you'], correction:'Accept with “Yes” or “I would like that,” and close with “See you tomorrow.”'}
+      {system:'What do you like to do during the lunch break?', model:'I like to talk with my friends and play badminton.', hints:['i like|i enjoy|usually'], correction:'Use “I like to …”, “I enjoy …”, or “I usually …” to describe your lunch-break activity.'},
+      {system:'I love reading. Is there a library in our school?', model:'Yes, there is. The library is next to the science room.', hints:['yes|no','library'], correction:'Answer with “Yes, there is” or “No, there isn’t,” then add a helpful detail about the library.'},
+      {system:'Great! Can you show me the library after class?', model:'Of course. I can show you the library after class.', hints:['yes|of course|sure|sorry','after class|library'], correction:'Accept with “Of course” or “Sure,” then confirm the place or time. If you cannot help, say “Sorry” and offer another time.'},
+      {system:'Thank you. Do students play any games here?', model:'Yes. We often play football and badminton after school.', hints:['yes|no','play|game|football|badminton|cricket'], correction:'Say whether students play games, then name one game or activity.'},
+      {system:'That sounds fun. Would you like to sit with me at lunch tomorrow?', model:'Yes, I would. Let us meet near the classroom at lunch.', hints:['yes|sure|sorry|would','lunch|tomorrow|meet'], correction:'Accept or decline politely, then mention lunch, tomorrow, or another meeting plan.'},
+      {system:'It was lovely meeting you. Shall we talk again tomorrow?', model:'Yes, I would like that. See you tomorrow, Akshata!', hints:['yes|sure|would like','tomorrow|see you'], correction:'Accept with “Yes” or “I would like that,” and close with “See you tomorrow.”'}
     ]
   },
   {
