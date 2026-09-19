@@ -2,6 +2,7 @@
 window.SL_ENGLISH_PRACTICE = [
   {
     title: 'Meet a new classmate', level: 'First steps', hi: 'नए सहपाठी से मिलें',
+    partner: 'Akshata',
     focus: 'Hear names and places; use I am / you are and a simple question.',
     audio: 'Hello. I am Meena. I am from Ranchi. You are Ravi, right? Nice to meet you.',
     checks: [
@@ -33,6 +34,7 @@ window.SL_ENGLISH_PRACTICE = [
   },
   {
     title: 'Tea for two', level: 'First steps', hi: 'दो लोगों की चाय',
+    partner: 'Ramesh',
     focus: 'Catch numbers, articles and polite requests with can.',
     audio: 'Can I have two cups of tea, please? One with sugar and one without sugar. The tea is twenty rupees a cup. That is forty rupees altogether.',
     checks: [
@@ -47,7 +49,15 @@ window.SL_ENGLISH_PRACTICE = [
     follow: 'The seller asks, “Would you like tea too?” Decline politely and confirm your order.',
     reply: 'No, thank you. Just two sandwiches, please.',
     rubric: ['I used a clear number and plural noun.', 'I explained a preference.', 'I asked the price politely.'],
-    transfer: 'Change the order to one item, then three items. Notice a sandwich becomes three sandwiches.'
+    transfer: 'Change the order to one item, then three items. Notice a sandwich becomes three sandwiches.',
+    conversation: [
+      {system:'Good afternoon. What would you like?',model:'Can I have two cups of tea, please?',hints:['can i have|i would like','tea'],correction:'Make a polite request with “Can I have …, please?” or “I would like …”.'},
+      {system:'Certainly. Would you like sugar in both cups?',model:'One with sugar and one without sugar, please.',hints:['one','sugar','without'],correction:'Say “One with sugar and one without sugar, please.”'},
+      {system:'Would you like anything to eat?',model:'Yes, I would like two samosas, please.',hints:['yes|no','would like|can i have'],correction:'Answer yes or no, then use “I would like …” if you want something.'},
+      {system:'We have samosas and sandwiches. Which do you prefer?',model:'I prefer samosas, please.',hints:['prefer|would like|samosa|sandwich'],correction:'Choose one item with “I prefer …” or “I would like …”.'},
+      {system:'Two teas and two samosas. Is that correct?',model:'Yes, that is correct. How much is it altogether?',hints:['yes|correct','how much|altogether|total'],correction:'Confirm the order, then ask “How much is it altogether?”'},
+      {system:'It is eighty rupees altogether.',model:'Here you are. Thank you!',hints:['thank','here you are'],correction:'Finish politely with “Here you are” and “Thank you.”'}
+    ]
   },
   {
     title: 'Usually, but today…', level: 'Everyday confidence', hi: 'रोज़ और आज',
