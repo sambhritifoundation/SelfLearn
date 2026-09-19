@@ -3,6 +3,7 @@ window.EnglishPractice = (() => {
   const lessons = window.SL_ENGLISH_PRACTICE;
   const titles = {listening:'Listening Lessons & Practice', speaking:'Speaking Practice'};
   let recorder = null, stream = null, recordingUrl = null, recordingToken = 0;
+  let roleplay = {active:false, turn:0, recorder:null, stream:null, recognition:null, transcript:'', chunks:[], urls:[]};
   const e = value => esc(String(value));
   const tr = (en, hi) => LANG === 'hi' ? hi : en;
   const key = () => PK('sl_english_tracks_v1');
@@ -14,6 +15,7 @@ window.EnglishPractice = (() => {
     catch (_) { toast(tr('Your browser could not save progress. You can still practise.','प्रगति सेव नहीं हुई। अभ्यास जारी रख सकते हैं।')); return false; }
   }
   function cleanup() {
+    stopRoleplay(false);
     recordingToken++;
     if ('speechSynthesis' in window) speechSynthesis.cancel();
     if (recorder && recorder.state!=='inactive') recorder.stop();
@@ -21,6 +23,9 @@ window.EnglishPractice = (() => {
     recorder=null; stream=null;
     if(recordingUrl) URL.revokeObjectURL(recordingUrl);
     recordingUrl=null;
+  }
+  function conversationMarkup(l) {
+    return `<section class="ep-conversation" aria-labelledby="ep-conversation-title"><h3 id="ep-conversation-title">${tr('Conversation with Akshat','अक्षत से बातचीत')}</h3><p>${tr('You are an existing student. Akshat is your new classmate. Press Play conversation: Akshat will speak first, then recording starts automatically for your reply. Speak naturally and press Stop & check response when you finish.','आप पुराने विद्यार्थी हैं और अक्षत नया सहपाठी है। बातचीत चलाएँ: अक्षत पहले बोलेगा, फिर आपके जवाब की रिकॉर्डिंग अपने आप शुरू होगी। जवाब देकर रोकें और जाँचें दबाएँ।')}</p><div class="ep-chat" id="ep-chat" aria-live="polite"><div class="ep-bubble system"><strong>Akshat</strong><p>${tr('Ready when you are. I will speak first.','तैयार हों तो शुरू करें। मैं पहले बोलूँगा।')}</p></div></div><details class="ep-model" id="ep-model"><summary>${tr('Need help? Show a model response','मदद चाहिए? नमूना जवाब देखें')}</summary><p id="ep-model-text">${e(l.conversation[0].model)}</p></details><div class="ep-controls"><button class="btn" id="ep-start-chat" onclick="EnglishPractice.startConversation()">▶ ${tr('Play conversation','बातचीत चलाएँ')}</button><button class="btn" id="ep-stop-turn" onclick="EnglishPractice.stopTurn()" disabled>■ ${tr('Stop & check response','रोकें और जवाब जाँचें')}</button><button class="btn ghost" id="ep-end-chat" onclick="EnglishPractice.stopConversation()" disabled>${tr('End conversation','बातचीत समाप्त करें')}</button></div><p id="ep-chat-status" role="status"></p><div id="ep-transcript-wrap" hidden><label for="ep-transcript">${tr('Type what you said so I can check it','जाँच के लिए अपना जवाब लिखें')}</label><input id="ep-transcript" type="text" maxlength="300" oninput="EnglishPractice.setTranscript(this.value)"><button class="btn ghost sm" onclick="EnglishPractice.checkTurn()">${tr('Check my response','मेरा जवाब जाँचें')}</button></div><audio id="ep-turn-audio" controls hidden></audio><p class="sub">${tr('Audio stays on this page and is discarded when you leave. Feedback uses your device’s speech recognition and may make mistakes. If it cannot hear clear words, you can type what you said.','आवाज़ इसी पेज पर रहती है और बाहर जाने पर हट जाती है। प्रतिक्रिया डिवाइस की आवाज़ पहचान पर आधारित है और गलती हो सकती है। शब्द साफ़ न मिलें तो अपना जवाब लिख सकते हैं।')}</p></section>`;
   }
   function open(track, lesson) { go('englishPractice',{track,lesson}); }
   function cards() {
@@ -41,10 +46,12 @@ window.EnglishPractice = (() => {
     h+=`<button class="btn ghost sm" onclick="EnglishPractice.open('${track}')">← ${tr('All 12 lessons','सभी 12 पाठ')}</button><section class="card ep-task"><div class="chip">${index+1}/12 · ${e(l.level)}</div><h2 tabindex="-1" id="ep-title">${e(tr(l.title,l.hi))}</h2><p>${e(l.focus)}</p>`;
     if(track==='listening') {
       h+=`<h3>1. ${tr('Listen for the big picture','मुख्य बात सुनें')}</h3><p>${tr('Listen once without reading. Who is speaking, and why? Listen again for details. Use slow playback when helpful; return to normal speed as you grow confident.','पहली बार बिना पढ़े सुनें। कौन बोल रहा है और क्यों? फिर विवरण सुनें। ज़रूरत पर धीमे सुनें, फिर सामान्य गति पर लौटें।')}</p><div class="ep-controls"><button class="btn" onclick="EnglishPractice.play(${index},1)">▶ ${tr('Listen','सुनें')}</button><button class="btn ghost" onclick="EnglishPractice.play(${index},0.75)">🐢 ${tr('Slow','धीरे')}</button><button class="btn ghost" onclick="EnglishPractice.stop()">■ ${tr('Stop','रोकें')}</button></div><p class="sub">${tr('Device-generated English audio. Voice quality varies by device. If audio is unavailable, ask someone to read the transcript aloud; reading it yourself is supported practice, not an unaided listening attempt.','डिवाइस की आवाज़ में अंग्रेज़ी। आवाज़ उपलब्ध न हो तो किसी से नीचे का पाठ पढ़वाएँ। स्वयं पढ़ना सहारे वाला अभ्यास है।')}</p><p id="ep-audio-status" role="status"></p><details><summary>${tr('Reveal transcript / reading support','बातचीत पढ़ें / पढ़ने का सहारा')}</summary><p>${e(l.audio)}</p></details><h3>2. ${tr('Check what you heard','जो सुना उसे जाँचें')}</h3>${l.checks.map((q,j)=>`<fieldset><legend>${j+1}. ${e(q[0])}</legend>${q[1].map((option,k)=>`<label class="ep-option"><input type="radio" name="ep-q${j}" value="${k}"> ${e(option)}</label>`).join('')}<p id="ep-feedback-${j}" role="status"></p></fieldset>`).join('')}<button class="btn" onclick="EnglishPractice.check(${index})">${tr('Check my understanding','मेरी समझ जाँचें')}</button><p id="ep-result" role="status"></p><h3>3. ${tr('Notice, replay, retell','ध्यान दें, फिर सुनें, दोहराएँ')}</h3><p>${e(l.notice)}</p><p>${tr('Replay the parts you missed. Close the transcript and say the main message in your own words; keep any time, condition or uncertainty.','छूटे हुए हिस्से फिर सुनें। पाठ बंद करके अपने शब्दों में मुख्य बात कहें; समय, शर्त और अनिश्चितता बनाए रखें।')}</p><details><summary>${tr('A model summary to compare with','तुलना के लिए मुख्य बात')}</summary><p>${e(l.checks[0][3])} ${e(l.checks[1][3])} ${e(l.checks[2][3])}</p></details><label class="ep-option"><input id="ep-retold" type="checkbox" ${s.retold?'checked':''} onchange="EnglishPractice.remember(${action},'retold',this.checked)"> ${tr('I replayed difficult parts and retold the message.','मैंने कठिन भाग फिर सुनकर बात अपने शब्दों में दोहराई।')}</label>`;
+    } else if(index===0) {
+      h+=conversationMarkup(l);
     } else {
       h+=`<h3>1. ${tr('Prepare, then speak aloud','तैयारी करें, फिर ज़ोर से बोलें')}</h3><p>${e(l.prompt)}</p><details ${index<4?'open':''}><summary>${tr('A sentence frame if you need it','ज़रूरत हो तो वाक्य का सहारा')}</summary><p>${e(l.frame)}</p></details><label for="ep-draft">${tr('Optional planning notes — use a few words, then look away and speak.','तैयारी के नोट्स — कुछ शब्द लिखें, फिर बिना देखे बोलें।')}</label><textarea id="ep-draft" rows="3" maxlength="3000" oninput="EnglishPractice.remember(${action},'draft',this.value)">${e(s.draft||'')}</textarea><p>${tr('Try aloud before opening the model. Pause, restart and correct yourself whenever you need.','नमूना खोलने से पहले बोलें। रुकना, फिर शुरू करना और सुधारना ठीक है।')}</p><div class="ep-controls"><button class="btn ghost" id="ep-record" onclick="EnglishPractice.record()">🎙 ${tr('Record myself (optional)','अपनी आवाज़ रिकॉर्ड करें (वैकल्पिक)')}</button><button class="btn ghost" id="ep-record-stop" onclick="EnglishPractice.endRecording()" disabled>${tr('Stop recording','रिकॉर्डिंग रोकें')}</button></div><p class="sub">${tr('Recording stays in this page and is discarded when you leave. No upload or automatic pronunciation score. You can practise fully without a microphone.','रिकॉर्डिंग इसी पेज पर रहती है और पेज छोड़ने पर हटती है। कोई अपलोड या स्वचालित उच्चारण अंक नहीं। बिना माइक भी पूरा अभ्यास कर सकते हैं।')}</p><p id="ep-record-status" role="status"></p><audio id="ep-recording" controls hidden></audio><h3>2. ${tr('Take another turn','बातचीत आगे बढ़ाएँ')}</h3><p>${e(l.follow)}</p><p>${tr('Answer aloud before opening the suggested response. Many different answers can work.','सुझाव खोलने से पहले ज़ोर से जवाब दें। कई अलग उत्तर सही हो सकते हैं।')}</p><details><summary>${tr('Suggested response','सुझाया गया जवाब')}</summary><p>${e(l.reply)}</p></details><h3>3. ${tr('Compare, adjust and try again','तुलना करें, सुधारें और फिर बोलें')}</h3><details><summary>${tr('Show a model — not a script to memorize','नमूना देखें — रटने के लिए नहीं')}</summary><p>${e(l.model)}</p></details><p><strong>${tr('Language in action:','इस्तेमाल में भाषा:')}</strong> ${e(l.notice)}</p><p>${tr('Listen to your recording or recall your attempt. Check each statement honestly. If one is difficult, use the model to repair that part and speak again. These are your own reflections, not an automated assessment.','रिकॉर्डिंग सुनें या अपनी कोशिश याद करें। हर बात ईमानदारी से जाँचें। कठिन भाग नमूने की मदद से सुधारकर फिर बोलें। यह आत्म-जाँच है, स्वचालित मूल्यांकन नहीं।')}</p>${l.rubric.map((r,j)=>`<label class="ep-option"><input class="ep-rubric" type="checkbox" ${s['rubric'+j]?'checked':''} onchange="EnglishPractice.remember(${action},'rubric${j}',this.checked)"> ${e(r)}</label>`).join('')}<div class="ep-coach"><strong>${tr('Make it yours','अपने शब्दों में')}</strong><p>${e(l.transfer)}</p></div><label class="ep-option"><input id="ep-transfer" type="checkbox" ${s.transfer?'checked':''} onchange="EnglishPractice.remember(${action},'transfer',this.checked)"> ${tr('I tried the new situation aloud, including the follow-up.','मैंने नई स्थिति और अगले सवाल का ज़ोर से अभ्यास किया।')}</label>`;
     }
-    h+=`<div class="ep-controls"><button class="btn" onclick="EnglishPractice.complete(${action})">${tr('Finish this practice','यह अभ्यास पूरा करें')}</button>${index<11?`<button class="btn ghost" onclick="EnglishPractice.open('${track}',${index+1})">${tr('Next lesson','अगला पाठ')} →</button>`:''}</div><p id="ep-completion" role="status">${s.done?tr('✓ You have completed this lesson. Revisiting is always welcome.','✓ आपने यह पाठ पूरा किया है। दोहराना हमेशा अच्छा है।'):''}</p></section></div>`;
+    h+=`<div class="ep-controls">${track==='speaking'&&index===0?'':`<button class="btn" onclick="EnglishPractice.complete(${action})">${tr('Finish this practice','यह अभ्यास पूरा करें')}</button>`}${index<11?`<button class="btn ghost" onclick="EnglishPractice.open('${track}',${index+1})">${tr('Next lesson','अगला पाठ')} →</button>`:''}</div><p id="ep-completion" role="status">${s.done?tr('✓ You have completed this lesson. Revisiting is always welcome.','✓ आपने यह पाठ पूरा किया है। दोहराना हमेशा अच्छा है।'):''}</p></section></div>`;
     return h;
   }
   function play(i, rate) {
@@ -101,7 +108,70 @@ window.EnglishPractice = (() => {
       button.disabled=false;status.textContent=tr('Microphone access was unavailable. You can still speak aloud and complete every task.','माइक उपलब्ध नहीं। फिर भी बोलकर सभी काम पूरे करें।');
     }
   }
-  return {cards,view,open,cleanup,play,check,complete,record,remember:saveField,stop:()=>{if('speechSynthesis' in window)speechSynthesis.cancel();},endRecording:()=>{if(recorder?.state==='recording')recorder.stop();}};
+  function chatLine(who, text, cls) {
+    const chat=document.getElementById('ep-chat'); if(!chat)return;
+    chat.insertAdjacentHTML('beforeend',`<div class="ep-bubble ${cls}"><strong>${e(who)}</strong><p>${e(text)}</p></div>`);
+    chat.lastElementChild.scrollIntoView({behavior:'smooth',block:'nearest'});
+  }
+  function setChatControls(recording) {
+    const start=document.getElementById('ep-start-chat'), stop=document.getElementById('ep-stop-turn'), end=document.getElementById('ep-end-chat');
+    if(start)start.disabled=roleplay.active;if(stop)stop.disabled=!recording;if(end)end.disabled=!roleplay.active;
+  }
+  function speakTurn() {
+    const l=lessons[0], turn=l.conversation[roleplay.turn], status=document.getElementById('ep-chat-status');
+    if(!roleplay.active||!turn)return;
+    chatLine('Akshat',turn.system,'system');
+    document.getElementById('ep-model-text').textContent=turn.model;document.getElementById('ep-model').open=false;
+    status.textContent=tr('Akshat is speaking. Your recording will begin when he finishes.','अक्षत बोल रहा है। उसके बाद रिकॉर्डिंग शुरू होगी।');
+    if(!('speechSynthesis' in window)||!window.SpeechSynthesisUtterance){status.textContent=tr('Audio is unavailable. Read Akshat’s line; recording will start now.','आवाज़ उपलब्ध नहीं। अक्षत की पंक्ति पढ़ें; रिकॉर्डिंग अब शुरू होगी।');startRoleplayRecording();return;}
+    speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(turn.system);u.lang='en-IN';u.rate=.9;
+    const voices=speechSynthesis.getVoices(), voice=voices.find(v=>/^en[-_]IN/i.test(v.lang))||voices.find(v=>/^en/i.test(v.lang));if(voice)u.voice=voice;
+    u.onend=()=>{if(roleplay.active)startRoleplayRecording();};u.onerror=()=>{if(roleplay.active)startRoleplayRecording();};speechSynthesis.speak(u);
+  }
+  async function startConversation() {
+    stopRoleplay(false);roleplay={active:true,turn:0,recorder:null,stream:null,recognition:null,transcript:'',chunks:[],urls:[]};
+    const chat=document.getElementById('ep-chat');if(chat)chat.innerHTML='';setChatControls(false);speakTurn();
+  }
+  async function startRoleplayRecording() {
+    if(!roleplay.active)return;const status=document.getElementById('ep-chat-status');
+    try{
+      if(!navigator.mediaDevices?.getUserMedia||!window.MediaRecorder)throw new Error('no recorder');
+      roleplay.stream=await navigator.mediaDevices.getUserMedia({audio:true});if(!roleplay.active){roleplay.stream.getTracks().forEach(t=>t.stop());return;}
+      roleplay.chunks=[];roleplay.transcript='';roleplay.recorder=new MediaRecorder(roleplay.stream);roleplay.recorder.ondataavailable=ev=>{if(ev.data.size)roleplay.chunks.push(ev.data);};roleplay.recorder.start();
+      const Recognition=window.SpeechRecognition||window.webkitSpeechRecognition;
+      if(Recognition){const recognition=new Recognition();roleplay.recognition=recognition;recognition.lang='en-IN';recognition.continuous=true;recognition.interimResults=true;recognition.onresult=ev=>{let words='';for(let i=0;i<ev.results.length;i++)words+=ev.results[i][0].transcript+' ';roleplay.transcript=words.trim();};recognition.onend=()=>{if(roleplay.active&&roleplay.recorder?.state==='recording'){try{recognition.start();}catch(_){}}};try{recognition.start();}catch(_){} }
+      status.textContent=tr('Your turn — recording now. Speak, then press Stop & check response.','आपकी बारी — रिकॉर्डिंग चल रही है। बोलकर रोकें और जाँचें दबाएँ।');setChatControls(true);
+    }catch(_){status.textContent=tr('Microphone access is unavailable. Say your answer aloud, then type what you said so the conversation can continue.','माइक उपलब्ध नहीं। जवाब ज़ोर से बोलें, फिर बातचीत आगे बढ़ाने के लिए अपना जवाब लिखें।');const wrap=document.getElementById('ep-transcript-wrap');if(wrap)wrap.hidden=false;const input=document.getElementById('ep-transcript');if(input){input.value='';input.focus();}setChatControls(false);}
+  }
+  function stopTurn() {
+    if(!roleplay.active||!roleplay.recorder||roleplay.recorder.state!=='recording')return;
+    const rec=roleplay.recorder, chunks=roleplay.chunks.slice(), turn=roleplay.turn;setChatControls(false);
+    if(roleplay.recognition){roleplay.recognition.onend=null;try{roleplay.recognition.stop();}catch(_){}}
+    rec.onstop=()=>{if(roleplay.stream)roleplay.stream.getTracks().forEach(t=>t.stop());const url=URL.createObjectURL(new Blob(chunks,{type:chunks[0]?.type||'audio/webm'}));roleplay.urls.push(url);const audio=document.getElementById('ep-turn-audio');if(audio){audio.src=url;audio.hidden=false;}finishTurn(turn);};rec.stop();
+  }
+  function finishTurn(turnIndex) {
+    if(!roleplay.active||turnIndex!==roleplay.turn)return;const wrap=document.getElementById('ep-transcript-wrap'), input=document.getElementById('ep-transcript');
+    if(wrap)wrap.hidden=false;if(input)input.value=roleplay.transcript;
+    checkTurn();
+  }
+  function checkTurn() {
+    if(!roleplay.active)return;const item=lessons[0].conversation[roleplay.turn], input=document.getElementById('ep-transcript');
+    roleplay.transcript=(input?.value||roleplay.transcript||'').trim();
+    if(!roleplay.transcript){document.getElementById('ep-chat-status').textContent=tr('I could not hear clear words. Type what you said above, then press Check edited response, or replay this turn.','शब्द साफ़ नहीं मिले। ऊपर अपना जवाब लिखकर सुधारा जवाब जाँचें दबाएँ।');return;}
+    chatLine(tr('You','आप'),roleplay.transcript,'learner');const lower=roleplay.transcript.toLowerCase();
+    const missing=item.hints.filter(group=>!group.split('|').some(word=>lower.includes(word)));
+    chatLine(tr('Tutor feedback','शिक्षक की प्रतिक्रिया'),missing.length?item.correction:tr('Excellent! That was a clear, suitable response.','बहुत बढ़िया! जवाब साफ़ और सही था।'),missing.length?'feedback correction':'feedback excellent');
+    const wrap=document.getElementById('ep-transcript-wrap');if(wrap)wrap.hidden=true;roleplay.turn++;
+    if(roleplay.turn>=lessons[0].conversation.length){save('speaking',0,{done:true,conversationComplete:true});roleplay.active=false;setChatControls(false);document.getElementById('ep-chat-status').textContent=tr('Conversation complete — six turns finished. You can play it again whenever you like.','बातचीत पूरी — छह जवाब हो गए। चाहें तो फिर चलाएँ।');return;}
+    document.getElementById('ep-chat-status').textContent=tr('Good. Akshat will continue…','अच्छा। अक्षत आगे बोलेगा…');setTimeout(()=>{if(roleplay.active)speakTurn();},700);
+  }
+  function setTranscript(value){roleplay.transcript=value;}
+  function stopRoleplay(showMessage=true) {
+    roleplay.active=false;if('speechSynthesis' in window)speechSynthesis.cancel();if(roleplay.recognition){roleplay.recognition.onend=null;try{roleplay.recognition.stop();}catch(_){}}
+    if(roleplay.recorder?.state==='recording'){roleplay.recorder.onstop=null;try{roleplay.recorder.stop();}catch(_){}}if(roleplay.stream)roleplay.stream.getTracks().forEach(t=>t.stop());(roleplay.urls||[]).forEach(url=>URL.revokeObjectURL(url));
+    if(showMessage){const status=document.getElementById('ep-chat-status');if(status)status.textContent=tr('Conversation stopped. Press Play conversation to start again from the beginning.','बातचीत रोक दी गई। फिर शुरू करने के लिए बातचीत चलाएँ दबाएँ।');setChatControls(false);}
+  }
+  return {cards,view,open,cleanup,play,check,complete,record,remember:saveField,startConversation,stopTurn,checkTurn,setTranscript,stopConversation:()=>stopRoleplay(true),stop:()=>{if('speechSynthesis' in window)speechSynthesis.cancel();},endRecording:()=>{if(recorder?.state==='recording')recorder.stop();}};
   function saveField(track,i,field,value){save(track,i,{[field]:value});}
 })();
 window.addEventListener('pagehide',()=>EnglishPractice.cleanup());

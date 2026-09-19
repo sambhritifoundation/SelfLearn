@@ -25,7 +25,7 @@ const server=http.createServer((req,res)=>{
     assert.equal(await page.locator('#ep-title').count(),1);
     assert(!(await page.locator('.ep').innerText()).includes('<span'), 'No escaped translation markup');
     assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),`${track}/${lang}/${i}: overflow ${width}`);
-    assert.equal(await page.locator('details').count(),track==='listening'?2:3);
+    assert.equal(await page.locator('details').count(),track==='listening'?2:(i===0?1:3));
    }
    await page.evaluate(()=>{LANG='en';EnglishPractice.open('listening',0);});
    await page.getByRole('button',{name:'Finish this practice',exact:true}).click();
@@ -43,9 +43,9 @@ const server=http.createServer((req,res)=>{
    assert.match(await page.locator('.ep-summary').innerText(),/1\/12/);
    await page.evaluate(()=>{switchProfile('Track tester');EnglishPractice.open('listening');});
    assert.match(await page.locator('.ep-summary').innerText(),/0\/12/);
-   await page.evaluate(()=>{switchProfile('');EnglishPractice.open('speaking',0);});
+   await page.evaluate(()=>{switchProfile('');EnglishPractice.open('speaking',1);});
    await page.locator('#ep-draft').fill('<script>draft stays text</script>');
-   await page.evaluate(()=>{EnglishPractice.open('speaking',1);EnglishPractice.open('speaking',0);});
+   await page.evaluate(()=>{EnglishPractice.open('speaking',2);EnglishPractice.open('speaking',1);});
    assert.equal(await page.locator('#ep-draft').inputValue(),'<script>draft stays text</script>');
    await page.locator('#ep-record').click();
    await page.waitForFunction(()=>document.getElementById('ep-record-status').textContent.startsWith('Recording locally'));
@@ -63,6 +63,29 @@ const server=http.createServer((req,res)=>{
    for(const box of await page.locator('.ep-rubric,#ep-transfer').all())await box.check();
    await page.getByRole('button',{name:'Finish this practice',exact:true}).click();
    assert.match(await page.locator('#ep-completion').innerText(),/Practice saved/);
+   // Chapter 1 is a system-led conversation: speak, auto-record, check, continue.
+   await page.reload();
+   await page.evaluate(()=>{LANG='en';Object.defineProperty(window,'SpeechRecognition',{configurable:true,value:undefined});Object.defineProperty(window,'webkitSpeechRecognition',{configurable:true,value:undefined});speechSynthesis.speak=u=>setTimeout(()=>u.onend(),0);EnglishPractice.open('speaking',0);});
+   await page.locator('#ep-start-chat').click();
+   const replies=['Hello Akshat, I am Riya. I am from Patna.','Nice to meet you too. I study in Class 8.','Science.','I usually come to school by bus.','Yes, I have lunch with my friends.','Yes, see you tomorrow.'];
+   for(const reply of replies){
+    await page.waitForFunction(()=>!document.getElementById('ep-stop-turn').disabled);
+    await page.locator('#ep-stop-turn').click();
+    await page.waitForFunction(()=>!document.getElementById('ep-transcript-wrap').hidden);
+    await page.locator('#ep-transcript').fill(reply);
+    await page.getByRole('button',{name:'Check my response',exact:true}).click();
+   }
+   await page.waitForFunction(()=>document.getElementById('ep-chat-status').textContent.includes('Conversation complete'));
+   assert.equal(await page.locator('.ep-bubble.excellent').count(),5);
+   assert.equal(await page.locator('.ep-bubble.correction').count(),1);
+   assert.equal(await page.locator('.ep-bubble.learner').count(),6);
+   assert.equal(await page.locator('.ep-bubble.system').count(),6);
+   assert.equal(await page.locator('#ep-model-text').textContent(),'Yes, I would like that. See you tomorrow, Akshat!');
+   assert(await page.locator('#ep-start-chat').isEnabled());
+   await page.locator('#ep-start-chat').click();await page.waitForFunction(()=>!document.getElementById('ep-stop-turn').disabled);await page.locator('#ep-end-chat').click();
+   assert.match(await page.locator('#ep-chat-status').innerText(),/Conversation stopped/);
+   await page.evaluate(()=>EnglishPractice.open('speaking'));
+   assert.match(await page.locator('.ep-summary').innerText(),/2\/12/);
    // Exercise the actual audio controls against a deterministic device boundary.
    await page.evaluate(()=>{window.__spoken=[];speechSynthesis.speak=u=>window.__spoken.push({text:u.text,rate:u.rate});EnglishPractice.open('listening',11);});
    await page.getByRole('button',{name:'▶ Listen',exact:true}).click();await page.getByRole('button',{name:'🐢 Slow',exact:true}).click();
@@ -94,6 +117,7 @@ const server=http.createServer((req,res)=>{
    await page.evaluate(()=>go('home'));assert(await page.locator('h1').count());
    await page.goto(base+'/examprep.html');assert((await page.locator('body').innerText()).includes('ExamPrep'));
    await page.goto(base+'/selflearn-app.html');await page.evaluate(()=>EnglishPractice.open('speaking',11));assert.equal(await page.locator('#ep-title').count(),1);
+   await page.evaluate(()=>EnglishPractice.open('speaking',0));
    fs.mkdirSync(path.join(root,'tmp'),{recursive:true});
    await page.screenshot({path:path.join(root,'tmp',`english-speaking-${width}.png`),fullPage:true});
    await page.evaluate(()=>EnglishPractice.open('listening',0));await page.screenshot({path:path.join(root,'tmp',`english-listening-${width}.png`),fullPage:true});
@@ -101,6 +125,6 @@ const server=http.createServer((req,res)=>{
   }
   assert.deepEqual(errors,[]);
   assert.equal(fs.readFileSync(path.join(root,'index.html'),'utf8'),fs.readFileSync(path.join(root,'selflearn-app.html'),'utf8'));
-  console.log('PASS: 96 bilingual desktop/mobile lesson views, 24 answer sets, retries, completion gates, learner isolation, reload persistence, safe draft rendering, microphone fallback, audio controls, existing subjects and ExamPrep; no application errors.');
+  console.log('PASS: 96 bilingual desktop/mobile lesson views, six-turn speaking conversation, corrections, stop flow, 24 answer sets, completion gates, learner isolation, microphone fallback, audio controls, existing subjects and ExamPrep; no application errors.');
  }finally{await browser.close();}
 })().catch(e=>{console.error(e);process.exitCode=1;}).finally(()=>server.close());

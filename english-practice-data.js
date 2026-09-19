@@ -1,7 +1,7 @@
 /* SelfLearn original practice tracks. Levels describe practice, not certification. */
 window.SL_ENGLISH_PRACTICE = [
   {
-    title: 'Hello, I am Meena', level: 'First steps', hi: 'नमस्ते, मैं मीना हूँ',
+    title: 'Meet a new classmate', level: 'First steps', hi: 'नए सहपाठी से मिलें',
     focus: 'Hear names and places; use I am / you are and a simple question.',
     audio: 'Hello. I am Meena. I am from Ranchi. You are Ravi, right? Nice to meet you.',
     checks: [
@@ -17,6 +17,14 @@ window.SL_ENGLISH_PRACTICE = [
     reply: 'Nice to meet you, Ravi. Are you from Ranchi?',
     rubric: ['I greeted my partner.', 'I said a name and a place clearly.', 'I asked a question and left space for a reply.'],
     transfer: 'Greet a family member twice, changing the name and town. Aim for three clear sentences, without reading the second time.'
+    ,conversation: [
+      {system:'Hello, I am Akshat. I am from Ranchi. Where are you from?', model:'Hello, Akshat. I am Riya. I am from Patna.', hints:['hello','i am','from'], correction:'Start with “Hello, Akshat.” Then say “I am …” and “I am from …”.'},
+      {system:'Nice to meet you! Which class do you study in?', model:'Nice to meet you too. I study in Class 8.', hints:['nice to meet','class'], correction:'Reply “Nice to meet you too,” then use “I study in Class …”.'},
+      {system:'What is your favourite subject?', model:'My favourite subject is science because I enjoy experiments.', hints:['favourite subject','is'], correction:'Use “My favourite subject is …”. You may add a reason with “because”.'},
+      {system:'That sounds interesting. How do you usually come to school?', model:'I usually come to school by bus.', hints:['usually','school'], correction:'Describe your routine with “I usually come to school by …”.'},
+      {system:'Do you have lunch at school?', model:'Yes, I do. I have lunch with my friends.', hints:['yes|no','lunch'], correction:'Begin with “Yes, I do” or “No, I don’t,” then add one detail.'},
+      {system:'It was lovely meeting you. Shall we talk again tomorrow?', model:'Yes, I would like that. See you tomorrow, Akshat!', hints:['yes|sure|would like','tomorrow|see you'], correction:'Accept with “Yes” or “I would like that,” and close with “See you tomorrow.”'}
+    ]
   },
   {
     title: 'Tea for two', level: 'First steps', hi: 'दो लोगों की चाय',
