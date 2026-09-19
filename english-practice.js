@@ -26,7 +26,7 @@ window.EnglishPractice = (() => {
   }
   function conversationMarkup(l) {
     const partner=l.partner||tr('Practice partner','अभ्यास साथी');
-    return `<section class="ep-conversation" aria-labelledby="ep-conversation-title"><h3 id="ep-conversation-title">${tr('Conversation with ','बातचीत: ')}${e(partner)}</h3><p>${tr('Press Play conversation. Your partner will speak first, then recording starts automatically for your reply. Speak naturally and press Stop & check response when you finish.','बातचीत चलाएँ। आपका साथी पहले बोलेगा, फिर आपके जवाब की रिकॉर्डिंग अपने आप शुरू होगी। जवाब देकर रोकें और जाँचें दबाएँ।')}</p><div class="ep-chat" id="ep-chat" aria-live="polite"><div class="ep-bubble system"><strong>${e(partner)}</strong><p>${tr('Ready when you are. I will speak first.','तैयार हों तो शुरू करें। मैं पहले बोलूँगा/बोलूँगी।')}</p></div></div><details class="ep-model" id="ep-model"><summary>${tr('Need help? Show a model response','मदद चाहिए? नमूना जवाब देखें')}</summary><p id="ep-model-text">${e(l.conversation[0].model)}</p></details><div class="ep-controls"><button class="btn" id="ep-start-chat" onclick="EnglishPractice.startConversation()">▶ ${tr('Play conversation','बातचीत चलाएँ')}</button><button class="btn" id="ep-stop-turn" onclick="EnglishPractice.stopTurn()" disabled>■ ${tr('Stop & check response','रोकें और जवाब जाँचें')}</button><button class="btn ghost" id="ep-end-chat" onclick="EnglishPractice.stopConversation()" disabled>${tr('End conversation','बातचीत समाप्त करें')}</button></div><p id="ep-chat-status" role="status"></p><div id="ep-transcript-wrap" hidden><label for="ep-transcript">${tr('Type what you said so I can check it','जाँच के लिए अपना जवाब लिखें')}</label><input id="ep-transcript" type="text" maxlength="300" oninput="EnglishPractice.setTranscript(this.value)"><button class="btn ghost sm" onclick="EnglishPractice.checkTurn()">${tr('Check my response','मेरा जवाब जाँचें')}</button></div><audio id="ep-turn-audio" controls hidden></audio><p class="sub">${tr('Audio stays on this page and is discarded when you leave. Feedback uses your device’s speech recognition and may make mistakes. If it cannot hear clear words, you can type what you said.','आवाज़ इसी पेज पर रहती है और बाहर जाने पर हट जाती है। प्रतिक्रिया डिवाइस की आवाज़ पहचान पर आधारित है और गलती हो सकती है। शब्द साफ़ न मिलें तो अपना जवाब लिख सकते हैं।')}</p></section>`;
+    return `<section class="ep-conversation" aria-labelledby="ep-conversation-title"><h3 id="ep-conversation-title">${tr('Conversation with ','बातचीत: ')}${e(partner)}</h3><p>${tr('Press Play conversation. Your partner will speak first, then recording starts automatically for your reply. Speak naturally and press Stop & check response when you finish.','बातचीत चलाएँ। आपका साथी पहले बोलेगा, फिर आपके जवाब की रिकॉर्डिंग अपने आप शुरू होगी। जवाब देकर रोकें और जाँचें दबाएँ।')}</p><p class="chip" id="ep-turn-progress">${tr('Turn 1 of ','जवाब 1 / ')}${l.conversation.length}</p><div class="ep-chat" id="ep-chat" aria-live="polite"><div class="ep-bubble system"><strong>${e(partner)}</strong><p>${tr('Ready when you are. I will speak first.','तैयार हों तो शुरू करें। मैं पहले बोलूँगा/बोलूँगी।')}</p></div></div><details class="ep-model" id="ep-model"><summary>${tr('Need help? Show a model response','मदद चाहिए? नमूना जवाब देखें')}</summary><p id="ep-model-text">${e(l.conversation[0].model)}</p></details><div class="ep-controls"><button class="btn" id="ep-start-chat" onclick="EnglishPractice.startConversation()">▶ ${tr('Play conversation','बातचीत चलाएँ')}</button><button class="btn" id="ep-stop-turn" onclick="EnglishPractice.stopTurn()" disabled>■ ${tr('Stop & review response','रोकें और जवाब देखें')}</button><button class="btn ghost" id="ep-end-chat" onclick="EnglishPractice.stopConversation()" disabled>${tr('End conversation','बातचीत समाप्त करें')}</button></div><p id="ep-chat-status" role="status"></p><div id="ep-transcript-wrap" hidden><label for="ep-transcript">${tr('Review the complete response. Correct the text only if the device misheard you.','पूरा जवाब देखें। डिवाइस ने गलत सुना हो तभी शब्द सुधारें।')}</label><textarea id="ep-transcript" rows="3" maxlength="600" oninput="EnglishPractice.setTranscript(this.value)"></textarea><button class="btn ghost sm" onclick="EnglishPractice.checkTurn()">${tr('Check my response and continue','मेरा जवाब जाँचें और आगे बढ़ें')}</button></div><audio id="ep-turn-audio" controls hidden></audio><p class="sub">${tr('There is no conversation timeout. Recording continues until you press Stop & review response. Audio stays on this page and is discarded when you leave. Speech recognition may make mistakes, so review the complete text before continuing.','बातचीत की कोई समय सीमा नहीं है। रिकॉर्डिंग तब तक चलती है जब तक आप रोकें और जवाब देखें नहीं दबाते। आवाज़ इसी पेज पर रहती है और बाहर जाने पर हट जाती है। आगे बढ़ने से पहले पूरा लिखा जवाब देख लें।')}</p></section>`;
   }
   function open(track, lesson) { go('englishPractice',{track,lesson}); }
   function cards() {
@@ -122,12 +122,14 @@ window.EnglishPractice = (() => {
     const l=lessons[roleplay.lesson], turn=l.conversation[roleplay.turn], status=document.getElementById('ep-chat-status'), partner=l.partner||tr('Practice partner','अभ्यास साथी');
     if(!roleplay.active||!turn)return;
     chatLine(partner,turn.system,'system');
+    const progress=document.getElementById('ep-turn-progress');if(progress)progress.textContent=tr('Turn ','जवाब ')+(roleplay.turn+1)+tr(' of ',' / ')+l.conversation.length;
     document.getElementById('ep-model-text').textContent=turn.model;document.getElementById('ep-model').open=false;
     status.textContent=partner+tr(' is speaking. Your recording will begin next.',' बोल रहा/रही है। इसके बाद रिकॉर्डिंग शुरू होगी।');
     if(!('speechSynthesis' in window)||!window.SpeechSynthesisUtterance){status.textContent=tr('Audio is unavailable. Read your partner’s line; recording will start now.','आवाज़ उपलब्ध नहीं। साथी की पंक्ति पढ़ें; रिकॉर्डिंग अब शुरू होगी।');startRoleplayRecording();return;}
     speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(turn.system);u.lang='en-IN';u.rate=.9;
     const voices=speechSynthesis.getVoices(), voice=voices.find(v=>/^en[-_]IN/i.test(v.lang))||voices.find(v=>/^en/i.test(v.lang));if(voice)u.voice=voice;
-    u.onend=()=>{if(roleplay.active)startRoleplayRecording();};u.onerror=()=>{if(roleplay.active)startRoleplayRecording();};speechSynthesis.speak(u);
+    let began=false;const beginReply=()=>{if(began||!roleplay.active)return;began=true;clearTimeout(roleplay.promptTimer);startRoleplayRecording();};
+    u.onend=beginReply;u.onerror=beginReply;roleplay.promptTimer=setTimeout(beginReply,Math.max(8000,turn.system.split(/\s+/).length*700));speechSynthesis.speak(u);
   }
   async function startConversation() {
     stopRoleplay(false);roleplay={active:true,lesson:Number(VIEW.lesson)||0,turn:0,recorder:null,stream:null,recognition:null,transcript:'',chunks:[],urls:[]};
@@ -146,19 +148,22 @@ window.EnglishPractice = (() => {
   }
   function stopTurn() {
     if(!roleplay.active||!roleplay.recorder||roleplay.recorder.state!=='recording')return;
-    const rec=roleplay.recorder, chunks=roleplay.chunks.slice(), turn=roleplay.turn;setChatControls(false);
-    if(roleplay.recognition){roleplay.recognition.onend=null;try{roleplay.recognition.stop();}catch(_){}}
-    rec.onstop=()=>{if(roleplay.stream)roleplay.stream.getTracks().forEach(t=>t.stop());const url=URL.createObjectURL(new Blob(chunks,{type:chunks[0]?.type||'audio/webm'}));roleplay.urls.push(url);const audio=document.getElementById('ep-turn-audio');if(audio){audio.src=url;audio.hidden=false;}finishTurn(turn);};rec.stop();
+    const rec=roleplay.recorder, chunks=roleplay.chunks, turn=roleplay.turn;setChatControls(false);document.getElementById('ep-chat-status').textContent=tr('Finishing your response…','आपका जवाब पूरा किया जा रहा है…');
+    let mediaStopped=false,recognitionStopped=!roleplay.recognition,finished=false;
+    const finish=()=>{if(finished||!mediaStopped||!recognitionStopped)return;finished=true;if(roleplay.stream)roleplay.stream.getTracks().forEach(t=>t.stop());const url=URL.createObjectURL(new Blob(chunks,{type:chunks[0]?.type||'audio/webm'}));roleplay.urls.push(url);const audio=document.getElementById('ep-turn-audio');if(audio){audio.src=url;audio.hidden=false;}finishTurn(turn);};
+    rec.onstop=()=>{mediaStopped=true;finish();};
+    if(roleplay.recognition){roleplay.recognition.onend=()=>{recognitionStopped=true;finish();};try{roleplay.recognition.stop();}catch(_){recognitionStopped=true;}setTimeout(()=>{recognitionStopped=true;finish();},1200);}
+    rec.stop();
   }
   function finishTurn(turnIndex) {
     if(!roleplay.active||turnIndex!==roleplay.turn)return;const wrap=document.getElementById('ep-transcript-wrap'), input=document.getElementById('ep-transcript');
-    if(wrap)wrap.hidden=false;if(input)input.value=roleplay.transcript;
-    checkTurn();
+    if(wrap)wrap.hidden=false;if(input){input.value=roleplay.transcript;input.focus();}
+    document.getElementById('ep-chat-status').textContent=tr('Review your complete response below, then check it to continue.','नीचे अपना पूरा जवाब देखें, फिर जाँचकर आगे बढ़ें।');
   }
   function checkTurn() {
     if(!roleplay.active)return;const lesson=lessons[roleplay.lesson], item=lesson.conversation[roleplay.turn], input=document.getElementById('ep-transcript');
     roleplay.transcript=(input?.value||roleplay.transcript||'').trim();
-    if(!roleplay.transcript){document.getElementById('ep-chat-status').textContent=tr('I could not hear clear words. Type what you said above, then press Check edited response, or replay this turn.','शब्द साफ़ नहीं मिले। ऊपर अपना जवाब लिखकर सुधारा जवाब जाँचें दबाएँ।');return;}
+    if(!roleplay.transcript){document.getElementById('ep-chat-status').textContent=tr('I could not hear clear words. Type what you said above, then check your response.','शब्द साफ़ नहीं मिले। ऊपर अपना जवाब लिखें, फिर जवाब जाँचें।');return;}
     chatLine(tr('You','आप'),roleplay.transcript,'learner');const lower=roleplay.transcript.toLowerCase();
     const missing=item.hints.filter(group=>!group.split('|').some(word=>lower.includes(word)));
     chatLine(tr('Tutor feedback','शिक्षक की प्रतिक्रिया'),missing.length?item.correction:tr('Excellent! That was a clear, suitable response.','बहुत बढ़िया! जवाब साफ़ और सही था।'),missing.length?'feedback correction':'feedback excellent');
@@ -168,7 +173,7 @@ window.EnglishPractice = (() => {
   }
   function setTranscript(value){roleplay.transcript=value;}
   function stopRoleplay(showMessage=true) {
-    roleplay.active=false;if('speechSynthesis' in window)speechSynthesis.cancel();if(roleplay.recognition){roleplay.recognition.onend=null;try{roleplay.recognition.stop();}catch(_){}}
+    roleplay.active=false;clearTimeout(roleplay.promptTimer);if('speechSynthesis' in window)speechSynthesis.cancel();if(roleplay.recognition){roleplay.recognition.onend=null;try{roleplay.recognition.stop();}catch(_){}}
     if(roleplay.recorder?.state==='recording'){roleplay.recorder.onstop=null;try{roleplay.recorder.stop();}catch(_){}}if(roleplay.stream)roleplay.stream.getTracks().forEach(t=>t.stop());(roleplay.urls||[]).forEach(url=>URL.revokeObjectURL(url));
     if(showMessage){const status=document.getElementById('ep-chat-status');if(status)status.textContent=tr('Conversation stopped. Press Play conversation to start again from the beginning.','बातचीत रोक दी गई। फिर शुरू करने के लिए बातचीत चलाएँ दबाएँ।');setChatControls(false);}
   }
