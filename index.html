@@ -348,6 +348,9 @@
   .micnote{font-size:.82rem;color:var(--muted);margin-top:8px}
 </style>
 <link rel="stylesheet" href="math8-pilot.css">
+<link rel="stylesheet" href="english-practice.css?v=20260919">
+<script src="english-practice-data.js?v=20260919"></script>
+<script src="english-practice.js?v=20260919"></script>
 </head>
 <body>
 <nav class="appnav" aria-label="Main navigation"><div class="appnav-inner">
@@ -8755,11 +8758,13 @@ function saveSession(s){ var l=sessions(); l.push(s); localStorage.setItem(PK("s
 
 /* ================= router ================= */
 var VIEW = { name:"home" };
-function go(name, args){ if(typeof audioPlayerReset==="function") audioPlayerReset(); VIEW = Object.assign({name:name}, args||{}); render(); window.scrollTo(0,0); }
+function go(name, args){ if(window.EnglishPractice) EnglishPractice.cleanup(); if(typeof audioPlayerReset==="function") audioPlayerReset(); VIEW = Object.assign({name:name}, args||{}); render(); window.scrollTo(0,0); }
 function render(){
+  if(window.EnglishPractice) EnglishPractice.cleanup();
   var el = document.getElementById("app");
   var v = VIEW.name;
   if(v==="home") el.innerHTML = vHome();
+  else if(v==="englishPractice") el.innerHTML = EnglishPractice.view(VIEW.track, VIEW.lesson);
   else if(v==="subject") el.innerHTML = vSubject(VIEW.code);
   else if(v==="topic") el.innerHTML = vTopic(VIEW.code);
   else if(v==="assignment") el.innerHTML = vAssignment(VIEW.code, VIEW.chapter);
@@ -8863,6 +8868,7 @@ function vSubject(code){
   var h = '<div class="crumb"><a onclick="go(\'home\')">'+sp("Home","मुख्य")+'</a> › <b>'+t(s.name)+'</b></div>'
     + '<h1>'+s.icon+' '+t(s.name)+'</h1><p class="sub" style="margin-bottom:14px">'
     + (s.board==="GEN" ? sp("A generic course for every age group — pick the level that fits you.","हर आयु वर्ग हेतु सामान्य पाठ्यक्रम — अपना स्तर चुनें।") : s.board+" · "+sp("Class "+s.klass,"कक्षा "+s.klass))+'</p>';
+  if(s.code==="ENGCOM") h += EnglishPractice.cards();
   if(s.intro){
     h += '<div class="card clickable" style="margin-bottom:16px;background:var(--primary-light);border-color:var(--primary)" onclick="go(\'intro\',{code:\''+s.code+'\'})">'
       + '<div class="rowflex"><div style="flex:1;min-width:220px">'

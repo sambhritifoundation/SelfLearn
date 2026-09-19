@@ -49,6 +49,14 @@ mobile browser QA.
 
 Open `index.html` in any browser — no build step, no server needed. Keep the `data-*.js` files alongside it.
 
+## English listening and speaking tracks
+
+English Communication includes two separately selectable sections: **Listening Lessons & Practice** and **Speaking Practice**. Each offers 12 progressive lessons, from first greetings to interpreting nuanced discussions and negotiating decisions. Everyday scenarios combine grammar and tenses with meaning, model responses and repeated practice.
+
+Listening includes device-generated English speech, slow replay, optional transcripts and 36 comprehension checks with evidence-based feedback. Speaking includes sentence frames, follow-up turns, model answers, self-reflection and optional local microphone recording. Recordings are never uploaded and are discarded when leaving the page. Completion and optional planning notes are saved per learner profile in the current browser; these tracks do not award automatic pronunciation scores or fluency certification.
+
+Content: `english-practice-data.js`; interface: `english-practice.js` and `english-practice.css`. Run `scripts/test-english-practice.cjs` with `SL_NODE_MODULES` pointing to the installed Playwright package parent. The audit covers both languages, desktop/mobile, audio and recording controls, completion, profile isolation and existing course routes.
+
 ## Adding content
 
 1. Fill rows in `selflearn-question-template.xlsx` (see its Instructions sheet).
