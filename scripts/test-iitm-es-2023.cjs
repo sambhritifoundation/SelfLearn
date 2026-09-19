@@ -38,6 +38,8 @@ const server = http.createServer((req, res) => {
     assert.match(await page.locator('#timer').textContent(), /^240:00|239:5\d$/);
     await page.locator('#palette button').nth(6).click();
     assert.equal(await page.locator('audio').count(), 1);
+    assert((await page.locator('.audio-note').textContent()).includes('Original exam question Q7 · relevant audio 00:13–00:15'));
+    assert((await page.locator('.play-segment').textContent()).includes('Play only Q7 segment'));
     assert((await page.locator('.audio-note').textContent()).includes('not the original IIT Madras recording'));
     await page.locator('#palette button').nth(42).click();
     assert((await page.locator('input[name=multi-answer]').count()) >= 2);
