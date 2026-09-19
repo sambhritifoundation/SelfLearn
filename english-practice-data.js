@@ -61,6 +61,7 @@ window.SL_ENGLISH_PRACTICE = [
   },
   {
     title: 'Usually, but today…', level: 'Everyday confidence', hi: 'रोज़ और आज',
+    partner: 'Nisha',
     focus: 'Separate routines from actions happening now: present simple + continuous.',
     audio: 'I usually take the bus to college. My sister walks to school. Today it is raining, so we are sharing an auto. We are waiting outside the shop now. The bus comes at eight, but we are not taking it today.',
     checks: [
@@ -75,7 +76,15 @@ window.SL_ENGLISH_PRACTICE = [
     follow: 'A friend asks, “Do you study at home every day?” Explain the difference between today and your usual routine.',
     reply: 'No, I usually study at college. I am studying at home today because of the rain.',
     rubric: ['I used present simple for a routine.', 'I used am/is/are + -ing for today.', 'I connected a change to a reason.'],
-    transfer: 'Describe what two people usually do and what they are doing now. Speak for 30 seconds.'
+    transfer: 'Describe what two people usually do and what they are doing now. Speak for 30 seconds.',
+    conversation: [
+      {system:'How do you usually come to school?',model:'I usually walk to school.',hints:['usually','school'],correction:'Describe your routine with “I usually … to school.”'},
+      {system:'What are you doing differently today?',model:'Today I am taking the bus because it is raining.',hints:['today','am|taking|walking|going'],correction:'Use “Today I am …” for what is happening now.'},
+      {system:'Does your friend travel with you every day?',model:'No, she usually comes by bicycle.',hints:['yes|no','usually|every day'],correction:'Answer yes or no, then describe the usual routine.'},
+      {system:'Where are you both waiting now?',model:'We are waiting near the school gate now.',hints:['are|waiting','now|gate|school'],correction:'Use “We are waiting … now” for the current action.'},
+      {system:'Will you take the bus tomorrow too?',model:'No, I will walk tomorrow if the weather is clear.',hints:['yes|no','tomorrow'],correction:'Give a clear answer and mention tomorrow.'},
+      {system:'So what is your usual routine, and what changed today?',model:'I usually walk, but today I am taking the bus because it is raining.',hints:['usually','today','but|because'],correction:'Contrast the routine and today with “usually …, but today …”.'}
+    ]
   },
   {
     title: 'Find the library', level: 'Everyday confidence', hi: 'पुस्तकालय का रास्ता',
