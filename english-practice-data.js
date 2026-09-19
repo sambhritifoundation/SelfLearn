@@ -88,6 +88,7 @@ window.SL_ENGLISH_PRACTICE = [
   },
   {
     title: 'Find the library', level: 'Everyday confidence', hi: 'पुस्तकालय का रास्ता',
+    partner: 'Aman',
     focus: 'Follow ordered instructions; combine imperatives, prepositions and clarification.',
     audio: 'Walk straight past the tea stall. Turn left at the pharmacy, not at the bank. The library is between the school and the post office. It opens at ten. If you arrive early, you can wait under the tree outside.',
     checks: [
@@ -102,7 +103,15 @@ window.SL_ENGLISH_PRACTICE = [
     follow: 'The visitor asks, “Left at the school?” Correct the direction gently.',
     reply: 'Almost! Turn right at the school, not left. The shop is opposite the bus stop.',
     rubric: ['My instructions followed a usable order.', 'I used location words accurately.', 'I corrected a misunderstanding politely.'],
-    transfer: 'Give the same directions without pointing. Ask a partner to repeat them, or repeat them as the visitor yourself.'
+    transfer: 'Give the same directions without pointing. Ask a partner to repeat them, or repeat them as the visitor yourself.',
+    conversation: [
+      {system:'Excuse me, how can I get to the library?',model:'Walk straight past the tea stall.',hints:['walk|go','straight'],correction:'Begin with an instruction such as “Walk straight …”.'},
+      {system:'Do I turn at the bank?',model:'No. Turn left at the pharmacy, not at the bank.',hints:['no','left','pharmacy'],correction:'Correct the mistake clearly: “Turn left at the pharmacy, not at the bank.”'},
+      {system:'What is beside the library?',model:'The library is between the school and the post office.',hints:['library','between|next to|beside'],correction:'Use a location word such as between, next to, or beside.'},
+      {system:'What time does it open?',model:'It opens at ten o’clock.',hints:['opens|open','ten|10'],correction:'Say “It opens at …” with the time.'},
+      {system:'What can I do if I arrive early?',model:'If you arrive early, you can wait under the tree.',hints:['if','can'],correction:'Use “If …, you can …” to offer an option.'},
+      {system:'Let me check: straight, then left at the bank?',model:'Almost. Go straight, then turn left at the pharmacy.',hints:['straight','left','pharmacy'],correction:'Correct both steps gently and repeat the landmark.'}
+    ]
   },
   {
     title: 'The missing notebook', level: 'Connected stories', hi: 'खोई हुई कॉपी',
