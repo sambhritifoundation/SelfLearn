@@ -22,6 +22,13 @@ const server = http.createServer((req, res) => {
     const errors = [];
     page.on('pageerror', error => errors.push(error.message));
     await page.goto('http://127.0.0.1:8768/examprep.html');
+    assert(await page.locator('#equation-help').isHidden());
+    await page.locator('#open-help').click();
+    assert(await page.locator('#equation-help').isVisible());
+    assert((await page.locator('#equation-help').textContent()).includes('a_n^2'));
+    assert((await page.locator('#equation-help').textContent()).includes('4Fe + 3O2 + xH2O -> 2Fe2O3.xH2O'));
+    await page.locator('.close-help').click();
+    assert(await page.locator('#equation-help').isHidden());
     assert.deepEqual(await page.locator('#class option').allTextContents(), ['10', 'IITM BS']);
     await page.locator('#class').selectOption('IITM BS');
     assert.deepEqual(await page.locator('#subject option').allTextContents(), ['English I', 'Mathematics for Electronics I', 'Electronic Systems Thinking and Circuits', 'Introduction to C Programming']);
