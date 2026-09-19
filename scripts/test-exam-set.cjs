@@ -11,8 +11,8 @@ const server=http.createServer((req,res)=>{const file=path.join(root,decodeURICo
     page.on('pageerror',error=>errors.push(error.message));
     await page.route('https://formsubmit.co/**',async route=>{deliveries.push(route.request());await route.fulfill({status:200,contentType:'text/html',body:'<!doctype html><title>Accepted</title>'})});
     await page.goto('http://127.0.0.1:8767/examprep.html');
-    assert.equal(await page.locator('#set option[value^="exam:"]').count(),1);
-    const examValue=await page.locator('#set option[value^="exam:"]').getAttribute('value');
+    assert.equal(await page.locator('#set option[value^="exam:"]').count(),2);
+    const examValue=await page.locator('#set option[value^="exam:SL-EXAM-C10-SCI-CRE-"]').getAttribute('value');
     assert.match(examValue,/^exam:SL-EXAM-C10-SCI-CRE-\d{8}T\d{6}Z$/);
     await page.locator('#set').selectOption(examValue);
     assert(await page.locator('#exam-fields').isVisible());
@@ -27,6 +27,8 @@ const server=http.createServer((req,res)=>{const file=path.join(root,decodeURICo
     assert.equal(deliveries.length,1);
     assert(decodeURIComponent((deliveries[0].postData()||'').replace(/\+/g,' ')).includes('Activate SelfLearn ExamPrep PDF delivery'));
     await page.locator('#setup button:not([type="button"])').click();
+    assert.equal(await page.locator('.exam-home').count(),1);
+    await page.locator('#begin-exam').click();
     assert.equal(await page.locator('#palette button').count(),39);
     assert((await page.locator('.note').textContent()).includes('Test Student'));
     await page.addScriptTag({path:path.join(modules,'pdf-lib/dist/pdf-lib.min.js')});
