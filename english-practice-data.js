@@ -169,6 +169,7 @@ window.SL_ENGLISH_PRACTICE = [
   },
   {
     title: 'A repair that still matters', level: 'Independent communication', hi: 'मरम्मत की बात',
+    partner: 'Shop assistant',
     focus: 'Distinguish finished past events from current results: past simple + present perfect + modals.',
     audio: 'I bought this fan last Monday. It worked for two days, but it has stopped working twice since then. I have checked the plug and tried another socket. The electrician came yesterday, but the problem has not gone away. Could you arrange a replacement? I can bring the receipt, although I cannot visit before six.',
     checks: [
@@ -183,7 +184,15 @@ window.SL_ENGLISH_PRACTICE = [
     follow: 'The assistant says, “Try another phone first.” Explain what you have already done without becoming rude.',
     reply: 'I have already tried that, but the problem is still there. Could you check them here or explain the replacement process?',
     rubric: ['I used past simple with a finished date.', 'I used present perfect for results up to now.', 'I made a specific, polite request.'],
-    transfer: 'Repeat the complaint in 30 seconds. Keep the purchase date, evidence and requested solution.'
+    transfer: 'Repeat the complaint in 30 seconds. Keep the purchase date, evidence and requested solution.',
+    conversation: [
+      {system:'Good morning. How can I help you?',model:'I bought these headphones on Tuesday, and they are not working properly.',hints:['bought','tuesday|monday|yesterday|date','not working|problem'],correction:'Say when you bought the item and describe the problem.'},
+      {system:'What exactly has happened?',model:'The left side has stopped working three times.',hints:['has','stopped|failed|worked'],correction:'Use the present perfect for the repeated problem: “It has stopped …”.'},
+      {system:'Have you tried them with another phone?',model:'Yes, I have already tried another phone.',hints:['yes|no','have','already|tried'],correction:'Explain what you have already tried.'},
+      {system:'An electrician checked them yesterday, correct?',model:'Yes, the electrician came yesterday, but the problem has not gone away.',hints:['yesterday','has not|still'],correction:'Use past simple for yesterday and present perfect for the problem now.'},
+      {system:'What would you like us to do?',model:'Could you arrange a replacement, please?',hints:['could you|would you|please','replace|replacement|repair'],correction:'Make a specific polite request with “Could you …, please?”'},
+      {system:'Please bring the receipt before six.',model:'I can bring the receipt, but I cannot arrive before six. Could I come tomorrow?',hints:['receipt','cannot|can’t','tomorrow'],correction:'Explain the time problem and suggest a clear alternative.'}
+    ]
   },
   {
     title: 'A message passed along', level: 'Independent communication', hi: 'किसी का संदेश पहुँचाना',
