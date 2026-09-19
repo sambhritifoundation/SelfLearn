@@ -196,6 +196,7 @@ window.SL_ENGLISH_PRACTICE = [
   },
   {
     title: 'A message passed along', level: 'Independent communication', hi: 'किसी का संदेश पहुँचाना',
+    partner: 'Priya',
     focus: 'Extract actions from a longer message; use reported speech, passive voice and deadlines.',
     audio: 'The coordinator said that the workshop had been moved to Room Four because the hall was being repaired. She asked us to arrive by ten fifteen, although the session would not begin until ten thirty. The forms have already been emailed, so nobody needs to print extra copies. However, anyone who has not received a form should tell her by this evening. She will bring a few spare copies, but places must be confirmed today.',
     checks: [
@@ -210,7 +211,15 @@ window.SL_ENGLISH_PRACTICE = [
     follow: 'Your friend says, “So I need to print a form and arrive at ten thirty?” Correct both points.',
     reply: 'You do not need to print a form. Also, ten thirty is the start time; we were asked to arrive by ten fifteen.',
     rubric: ['I preserved the important times and actions.', 'I reported the message rather than inventing details.', 'I corrected both misunderstandings clearly.'],
-    transfer: 'Ask someone to give you a three-part message. Repeat it back, then pass it on in under 45 seconds.'
+    transfer: 'Ask someone to give you a three-part message. Repeat it back, then pass it on in under 45 seconds.',
+    conversation: [
+      {system:'I missed the announcement. What did the coordinator say?',model:'She said that the workshop had moved to Room Four.',hints:['said','room four|room 4|moved'],correction:'Report the change with “She said that … had moved …”.'},
+      {system:'Why was the room changed?',model:'The hall was being repaired.',hints:['hall','repaired|repair'],correction:'Explain the reason: “The hall was being repaired.”'},
+      {system:'What time should we arrive?',model:'She asked us to arrive by ten fifteen.',hints:['arrive','ten fifteen|10:15'],correction:'Keep the requested arrival time: “arrive by ten fifteen.”'},
+      {system:'Do I need to print the form?',model:'No. The forms have already been emailed.',hints:['no','already','emailed|email'],correction:'Correct the misunderstanding and mention that the forms have already been emailed.'},
+      {system:'What if I have not received my form?',model:'Tell the coordinator by this evening.',hints:['tell|contact','evening|today'],correction:'State the action and deadline clearly.'},
+      {system:'Let me check: Room Four, ten thirty, and I print a form?',model:'Room Four is correct, but arrive by ten fifteen and do not print another form.',hints:['room four|room 4','ten fifteen|10:15','not|do not'],correction:'Correct both errors while confirming the room.'}
+    ]
   },
   {
     title: 'Read between the lines', level: 'Flexible communication', hi: 'बात का आशय समझना',
