@@ -115,6 +115,7 @@ window.SL_ENGLISH_PRACTICE = [
   },
   {
     title: 'The missing notebook', level: 'Connected stories', hi: 'खोई हुई कॉपी',
+    partner: 'Sana',
     focus: 'Follow a story using past simple, past continuous and sequence markers.',
     audio: 'Yesterday I was waiting for the bus when I noticed my notebook was missing. I checked my bag, but it was not there. While I was looking under the bench, a shopkeeper called me. I had left it on his counter. He gave it back, and I caught the next bus.',
     checks: [
@@ -129,7 +130,15 @@ window.SL_ENGLISH_PRACTICE = [
     follow: 'Your listener asks, “Had you lost them before leaving home?” Clarify the order of events.',
     reply: 'Yes. I noticed they were missing before we left. My brother found them while we were still at home.',
     rubric: ['I set the scene with was/were + -ing.', 'My main events used past forms.', 'The order and ending were clear.'],
-    transfer: 'Retell the story in 45 seconds, then in 20 seconds. Keep the essential events in both versions.'
+    transfer: 'Retell the story in 45 seconds, then in 20 seconds. Keep the essential events in both versions.',
+    conversation: [
+      {system:'You look worried. What happened?',model:'I noticed that my notebook was missing.',hints:['notebook','missing|lost'],correction:'State the problem clearly: “My notebook was missing.”'},
+      {system:'Where were you when you noticed?',model:'I was waiting for the bus when I noticed.',hints:['was','waiting|walking|standing'],correction:'Set the scene with “I was … when …”.'},
+      {system:'What did you do first?',model:'First, I checked my bag and the bench.',hints:['first','checked|looked'],correction:'Move the story forward with “First, I checked …”.'},
+      {system:'Did anyone help you?',model:'Yes. A shopkeeper called me while I was looking.',hints:['yes|no','while|when'],correction:'Answer, then connect the actions with while or when.'},
+      {system:'Where had you left the notebook?',model:'I had left it on the shop counter.',hints:['had left','counter|shop'],correction:'Use “I had left it …” for the earlier event.'},
+      {system:'How did the story end?',model:'The shopkeeper returned it, and I caught the next bus.',hints:['returned|gave','bus|end'],correction:'Finish with what happened to the notebook and what you did next.'}
+    ]
   },
   {
     title: 'Plans that change', level: 'Connected stories', hi: 'बदलती योजनाएँ',
