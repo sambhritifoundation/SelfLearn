@@ -17,6 +17,7 @@ const server=http.createServer((req,res)=>{
    const page=await browser.newPage({viewport:{width,height:900}});
    page.on('pageerror',e=>errors.push(e.message));
    await page.route(/^https?:\/\/(?!127\.0\.0\.1)/,route=>route.abort());
+   await page.route('https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.8.1/+esm',route=>route.fulfill({contentType:'application/javascript',body:"export async function pipeline(){return async()=>({text:'Hello Akshata, I am Riya. I am from Patna.'})}"}));
    await page.goto(base);await page.evaluate(()=>go('subject',{code:'ENGCOM'}));
    assert.equal(await page.locator('.ep-choices .card').count(),2);
    await page.locator('.ep-choices button').first().click();assert.equal(await page.locator('.ep-lesson').count(),12);
@@ -69,6 +70,12 @@ const server=http.createServer((req,res)=>{
    assert(await page.locator('#ep-start-chat').isEnabled());
    await page.locator('#ep-start-chat').click();await page.waitForFunction(()=>!document.getElementById('ep-stop-turn').disabled);await page.locator('#ep-end-chat').click();
    assert.match(await page.locator('#ep-chat-status').innerText(),/Conversation stopped/);
+   // If native speech recognition returns nothing, transcribe the recorded audio locally.
+   await page.evaluate(()=>{window.SpeechRecognition=undefined;window.webkitSpeechRecognition=undefined;window.AudioContext=class{async decodeAudioData(){const samples=new Float32Array(16000);samples.fill(.1);return{duration:1,sampleRate:16000,length:16000,numberOfChannels:1,getChannelData:()=>samples}}async close(){}};EnglishPractice.open('speaking',0);speechSynthesis.speak=u=>setTimeout(()=>u.onend(),0);});
+   await page.locator('#ep-start-chat').click();await page.waitForFunction(()=>!document.getElementById('ep-stop-turn').disabled);await page.locator('#ep-stop-turn').click();
+   await page.waitForFunction(()=>!document.getElementById('ep-transcript-wrap').hidden);
+   assert.equal(await page.locator('#ep-transcript').inputValue(),'Hello Akshata, I am Riya. I am from Patna.');
+   await page.locator('#ep-end-chat').click();
    await page.evaluate(()=>Object.defineProperty(navigator.mediaDevices,'getUserMedia',{configurable:true,value:async()=>{throw new Error('denied');}}));
    await page.locator('#ep-start-chat').click();await page.waitForFunction(()=>!document.getElementById('ep-transcript-wrap').hidden);
    await page.locator('#ep-transcript').fill('Hello Akshata, I am Riya. I am from Patna.');await page.getByRole('button',{name:'Check my response and continue'}).click();

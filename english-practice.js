@@ -4,6 +4,7 @@ window.EnglishPractice = (() => {
   const titles = {listening:'Listening Lessons & Practice', speaking:'Speaking Practice'};
   let recorder = null, stream = null, recordingUrl = null, recordingToken = 0;
   let roleplay = {active:false, turn:0, recorder:null, stream:null, recognition:null, transcript:'', chunks:[], urls:[], recognitionError:'', recognitionStarted:false};
+  let localTranscriberPromise = null;
   const e = value => esc(String(value));
   const tr = (en, hi) => LANG === 'hi' ? hi : en;
   const key = () => PK('sl_english_tracks_v1');
@@ -26,7 +27,7 @@ window.EnglishPractice = (() => {
   }
   function conversationMarkup(l) {
     const partner=l.partner||tr('Practice partner','अभ्यास साथी');
-    return `<section class="ep-conversation" aria-labelledby="ep-conversation-title"><h3 id="ep-conversation-title">${tr('Conversation with ','बातचीत: ')}${e(partner)}</h3><p>${tr('Press Play conversation. Your partner will speak first, then recording starts automatically for your reply. Speak naturally and press Stop & check response when you finish.','बातचीत चलाएँ। आपका साथी पहले बोलेगा, फिर आपके जवाब की रिकॉर्डिंग अपने आप शुरू होगी। जवाब देकर रोकें और जाँचें दबाएँ।')}</p><p class="chip" id="ep-turn-progress">${tr('Turn 1 of ','जवाब 1 / ')}${l.conversation.length}</p><div class="ep-chat" id="ep-chat" aria-live="polite"><div class="ep-bubble system"><strong>${e(partner)}</strong><p>${tr('Ready when you are. I will speak first.','तैयार हों तो शुरू करें। मैं पहले बोलूँगा/बोलूँगी।')}</p></div></div><details class="ep-model" id="ep-model"><summary>${tr('Need help? Show a model response','मदद चाहिए? नमूना जवाब देखें')}</summary><p id="ep-model-text">${e(l.conversation[0].model)}</p></details><div class="ep-controls"><button class="btn" id="ep-start-chat" onclick="EnglishPractice.startConversation()">▶ ${tr('Play conversation','बातचीत चलाएँ')}</button><button class="btn" id="ep-stop-turn" onclick="EnglishPractice.stopTurn()" disabled>■ ${tr('Stop & review response','रोकें और जवाब देखें')}</button><button class="btn ghost" id="ep-end-chat" onclick="EnglishPractice.stopConversation()" disabled>${tr('End conversation','बातचीत समाप्त करें')}</button></div><p id="ep-chat-status" role="status"></p><div id="ep-transcript-wrap" hidden><label for="ep-transcript">${tr('Review the complete response. Correct the text only if the device misheard you.','पूरा जवाब देखें। डिवाइस ने गलत सुना हो तभी शब्द सुधारें।')}</label><textarea id="ep-transcript" rows="3" maxlength="600" oninput="EnglishPractice.setTranscript(this.value)"></textarea><button class="btn ghost sm" onclick="EnglishPractice.checkTurn()">${tr('Check my response and continue','मेरा जवाब जाँचें और आगे बढ़ें')}</button></div><audio id="ep-turn-audio" controls hidden></audio><p class="sub">${tr('There is no conversation timeout. Recording continues until you press Stop & review response. Audio stays on this page and is discarded when you leave. Speech recognition may make mistakes, so review the complete text before continuing.','बातचीत की कोई समय सीमा नहीं है। रिकॉर्डिंग तब तक चलती है जब तक आप रोकें और जवाब देखें नहीं दबाते। आवाज़ इसी पेज पर रहती है और बाहर जाने पर हट जाती है। आगे बढ़ने से पहले पूरा लिखा जवाब देख लें।')}</p></section>`;
+    return `<section class="ep-conversation" aria-labelledby="ep-conversation-title"><h3 id="ep-conversation-title">${tr('Conversation with ','बातचीत: ')}${e(partner)}</h3><p>${tr('Press Play conversation. Your partner will speak first, then recording starts automatically for your reply. Speak naturally and press Stop & check response when you finish.','बातचीत चलाएँ। आपका साथी पहले बोलेगा, फिर आपके जवाब की रिकॉर्डिंग अपने आप शुरू होगी। जवाब देकर रोकें और जाँचें दबाएँ।')}</p><p class="chip" id="ep-turn-progress">${tr('Turn 1 of ','जवाब 1 / ')}${l.conversation.length}</p><div class="ep-chat" id="ep-chat" aria-live="polite"><div class="ep-bubble system"><strong>${e(partner)}</strong><p>${tr('Ready when you are. I will speak first.','तैयार हों तो शुरू करें। मैं पहले बोलूँगा/बोलूँगी।')}</p></div></div><details class="ep-model" id="ep-model"><summary>${tr('Need help? Show a model response','मदद चाहिए? नमूना जवाब देखें')}</summary><p id="ep-model-text">${e(l.conversation[0].model)}</p></details><div class="ep-controls"><button class="btn" id="ep-start-chat" onclick="EnglishPractice.startConversation()">▶ ${tr('Play conversation','बातचीत चलाएँ')}</button><button class="btn" id="ep-stop-turn" onclick="EnglishPractice.stopTurn()" disabled>■ ${tr('Stop & review response','रोकें और जवाब देखें')}</button><button class="btn ghost" id="ep-end-chat" onclick="EnglishPractice.stopConversation()" disabled>${tr('End conversation','बातचीत समाप्त करें')}</button></div><p id="ep-chat-status" role="status"></p><div id="ep-transcript-wrap" hidden><label for="ep-transcript">${tr('Review the complete response. Correct the text only if the device misheard you.','पूरा जवाब देखें। डिवाइस ने गलत सुना हो तभी शब्द सुधारें।')}</label><textarea id="ep-transcript" rows="3" maxlength="600" oninput="EnglishPractice.setTranscript(this.value)"></textarea><button class="btn ghost sm" onclick="EnglishPractice.checkTurn()">${tr('Check my response and continue','मेरा जवाब जाँचें और आगे बढ़ें')}</button></div><audio id="ep-turn-audio" controls hidden></audio><p class="sub">${tr('There is no conversation timeout. Recording continues until you press Stop & review response. Audio stays on this page and is discarded when you leave. If the browser cannot recognise speech, the recording is transcribed on this device; the speech model may take longer to load the first time.','बातचीत की कोई समय सीमा नहीं है। रिकॉर्डिंग तब तक चलती है जब तक आप रोकें और जवाब देखें नहीं दबाते। आवाज़ इसी पेज पर रहती है और बाहर जाने पर हट जाती है। ब्राउज़र आवाज़ न पहचान पाए तो रिकॉर्डिंग इसी डिवाइस पर लिखित शब्दों में बदली जाती है; पहली बार मॉडल लोड होने में अधिक समय लग सकता है।')}</p></section>`;
   }
   function open(track, lesson) { go('englishPractice',{track,lesson}); }
   function cards() {
@@ -154,22 +155,42 @@ window.EnglishPractice = (() => {
     if(!roleplay.active||!roleplay.recorder||roleplay.recorder.state!=='recording')return;
     const rec=roleplay.recorder, chunks=roleplay.chunks, turn=roleplay.turn;setChatControls(false);document.getElementById('ep-chat-status').textContent=tr('Finishing your response…','आपका जवाब पूरा किया जा रहा है…');
     let mediaStopped=false,recognitionStopped=!roleplay.recognition,finished=false;
-    const finish=()=>{if(finished||!mediaStopped||!recognitionStopped)return;finished=true;const url=URL.createObjectURL(new Blob(chunks,{type:chunks[0]?.type||'audio/webm'}));roleplay.urls.push(url);const audio=document.getElementById('ep-turn-audio');if(audio){audio.src=url;audio.hidden=false;}finishTurn(turn);};
+    const finish=()=>{if(finished||!mediaStopped||!recognitionStopped)return;finished=true;const blob=new Blob(chunks,{type:chunks[0]?.type||'audio/webm'}),url=URL.createObjectURL(blob);roleplay.urls.push(url);const audio=document.getElementById('ep-turn-audio');if(audio){audio.src=url;audio.hidden=false;}finishTurn(turn,blob);};
     rec.onstop=()=>{mediaStopped=true;finish();};
     if(roleplay.recognition){roleplay.recognition.onend=()=>{recognitionStopped=true;finish();};try{roleplay.recognition.stop();}catch(_){recognitionStopped=true;}setTimeout(()=>{recognitionStopped=true;finish();},6000);}
     rec.stop();
   }
-  function finishTurn(turnIndex) {
-    if(!roleplay.active||turnIndex!==roleplay.turn)return;const wrap=document.getElementById('ep-transcript-wrap'), input=document.getElementById('ep-transcript');
+  async function recordedAudioSamples(blob) {
+    const AudioContext=window.AudioContext||window.webkitAudioContext;
+    if(!AudioContext)throw new Error('audio decoding unavailable');
+    const context=new AudioContext(),buffer=await context.decodeAudioData(await blob.arrayBuffer());
+    if(context.close)await context.close();
+    const targetRate=16000,targetLength=Math.max(1,Math.round(buffer.duration*targetRate)),samples=new Float32Array(targetLength),ratio=buffer.sampleRate/targetRate;
+    for(let i=0;i<targetLength;i++){
+      const sourceIndex=Math.min(buffer.length-1,Math.floor(i*ratio));let sample=0;
+      for(let channel=0;channel<buffer.numberOfChannels;channel++)sample+=buffer.getChannelData(channel)[sourceIndex]||0;
+      samples[i]=sample/buffer.numberOfChannels;
+    }
+    return samples;
+  }
+  async function transcribeRecordedAudio(blob) {
+    const samples=await recordedAudioSamples(blob);
+    const energy=Math.sqrt(samples.reduce((sum,value)=>sum+value*value,0)/samples.length);
+    if(energy<0.002)return '';
+    if(!localTranscriberPromise)localTranscriberPromise=import('https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.8.1/+esm')
+      .then(({pipeline})=>pipeline('automatic-speech-recognition','Xenova/whisper-tiny.en'))
+      .catch(error=>{localTranscriberPromise=null;throw error;});
+    const transcriber=await localTranscriberPromise,output=await transcriber(samples);
+    return String(output?.text||'').replace(/\[(?:BLANK_AUDIO|MUSIC|NOISE)\]/gi,'').trim();
+  }
+  async function finishTurn(turnIndex,blob) {
+    if(!roleplay.active||turnIndex!==roleplay.turn)return;const wrap=document.getElementById('ep-transcript-wrap'),input=document.getElementById('ep-transcript'),status=document.getElementById('ep-chat-status');
+    if(!roleplay.transcript){status.textContent=tr('Transcribing your recorded response… The first time may take a little longer.','रिकॉर्ड किए गए जवाब को लिखा जा रहा है… पहली बार थोड़ा अधिक समय लग सकता है।');try{roleplay.transcript=await transcribeRecordedAudio(blob);}catch(_){roleplay.recognitionError='local-transcription-failed';}}
+    if(!roleplay.active||turnIndex!==roleplay.turn)return;
     if(wrap)wrap.hidden=false;if(input){input.value=roleplay.transcript;input.focus();}
-    document.getElementById('ep-chat-status').textContent=roleplay.transcript
+    status.textContent=roleplay.transcript
       ? tr('Review your complete response below, then check it to continue.','नीचे अपना पूरा जवाब देखें, फिर जाँचकर आगे बढ़ें।')
-      : tr(roleplay.recognitionError==='not-allowed'||roleplay.recognitionError==='service-not-allowed'
-        ? 'Speech transcription needs microphone permission in this browser. Allow microphone access, then play the conversation again.'
-        : roleplay.recognitionError==='audio-capture'
-          ? 'Speech transcription could not use the microphone. End this conversation, allow microphone access, then play it again.'
-          : 'I could not hear clear words. Please try your response again by ending and replaying the conversation.'
-      ,'आवाज़ को शब्दों में नहीं बदला जा सका। बातचीत समाप्त करके फिर से चलाएँ और दोबारा बोलें।');
+      : tr('I could not detect clear speech in this recording. Please record the response again, or type it below if needed.','इस रिकॉर्डिंग में साफ़ आवाज़ नहीं मिली। जवाब फिर रिकॉर्ड करें, या ज़रूरत हो तो नीचे लिखें।');
   }
   function checkTurn() {
     if(!roleplay.active)return;const lesson=lessons[roleplay.lesson], item=lesson.conversation[roleplay.turn], input=document.getElementById('ep-transcript');
