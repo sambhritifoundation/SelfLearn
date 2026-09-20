@@ -55,15 +55,11 @@ const server=http.createServer((req,res)=>{
     await page.waitForFunction(()=>!document.getElementById('ep-stop-turn').disabled);
     if(replyIndex===0){await page.waitForTimeout(500);assert(!(await page.locator('#ep-stop-turn').isDisabled()),'recording must not time out');}
     await page.locator('#ep-stop-turn').click();
-    await page.waitForFunction(()=>!document.getElementById('ep-transcript-wrap').hidden);
-    if(replyIndex===0)assert((await page.locator('#ep-transcript').inputValue()).includes('Hello Akshata, I am Riya. I am from Patna.'),'recognition must populate the complete response');
-    await page.locator('#ep-transcript').fill(reply);
-    await page.getByRole('button',{name:'Check my response and continue',exact:true}).click();
+    await page.waitForFunction(count=>document.querySelectorAll('.ep-bubble.learner').length===count,replyIndex+1);
     if(replyIndex===0)assert((await page.locator('.ep-bubble.learner').last().innerText()).includes(reply),'complete learner response');
    }
    await page.waitForFunction(()=>document.getElementById('ep-chat-status').textContent.includes('Conversation complete'));
-   assert.equal(await page.locator('.ep-bubble.excellent').count(),10);
-   assert.equal(await page.locator('.ep-bubble.correction').count(),1);
+   assert.equal(await page.locator('.ep-bubble.feedback').count(),11);
    assert.equal(await page.locator('.ep-bubble.learner').count(),11);
    assert.equal(await page.locator('.ep-bubble.system').count(),11);
    assert.equal(await page.locator('#ep-model-text').textContent(),'Yes, I would like that. See you tomorrow, Akshata!');
@@ -71,10 +67,10 @@ const server=http.createServer((req,res)=>{
    await page.locator('#ep-start-chat').click();await page.waitForFunction(()=>!document.getElementById('ep-stop-turn').disabled);await page.locator('#ep-end-chat').click();
    assert.match(await page.locator('#ep-chat-status').innerText(),/Conversation stopped/);
    // If native speech recognition returns nothing, transcribe the recorded audio locally.
-   await page.evaluate(()=>{window.SpeechRecognition=undefined;window.webkitSpeechRecognition=undefined;window.AudioContext=class{async decodeAudioData(){const samples=new Float32Array(16000);samples.fill(.1);return{duration:1,sampleRate:16000,length:16000,numberOfChannels:1,getChannelData:()=>samples}}async close(){}};EnglishPractice.open('speaking',0);speechSynthesis.speak=u=>setTimeout(()=>u.onend(),0);});
+   await page.evaluate(()=>{window.SpeechRecognition=undefined;window.webkitSpeechRecognition=undefined;window.AudioContext=class{async decodeAudioData(){const samples=new Float32Array(16000);samples.fill(.1);return{duration:1,sampleRate:16000,length:16000,numberOfChannels:1,getChannelData:()=>samples}}async close(){}};window.OfflineAudioContext=class{createBufferSource(){return{connect(){},start(){}}}async startRendering(){return{getChannelData:()=>new Float32Array(16000).fill(.1)}}};EnglishPractice.open('speaking',0);speechSynthesis.speak=u=>setTimeout(()=>u.onend(),0);});
    await page.locator('#ep-start-chat').click();await page.waitForFunction(()=>!document.getElementById('ep-stop-turn').disabled);await page.locator('#ep-stop-turn').click();
-   await page.waitForFunction(()=>!document.getElementById('ep-transcript-wrap').hidden);
-   assert.equal(await page.locator('#ep-transcript').inputValue(),'Hello Akshata, I am Riya. I am from Patna.');
+   await page.waitForFunction(()=>document.querySelectorAll('.ep-bubble.learner').length===1);
+   assert((await page.locator('.ep-bubble.learner').innerText()).includes('Hello Akshata, I am Riya. I am from Patna.'));
    await page.locator('#ep-end-chat').click();
    await page.evaluate(()=>Object.defineProperty(navigator.mediaDevices,'getUserMedia',{configurable:true,value:async()=>{throw new Error('denied');}}));
    await page.locator('#ep-start-chat').click();await page.waitForFunction(()=>!document.getElementById('ep-transcript-wrap').hidden);
