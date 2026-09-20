@@ -22,6 +22,7 @@ const server = http.createServer((req, res) => {
     const errors = [];
     page.on('pageerror', error => errors.push(error.message));
     await page.goto('http://127.0.0.1:8768/examprep.html');
+    await page.locator('[data-exam="IITM-ES-QPQ1-20230806"]').click();
     assert(await page.locator('#equation-help').isHidden());
     await page.locator('#open-help').click();
     assert(await page.locator('#equation-help').isVisible());
@@ -29,11 +30,9 @@ const server = http.createServer((req, res) => {
     assert((await page.locator('#equation-help').textContent()).includes('4Fe + 3O2 + xH2O -> 2Fe2O3.xH2O'));
     await page.locator('.close-help').click();
     assert(await page.locator('#equation-help').isHidden());
-    assert.deepEqual(await page.locator('#class option').allTextContents(), ['10', 'IITM BS']);
-    await page.locator('#class').selectOption('IITM BS');
-    assert.deepEqual(await page.locator('#subject option').allTextContents(), ['English I', 'Mathematics for Electronics I', 'Electronic Systems Thinking and Circuits', 'Introduction to C Programming']);
-    await page.locator('#set').selectOption('exam:IITM-ES-QPQ1-20230806');
+    assert.equal(await page.locator('#app select').count(),0);
     await page.locator('#delivery-email').fill('teacher@example.org');
+    await page.getByText('Student details (optional)',{exact:true}).click();
     await page.locator('#student').fill('Test learner');
     await page.locator('#setup button:not([type=button])').click();
     assert.equal(await page.locator('.exam-home').count(), 1);
