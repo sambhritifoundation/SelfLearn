@@ -3,7 +3,7 @@ window.EnglishPractice = (() => {
   const lessons = window.SL_ENGLISH_PRACTICE;
   const titles = {listening:'Listening Lessons & Practice', speaking:'Speaking Practice'};
   let recorder = null, stream = null, recordingUrl = null, recordingToken = 0;
-  let roleplay = {active:false, turn:0, recorder:null, stream:null, recognition:null, transcript:'', chunks:[], urls:[], recognitionError:''};
+  let roleplay = {active:false, turn:0, recorder:null, stream:null, recognition:null, transcript:'', chunks:[], urls:[], recognitionError:'', recognitionStarted:false};
   const e = value => esc(String(value));
   const tr = (en, hi) => LANG === 'hi' ? hi : en;
   const key = () => PK('sl_english_tracks_v1');
@@ -132,17 +132,21 @@ window.EnglishPractice = (() => {
     u.onend=beginReply;u.onerror=beginReply;roleplay.promptTimer=setTimeout(beginReply,Math.max(8000,turn.system.split(/\s+/).length*700));speechSynthesis.speak(u);
   }
   async function startConversation() {
-    stopRoleplay(false);roleplay={active:true,lesson:Number(VIEW.lesson)||0,turn:0,recorder:null,stream:null,recognition:null,transcript:'',chunks:[],urls:[],recognitionError:''};
+    stopRoleplay(false);roleplay={active:true,lesson:Number(VIEW.lesson)||0,turn:0,recorder:null,stream:null,recognition:null,transcript:'',chunks:[],urls:[],recognitionError:'',recognitionStarted:false};
     const chat=document.getElementById('ep-chat');if(chat)chat.innerHTML='';setChatControls(false);speakTurn();
   }
   async function startRoleplayRecording() {
     if(!roleplay.active)return;const status=document.getElementById('ep-chat-status');
     try{
       if(!navigator.mediaDevices?.getUserMedia||!window.MediaRecorder)throw new Error('no recorder');
-      roleplay.stream=await navigator.mediaDevices.getUserMedia({audio:true});if(!roleplay.active){roleplay.stream.getTracks().forEach(t=>t.stop());return;}
-      roleplay.chunks=[];roleplay.transcript='';roleplay.recorder=new MediaRecorder(roleplay.stream);roleplay.recorder.ondataavailable=ev=>{if(ev.data.size)roleplay.chunks.push(ev.data);};roleplay.recorder.start();
+      if(!roleplay.stream||!roleplay.stream.getAudioTracks().some(track=>track.readyState==='live')) roleplay.stream=await navigator.mediaDevices.getUserMedia({audio:true});
+      if(!roleplay.active){roleplay.stream.getTracks().forEach(t=>t.stop());return;}
+      roleplay.chunks=[];roleplay.transcript='';roleplay.recognitionError='';roleplay.recognitionStarted=false;
       const Recognition=window.SpeechRecognition||window.webkitSpeechRecognition;
-      if(Recognition){const recognition=new Recognition();roleplay.recognition=recognition;recognition.lang=(navigator.language&&/^en/i.test(navigator.language))?navigator.language:'en-IN';recognition.continuous=true;recognition.interimResults=true;recognition.maxAlternatives=1;recognition.onresult=ev=>{let words='';for(let i=0;i<ev.results.length;i++)words+=ev.results[i][0].transcript+' ';roleplay.transcript=words.trim();};recognition.onerror=ev=>{roleplay.recognitionError=ev.error||'unavailable';};recognition.onend=()=>{if(roleplay.active&&roleplay.recorder?.state==='recording'){try{recognition.start();}catch(_){}}};try{recognition.start();}catch(_){roleplay.recognitionError='unavailable';roleplay.recognition=null;} }
+      if(Recognition){const recognition=new Recognition();roleplay.recognition=recognition;recognition.lang=(navigator.language&&/^en/i.test(navigator.language))?navigator.language:'en-IN';recognition.continuous=true;recognition.interimResults=true;recognition.maxAlternatives=1;recognition.onstart=()=>{roleplay.recognitionStarted=true;};recognition.onresult=ev=>{let words='';for(let i=0;i<ev.results.length;i++)words+=ev.results[i][0].transcript+' ';roleplay.transcript=words.trim();};recognition.onerror=ev=>{roleplay.recognitionError=ev.error||'unavailable';};recognition.onend=()=>{if(roleplay.active&&roleplay.recorder?.state==='recording'){try{recognition.start();}catch(_){}}};try{recognition.start();}catch(_){roleplay.recognitionError='unavailable';roleplay.recognition=null;} }
+      // Start browser transcription before the local audio recorder. Some browsers allow
+      // a recorder to keep the microphone while denying a recognizer that starts second.
+      roleplay.recorder=new MediaRecorder(roleplay.stream);roleplay.recorder.ondataavailable=ev=>{if(ev.data.size)roleplay.chunks.push(ev.data);};roleplay.recorder.start();
       status.textContent=tr('Your turn — recording now. Speak, then press Stop & check response.','आपकी बारी — रिकॉर्डिंग चल रही है। बोलकर रोकें और जाँचें दबाएँ।');setChatControls(true);
     }catch(_){status.textContent=tr('Microphone access is unavailable. Say your answer aloud, then type what you said so the conversation can continue.','माइक उपलब्ध नहीं। जवाब ज़ोर से बोलें, फिर बातचीत आगे बढ़ाने के लिए अपना जवाब लिखें।');const wrap=document.getElementById('ep-transcript-wrap');if(wrap)wrap.hidden=false;const input=document.getElementById('ep-transcript');if(input){input.value='';input.focus();}setChatControls(false);}
   }
@@ -150,7 +154,7 @@ window.EnglishPractice = (() => {
     if(!roleplay.active||!roleplay.recorder||roleplay.recorder.state!=='recording')return;
     const rec=roleplay.recorder, chunks=roleplay.chunks, turn=roleplay.turn;setChatControls(false);document.getElementById('ep-chat-status').textContent=tr('Finishing your response…','आपका जवाब पूरा किया जा रहा है…');
     let mediaStopped=false,recognitionStopped=!roleplay.recognition,finished=false;
-    const finish=()=>{if(finished||!mediaStopped||!recognitionStopped)return;finished=true;if(roleplay.stream)roleplay.stream.getTracks().forEach(t=>t.stop());const url=URL.createObjectURL(new Blob(chunks,{type:chunks[0]?.type||'audio/webm'}));roleplay.urls.push(url);const audio=document.getElementById('ep-turn-audio');if(audio){audio.src=url;audio.hidden=false;}finishTurn(turn);};
+    const finish=()=>{if(finished||!mediaStopped||!recognitionStopped)return;finished=true;const url=URL.createObjectURL(new Blob(chunks,{type:chunks[0]?.type||'audio/webm'}));roleplay.urls.push(url);const audio=document.getElementById('ep-turn-audio');if(audio){audio.src=url;audio.hidden=false;}finishTurn(turn);};
     rec.onstop=()=>{mediaStopped=true;finish();};
     if(roleplay.recognition){roleplay.recognition.onend=()=>{recognitionStopped=true;finish();};try{roleplay.recognition.stop();}catch(_){recognitionStopped=true;}setTimeout(()=>{recognitionStopped=true;finish();},6000);}
     rec.stop();
@@ -160,7 +164,12 @@ window.EnglishPractice = (() => {
     if(wrap)wrap.hidden=false;if(input){input.value=roleplay.transcript;input.focus();}
     document.getElementById('ep-chat-status').textContent=roleplay.transcript
       ? tr('Review your complete response below, then check it to continue.','नीचे अपना पूरा जवाब देखें, फिर जाँचकर आगे बढ़ें।')
-      : tr('Your recording is ready, but this browser did not return speech-to-text. You can type what you said below to continue.','रिकॉर्डिंग तैयार है, पर इस ब्राउज़र ने आवाज़ को लिखित शब्दों में नहीं बदला। आगे बढ़ने के लिए नीचे अपना जवाब लिखें।');
+      : tr(roleplay.recognitionError==='not-allowed'||roleplay.recognitionError==='service-not-allowed'
+        ? 'Speech transcription needs microphone permission in this browser. Allow microphone access, then play the conversation again.'
+        : roleplay.recognitionError==='audio-capture'
+          ? 'Speech transcription could not use the microphone. End this conversation, allow microphone access, then play it again.'
+          : 'I could not hear clear words. Please try your response again by ending and replaying the conversation.'
+      ,'आवाज़ को शब्दों में नहीं बदला जा सका। बातचीत समाप्त करके फिर से चलाएँ और दोबारा बोलें।');
   }
   function checkTurn() {
     if(!roleplay.active)return;const lesson=lessons[roleplay.lesson], item=lesson.conversation[roleplay.turn], input=document.getElementById('ep-transcript');
