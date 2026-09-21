@@ -48,7 +48,7 @@ const server=http.createServer((req,res)=>{
    await page.evaluate(()=>switchProfile(''));
    // Chapter 1 is a system-led conversation: speak, auto-record, check, continue.
    await page.reload();
-   await page.evaluate(width=>{LANG='en';const mobile=width===390;window.SpeechRecognition=class{start(){setTimeout(()=>this.onstart?.(),0)}stop(){setTimeout(()=>{this.onresult?.({results:[[{transcript:'Hello Akshata, I am Riya. I am from Patna.'}]]});if(!mobile)this.onend?.();},80)}};Object.defineProperty(window,'webkitSpeechRecognition',{configurable:true,value:undefined});speechSynthesis.speak=u=>setTimeout(()=>u.onend(),0);EnglishPractice.open('speaking',0);},width);
+   await page.evaluate(width=>{LANG='en';const mobile=width===390,originalGetUserMedia=navigator.mediaDevices.getUserMedia.bind(navigator.mediaDevices);navigator.mediaDevices.getUserMedia=async constraints=>{const stream=await originalGetUserMedia(constraints);window.__trackReleased=false;stream.getTracks().forEach(track=>{const stop=track.stop.bind(track);track.stop=()=>{window.__trackReleased=true;stop();};});return stream;};window.SpeechRecognition=class{start(){setTimeout(()=>this.onstart?.(),0)}stop(){setTimeout(()=>{if(!mobile||window.__trackReleased)this.onresult?.({results:[[{transcript:'Hello Akshata, I am Riya. I am from Patna.'}]]});if(!mobile)this.onend?.();},80)}};Object.defineProperty(window,'webkitSpeechRecognition',{configurable:true,value:undefined});speechSynthesis.speak=u=>setTimeout(()=>u.onend(),0);EnglishPractice.open('speaking',0);},width);
    await page.locator('#ep-start-chat').click();
    const replies=['Hello Akshata, I am Riya. I am from Patna.','Nice to meet you too. I study in Class 8.','Science.','I usually come to school by bus.','Yes, I have lunch with my friends.','I like to play badminton.','Yes, the library is next to the science room.','Of course, I can show you the library after class.','Yes, we play football.','Yes, let us meet at lunch tomorrow.','Yes, see you tomorrow.'];
    for(const [replyIndex,reply] of replies.entries()){
@@ -56,7 +56,7 @@ const server=http.createServer((req,res)=>{
     if(replyIndex===0){await page.waitForTimeout(500);assert(!(await page.locator('#ep-stop-turn').isDisabled()),'recording must not time out');}
     const stoppedAt=Date.now();await page.locator('#ep-stop-turn').click();
     await page.waitForFunction(count=>document.querySelectorAll('.ep-bubble.learner').length===count,replyIndex+1);
-    if(width===390&&replyIndex===0)assert(Date.now()-stoppedAt<2000,'mobile transcript should post without the old six-second wait');
+    if(width===390&&replyIndex===0){assert(Date.now()-stoppedAt<2000,'mobile transcript should post without the old six-second wait');assert.equal(await page.evaluate(()=>window.__asrModel),undefined,'mobile microphone release should avoid local transcription');}
     if(replyIndex===0)assert((await page.locator('.ep-bubble.learner').last().innerText()).includes(reply),'complete learner response');
    }
    await page.waitForFunction(()=>document.getElementById('ep-chat-status').textContent.includes('Conversation complete'));
