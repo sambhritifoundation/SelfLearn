@@ -32,7 +32,7 @@ const server = http.createServer((req, res) => {
     assert(await page.locator('#equation-help').isHidden());
     assert.equal(await page.locator('#app select').count(),0);
     await page.locator('#delivery-email').fill('teacher@example.org');
-    await page.getByText('Student details (optional)',{exact:true}).click();
+    assert.equal(await page.locator('#setup>details').getAttribute('open'),'');
     await page.locator('#student').fill('Test learner');
     await page.locator('#setup button:not([type=button])').click();
     assert.equal(await page.locator('.exam-home').count(), 1);

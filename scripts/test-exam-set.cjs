@@ -15,7 +15,7 @@ const server=http.createServer((req,res)=>{const file=path.join(root,decodeURICo
     await page.locator('[data-exam^="SL-EXAM-C10-SCI-CRE-"]').click();
     assert(await page.locator('#exam-fields').isVisible());
     assert.equal(await page.locator('#delivery-email').getAttribute('required'),null);
-    await page.getByText('Student details (optional)',{exact:true}).click();
+    assert.equal(await page.locator('#setup>details').getAttribute('open'),'');
     await page.locator('#student').fill('Test Student');
     await page.locator('#student-id').fill('ROLL-101');
     await page.locator('#delivery-email').fill('teacher@example.org');
