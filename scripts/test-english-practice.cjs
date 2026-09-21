@@ -14,10 +14,10 @@ const server=http.createServer((req,res)=>{
  const errors=[];
  try{
   for(const width of [1280,390]){
-   const page=await browser.newPage({viewport:{width,height:900}});
+   const page=await browser.newPage({viewport:{width,height:900},...(width===390?{userAgent:'Mozilla/5.0 (Linux; Android 14; Pixel 7) AppleWebKit/537.36 Chrome/125.0 Mobile Safari/537.36'}:{})});
    page.on('pageerror',e=>errors.push(e.message));
    await page.route(/^https?:\/\/(?!127\.0\.0\.1)/,route=>route.abort());
-   await page.route('https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.8.1/+esm',route=>route.fulfill({contentType:'application/javascript',body:"export async function pipeline(){return async()=>({text:'Hello Akshata, I am Riya. I am from Patna.'})}"}));
+   await page.route('https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.8.1/+esm',route=>route.fulfill({contentType:'application/javascript',body:"export async function pipeline(task,model){globalThis.__asrModel=model;return async()=>({text:'Hello Akshata, I am Riya. I am from Patna.'})}"}));
    await page.goto(base);await page.evaluate(()=>go('subject',{code:'ENGCOM'}));
    assert.equal(await page.locator('.ep-choices .card').count(),2);
    await page.locator('.ep-choices button').first().click();assert.equal(await page.locator('.ep-lesson').count(),12);
@@ -48,7 +48,7 @@ const server=http.createServer((req,res)=>{
    await page.evaluate(()=>switchProfile(''));
    // Chapter 1 is a system-led conversation: speak, auto-record, check, continue.
    await page.reload();
-   await page.evaluate(()=>{LANG='en';window.SpeechRecognition=class{start(){}stop(){setTimeout(()=>{this.onresult?.({results:[[{transcript:'Hello Akshata, I am Riya. I am from Patna.'}]]});this.onend?.();},80)}};Object.defineProperty(window,'webkitSpeechRecognition',{configurable:true,value:undefined});speechSynthesis.speak=u=>setTimeout(()=>u.onend(),0);EnglishPractice.open('speaking',0);});
+   await page.evaluate(()=>{LANG='en';window.SpeechRecognition=class{start(){setTimeout(()=>this.onstart?.(),0)}stop(){setTimeout(()=>{this.onresult?.({results:[[{transcript:'Hello Akshata, I am Riya. I am from Patna.'}]]});this.onend?.();},80)}};Object.defineProperty(window,'webkitSpeechRecognition',{configurable:true,value:undefined});speechSynthesis.speak=u=>setTimeout(()=>u.onend(),0);EnglishPractice.open('speaking',0);});
    await page.locator('#ep-start-chat').click();
    const replies=['Hello Akshata, I am Riya. I am from Patna.','Nice to meet you too. I study in Class 8.','Science.','I usually come to school by bus.','Yes, I have lunch with my friends.','I like to play badminton.','Yes, the library is next to the science room.','Of course, I can show you the library after class.','Yes, we play football.','Yes, let us meet at lunch tomorrow.','Yes, see you tomorrow.'];
    for(const [replyIndex,reply] of replies.entries()){
@@ -71,6 +71,7 @@ const server=http.createServer((req,res)=>{
    await page.locator('#ep-start-chat').click();await page.waitForFunction(()=>!document.getElementById('ep-stop-turn').disabled);await page.locator('#ep-stop-turn').click();
    await page.waitForFunction(()=>document.querySelectorAll('.ep-bubble.learner').length===1);
    assert((await page.locator('.ep-bubble.learner').innerText()).includes('Hello Akshata, I am Riya. I am from Patna.'));
+   assert.equal(await page.evaluate(()=>window.__asrModel),width===390?'Xenova/whisper-tiny.en':'Xenova/whisper-base.en');
    await page.locator('#ep-end-chat').click();
    await page.evaluate(()=>Object.defineProperty(navigator.mediaDevices,'getUserMedia',{configurable:true,value:async()=>{throw new Error('denied');}}));
    await page.locator('#ep-start-chat').click();await page.waitForFunction(()=>!document.getElementById('ep-transcript-wrap').hidden);

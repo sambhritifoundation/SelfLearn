@@ -4,7 +4,7 @@ const node=id=>{if(!nodes.has(id))nodes.set(id,{value:'',hidden:true,textContent
 const context={console,Blob,Float32Array,LANG:'en',VIEW:{lesson:0},esc:s=>s,PK:s=>s,localStorage:{getItem:()=>null,setItem(){}},document:{getElementById:node},setTimeout:fn=>(timers.push(fn),timers.length),clearTimeout(){},navigator:{mediaDevices:{getUserMedia:async()=>({getAudioTracks:()=>[{readyState:'live'}],getTracks:()=>[{stop(){}}]})}},URL:{createObjectURL:()=> 'blob:test',revokeObjectURL(){}}};
 context.window=context;context.addEventListener=()=>{};
 context.MediaRecorder=class{constructor(){this.state='inactive'}start(){this.state='recording'}stop(){this.state='inactive';this.ondataavailable?.({data:new Blob(['audio'])});this.onstop?.()}};
-context.SpeechRecognition=class{constructor(){context.recognition=this}start(){}stop(){this.onend?.()}};
+context.SpeechRecognition=class{constructor(){context.recognition=this}start(){this.onstart?.()}stop(){this.onend?.()}};
 vm.createContext(context);vm.runInContext(fs.readFileSync('english-practice-data.js','utf8'),context);
 let source=fs.readFileSync('english-practice.js','utf8');
 source=source.replace('return {cards,view,open,cleanup', 'return {testState:()=>roleplay,testFinish:finishTurn,testTranscriber:fn=>{transcribeRecordedAudio=fn;},cards,view,open,cleanup');

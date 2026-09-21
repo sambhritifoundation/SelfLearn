@@ -5,6 +5,7 @@ window.EnglishPractice = (() => {
   let recorder = null, stream = null, recordingUrl = null, recordingToken = 0;
   let roleplay = {active:false, turn:0, recorder:null, stream:null, recognition:null, transcript:'', chunks:[], urls:[], recognitionError:'', recognitionStarted:false};
   let localTranscriberPromise = null;
+  const mobileSpeechDevice = () => !!navigator.userAgentData?.mobile || /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent||'');
   const e = value => esc(String(value));
   const tr = (en, hi) => LANG === 'hi' ? hi : en;
   const key = () => PK('sl_english_tracks_v1');
@@ -140,8 +141,6 @@ window.EnglishPractice = (() => {
     if(!roleplay.active)return;const status=document.getElementById('ep-chat-status');
     try{
       if(!navigator.mediaDevices?.getUserMedia||!window.MediaRecorder)throw new Error('no recorder');
-      if(!roleplay.stream||!roleplay.stream.getAudioTracks().some(track=>track.readyState==='live')) roleplay.stream=await navigator.mediaDevices.getUserMedia({audio:true});
-      if(!roleplay.active){roleplay.stream.getTracks().forEach(t=>t.stop());return;}
       roleplay.chunks=[];roleplay.transcript='';roleplay.recognitionError='';roleplay.recognitionStarted=false;
       document.getElementById('ep-transcript').value='';document.getElementById('ep-transcript-wrap').hidden=true;
       const Recognition=window.SpeechRecognition||window.webkitSpeechRecognition;
@@ -149,26 +148,33 @@ window.EnglishPractice = (() => {
       const session=roleplay;
       if(Recognition){
         const recognition=new Recognition();session.recognition=recognition;
-        recognition.lang='en-IN';recognition.continuous=true;recognition.interimResults=true;recognition.maxAlternatives=1;
+        const mobile=mobileSpeechDevice();let ready;
+        const recognitionReady=mobile?new Promise(resolve=>{ready=resolve;setTimeout(resolve,800);}):Promise.resolve();
+        recognition.lang='en-IN';recognition.continuous=!mobile;recognition.interimResults=true;recognition.maxAlternatives=1;
         let previous='';
+        recognition.onstart=()=>{session.recognitionStarted=true;ready?.();};
         recognition.onresult=ev=>{
           if(roleplay!==session||!session.active)return;
           const words=Array.from(ev.results,result=>result[0].transcript).join(' ');
           session.transcript=(previous+' '+words).trim();
         };
-        recognition.onerror=ev=>{session.recognitionError=ev.error||'unavailable';};
+        recognition.onerror=ev=>{session.recognitionError=ev.error||'unavailable';ready?.();};
         recognition.onend=()=>{
           if(roleplay===session&&session.active&&session.phase==='recording'&&!['not-allowed','service-not-allowed','audio-capture','network'].includes(session.recognitionError)){
             previous=session.transcript;try{recognition.start();}catch(_){}
           }
         };
         try{recognition.start();}catch(_){session.recognitionError='unavailable';session.recognition=null;}
+        await recognitionReady;
       }
-      // Start browser transcription before the local audio recorder. Some browsers allow
-      // a recorder to keep the microphone while denying a recognizer that starts second.
+      if(!roleplay.active)return;
+      if(!roleplay.stream||!roleplay.stream.getAudioTracks().some(track=>track.readyState==='live')) roleplay.stream=await navigator.mediaDevices.getUserMedia({audio:{echoCancellation:true,noiseSuppression:true,autoGainControl:true}});
+      if(!roleplay.active){roleplay.stream.getTracks().forEach(t=>t.stop());return;}
+      // Mobile browsers are more reliable when speech recognition starts before the
+      // recorder opens the same microphone. Recording still provides local playback.
       roleplay.recorder=new MediaRecorder(roleplay.stream);roleplay.recorder.ondataavailable=ev=>{if(ev.data.size)roleplay.chunks.push(ev.data);};roleplay.recorder.start();
       status.textContent=tr('Your turn — recording now. Speak, then press Stop & check response.','आपकी बारी — रिकॉर्डिंग चल रही है। बोलकर रोकें और जाँचें दबाएँ।');setChatControls(true);
-    }catch(_){roleplay.phase='review';status.textContent=tr('Microphone access is unavailable. Say your answer aloud, then type what you said so the conversation can continue.','माइक उपलब्ध नहीं। जवाब ज़ोर से बोलें, फिर बातचीत आगे बढ़ाने के लिए अपना जवाब लिखें।');const wrap=document.getElementById('ep-transcript-wrap');if(wrap)wrap.hidden=false;const input=document.getElementById('ep-transcript');if(input){input.value='';input.focus();}setChatControls(false);}
+    }catch(_){if(roleplay.recognition){roleplay.recognition.onend=null;try{roleplay.recognition.stop();}catch(_){}}roleplay.phase='review';status.textContent=tr('Microphone access is unavailable. Say your answer aloud, then type what you said so the conversation can continue.','माइक उपलब्ध नहीं। जवाब ज़ोर से बोलें, फिर बातचीत आगे बढ़ाने के लिए अपना जवाब लिखें।');const wrap=document.getElementById('ep-transcript-wrap');if(wrap)wrap.hidden=false;const input=document.getElementById('ep-transcript');if(input){input.value='';input.focus();}setChatControls(false);}
   }
   function stopTurn() {
     if(!roleplay.active||!roleplay.recorder||roleplay.recorder.state!=='recording')return;
@@ -194,8 +200,9 @@ window.EnglishPractice = (() => {
     const samples=await recordedAudioSamples(blob);
     const energy=Math.sqrt(samples.reduce((sum,value)=>sum+value*value,0)/samples.length);
     if(energy<0.002)return '';
+    const model=mobileSpeechDevice()||Number(navigator.deviceMemory||8)<=4?'Xenova/whisper-tiny.en':'Xenova/whisper-base.en';
     if(!localTranscriberPromise)localTranscriberPromise=import('https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.8.1/+esm')
-      .then(({pipeline})=>pipeline('automatic-speech-recognition','Xenova/whisper-base.en',{device:'wasm',dtype:'q8'}))
+      .then(({pipeline})=>pipeline('automatic-speech-recognition',model,{device:'wasm',dtype:'q8'}))
       .catch(error=>{localTranscriberPromise=null;throw error;});
     const transcriber=await localTranscriberPromise,output=await transcriber(samples,{chunk_length_s:30,stride_length_s:5});
     return String(output?.text||'').replace(/\[(?:BLANK_AUDIO|MUSIC|NOISE)\]/gi,'').trim();
