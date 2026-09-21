@@ -183,7 +183,7 @@ window.EnglishPractice = (() => {
     let mediaStopped=false,recognitionStopped=!roleplay.recognition,finished=false;
     const finish=()=>{if(finished||!mediaStopped||!recognitionStopped||roleplay!==session||!session.active)return;finished=true;const blob=new Blob(chunks,{type:chunks[0]?.type||'audio/webm'}),url=URL.createObjectURL(blob);roleplay.urls.push(url);const audio=document.getElementById('ep-turn-audio');if(audio){audio.src=url;audio.hidden=false;}finishTurn(turn,blob);};
     rec.onstop=()=>{mediaStopped=true;finish();};
-    if(roleplay.recognition){roleplay.recognition.onend=()=>{recognitionStopped=true;finish();};try{roleplay.recognition.stop();}catch(_){recognitionStopped=true;}setTimeout(()=>{recognitionStopped=true;finish();},6000);}
+    if(roleplay.recognition){roleplay.recognition.onend=()=>{recognitionStopped=true;finish();};try{roleplay.recognition.stop();}catch(_){recognitionStopped=true;}setTimeout(()=>{recognitionStopped=true;finish();},mobileSpeechDevice()?750:2000);}
     rec.stop();
   }
   async function recordedAudioSamples(blob) {
