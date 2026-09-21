@@ -348,7 +348,9 @@
   .micnote{font-size:.82rem;color:var(--muted);margin-top:8px}
 </style>
 <link rel="stylesheet" href="math8-pilot.css">
+<link rel="stylesheet" href="computer-application.css?v=20260921">
 <link rel="stylesheet" href="english-practice.css?v=20260919">
+<script src="computer-application.js?v=20260921"></script>
 <script src="english-practice-data.js?v=20260919"></script>
 <script src="english-practice.js?v=20260921-release-mobile-mic"></script>
 </head>
@@ -385,6 +387,7 @@
 
 <script src="data-accountancy.js"></script>
 <script src="data-english.js"></script>
+<script src="data-computer-application.js?v=20260921"></script>
 <script src="data-math.js"></script>
 <script src="data-math8.js"></script>
 <script src="data-math8-rest.js?v=20260905-rational"></script>
@@ -8869,6 +8872,7 @@ function vSubject(code){
     + '<h1>'+s.icon+' '+t(s.name)+'</h1><p class="sub" style="margin-bottom:14px">'
     + (s.board==="GEN" ? sp("A generic course for every age group — pick the level that fits you.","हर आयु वर्ग हेतु सामान्य पाठ्यक्रम — अपना स्तर चुनें।") : s.board+" · "+sp("Class "+s.klass,"कक्षा "+s.klass))+'</p>';
   if(s.code==="ENGCOM") h += EnglishPractice.cards();
+  if(s.code==="COMPAPP") h += computerApplicationOverview();
   if(s.intro){
     h += '<div class="card clickable" style="margin-bottom:16px;background:var(--primary-light);border-color:var(--primary)" onclick="go(\'intro\',{code:\''+s.code+'\'})">'
       + '<div class="rowflex"><div style="flex:1;min-width:220px">'
