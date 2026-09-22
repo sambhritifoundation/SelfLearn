@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 650" role="img" aria-labelledby="title desc">
+  <title id="title">Keyboard zones</title>
+  <desc id="desc">A simplified full keyboard with six numbered zones: function keys, typing keys, control keys, arrow keys, number pad and indicator lights.</desc>
+  <defs>
+    <style>
+      .bg{fill:#f6f7fb}.board{fill:#263144;stroke:#111827;stroke-width:8}.key{fill:#fff;stroke:#aab2c0;stroke-width:3}.soft{fill:#dbeafe}.accent{fill:#ddd6fe}.green{fill:#dcfce7}.gold{fill:#fef3c7}.pink{fill:#fce7f3}.cyan{fill:#cffafe}.label{font:700 27px Arial,sans-serif;fill:#172033}.small{font:700 18px Arial,sans-serif;fill:#364152}.num{font:700 26px Arial,sans-serif;fill:#fff}.bubble{fill:#4f46e5}.line{stroke:#4f46e5;stroke-width:6;fill:none;stroke-linecap:round}.head{font:700 42px Arial,sans-serif;fill:#172033}
+    </style>
+  </defs>
+  <rect class="bg" width="1200" height="650" rx="32"/>
+  <text class="head" x="600" y="58" text-anchor="middle">Know the keyboard zones</text>
+  <rect class="board" x="70" y="105" width="1060" height="420" rx="32"/>
+  <g class="small" text-anchor="middle">
+    <g fill="#dbeafe">
+      <rect class="key soft" x="105" y="135" width="75" height="50" rx="9"/><text x="143" y="167">Esc</text>
+      <rect class="key soft" x="205" y="135" width="65" height="50" rx="9"/><text x="238" y="167">F1</text><rect class="key soft" x="280" y="135" width="65" height="50" rx="9"/><text x="313" y="167">F2</text><rect class="key soft" x="355" y="135" width="65" height="50" rx="9"/><text x="388" y="167">F3</text><rect class="key soft" x="430" y="135" width="65" height="50" rx="9"/><text x="463" y="167">F4</text><rect class="key soft" x="520" y="135" width="65" height="50" rx="9"/><text x="553" y="167">F5</text><rect class="key soft" x="595" y="135" width="65" height="50" rx="9"/><text x="628" y="167">F6</text><rect class="key soft" x="670" y="135" width="65" height="50" rx="9"/><text x="703" y="167">F7</text><rect class="key soft" x="745" y="135" width="65" height="50" rx="9"/><text x="778" y="167">F8</text>
+    </g>
+    <rect class="key accent" x="105" y="215" width="620" height="185" rx="15"/><text class="label" x="415" y="300">Letters, numbers and symbols</text><text x="415" y="342">Main typing area</text>
+    <rect class="key green" x="105" y="420" width="620" height="70" rx="12"/><text class="label" x="415" y="464">Ctrl · Windows · Alt · Spacebar</text>
+    <rect class="key gold" x="755" y="215" width="145" height="110" rx="12"/><text x="827" y="260">Home</text><text x="827" y="290">Delete</text>
+    <rect class="key pink" x="755" y="345" width="145" height="145" rx="12"/><text class="label" x="827" y="405">↑</text><text class="label" x="790" y="455">←</text><text class="label" x="827" y="455">↓</text><text class="label" x="865" y="455">→</text>
+    <rect class="key cyan" x="930" y="215" width="165" height="275" rx="12"/><text class="label" x="1012" y="300">7 8 9</text><text class="label" x="1012" y="350">4 5 6</text><text class="label" x="1012" y="400">1 2 3</text><text class="label" x="1012" y="450">0 .</text>
+    <circle cx="950" cy="160" r="8" fill="#22c55e"/><circle cx="980" cy="160" r="8" fill="#f59e0b"/><circle cx="1010" cy="160" r="8" fill="#60a5fa"/>
+  </g>
+  <g>
+    <path class="line" d="M170 90V120"/><circle class="bubble" cx="170" cy="76" r="25"/><text class="num" x="170" y="85" text-anchor="middle">1</text>
+    <path class="line" d="M415 540V410"/><circle class="bubble" cx="415" cy="566" r="25"/><text class="num" x="415" y="575" text-anchor="middle">2</text>
+    <path class="line" d="M600 540V500"/><circle class="bubble" cx="600" cy="566" r="25"/><text class="num" x="600" y="575" text-anchor="middle">3</text>
+    <path class="line" d="M827 540V500"/><circle class="bubble" cx="827" cy="566" r="25"/><text class="num" x="827" y="575" text-anchor="middle">4</text>
+    <path class="line" d="M1012 540V500"/><circle class="bubble" cx="1012" cy="566" r="25"/><text class="num" x="1012" y="575" text-anchor="middle">5</text>
+    <path class="line" d="M1050 90V145"/><circle class="bubble" cx="1050" cy="76" r="25"/><text class="num" x="1050" y="85" text-anchor="middle">6</text>
+  </g>
+  <text class="small" x="600" y="625" text-anchor="middle">1 Function keys · 2 Typing area · 3 Control keys · 4 Arrow keys · 5 Number pad · 6 Lights</text>
+</svg>

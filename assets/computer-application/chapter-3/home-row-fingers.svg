@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 650" role="img" aria-labelledby="title desc">
+  <title id="title">Home row finger position</title>
+  <desc id="desc">Hands above the home row showing the left fingers on A S D F, right fingers on J K L semicolon, thumbs on Spacebar, and bumps on F and J.</desc>
+  <defs><style>
+    .bg{fill:#f7f7fc}.key{stroke:#9099aa;stroke-width:4}.left{fill:#dbeafe}.right{fill:#fce7f3}.space{fill:#dcfce7}.txt{font:700 42px Arial,sans-serif;fill:#172033}.sub{font:700 24px Arial,sans-serif;fill:#344054}.finger{stroke:#4f46e5;stroke-width:14;fill:none;stroke-linecap:round}.finger2{stroke:#db2777;stroke-width:14;fill:none;stroke-linecap:round}.hand{fill:#fde2c5;stroke:#9a5d31;stroke-width:5}.bump{stroke:#111827;stroke-width:7;stroke-linecap:round}
+  </style></defs>
+  <rect class="bg" width="1200" height="650" rx="32"/>
+  <text class="txt" x="600" y="62" text-anchor="middle">Home row: start here, return here</text>
+  <g class="txt" text-anchor="middle">
+    <rect class="key left" x="120" y="235" width="105" height="105" rx="16"/><text x="172" y="302">A</text>
+    <rect class="key left" x="240" y="235" width="105" height="105" rx="16"/><text x="292" y="302">S</text>
+    <rect class="key left" x="360" y="235" width="105" height="105" rx="16"/><text x="412" y="302">D</text>
+    <rect class="key left" x="480" y="235" width="105" height="105" rx="16"/><text x="532" y="302">F</text><path class="bump" d="M510 325h44"/>
+    <rect class="key right" x="615" y="235" width="105" height="105" rx="16"/><text x="667" y="302">J</text><path class="bump" d="M645 325h44"/>
+    <rect class="key right" x="735" y="235" width="105" height="105" rx="16"/><text x="787" y="302">K</text>
+    <rect class="key right" x="855" y="235" width="105" height="105" rx="16"/><text x="907" y="302">L</text>
+    <rect class="key right" x="975" y="235" width="105" height="105" rx="16"/><text x="1027" y="302">;</text>
+    <rect class="key space" x="390" y="390" width="420" height="90" rx="18"/><text class="sub" x="600" y="445">SPACEBAR — use a thumb</text>
+  </g>
+  <path class="hand" d="M105 545c45-95 80-140 125-155 65-22 125 15 180 48 55-34 105-25 145 30l-20 87z"/>
+  <path class="hand" d="M1095 545c-45-95-80-140-125-155-65-22-125 15-180 48-55-34-105-25-145 30l20 87z"/>
+  <path class="finger" d="M175 485V355M290 465V355M410 460V355M530 470V355"/>
+  <path class="finger2" d="M670 470V355M790 460V355M910 465V355M1025 485V355"/>
+  <text class="sub" x="290" y="600" text-anchor="middle">LEFT HAND · A S D F</text>
+  <text class="sub" x="910" y="600" text-anchor="middle">RIGHT HAND · J K L ;</text>
+  <text class="sub" x="600" y="120" text-anchor="middle">Feel the small bumps on F and J without looking down</text>
+</svg>
