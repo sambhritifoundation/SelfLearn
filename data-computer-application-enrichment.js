@@ -23,6 +23,7 @@
     mouse.notes.hi+="\n\n**Brand examples:** Logitech, Dell, HP और Microsoft wired या wireless mice बनाते हैं। Shape, buttons की संख्या और connection type अलग हो सकते हैं; left button, right button और wheel का काम सामान्यतः वही रहता है।";
   }
   var keyboard=topic("COMPAPP-3-1");
+  if(keyboard)keyboard.images=[{src:"assets/computer-application/chapter-3/real-keyboard-zones.png",alt:{en:"Top-down photograph of a real full-size keyboard with six numbered zones",hi:"छह numbered zones वाला real full-size keyboard का top-down photograph"},caption:{en:"A real full-size keyboard: 1 function keys · 2 typing area · 3 control keys · 4 arrows · 5 number pad · 6 lights. Key shapes and extra functions vary by model.",hi:"Real full-size keyboard: 1 function keys · 2 typing area · 3 control keys · 4 arrows · 5 number pad · 6 lights। Key shapes और extra functions model के अनुसार बदलते हैं।"}}];
   if(keyboard&&!/Brand examples/.test(keyboard.notes.en)){
     keyboard.notes.en+="\n\n**Brand examples:** Logitech, Dell, HP, Lenovo and Microsoft keyboards may arrange extra media or function keys differently. Learn the printed symbols on the keyboard in front of you.";
     keyboard.notes.hi+="\n\n**Brand examples:** Logitech, Dell, HP, Lenovo और Microsoft keyboards extra media या function keys को अलग जगह रख सकते हैं। अपने सामने वाले keyboard के printed symbols पहचानें।";
