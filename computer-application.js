@@ -9,7 +9,7 @@
 
   window.computerApplicationOverview=function(){
     var basic=[
-      ['1','Meet the computer','कंप्यूटर को जानें','Hardware, accessories, safe handling, power on and sign-in.','Hardware, accessories, safe handling, power on और sign-in।'],
+      ['1','Meet the computer','कंप्यूटर को जानें','Hardware, accessories, ports, power supply, safe handling, power on and sign-in.','Hardware, accessories, ports, power supply, safe handling, power on और sign-in।'],
       ['2','Mouse and touchpad','Mouse और touchpad','Point, click, double-click, right-click, drag and scroll.','Point, click, double-click, right-click, drag और scroll।'],
       ['3','Keyboard and typing','Keyboard और typing','Home row, accurate typing, shortcuts and daily speed practice.','Home row, सही typing, shortcuts और रोज speed practice।'],
       ['4','Windows desktop','Windows desktop','Start, Search, taskbar, windows and settings.','Start, Search, taskbar, windows और settings।'],
