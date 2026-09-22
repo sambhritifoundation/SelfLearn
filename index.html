@@ -8761,7 +8761,22 @@ function saveSession(s){ var l=sessions(); l.push(s); localStorage.setItem(PK("s
 
 /* ================= router ================= */
 var VIEW = { name:"home" };
-function go(name, args){ if(window.EnglishPractice) EnglishPractice.cleanup(); if(typeof audioPlayerReset==="function") audioPlayerReset(); VIEW = Object.assign({name:name}, args||{}); render(); window.scrollTo(0,0); }
+function subjectHref(code){ return "?subject="+encodeURIComponent(code); }
+function subjectUrl(code){ var u=new URL(location.href); u.searchParams.set("subject",code); u.hash=""; return u.toString(); }
+function copySubjectLink(code){
+  var url=subjectUrl(code);
+  function done(){ toast(LANG==="hi"?"विषय का link copy हो गया":"Subject link copied"); }
+  if(navigator.clipboard && window.isSecureContext){ navigator.clipboard.writeText(url).then(done).catch(function(){ window.prompt("Copy this subject link:",url); }); }
+  else { window.prompt(LANG==="hi"?"यह subject link copy करें:":"Copy this subject link:",url); }
+}
+function syncViewUrl(name,args){
+  if(!window.history || !history.pushState) return;
+  var u=new URL(location.href);
+  if(name==="subject" && args && args.code) u.searchParams.set("subject",args.code); else u.searchParams.delete("subject");
+  history.pushState({view:name,code:args&&args.code||null},"",u.pathname+u.search+u.hash);
+}
+function go(name, args){ if(window.EnglishPractice) EnglishPractice.cleanup(); if(typeof audioPlayerReset==="function") audioPlayerReset(); VIEW = Object.assign({name:name}, args||{}); syncViewUrl(name,args); render(); window.scrollTo(0,0); }
+window.addEventListener("popstate",function(){ var code=new URL(location.href).searchParams.get("subject"); VIEW=code&&subj(code)?{name:"subject",code:code}:{name:"home"}; render(); window.scrollTo(0,0); });
 function render(){
   if(window.EnglishPractice) EnglishPractice.cleanup();
   var el = document.getElementById("app");
@@ -8840,7 +8855,9 @@ function vHome(){
       + '<div class="sub">'+(s.board==="GEN" ? sp("All ages · 3 levels","सभी आयु · 3 स्तर") : s.board+" · "+sp("Class "+s.klass,"कक्षा "+s.klass))
       + ' · '+s.chapters.length+' '+sp("chapters","अध्याय")+' · '+qn+' '+sp("questions","प्रश्न")+'</div>'
       + '<div class="bar"><i style="width:'+pr.pct+'%"></i></div>'
-      + '<div class="sub" style="margin-top:4px">'+pr.done+'/'+pr.total+' '+sp("topics practiced","विषयों का अभ्यास")+'</div></div>';
+      + '<div class="sub" style="margin-top:4px">'+pr.done+'/'+pr.total+' '+sp("topics practiced","विषयों का अभ्यास")+'</div>'
+      + '<div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap"><a class="btn ghost sm" href="'+subjectHref(s.code)+'" onclick="event.stopPropagation()">'+sp("Open direct link","सीधा link खोलें")+'</a>'
+      + '<button class="btn ghost sm" type="button" onclick="event.stopPropagation();copySubjectLink(\''+s.code+'\')">🔗 '+sp("Copy subject link","विषय link copy करें")+'</button></div></div>';
   });
   h += '</div>';
 
@@ -8869,7 +8886,7 @@ function boardTags(c){
 function vSubject(code){
   var s = subj(code); if(!s) return "Not found";
   var h = '<div class="crumb"><a onclick="go(\'home\')">'+sp("Home","मुख्य")+'</a> › <b>'+t(s.name)+'</b></div>'
-    + '<h1>'+s.icon+' '+t(s.name)+'</h1><p class="sub" style="margin-bottom:14px">'
+    + '<div class="rowflex" style="align-items:center"><h1>'+s.icon+' '+t(s.name)+'</h1><button class="btn ghost sm" type="button" onclick="copySubjectLink(\''+s.code+'\')">🔗 '+sp("Copy subject link","विषय link copy करें")+'</button></div><p class="sub" style="margin-bottom:14px">'
     + (s.board==="GEN" ? sp("A generic course for every age group — pick the level that fits you.","हर आयु वर्ग हेतु सामान्य पाठ्यक्रम — अपना स्तर चुनें।") : s.board+" · "+sp("Class "+s.klass,"कक्षा "+s.klass))+'</p>';
   if(s.code==="ENGCOM") h += EnglishPractice.cards();
   if(s.code==="COMPAPP") h += computerApplicationOverview();
@@ -10505,6 +10522,9 @@ function adminCurr(){
 }
 
 /* ================= boot ================= */
+var _directSubject = null;
+try{ _directSubject = new URL(location.href).searchParams.get("subject"); }catch(e){}
+if(_directSubject && subj(_directSubject)) VIEW={name:"subject",code:_directSubject};
 setLang(LANG);
 </script>
 <script src="math8-pilot.js?v=20260905-illustrations"></script>
