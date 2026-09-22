@@ -33,6 +33,7 @@
       {id:"C3-8",type:"subjective",marks:4,q:{en:"Plan a ten-minute daily typing routine and explain how you will measure improvement.",hi:"Ten-minute daily typing routine plan करें और improvement कैसे measure करेंगे समझाएँ।"},rubric:[{en:"Include a home-row warm-up",hi:"Home-row warm-up रखें",patterns:["home row","asdf","warm"],marks:1},{en:"Include paragraph or punctuation practice",hi:"Paragraph या punctuation practice रखें",patterns:["paragraph","punctuation","sentence"],marks:1},{en:"Run a timed one-minute test",hi:"Timed one-minute test करें",patterns:["one minute","1 minute","timed"],marks:1},{en:"Record WPM and mistakes",hi:"WPM और mistakes record करें",patterns:["wpm","mistake","error"],marks:1}]}
     ]}
   };
+  if(window.COMPAPP_EXTRA_EXAM_SETS)Object.keys(window.COMPAPP_EXTRA_EXAM_SETS).forEach(function(k){sets[k]=window.COMPAPP_EXTRA_EXAM_SETS[k];});
   window.COMPAPP_EXAM_SETS=sets;
   var state=null;
   function L(x){return x?(x[window.LANG]||x.en):"";}

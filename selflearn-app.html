@@ -348,9 +348,10 @@
   .micnote{font-size:.82rem;color:var(--muted);margin-top:8px}
 </style>
 <link rel="stylesheet" href="math8-pilot.css">
-<link rel="stylesheet" href="computer-application.css?v=20260921">
+<link rel="stylesheet" href="computer-application.css?v=20260922-complete-basic">
 <link rel="stylesheet" href="english-practice.css?v=20260919">
-<script src="computer-application.js?v=20260921"></script>
+<script src="computer-application.js?v=20260922-complete-basic"></script>
+<script src="computer-application-practical.js?v=20260922"></script>
 <script src="english-practice-data.js?v=20260919"></script>
 <script src="english-practice.js?v=20260921-release-mobile-mic"></script>
 </head>
@@ -390,6 +391,7 @@
 <script src="data-computer-application.js?v=20260922"></script>
 <script src="data-computer-application-basic-more.js?v=20260922b"></script>
 <script src="data-computer-application-enrichment.js?v=20260922"></script>
+<script src="data-computer-application-basic-complete.js?v=20260922"></script>
 <script src="data-math.js"></script>
 <script src="data-math8.js"></script>
 <script src="data-math8-rest.js?v=20260905-rational"></script>
@@ -9678,6 +9680,7 @@ function vAssignment(code, chNo){
     + '<span class="chip">'+(s.code==="COMPAPP"?sp("Use a real computer","असली computer उपयोग करें"):sp("Use a spreadsheet","स्प्रेडशीट का उपयोग करें"))+'</span>'
     + '</div><h1 style="margin:10px 0 12px">'+chapLabel(c)+' '+sp("Assignment","असाइनमेंट")+': '+t(c.name)+'</h1>'
     + '<div class="notes">'+fmtNotes(t(c.assignment))+'</div></div>';
+  if(s.code==="COMPAPP" && c.practical && typeof renderComputerApplicationPractical==="function") h += renderComputerApplicationPractical(c);
   h += '<div class="card" style="margin-top:16px"><div class="resultnav-row">'
     + '<button class="btn ghost" onclick="go(\'topic\',{code:\''+c.topics[0].code+'\'})">← '+sp("Revise Topics","विषय दोहराएँ")+'</button>'
     + ((c.assessment&&c.assessment.length) ? '<button class="btn" onclick="startAssessment(\''+s.code+'\','+c.no+')">'+sp("Start Assessment","मूल्यांकन शुरू करें")+' →</button>'
