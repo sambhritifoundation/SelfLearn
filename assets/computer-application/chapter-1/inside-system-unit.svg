@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Main parts inside a desktop system unit</title>
+  <desc id="desc">An open desktop cabinet with numbered motherboard, processor, memory, storage, power supply and cooling fan.</desc>
+  <defs><style>
+    .bg{fill:#f5f7fb}.case{fill:#273449;stroke:#0f172a;stroke-width:8}.board{fill:#c7ead9;stroke:#27765a;stroke-width:5}.slot{fill:#fff;stroke:#64748b;stroke-width:4}.smps{fill:#67758a;stroke:#1f2937;stroke-width:5}.fan{fill:#dbeafe;stroke:#2563eb;stroke-width:5}.wire{fill:none;stroke:#f59e0b;stroke-width:7}.head{font:700 42px Arial,sans-serif;fill:#172033}.label{font:700 22px Arial,sans-serif;fill:#172033}.small{font:18px Arial,sans-serif;fill:#475569}.bubble{fill:#4f46e5}.num{font:700 24px Arial,sans-serif;fill:#fff}.line{stroke:#4f46e5;stroke-width:5;fill:none}
+  </style></defs>
+  <rect class="bg" width="1200" height="760" rx="32"/>
+  <text class="head" x="600" y="58" text-anchor="middle">Inside a desktop system unit</text>
+  <rect class="case" x="300" y="95" width="600" height="570" rx="28"/>
+  <rect class="board" x="360" y="155" width="365" height="390" rx="22"/>
+  <rect class="slot" x="455" y="240" width="135" height="110" rx="16"/><text class="label" x="522" y="302" text-anchor="middle">CPU</text>
+  <rect class="slot" x="625" y="190" width="30" height="230" rx="8" fill="#8b5cf6"/><rect class="slot" x="670" y="190" width="30" height="230" rx="8" fill="#8b5cf6"/>
+  <rect class="slot" x="410" y="430" width="245" height="46" rx="8" fill="#60a5fa"/>
+  <rect class="slot" x="745" y="165" width="105" height="170" rx="15"/><text class="label" x="797" y="255" text-anchor="middle">SSD</text>
+  <rect class="smps" x="700" y="475" width="155" height="135" rx="14"/><text class="label" x="777" y="550" text-anchor="middle" fill="#fff">SMPS</text>
+  <circle class="fan" cx="805" cy="390" r="58"/><path d="M805 345q42 30 0 45q-42-15 0-45M850 390q-30 42-45 0q15-42 45 0M805 435q-42-30 0-45q42 15 0 45M760 390q30-42 45 0q-15 42-45 0" fill="#2563eb"/>
+  <path class="wire" d="M730 505C640 560 590 530 545 475M735 520C680 440 670 380 650 330"/>
+  <g><path class="line" d="M250 175h105"/><circle class="bubble" cx="220" cy="175" r="25"/><text class="num" x="220" y="184" text-anchor="middle">1</text><text class="label" x="60" y="180">Motherboard</text>
+  <path class="line" d="M250 280h195"/><circle class="bubble" cx="220" cy="280" r="25"/><text class="num" x="220" y="289" text-anchor="middle">2</text><text class="label" x="75" y="285">Processor</text>
+  <path class="line" d="M250 390h370"/><circle class="bubble" cx="220" cy="390" r="25"/><text class="num" x="220" y="399" text-anchor="middle">3</text><text class="label" x="100" y="395">RAM</text>
+  <path class="line" d="M950 240h-95"/><circle class="bubble" cx="980" cy="240" r="25"/><text class="num" x="980" y="249" text-anchor="middle">4</text><text class="label" x="1015" y="245">Storage</text>
+  <path class="line" d="M950 520h-90"/><circle class="bubble" cx="980" cy="520" r="25"/><text class="num" x="980" y="529" text-anchor="middle">5</text><text class="label" x="1015" y="525">Power supply</text>
+  <path class="line" d="M950 390h-85"/><circle class="bubble" cx="980" cy="390" r="25"/><text class="num" x="980" y="399" text-anchor="middle">6</text><text class="label" x="1015" y="395">Cooling fan</text></g>
+  <text class="small" x="600" y="706" text-anchor="middle">Examples: Intel/AMD processors · Kingston/Crucial memory · Samsung/Western Digital storage</text>
+  <text class="small" x="600" y="733" text-anchor="middle">Parts vary by model. Switch off and ask a trained person before opening a computer.</text>
+</svg>

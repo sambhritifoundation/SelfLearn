@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+  <title id="title">Bluetooth and Wi-Fi USB adapters</title>
+  <desc id="desc">A visual comparison of a small Bluetooth USB adapter and a larger Wi-Fi USB adapter, with their uses and example brands.</desc>
+  <defs><style>
+    .bg{fill:#f6f8fc}.card{fill:#fff;stroke:#cbd5e1;stroke-width:4}.head{font:700 42px Arial,sans-serif;fill:#172033}.title{font:700 31px Arial,sans-serif;fill:#172033}.body{font:22px Arial,sans-serif;fill:#344054}.small{font:19px Arial,sans-serif;fill:#52657c}.usb{fill:#29364a;stroke:#0f172a;stroke-width:5}.metal{fill:#d8dee8;stroke:#64748b;stroke-width:4}.blue{fill:#2563eb}.green{fill:#0f9f6e}.wave{fill:none;stroke:#0f9f6e;stroke-width:12;stroke-linecap:round}.bt{fill:none;stroke:#fff;stroke-width:9;stroke-linecap:round;stroke-linejoin:round}.tag{fill:#eef2ff;stroke:#a5b4fc;stroke-width:2}
+  </style></defs>
+  <rect class="bg" width="1200" height="700" rx="32"/>
+  <text class="head" x="600" y="62" text-anchor="middle">USB adapters: identify by purpose, not size alone</text>
+  <rect class="card" x="55" y="100" width="520" height="525" rx="28"/>
+  <rect class="card" x="625" y="100" width="520" height="525" rx="28"/>
+  <text class="title" x="315" y="155" text-anchor="middle">Bluetooth dongle</text>
+  <text class="title" x="885" y="155" text-anchor="middle">Wi-Fi dongle</text>
+  <g transform="translate(180 190)">
+    <rect class="metal" x="0" y="58" width="115" height="105" rx="8"/><rect class="usb" x="105" y="35" width="180" height="150" rx="25"/>
+    <rect x="23" y="80" width="23" height="62" rx="4" fill="#64748b"/><rect x="66" y="80" width="23" height="62" rx="4" fill="#64748b"/>
+    <circle class="blue" cx="195" cy="110" r="57"/><path class="bt" d="M188 63l34 31-34 31V63l34 31-54 49M188 125l34 31-34 31v-62l34 31-54-49"/>
+  </g>
+  <g transform="translate(720 190)">
+    <rect class="metal" x="0" y="58" width="115" height="105" rx="8"/><rect class="usb" x="105" y="25" width="225" height="170" rx="24"/>
+    <rect x="23" y="80" width="23" height="62" rx="4" fill="#64748b"/><rect x="66" y="80" width="23" height="62" rx="4" fill="#64748b"/>
+    <circle class="green" cx="215" cy="112" r="12"/><path class="wave" d="M170 105q45-45 90 0M187 127q28-28 56 0"/>
+  </g>
+  <text class="body" x="315" y="425" text-anchor="middle">Adds short-range links for</text><text class="body" x="315" y="458" text-anchor="middle">mouse · keyboard · headset · phone</text>
+  <text class="body" x="885" y="425" text-anchor="middle">Adds a wireless network link for</text><text class="body" x="885" y="458" text-anchor="middle">router · internet · local network</text>
+  <rect class="tag" x="125" y="500" width="380" height="72" rx="16"/><text class="small" x="315" y="528" text-anchor="middle">Examples: TP-Link UB500, ASUS USB-BT500</text><text class="small" x="315" y="554" text-anchor="middle">Brand/model examples—not endorsements</text>
+  <rect class="tag" x="695" y="500" width="380" height="72" rx="16"/><text class="small" x="885" y="528" text-anchor="middle">Examples: D-Link DWA-X1850, TP-Link Archer</text><text class="small" x="885" y="554" text-anchor="middle">Check Windows version and driver support</text>
+  <text class="small" x="600" y="665" text-anchor="middle">Many computers already contain both radios. Check Windows Settings before buying an adapter.</text>
+</svg>

@@ -388,7 +388,8 @@
 <script src="data-accountancy.js"></script>
 <script src="data-english.js"></script>
 <script src="data-computer-application.js?v=20260922"></script>
-<script src="data-computer-application-basic-more.js?v=20260922"></script>
+<script src="data-computer-application-basic-more.js?v=20260922b"></script>
+<script src="data-computer-application-enrichment.js?v=20260922"></script>
 <script src="data-math.js"></script>
 <script src="data-math8.js"></script>
 <script src="data-math8-rest.js?v=20260905-rational"></script>
@@ -9674,7 +9675,7 @@ function vAssignment(code, chNo){
     + sp("Ch "+c.no,"अध्याय "+c.no)+': '+t(c.name)+' › <b>'+sp("Assignment","असाइनमेंट")+'</b></div>';
   h += '<div class="card"><div>'
     + '<span class="chip amber">📋 '+sp("Practical Activity","व्यावहारिक गतिविधि")+'</span>'
-    + '<span class="chip">'+sp("Use a spreadsheet","स्प्रेडशीट का उपयोग करें")+'</span>'
+    + '<span class="chip">'+(s.code==="COMPAPP"?sp("Use a real computer","असली computer उपयोग करें"):sp("Use a spreadsheet","स्प्रेडशीट का उपयोग करें"))+'</span>'
     + '</div><h1 style="margin:10px 0 12px">'+chapLabel(c)+' '+sp("Assignment","असाइनमेंट")+': '+t(c.name)+'</h1>'
     + '<div class="notes">'+fmtNotes(t(c.assignment))+'</div></div>';
   h += '<div class="card" style="margin-top:16px"><div class="resultnav-row">'
@@ -9682,6 +9683,10 @@ function vAssignment(code, chNo){
     + ((c.assessment&&c.assessment.length) ? '<button class="btn" onclick="startAssessment(\''+s.code+'\','+c.no+')">'+sp("Start Assessment","मूल्यांकन शुरू करें")+' →</button>'
         : '<button class="btn ghost" onclick="go(\'subject\',{code:\''+s.code+'\'})">'+sp("Back to chapters","अध्यायों पर वापस")+'</button>')
     + '</div></div>';
+  if(s.code==="COMPAPP") h += '<div class="card" style="margin-top:16px"><span class="chip green">📝 '+sp("Chapter exam","अध्याय परीक्षा")+'</span>'
+    + '<h2 style="margin:10px 0 6px">'+sp("Check the complete chapter","पूरे अध्याय की जाँच करें")+'</h2>'
+    + '<p class="sub" style="margin-bottom:12px">'+sp("MCQ, MSQ, fill-in, matching and written responses · response PDF with provisional marks.","MCQ, MSQ, fill-in, matching और written responses · provisional marks के साथ response PDF।")+'</p>'
+    + '<button class="btn" onclick="startComputerApplicationExam('+c.no+')">'+sp("Start chapter exam →","अध्याय परीक्षा शुरू करें →")+'</button></div>';
   return h;
 }
 
@@ -9888,6 +9893,16 @@ function vQuiz(){
     order.forEach(function(origIdx, displayIdx){
       h += '<button class="option" id="opt'+displayIdx+'" onclick="answerMcq('+displayIdx+')"><b>'+letters[displayIdx]+'.</b> '+fmtInline(opts[origIdx])+'</button>';
     });
+  } else if(q.type==="msq"){
+    var lettersM=["A","B","C","D"];
+    var optsM=q.opts[LANG]||q.opts.en;
+    var orderM=shuffle(optsM.map(function(_,k){return k;}));
+    QUIZ.optOrder=orderM;
+    h += '<p class="sub" style="margin-bottom:8px">'+sp("Select every correct option.","सभी सही विकल्प चुनें।")+'</p>';
+    orderM.forEach(function(origIdx,displayIdx){
+      h += '<label class="option" id="mopt'+displayIdx+'"><input type="checkbox" id="mcheck'+displayIdx+'" value="'+lettersM[origIdx]+'"> <b>'+lettersM[displayIdx]+'.</b> '+fmtInline(optsM[origIdx])+'</label>';
+    });
+    h += '<button class="btn" style="margin-top:8px" onclick="answerMsq()">'+sp("Check","जाँचें")+'</button>';
   } else if(q.type==="tf"){
     h += '<button class="option" id="optT" onclick="answerTf(true)"><b>'+sp("TRUE","सही")+'</b></button>'
        + '<button class="option" id="optF" onclick="answerTf(false)"><b>'+sp("FALSE","गलत")+'</b></button>';
@@ -9986,6 +10001,21 @@ function answerMcq(displayIdx){
   var chosen = document.getElementById("opt"+displayIdx); if(chosen) chosen.classList.add(ok?"correct":"wrong");
   if(!ok){ var cd=order.indexOf(correctOrig); var co=document.getElementById("opt"+cd); if(co) co.classList.add("correct"); }
   settle(ok, q);
+}
+function answerMsq(){
+  if(QUIZ.answered)return;
+  var q=QUIZ.qs[QUIZ.i],order=QUIZ.optOrder||[0,1,2,3],letters=["A","B","C","D"];
+  var selected=[],correct=(q.correct||[]).slice().sort();
+  order.forEach(function(origIdx,displayIdx){var input=document.getElementById("mcheck"+displayIdx);if(input&&input.checked)selected.push(letters[origIdx]);});
+  if(!selected.length){toast(LANG==="hi"?"कम से कम एक विकल्प चुनें":"Select at least one option");return;}
+  selected.sort(); var ok=selected.join("")===correct.join("");
+  order.forEach(function(origIdx,displayIdx){
+    var input=document.getElementById("mcheck"+displayIdx),row=document.getElementById("mopt"+displayIdx),letter=letters[origIdx];
+    if(input)input.disabled=true;
+    if(row&&correct.indexOf(letter)>-1)row.classList.add("correct");
+    else if(row&&selected.indexOf(letter)>-1)row.classList.add("wrong");
+  });
+  settle(ok,q);
 }
 function answerTf(val){
   if(QUIZ.answered) return;
@@ -10531,5 +10561,6 @@ setLang(LANG);
 <script src="math8-pilot.js?v=20260905-illustrations"></script>
 <script src="science8-pilot.js?v=20260905-class8-science"></script>
 <script src="science8-friction-pilot.js?v=20260905-story-pilot"></script>
+<script src="computer-application-exam.js?v=20260922"></script>
 </body>
 </html>
