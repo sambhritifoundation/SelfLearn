@@ -1,11 +1,24 @@
 (function(){
   "use strict";
 
-  function lessonList(items){
+  function lessonList(items, offset){
+    var subject=window.SL_DATA.subjects.find(function(s){return s.code==='COMPAPP';});
     return '<ol class="ca-plan-list">'+items.map(function(item){
-      return '<li><span class="ca-plan-no">'+item[0]+'</span><span><b>'+sp(item[1],item[2])+'</b><small>'+sp(item[3],item[4])+'</small></span></li>';
+      var no=offset+Number(item[0]),chapter=subject&&subject.chapters.find(function(c){return c.no===no&&c.topics&&c.topics.length;});
+      var text='<span class="ca-plan-no">'+item[0]+'</span><span><b>'+sp(item[1],item[2])+'</b><small>'+sp(item[3],item[4])+'</small>'+(chapter?'<small class="ca-toc-action">'+sp('Open chapter →','अध्याय खोलें →')+'</small>':'<small class="ca-toc-planned">'+sp('Planned — not yet available','आगे आएगा — अभी उपलब्ध नहीं')+'</small>')+'</span>';
+      return '<li>'+(chapter?'<a class="ca-toc-link" role="link" href="?subject=COMPAPP#compapp-chapter-'+no+'" onclick="return compappOpenChapter(event,'+no+')">'+text+'</a>':'<div class="ca-toc-item">'+text+'</div>')+'</li>';
     }).join('')+'</ol>';
   }
+  window.compappOpenChapter=function(event,no){
+    if(event&&(event.ctrlKey||event.metaKey||event.shiftKey||event.altKey||event.button>0))return true;
+    var target=document.getElementById('compapp-chapter-'+no);if(!target)return true;
+    if(event)event.preventDefault();
+    history.replaceState(history.state,'','?subject=COMPAPP#compapp-chapter-'+no);
+    target.focus({preventScroll:true});
+    target.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});
+    return false;
+  };
+  window.addEventListener('load',function(){var match=/^#compapp-chapter-(\d+)$/.exec(location.hash);if(match)window.compappOpenChapter(null,Number(match[1]));});
 
   window.computerApplicationOverview=function(){
     var basic=[
@@ -20,6 +33,8 @@
       ['9','Digital safety','Digital safety','Strong passwords, scams, privacy, updates and backups.','Strong passwords, scams, privacy, updates और backups।'],
       ['10','Basic project','Basic project','Create, save, print and share one useful document.','एक उपयोगी document बनाएँ, save करें, print और share करें।']
     ];
+    var available=window.SL_DATA.subjects.find(function(s){return s.code==='COMPAPP';});
+    basic.forEach(function(item){var ch=available&&available.chapters.find(function(c){return c.no===Number(item[0]);});if(ch&&ch.support){item[1]=ch.name.en;item[2]=ch.name.hi;item[3]=ch.support.why.en;item[4]=ch.support.why.hi;}});
     var diploma=[
       ['1','Windows productivity','Windows productivity','Organise files, accounts, apps, storage and common settings.','Files, accounts, apps, storage और common settings व्यवस्थित करें।'],
       ['2','Word for office work','Office work के लिए Word','Styles, tables, images, page layout, references and mail merge basics.','Styles, tables, images, page layout, references और mail merge basics।'],
@@ -32,6 +47,7 @@
       ['9','Safety and privacy','Safety और privacy','Permissions, phishing, account recovery and secure sharing.','Permissions, phishing, account recovery और secure sharing।'],
       ['10','Diploma office project','Diploma office project','Complete a connected Word, Excel and PowerPoint assignment.','Word, Excel और PowerPoint से जुड़ा assignment पूरा करें।']
     ];
+    diploma.forEach(function(item){var ch=available&&available.chapters.find(function(c){return c.no===10+Number(item[0]);});if(ch&&ch.support){item[1]=ch.name.en;item[2]=ch.name.hi;item[3]=ch.support.why.en;item[4]=ch.support.why.hi;}});
     var advanced=[
       ['1','Advanced Word','Advanced Word','Templates, long documents, forms, sections and document automation.','Templates, long documents, forms, sections और document automation।'],
       ['2','Advanced Excel','Advanced Excel','Lookups, logic, data validation, PivotTables and dashboards.','Lookups, logic, data validation, PivotTables और dashboards।'],
@@ -48,16 +64,16 @@
     return '<div class="ca-version">'+sp('<b>Pilot version:</b> Windows 11 + Microsoft 365 / Office 2024','<b>पायलट संस्करण:</b> Windows 11 + Microsoft 365 / Office 2024')+'</div>'+
       '<div class="ca-levels" aria-label="Course levels">'+
         '<div class="ca-level active"><span class="ca-status">● '+sp('Available now','अभी उपलब्ध')+'</span><h3>🌱 '+sp('Basic','बेसिक')+'</h3><div class="sub">'+sp('Start with a computer. Learn by doing one real task at a time.','कंप्यूटर शुरू करें। एक-एक असली काम करके सीखें।')+'</div></div>'+
-        '<div class="ca-level active"><span class="ca-status">● '+sp('Chapter 1 available','Chapter 1 उपलब्ध')+'</span><h3>🧰 '+sp('Diploma','डिप्लोमा')+'</h3><div class="sub">'+sp('Documents, spreadsheets, presentations, internet and office work.','दस्तावेज़, स्प्रेडशीट, प्रेज़ेंटेशन, इंटरनेट और कार्यालय कार्य।')+'</div></div>'+
+        '<div class="ca-level active"><span class="ca-status">● '+sp('Chapters 1–3 available','Chapters 1–3 उपलब्ध')+'</span><h3>🧰 '+sp('Diploma','डिप्लोमा')+'</h3><div class="sub">'+sp('Documents, spreadsheets, presentations, internet and office work.','दस्तावेज़, स्प्रेडशीट, प्रेज़ेंटेशन, इंटरनेट और कार्यालय कार्य।')+'</div></div>'+
         '<div class="ca-level"><span class="ca-status">○ '+sp('Planned','आगे आएगा')+'</span><h3>🚀 '+sp('Advanced Diploma','एडवांस्ड डिप्लोमा')+'</h3><div class="sub">'+sp('Advanced office work, data, collaboration, security and projects.','उन्नत कार्यालय कार्य, डेटा, सहयोग, सुरक्षा और प्रोजेक्ट।')+'</div></div>'+
       '</div>'+
-      '<section class="ca-roadmap" aria-labelledby="ca-roadmap-title">'+
-        '<div class="ca-roadmap-head"><div><span class="eyebrow">'+sp('Complete learning path','पूरा learning path')+'</span><h3 id="ca-roadmap-title">'+sp('Lessons in every stage','हर stage के lessons')+'</h3></div><p>'+sp('All ten Basic chapters and Diploma Chapter 1 are available below. The remaining Diploma and Advanced Diploma lessons show the planned sequence.','सभी दस Basic chapters और Diploma Chapter 1 नीचे उपलब्ध हैं। बाकी Diploma और Advanced Diploma lessons planned sequence दिखाते हैं।')+'</p></div>'+
+      '<nav class="ca-roadmap" aria-labelledby="ca-roadmap-title">'+
+        '<div class="ca-roadmap-head"><div><span class="eyebrow">'+sp('Complete learning path','पूरा learning path')+'</span><h3 id="ca-roadmap-title">'+sp('Course contents','पाठ्यक्रम की विषय सूची')+'</h3></div><p>'+sp('Select an available chapter to jump to its lessons and practical activity. Basic chapters 1–10 and Diploma chapters 1–3 are ready; the remaining chapters are planned.','Lessons और practical activity देखने के लिए उपलब्ध chapter चुनें। Basic chapters 1–10 और Diploma chapters 1–3 तैयार हैं; बाकी chapters आगे आएँगे।')+'</p></div>'+
         '<div class="ca-plan-grid">'+
-          '<article class="ca-plan-card active"><div class="ca-plan-title"><span>🌱</span><div><h4>'+sp('Basic Certificate','बेसिक सर्टिफिकेट')+'</h4><span class="ca-available">'+sp('Chapters 1–10 available','Chapters 1–10 उपलब्ध')+'</span></div></div>'+lessonList(basic)+'</article>'+
-          '<article class="ca-plan-card active"><div class="ca-plan-title"><span>🧰</span><div><h4>'+sp('Diploma','डिप्लोमा')+'</h4><span class="ca-available">'+sp('Chapter 1 available','Chapter 1 उपलब्ध')+'</span></div></div>'+lessonList(diploma)+'</article>'+
-          '<article class="ca-plan-card"><div class="ca-plan-title"><span>🚀</span><div><h4>'+sp('Advanced Diploma','एडवांस्ड डिप्लोमा')+'</h4><span>'+sp('Planned','Planned')+'</span></div></div>'+lessonList(advanced)+'</article>'+
+          '<article class="ca-plan-card active"><div class="ca-plan-title"><span>🌱</span><div><h4>'+sp('Basic Certificate','बेसिक सर्टिफिकेट')+'</h4><span class="ca-available">'+sp('Chapters 1–10 available','Chapters 1–10 उपलब्ध')+'</span></div></div>'+lessonList(basic,0)+'</article>'+
+          '<article class="ca-plan-card active"><div class="ca-plan-title"><span>🧰</span><div><h4>'+sp('Diploma','डिप्लोमा')+'</h4><span class="ca-available">'+sp('Chapters 1–3 available','Chapters 1–3 उपलब्ध')+'</span></div></div>'+lessonList(diploma,10)+'</article>'+
+          '<article class="ca-plan-card"><div class="ca-plan-title"><span>🚀</span><div><h4>'+sp('Advanced Diploma','एडवांस्ड डिप्लोमा')+'</h4><span>'+sp('Planned','Planned')+'</span></div></div>'+lessonList(advanced,20)+'</article>'+
         '</div>'+
-      '</section>';
+      '</nav>';
   };
 })();
