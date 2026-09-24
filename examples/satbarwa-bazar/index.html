@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Fictional Satbarwa Bazar storefront for the SelfLearn website development tutorial.">
+  <title>Satbarwa Bazar · Learning Demo</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#catalog">Skip to products</a>
+  <header class="site-head">
+    <div class="head-inner">
+      <a class="brand" href="./index.html" aria-label="Satbarwa Bazar home"><span class="brand-mark" aria-hidden="true">स</span><span>Satbarwa <b>Bazar</b><small data-i18n="brandTag">A local market idea</small></span></a>
+      <div class="head-actions">
+        <div class="language" role="group" aria-label="Language"><button id="enBtn" type="button" aria-pressed="true">EN</button><button id="hiBtn" type="button" aria-pressed="false">हिंदी</button></div>
+        <a class="cart-jump" href="#cart"><span data-i18n="cartNav">Cart</span> <span id="cartCount">0</span></a>
+      </div>
+    </div>
+  </header>
+  <main>
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="hero-copy">
+        <p class="eyebrow" data-i18n="eyebrow">A SelfLearn build project</p>
+        <h1 id="heroTitle" data-i18n="heroTitle">Everyday finds, one local view.</h1>
+        <p data-i18n="heroText">Explore a simple market catalog, practise search and plan a basket before a visit.</p>
+        <a href="#catalog" class="hero-link" data-i18n="browse">Browse sample items ↓</a>
+      </div>
+      <div class="hero-art" aria-hidden="true"><span>🛒</span><span>🥬</span><span>🍚</span><span>🧼</span></div>
+    </section>
+    <p class="demo-note" role="note" data-i18n="demoNote">Learning demo: all products, prices and availability are fictional. No orders or payments are taken.</p>
+    <section class="market-layout" aria-label="Market catalog and cart">
+      <div id="catalog" class="catalog">
+        <div class="section-heading"><div><p class="eyebrow" data-i18n="shopLabel">EXPLORE THE MARKET</p><h2 data-i18n="catalogTitle">Sample products</h2></div><span id="resultCount" class="result-count" aria-live="polite"></span></div>
+        <div class="controls">
+          <label class="search-label" for="search"><span data-i18n="searchLabel">Search items</span><input id="search" type="search" autocomplete="off" placeholder="e.g. rice, dal"></label>
+          <label class="sort-label" for="sort"><span data-i18n="sortLabel">Sort by</span><select id="sort"><option value="featured" data-i18n="featured">Featured</option><option value="low" data-i18n="low">Price: low to high</option><option value="high" data-i18n="high">Price: high to low</option></select></label>
+        </div>
+        <div id="categories" class="categories" role="group" aria-label="Product categories"></div>
+        <div id="products" class="product-grid" aria-live="polite"></div>
+        <div id="empty" class="empty" hidden><span aria-hidden="true">🔎</span><h3 data-i18n="emptyTitle">No matching items</h3><p data-i18n="emptyText">Try another word or return to all categories.</p><button id="clear" type="button" data-i18n="clear">Clear filters</button></div>
+      </div>
+      <aside id="cart" class="cart" aria-labelledby="cartTitle">
+        <div class="cart-top"><span aria-hidden="true">🧺</span><div><p class="eyebrow" data-i18n="basketLabel">PRACTICE BASKET</p><h2 id="cartTitle" data-i18n="cartTitle">Your cart</h2></div></div>
+        <div id="cartItems" class="cart-items"></div>
+        <div class="cart-total"><span data-i18n="total">Estimated total</span><strong id="total">₹0</strong></div>
+        <p class="cart-notice" data-i18n="cartNotice">Practice only — no order placed. Confirm real prices and stock directly with sellers.</p>
+      </aside>
+    </section>
+    <section class="how-it-works"><p class="eyebrow" data-i18n="nextLabel">KEEP IMPROVING</p><h2 data-i18n="nextTitle">One useful change each day</h2><div class="steps"><p><b>01</b> <span data-i18n="step1">Hear one customer or seller need.</span></p><p><b>02</b> <span data-i18n="step2">Ask the coding assistant for a small change.</span></p><p><b>03</b> <span data-i18n="step3">Inspect, preview and test before keeping it.</span></p></div></section>
+  </main>
+  <footer><p data-i18n="footer">An original SelfLearn practice project for a possible Satbarwa market website. Not affiliated with any retailer or real seller.</p></footer>
+</body>
+</html>

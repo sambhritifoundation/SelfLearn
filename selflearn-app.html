@@ -350,8 +350,8 @@
 <link rel="stylesheet" href="math8-pilot.css">
 <link rel="stylesheet" href="computer-application.css?v=20260923-toc-visible">
 <link rel="stylesheet" href="english-practice.css?v=20260919">
-<script src="computer-application.js?v=20260923-toc-visible"></script>
-<script src="computer-application-practical.js?v=20260923-support"></script>
+<script src="computer-application.js?v=20260924-satbarwa"></script>
+<script src="computer-application-practical.js?v=20260924-satbarwa"></script>
 <script src="english-practice-data.js?v=20260919"></script>
 <script src="english-practice.js?v=20260921-release-mobile-mic"></script>
 </head>
@@ -395,6 +395,7 @@
 <script src="data-computer-application-diploma-1.js?v=20260923"></script>
 <script src="data-computer-application-diploma-2-3.js?v=20260924"></script>
 <script src="data-computer-application-diploma-2-3-practice.js?v=20260923"></script>
+<script src="data-computer-application-satbarwa.js?v=20260924"></script>
 <script src="data-computer-application-support.js?v=20260923"></script>
 <script src="computer-application-task-pilot.js?v=20260923-pilot1"></script>
 <link rel="stylesheet" href="computer-application-task-pilot.css?v=20260923-pilot1">
@@ -8761,9 +8762,10 @@ function overallProgressPct(){
 function progressStrip(subject, chapter, topicIdx){
   var chIdx=0; subject.chapters.forEach(function(c,i){ if(c.no===chapter.no) chIdx=i+1; });
   var cp=chapterProgressPct(chapter);
-  var aria=t(subject.name)+", "+(LANG==="hi"?"अध्याय ":"chapter ")+chIdx+"/"+subject.chapters.length+", "+(LANG==="hi"?"विषय ":"topic ")+(topicIdx+1)+"/"+chapter.topics.length+", "+cp+"%";
+  var chapterText=subject.code==="COMPAPP"&&chapter.label?t(chapter.label):sp("Chapter","अध्याय")+" "+chIdx+" / "+subject.chapters.length;
+  var aria=t(subject.name)+", "+chapterText+", "+(LANG==="hi"?"विषय ":"topic ")+(topicIdx+1)+"/"+chapter.topics.length+", "+cp+"%";
   return '<div class="progress-strip" role="status" aria-label="'+esc(aria)+'">'
-    + '<div class="ps-meta"><b>'+esc(t(subject.name))+'</b> · '+sp("Chapter","अध्याय")+' '+chIdx+' / '+subject.chapters.length+' · '+sp("Topic","विषय")+' '+(topicIdx+1)+' / '+chapter.topics.length+'</div>'
+    + '<div class="ps-meta"><b>'+esc(t(subject.name))+'</b> · '+esc(chapterText)+' · '+sp("Topic","विषय")+' '+(topicIdx+1)+' / '+chapter.topics.length+'</div>'
     + '<div class="bar" aria-hidden="true"><i style="width:'+cp+'%"></i></div>'
     + '<div class="ps-meta sub">'+cp+'% '+sp("of this chapter practiced","इस अध्याय का अभ्यास")+'</div></div>';
 }
@@ -9591,7 +9593,7 @@ function vTopic(code){
   var next = idx<c.topics.length-1 ? c.topics[idx+1] : null;
   var st = topicStats(code); var a2 = acc(st);
   var h = '<div class="crumb"><a onclick="go(\'home\')">'+sp("Home","मुख्य")+'</a> › <a onclick="go(\'subject\',{code:\''+s.code+'\'})">'+t(s.name)+'</a> › '
-    + (s.code==='SCI8'?sp("SelfLearn Unit "+c.no,"SelfLearn इकाई "+c.no):sp("Ch "+c.no,"अध्याय "+c.no))+': '+t(c.name)+' › <b>'+t(tp.name)+'</b></div>';
+    + (s.code==='SCI8'?sp("SelfLearn Unit "+c.no,"SelfLearn इकाई "+c.no):(s.code==='COMPAPP'&&c.label?t(c.label):sp("Ch "+c.no,"अध्याय "+c.no)))+': '+t(c.name)+' › <b>'+t(tp.name)+'</b></div>';
   h += progressStrip(s, c, idx);
   h += '<div class="card"><div>'
     + '<span class="chip">'+sp("Concept","अवधारणा")+'</span>'

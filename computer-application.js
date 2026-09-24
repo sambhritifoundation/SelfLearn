@@ -60,19 +60,20 @@
       ['9','Small-office systems','Small-office systems','Plan records, forms, reports and a repeatable digital process.','Records, forms, reports और repeatable digital process plan करें।'],
       ['10','Advanced capstone','Advanced capstone','Build and present a complete digital solution for a real need.','किसी real need के लिए complete digital solution बनाएँ और present करें।']
     ];
+    advanced.forEach(function(item){var ch=available&&available.chapters.find(function(c){return c.no===20+Number(item[0]);});if(ch&&ch.support){item[1]=ch.name.en;item[2]=ch.name.hi;item[3]=ch.support.why.en;item[4]=ch.support.why.hi;}});
 
     return '<div class="ca-version">'+sp('<b>Pilot version:</b> Windows 11 + Microsoft 365 / Office 2024','<b>पायलट संस्करण:</b> Windows 11 + Microsoft 365 / Office 2024')+'</div>'+
       '<div class="ca-levels" aria-label="Course levels">'+
         '<div class="ca-level active"><span class="ca-status">● '+sp('Available now','अभी उपलब्ध')+'</span><h3>🌱 '+sp('Basic','बेसिक')+'</h3><div class="sub">'+sp('Start with a computer. Learn by doing one real task at a time.','कंप्यूटर शुरू करें। एक-एक असली काम करके सीखें।')+'</div></div>'+
         '<div class="ca-level active"><span class="ca-status">● '+sp('Chapters 1–3 available','Chapters 1–3 उपलब्ध')+'</span><h3>🧰 '+sp('Diploma','डिप्लोमा')+'</h3><div class="sub">'+sp('Documents, spreadsheets, presentations, internet and office work.','दस्तावेज़, स्प्रेडशीट, प्रेज़ेंटेशन, इंटरनेट और कार्यालय कार्य।')+'</div></div>'+
-        '<div class="ca-level"><span class="ca-status">○ '+sp('Planned','आगे आएगा')+'</span><h3>🚀 '+sp('Advanced Diploma','एडवांस्ड डिप्लोमा')+'</h3><div class="sub">'+sp('Advanced office work, data, collaboration, security and projects.','उन्नत कार्यालय कार्य, डेटा, सहयोग, सुरक्षा और प्रोजेक्ट।')+'</div></div>'+
+        '<div class="ca-level active"><span class="ca-status">● '+sp('Web project available','Web project उपलब्ध')+'</span><h3>🚀 '+sp('Advanced Diploma','एडवांस्ड डिप्लोमा')+'</h3><div class="sub">'+sp('Advanced office work, data, collaboration, security and projects.','उन्नत कार्यालय कार्य, डेटा, सहयोग, सुरक्षा और प्रोजेक्ट।')+'</div></div>'+
       '</div>'+
       '<nav class="ca-roadmap" aria-labelledby="ca-roadmap-title">'+
-        '<div class="ca-roadmap-head"><div><span class="eyebrow">'+sp('Complete learning path','पूरा learning path')+'</span><h3 id="ca-roadmap-title">'+sp('Course contents','पाठ्यक्रम की विषय सूची')+'</h3></div><p>'+sp('Select an available chapter to jump to its lessons and practical activity. Basic chapters 1–10 and Diploma chapters 1–3 are ready; the remaining chapters are planned.','Lessons और practical activity देखने के लिए उपलब्ध chapter चुनें। Basic chapters 1–10 और Diploma chapters 1–3 तैयार हैं; बाकी chapters आगे आएँगे।')+'</p></div>'+
+        '<div class="ca-roadmap-head"><div><span class="eyebrow">'+sp('Complete learning path','पूरा learning path')+'</span><h3 id="ca-roadmap-title">'+sp('Course contents','पाठ्यक्रम की विषय सूची')+'</h3></div><p>'+sp('Select an available chapter to jump to its lessons and practical activity. Basic chapters 1–10, Diploma chapters 1–3 and the Advanced Diploma web project are ready.','Lessons और practical activity देखने के लिए उपलब्ध chapter चुनें। Basic chapters 1–10, Diploma chapters 1–3 और Advanced Diploma web project तैयार हैं।')+'</p></div>'+
         '<div class="ca-plan-grid">'+
           '<article class="ca-plan-card active"><div class="ca-plan-title"><span>🌱</span><div><h4>'+sp('Basic Certificate','बेसिक सर्टिफिकेट')+'</h4><span class="ca-available">'+sp('Chapters 1–10 available','Chapters 1–10 उपलब्ध')+'</span></div></div>'+lessonList(basic,0)+'</article>'+
           '<article class="ca-plan-card active"><div class="ca-plan-title"><span>🧰</span><div><h4>'+sp('Diploma','डिप्लोमा')+'</h4><span class="ca-available">'+sp('Chapters 1–3 available','Chapters 1–3 उपलब्ध')+'</span></div></div>'+lessonList(diploma,10)+'</article>'+
-          '<article class="ca-plan-card"><div class="ca-plan-title"><span>🚀</span><div><h4>'+sp('Advanced Diploma','एडवांस्ड डिप्लोमा')+'</h4><span>'+sp('Planned','Planned')+'</span></div></div>'+lessonList(advanced,20)+'</article>'+
+          '<article class="ca-plan-card active"><div class="ca-plan-title"><span>🚀</span><div><h4>'+sp('Advanced Diploma','एडवांस्ड डिप्लोमा')+'</h4><span class="ca-available">'+sp('Web project available','Web project उपलब्ध')+'</span></div></div>'+lessonList(advanced,20)+'</article>'+
         '</div>'+
       '</nav>';
   };
