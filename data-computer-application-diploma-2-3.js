@@ -4,14 +4,33 @@
   var data=window.SL_DATA, subject=data.subjects.find(function(s){return s.code==='COMPAPP';});
   if(!subject)return;
   function L(en,hi){return {en:en,hi:hi};}
+  var visualDetails={
+    '12-1':L('A reusable master is copied before the October details are edited.','October का विवरण बदलने से पहले master की अलग copy बनती है।'),
+    '12-2':L('Heading 1 styles make each section consistent and available to the contents list.','Heading 1 से sections एक जैसे दिखते हैं और contents में आते हैं।'),
+    '12-3':L('A three-column programme table keeps time, activity and presenter aligned.','तीन-column table में समय, गतिविधि और प्रस्तुतकर्ता एक पंक्ति में रहते हैं।'),
+    '12-4':L('A renamed heading appears in the contents list after the entire table is updated.','पूरी contents table update करने पर बदली heading वहाँ दिखाई देती है।'),
+    '12-5':L('One letter and two recipient records produce two personalised invitations.','एक पत्र और दो recipient records से दो व्यक्तिगत invitations बनते हैं।'),
+    '12-6':L('Compare the editable source and exported PDF before handing them over.','Handover से पहले editable source और exported PDF मिलाकर जाँचें।'),
+    '13-1':L('Each supply occupies one row; quantities and rates stay numeric.','हर सामान अलग row में है; quantity और rate संख्या के रूप में हैं।'),
+    '13-2':L('The formula uses cell references, so a changed quantity changes the amount.','Formula cell references पढ़ता है, इसलिए quantity बदलने पर amount बदलता है।'),
+    '13-3':L('The fixed $G$2 rate is reused by every allowance formula.','स्थिर $G$2 rate हर allowance formula में उपयोग होता है।'),
+    '13-4':L('Four base amounts and four allowances lead to a checked planned total.','चार base amounts और allowances से जाँचा हुआ planned total निकलता है।'),
+    '13-5':L('Sort whole rows and filter a values-only analysis copy.','Values-only analysis copy में पूरी rows sort और filter करें।'),
+    '13-6':L('The chart compares four item amounts, without a total bar.','Chart चार item amounts की तुलना करता है; total की अलग bar नहीं है।')
+  };
   function lesson(ch,n,name,problem,why,steps,result,mistake,practice,reflect){
     var notes={};
     ['en','hi'].forEach(function(lang){
       var h=lang==='hi'?['आज की समस्या','यह feature क्यों सीखें?','साथ करके देखें','नतीजा जाँचें','आम गलती','अब आपकी बारी','सोचकर बताएँ']:['Today’s problem','Why learn this feature?','Follow along','Check the result','Common mistake','Your turn','Think and explain'];
       var parts=[problem,why,steps,result,mistake,practice,reflect];
-      notes[lang]=parts.map(function(p,i){return '**'+h[i]+'**\n\n'+p[lang];}).join('\n\n');
+      notes[lang]=parts.map(function(p,i){return '**'+h[i]+'**\n\n'+p[lang]+(i===0?'\n\n{{image:0}}':'');}).join('\n\n');
     });
-    return {code:'COMPAPP-'+ch+'-'+n,name:name,notes:notes,images:[]};
+    var key=ch+'-'+n;
+    return {code:'COMPAPP-'+key,name:name,notes:notes,images:[{
+      src:'assets/computer-application/diploma/'+key+'.svg',
+      mobile:'assets/computer-application/diploma/'+key+'-mobile.svg',
+      alt:visualDetails[key],caption:visualDetails[key]
+    }]};
   }
   var word=[
     lesson(12,1,L('Turn a rough brief into a reusable office document','बिखरे निर्देशों से दोबारा काम आने वाला document बनाएँ'),

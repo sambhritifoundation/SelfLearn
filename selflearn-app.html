@@ -393,7 +393,7 @@
 <script src="data-computer-application-enrichment.js?v=20260922"></script>
 <script src="data-computer-application-basic-complete.js?v=20260922"></script>
 <script src="data-computer-application-diploma-1.js?v=20260923"></script>
-<script src="data-computer-application-diploma-2-3.js?v=20260923"></script>
+<script src="data-computer-application-diploma-2-3.js?v=20260924"></script>
 <script src="data-computer-application-diploma-2-3-practice.js?v=20260923"></script>
 <script src="data-computer-application-support.js?v=20260923"></script>
 <script src="computer-application-task-pilot.js?v=20260923-pilot1"></script>
@@ -702,10 +702,12 @@ function fmtNotes(txt, images){
     } else if(imTok){
       var im = images && images[+imTok[1]];
       if(im) out.push('<figure class="photo card" style="margin:14px 0">'
-        + (im.webp ? '<picture><source srcset="'+esc(im.webp)+'" type="image/webp">' : '')
+        + (im.mobile || im.webp ? '<picture>' : '')
+        + (im.mobile ? '<source media="(max-width: 600px)" srcset="'+esc(im.mobile)+'">' : '')
+        + (im.webp ? '<source srcset="'+esc(im.webp)+'" type="image/webp">' : '')
         + '<img src="'+esc(im.src)+'" alt="'+esc(t(im.alt))+'" loading="lazy"'
         + (im.w && im.h ? ' width="'+im.w+'" height="'+im.h+'"' : '') + '>'
-        + (im.webp ? '</picture>' : '')
+        + (im.mobile || im.webp ? '</picture>' : '')
         + (im.caption ? '<figcaption>'+t(im.caption)+'</figcaption>' : '')
         + '</figure>');
       i++;
@@ -9618,10 +9620,12 @@ function vTopic(code){
     tp.images.forEach(function(im){
       /* im.webp is optional: modern browsers take the small WebP, older ones fall back to im.src */
       h += '<figure class="photo card" style="margin-top:14px">'
-        + (im.webp ? '<picture><source srcset="'+esc(im.webp)+'" type="image/webp">' : '')
+        + (im.mobile || im.webp ? '<picture>' : '')
+        + (im.mobile ? '<source media="(max-width: 600px)" srcset="'+esc(im.mobile)+'">' : '')
+        + (im.webp ? '<source srcset="'+esc(im.webp)+'" type="image/webp">' : '')
         + '<img src="'+esc(im.src)+'" alt="'+esc(t(im.alt))+'" loading="lazy"'
         + (im.w && im.h ? ' width="'+im.w+'" height="'+im.h+'"' : '') + '>'
-        + (im.webp ? '</picture>' : '')
+        + (im.mobile || im.webp ? '</picture>' : '')
         + (im.caption ? '<figcaption>'+t(im.caption)+'</figcaption>' : '')
         + '</figure>';
     });
