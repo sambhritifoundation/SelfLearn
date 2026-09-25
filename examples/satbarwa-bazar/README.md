@@ -2,7 +2,7 @@
 
 This is an original static reference site for SelfLearn's Advanced Diploma web fundamentals project. All products, prices and availability are fictional. The cart is local to the learner's browser and does not submit an order or collect customer details.
 
-Open `index.html` in a browser. Read `app.js` to find the product records and edit one sample price. Reload and check the card and cart. Use the six SelfLearn lessons to rebuild or improve the site in small, reviewed steps.
+Open `index.html` in a browser. Start with [`START-HERE.md`](START-HERE.md) for a file map, copyable prompts, examples and checks. Read `app.js` to find the product records and edit one sample price. Reload and check the card and cart. Use the seven SelfLearn lessons to improve the site in small, reviewed steps.
 
 For each daily improvement, write a short entry in your own `changes.md`:
 

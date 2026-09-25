@@ -8,7 +8,7 @@ A bilingual (Hindi–English), practice-first learning portal by Sambhriti Found
 
 - **Accountancy — CBSE Class 11** (full rationalised syllabus): 9 chapters, 43 micro-topic lessons, 94 practice questions with instant bilingual explanations. Chapters 1–2 carry full micro-topic notes with a running story (Meena didi's kirana shop → partnership → company), rich formatting, story-based case questions, and hands-on spreadsheet assignments at the end of each chapter (see `study-material/`).
 - **English Communication** (all age groups): Foundation (4–10), Intermediate (11–15) and Advanced/Adult levels — 9 chapters, 25 questions.
-- **Computer Application — Satbarwa Bazar web project**: six bilingual Advanced Diploma lessons guide learners through planning, vibe coding, testing and improving a local market website. The [working sample storefront](examples/satbarwa-bazar/index.html) uses fictional products and a demo cart; no orders or payments are taken.
+- **Computer Application — Satbarwa Bazar web project**: seven bilingual Advanced Diploma lessons begin with a finished-site preview and downloadable [starter ZIP](examples/satbarwa-bazar-starter.zip), then guide learners through adding products, content and features with small AI prompts and checks. The [working storefront](examples/satbarwa-bazar/index.html) uses fictional products and a demo cart; no orders or payments are taken.
 - Working quiz engine (MCQ, true/false, short answer), progress tracking, streaks, weak-topic revision queue — all stored in the learner's browser.
 - Admin portal with question editor and spreadsheet **import/export** (`selflearn-question-template.xlsx` is the authoring format).
 

@@ -34,7 +34,11 @@ const scenes=[
   ['6','Improve one thing a day',[
     ['Feedback',tag(65,194,'“Filter is confusing”',cream,'#9b5f11')+text(82,288,'Write the real problem',16,muted),'One need at a time'],
     ['Small AI prompt',tag(370,194,'Change only filter')+tag(370,249,'Show changed files',blue,'#245992'),'Inspect the proposal'],
-    ['Test + log',tag(675,188,'Phone + keyboard')+tag(675,238,'Search + cart',blue,'#245992')+tag(675,288,'changes.md',cream,'#9b5f11'),'Keep or revise']]]
+    ['Test + log',tag(675,188,'Phone + keyboard')+tag(675,238,'Search + cart',blue,'#245992')+tag(675,288,'changes.md',cream,'#9b5f11'),'Keep or revise']]],
+  ['7','Extend the working starter',[
+    ['Add content',tag(65,188,'New product record')+tag(65,240,'Unique id + unit',blue,'#245992')+tag(65,292,'Sample price',cream,'#9b5f11'),'Check card + search'],
+    ['Add one feature',tag(370,188,'Price ceiling')+tag(370,240,'Or favourites',blue,'#245992')+tag(370,292,'One change only',cream,'#9b5f11'),'Inspect the edit'],
+    ['Test the journey',tag(675,188,'Phone + keyboard')+tag(675,240,'Filters + cart',blue,'#245992')+tag(675,292,'Record result',cream,'#9b5f11'),'Keep or revise']]]
 ];
 for(const [id,title,cards] of scenes){
   let desktop=`<svg xmlns="http://www.w3.org/2000/svg" width="960" height="455" viewBox="0 0 960 455" role="img" aria-labelledby="title"><title id="title">${escape(title)}</title>`+rect(0,0,960,455,'#f7faf6','none',0)+rect(0,0,960,82,'#123c2b','none',0)+text(36,51,title,30,'#fff',700);
@@ -44,4 +48,4 @@ for(const [id,title,cards] of scenes){
   cards.forEach((c,i)=>mobile+=`<g transform="translate(${-305*i} ${329*i})">${panel(35+i*305,...c)}</g>`);mobile+=text(35,1101,'Prompt → preview → test',15,muted)+'</svg>';
   fs.writeFileSync(path.join(dir,id+'-mobile.svg'),mobile);
 }
-console.log('Built 6 desktop and 6 mobile Satbarwa lesson diagrams.');
+console.log('Built 7 desktop and 7 mobile Satbarwa lesson diagrams.');

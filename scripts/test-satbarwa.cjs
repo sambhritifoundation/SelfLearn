@@ -1,24 +1,26 @@
-/* Browser regression for the six lessons and the functional learning demo. */
+/* Browser regression for the seven lessons, starter links and functional demo. */
 const assert=require('node:assert/strict'),path=require('node:path');
 const {chromium}=require(process.env.SL_NODE_MODULES?path.join(process.env.SL_NODE_MODULES,'playwright'):'playwright');
 const root=path.resolve(__dirname,'..');
 (async()=>{const opts={headless:true};if(process.platform==='win32')opts.executablePath=process.env.SL_CHROME_PATH||'C:/Program Files/Google/Chrome/Application/chrome.exe';const browser=await chromium.launch(opts);try{
   for(const width of [390,1280]){
     const page=await browser.newPage({viewport:{width,height:900}}),errors=[];page.on('pageerror',e=>errors.push(e.message));await page.route(/^https?:/,r=>r.abort());await page.goto('file:///'+path.join(root,'index.html').replace(/\\/g,'/'));
-    assert.equal(await page.evaluate(()=>SL_DATA.subjects.find(s=>s.code==='COMPAPP').chapters.find(c=>c.no===25).topics.length),6);
-    assert.equal(await page.evaluate(()=>SL_DATA.questions.filter(q=>q.chapter===25&&q.subject==='COMPAPP').length),18);
+    assert.equal(await page.evaluate(()=>SL_DATA.subjects.find(s=>s.code==='COMPAPP').chapters.find(c=>c.no===25).topics.length),7);
+    assert.equal(await page.evaluate(()=>SL_DATA.questions.filter(q=>q.chapter===25&&q.subject==='COMPAPP').length),21);
     for(const lang of ['en','hi']){
       await page.evaluate(lang=>{LANG=lang;go('subject',{code:'COMPAPP'});},lang);
       assert((await page.locator('#app').innerText()).includes(lang==='en'?'Satbarwa Bazar':'Satbarwa Bazar'));
-      for(let n=1;n<=6;n++){
+      for(let n=1;n<=7;n++){
         await page.evaluate(n=>go('topic',{code:'COMPAPP-25-'+n}),n);
-        const visual=page.locator('.notes img');assert.equal(await visual.count(),1);
-        await visual.scrollIntoViewIfNeeded();
+        const visual=page.locator('.notes img');assert.equal(await visual.count(),n===1?2:1);
+        await visual.first().scrollIntoViewIfNeeded();
         await page.waitForFunction(()=>{const img=document.querySelector('.notes img');return img&&img.complete&&img.naturalWidth===(innerWidth<601?350:960);});
+        if(n===1){assert.equal(await page.locator('.starter-actions a[download][href="examples/satbarwa-bazar-starter.zip"]').count(),1);assert.equal(await page.locator('.starter-actions a[href="examples/satbarwa-bazar/index.html"]').count(),1);}
         assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));
       }
       await page.evaluate(()=>go('assignment',{code:'COMPAPP',chapter:25}));
       assert.equal(await page.locator('.ca-practical a[href="examples/satbarwa-bazar/index.html"]').count(),1);
+      assert.equal(await page.locator('.ca-practical a[download][href="examples/satbarwa-bazar-starter.zip"]').count(),1);
       if(width===1280&&lang==='en'){
         const ids=await page.evaluate(()=>SL_DATA.questions.filter(q=>q.subject==='COMPAPP'&&q.chapter===25).map(q=>q.id));
         for(const id of ids){
@@ -47,5 +49,5 @@ const root=path.resolve(__dirname,'..');
     assert(await demo.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));
     assert.deepEqual(demoErrors,[]);await demo.close();
   }
-  console.log('PASS: 6 bilingual lessons, 12 responsive visuals, practical link, search/filter/empty state, demo cart totals, phone and desktop layouts.');
+  console.log('PASS: 7 bilingual lessons, preview, starter links, 14 responsive diagrams, 21 questions, search/filter/empty state, demo cart totals, phone and desktop layouts.');
 }finally{await browser.close();}})().catch(e=>{console.error(e);process.exitCode=1;});

@@ -144,6 +144,7 @@
   .diagram{margin:14px 0;text-align:center;overflow-x:auto}
   /* nowrap keeps formulas readable, but the chip must scroll itself rather than widen the page */
   .notes code{font-family:ui-monospace,Consolas,'Courier New',monospace;font-size:.92em;background:var(--primary-light);color:var(--primary-dark);padding:2px 6px;border-radius:5px;white-space:nowrap;display:inline-block;max-width:100%;overflow-x:auto;vertical-align:bottom}
+  .starter-actions{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 4px}
   button.reflink{cursor:pointer;font:inherit;font-size:.86rem;font-weight:600;text-align:left}
   .scopebox{border-left:4px solid var(--accent);background:var(--accent-light);border-radius:8px;padding:11px 14px;margin:12px 0;font-size:.88rem}
   .scopebox p{margin:0}
@@ -351,7 +352,7 @@
 <link rel="stylesheet" href="computer-application.css?v=20260923-toc-visible">
 <link rel="stylesheet" href="english-practice.css?v=20260919">
 <script src="computer-application.js?v=20260924-satbarwa"></script>
-<script src="computer-application-practical.js?v=20260924-satbarwa"></script>
+<script src="computer-application-practical.js?v=20260925-starter"></script>
 <script src="english-practice-data.js?v=20260919"></script>
 <script src="english-practice.js?v=20260921-release-mobile-mic"></script>
 </head>
@@ -395,7 +396,7 @@
 <script src="data-computer-application-diploma-1.js?v=20260923"></script>
 <script src="data-computer-application-diploma-2-3.js?v=20260924"></script>
 <script src="data-computer-application-diploma-2-3-practice.js?v=20260923"></script>
-<script src="data-computer-application-satbarwa.js?v=20260924"></script>
+<script src="data-computer-application-satbarwa.js?v=20260925-starter"></script>
 <script src="data-computer-application-support.js?v=20260923"></script>
 <script src="computer-application-task-pilot.js?v=20260923-pilot1"></script>
 <link rel="stylesheet" href="computer-application-task-pilot.css?v=20260923-pilot1">
@@ -9602,7 +9603,9 @@ function vTopic(code){
     + '</div>'+boardTags(c)+'<h1 style="margin:10px 0 12px">'+t(tp.name)+'</h1>'
     + vAudioExplainer(tp)
     + vTutorRoute(code)
-    + '<div class="notes">'+fmtNotes(t(tp.notes), tp.images)+'</div></div>';
+    + '<div class="notes">'+fmtNotes(t(tp.notes), tp.images)+'</div>'
+    + (tp.starterUrl?'<div class="starter-actions"><a class="btn" href="'+esc(tp.starterUrl)+'" download>'+sp('↓ Download starter ZIP','↓ Starter ZIP डाउनलोड करें')+'</a>'+(tp.demoUrl?'<a class="btn ghost" href="'+esc(tp.demoUrl)+'" target="_blank" rel="noopener noreferrer">'+sp('↗ Open working website','↗ चलती website खोलें')+'</a>':'')+'</div>':'')
+    + '</div>';
   /* Language units follow a fixed four-skill loop: hear it, learn the phrases,
      drill them aloud, then say them back. Deliberately NOT wired to inline
      {{...}} tokens — that token family has repeatedly been mis-typed into notes,
