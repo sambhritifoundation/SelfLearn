@@ -144,6 +144,7 @@
   .diagram{margin:14px 0;text-align:center;overflow-x:auto}
   /* nowrap keeps formulas readable, but the chip must scroll itself rather than widen the page */
   .notes code{font-family:ui-monospace,Consolas,'Courier New',monospace;font-size:.92em;background:var(--primary-light);color:var(--primary-dark);padding:2px 6px;border-radius:5px;white-space:nowrap;display:inline-block;max-width:100%;overflow-x:auto;vertical-align:bottom}
+  .project-prompts{margin-top:22px}.project-prompt{border:1px solid var(--line);border-radius:10px;padding:14px;margin:10px 0}.project-prompt summary{cursor:pointer;font-weight:700;min-height:44px}.project-prompt label{display:block;margin:10px 0}.project-prompt textarea{box-sizing:border-box;width:100%;max-width:100%;font:14px/1.5 ui-monospace,monospace;white-space:pre-wrap;resize:vertical;padding:12px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--text)}.prompt-copy-status{margin-left:10px;font-size:.9rem}
   .starter-actions{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 4px}
   button.reflink{cursor:pointer;font:inherit;font-size:.86rem;font-weight:600;text-align:left}
   .scopebox{border-left:4px solid var(--accent);background:var(--accent-light);border-radius:8px;padding:11px 14px;margin:12px 0;font-size:.88rem}
@@ -396,8 +397,9 @@
 <script src="data-computer-application-diploma-1.js?v=20260923"></script>
 <script src="data-computer-application-diploma-2-3.js?v=20260924"></script>
 <script src="data-computer-application-diploma-2-3-practice.js?v=20260923"></script>
-<script src="data-computer-application-satbarwa.js?v=20260925-starter"></script>
+<script src="data-computer-application-satbarwa.js?v=20260927-prompts"></script>
 <script src="data-computer-application-snake.js?v=20260927"></script>
+<script src="computer-project-prompts.js?v=20260927-complete"></script>
 <script src="data-computer-application-support.js?v=20260923"></script>
 <script src="computer-application-task-pilot.js?v=20260923-pilot1"></script>
 <link rel="stylesheet" href="computer-application-task-pilot.css?v=20260923-pilot1">
@@ -9605,6 +9607,7 @@ function vTopic(code){
     + vAudioExplainer(tp)
     + vTutorRoute(code)
     + '<div class="notes">'+fmtNotes(t(tp.notes), tp.images)+'</div>'
+    + (typeof renderComputerProjectPrompts==='function'?renderComputerProjectPrompts(tp):'')
     + (tp.starterUrl?'<div class="starter-actions"><a class="btn" href="'+esc(tp.starterUrl)+'" download>'+sp('↓ Download starter ZIP','↓ Starter ZIP डाउनलोड करें')+'</a>'+(tp.demoUrl?'<a class="btn ghost" href="'+esc(tp.demoUrl)+'" target="_blank" rel="noopener noreferrer">'+sp('↗ Open working website','↗ चलती website खोलें')+'</a>':'')+'</div>':'')
     + '</div>';
   /* Language units follow a fixed four-skill loop: hear it, learn the phrases,

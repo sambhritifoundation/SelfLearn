@@ -1,0 +1,438 @@
+# Satbarwa Bazar: complete AI prompts
+
+Save a working backup. For an edit, attach your CURRENT index.html, styles.css, app.js with their names. Copy ONE complete prompt. Read the proposed code, save the complete files, then check the expected results. For a new build, use an empty folder and the complete build prompt; reply NEXT plus the next filename until all files are saved. Never treat an unrun test as a pass.
+
+पहले backup रखें। बदलाव के लिए current files और उनके नाम दें। एक पूरा prompt भेजें, code देखें, पूरी files save करें, फिर जाँचें। नए project के build prompt में NEXT से एक-एक file लें। Explanation हिंदी में माँग सकते हैं।
+
+Choose a build prompt for a new project or a specific change prompt for an existing one. Prompts include context and exact expected results; they help reduce guessing but you still need to test the result.
+
+## Build the complete storefront / पूरी storefront बनाएँ
+
+Copy the whole block:
+
+```text
+You are helping a beginner produce a complete, polished website. Follow this specification literally; do not add unrequested features.
+
+PROJECT CONTEXT
+An original, bilingual English/Hindi local-market catalog for Satbarwa Bazar. All products, prices and stock are fictional. This is a learning storefront with a local demo cart, not a payment or order system.
+Plain HTML/CSS/JavaScript. Open index.html directly from an extracted folder. Relative file paths; no npm, framework, modules, fetch, server, CDN or external font/image dependency.
+Existing app.js has products, copy.en/copy.hi, state {lang,category,query,sort,cart}, renderStatic, renderCategories, visibleProducts, renderProducts, renderCart and renderAll. Inspect their actual code before editing; these names describe the supplied starter.
+Product contract: {id, name:{en,hi}, category, unit:{en,hi}, price:number, inStock:boolean, icon, color}. category is grocery, vegetables or household. Cart maps product id to integer quantity 1–99; price comes from products, never from displayed text.
+HTML IDs: enBtn, hiBtn, cartCount, search, sort, categories, products, resultCount, empty, clear, cartItems, total. Preserve matching IDs and handlers. Existing translations use data-i18n attributes and the copy objects.
+Visual direction: original green/cream market design; system font; light background #f7f8f2, dark green #146c4a, dark readable text. Header with brand/language/cart; hero; visible sample-data notice; search/sort; categories; product cards; cart; short improvement tips. Product icons are emoji on soft colour blocks, not remote images.
+
+INPUT AND WORKFLOW
+Build a new project in an empty folder. No existing files are required. Use the requirements below as the complete specification; a screenshot is optional visual reference only.
+First reply: a short file/ID checklist and the COMPLETE index.html only. Then wait for me to say NEXT plus the next filename. Produce one complete file per reply in this order: index.html, styles.css, app.js. Keep this specification and the same IDs throughout. If earlier files are no longer in context, ask me to paste them before continuing. Do not test the whole app until every file is saved.
+
+TASK
+Build three complete files in the specified order.
+1. index.html: semantic header/main/footer; EN/Hindi buttons; cart-count link; hero titled “Everyday finds, one local view.”; sample-data notice; labelled search input; select with featured/low/high sort values; category-button container; result count; product-grid container; hidden empty-result panel with Clear filters; cart items and total; no checkout. Use every ID listed above. The app.js script uses defer. A skip link goes to the catalog.
+2. styles.css: max-width 1140px centred layout, 16–24px padding/gaps, 16px rounded cards, visible focus outlines. At 350px use one product column and cart below; at 768px use two product columns; at 1280px use three product columns with a roughly 300px cart beside them. Allow category buttons to wrap. Inputs and cards never exceed their container. Include colour-block emoji artwork and clear price/unit hierarchy.
+3. app.js: one products array; copy.en/copy.hi for ALL controls, notices, empty states and cart text; default English, switching language keeps search/category/cart state. Use the product schema above with these exact six records:
+rice / Rice / चावल / grocery / 1 kg / 1 किलो / 60 / true / 🍚
+dal / Dal / दाल / grocery / 1 kg / 1 किलो / 110 / true / 🫘
+tomato / Tomatoes / टमाटर / vegetables / 1 kg / 1 किलो / 30 / true / 🍅
+potato / Potatoes / आलू / vegetables / 1 kg / 1 किलो / 25 / true / 🥔
+soap / Soap / साबुन / household / 1 bar / 1 टिकिया / 35 / true / 🧼
+detergent / Detergent / डिटर्जेंट / household / 1 pack / 1 पैक / 80 / false / 🫧
+Choose a pale colour for each record. Display rupees and units; unavailable detergent has a disabled Add button. Search trims spaces and matches either language case-insensitively. Search AND category apply together; sort a filtered copy without mutating products. No match shows a useful message and Clear. Clear resets search/category to all, retains the chosen sort, and focuses search. All is a category button, not a product category.
+Cart: add available products by id, increase/decrease 1–99, remove, count total units, sum price × quantity. Disable minus at 1 and plus at 99. Persist only validated known ids and integer quantities in localStorage key satbarwa_demo_cart; ignore invalid JSON, unavailable/unknown items and invalid quantities. Storage failure must not stop in-memory play. Empty cart total is ₹0. Never claim an order was placed.
+
+QUALITY RULES
+Use semantic headings, visible labels, real buttons, visible keyboard focus and touch targets at least 44px. Fit 350px, 768px and 1280px viewports without horizontal page scrolling. Use readable 16px body text, consistent spacing and clear empty/paused/error states. Do not hide controls to make the layout fit. Render user-facing text with textContent where appropriate. Handle unavailable localStorage with try/catch so the page still works.
+
+ACCEPTANCE CHECKS
+Fresh load: 6 cards, 1 disabled Add, ₹0 empty cart.
+Search “ DAL ” → one Dal card; choose Vegetables with that search → no matches; Clear → six cards.
+Price low to high → Potatoes ₹25 first. Switching Hindi translates labels and names without clearing the cart.
+From empty cart: 2 rice + 1 dal → ₹230; reduce rice to 1 → ₹170; remove dal → ₹60; reload → validated cart restores, when storage is available.
+At 350px and 1280px: every control visible, no sideways scroll; Tab/Enter operates buttons. No missing assets or console errors.
+
+OUTPUT
+Return complete contents of each changed file in its own code block labelled with the exact filename. No ellipses, TODOs, missing functions, pseudo-code or “rest unchanged”. Respect the one-file-per-reply order above.
+After the last file, give exact save/open instructions, a short change summary and a table: action | expected result | actually tested or not run. Check that every referenced ID, function and file exists. Only say a test passed if you actually ran it. If you cannot run a browser, state that clearly and give manual steps. Explain in simple English; use Hindi if I ask.
+```
+
+## Inspect and plan before editing / बदलाव से पहले समझें
+
+Copy the whole block:
+
+```text
+You are helping a beginner produce a complete, polished website. Follow this specification literally; do not add unrequested features.
+
+PROJECT CONTEXT
+An original, bilingual English/Hindi local-market catalog for Satbarwa Bazar. All products, prices and stock are fictional. This is a learning storefront with a local demo cart, not a payment or order system.
+Plain HTML/CSS/JavaScript. Open index.html directly from an extracted folder. Relative file paths; no npm, framework, modules, fetch, server, CDN or external font/image dependency.
+Existing app.js has products, copy.en/copy.hi, state {lang,category,query,sort,cart}, renderStatic, renderCategories, visibleProducts, renderProducts, renderCart and renderAll. Inspect their actual code before editing; these names describe the supplied starter.
+Product contract: {id, name:{en,hi}, category, unit:{en,hi}, price:number, inStock:boolean, icon, color}. category is grocery, vegetables or household. Cart maps product id to integer quantity 1–99; price comes from products, never from displayed text.
+HTML IDs: enBtn, hiBtn, cartCount, search, sort, categories, products, resultCount, empty, clear, cartItems, total. Preserve matching IDs and handlers. Existing translations use data-i18n attributes and the copy objects.
+Visual direction: original green/cream market design; system font; light background #f7f8f2, dark green #146c4a, dark readable text. Header with brand/language/cart; hero; visible sample-data notice; search/sort; categories; product cards; cart; short improvement tips. Product icons are emoji on soft colour blocks, not remote images.
+
+INPUT AND WORKFLOW
+I will attach or paste the CURRENT index.html, styles.css, app.js, each labelled with its filename. If a needed file is missing or truncated, request it before proposing edits; do not invent its contents. Read the supplied version first. Summarise the requested change and the files involved in three bullets. This task is inspection only; do not rewrite any files.
+
+TASK
+Inspect the three attached files. Identify header, hero, search/sort, categories, cards and cart by their actual IDs/functions. Give a six-box phone wireframe in text: header → hero → controls → cards → cart → footer. Explain the shopper goal in two sentences and point to where a new product belongs. Do not edit or add features.
+
+QUALITY RULES
+Use semantic headings, visible labels, real buttons, visible keyboard focus and touch targets at least 44px. Fit 350px, 768px and 1280px viewports without horizontal page scrolling. Use readable 16px body text, consistent spacing and clear empty/paused/error states. Do not hide controls to make the layout fit. Render user-facing text with textContent where appropriate. Handle unavailable localStorage with try/catch so the page still works.
+
+ACCEPTANCE CHECKS
+Locate products, visibleProducts and renderCart in the real files. Explain “dal + Vegetables = no match” and “2×60 +110 =230”. List which files I must open to change content versus layout.
+
+OUTPUT
+Use short numbered explanations tied to actual functions or IDs. Include a concrete before/after example and manual checks. Clearly say which facts you inferred and which code you inspected.
+```
+
+## Improve the phone layout / Phone layout सुधारें
+
+Copy the whole block:
+
+```text
+You are helping a beginner produce a complete, polished website. Follow this specification literally; do not add unrequested features.
+
+PROJECT CONTEXT
+An original, bilingual English/Hindi local-market catalog for Satbarwa Bazar. All products, prices and stock are fictional. This is a learning storefront with a local demo cart, not a payment or order system.
+Plain HTML/CSS/JavaScript. Open index.html directly from an extracted folder. Relative file paths; no npm, framework, modules, fetch, server, CDN or external font/image dependency.
+Existing app.js has products, copy.en/copy.hi, state {lang,category,query,sort,cart}, renderStatic, renderCategories, visibleProducts, renderProducts, renderCart and renderAll. Inspect their actual code before editing; these names describe the supplied starter.
+Product contract: {id, name:{en,hi}, category, unit:{en,hi}, price:number, inStock:boolean, icon, color}. category is grocery, vegetables or household. Cart maps product id to integer quantity 1–99; price comes from products, never from displayed text.
+HTML IDs: enBtn, hiBtn, cartCount, search, sort, categories, products, resultCount, empty, clear, cartItems, total. Preserve matching IDs and handlers. Existing translations use data-i18n attributes and the copy objects.
+Visual direction: original green/cream market design; system font; light background #f7f8f2, dark green #146c4a, dark readable text. Header with brand/language/cart; hero; visible sample-data notice; search/sort; categories; product cards; cart; short improvement tips. Product icons are emoji on soft colour blocks, not remote images.
+
+INPUT AND WORKFLOW
+I will attach or paste the CURRENT index.html, styles.css, app.js, each labelled with its filename. If a needed file is missing or truncated, request it before proposing edits; do not invent its contents. Read the supplied version first. Summarise the requested change and the files involved in three bullets. Make only this task. Keep a backup of the working files. Preserve unrelated behaviour and existing IDs. If another file must change, explain the dependency first.
+
+TASK
+Edit styles.css only. At 350px keep a single product column and cart below; wrap category buttons, keep labels visible and all tap controls at least 44px. At tablet width allow two cards where they fit; at 1280px three cards and a cart beside the catalog. Use existing selectors, inspect current breakpoints and change only necessary rules. Do not use a fixed body width or hide overflowing content. Preserve the green/cream palette, product order, language buttons and all behaviour.
+
+QUALITY RULES
+Use semantic headings, visible labels, real buttons, visible keyboard focus and touch targets at least 44px. Fit 350px, 768px and 1280px viewports without horizontal page scrolling. Use readable 16px body text, consistent spacing and clear empty/paused/error states. Do not hide controls to make the layout fit. Render user-facing text with textContent where appropriate. Handle unavailable localStorage with try/catch so the page still works.
+
+ACCEPTANCE CHECKS
+At 350/768/1280px no horizontal page scroll; long Hindi labels wrap; each card shows name/unit/price/Add; search and language controls remain visible. Keyboard focus is visible. Explain exact selectors changed.
+
+OUTPUT
+Return complete contents of each changed file in its own code block labelled with the exact filename. No ellipses, TODOs, missing functions, pseudo-code or “rest unchanged”. If the answer will be too long, return one complete file and wait for NEXT before the next file; never cut a file halfway.
+After the last file, give exact save/open instructions, a short change summary and a table: action | expected result | actually tested or not run. Check that every referenced ID, function and file exists. Only say a test passed if you actually ran it. If you cannot run a browser, state that clearly and give manual steps. Explain in simple English; use Hindi if I ask.
+```
+
+## Change one price consistently / एक price सही बदलें
+
+Copy the whole block:
+
+```text
+You are helping a beginner produce a complete, polished website. Follow this specification literally; do not add unrequested features.
+
+PROJECT CONTEXT
+An original, bilingual English/Hindi local-market catalog for Satbarwa Bazar. All products, prices and stock are fictional. This is a learning storefront with a local demo cart, not a payment or order system.
+Plain HTML/CSS/JavaScript. Open index.html directly from an extracted folder. Relative file paths; no npm, framework, modules, fetch, server, CDN or external font/image dependency.
+Existing app.js has products, copy.en/copy.hi, state {lang,category,query,sort,cart}, renderStatic, renderCategories, visibleProducts, renderProducts, renderCart and renderAll. Inspect their actual code before editing; these names describe the supplied starter.
+Product contract: {id, name:{en,hi}, category, unit:{en,hi}, price:number, inStock:boolean, icon, color}. category is grocery, vegetables or household. Cart maps product id to integer quantity 1–99; price comes from products, never from displayed text.
+HTML IDs: enBtn, hiBtn, cartCount, search, sort, categories, products, resultCount, empty, clear, cartItems, total. Preserve matching IDs and handlers. Existing translations use data-i18n attributes and the copy objects.
+Visual direction: original green/cream market design; system font; light background #f7f8f2, dark green #146c4a, dark readable text. Header with brand/language/cart; hero; visible sample-data notice; search/sort; categories; product cards; cart; short improvement tips. Product icons are emoji on soft colour blocks, not remote images.
+
+INPUT AND WORKFLOW
+I will attach or paste the CURRENT index.html, styles.css, app.js, each labelled with its filename. If a needed file is missing or truncated, request it before proposing edits; do not invent its contents. Read the supplied version first. Summarise the requested change and the files involved in three bullets. Make only this task. Keep a backup of the working files. Preserve unrelated behaviour and existing IDs. If another file must change, explain the dependency first.
+
+TASK
+Edit only the products record whose id is rice in app.js: change numeric price 60 to 62. Do not change its id, unit, stock, currency formatter, cart arithmetic or other products. Explain how cards and cart read the same record. This is a temporary practice edit; tell me how to restore 60 before the lesson's ₹230 exercise.
+
+QUALITY RULES
+Use semantic headings, visible labels, real buttons, visible keyboard focus and touch targets at least 44px. Fit 350px, 768px and 1280px viewports without horizontal page scrolling. Use readable 16px body text, consistent spacing and clear empty/paused/error states. Do not hide controls to make the layout fit. Render user-facing text with textContent where appropriate. Handle unavailable localStorage with try/catch so the page still works.
+
+ACCEPTANCE CHECKS
+Rice card ₹62 per 1 kg; search rice and चावल finds it; two rice + one dal costs ₹234. Existing saved rice quantities use the new price after reload. Restore rice to 60 → the same basket is ₹230.
+
+OUTPUT
+Return complete contents of each changed file in its own code block labelled with the exact filename. No ellipses, TODOs, missing functions, pseudo-code or “rest unchanged”. If the answer will be too long, return one complete file and wait for NEXT before the next file; never cut a file halfway.
+After the last file, give exact save/open instructions, a short change summary and a table: action | expected result | actually tested or not run. Check that every referenced ID, function and file exists. Only say a test passed if you actually ran it. If you cannot run a browser, state that clearly and give manual steps. Explain in simple English; use Hindi if I ask.
+```
+
+## Improve empty-result guidance / खाली result की मदद सुधारें
+
+Copy the whole block:
+
+```text
+You are helping a beginner produce a complete, polished website. Follow this specification literally; do not add unrequested features.
+
+PROJECT CONTEXT
+An original, bilingual English/Hindi local-market catalog for Satbarwa Bazar. All products, prices and stock are fictional. This is a learning storefront with a local demo cart, not a payment or order system.
+Plain HTML/CSS/JavaScript. Open index.html directly from an extracted folder. Relative file paths; no npm, framework, modules, fetch, server, CDN or external font/image dependency.
+Existing app.js has products, copy.en/copy.hi, state {lang,category,query,sort,cart}, renderStatic, renderCategories, visibleProducts, renderProducts, renderCart and renderAll. Inspect their actual code before editing; these names describe the supplied starter.
+Product contract: {id, name:{en,hi}, category, unit:{en,hi}, price:number, inStock:boolean, icon, color}. category is grocery, vegetables or household. Cart maps product id to integer quantity 1–99; price comes from products, never from displayed text.
+HTML IDs: enBtn, hiBtn, cartCount, search, sort, categories, products, resultCount, empty, clear, cartItems, total. Preserve matching IDs and handlers. Existing translations use data-i18n attributes and the copy objects.
+Visual direction: original green/cream market design; system font; light background #f7f8f2, dark green #146c4a, dark readable text. Header with brand/language/cart; hero; visible sample-data notice; search/sort; categories; product cards; cart; short improvement tips. Product icons are emoji on soft colour blocks, not remote images.
+
+INPUT AND WORKFLOW
+I will attach or paste the CURRENT index.html, styles.css, app.js, each labelled with its filename. If a needed file is missing or truncated, request it before proposing edits; do not invent its contents. Read the supplied version first. Summarise the requested change and the files involved in three bullets. Make only this task. Keep a backup of the working files. Preserve unrelated behaviour and existing IDs. If another file must change, explain the dependency first.
+
+TASK
+Edit only copy.en and copy.hi strings in app.js. Set emptyTitle to “No matching items” / “कोई सामान नहीं मिला” and emptyText to “Try another word, or clear search and category filters.” / “दूसरा शब्द खोजें या search और category filters हटाएँ।” Keep clear labelled “Clear filters” / “Filters हटाएँ”. Preserve keys, filter logic, data and cart.
+
+QUALITY RULES
+Use semantic headings, visible labels, real buttons, visible keyboard focus and touch targets at least 44px. Fit 350px, 768px and 1280px viewports without horizontal page scrolling. Use readable 16px body text, consistent spacing and clear empty/paused/error states. Do not hide controls to make the layout fit. Render user-facing text with textContent where appropriate. Handle unavailable localStorage with try/catch so the page still works.
+
+ACCEPTANCE CHECKS
+DAL + Grocery → Dal; DAL + Vegetables → translated empty message and visible Clear; Clear → all 6 items and focus on search. No product data is deleted. Switching language changes the message.
+
+OUTPUT
+Return complete contents of each changed file in its own code block labelled with the exact filename. No ellipses, TODOs, missing functions, pseudo-code or “rest unchanged”. If the answer will be too long, return one complete file and wait for NEXT before the next file; never cut a file halfway.
+After the last file, give exact save/open instructions, a short change summary and a table: action | expected result | actually tested or not run. Check that every referenced ID, function and file exists. Only say a test passed if you actually ran it. If you cannot run a browser, state that clearly and give manual steps. Explain in simple English; use Hindi if I ask.
+```
+
+## Clarify quantity buttons / Quantity buttons साफ करें
+
+Copy the whole block:
+
+```text
+You are helping a beginner produce a complete, polished website. Follow this specification literally; do not add unrequested features.
+
+PROJECT CONTEXT
+An original, bilingual English/Hindi local-market catalog for Satbarwa Bazar. All products, prices and stock are fictional. This is a learning storefront with a local demo cart, not a payment or order system.
+Plain HTML/CSS/JavaScript. Open index.html directly from an extracted folder. Relative file paths; no npm, framework, modules, fetch, server, CDN or external font/image dependency.
+Existing app.js has products, copy.en/copy.hi, state {lang,category,query,sort,cart}, renderStatic, renderCategories, visibleProducts, renderProducts, renderCart and renderAll. Inspect their actual code before editing; these names describe the supplied starter.
+Product contract: {id, name:{en,hi}, category, unit:{en,hi}, price:number, inStock:boolean, icon, color}. category is grocery, vegetables or household. Cart maps product id to integer quantity 1–99; price comes from products, never from displayed text.
+HTML IDs: enBtn, hiBtn, cartCount, search, sort, categories, products, resultCount, empty, clear, cartItems, total. Preserve matching IDs and handlers. Existing translations use data-i18n attributes and the copy objects.
+Visual direction: original green/cream market design; system font; light background #f7f8f2, dark green #146c4a, dark readable text. Header with brand/language/cart; hero; visible sample-data notice; search/sort; categories; product cards; cart; short improvement tips. Product icons are emoji on soft colour blocks, not remote images.
+
+INPUT AND WORKFLOW
+I will attach or paste the CURRENT index.html, styles.css, app.js, each labelled with its filename. If a needed file is missing or truncated, request it before proposing edits; do not invent its contents. Read the supplied version first. Summarise the requested change and the files involved in three bullets. Make only this task. Keep a backup of the working files. Preserve unrelated behaviour and existing IDs. If another file must change, explain the dependency first.
+
+TASK
+Edit only the quantity-control aria-label construction in renderCart in app.js. Read current code first. Replace ambiguous product-name-plus-symbol labels with “Decrease Rice quantity” / “Increase Rice quantity” and equivalent dynamic Hindi labels such as “चावल की मात्रा घटाएँ” / “चावल की मात्रा बढ़ाएँ”. Preserve visible +/−, event handlers and 1–99 limits. Labels must use current language/product name.
+
+QUALITY RULES
+Use semantic headings, visible labels, real buttons, visible keyboard focus and touch targets at least 44px. Fit 350px, 768px and 1280px viewports without horizontal page scrolling. Use readable 16px body text, consistent spacing and clear empty/paused/error states. Do not hide controls to make the layout fit. Render user-facing text with textContent where appropriate. Handle unavailable localStorage with try/catch so the page still works.
+
+ACCEPTANCE CHECKS
+From empty cart, 2 rice + 1 dal = ₹230; minus rice = ₹170; remove dal = ₹60. Tab to quantity buttons and inspect accessible names in both languages. Minus disabled at 1, plus disabled at 99; unavailable detergent cannot be added.
+
+OUTPUT
+Return complete contents of each changed file in its own code block labelled with the exact filename. No ellipses, TODOs, missing functions, pseudo-code or “rest unchanged”. If the answer will be too long, return one complete file and wait for NEXT before the next file; never cut a file halfway.
+After the last file, give exact save/open instructions, a short change summary and a table: action | expected result | actually tested or not run. Check that every referenced ID, function and file exists. Only say a test passed if you actually ran it. If you cannot run a browser, state that clearly and give manual steps. Explain in simple English; use Hindi if I ask.
+```
+
+## Make and record one daily change / रोज का एक बदलाव दर्ज करें
+
+Copy the whole block:
+
+```text
+You are helping a beginner produce a complete, polished website. Follow this specification literally; do not add unrequested features.
+
+PROJECT CONTEXT
+An original, bilingual English/Hindi local-market catalog for Satbarwa Bazar. All products, prices and stock are fictional. This is a learning storefront with a local demo cart, not a payment or order system.
+Plain HTML/CSS/JavaScript. Open index.html directly from an extracted folder. Relative file paths; no npm, framework, modules, fetch, server, CDN or external font/image dependency.
+Existing app.js has products, copy.en/copy.hi, state {lang,category,query,sort,cart}, renderStatic, renderCategories, visibleProducts, renderProducts, renderCart and renderAll. Inspect their actual code before editing; these names describe the supplied starter.
+Product contract: {id, name:{en,hi}, category, unit:{en,hi}, price:number, inStock:boolean, icon, color}. category is grocery, vegetables or household. Cart maps product id to integer quantity 1–99; price comes from products, never from displayed text.
+HTML IDs: enBtn, hiBtn, cartCount, search, sort, categories, products, resultCount, empty, clear, cartItems, total. Preserve matching IDs and handlers. Existing translations use data-i18n attributes and the copy objects.
+Visual direction: original green/cream market design; system font; light background #f7f8f2, dark green #146c4a, dark readable text. Header with brand/language/cart; hero; visible sample-data notice; search/sort; categories; product cards; cart; short improvement tips. Product icons are emoji on soft colour blocks, not remote images.
+
+INPUT AND WORKFLOW
+I will attach or paste the CURRENT index.html, styles.css, app.js, each labelled with its filename. If a needed file is missing or truncated, request it before proposing edits; do not invent its contents. Read the supplied version first. Summarise the requested change and the files involved in three bullets. Make only this task. Keep a backup of the working files. Preserve unrelated behaviour and existing IDs. If another file must change, explain the dependency first.
+
+TASK
+Change only tomato's numeric sample price from 30 to 32 in app.js. Do not claim a seller verified it. Keep its id and all other records. After showing the file, provide a changes.md entry: need, exact prompt, file/record changed, expected checks, actual checks or “not run”, next improvement.
+
+QUALITY RULES
+Use semantic headings, visible labels, real buttons, visible keyboard focus and touch targets at least 44px. Fit 350px, 768px and 1280px viewports without horizontal page scrolling. Use readable 16px body text, consistent spacing and clear empty/paused/error states. Do not hide controls to make the layout fit. Render user-facing text with textContent where appropriate. Handle unavailable localStorage with try/catch so the page still works.
+
+ACCEPTANCE CHECKS
+Tomatoes card ₹32 per 1 kg in both languages; tomatoes search works; two tomatoes from empty cart = ₹64. Rice stays ₹60 and dal ₹110. Restore tomato to 30 to return to the original starter.
+
+OUTPUT
+Return complete contents of each changed file in its own code block labelled with the exact filename. No ellipses, TODOs, missing functions, pseudo-code or “rest unchanged”. If the answer will be too long, return one complete file and wait for NEXT before the next file; never cut a file halfway.
+After the last file, give exact save/open instructions, a short change summary and a table: action | expected result | actually tested or not run. Check that every referenced ID, function and file exists. Only say a test passed if you actually ran it. If you cannot run a browser, state that clearly and give manual steps. Explain in simple English; use Hindi if I ask.
+```
+
+## Add a complete product record / पूरा product record जोड़ें
+
+Copy the whole block:
+
+```text
+You are helping a beginner produce a complete, polished website. Follow this specification literally; do not add unrequested features.
+
+PROJECT CONTEXT
+An original, bilingual English/Hindi local-market catalog for Satbarwa Bazar. All products, prices and stock are fictional. This is a learning storefront with a local demo cart, not a payment or order system.
+Plain HTML/CSS/JavaScript. Open index.html directly from an extracted folder. Relative file paths; no npm, framework, modules, fetch, server, CDN or external font/image dependency.
+Existing app.js has products, copy.en/copy.hi, state {lang,category,query,sort,cart}, renderStatic, renderCategories, visibleProducts, renderProducts, renderCart and renderAll. Inspect their actual code before editing; these names describe the supplied starter.
+Product contract: {id, name:{en,hi}, category, unit:{en,hi}, price:number, inStock:boolean, icon, color}. category is grocery, vegetables or household. Cart maps product id to integer quantity 1–99; price comes from products, never from displayed text.
+HTML IDs: enBtn, hiBtn, cartCount, search, sort, categories, products, resultCount, empty, clear, cartItems, total. Preserve matching IDs and handlers. Existing translations use data-i18n attributes and the copy objects.
+Visual direction: original green/cream market design; system font; light background #f7f8f2, dark green #146c4a, dark readable text. Header with brand/language/cart; hero; visible sample-data notice; search/sort; categories; product cards; cart; short improvement tips. Product icons are emoji on soft colour blocks, not remote images.
+
+INPUT AND WORKFLOW
+I will attach or paste the CURRENT index.html, styles.css, app.js, each labelled with its filename. If a needed file is missing or truncated, request it before proposing edits; do not invent its contents. Read the supplied version first. Summarise the requested change and the files involved in three bullets. Make only this task. Keep a backup of the working files. Preserve unrelated behaviour and existing IDs. If another file must change, explain the dependency first.
+
+TASK
+Edit only products in app.js. Add exactly one record: {id:'mustard-oil',name:{en:'Mustard oil',hi:'सरसों तेल'},category:'grocery',unit:{en:'1 litre',hi:'1 लीटर'},price:150,inStock:true,icon:'🫙',color:'#fff1d9'}. Check whether this id already exists; update it instead of adding a duplicate. Keep the six original records. Explain comma placement when adding an array entry.
+
+QUALITY RULES
+Use semantic headings, visible labels, real buttons, visible keyboard focus and touch targets at least 44px. Fit 350px, 768px and 1280px viewports without horizontal page scrolling. Use readable 16px body text, consistent spacing and clear empty/paused/error states. Do not hide controls to make the layout fit. Render user-facing text with textContent where appropriate. Handle unavailable localStorage with try/catch so the page still works.
+
+ACCEPTANCE CHECKS
+Fresh original starter plus this edit → 7 cards, Grocery → 3, search “mustard” or “सरसों” → one. One oil = ₹150, two = ₹300; one oil + one rice = ₹210. Hindi switch keeps cart quantities. Original unavailable detergent stays disabled.
+
+OUTPUT
+Return complete contents of each changed file in its own code block labelled with the exact filename. No ellipses, TODOs, missing functions, pseudo-code or “rest unchanged”. If the answer will be too long, return one complete file and wait for NEXT before the next file; never cut a file halfway.
+After the last file, give exact save/open instructions, a short change summary and a table: action | expected result | actually tested or not run. Check that every referenced ID, function and file exists. Only say a test passed if you actually ran it. If you cannot run a browser, state that clearly and give manual steps. Explain in simple English; use Hindi if I ask.
+```
+
+## Add a price ceiling filter / अधिकतम price filter जोड़ें
+
+Copy the whole block:
+
+```text
+You are helping a beginner produce a complete, polished website. Follow this specification literally; do not add unrequested features.
+
+PROJECT CONTEXT
+An original, bilingual English/Hindi local-market catalog for Satbarwa Bazar. All products, prices and stock are fictional. This is a learning storefront with a local demo cart, not a payment or order system.
+Plain HTML/CSS/JavaScript. Open index.html directly from an extracted folder. Relative file paths; no npm, framework, modules, fetch, server, CDN or external font/image dependency.
+Existing app.js has products, copy.en/copy.hi, state {lang,category,query,sort,cart}, renderStatic, renderCategories, visibleProducts, renderProducts, renderCart and renderAll. Inspect their actual code before editing; these names describe the supplied starter.
+Product contract: {id, name:{en,hi}, category, unit:{en,hi}, price:number, inStock:boolean, icon, color}. category is grocery, vegetables or household. Cart maps product id to integer quantity 1–99; price comes from products, never from displayed text.
+HTML IDs: enBtn, hiBtn, cartCount, search, sort, categories, products, resultCount, empty, clear, cartItems, total. Preserve matching IDs and handlers. Existing translations use data-i18n attributes and the copy objects.
+Visual direction: original green/cream market design; system font; light background #f7f8f2, dark green #146c4a, dark readable text. Header with brand/language/cart; hero; visible sample-data notice; search/sort; categories; product cards; cart; short improvement tips. Product icons are emoji on soft colour blocks, not remote images.
+
+INPUT AND WORKFLOW
+I will attach or paste the CURRENT index.html, styles.css, app.js, each labelled with its filename. If a needed file is missing or truncated, request it before proposing edits; do not invent its contents. Read the supplied version first. Summarise the requested change and the files involved in three bullets. Make only this task. Keep a backup of the working files. Preserve unrelated behaviour and existing IDs. If another file must change, explain the dependency first.
+
+TASK
+Edit index.html, styles.css and app.js. Add a labelled number input id=maxPrice, min=0, step=1; blank means no price limit. Add state.maxPrice initially null. Use input.valueAsNumber; accept finite values >=0; handle blank/invalid/negative input with a clear bilingual message, never silently coerce blank to 0. Filter by price <= limit AND existing search/category; then apply existing sorting to a copy. Add EN/Hindi labels to copy and bind through existing renderStatic. Clear resets search/category/maxPrice and the field/message, keeps sort, restores focus to search. Changes to filters never remove items already in cart.
+
+QUALITY RULES
+Use semantic headings, visible labels, real buttons, visible keyboard focus and touch targets at least 44px. Fit 350px, 768px and 1280px viewports without horizontal page scrolling. Use readable 16px body text, consistent spacing and clear empty/paused/error states. Do not hide controls to make the layout fit. Render user-facing text with textContent where appropriate. Handle unavailable localStorage with try/catch so the page still works.
+
+ACCEPTANCE CHECKS
+Original six-item starter: blank →6; maximum 30 → potatoes and tomatoes; maximum 0 →no matches; search dal + maximum 30 →none; Clear →6. If mustard oil was previously added, blank/Clear →7. Rice already in cart remains when filtered out. Both languages and phone layout work.
+
+OUTPUT
+Return complete contents of each changed file in its own code block labelled with the exact filename. No ellipses, TODOs, missing functions, pseudo-code or “rest unchanged”. If the answer will be too long, return one complete file and wait for NEXT before the next file; never cut a file halfway.
+After the last file, give exact save/open instructions, a short change summary and a table: action | expected result | actually tested or not run. Check that every referenced ID, function and file exists. Only say a test passed if you actually ran it. If you cannot run a browser, state that clearly and give manual steps. Explain in simple English; use Hindi if I ask.
+```
+
+## Add stationery content / Stationery content जोड़ें
+
+Copy the whole block:
+
+```text
+You are helping a beginner produce a complete, polished website. Follow this specification literally; do not add unrequested features.
+
+PROJECT CONTEXT
+An original, bilingual English/Hindi local-market catalog for Satbarwa Bazar. All products, prices and stock are fictional. This is a learning storefront with a local demo cart, not a payment or order system.
+Plain HTML/CSS/JavaScript. Open index.html directly from an extracted folder. Relative file paths; no npm, framework, modules, fetch, server, CDN or external font/image dependency.
+Existing app.js has products, copy.en/copy.hi, state {lang,category,query,sort,cart}, renderStatic, renderCategories, visibleProducts, renderProducts, renderCart and renderAll. Inspect their actual code before editing; these names describe the supplied starter.
+Product contract: {id, name:{en,hi}, category, unit:{en,hi}, price:number, inStock:boolean, icon, color}. category is grocery, vegetables or household. Cart maps product id to integer quantity 1–99; price comes from products, never from displayed text.
+HTML IDs: enBtn, hiBtn, cartCount, search, sort, categories, products, resultCount, empty, clear, cartItems, total. Preserve matching IDs and handlers. Existing translations use data-i18n attributes and the copy objects.
+Visual direction: original green/cream market design; system font; light background #f7f8f2, dark green #146c4a, dark readable text. Header with brand/language/cart; hero; visible sample-data notice; search/sort; categories; product cards; cart; short improvement tips. Product icons are emoji on soft colour blocks, not remote images.
+
+INPUT AND WORKFLOW
+I will attach or paste the CURRENT index.html, styles.css, app.js, each labelled with its filename. If a needed file is missing or truncated, request it before proposing edits; do not invent its contents. Read the supplied version first. Summarise the requested change and the files involved in three bullets. Make only this task. Keep a backup of the working files. Preserve unrelated behaviour and existing IDs. If another file must change, explain the dependency first.
+
+TASK
+Edit app.js only: add category key stationery with copy.en.stationery='Stationery' and copy.hi.stationery='स्टेशनरी'; add the id once in renderCategories. Add one unique notebook record: id notebook, name Notebook/कॉपी, unit 1 book/1 कॉपी, price 40, inStock true, icon 📓, pale colour. Keep existing entries, category IDs and render/filter functions. Check for duplicate ids before insertion.
+
+QUALITY RULES
+Use semantic headings, visible labels, real buttons, visible keyboard focus and touch targets at least 44px. Fit 350px, 768px and 1280px viewports without horizontal page scrolling. Use readable 16px body text, consistent spacing and clear empty/paused/error states. Do not hide controls to make the layout fit. Render user-facing text with textContent where appropriate. Handle unavailable localStorage with try/catch so the page still works.
+
+ACCEPTANCE CHECKS
+With original six products: All=7, Stationery=1 notebook, search कॉपी=1. Stationery + dal=no matches; Clear restores all. Two notebooks from empty cart=₹80. Category label translates correctly.
+
+OUTPUT
+Return complete contents of each changed file in its own code block labelled with the exact filename. No ellipses, TODOs, missing functions, pseudo-code or “rest unchanged”. If the answer will be too long, return one complete file and wait for NEXT before the next file; never cut a file halfway.
+After the last file, give exact save/open instructions, a short change summary and a table: action | expected result | actually tested or not run. Check that every referenced ID, function and file exists. Only say a test passed if you actually ran it. If you cannot run a browser, state that clearly and give manual steps. Explain in simple English; use Hindi if I ask.
+```
+
+## Add a bilingual FAQ / दो भाषाओं में FAQ जोड़ें
+
+Copy the whole block:
+
+```text
+You are helping a beginner produce a complete, polished website. Follow this specification literally; do not add unrequested features.
+
+PROJECT CONTEXT
+An original, bilingual English/Hindi local-market catalog for Satbarwa Bazar. All products, prices and stock are fictional. This is a learning storefront with a local demo cart, not a payment or order system.
+Plain HTML/CSS/JavaScript. Open index.html directly from an extracted folder. Relative file paths; no npm, framework, modules, fetch, server, CDN or external font/image dependency.
+Existing app.js has products, copy.en/copy.hi, state {lang,category,query,sort,cart}, renderStatic, renderCategories, visibleProducts, renderProducts, renderCart and renderAll. Inspect their actual code before editing; these names describe the supplied starter.
+Product contract: {id, name:{en,hi}, category, unit:{en,hi}, price:number, inStock:boolean, icon, color}. category is grocery, vegetables or household. Cart maps product id to integer quantity 1–99; price comes from products, never from displayed text.
+HTML IDs: enBtn, hiBtn, cartCount, search, sort, categories, products, resultCount, empty, clear, cartItems, total. Preserve matching IDs and handlers. Existing translations use data-i18n attributes and the copy objects.
+Visual direction: original green/cream market design; system font; light background #f7f8f2, dark green #146c4a, dark readable text. Header with brand/language/cart; hero; visible sample-data notice; search/sort; categories; product cards; cart; short improvement tips. Product icons are emoji on soft colour blocks, not remote images.
+
+INPUT AND WORKFLOW
+I will attach or paste the CURRENT index.html, styles.css, app.js, each labelled with its filename. If a needed file is missing or truncated, request it before proposing edits; do not invent its contents. Read the supplied version first. Summarise the requested change and the files involved in three bullets. Make only this task. Keep a backup of the working files. Preserve unrelated behaviour and existing IDs. If another file must change, explain the dependency first.
+
+TASK
+Edit index.html, styles.css and copy.en/copy.hi in app.js. Add a semantic FAQ section below catalog/cart using h2 and two native details/summary items. Q1 “Are these real prices?” answer “These are fictional practice prices; confirm real prices with sellers.” Q2 “Has my order been sent?” answer “No. This demo cart does not send orders or take payments.” Supply clear Hindi translations for each. Use data-i18n on text spans, not on a details parent that contains child elements. Reuse colours/spacing; do not change cart logic.
+
+QUALITY RULES
+Use semantic headings, visible labels, real buttons, visible keyboard focus and touch targets at least 44px. Fit 350px, 768px and 1280px viewports without horizontal page scrolling. Use readable 16px body text, consistent spacing and clear empty/paused/error states. Do not hide controls to make the layout fit. Render user-facing text with textContent where appropriate. Handle unavailable localStorage with try/catch so the page still works.
+
+ACCEPTANCE CHECKS
+Tab/Enter opens and closes both answers. Hindi translates questions/answers while preserving disclosure elements and cart state. Section wraps at 350px, and no layout or game-like placeholder is added.
+
+OUTPUT
+Return complete contents of each changed file in its own code block labelled with the exact filename. No ellipses, TODOs, missing functions, pseudo-code or “rest unchanged”. If the answer will be too long, return one complete file and wait for NEXT before the next file; never cut a file halfway.
+After the last file, give exact save/open instructions, a short change summary and a table: action | expected result | actually tested or not run. Check that every referenced ID, function and file exists. Only say a test passed if you actually ran it. If you cannot run a browser, state that clearly and give manual steps. Explain in simple English; use Hindi if I ask.
+```
+
+## Add local favourites / Local favourites जोड़ें
+
+Copy the whole block:
+
+```text
+You are helping a beginner produce a complete, polished website. Follow this specification literally; do not add unrequested features.
+
+PROJECT CONTEXT
+An original, bilingual English/Hindi local-market catalog for Satbarwa Bazar. All products, prices and stock are fictional. This is a learning storefront with a local demo cart, not a payment or order system.
+Plain HTML/CSS/JavaScript. Open index.html directly from an extracted folder. Relative file paths; no npm, framework, modules, fetch, server, CDN or external font/image dependency.
+Existing app.js has products, copy.en/copy.hi, state {lang,category,query,sort,cart}, renderStatic, renderCategories, visibleProducts, renderProducts, renderCart and renderAll. Inspect their actual code before editing; these names describe the supplied starter.
+Product contract: {id, name:{en,hi}, category, unit:{en,hi}, price:number, inStock:boolean, icon, color}. category is grocery, vegetables or household. Cart maps product id to integer quantity 1–99; price comes from products, never from displayed text.
+HTML IDs: enBtn, hiBtn, cartCount, search, sort, categories, products, resultCount, empty, clear, cartItems, total. Preserve matching IDs and handlers. Existing translations use data-i18n attributes and the copy objects.
+Visual direction: original green/cream market design; system font; light background #f7f8f2, dark green #146c4a, dark readable text. Header with brand/language/cart; hero; visible sample-data notice; search/sort; categories; product cards; cart; short improvement tips. Product icons are emoji on soft colour blocks, not remote images.
+
+INPUT AND WORKFLOW
+I will attach or paste the CURRENT index.html, styles.css, app.js, each labelled with its filename. If a needed file is missing or truncated, request it before proposing edits; do not invent its contents. Read the supplied version first. Summarise the requested change and the files involved in three bullets. Make only this task. Keep a backup of the working files. Preserve unrelated behaviour and existing IDs. If another file must change, explain the dependency first.
+
+TASK
+Edit app.js and styles.css; index.html only if needed for instructions. Add one Favourite toggle button per product card, separate from Add. Store a set of product ids under satbarwa_demo_favourites; parse/validate known ids with try/catch and fall back to memory. Update button text, aria-pressed and English/Hindi accessible name when toggled. Keep favourites on unavailable products possible; never add a favourite automatically to cart. Preserve state through search/category/language rerenders and page reload when storage works.
+
+QUALITY RULES
+Use semantic headings, visible labels, real buttons, visible keyboard focus and touch targets at least 44px. Fit 350px, 768px and 1280px viewports without horizontal page scrolling. Use readable 16px body text, consistent spacing and clear empty/paused/error states. Do not hide controls to make the layout fit. Render user-facing text with textContent where appropriate. Handle unavailable localStorage with try/catch so the page still works.
+
+ACCEPTANCE CHECKS
+Favourite Rice → pressed; search dal then clear →Rice still favourited; Hindi label updates; reload restores; toggle off removes. Cart remains unchanged. Invalid saved JSON/blocked storage does not crash the page.
+
+OUTPUT
+Return complete contents of each changed file in its own code block labelled with the exact filename. No ellipses, TODOs, missing functions, pseudo-code or “rest unchanged”. If the answer will be too long, return one complete file and wait for NEXT before the next file; never cut a file halfway.
+After the last file, give exact save/open instructions, a short change summary and a table: action | expected result | actually tested or not run. Check that every referenced ID, function and file exists. Only say a test passed if you actually ran it. If you cannot run a browser, state that clearly and give manual steps. Explain in simple English; use Hindi if I ask.
+```
+
+## Repair one observed problem / एक देखी समस्या सुधारें
+
+Copy the whole block:
+
+```text
+You are helping a beginner produce a complete, polished website. Follow this specification literally; do not add unrequested features.
+
+PROJECT CONTEXT
+An original, bilingual English/Hindi local-market catalog for Satbarwa Bazar. All products, prices and stock are fictional. This is a learning storefront with a local demo cart, not a payment or order system.
+Plain HTML/CSS/JavaScript. Open index.html directly from an extracted folder. Relative file paths; no npm, framework, modules, fetch, server, CDN or external font/image dependency.
+Existing app.js has products, copy.en/copy.hi, state {lang,category,query,sort,cart}, renderStatic, renderCategories, visibleProducts, renderProducts, renderCart and renderAll. Inspect their actual code before editing; these names describe the supplied starter.
+Product contract: {id, name:{en,hi}, category, unit:{en,hi}, price:number, inStock:boolean, icon, color}. category is grocery, vegetables or household. Cart maps product id to integer quantity 1–99; price comes from products, never from displayed text.
+HTML IDs: enBtn, hiBtn, cartCount, search, sort, categories, products, resultCount, empty, clear, cartItems, total. Preserve matching IDs and handlers. Existing translations use data-i18n attributes and the copy objects.
+Visual direction: original green/cream market design; system font; light background #f7f8f2, dark green #146c4a, dark readable text. Header with brand/language/cart; hero; visible sample-data notice; search/sort; categories; product cards; cart; short improvement tips. Product icons are emoji on soft colour blocks, not remote images.
+
+INPUT AND WORKFLOW
+I will attach or paste the CURRENT index.html, styles.css, app.js, each labelled with its filename. If a needed file is missing or truncated, request it before proposing edits; do not invent its contents. Read the supplied version first. Summarise the requested change and the files involved in three bullets. Make only this task. Keep a backup of the working files. Preserve unrelated behaviour and existing IDs. If another file must change, explain the dependency first.
+
+TASK
+First ask me for: exact steps to reproduce, expected result, actual result, browser/device width and any console error text. Ask for a screenshot only if layout evidence is needed. Read all supplied current files. Identify the smallest likely cause with file/function evidence; do not rewrite the site. Fix only that cause. Preserve the working features. If evidence is insufficient, ask one focused question rather than guessing.
+
+QUALITY RULES
+Use semantic headings, visible labels, real buttons, visible keyboard focus and touch targets at least 44px. Fit 350px, 768px and 1280px viewports without horizontal page scrolling. Use readable 16px body text, consistent spacing and clear empty/paused/error states. Do not hide controls to make the layout fit. Render user-facing text with textContent where appropriate. Handle unavailable localStorage with try/catch so the page still works.
+
+ACCEPTANCE CHECKS
+Repeat the exact failing steps and show expected versus observed result. Retest the adjacent controls affected by the edit. State “not run” for anything you cannot execute. Explain how to restore the prior file if the fix fails.
+
+OUTPUT
+Return complete contents of each changed file in its own code block labelled with the exact filename. No ellipses, TODOs, missing functions, pseudo-code or “rest unchanged”. If the answer will be too long, return one complete file and wait for NEXT before the next file; never cut a file halfway.
+After the last file, give exact save/open instructions, a short change summary and a table: action | expected result | actually tested or not run. Check that every referenced ID, function and file exists. Only say a test passed if you actually ran it. If you cannot run a browser, state that clearly and give manual steps. Explain in simple English; use Hindi if I ask.
+```
