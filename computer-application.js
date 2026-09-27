@@ -62,6 +62,7 @@
     ];
     advanced.forEach(function(item){var ch=available&&available.chapters.find(function(c){return c.no===20+Number(item[0]);});if(ch&&ch.support){item[1]=ch.name.en;item[2]=ch.name.hi;item[3]=ch.support.why.en;item[4]=ch.support.why.hi;}});
 
+    var webDeveloper=[['1','Website fundamentals: frontend to cloud','Website fundamentals: frontend से cloud','Learn frontend, backend, SQL, servers, hosting and domains with a working local project.','चलते local project से frontend, backend, SQL, server, hosting और domain सीखें।'],['2','Git, GitHub and publishing websites','Git, GitHub और website publishing','Track changes, use branches, publish GitHub Pages and compare developer hosting options.','Changes track करें, branches लें, GitHub Pages publish करें और hosting विकल्प समझें।']];
     return '<div class="ca-version">'+sp('<b>Pilot version:</b> Windows 11 + Microsoft 365 / Office 2024','<b>पायलट संस्करण:</b> Windows 11 + Microsoft 365 / Office 2024')+'</div>'+
       '<div class="ca-levels" aria-label="Course levels">'+
         '<div class="ca-level active"><span class="ca-status">● '+sp('Available now','अभी उपलब्ध')+'</span><h3>🌱 '+sp('Basic','बेसिक')+'</h3><div class="sub">'+sp('Start with a computer. Learn by doing one real task at a time.','कंप्यूटर शुरू करें। एक-एक असली काम करके सीखें।')+'</div></div>'+
@@ -75,6 +76,6 @@
           '<article class="ca-plan-card active"><div class="ca-plan-title"><span>🧰</span><div><h4>'+sp('Diploma','डिप्लोमा')+'</h4><span class="ca-available">'+sp('Chapters 1–3 available','Chapters 1–3 उपलब्ध')+'</span></div></div>'+lessonList(diploma,10)+'</article>'+
           '<article class="ca-plan-card active"><div class="ca-plan-title"><span>🚀</span><div><h4>'+sp('Advanced Diploma','एडवांस्ड डिप्लोमा')+'</h4><span class="ca-available">'+sp('Market and game projects available','Market और game projects उपलब्ध')+'</span></div></div>'+lessonList(advanced,20)+'</article>'+
         '</div>'+
-      '</nav>';
+      '<article class="ca-plan-card active" style="margin-top:18px"><div class="ca-plan-title"><span>🌐</span><div><h4>'+sp('Web developer foundations — start here','Web developer foundations — यहाँ से शुरू करें')+'</h4><span class="ca-available">'+sp('15 visual lessons and two downloadable starters','15 visual lessons और दो downloadable starters')+'</span></div></div>'+lessonList(webDeveloper,30)+'</article></nav>';
   };
 })();
