@@ -1,7 +1,7 @@
 /* Guard future ExamPrep additions against missing or incomplete scoring rubrics. */
 const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict'),path=require('node:path');
 const root=path.resolve(__dirname,'..'),context={window:{}};
-for(const file of ['data-examprep.js','data-examprep-pyq.js','data-examprep-qb.js','data-examprep-i18n-fixes.js','data-examprep-grading.js','data-examprep-iitm-es-2023.js','data-examprep-pyq-2025-videos.js','data-examprep-pyq-2025-rubrics.js','data-examprep-pyq-2025-science-video.js'])vm.runInNewContext(fs.readFileSync(path.join(root,file),'utf8'),context,{filename:file});
+for(const file of ['data-examprep.js','data-examprep-pyq.js','data-examprep-qb.js','data-examprep-i18n-fixes.js','data-examprep-grading.js','data-examprep-iitm-es-2023.js','data-examprep-pyq-2025-videos.js','data-examprep-pyq-2025-rubrics.js','data-examprep-pyq-2025-science-video.js','data-examprep-pyq-2025-hindi-video.js','data-examprep-pyq-2025-hindi-rubrics.js','data-examprep-pyq-2025-maths-rubrics.js'])vm.runInNewContext(fs.readFileSync(path.join(root,file),'utf8'),context,{filename:file});
 const bank=context.window.EXAMPREP,all=[...bank.questions,...bank.written],legacy=new Set(JSON.parse(fs.readFileSync(path.join(__dirname,'examprep-rubric-legacy.json'),'utf8')));
 assert.equal(new Set(all.map(q=>q.qid)).size,all.length,'Question IDs must be unique');
 for(const q of all){
@@ -32,6 +32,14 @@ for(const q of all){
  assert(q.needsTeacherReview===true,`${q.qid}: free response must remain provisional`);
 }
 for(const id of legacy)assert(all.some(q=>q.qid===id&&!q.grading&&!q.gradingAlternatives&&q.expectedAnswer===undefined),`${id}: stale legacy rubric exception`);
+const pyq2025=all.filter(q=>q.sourceType==='JAC PYQ 2025');
+assert(pyq2025.filter(q=>q.type!=='mcq').every(q=>q.grading?.length||q.gradingAlternatives?.length),'Every 2025 PYQ written answer needs a scoring rubric');
+const norm=value=>String(value||'').normalize('NFKC').toLowerCase().replace(/[^a-z0-9\u0900-\u097f]+/g,' ').trim();
+for(const q of pyq2025.filter(q=>q.type!=='mcq')){const answer=norm(q.explanationHi||q.explanation),scores=(q.gradingAlternatives||[q.grading]).map(criteria=>criteria.reduce((sum,criterion)=>sum+(criterion.patterns.some(pattern=>answer.includes(norm(pattern)))?criterion.marks:0),0));assert.equal(Math.max(...scores),q.marks,`${q.qid}: its own model answer must meet the full rubric`);}
+const hindi=pyq2025.filter(q=>q.subject==='Hindi');
+assert.equal(hindi.length,52,'The supplied Hindi (A) video contains Q1–Q52');
+assert(hindi.every(q=>q.sourceVerifiedFromVideo&&q.sourceRef.includes('X/25/2431')),'Hindi source provenance or verification missing');
+assert(hindi.filter(q=>q.type!=='mcq').every(q=>q.needsTeacherReview),'Hindi written scores require teacher review');
 const science=all.filter(q=>q.subject==='Science'&&q.sourceType==='JAC PYQ 2025');
 assert.equal(science.length,52,'Video-verified 2025 Science paper must contain Q1–Q52');
 assert(science.every(q=>q.sourceVerifiedFromVideo),`Science 2025 source verification flag missing`);
