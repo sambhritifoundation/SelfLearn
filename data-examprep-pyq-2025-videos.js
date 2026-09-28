@@ -77,5 +77,5 @@
  M(27,'13 — Surface Areas and Volumes','A cylindrical solid is 2.4 cm high and 1.4 cm in diameter. A conical cavity with the same height and diameter is hollowed out. Find the curved area of the conical cavity.',['4.5 cm²','5.5 cm²','6.5 cm²','None of these'],'B','2.4 सेमी ऊँचे और 1.4 सेमी व्यास वाले बेलन से समान ऊँचाई और व्यास का शंक्वाकार खोल काटा जाता है। उसका वक्र पृष्ठ क्षेत्रफल ज्ञात करें।')
  ];
  for(const q of [...eng,...math])(q.type==='mcq'?bank.questions:bank.written).push(q);
- bank.pyqVideoSources={English:{year:'2025',lastQuestion:52,missing:[42],questionIds:eng.map(q=>q.qid)},Maths:{year:'2025',lastQuestion:27,questionIds:math.map(q=>q.qid)}};
+ bank.pyqVideoSources={English:{year:'2025',lastQuestion:52,missing:[42],questionIds:eng.map(q=>q.qid),notes:['The supplied English video marks Q42 as missing.']},Maths:{year:'2025',lastQuestion:27,questionIds:math.map(q=>q.qid),notes:['The supplied Maths video ends at Q27.','This selection also includes the existing Maths questions from 2025.']}};
 })();
