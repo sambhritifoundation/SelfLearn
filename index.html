@@ -362,7 +362,7 @@
 <nav class="appnav" aria-label="Main navigation"><div class="appnav-inner">
   <div class="logo" role="button" tabindex="0" aria-label="SelfLearn home" onclick="go('home')">Self<span>Learn</span></div>
   <div class="navlinks"><button onclick="location.href='examprep.html'">ExamPrep</button>
-    <button onclick="go('home')"><span class="en">Learn</span><span class="hi">सीखें</span></button>
+    <button onclick="go('vocational')"><span class="en">Vocational</span><span class="hi">व्यावसायिक</span></button>
     <button onclick="go('dashboard')"><span class="en">My Progress</span><span class="hi">मेरी प्रगति</span></button>
     <!-- Admin nav hidden until role-based access control exists; show only to admin-role users then. Route/vAdmin() left intact below. -->
   </div>
@@ -8804,6 +8804,7 @@ function render(){
   var el = document.getElementById("app");
   var v = VIEW.name;
   if(v==="home") el.innerHTML = vHome();
+  else if(v==="vocational") el.innerHTML = vVocational();
   else if(v==="englishPractice") el.innerHTML = EnglishPractice.view(VIEW.track, VIEW.lesson);
   else if(v==="subject") el.innerHTML = vSubject(VIEW.code);
   else if(v==="topic") el.innerHTML = vTopic(VIEW.code);
@@ -8868,7 +8869,7 @@ function vHome(){
   }
 
   h += '<h2>'+sp("Courses","पाठ्यक्रम")+'</h2><div class="grid g3">';
-  SUBJECTS.forEach(function(s){
+  SUBJECTS.filter(function(s){ return s.code!=="COMPAPP"; }).forEach(function(s){
     var pr = subjectProgress(s);
     var qn = pubQuestions().filter(function(q){ return q.subject===s.code; }).length;
     h += '<div class="card clickable" onclick="go(\'subject\',{code:\''+s.code+'\'})">'
@@ -8894,6 +8895,19 @@ function vHome(){
     h += '</div>';
   }
   return h;
+}
+
+function vVocational(){
+  var s=subj("COMPAPP");
+  if(!s) return '<div class="hero"><h1>'+sp('Vocational','व्यावसायिक')+'</h1></div>';
+  var pr=subjectProgress(s),qn=pubQuestions().filter(function(q){return q.subject===s.code;}).length;
+  return '<div class="hero"><span class="chip amber">'+sp('Practical skills','व्यावहारिक कौशल')+'</span><h1>'+sp('Vocational','व्यावसायिक')+'</h1><p>'+sp('Explore skill-based courses and hands-on practice.','कौशल-आधारित पाठ्यक्रम और व्यावहारिक अभ्यास देखें।')+'</p></div>'
+    + '<h2>'+sp('Courses','पाठ्यक्रम')+'</h2><div class="grid g3"><div class="card clickable" onclick="go(\'subject\',{code:\'COMPAPP\'})">'
+    + '<div style="font-size:1.8rem;margin-bottom:8px">'+s.icon+'</div><h3>'+t(s.name)+'</h3>'
+    + '<div class="sub">'+sp('All ages · 3 levels','सभी आयु · 3 स्तर')+' · '+s.chapters.length+' '+sp('chapters','अध्याय')+' · '+qn+' '+sp('questions','प्रश्न')+'</div>'
+    + '<div class="bar"><i style="width:'+pr.pct+'%"></i></div><div class="sub" style="margin-top:4px">'+pr.done+'/'+pr.total+' '+sp('topics practiced','विषयों का अभ्यास')+'</div>'
+    + '<div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap"><a class="btn ghost sm" href="'+subjectHref(s.code)+'" onclick="event.stopPropagation()">'+sp('Open direct link','सीधा लिंक खोलें')+'</a>'
+    + '<button class="btn ghost sm" type="button" onclick="event.stopPropagation();copySubjectLink(\'COMPAPP\')">🔗 '+sp('Copy subject link','विषय लिंक कॉपी करें')+'</button></div></div></div>';
 }
 
 /* ================= SUBJECT (chapters) ================= */
