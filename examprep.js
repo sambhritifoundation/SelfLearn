@@ -12,11 +12,14 @@
  const practiceSample={title:'Chemical reactions and equations',hi:'रासायनिक अभिक्रियाएँ एवं समीकरण',subject:'Science',topic:'1 — Chemical Reactions and Equations'};
  let homeMode='assessment';
  let pyqPick={class:'10',year:'2025',subject:'English'};
+ let topicPick={class:'10',subject:'Science',topic:'1 — Chemical Reactions and Equations'};
  const pyqYear=q=>/^JAC PYQ (\d{4})$/.exec(q.sourceType||'')?.[1];
  const pyqBank=all.filter(q=>pyqYear(q));
  const say=(en,hi)=>lang==='hi'?hi:en;
  const shareUrl=entries=>{const url=new URL(location.href);url.search='';url.hash='';for(const [name,value] of Object.entries(entries))url.searchParams.set(name,value);return url.href};
  const pyqShareUrl=(selection=pyqPick,mode=homeMode)=>shareUrl({pyqClass:selection.class,pyqYear:selection.year,pyqSubject:selection.subject,mode});
+ const topicQuestions=(selection=topicPick)=>pyqBank.filter(q=>(q.class||'10')===selection.class&&q.subject===selection.subject&&q.topic===selection.topic);
+ const topicShareUrl=(selection=topicPick,mode=homeMode)=>shareUrl({topicClass:selection.class,topicSubject:selection.subject,topic:selection.topic,mode});
  const copyShare=(button,url)=>{const original=button.textContent,done=()=>{button.textContent=say('Copied!','कॉपी हो गया!');setTimeout(()=>{if(button.isConnected)button.textContent=original},1800)};if(navigator.clipboard&&window.isSecureContext)navigator.clipboard.writeText(url).then(done).catch(()=>window.prompt(say('Copy test link:','प्रश्नपत्र लिंक कॉपी करें:'),url));else window.prompt(say('Copy test link:','प्रश्नपत्र लिंक कॉपी करें:'),url)};
  const testTitle=(entry,choices=featuredTests)=>{const base=say(entry.title,entry.hi||entry.titleHi||entry.title),matches=choices.filter(item=>say(item.title,item.hi||item.titleHi||item.title).trim().toLocaleLowerCase()===base.trim().toLocaleLowerCase());if(matches.length<2)return base;return `${base} · ${say('Test','प्रश्नपत्र')} ${matches.indexOf(entry)+1}`};
  function home(){
@@ -25,6 +28,7 @@
   document.querySelectorAll('[data-mode]').forEach(button=>button.onclick=()=>{homeMode=button.dataset.mode;home()});
   const catalog=document.querySelector('#test-catalog');
   installPyqPicker(catalog);
+  installTopicPicker(catalog);
   if(homeMode==='practice'){
    catalog.innerHTML=`<article class="test-tile"><span class="eyebrow">${say('Sample topic · Class 10 Science','नमूना विषय · कक्षा 10 विज्ञान')}</span><h3>${e(say(practiceSample.title,practiceSample.hi))}</h3><p>${say('Build confidence with reaction types and balanced equations. Check a worked explanation whenever you need it.','अभिक्रियाओं के प्रकार और संतुलित समीकरण सीखें। ज़रूरत पर हल देखें।')}</p><button type="button" id="choose-practice">${say('Practise this topic','इस विषय का अभ्यास करें')}</button></article>`;
    document.querySelector('#choose-practice').onclick=()=>setupChoice(null);return;
@@ -51,6 +55,17 @@
   cls.onchange=()=>{pyqPick.class=cls.value;pyqPick.year='';pyqPick.subject='';sync()};year.onchange=()=>{pyqPick.year=year.value;pyqPick.subject='';sync()};subject.onchange=()=>{pyqPick.subject=subject.value;sync()};sync();
   section.querySelector('#copy-pyq-link').onclick=event=>copyShare(event.currentTarget,pyqShareUrl());
   section.querySelector('#choose-pyq').onclick=()=>{const list=pyqBank.filter(q=>(q.class||'10')===pyqPick.class&&pyqYear(q)===pyqPick.year&&q.subject===pyqPick.subject),name=`Class ${pyqPick.class} ${pyqPick.subject} · PYQ ${pyqPick.year}`,titleHi=`कक्षा ${pyqPick.class} ${subjectLabel(pyqPick.subject)} · पिछले प्रश्न ${pyqPick.year}`,ids=list.map(q=>q.qid);if(homeMode==='practice'){setupChoice(null,{title:name,hi:titleHi,subject:pyqPick.subject,topic:`PYQ ${pyqPick.year}`,ids});return}const exam={id:`SL-PYQ-${pyqPick.class}-${pyqPick.subject.toUpperCase()}-${pyqPick.year}`,title:name,titleHi,class:pyqPick.class,subject:pyqPick.subject,topic:`PYQ ${pyqPick.year}`,durationMinutes:Math.max(30,Math.ceil(list.reduce((n,q)=>n+q.marks,0)*1.5)),totalMarks:list.reduce((n,q)=>n+q.marks,0),questionIds:ids,info:{programme:`Class ${pyqPick.class}`,assessment:`${pyqPick.subject} PYQ collection`,date:pyqPick.year,sourceNote:say('Questions from the available previous year collection. Written responses need teacher review.','उपलब्ध पिछले वर्षों के प्रश्न। लिखित उत्तरों की शिक्षक जाँच आवश्यक है।'),verification:pyqPick.year==='2025'?(b.pyqVideoSources?.[pyqPick.subject]?.notes||[]):[]}};setupChoice(exam)};
+ }
+ function installTopicPicker(catalog){
+  const section=document.createElement('section');section.className='pyq-picker topic-picker';section.setAttribute('aria-labelledby','topic-heading');
+  section.innerHTML=`<h2 id="topic-heading">${say('Topic wise PYQ test','विषयवार पिछले प्रश्नों की परीक्षा')}</h2><p>${say('Questions from all available PYQ years, grouped by their recorded topic.','उपलब्ध सभी वर्षों के पिछले प्रश्न, दर्ज विषय के अनुसार।')}</p><div class="pyq-fields"><label for="topic-class">${say('Class','कक्षा')}<select id="topic-class"></select></label><label for="topic-subject">${say('Subject','विषय')}<select id="topic-subject"></select></label><label for="topic-name">${say('Topic','अध्याय या विषय')}<select id="topic-name"></select></label></div><p class="muted" id="topic-count" role="status"></p><div class="share-actions"><button type="button" id="choose-topic">${homeMode==='assessment'?say('Start topic test','विषय परीक्षा शुरू करें'):say('Practise this topic','इस विषय का अभ्यास करें')}</button><a id="topic-share-link" class="share-link" href="#">${say('Open test link','परीक्षा लिंक खोलें')}</a><button type="button" id="copy-topic-link" class="secondary">${say('Copy link','लिंक कॉपी करें')}</button></div>`;
+  catalog.before(section);
+  const cls=section.querySelector('#topic-class'),subject=section.querySelector('#topic-subject'),topic=section.querySelector('#topic-name'),count=section.querySelector('#topic-count');
+  const fill=(field,values,preferred,label=x=>x)=>{field.innerHTML=values.map(value=>`<option value="${e(value)}">${e(label(value))}</option>`).join('');field.value=values.includes(preferred)?preferred:values[0]||'';return field.value};
+  const sync=()=>{topicPick.class=fill(cls,[...new Set(pyqBank.map(q=>q.class||'10'))].sort(),topicPick.class);topicPick.subject=fill(subject,[...new Set(pyqBank.filter(q=>(q.class||'10')===topicPick.class).map(q=>q.subject))].sort(),topicPick.subject,subjectLabel);topicPick.topic=fill(topic,[...new Set(pyqBank.filter(q=>(q.class||'10')===topicPick.class&&q.subject===topicPick.subject).map(q=>q.topic))].sort((a,b)=>a.localeCompare(b,undefined,{numeric:true})),topicPick.topic,topicLabel);const list=topicQuestions(),years=[...new Set(list.map(pyqYear))].sort();count.textContent=`${list.length} ${t('questions')}${years.length?` · ${say('PYQ years','प्रश्नपत्र वर्ष')}: ${years.join(', ')}`:''}`;section.querySelector('#choose-topic').disabled=!list.length;section.querySelector('#topic-share-link').href=topicShareUrl();section.querySelector('#copy-topic-link').disabled=!list.length};
+  cls.onchange=()=>{topicPick.class=cls.value;topicPick.subject='';topicPick.topic='';sync()};subject.onchange=()=>{topicPick.subject=subject.value;topicPick.topic='';sync()};topic.onchange=()=>{topicPick.topic=topic.value;sync()};sync();
+  section.querySelector('#copy-topic-link').onclick=event=>copyShare(event.currentTarget,topicShareUrl());
+  section.querySelector('#choose-topic').onclick=()=>{const list=topicQuestions(),title=`Class ${topicPick.class} ${topicPick.subject} · ${topicPick.topic} · PYQ`,titleHi=`कक्षा ${topicPick.class} ${subjectLabel(topicPick.subject)} · ${topicLabel(topicPick.topic)} · पिछले प्रश्न`,ids=list.map(q=>q.qid);if(homeMode==='practice'){setupChoice(null,{title,hi:titleHi,subject:topicPick.subject,topic:topicPick.topic,ids});return}const marks=list.reduce((n,q)=>n+q.marks,0),exam={id:`SL-TOPIC-PYQ-${topicPick.class}-${topicPick.subject}-${topicPick.topic}`,title,titleHi,class:topicPick.class,subject:topicPick.subject,topic:topicPick.topic,durationMinutes:Math.max(15,Math.ceil(marks*1.5)),totalMarks:marks,questionIds:ids,info:{programme:`Class ${topicPick.class}`,assessment:`${topicPick.subject} topic wise PYQ`,date:[...new Set(list.map(pyqYear))].sort().join(', '),sourceNote:say('Previous year questions for this topic. Written scores are provisional and need teacher review.','इस विषय के पिछले वर्षों के प्रश्न। लिखित उत्तरों के अंक अस्थायी हैं और शिक्षक की जाँच आवश्यक है।')}};setupChoice(exam)};
  }
  function setupChoice(exam,practice=null){
   const title=exam?(featuredTests.find(entry=>entry.id===exam.id)||exam):(practice||practiceSample);
@@ -94,9 +109,13 @@
  const requestedPyq={class:incoming.get('pyqClass'),year:incoming.get('pyqYear'),subject:incoming.get('pyqSubject')};
  const matchingPyq=pyqBank.some(q=>(q.class||'10')===requestedPyq.class&&pyqYear(q)===requestedPyq.year&&q.subject===requestedPyq.subject);
  if(matchingPyq)pyqPick=requestedPyq;
+ const requestedTopic={class:incoming.get('topicClass'),subject:incoming.get('topicSubject'),topic:incoming.get('topic')};
+ const matchingTopic=topicQuestions(requestedTopic).length>0;
+ if(matchingTopic)topicPick=requestedTopic;
  home();
  const requestedTest=examSets.find(exam=>exam.id===incoming.get('test'));
  if(requestedTest)setupChoice(requestedTest);
  else if(matchingPyq)document.querySelector('#choose-pyq').click();
+ else if(matchingTopic)document.querySelector('#choose-topic').click();
  installActivationControl();installEquationHelp();upgradeHomeHelp();installSetupHierarchy();
 })();

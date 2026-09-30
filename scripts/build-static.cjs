@@ -3,6 +3,7 @@ const fs=require('node:fs'),path=require('node:path'),cp=require('node:child_pro
 const root=path.resolve(__dirname,'..');
 cp.execFileSync(process.execPath,[path.join(__dirname,'build-iitm-es-2023.cjs')],{stdio:'inherit'});
 cp.execFileSync(process.execPath,[path.join(__dirname,'test-examprep.cjs')],{stdio:'inherit'});
+cp.execFileSync(process.execPath,[path.join(__dirname,'test-examprep-topic-pyq.cjs')],{stdio:'inherit'});
 cp.execFileSync(process.execPath,[path.join(__dirname,'test-examprep-hindi.cjs')],{stdio:'inherit'});
 cp.execFileSync(process.execPath,[path.join(__dirname,'test-share-links-and-vocational.cjs')],{stdio:'inherit'});
 cp.execFileSync(process.execPath,[path.join(__dirname,'check-examprep-rubrics.cjs')],{stdio:'inherit'});
