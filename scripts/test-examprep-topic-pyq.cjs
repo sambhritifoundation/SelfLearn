@@ -12,6 +12,11 @@ const topic='1 — Real Numbers';
 const expected=[...bank.questions,...bank.written].filter(q=>q.class==='10'&&q.subject==='Maths'&&q.topic===topic&&/^JAC PYQ \d{4}$/.test(q.sourceType));
 assert(expected.length>0);
 assert(expected.every(q=>q.sourceRef));
+const iitm=[...bank.questions,...bank.written].filter(q=>q.sourceType==='IITM ES Qualifier 2023'&&q.marks>0);
+const listening=iitm.filter(q=>q.subject==='English I'&&q.subTopic==='Listening comprehension');
+assert.equal(iitm.length,101);
+assert.equal(listening.length,5);
+assert(listening.every(q=>q.sourceRef&&q.audioUrl));
 
 const {chromium}=require(path.join(process.env.USERPROFILE,'.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright'));
 const server=http.createServer((req,res)=>{
@@ -54,8 +59,45 @@ const server=http.createServer((req,res)=>{
   assert.match(await page.locator('#timer').textContent(),/Untimed/);
   await page.goto(practiceLink);
   assert.equal(await page.locator('#setup').count(),1,'shared topic practice opens its setup');
+  await page.goto(base);
+  await page.locator('#topic-class').selectOption('IITM BS Electronic System');
+  const sections=['English I','Mathematics for Electronics I','Electronic Systems Thinking and Circuits','Introduction to C Programming'];
+  assert.deepEqual((await page.locator('#topic-subject option').allTextContents()).sort(),sections.slice().sort());
+  let covered=0;
+  for(const section of sections){
+   await page.locator('#topic-subject').selectOption(section);
+   for(const name of await page.locator('#topic-name option').allTextContents()){
+    await page.locator('#topic-name').selectOption(name);
+    covered+=Number.parseInt(await page.locator('#topic-count').textContent(),10);
+   }
+  }
+  assert.equal(covered,101,'topic picker covers every scored IITM question once');
+  await page.locator('#topic-subject').selectOption('English I');
+  await page.locator('#topic-name').selectOption('Listening comprehension');
+  assert.match(await page.locator('#topic-count').textContent(),/^5 Questions · PYQ years: 2023/);
+  const iitmTestLink=await page.locator('#topic-share-link').getAttribute('href');
+  await page.locator('#choose-topic').click();
+  await page.locator('#setup button[type=submit]').click();
+  await page.locator('#begin-exam').click();
+  assert.equal(await page.locator('#palette button').count(),5);
+  assert.equal(await page.locator('audio').count(),1);
+  await page.goto(iitmTestLink);
+  assert.equal(await page.locator('#setup').count(),1,'shared IITM topic test opens its setup');
+  await page.goto(base);
+  await page.locator('[data-mode=practice]').click();
+  await page.locator('#topic-class').selectOption('IITM BS Electronic System');
+  await page.locator('#topic-subject').selectOption('English I');
+  await page.locator('#topic-name').selectOption('Listening comprehension');
+  const iitmPracticeLink=await page.locator('#topic-share-link').getAttribute('href');
+  assert.equal(new URL(iitmPracticeLink).searchParams.get('mode'),'practice');
+  await page.locator('#choose-topic').click();
+  await page.locator('#setup button[type=submit]').click();
+  assert.equal(await page.locator('#palette button').count(),5);
+  assert.match(await page.locator('#timer').textContent(),/Untimed/);
+  await page.goto(iitmPracticeLink);
+  assert.equal(await page.locator('#setup').count(),1,'shared IITM topic practice opens its setup');
   assert.deepEqual(errors,[]);
   await page.close();
-  console.log(`PASS: ${expected.length} Real Numbers PYQs available in both topic modes and share links.`);
+  console.log(`PASS: ${expected.length} Real Numbers and 101 IITM PYQs grouped by topic in both modes with share links.`);
  }finally{await browser.close();server.close()}
 })().catch(error=>{console.error(error);server.close();process.exitCode=1});
