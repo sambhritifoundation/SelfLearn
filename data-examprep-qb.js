@@ -55,7 +55,7 @@
   written(39,'Decomposition reactions',5,'With suitable examples, explain the role of heat, light and electricity in decomposition reactions.','उपयुक्त उदाहरणों सहित वियोजन अभिक्रियाओं में ऊष्मा, प्रकाश और विद्युत की भूमिका समझाइए।','Energy breaks one compound into simpler substances. Heat (thermal): CaCO₃ → CaO + CO₂. Light (photolytic): 2AgCl → 2Ag + Cl₂ in sunlight. Electricity (electrolytic): 2H₂O → 2H₂ + O₂. State symbols/conditions should be shown with each equation.','ऊर्जा एक यौगिक को सरल पदार्थों में तोड़ती है। ऊष्मा: CaCO₃ → CaO + CO₂। प्रकाश: 2AgCl → 2Ag + Cl₂। विद्युत: 2H₂O → 2H₂ + O₂।',['1 mark: decomposition/role of energy.','1 mark each: correct thermal, photolytic and electrolytic example.','1 mark: correct conditions/balancing.']);
   b.examSets=b.examSets||[];
   b.examSets.push({
-    id:'SL-EXAM-C10-SCI-CRE-20260917T140349Z',publishedAt:'2026-09-17T14:03:49Z',
+    id:'SL-EXAM-C10-SCI-CRE-20260917T140349Z',publishedAt:'2026-09-17T14:03:49Z',category:'special',
     title:'Chemical Reactions and Equations — Complete Practice Paper',titleHi:'रासायनिक अभिक्रियाएँ एवं समीकरण — संपूर्ण अभ्यास प्रश्नपत्र',
     class:'10',subject:'Science',topic,durationMinutes:90,
     questionIds:Array.from({length:39},(_,i)=>{const n=i+1;return n<=9||n>=17&&n<=24||n>=30&&n<=32?`EP-QB-10-S-2026-${String(n).padStart(2,'0')}`:`EP-QB-10-S-2026-W-${String(n).padStart(2,'0')}`;})

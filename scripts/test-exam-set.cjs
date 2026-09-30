@@ -11,7 +11,7 @@ const server=http.createServer((req,res)=>{const file=path.join(root,decodeURICo
     page.on('pageerror',error=>errors.push(error.message));
     await page.route('https://formsubmit.co/**',async route=>{deliveries.push(route.request());await route.fulfill({status:200,contentType:'text/html',body:'<!doctype html><title>Accepted</title>'})});
     await page.goto('http://127.0.0.1:8767/examprep.html');
-    assert.equal(await page.locator('[data-exam]').count(),2);
+    assert.equal(await page.locator('[data-exam]').count(),1);
     await page.locator('[data-exam^="SL-EXAM-C10-SCI-CRE-"]').click();
     assert(await page.locator('#exam-fields').isVisible());
     assert.equal(await page.locator('#delivery-email').getAttribute('required'),null);
