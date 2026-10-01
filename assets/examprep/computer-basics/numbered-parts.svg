@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 440" role="img" aria-labelledby="title desc">
+  <title id="title">Four numbered computer parts</title>
+  <desc id="desc">A screen, a tower case, a keyboard and a mouse are shown with numbers one to four.</desc>
+  <rect width="800" height="440" rx="24" fill="#f5f9ff"/>
+  <g fill="#fff" stroke="#1d4e89" stroke-width="8" stroke-linejoin="round">
+    <rect x="61" y="62" width="295" height="177" rx="13"/>
+    <path d="M188 239v30m-53 0h107" stroke-linecap="round"/>
+    <rect x="474" y="60" width="151" height="216" rx="13"/>
+    <rect x="95" y="318" width="276" height="72" rx="12"/>
+    <path d="M555 324c-31 0-48 20-48 48s17 48 48 48 48-20 48-48-17-48-48-48z"/>
+  </g>
+  <rect x="80" y="82" width="257" height="135" rx="5" fill="#b9dcff"/>
+  <path d="M120 170c47-45 82-49 153-34" fill="none" stroke="#3583c4" stroke-width="9" stroke-linecap="round"/>
+  <circle cx="549" cy="100" r="14" fill="#49b38b"/>
+  <path d="M505 145h88m-88 28h88m-88 28h88" stroke="#8ca9c9" stroke-width="7" stroke-linecap="round"/>
+  <path d="M117 341h231m-231 23h231" stroke="#8ca9c9" stroke-width="9" stroke-dasharray="16 6"/>
+  <path d="M555 324v47" stroke="#1d4e89" stroke-width="7"/>
+  <g font-family="Arial,sans-serif" font-size="26" font-weight="700" text-anchor="middle">
+    <g fill="#0957bf"><circle cx="50" cy="49" r="26"/><circle cx="646" cy="56" r="26"/><circle cx="82" cy="327" r="26"/><circle cx="639" cy="333" r="26"/></g>
+    <g fill="#fff"><text x="50" y="58">1</text><text x="646" y="65">2</text><text x="82" y="336">3</text><text x="639" y="342">4</text></g>
+  </g>
+</svg>

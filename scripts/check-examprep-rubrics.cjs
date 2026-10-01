@@ -1,12 +1,14 @@
 /* Guard future ExamPrep additions against missing or incomplete scoring rubrics. */
 const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict'),path=require('node:path');
 const root=path.resolve(__dirname,'..'),context={window:{}};
-for(const file of ['data-examprep.js','data-examprep-pyq.js','data-examprep-qb.js','data-examprep-i18n-fixes.js','data-examprep-grading.js','data-examprep-iitm-es-2023.js','data-examprep-pyq-2025-videos.js','data-examprep-pyq-2025-rubrics.js','data-examprep-pyq-2025-science-video.js','data-examprep-pyq-2025-hindi-video.js','data-examprep-pyq-2025-hindi-rubrics.js','data-examprep-pyq-2025-maths-rubrics.js'])vm.runInNewContext(fs.readFileSync(path.join(root,file),'utf8'),context,{filename:file});
+for(const file of ['data-examprep.js','data-examprep-pyq.js','data-examprep-qb.js','data-examprep-i18n-fixes.js','data-examprep-grading.js','data-examprep-iitm-es-2023.js','data-examprep-pyq-2025-videos.js','data-examprep-pyq-2025-rubrics.js','data-examprep-pyq-2025-science-video.js','data-examprep-pyq-2025-hindi-video.js','data-examprep-pyq-2025-hindi-rubrics.js','data-examprep-pyq-2025-maths-rubrics.js','data-examprep-computer-basics.js'])vm.runInNewContext(fs.readFileSync(path.join(root,file),'utf8'),context,{filename:file});
 const bank=context.window.EXAMPREP,all=[...bank.questions,...bank.written],legacy=new Set(JSON.parse(fs.readFileSync(path.join(__dirname,'examprep-rubric-legacy.json'),'utf8')));
 assert.equal(new Set(all.map(q=>q.qid)).size,all.length,'Question IDs must be unique');
 for(const q of all){
  assert(q.sourceRef&&q.sourceType,`${q.qid}: source provenance is required`);
- if(q.type==='mcq'||q.type==='msq'){
+ if(q.type==='mcq'||q.type==='msq'||q.type==='fill'||q.type==='match'){
+  if(q.type==='fill'){assert(typeof q.correct==='string'&&q.correct.trim()&&Array.isArray(q.acceptedAnswers)&&q.acceptedAnswers.includes(q.correct),`${q.qid}: fill answer key missing`);assert(q.explanation?.length>12,`${q.qid}: fill explanation missing`);continue}
+  if(q.type==='match'){assert(Array.isArray(q.leftItems)&&q.leftItems.length===q.marks&&Array.isArray(q.options)&&q.options.length===q.leftItems.length,`${q.qid}: matching items must match marks`);assert(Array.isArray(q.correct)&&q.correct.length===q.leftItems.length&&q.correct.every(letter=>'ABCDE'.includes(letter)&&'ABCDE'.indexOf(letter)<q.options.length),`${q.qid}: matching answer key missing`);assert(q.explanation?.length>12,`${q.qid}: matching explanation missing`);continue}
   assert(Array.isArray(q.options)&&q.options.length>=2,`${q.qid}: MCQ options missing`);
   if(q.type==='msq')assert(Array.isArray(q.correct)&&q.correct.length>=2&&q.correct.every(letter=>'ABCDE'.includes(letter)),`${q.qid}: MSQ answer key missing`);
   else assert('ABCDE'.includes(q.correct)&&'ABCDE'.indexOf(q.correct)<q.options.length,`${q.qid}: valid answer key missing`);
