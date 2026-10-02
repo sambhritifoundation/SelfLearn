@@ -1,12 +1,23 @@
 /* Guard future ExamPrep additions against missing or incomplete scoring rubrics. */
 const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict'),path=require('node:path');
 const root=path.resolve(__dirname,'..'),context={window:{}};
-for(const file of ['data-examprep.js','data-examprep-pyq.js','data-examprep-qb.js','data-examprep-i18n-fixes.js','data-examprep-grading.js','data-examprep-iitm-es-2023.js','data-examprep-pyq-2025-videos.js','data-examprep-pyq-2025-rubrics.js','data-examprep-pyq-2025-science-video.js','data-examprep-pyq-2025-hindi-video.js','data-examprep-pyq-2025-hindi-rubrics.js','data-examprep-pyq-2025-maths-rubrics.js','data-examprep-computer-basics.js','data-examprep-inside-computer.js'])vm.runInNewContext(fs.readFileSync(path.join(root,file),'utf8'),context,{filename:file});
+for(const file of ['data-examprep.js','data-examprep-pyq.js','data-examprep-qb.js','data-examprep-i18n-fixes.js','data-examprep-grading.js','data-examprep-iitm-es-2023.js','data-examprep-pyq-2025-videos.js','data-examprep-pyq-2025-rubrics.js','data-examprep-pyq-2025-science-video.js','data-examprep-pyq-2025-hindi-video.js','data-examprep-pyq-2025-hindi-rubrics.js','data-examprep-pyq-2025-maths-rubrics.js','data-examprep-computer-basics.js','data-examprep-inside-computer.js','data-examprep-foundation-3-10.js'])vm.runInNewContext(fs.readFileSync(path.join(root,file),'utf8'),context,{filename:file});
 const bank=context.window.EXAMPREP,all=[...bank.questions,...bank.written],legacy=new Set(JSON.parse(fs.readFileSync(path.join(__dirname,'examprep-rubric-legacy.json'),'utf8')));
 const inside=bank.questions.filter(q=>q.qid.startsWith('EP-VOC-CA-INSIDE-'));
 assert.equal(inside.length,20,'Topic 2 needs the same 20 questions as Topic 1');
 assert.deepEqual(['mcq','msq','fill','match'].map(type=>inside.filter(q=>q.type===type).length),[10,4,3,3],'Topic 2 must retain the Topic 1 question mix');
 assert(inside.every(q=>q.sourceVerifiedFromHandbook&&q.sourceRef.includes('p. 1')&&q.sourceRef.includes('topic 2')&&q.sourceRef.includes('intel.com')&&q.questionHi&&q.explanationHi), 'Topic 2 source, primary verification or Hindi content is missing');
+for(let topic=3;topic<=10;topic++){
+ const prefix=`EP-VOC-CA-T${String(topic).padStart(2,'0')}-`,questions=bank.questions.filter(q=>q.qid.startsWith(prefix));
+ assert.equal(questions.length,20,`Topic ${topic} needs 20 questions`);
+ assert.deepEqual(['mcq','msq','fill','match'].map(type=>questions.filter(q=>q.type===type).length),[10,4,3,3],`Topic ${topic} question mix changed`);
+ assert.equal(questions.reduce((sum,q)=>sum+q.marks,0),33,`Topic ${topic} marks changed`);
+ assert(questions.every(q=>q.sourceVerifiedFromHandbook&&q.sourceVerifiedFromPrimary&&q.sourceRef.includes('p. 1')&&q.sourceRef.includes(`topic ${topic}`)&&q.sourceRef.includes('https://')&&q.questionHi&&q.explanationHi),`Topic ${topic} provenance or Hindi text missing`);
+ assert(questions.filter(q=>q.type==='match').every(q=>new Set(q.options).size===4&&new Set(q.correct).size===4),`Topic ${topic} matching key must be one-to-one`);
+ assert(questions.filter(q=>q.type==='mcq').every(q=>new Set(q.options).size===4),`Topic ${topic} MCQ distractors repeat`);
+ const set=bank.practiceSets.find(x=>x.topic===questions[0].topic);
+ assert(set&&set.questionIds.length===20&&!set.introMedia,`Topic ${topic} must open as a media-free practice set`);
+}
 assert.equal(new Set(all.map(q=>q.qid)).size,all.length,'Question IDs must be unique');
 for(const q of all){
  assert(q.sourceRef&&q.sourceType,`${q.qid}: source provenance is required`);
