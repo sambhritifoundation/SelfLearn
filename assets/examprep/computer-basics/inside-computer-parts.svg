@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 430" role="img" aria-labelledby="title desc">
+ <title id="title">Simplified desktop computer interior with four numbered parts</title>
+ <desc id="desc">1 is the CPU chip on the motherboard, 2 is RAM, 3 is an SSD for storage, and 4 is the power supply.</desc>
+ <rect width="720" height="430" rx="20" fill="#f4f8ff"/>
+ <rect x="35" y="35" width="650" height="355" rx="18" fill="#dbe8f7" stroke="#355b89" stroke-width="5"/>
+ <rect x="80" y="67" width="405" height="288" rx="13" fill="#8db9a9" stroke="#2d6758" stroke-width="5"/>
+ <path d="M105 102h345M105 323h345M117 82v248M452 82v248M147 122h300M147 286h300" stroke="#5d9785" stroke-width="5" fill="none"/>
+ <rect x="128" y="135" width="135" height="115" rx="12" fill="#f8fcff" stroke="#366b75" stroke-width="5"/>
+ <rect x="154" y="158" width="83" height="69" rx="5" fill="#48617c"/>
+ <text x="195" y="201" fill="white" text-anchor="middle" font-family="Arial,sans-serif" font-size="23" font-weight="bold">CPU</text>
+ <rect x="297" y="109" width="32" height="166" rx="4" fill="#234e62" stroke="#d7e7bb" stroke-width="4"/>
+ <rect x="345" y="109" width="32" height="166" rx="4" fill="#234e62" stroke="#d7e7bb" stroke-width="4"/>
+ <path d="M305 139h17m-17 34h17m-17 34h17m30-68h17m-17 34h17m-17 34h17" stroke="#e5c477" stroke-width="7"/>
+ <rect x="502" y="75" width="150" height="120" rx="10" fill="#f7faff" stroke="#355b89" stroke-width="5"/>
+ <path d="M522 103h109m-109 24h109m-109 24h109" stroke="#9db5ce" stroke-width="8"/>
+ <text x="577" y="181" fill="#355b89" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" font-weight="bold">PSU</text>
+ <rect x="510" y="259" width="135" height="84" rx="10" fill="#fdf1d5" stroke="#9a6b21" stroke-width="5"/>
+ <rect x="527" y="279" width="100" height="15" rx="5" fill="#c89449"/>
+ <text x="578" y="326" fill="#644618" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" font-weight="bold">SSD</text>
+ <g font-family="Arial,sans-serif" font-size="27" font-weight="bold" text-anchor="middle" fill="white">
+  <circle cx="113" cy="130" r="22" fill="#0750b0"/><text x="113" y="140">1</text>
+  <circle cx="397" cy="112" r="22" fill="#0750b0"/><text x="397" y="122">2</text>
+  <circle cx="661" cy="255" r="22" fill="#0750b0"/><text x="661" y="265">3</text>
+  <circle cx="660" cy="71" r="22" fill="#0750b0"/><text x="660" y="81">4</text>
+ </g>
+ <text x="360" y="412" fill="#36536e" text-anchor="middle" font-family="Arial,sans-serif" font-size="15">Simplified illustration · not a repair guide</text>
+</svg>
