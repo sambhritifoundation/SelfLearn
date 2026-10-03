@@ -5,6 +5,7 @@ cp.execFileSync(process.execPath,[path.join(__dirname,'build-iitm-es-2023.cjs')]
 cp.execFileSync(process.execPath,[path.join(__dirname,'build-examprep-topic-visuals.cjs')],{stdio:'inherit'});
 cp.execFileSync(process.execPath,[path.join(__dirname,'test-examprep.cjs')],{stdio:'inherit'});
 cp.execFileSync(process.execPath,[path.join(__dirname,'test-examprep-computer-basics.cjs')],{stdio:'inherit'});
+cp.execFileSync(process.execPath,[path.join(__dirname,'test-examprep-certificate.cjs')],{stdio:'inherit'});
 cp.execFileSync(process.execPath,[path.join(__dirname,'test-examprep-topics-11-50.cjs')],{stdio:'inherit'});
 cp.execFileSync(process.execPath,[path.join(__dirname,'test-examprep-topic-pyq.cjs')],{stdio:'inherit'});
 cp.execFileSync(process.execPath,[path.join(__dirname,'test-examprep-hindi.cjs')],{stdio:'inherit'});
