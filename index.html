@@ -363,6 +363,7 @@
   <div class="logo" role="button" tabindex="0" aria-label="SelfLearn home" onclick="go('home')">Self<span>Learn</span></div>
   <div class="navlinks"><button onclick="location.href='examprep.html'">ExamPrep</button>
     <button onclick="go('vocational')"><span class="en">Vocational</span><span class="hi">व्यावसायिक</span></button>
+    <button onclick="location.href='external.html'"><span class="en">External</span><span class="hi">बाहरी पाठ्यक्रम</span></button>
     <button onclick="go('dashboard')"><span class="en">My Progress</span><span class="hi">मेरी प्रगति</span></button>
     <!-- Admin nav hidden until role-based access control exists; show only to admin-role users then. Route/vAdmin() left intact below. -->
   </div>
@@ -380,6 +381,7 @@
     <p class="footer-attr"><span class="en">Educational content, instructional design, assessments and supporting materials are developed by</span><span class="hi">शैक्षिक सामग्री, अनुदेशात्मक डिज़ाइन, मूल्यांकन व सहायक सामग्री</span> <b>Sambhriti Foundation for Education</b><span class="hi"> द्वारा विकसित।</span>.</p>
     <nav class="footer-links">
       <a id="footerSite" href="https://sambhriti.in" target="_blank" rel="noopener noreferrer">Website</a>
+      <a href="external.html"><span class="en">External courses</span><span class="hi">बाहरी पाठ्यक्रम</span></a>
       <a onclick="go('legal',{doc:'about'})"><span class="en">About</span><span class="hi">परिचय</span></a>
       <a onclick="go('legal',{doc:'copyright'})"><span class="en">Copyright Notice</span><span class="hi">कॉपीराइट सूचना</span></a>
       <a onclick="go('legal',{doc:'terms'})"><span class="en">Terms of Use</span><span class="hi">उपयोग की शर्तें</span></a>
@@ -8795,10 +8797,11 @@ function syncViewUrl(name,args){
   if(!window.history || !history.pushState) return;
   var u=new URL(location.href);
   if(name==="subject" && args && args.code) u.searchParams.set("subject",args.code); else u.searchParams.delete("subject");
+  if(name==="vocational") u.searchParams.set("view","vocational"); else u.searchParams.delete("view");
   history.pushState({view:name,code:args&&args.code||null},"",u.pathname+u.search+u.hash);
 }
 function go(name, args){ if(window.EnglishPractice) EnglishPractice.cleanup(); if(typeof audioPlayerReset==="function") audioPlayerReset(); VIEW = Object.assign({name:name}, args||{}); syncViewUrl(name,args); render(); window.scrollTo(0,0); }
-window.addEventListener("popstate",function(){ var code=new URL(location.href).searchParams.get("subject"); VIEW=code&&subj(code)?{name:"subject",code:code}:{name:"home"}; render(); window.scrollTo(0,0); });
+window.addEventListener("popstate",function(){ var params=new URL(location.href).searchParams, code=params.get("subject"); VIEW=code&&subj(code)?{name:"subject",code:code}:params.get("view")==="vocational"?{name:"vocational"}:{name:"home"}; render(); window.scrollTo(0,0); });
 function render(){
   if(window.EnglishPractice) EnglishPractice.cleanup();
   var el = document.getElementById("app");
@@ -10596,9 +10599,10 @@ function adminCurr(){
 }
 
 /* ================= boot ================= */
-var _directSubject = null;
-try{ _directSubject = new URL(location.href).searchParams.get("subject"); }catch(e){}
+var _directSubject = null, _directView = null;
+try{ var _directParams = new URL(location.href).searchParams; _directSubject = _directParams.get("subject"); _directView = _directParams.get("view"); }catch(e){}
 if(_directSubject && subj(_directSubject)) VIEW={name:"subject",code:_directSubject};
+else if(_directView==="vocational") VIEW={name:"vocational"};
 setLang(LANG);
 </script>
 <script src="math8-pilot.js?v=20260905-illustrations"></script>

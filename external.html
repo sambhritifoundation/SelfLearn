@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width,initial-scale=1">
+ <meta name="description" content="Explore external school, government exam and skill courses with eligibility, duration, fee and mode filters.">
+ <title>External courses · SelfLearn</title>
+ <link rel="stylesheet" href="external.css?v=1">
+ <script defer src="data-external-courses.js?v=1"></script>
+ <script defer src="external.js?v=1"></script>
+</head>
+<body>
+ <header class="site-header">
+  <div class="site-header-inner">
+   <a class="brand" href="index.html" aria-label="SelfLearn home">Self<span>Learn</span></a>
+   <nav aria-label="Main navigation"><a href="examprep.html">ExamPrep</a><a href="index.html?view=vocational">Vocational</a><a href="external.html" aria-current="page">External</a></nav>
+   <div class="language" role="group" aria-label="Language"><button type="button" data-lang="en" aria-pressed="true">EN</button><button type="button" data-lang="hi" aria-pressed="false">हिं</button></div>
+  </div>
+ </header>
+ <main>
+  <section class="intro" aria-labelledby="page-title">
+   <p class="eyebrow" data-text="eyebrow">LEARN BEYOND SELFLEARN</p>
+   <h1 id="page-title" data-text="title">External courses</h1>
+   <p data-text="intro">Explore provider courses for school subjects, government exams and job skills. Compare the details, then check the provider page before enrolling.</p>
+   <p class="checked" id="checked-date"></p>
+  </section>
+  <section class="catalog" aria-labelledby="browse-title">
+   <div class="section-heading"><div><p class="eyebrow" data-text="browseEyebrow">COURSE DIRECTORY</p><h2 id="browse-title" data-text="browseTitle">Find a course</h2></div><p id="result-count" role="status" aria-live="polite"></p></div>
+   <div class="categories" id="categories" role="group" aria-label="Course categories"></div>
+   <form id="course-filters" class="filters" role="search">
+    <label><span data-text="search">Search courses</span><input id="search" type="search" autocomplete="off" placeholder="Course, subject or provider"></label>
+    <label><span data-text="focus">Subject / focus</span><select id="focus"></select></label>
+    <label><span data-text="eligibility">Eligibility / learner level</span><select id="eligibility"></select></label>
+    <label><span data-text="duration">Duration</span><select id="duration"></select></label>
+    <label><span data-text="fee">Fee</span><select id="fee"></select></label>
+    <label><span data-text="mode">Online / offline</span><select id="mode"></select></label>
+    <button id="reset-filters" class="reset" type="reset" data-text="reset">Clear filters</button>
+   </form>
+   <div id="course-list" class="course-grid"></div>
+   <p id="empty-message" class="empty" hidden data-text="empty">No courses match these filters. Try clearing one or more selections.</p>
+  </section>
+ </main>
+ <footer><p>© Sambhriti Foundation for Education · SelfLearn</p><p data-text="footer">External listings link to their providers. Prices, availability and refund terms can change.</p></footer>
+</body>
+</html>
