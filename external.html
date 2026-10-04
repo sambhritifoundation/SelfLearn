@@ -7,7 +7,9 @@
  <title>External courses · SelfLearn</title>
  <link rel="stylesheet" href="external.css?v=3">
  <script defer src="data-external-courses.js?v=3"></script>
- <script defer src="external.js?v=3"></script>
+ <script defer src="data-external-corporate-courses.js?v=1"></script>
+ <script defer src="external.js?v=4"></script>
+ <script defer src="external-corporate.js?v=1"></script>
 </head>
 <body>
  <header class="site-header">
@@ -28,11 +30,13 @@
    <div><p class="eyebrow" data-text="skillPathwaysEyebrow">SKILL INDIA SOURCES</p><h2 id="skill-pathways-title" data-text="skillPathwaysTitle">Explore more skill pathways</h2><p data-text="skillPathwaysIntro">NSDC lists online courses through eSkill India and free learning resources, including Hindi tailoring videos. Browse current options directly on these official sites.</p></div>
    <div class="pathway-links"><a href="https://eskillindia.org/" target="_blank" rel="noopener noreferrer" data-text="eskillLink">NSDC eSkill India ↗</a><a href="https://nsdcindia.org/free-learning-resources" target="_blank" rel="noopener noreferrer" data-text="nsdcResourcesLink">NSDC free learning resources ↗</a></div>
   </section>
+  <section class="skill-pathways" aria-labelledby="corporate-title"><div><p class="eyebrow" data-text="corporateEyebrow">FREE COMPANY COURSES</p><h2 id="corporate-title" data-text="corporateTitle">Learn from technology companies</h2><p data-text="corporateIntro">Explore free training from Google, Microsoft, IBM, Canva, Cisco, SOLIDWORKS and more. Some software, exams or advanced features can cost extra; each listing explains the distinction.</p></div><div class="pathway-links"><a href="#browse-title" id="browse-corporate" data-text="corporateButton">Browse free company courses ↓</a></div></section>
   <section class="catalog" aria-labelledby="browse-title">
    <div class="section-heading"><div><p class="eyebrow" data-text="browseEyebrow">COURSE DIRECTORY</p><h2 id="browse-title" data-text="browseTitle">Find a course</h2></div><p id="result-count" role="status" aria-live="polite"></p></div>
    <div class="categories" id="categories" role="group" aria-label="Course categories"></div>
    <form id="course-filters" class="filters" role="search">
     <label><span data-text="search">Search courses</span><input id="search" type="search" autocomplete="off" placeholder="Course, subject or provider"></label>
+    <label><span data-text="providerType">Provider type</span><select id="provider-type"></select></label>
     <label><span data-text="focus">Subject / focus</span><select id="focus"></select></label>
     <label><span data-text="board">School board</span><select id="board"></select></label>
     <label><span data-text="language">Teaching language</span><select id="language"></select></label>
