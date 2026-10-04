@@ -129,6 +129,76 @@ window.SELFLEARN_EXTERNAL_COURSES={
    duration:'Self-paced; up to 25 hours',feeINR:null,fee:'Check kit price',feeNote:'A physical Student Kit is required for all activities; its price varies by seller.',
    summary:'Official self-learning electronics and programming course with guided projects.',covers:'Programming basics, circuits, sensors and hands-on Arduino projects.',
    prospect:'Builds a foundation for robotics and electronics projects.',url:'https://www.arduino.cc/education/student-kit/',sourceUrl:'https://support.arduino.cc/hc/en-us/articles/8825464270364-Languages-supported-by-Arduino-platforms'
+  },
+  {
+   id:'pw-neev-cbse9-2027',provider:'Physics Wallah',category:'school',focus:'School subjects',
+   title:'NEEV 2.0 2027 · CBSE Class 9',audience:'CBSE Class 9 school students',eligibility:'class9',board:'CBSE',language:['Hinglish'],mode:'online',durationBand:'long',
+   duration:'29 Jun 2026–31 Mar 2027',feeINR:2600,fee:'₹2,600 listed batch price',feeNote:'The provider shows a discounted price; verify the final price and availability before paying.',
+   summary:'Class 9 lessons with assignments, practice tests and doubt support.',covers:'Maths, Science, English, Social Science, Hindi and related subjects.',
+   prospect:'Strengthens the foundation for CBSE Class 10.',url:'https://www.pw.live/cbse/class-9/batches/neev-2-0-2027--class-9th--697158'
+  },
+  {
+   id:'pw-neev-jac9-2027',provider:'Physics Wallah',category:'school',focus:'School subjects',
+   title:'Neev JAC Board 2027 · Class 9',audience:'JAC Class 9 school students',eligibility:'class9',board:'JAC',language:['Hindi'],mode:'online',durationBand:'long',
+   duration:'30 Mar 2026–1 Apr 2027',feeINR:999,fee:'₹999 listed batch price',feeNote:'The provider listing shows this fee; check the batch page for current enrollment terms.',
+   summary:'Hindi-medium Class 9 preparation aligned with the Jharkhand Academic Council.',covers:'Maths, Science, English, Hindi, Social Science and Sanskrit.',
+   prospect:'Builds JAC Class 10 readiness.',url:'https://www.pw.live/jac/class-9/batches/neev--%E0%A4%A8%E0%A5%80%E0%A4%B5--jac-board-2027-class-9th-888776',sourceUrl:'https://www.pw.live/jac/class-9/batches'
+  },
+  {
+   id:'learnvern-illustrator-hindi',provider:'LearnVern',category:'skills',focus:'Arts & design',
+   title:'Graphic Designing with Adobe Illustrator',audience:'Design beginners, students and women building a portfolio',eligibility:'open',language:['Hindi'],mode:'online',durationBand:'short',
+   duration:'13+ hours of video; self-paced',feeINR:0,fee:'Free to learn',feeNote:'The optional Skill India/NSDC certificate upgrade is priced separately by the provider.',
+   summary:'Hindi illustration and visual-design lessons with portfolio projects.',covers:'Shapes, colour, typography, logos, patterns, print and social-media designs.',
+   prospect:'Supports freelance illustration, branding and graphic-design portfolios.',url:'https://www.learnvern.com/course/illustrator-tutorial'
+  },
+  {
+   id:'swayam-graphic-design',provider:'SWAYAM Plus / SkillForge',category:'skills',focus:'Arts & design',
+   title:'Graphic Designing',audience:'Class 12 pass students and aspiring designers',eligibility:'class12',language:['English'],mode:'online',durationBand:'short',
+   duration:'30 hours',feeINR:null,fee:'Check enrollment price',feeNote:'The provider says assessment has no extra fee; the enrollment price is not shown on the accessible page.',
+   summary:'Illustrator-based design course with practical patterns and logo projects.',covers:'Shapes, pen and curvature tools, gradients, composition and visual identity.',
+   prospect:'A starting portfolio for design and illustration roles.',url:'https://swayamplus.education.gov.in/courses/graphic-designing'
+  },
+  {
+   id:'swayam-tuka-cad-hindi',provider:'SWAYAM Plus / LWRN Studio',category:'skills',focus:'Fashion & craft',
+   title:'Tuka CAD 3D Designer · Hindi',audience:'Fashion and garment-design learners',eligibility:'open',language:['Hindi'],mode:'online',durationBand:'short',
+   duration:'2 hours',feeINR:null,fee:'Check enrollment price',feeNote:'The accessible course listing does not display an enrollment price.',
+   summary:'Short Hindi master class in visualising garment designs digitally.',covers:'Virtual garment size, colour, placement and front, back and side views.',
+   prospect:'Supports fashion-design portfolios and garment-production planning.',url:'https://swayamplus.education.gov.in/courses/tuka-cad-3d-designer-edition-master-class-hindi'
+  },
+  {
+   id:'swayam-footwear-design-hindi',provider:'SWAYAM Plus / LWRN Studio',category:'skills',focus:'Fashion & craft',
+   title:'Footwear Design with Crispin Shoe Maker 3D',audience:'Students and adults interested in footwear design',eligibility:'open',language:['Hindi'],mode:'online',durationBand:'short',
+   duration:'3 hours',feeINR:null,fee:'Check enrollment price',feeNote:'The accessible course listing does not display an enrollment price.',
+   summary:'Hindi introduction to creating and presenting 3D footwear designs.',covers:'Digital shoe shapes, components, design changes and presentation.',
+   prospect:'A first step toward footwear and product-design portfolios.',url:'https://swayamplus.education.gov.in/courses/learn-footwear-design-crispin-shoe-maker-3d'
+  },
+  {
+   id:'swayam-paisa-aur-aap',provider:'SWAYAM Plus / NISM',category:'skills',focus:'Finance',
+   title:'Paisa Aur Aap · Basic Financial Education',audience:'Students, homemakers, women entrepreneurs and other adults',eligibility:'open',language:['Hindi'],mode:'online',durationBand:'short',
+   duration:'6 hours',feeINR:null,fee:'Check enrollment price',feeNote:'The provider lists assessment as included, with no extra assessment fee.',
+   summary:'Hindi financial-literacy course for everyday money decisions.',covers:'Budgeting, saving, banking, loans, insurance, investing and fraud prevention.',
+   prospect:'Supports personal finance and small-business money management.',url:'https://swayamplus.education.gov.in/courses/paisa-aur-aap-basic-financial-education-in-hindi'
+  },
+  {
+   id:'swayam-ignite-entrepreneurs',provider:'SWAYAM Plus / Wadhwani Foundation',category:'skills',focus:'Entrepreneurship',
+   title:'Ignite for Entrepreneurs',audience:'Women starting a business, graduates and other aspiring entrepreneurs',eligibility:'open',language:['English'],mode:'online',durationBand:'short',
+   duration:'42 hours',feeINR:null,fee:'Check enrollment price',feeNote:'The provider lists assessment as included, with no extra assessment fee.',
+   summary:'Build and test a business idea through guided exercises and examples.',covers:'Customer research, prototypes, pricing, revenue plans, marketing and pitching.',
+   prospect:'Supports a first business plan or early-stage venture.',url:'https://swayamplus.education.gov.in/courses/ignite-for-entrepreneurs-a-foundational-course-2-credits'
+  },
+  {
+   id:'swayam-uiux-design',provider:'SWAYAM Plus / Hoping Minds',category:'skills',focus:'Arts & design',
+   title:'UI/UX Design: From Concepts to Prototype',audience:'Graduates, students and design beginners with basic computer skills',eligibility:'open',language:['English'],mode:'online',durationBand:'short',
+   duration:'45 hours',feeINR:1740,fee:'₹1,740 listed price',feeNote:'The provider lists assessment as included; verify current enrollment price.',
+   summary:'Create and test user-interface designs using Figma.',covers:'User research, wireframes, responsive layouts, prototypes and usability testing.',
+   prospect:'Builds a portfolio for junior UI/UX and product-design roles.',url:'https://swayamplus.education.gov.in/courses/ui-ux-design-from-concepts-to-prototype'
+  },
+  {
+   id:'swayam-digital-designing',provider:'SWAYAM Plus / Toonz Animation India',category:'skills',focus:'Arts & design',
+   title:'Digital Designing',audience:'Graduates and adults exploring visual-design work',eligibility:'open',language:['Hindi','English'],mode:'online',durationBand:'short',
+   duration:'60 hours',feeINR:4999,fee:'₹4,999 listed price',feeNote:'The provider lists additional language options; check the enrollment page for your chosen batch and final fee.',
+   summary:'Instructor-led design course spanning print and digital media.',covers:'Logos, packaging, publications, social creatives and UX/UI design.',
+   prospect:'Supports graphic-design, digital-content and portfolio work.',url:'https://swayamplus.education.gov.in/courses/digital-designing'
   }
  ]
 };
