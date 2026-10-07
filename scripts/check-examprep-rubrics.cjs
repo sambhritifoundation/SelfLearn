@@ -1,8 +1,17 @@
 /* Guard future ExamPrep additions against missing or incomplete scoring rubrics. */
 const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict'),path=require('node:path');
 const root=path.resolve(__dirname,'..'),context={window:{}};
-for(const file of ['data-examprep.js','data-examprep-pyq.js','data-examprep-qb.js','data-examprep-i18n-fixes.js','data-examprep-grading.js','data-examprep-iitm-es-2023.js','data-examprep-pyq-2025-videos.js','data-examprep-pyq-2025-rubrics.js','data-examprep-pyq-2025-science-video.js','data-examprep-pyq-2025-hindi-video.js','data-examprep-pyq-2025-hindi-rubrics.js','data-examprep-pyq-2025-maths-rubrics.js','data-examprep-computer-basics.js','data-examprep-inside-computer.js','data-examprep-foundation-3-10.js','data-examprep-practice-tutorials.js','data-examprep-topics-11-50.js'])vm.runInNewContext(fs.readFileSync(path.join(root,file),'utf8'),context,{filename:file});
+for(const file of ['data-examprep.js','data-examprep-pyq.js','data-examprep-qb.js','data-examprep-i18n-fixes.js','data-examprep-grading.js','data-examprep-iitm-es-2023.js','data-examprep-pyq-2025-videos.js','data-examprep-pyq-2025-rubrics.js','data-examprep-pyq-2025-science-video.js','data-examprep-pyq-2025-hindi-video.js','data-examprep-pyq-2025-hindi-rubrics.js','data-examprep-pyq-2025-maths-rubrics.js','data-examprep-computer-basics.js','data-examprep-inside-computer.js','data-examprep-foundation-3-10.js','data-examprep-practice-tutorials.js','data-examprep-topics-11-50.js','data-examprep-jac-class8-ch1.js'])vm.runInNewContext(fs.readFileSync(path.join(root,file),'utf8'),context,{filename:file});
 const bank=context.window.EXAMPREP,all=[...bank.questions,...bank.written],legacy=new Set(JSON.parse(fs.readFileSync(path.join(__dirname,'examprep-rubric-legacy.json'),'utf8')));
+for(const code of ['MATH','SCI','ENG']){
+ const prefix=`EP-JAC-C8-${code}-CH1-`,items=all.filter(q=>q.qid.startsWith(prefix)),set=bank.practiceSets.find(x=>x.id===`SL-PRACTICE-JAC-C8-${code}-CH1-20261007`);
+ assert.equal(items.length,16,`${code}: Class 8 Chapter 1 must have 16 questions`);
+ assert.deepEqual([1,2,3,5].map(mark=>items.filter(q=>q.marks===mark).length),[8,4,3,1],`${code}: board-style mark distribution changed`);
+ assert.equal(items.reduce((sum,q)=>sum+q.marks,0),30,`${code}: set must total 30 marks`);
+ assert(set&&set.class==='8'&&set.questionIds.length===16&&set.questionIds.every(id=>items.some(q=>q.qid===id)),`${code}: practice set is missing questions`);
+ assert(context.window.EXAMPREP_PRACTICE_TUTORIALS[set.id]?.steps.length===3,`${code}: illustrated tutorial is missing`);
+ assert(items.every(q=>q.questionHi&&q.explanationHi&&q.sourceType==='Original JAC-aligned chapter practice'),`${code}: bilingual question or provenance missing`);
+}
 const inside=bank.questions.filter(q=>q.qid.startsWith('EP-VOC-CA-INSIDE-'));
 assert.equal(inside.length,20,'Topic 2 needs the same 20 questions as Topic 1');
 assert.deepEqual(['mcq','msq','fill','match'].map(type=>inside.filter(q=>q.type===type).length),[10,4,3,3],'Topic 2 must retain the Topic 1 question mix');
