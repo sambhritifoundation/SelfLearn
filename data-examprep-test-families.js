@@ -2,7 +2,7 @@
 (()=>{
  const bank=window.EXAMPREP,guides=window.EXAMPREP_PRACTICE_TUTORIALS,all=[...bank.questions,...bank.written];
  for(const set of bank.practiceSets||[]){
-  if(set.id.startsWith('SL-PRACTICE-JAC-C8-'))set.examFamily='jac';
+  if(/^SL-PRACTICE-JAC-C[789]-/.test(set.id))set.examFamily='jac';
   else if(set.class==='Vocational')set.examFamily='vocational';
  }
  const maths=all.filter(q=>q.class==='10'&&q.subject==='Maths'&&q.topic==='1 — Real Numbers'&&q.sourceType==='Original NCERT-based practice');

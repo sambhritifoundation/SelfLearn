@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 320" role="img" aria-labelledby="title desc">
+ <title id="title">JAC chapter practice</title><desc id="desc">Three stages: recall, connect and check; then answer objective and written questions.</desc>
+ <rect width="960" height="320" rx="24" fill="#eef6ff"/>
+ <text x="480" y="50" text-anchor="middle" font-family="Arial,sans-serif" font-size="30" font-weight="700" fill="#133f79">Chapter to board-style practice</text>
+ <g font-family="Arial,sans-serif" text-anchor="middle" font-weight="700" font-size="23">
+  <rect x="40" y="95" width="260" height="130" rx="20" fill="#d8edff" stroke="#2278b8" stroke-width="3"/><text x="170" y="156" fill="#0c4f86">1. Recall</text><text x="170" y="191" font-size="17" fill="#284c62">Learn key facts</text>
+  <path d="M309 160h34" stroke="#2278b8" stroke-width="7"/><path d="m343 160-15-11v22z" fill="#2278b8"/>
+  <rect x="350" y="95" width="260" height="130" rx="20" fill="#e2f6e9" stroke="#27824e" stroke-width="3"/><text x="480" y="156" fill="#206342">2. Connect</text><text x="480" y="191" font-size="17" fill="#335b43">Explain each idea</text>
+  <path d="M619 160h34" stroke="#2278b8" stroke-width="7"/><path d="m653 160-15-11v22z" fill="#2278b8"/>
+  <rect x="660" y="95" width="260" height="130" rx="20" fill="#fff0d5" stroke="#c37a13" stroke-width="3"/><text x="790" y="156" fill="#9b5b07">3. Check</text><text x="790" y="191" font-size="17" fill="#705318">Review your answer</text>
+ </g>
+ <text x="480" y="275" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" fill="#1d3851">8 MCQs · 4 × 2 marks · 3 × 3 marks · 1 × 5 marks</text>
+</svg>

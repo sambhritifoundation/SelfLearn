@@ -1,10 +1,21 @@
 /* Guard future ExamPrep additions against missing or incomplete scoring rubrics. */
 const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict'),path=require('node:path');
 const root=path.resolve(__dirname,'..'),context={window:{}};
-for(const file of ['data-examprep.js','data-examprep-pyq.js','data-examprep-qb.js','data-examprep-i18n-fixes.js','data-examprep-grading.js','data-examprep-iitm-es-2023.js','data-examprep-pyq-2025-videos.js','data-examprep-pyq-2025-rubrics.js','data-examprep-pyq-2025-science-video.js','data-examprep-pyq-2025-hindi-video.js','data-examprep-pyq-2025-hindi-rubrics.js','data-examprep-pyq-2025-maths-rubrics.js','data-examprep-computer-basics.js','data-examprep-inside-computer.js','data-examprep-foundation-3-10.js','data-examprep-practice-tutorials.js','data-examprep-topics-11-50.js','data-examprep-jac-class8-ch1.js','data-examprep-jac-class8-next.js','data-examprep-test-families.js'])vm.runInNewContext(fs.readFileSync(path.join(root,file),'utf8'),context,{filename:file});
+for(const file of ['data-examprep.js','data-examprep-pyq.js','data-examprep-qb.js','data-examprep-i18n-fixes.js','data-examprep-grading.js','data-examprep-iitm-es-2023.js','data-examprep-pyq-2025-videos.js','data-examprep-pyq-2025-rubrics.js','data-examprep-pyq-2025-science-video.js','data-examprep-pyq-2025-hindi-video.js','data-examprep-pyq-2025-hindi-rubrics.js','data-examprep-pyq-2025-maths-rubrics.js','data-examprep-computer-basics.js','data-examprep-inside-computer.js','data-examprep-foundation-3-10.js','data-examprep-practice-tutorials.js','data-examprep-topics-11-50.js','data-examprep-jac-class8-ch1.js','data-examprep-jac-class8-next.js','data-examprep-jac-more.js','data-examprep-test-families.js'])vm.runInNewContext(fs.readFileSync(path.join(root,file),'utf8'),context,{filename:file});
 const bank=context.window.EXAMPREP,all=[...bank.questions,...bank.written],legacy=new Set(JSON.parse(fs.readFileSync(path.join(__dirname,'examprep-rubric-legacy.json'),'utf8')));
 const jacSets=bank.practiceSets.filter(set=>set.examFamily==='jac'),cbseSets=bank.practiceSets.filter(set=>set.examFamily==='cbse'),competitiveSets=bank.practiceSets.filter(set=>set.examFamily==='competitive');
-assert.equal(jacSets.length,7,'All seven Class 8 JAC chapter sets should remain in the JAC section');
+assert.equal(jacSets.length,45,'JAC Classes 7, 8 and 9 should each have five chapters per subject');
+for(const cl of ['7','8','9'])for(const subject of ['Maths','Science','English']){
+ const sets=jacSets.filter(set=>set.class===cl&&set.subject===subject);
+ assert.equal(sets.length,5,`Class ${cl} ${subject} needs five chapter sets`);
+ for(const set of sets){
+  const items=set.questionIds.map(id=>all.find(q=>q.qid===id));
+  assert.equal(items.length,16,`${set.id}: needs 16 questions`);
+  assert.deepEqual([1,2,3,5].map(mark=>items.filter(q=>q.marks===mark).length),[8,4,3,1],`${set.id}: board-style marks changed`);
+  assert.equal(items.reduce((sum,q)=>sum+q.marks,0),30,`${set.id}: needs 30 marks`);
+  assert(context.window.EXAMPREP_PRACTICE_TUTORIALS[set.id]?.steps.length===3,`${set.id}: tutorial missing`);
+ }
+}
 assert.equal(cbseSets.length,1,'CBSE Real Numbers set should be classified explicitly');
 assert.equal(competitiveSets.length,1,'IITM qualifier practice set should be classified explicitly');
 for(const set of [...jacSets,...cbseSets,...competitiveSets])assert(set.questionIds.length&&set.questionIds.every(id=>all.some(q=>q.qid===id)),`${set.id}: catalog references unknown questions`);
