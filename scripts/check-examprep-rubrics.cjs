@@ -1,8 +1,14 @@
 /* Guard future ExamPrep additions against missing or incomplete scoring rubrics. */
 const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict'),path=require('node:path');
 const root=path.resolve(__dirname,'..'),context={window:{}};
-for(const file of ['data-examprep.js','data-examprep-pyq.js','data-examprep-qb.js','data-examprep-i18n-fixes.js','data-examprep-grading.js','data-examprep-iitm-es-2023.js','data-examprep-pyq-2025-videos.js','data-examprep-pyq-2025-rubrics.js','data-examprep-pyq-2025-science-video.js','data-examprep-pyq-2025-hindi-video.js','data-examprep-pyq-2025-hindi-rubrics.js','data-examprep-pyq-2025-maths-rubrics.js','data-examprep-computer-basics.js','data-examprep-inside-computer.js','data-examprep-foundation-3-10.js','data-examprep-practice-tutorials.js','data-examprep-topics-11-50.js','data-examprep-jac-class8-ch1.js','data-examprep-jac-class8-next.js'])vm.runInNewContext(fs.readFileSync(path.join(root,file),'utf8'),context,{filename:file});
+for(const file of ['data-examprep.js','data-examprep-pyq.js','data-examprep-qb.js','data-examprep-i18n-fixes.js','data-examprep-grading.js','data-examprep-iitm-es-2023.js','data-examprep-pyq-2025-videos.js','data-examprep-pyq-2025-rubrics.js','data-examprep-pyq-2025-science-video.js','data-examprep-pyq-2025-hindi-video.js','data-examprep-pyq-2025-hindi-rubrics.js','data-examprep-pyq-2025-maths-rubrics.js','data-examprep-computer-basics.js','data-examprep-inside-computer.js','data-examprep-foundation-3-10.js','data-examprep-practice-tutorials.js','data-examprep-topics-11-50.js','data-examprep-jac-class8-ch1.js','data-examprep-jac-class8-next.js','data-examprep-test-families.js'])vm.runInNewContext(fs.readFileSync(path.join(root,file),'utf8'),context,{filename:file});
 const bank=context.window.EXAMPREP,all=[...bank.questions,...bank.written],legacy=new Set(JSON.parse(fs.readFileSync(path.join(__dirname,'examprep-rubric-legacy.json'),'utf8')));
+const jacSets=bank.practiceSets.filter(set=>set.examFamily==='jac'),cbseSets=bank.practiceSets.filter(set=>set.examFamily==='cbse'),competitiveSets=bank.practiceSets.filter(set=>set.examFamily==='competitive');
+assert.equal(jacSets.length,7,'All seven Class 8 JAC chapter sets should remain in the JAC section');
+assert.equal(cbseSets.length,1,'CBSE Real Numbers set should be classified explicitly');
+assert.equal(competitiveSets.length,1,'IITM qualifier practice set should be classified explicitly');
+for(const set of [...jacSets,...cbseSets,...competitiveSets])assert(set.questionIds.length&&set.questionIds.every(id=>all.some(q=>q.qid===id)),`${set.id}: catalog references unknown questions`);
+for(const set of [...cbseSets,...competitiveSets])assert(context.window.EXAMPREP_PRACTICE_TUTORIALS[set.id]?.steps.length===3,`${set.id}: tutorial missing`);
 for(const code of ['MATH','SCI','ENG']){
  const prefix=`EP-JAC-C8-${code}-CH1-`,items=all.filter(q=>q.qid.startsWith(prefix)),set=bank.practiceSets.find(x=>x.id===`SL-PRACTICE-JAC-C8-${code}-CH1-20261007`);
  assert.equal(items.length,16,`${code}: Class 8 Chapter 1 must have 16 questions`);
