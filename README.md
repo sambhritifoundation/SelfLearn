@@ -6,7 +6,7 @@ A bilingual (Hindi–English), practice-first learning portal by Sambhriti Found
 
 ## What's inside
 
-- **Career Compass**: six interest-led career journeys from Class 6 onwards, five interactive milestones per path, design specialisations and alternative training routes, official admission references, a weekly challenge, browser-local plans, shareable class/interest links and a printable journey. Open `career.html`. Plans are per career/class on the shared browser, not private learner-profile records.
+- **Career Compass**: six interest-led career journeys from Class 6 onwards, seven interactive milestones per path, including optional postgraduation and research, design specialisations and alternative training routes, a filterable official directory of courses and institutes, work examples, employer portals, venture ideas, national/international competitions and research routes, a weekly challenge, browser-local plans, shareable class/interest links and a printable journey. Open `career.html`. Plans are per career/class on the shared browser, not private learner-profile records.
 
 - **Sambhriti PlayLab**: six learning labs, bilingual **Build a Computer**, and **My First Shop** in Business Lab. The shop has five missions on stock, pricing, demand, daily costs and trust, with experiment comparison, customer outcomes and a cash/profit ledger. Four future games remain marked upcoming. See [PlayLab architecture](PLAYLAB.md) and [Business Lab guide](BUSINESSLAB.md).
 
