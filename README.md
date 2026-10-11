@@ -6,6 +6,8 @@ A bilingual (Hindi–English), practice-first learning portal by Sambhriti Found
 
 ## What's inside
 
+- **Career Compass**: six interest-led career journeys from Class 6 onwards, five interactive milestones per path, design specialisations and alternative training routes, official admission references, a weekly challenge, browser-local plans, shareable class/interest links and a printable journey. Open `career.html`. Plans are per career/class on the shared browser, not private learner-profile records.
+
 - **Sambhriti PlayLab**: six learning labs, bilingual **Build a Computer**, and **My First Shop** in Business Lab. The shop has five missions on stock, pricing, demand, daily costs and trust, with experiment comparison, customer outcomes and a cash/profit ledger. Four future games remain marked upcoming. See [PlayLab architecture](PLAYLAB.md) and [Business Lab guide](BUSINESSLAB.md).
 
 - **Web developer foundations** under Computer Application: 15 visual Hindi/English lessons on frontend, backend, SQL, servers, cloud, domains, Git, GitHub and publishing. Includes [a browser/API/database lab](examples/web-foundations/index.html), a real local Python/SQLite starter, [a Git publishing practice page](examples/git-publish-lab/index.html), detailed AI prompts and linked official provider documentation. GitHub Pages runs the browser simulation; the real Python server runs locally from the download.
