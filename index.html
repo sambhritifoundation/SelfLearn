@@ -42,7 +42,7 @@
   .appnav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:14px;padding:12px 24px;flex-wrap:wrap}
   .logo{font-size:1.25rem;font-weight:800;color:var(--primary);cursor:pointer;letter-spacing:-.5px}
   .logo span{color:var(--accent)}
-  .navlinks{display:flex;gap:4px;flex:1}
+  .navlinks{display:flex;gap:4px;flex:1;flex-wrap:wrap}
   .navlinks button{border:0;background:none;padding:8px 14px;border-radius:8px;font-size:.9rem;color:var(--muted);cursor:pointer;font-weight:600}
   .navlinks button:hover{background:var(--primary-light);color:var(--primary)}
   .lang-switch{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
@@ -362,6 +362,7 @@
 <nav class="appnav" aria-label="Main navigation"><div class="appnav-inner">
   <div class="logo" role="button" tabindex="0" aria-label="SelfLearn home" onclick="go('home')">Self<span>Learn</span></div>
   <div class="navlinks"><button onclick="location.href='examprep.html'">ExamPrep</button>
+    <button onclick="location.href='playlab.html'">PlayLab</button>
     <button onclick="go('vocational')"><span class="en">Vocational</span><span class="hi">व्यावसायिक</span></button>
     <button onclick="location.href='external.html'"><span class="en">External</span><span class="hi">बाहरी पाठ्यक्रम</span></button>
     <button onclick="location.href='ai.html'">AI</button>

@@ -5,3 +5,5 @@ desktop.ini
 push-to-github.bat
 dist/
 *.tar.gz
+qa/
+tmp/

@@ -6,6 +6,8 @@ A bilingual (Hindi–English), practice-first learning portal by Sambhriti Found
 
 ## What's inside
 
+- **Sambhriti PlayLab**: six learning labs and a five-level bilingual **Build a Computer** activity with virtual assembly, concept checks, touch/keyboard controls, scores, badges and local progress. Five future games are clearly marked upcoming. See [PlayLab architecture and deployment guide](PLAYLAB.md).
+
 - **Web developer foundations** under Computer Application: 15 visual Hindi/English lessons on frontend, backend, SQL, servers, cloud, domains, Git, GitHub and publishing. Includes [a browser/API/database lab](examples/web-foundations/index.html), a real local Python/SQLite starter, [a Git publishing practice page](examples/git-publish-lab/index.html), detailed AI prompts and linked official provider documentation. GitHub Pages runs the browser simulation; the real Python server runs locally from the download.
 
 - **Accountancy — CBSE Class 11** (full rationalised syllabus): 9 chapters, 43 micro-topic lessons, 94 practice questions with instant bilingual explanations. Chapters 1–2 carry full micro-topic notes with a running story (Meena didi's kirana shop → partnership → company), rich formatting, story-based case questions, and hands-on spreadsheet assignments at the end of each chapter (see `study-material/`).
