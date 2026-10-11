@@ -15,6 +15,8 @@ To make an activity playable, implement a rendering function and its separate st
 
 ## Learning and progress
 
+Each component bench card also has a **Look closely** button, available before and after placement. It opens an enlarged drawing with three numbered identifying details and explanations in the selected language. Close or Escape dismisses the dialog and returns focus to its button; inspection does not select, place or score a component. Drawings are illustrative: CPU contact types, SSD formats and other physical details vary between real devices.
+
 Each level requires component placement and a conceptual explanation check before the next unlocks. The virtual slots model connections rather than actual physical locations. Feedback explains roles and prerequisite connections. Level 5 starts with a missing cooler and teaches that overheating can have multiple causes. Real assembly requires compatible parts and trained adult guidance.
 
 Each completed level awards one badge and `max(40, 100 − 10 × mistakes − 5 × hints)` points. Wrong placement and wrong concept choices count as mistakes; prerequisite reminders do not. Scores are awarded once, so repeats cannot farm points. Completed levels remain available for review. Reset requires confirmation and clears this game's progress only. Progress is stored under `selflearn.playlab.computer.v1` in the current browser, independent of SelfLearn learner profiles. Clearing site data removes it; unavailable storage falls back to memory for the current visit.
