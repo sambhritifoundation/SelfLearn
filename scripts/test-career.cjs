@@ -13,8 +13,10 @@ for (const career of D.careers) {
   assert.equal(career.steps.length, 7);
   assert(career.steps.every(step => step.length === 4 && step.every(text => typeof text === 'string' && text.trim().length > 0)));
   const r = career.resources;
-  for (const category of ['courses', 'work', 'employers', 'enterprise', 'opportunities', 'research']) assert(r[category].length >= 2, `${career.id}: ${category}`);
+  for (const category of ['courses', 'work', 'employers', 'enterprise', 'opportunities', 'research', 'videos']) assert(r[category].length >= 2, `${career.id}: ${category}`);
   for (const item of [...r.courses, ...r.work, ...r.employers, ...r.opportunities, ...r.research]) assert.equal(new URL(item.url).protocol, 'https:');
+  assert.equal(r.videos.length, 2);
+  for(const video of r.videos){assert.match(video.id, /^[A-Za-z0-9_-]{11}$/);assert.equal(new URL(video.url).hostname,'www.youtube.com');assert(video.publisher && video.stage && video.tryIt);}
   assert(r.opportunities.some(o => o.scope.includes('National')));
   assert(r.opportunities.some(o => o.scope.includes('International')));
 }
@@ -27,6 +29,7 @@ fs.mkdirSync('../outputs/career', {recursive: true});
     const errors = [];
     page.on('pageerror', e => errors.push(e.message));
     const url = 'file:///' + path.resolve('career.html').replace(/\\/g, '/');
+    await page.route('https://www.youtube-nocookie.com/**',route=>route.fulfill({status:200,contentType:'text/html',body:'<p>Video test frame</p>'}));
     await page.goto(url);
     await page.waitForSelector('.milestone');
     assert.equal(await page.locator('.interest').count(), 6);
@@ -46,7 +49,7 @@ fs.mkdirSync('../outputs/career', {recursive: true});
         await page.locator(`[data-stage="${i}"]`).click();
         assert.match(await page.locator('#detail').innerText(), /How to practise/i);
       }
-      for (const category of ['courses','work','jobs','enterprise','opportunities','research']) {
+      for (const category of ['courses','work','jobs','enterprise','opportunities','research','videos']) {
         await page.locator(`[data-resource="${category}"]`).click();
         assert(await page.locator(`#resource-${category}`).isVisible());
         assert.equal(await page.locator('.resource-panel:visible').count(), 1);
@@ -54,6 +57,20 @@ fs.mkdirSync('../outputs/career', {recursive: true});
       }
     }
     await page.locator('[data-interest="design"]').click();
+    await page.locator('[data-resource="videos"]').click();
+    assert.equal(await page.locator('#resource-videos iframe').count(),0);
+    const videoButtons=page.locator('#resource-videos [data-video]');
+    await videoButtons.nth(0).click();
+    assert.equal(await page.locator('#resource-videos iframe').count(),1);
+    assert.match(await page.locator('#resource-videos iframe').getAttribute('src'),/youtube-nocookie.com\/embed\//);
+    assert.equal(await videoButtons.nth(0).getAttribute('aria-expanded'),'true');
+    await videoButtons.nth(1).click();
+    assert.equal(await page.locator('#resource-videos iframe').count(),1);
+    assert.equal(await videoButtons.nth(0).getAttribute('aria-expanded'),'false');
+    await videoButtons.nth(1).click();
+    assert.equal(await page.locator('#resource-videos iframe').count(),0);
+    await page.locator('#resources').screenshot({path:'../outputs/career/career-videos-preview.png'});
+
     await page.locator('[data-resource="courses"]').click();
     await page.locator('#course-level').selectOption('Postgraduation');
     assert.equal(await page.locator('#resource-courses .resource-card').count(), 2);
@@ -75,7 +92,7 @@ fs.mkdirSync('../outputs/career', {recursive: true});
     await page.locator('#note').fill('');
     await page.locator('#save').click();
     await page.setViewportSize({width: 390, height: 844});
-    for (const category of ['courses','work','jobs','enterprise','opportunities','research']) {
+    for (const category of ['courses','work','jobs','enterprise','opportunities','research','videos']) {
       await page.locator(`[data-resource="${category}"]`).click();
       assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `Mobile overflow: ${category}`);
     }
@@ -83,7 +100,7 @@ fs.mkdirSync('../outputs/career', {recursive: true});
     await page.screenshot({path: '../outputs/career/career-mobile-preview.png', fullPage: true});
     await page.locator('#resources').screenshot({path: '../outputs/career/career-courses-preview.png'});
     await page.emulateMedia({media: 'print'});
-    assert.equal(await page.locator('.resource-panel:visible').count(), 6);
+    assert.equal(await page.locator('.resource-panel:visible').count(), 7);
     assert(await page.locator('#print-stages').isVisible());
     await page.pdf({path: '../outputs/career/career-design-journey.pdf', format: 'A4', printBackground: true});
     assert.deepEqual(errors, []);
@@ -92,7 +109,7 @@ fs.mkdirSync('../outputs/career', {recursive: true});
     await blocked.goto(url);
     await blocked.locator('#save').click();
     assert.match(await blocked.locator('#status').innerText(), /cannot save/);
-    console.log('PASS: 6 interests, 42 milestones, official resource data, 36 resource panels, course/scope filters, advanced stages, shortcuts, save/reload, invalid links, blocked storage, mobile layouts and complete printable journey.');
+    console.log('PASS: 6 interests, 42 milestones, official resource data, 42 resource panels, course/scope filters, advanced stages, shortcuts, save/reload, invalid links, blocked storage, mobile layouts click-to-load video players, one-player behaviour and complete printable journey.');
   } finally { await browser.close(); }
 })().catch(error => { console.error(error); process.exitCode = 1; });
 
