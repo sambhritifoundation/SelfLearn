@@ -100,7 +100,8 @@
     return '<section class="card completion-recap"><h2>'+text('Your computer-builder recap','कंप्यूटर निर्माता: आपकी सीख')+'</h2><ul>'+recap.map(p=>'<li>'+t(p)+'</li>').join('')+'</ul><h3>'+text('Use your learning in real life','असली जीवन में सीख का उपयोग')+'</h3><p>'+t(q.question)+'</p><div class="answers">'+choiceOrder('transfer',q.options.length).map(i=>'<button data-transfer="'+i+'" '+(G.state.transfer?'disabled':'')+'>'+t(q.options[i])+'</button>').join('')+'</div><p id="transfer-feedback" role="status">'+(G.state.transfer?'✓ '+t(q.why):'')+'</p></section><section class="repair-workshop"><h2>'+text('Repair workshop: follow the evidence','मरम्मत कार्यशाला: सबूत देखें')+'</h2><p>'+text('Three different symptoms. Choose a sensible first action; these are learning scenarios, not automatic hardware diagnoses. No extra score is awarded.','तीन अलग लक्षण। समझदार पहला कदम चुनें; ये सीखने के उदाहरण हैं, स्वतः हार्डवेयर निदान नहीं। अतिरिक्त स्कोर नहीं मिलता।')+'</p>'+D.repairs.map(q=>{const done=G.state.repairs.includes(q.id);return '<article class="card repair-card"><h3>'+t(q.title)+(done?' ✓':'')+'</h3><p class="lesson">'+t(q.evidence)+'</p><div class="answers">'+choiceOrder(q.id,q.options.length).map(i=>'<button data-repair="'+q.id+'" data-choice="'+i+'" '+(done?'disabled':'')+'>'+t(q.options[i])+'</button>').join('')+'</div><p id="repair-'+q.id+'" role="status">'+(done?t(q.why):'')+'</p></article>';}).join('')+(G.state.repairs.length===D.repairs.length?'<p class="tag">★ '+text('Evidence explorer: three cases solved','सबूत खोजकर्ता: तीन मामले सुलझाए')+'</p>':'')+'</section>';
   }
 
-  const engines={assembly:renderGame};
+  function renderShop(){view='shop';window.PlayLabShop.render(main,G.state.language);}
+  const engines={assembly:renderGame,shop:renderShop};
   language.value=G.state.language;
   function focusHeading(){main.querySelector('h1').focus();}
   function renderHome(){
@@ -143,6 +144,6 @@
     main.querySelector('#reset').addEventListener('click',()=>{if(window.confirm(text('Erase all Build a Computer progress and badges?','कंप्यूटर बनाएँ की सारी प्रगति और बैज मिटाएँ?'))){const lang=G.state.language;G.reset();G.language(lang);benchOrders.clear();answerOrders.clear();labelLevel=-1;selected=null;feedback='';renderGame();focusHeading();}});
   }
   function route(){const id=location.hash.slice(1),activity=D.activities.find(a=>a.id===id&&a.status==='ready');selected=null;feedback='';if(activity&&engines[activity.engine])engines[activity.engine]();else renderHome();}
-  language.addEventListener('change',()=>{G.language(language.value);document.documentElement.lang=G.state.language;feedback='';selected=null;view==='game'?renderGame():renderHome();});
+  language.addEventListener('change',()=>{G.language(language.value);document.documentElement.lang=G.state.language;feedback='';selected=null;view==='game'?renderGame():view==='shop'?renderShop():renderHome();});
   window.addEventListener('hashchange',()=>{route();focusHeading();});document.documentElement.lang=G.state.language;route();
 })();

@@ -1,0 +1,15 @@
+/* Independent shop state: it never reads or changes Computer Lab progress. */
+(function(){
+ 'use strict';const D=window.PlayLabShopData,key='selflearn.playlab.shop.v1';
+ const product=id=>D.products.find(p=>p.id===id);
+ function fresh(){return {version:1,current:0,runs:D.missions.map(m=>({product:m.product,quantity:5,price:product(m.product).cost+5,attempts:[],opened:false,complete:false,mistakes:0,hints:0,score:0}))};}
+ function simulate(i,plan){if(!plan||!Number.isInteger(i)||i<0||i>=5)return {error:'invalid'};const m=D.missions[i],p=product(plan.product);if(!m||!p||(!Number.isInteger(plan.quantity))||plan.quantity<1||plan.quantity>12||!Number.isInteger(plan.price)||plan.price<1||plan.price>80||i<4&&plan.product!==m.product)return {error:'invalid'};const purchase=p.cost*plan.quantity;if(purchase+m.fee>D.capital)return {error:'budget'};const willing=p.buyers.filter(b=>b>=plan.price).length,sold=Math.min(willing,plan.quantity),revenue=sold*plan.price,costSold=sold*p.cost,inventory=(plan.quantity-sold)*p.cost,cash=D.capital-purchase+revenue-m.fee,profit=revenue-costSold-m.fee;return {purchase,willing,sold,revenue,costSold,inventory,cash,profit,unsold:plan.quantity-sold,missed:Math.max(0,willing-sold),fee:m.fee};}
+ function valid(s){return s&&s.version===1&&Number.isInteger(s.current)&&s.current>=0&&s.current<5&&Array.isArray(s.runs)&&s.runs.length===5&&s.runs.every((r,i)=>r&&Array.isArray(r.attempts)&&r.attempts.length<=3&&r.attempts.every(a=>!simulate(i,a).error)&&!simulate(i,r).error&&typeof r.opened==='boolean'&&typeof r.complete==='boolean'&&(!r.complete||r.opened)&&['mistakes','hints','score'].every(k=>Number.isInteger(r[k])&&r[k]>=0&&r[k]<=100000))&&s.runs.every((r,i)=>!r.complete||s.runs.slice(0,i).every(x=>x.complete))&&s.runs.slice(0,s.current).every(r=>r.complete);}
+ let state=fresh(),saving=true;try{const raw=localStorage.getItem(key);if(raw){const parsed=JSON.parse(raw);if(valid(parsed))state=parsed;}}catch(_){saving=false;}
+ const run=()=>state.runs[state.current];const unlocked=i=>Number.isInteger(i)&&i>=0&&i<5&&state.runs.slice(0,i).every(r=>r.complete);
+ function save(){try{localStorage.setItem(key,JSON.stringify(state));saving=true;}catch(_){saving=false;}}
+ function plan(values){if(run().complete)return 'complete';const result=simulate(state.current,values);if(result.error)return result.error;Object.assign(run(),values,{opened:false});save();return 'ok';}
+ function open(values){const status=plan(values);if(status!=='ok')return status;run().opened=true;run().attempts.push({...values});run().attempts=run().attempts.slice(-3);save();return 'ok';}
+ function answer(index){const r=run();if(!r.opened||r.complete)return false;if(index!==D.missions[state.current].answer){r.mistakes++;save();return false;}r.complete=true;r.score=Math.max(40,100-r.mistakes*10-r.hints*5);save();return true;}
+ window.PlayLabShopEngine={get state(){return state;},get saving(){return saving;},run,simulate,valid,plan,open,answer,unlocked,choose(i){if(!unlocked(i))return false;state.current=i;save();return true;},hint(){if(!run().complete){run().hints++;save();}},reset(){state=fresh();save();}};
+})();

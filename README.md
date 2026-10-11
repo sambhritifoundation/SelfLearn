@@ -6,7 +6,7 @@ A bilingual (Hindi–English), practice-first learning portal by Sambhriti Found
 
 ## What's inside
 
-- **Sambhriti PlayLab**: six learning labs and a five-level bilingual **Build a Computer** activity with virtual assembly, concept checks, touch/keyboard controls, scores, badges and local progress. Five future games are clearly marked upcoming. See [PlayLab architecture and deployment guide](PLAYLAB.md).
+- **Sambhriti PlayLab**: six learning labs, bilingual **Build a Computer**, and **My First Shop** in Business Lab. The shop has five missions on stock, pricing, demand, daily costs and trust, with experiment comparison, customer outcomes and a cash/profit ledger. Four future games remain marked upcoming. See [PlayLab architecture](PLAYLAB.md) and [Business Lab guide](BUSINESSLAB.md).
 
 - **Web developer foundations** under Computer Application: 15 visual Hindi/English lessons on frontend, backend, SQL, servers, cloud, domains, Git, GitHub and publishing. Includes [a browser/API/database lab](examples/web-foundations/index.html), a real local Python/SQLite starter, [a Git publishing practice page](examples/git-publish-lab/index.html), detailed AI prompts and linked official provider documentation. GitHub Pages runs the browser simulation; the real Python server runs locally from the download.
 

@@ -2,6 +2,8 @@
 
 PlayLab is a static bilingual page for Classes 6–12, available at `playlab.html`. No runtime dependencies, login, network requests or deployment setting changes are introduced. All internal URLs are relative, including the links back to ExamPrep and SelfLearn, so root hosting and `/SelfLearn/` both work.
 
+Business Lab now includes the playable **My First Shop** activity at `#first-shop`, using a separate shop engine and progress key. See [Business Lab model, architecture and verification](BUSINESSLAB.md). Circuit Quest, Math Village, Robot Mission and Rocket Lab remain upcoming; Design Lab still has activities in development.
+
 ## Structure and adding activities
 
 - `playlab-data.js`: category and activity registry, bilingual component explanations, five progressive assembly levels.
