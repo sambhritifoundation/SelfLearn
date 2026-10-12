@@ -9,6 +9,7 @@ window.PlayLabData = {
     ['design','🎨','Design Lab','डिज़ाइन लैब','Create clear, useful and beautiful things.','स्पष्ट, उपयोगी और सुंदर चीज़ें बनाएँ।']
   ],
   activities: [
+    {id:'digital-skills',category:'computer',title:['Digital Skills Lab','डिजिटल कौशल लैब'],description:['Ten working experiments: input/output, processing, memory, typing, mouse, files, windows, safety, spreadsheets and coding commands.','दस चलती गतिविधियाँ: इनपुट/आउटपुट, प्रोसेसिंग, मेमोरी, टाइपिंग, माउस, फ़ाइल, विंडो, सुरक्षा, स्प्रेडशीट और कोडिंग निर्देश।'],status:'ready',engine:'skills'},
     {id:'color-pop',category:'design',title:['Color Pop Studio','रंग धमाल स्टूडियो'],description:['Press red, blue or green to remix a surprise geometric artwork.','लाल, नीला या हरा दबाकर आकृतियों का नया मज़ेदार डिज़ाइन बनाएँ।'],status:'ready',engine:'art'},
     {id:'build-computer',category:'computer',title:['Build a Computer','कंप्यूटर बनाएँ'],description:['Assemble a virtual PC and explain how its parts work together. Five levels, from first parts to troubleshooting.','वर्चुअल कंप्यूटर बनाएँ और समझें कि उसके भाग साथ कैसे काम करते हैं। पाँच स्तर: शुरुआती भागों से समस्या समाधान तक।'],status:'ready',engine:'assembly'},
     {id:'circuit-quest',category:'science',title:['Circuit Quest','सर्किट खोज'],description:['Explore complete circuits and the flow of current.','पूरा सर्किट और विद्युत धारा का प्रवाह समझें।'],status:'upcoming'},

@@ -1,5 +1,9 @@
 # SelfLearn
 
+## 50 Days, 50 Digital Skills
+
+The approved beginner course is available at [digital-skills.html](digital-skills.html): 50 English/Hindi lessons in five phases, 150 explained questions, practical tasks, visual teaching panels and ten new [Digital Skills Lab experiments](playlab-skills.html). Existing Computer Application chapters, the original 50-topic handbook and learner progress remain accessible through the [legacy library](digital-skills.html#archive). See [implementation, preservation, tests and rollback](DIGITAL-SKILLS.md).
+
 A bilingual (Hindi–English), practice-first learning portal by Sambhriti Foundation.
 
 **Live site:** https://sambhritifoundation.github.io/SelfLearn/

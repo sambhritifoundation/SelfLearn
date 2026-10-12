@@ -103,7 +103,7 @@
   function renderShop(){view='shop';window.PlayLabShop.render(main,G.state.language);}
   function renderJourney(){view='journey';window.BusinessJourneyUI.render(main,G.state.language);}
   function renderArt(){view='art';language.value=G.state.language;window.PlayLabArt.render(main,G.state.language);}
-  const engines={assembly:renderGame,shop:renderShop,journey:renderJourney,art:renderArt};
+  const engines={assembly:renderGame,shop:renderShop,journey:renderJourney,art:renderArt,skills:()=>{location.href='playlab-skills.html';}};
   language.value=G.state.language;
   function focusHeading(){main.querySelector('h1').focus();}
   function renderHome(){
