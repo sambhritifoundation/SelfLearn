@@ -6,7 +6,7 @@ Authoritative sequence: the user's consolidated 50-day syllabus supplied on 12 O
 
 Open `digital-skills.html`. Fifty authored English/Hindi lessons span the five approved phases. Each has an explanation, everyday example, computer example, three-step practical, three conceptual teaching points, a topic-specific visual model, a fact, mentor question, three explained quiz questions, linked experiment or practical alternative and a next-topic hook. Technical identifiers such as CPU, RAM, shortcuts and formulas are retained in Hindi. No AI image text is used.
 
-The teaching panels use a 4:5 preferred aspect ratio with responsive expansion to prevent clipped Hindi text. The original SFE logo is downloaded from `https://sambhriti.in/sambhriti-logo.png`, placed in the panel footer and page footer alongside “Supported by Sambhriti Foundation for Education”. The header retains Pragati Computer and Study Centre Satbarwa; Sambhriti Academy is identified as the learning centre.
+The teaching panels use a 4:5 preferred aspect ratio with responsive expansion to prevent clipped Hindi text. The original SFE logo is downloaded from `https://sambhriti.in/sambhriti-logo.png`, placed in the panel footer and page footer alongside “Supported by Sambhriti Foundation for Education”. The header identifies Sambhriti Academy as the learning centre.
 
 Practical evidence stays with the learner: show local files or paper work to a mentor. The capstone includes a fictional admission form, marks/attendance sheet and chart, presentation/poster, and reflection, with a mentor review checklist. No remote file submission, student-data collection or automatic assessment of practical artifacts is introduced.
 
