@@ -102,7 +102,8 @@
 
   function renderShop(){view='shop';window.PlayLabShop.render(main,G.state.language);}
   function renderJourney(){view='journey';window.BusinessJourneyUI.render(main,G.state.language);}
-  const engines={assembly:renderGame,shop:renderShop,journey:renderJourney};
+  function renderArt(){view='art';language.value=G.state.language;window.PlayLabArt.render(main,G.state.language);}
+  const engines={assembly:renderGame,shop:renderShop,journey:renderJourney,art:renderArt};
   language.value=G.state.language;
   function focusHeading(){main.querySelector('h1').focus();}
   function renderHome(){
@@ -145,6 +146,6 @@
     main.querySelector('#reset').addEventListener('click',()=>{if(window.confirm(text('Erase all Build a Computer progress and badges?','कंप्यूटर बनाएँ की सारी प्रगति और बैज मिटाएँ?'))){const lang=G.state.language;G.reset();G.language(lang);benchOrders.clear();answerOrders.clear();labelLevel=-1;selected=null;feedback='';renderGame();focusHeading();}});
   }
   function route(){const id=location.hash.slice(1),activity=D.activities.find(a=>a.id===id&&a.status==='ready');selected=null;feedback='';if(activity&&engines[activity.engine])engines[activity.engine]();else renderHome();}
-  language.addEventListener('change',()=>{G.language(language.value);document.documentElement.lang=G.state.language;feedback='';selected=null;view==='game'?renderGame():view==='shop'?renderShop():view==='journey'?renderJourney():renderHome();});
+  language.addEventListener('change',()=>{G.language(language.value);document.documentElement.lang=G.state.language;feedback='';selected=null;view==='game'?renderGame():view==='shop'?renderShop():view==='journey'?renderJourney():view==='art'?renderArt():renderHome();});
   window.addEventListener('hashchange',()=>{route();focusHeading();});document.documentElement.lang=G.state.language;route();
 })();
