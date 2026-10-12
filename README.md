@@ -2,7 +2,7 @@
 
 ## 50 Days, 50 Digital Skills
 
-The approved beginner course is available at [digital-skills.html](digital-skills.html): 50 English/Hindi lessons in five phases, 150 explained questions, practical tasks, visual teaching panels and ten new [Digital Skills Lab experiments](playlab-skills.html). An additional [12 hands-on project workshops](digital-skills.html#workshops) provide 96 numbered steps, result checks, downloadable starters, offline alternatives and a safe HTML preview. Existing Computer Application chapters, the original 50-topic handbook and learner progress remain accessible through the [legacy library](digital-skills.html#archive). See [implementation, preservation, tests and rollback](DIGITAL-SKILLS.md).
+The approved beginner course is available at [digital-skills.html](digital-skills.html): 50 English/Hindi lessons in five phases, 150 explained questions, practical tasks, visual teaching panels and ten new [Digital Skills Lab experiments](playlab-skills.html). An additional [24 hands-on project workshops](digital-skills.html#workshops) provide 192 numbered steps and 72 result checks across Beginner, Intermediate, Advanced and Expert Practice, with prerequisites, downloadable starters, offline alternatives and a safe HTML preview. Existing Computer Application chapters, the original 50-topic handbook and learner progress remain accessible through the [legacy library](digital-skills.html#archive). See [implementation, preservation, tests and rollback](DIGITAL-SKILLS.md).
 
 A bilingual (Hindi–English), practice-first learning portal by Sambhriti Foundation.
 

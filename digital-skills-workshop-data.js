@@ -97,5 +97,5 @@ add('Build and Debug Your First Webpage|पहला वेबपेज बन�
 'If the browser shows raw code, check that the file is saved as .html rather than .html.txt. Renaming alone is not general file conversion.|ब्राउज़र कच्चा कोड दिखाए तो .html, न कि .html.txt सेव देखें। केवल नाम बदलना सामान्य फ़ॉर्मेट परिवर्तन नहीं।',
 'Try R2,D2 in Command Robot and compare precise movement commands with HTML structure tags.|Command Robot में R2,D2 लें और स्पष्ट गति निर्देश व HTML संरचना टैग की तुलना करें।',
 'Write the tags on paper and draw the heading, paragraph and list they should produce.|टैग कागज़ पर लिखकर उनके शीर्षक, अनुच्छेद और सूची का चित्र बनाएँ।','playlab-skills.html#logic', {name:'my-school.html',text:'<!doctype html>\n<html lang="en">\n<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>My School</title></head>\n<body>\n<h1>My School</h1>\n<p>We learn digital skills by making useful projects.</p>\n<ul><li>Typing</li><li>Spreadsheets</li><li>Webpages</li></ul>\n</body>\n</html>\n'});
-window.DigitalWorkshopsData=items;
+window.DigitalWorkshopsData=items;window.DigitalWorkshopsAdd=add;
 })();

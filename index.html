@@ -8805,7 +8805,7 @@ function syncViewUrl(name,args){
   history.pushState({view:name,code:args&&args.code||null},"",u.pathname+u.search+u.hash);
 }
 function go(name, args){ if(window.EnglishPractice) EnglishPractice.cleanup(); if(typeof audioPlayerReset==="function") audioPlayerReset(); VIEW = Object.assign({name:name}, args||{}); syncViewUrl(name,args); render(); window.scrollTo(0,0); }
-window.addEventListener("popstate",function(){ var params=new URL(location.href).searchParams, code=params.get("subject"); VIEW=code&&subj(code)?{name:"subject",code:code}:params.get("view")==="vocational"?{name:"vocational"}:{name:"home"}; render(); window.scrollTo(0,0); });
+window.addEventListener("popstate",function(){ var params=new URL(location.href).searchParams, code=params.get("subject"); VIEW=code&&subj(code)?{name:"subject",code:code}:params.get("view")==="vocational"?{name:"vocational"}:params.get("view")==="legal"&&["about","copyright","terms","privacy"].indexOf(params.get("doc"))>=0?{name:"legal",doc:params.get("doc")}:{name:"home"}; render(); window.scrollTo(0,0); });
 function render(){
   if(window.EnglishPractice) EnglishPractice.cleanup();
   var el = document.getElementById("app");
@@ -8911,7 +8911,7 @@ function vVocational(){
   return '<div class="hero"><span class="chip amber">'+sp('Practical skills','व्यावहारिक कौशल')+'</span><h1>'+sp('Vocational','व्यावसायिक')+'</h1><p>'+sp('Explore skill-based courses and hands-on practice.','कौशल-आधारित पाठ्यक्रम और व्यावहारिक अभ्यास देखें।')+'</p></div>'
     + '<h2>'+sp('Courses','पाठ्यक्रम')+'</h2><div class="grid g3"><div class="card clickable" onclick="go(\'subject\',{code:\'COMPAPP\'})">'
     + '<div style="font-size:1.8rem;margin-bottom:8px">'+s.icon+'</div><h3>'+t(s.name)+'</h3>'
-    + '<div class="sub">'+sp('50 digital skills lessons · 12 hands-on workshops','50 डिजिटल कौशल पाठ · 12 करके सीखने की कार्यशालाएँ')+' · '+s.chapters.length+' '+sp('chapters','अध्याय')+' · '+qn+' '+sp('questions','प्रश्न')+'</div>'
+    + '<div class="sub">'+sp('50 digital skills lessons · 24 hands-on workshops','50 डिजिटल कौशल पाठ · 24 करके सीखने की कार्यशालाएँ')+' · '+s.chapters.length+' '+sp('chapters','अध्याय')+' · '+qn+' '+sp('questions','प्रश्न')+'</div>'
     + '<div class="bar"><i style="width:'+pr.pct+'%"></i></div><div class="sub" style="margin-top:4px">'+pr.done+'/'+pr.total+' '+sp('legacy topics practiced','पुराने विषयों का अभ्यास')+'</div>'
     + '<div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap"><a class="btn ghost sm" href="'+subjectHref(s.code)+'" onclick="event.stopPropagation()">'+sp('Open direct link','सीधा लिंक खोलें')+'</a>'
     + '<button class="btn ghost sm" type="button" onclick="event.stopPropagation();copySubjectLink(\'COMPAPP\')">🔗 '+sp('Copy subject link','विषय लिंक कॉपी करें')+'</button></div></div></div>';
@@ -10607,6 +10607,7 @@ var _directSubject = null, _directView = null;
 try{ var _directParams = new URL(location.href).searchParams; _directSubject = _directParams.get("subject"); _directView = _directParams.get("view"); }catch(e){}
 if(_directSubject && subj(_directSubject)) VIEW={name:"subject",code:_directSubject};
 else if(_directView==="vocational") VIEW={name:"vocational"};
+else if(_directView==="legal" && ["about","copyright","terms","privacy"].indexOf(_directParams.get("doc"))>=0) VIEW={name:"legal",doc:_directParams.get("doc")};
 setLang(LANG);
 </script>
 <script src="math8-pilot.js?v=20260905-illustrations"></script>
