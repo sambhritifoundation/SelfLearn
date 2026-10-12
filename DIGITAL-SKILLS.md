@@ -58,6 +58,16 @@ AI teaching avoids live product promises: use approved tools, fictional data, so
 
 ## Tests and publication
 
+### Additional hands-on workshops
+
+Twelve supplementary project topics are available at `digital-skills.html#workshops`, with links from the course home and matching lessons. The fifty authoritative days stay unchanged. Each workshop has eight numbered actions, three result checks, supplies, estimated time, common-error guidance, an extension challenge, offline alternative and a mentor-review instruction.
+
+Topics: school notice, project-file rescue, paper admission form, weekly timetable, marks/attendance register, event budget/chart, shop bill, three-slide local story, accessible event poster, research evidence sheet, email/sharing draft, and first HTML webpage. Downloadable starter CSVs accompany marks/attendance and budget projects; the webpage has a downloadable HTML starter and an editable preview. Step instructions can be downloaded as text or printed. The HTML preview is sandboxed and blocks scripts/network requests; its editor contents must be downloaded separately.
+
+Workshop checkmarks use a separate `selflearn.digitalWorkshops.v1` profile-suffixed key. They are learner-attested and require all eight steps and three checks for completion. Existing day scores and older course progress remain independent. Workshops have their own export/import, and full course exports now also include optional workshop progress. Older course backups remain importable. Denied storage falls back to the current visit with a visible warning.
+
+`node scripts/test-digital-workshops.cjs` checks bilingual coverage, all 96 steps/36 checks, starter calculations, safe preview configuration and progress contracts. `node scripts/audit-digital-workshops.cjs` checks both languages at 1280px/390px, keyboard operation, reload, completion, downloads, imports/exports, HTML rendering/script isolation, related links and unavailable storage. Pass the live base URL as its optional first argument to verify publication.
+
 `node scripts/test-digital-skills.cjs`: exact syllabus, bilingual required fields, all 150 question records, integration, processing/memory/file/formula/robot logic.
 
 `node scripts/audit-digital-skills.cjs`: desktop (1280px) and mobile (390px), all fifty lessons in both languages, poster clipping/overflow, linked resources, quizzes, practical completion gate, reload, old-progress preservation, profile isolation, unavailable storage, ten experiment flows and screenshots.
