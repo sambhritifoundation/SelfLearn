@@ -60,6 +60,8 @@ AI teaching avoids live product promises: use approved tools, fictional data, so
 
 ### Additional hands-on workshops
 
+Navigation is consolidated under **Vocational → Computer Application**, with one course card. No standalone Digital Skills or Hands-on segment tab is added to site navigation. The course page links back to Vocational; workshop and archive links are in the course content. Direct lesson/workshop URLs remain valid.
+
 Twelve supplementary project topics are available at `digital-skills.html#workshops`, with links from the course home and matching lessons. The fifty authoritative days stay unchanged. Each workshop has eight numbered actions, three result checks, supplies, estimated time, common-error guidance, an extension challenge, offline alternative and a mentor-review instruction.
 
 Topics: school notice, project-file rescue, paper admission form, weekly timetable, marks/attendance register, event budget/chart, shop bill, three-slide local story, accessible event poster, research evidence sheet, email/sharing draft, and first HTML webpage. Downloadable starter CSVs accompany marks/attendance and budget projects; the webpage has a downloadable HTML starter and an editable preview. Step instructions can be downloaded as text or printed. The HTML preview is sandboxed and blocks scripts/network requests; its editor contents must be downloaded separately.
