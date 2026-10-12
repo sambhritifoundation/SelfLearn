@@ -1,6 +1,8 @@
 # Business Lab — My First Shop
 
-Launch at `playlab.html#first-shop`. This is an original Hindi/English classroom simulation for Classes 6–12. It takes no real orders or payments and uses fictional prices and customer budgets.
+The five-mission **Shop Basics** practice launches at `playlab.html#shop-practice`. Its progress and badges are preserved. The expanded connected journey, **My First Business**, launches at `playlab.html#first-shop`; see [journey model and guide](BUSINESS-JOURNEY.md).
+
+This is an original Hindi/English classroom simulation for Classes 6–12. It takes no real orders or payments and uses fictional prices and customer budgets.
 
 ## Five missions
 

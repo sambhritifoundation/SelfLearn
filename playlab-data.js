@@ -13,7 +13,8 @@ window.PlayLabData = {
     {id:'circuit-quest',category:'science',title:['Circuit Quest','सर्किट खोज'],description:['Explore complete circuits and the flow of current.','पूरा सर्किट और विद्युत धारा का प्रवाह समझें।'],status:'upcoming'},
     {id:'math-village',category:'maths',title:['Math Village','गणित गाँव'],description:['Use measurement and numbers to help a village.','माप और संख्याओं से गाँव की मदद करें।'],status:'upcoming'},
     {id:'robot-mission',category:'coding',title:['Robot Mission','रोबोट मिशन'],description:['Guide a robot with sequences and loops.','क्रम और लूप से रोबोट को दिशा दें।'],status:'upcoming'},
-    {id:'first-shop',category:'business',title:['My First Shop','मेरी पहली दुकान'],description:['Run a virtual shop through five missions: stock, prices, customers, daily costs and trust.','पाँच मिशन में वर्चुअल दुकान चलाएँ: माल, कीमत, ग्राहक, रोज़ के खर्च और भरोसा।'],status:'ready',engine:'shop'},
+    {id:'first-shop',category:'business',title:['My First Business','मेरा पहला व्यवसाय'],description:['Open a shop and live through seven connected days: suppliers, customers, employees, funding, setbacks and recovery.','दुकान खोलें और सात जुड़े दिन अनुभव करें: आपूर्तिकर्ता, ग्राहक, कर्मचारी, राशि, चुनौतियाँ और सुधार।'],status:'ready',engine:'journey'},
+    {id:'shop-practice',category:'business',title:['My First Shop','मेरी पहली दुकान'],description:['Run a virtual shop through five missions: stock, prices, customers, daily costs and trust.','पाँच मिशन में वर्चुअल दुकान चलाएँ: माल, कीमत, ग्राहक, रोज़ के खर्च और भरोसा।'],status:'ready',engine:'shop'},
     {id:'rocket-lab',category:'science',title:['Rocket Lab','रॉकेट लैब'],description:['Explore forces with a virtual rocket model.','वर्चुअल रॉकेट मॉडल से बल समझें।'],status:'upcoming'}
   ],
   parts: {
