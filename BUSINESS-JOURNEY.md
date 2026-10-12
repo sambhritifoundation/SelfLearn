@@ -2,6 +2,18 @@
 
 Launch: `playlab.html#first-shop`. The earlier five-mission shop remains at `playlab.html#shop-practice` with its original progress and badges. Computer Lab progress is untouched.
 
+## Play as the business owner
+
+Players choose a locally stored name and avatar, then act as the owner. During each trading day they visit an interactive neighbourhood: supplier depot, price board, staff room, today's conversation and bank/bills desk. Each visit opens a character conversation and the relevant action controls. Confirming an action reserves the day's plan; the checklist must be complete before opening. Bank/bills review is mandatory on Days 6–7 and optional earlier. Visits do not create cash or award repeatable XP.
+
+Opening switches to a shop and customer queue. Stock, price, demand and service capacity determine the sales available. The player accepts the customer's payment, calculates change and hands over the item. An incorrect change calculation leaves the current sale incomplete. A hint shows the arithmetic. After handling the first sale, a paid helper can handle the remaining queue. Working alone saves wages but does not unlock delegation.
+
+When no sales are possible, the player closes the shop and investigates the outcome instead of receiving invented sales. Once every available sale is handled, closing posts the entire day's transactions exactly once and advances the calendar. The register and planning draft persist, allowing reload during an unfinished shift. The dashboard deliberately shows the previous closing cash; the register shows current sales collected separately until the accounts are posted.
+
+Learning XP is derived from completed opening decisions (20 each), closed days (50 each) and final reflections (25 each), maximum 485. Rank is a game learning level, not a claim of real professional status or financial success. Changing an action or revisiting a station cannot farm XP.
+
+The two gameplay files are `business-owner-game.js` and `business-owner-game.css`. The original model and transaction journal remain authoritative. Optional owner/draft fields extend the same storage version; older saved decisions and reviews remain valid. Correct-change records are checked before game-mode day closure. Earlier model-only records remain valid for backward compatibility. Restart clears the journey and daily draft while retaining the chosen owner profile; the player can change it when opening a new journey.
+
 ## Review and changes
 
 The earlier activity taught sound basic cash/profit arithmetic, but each experiment reset the budget. It had no continuing business commitments or stakeholder relationships. This extension adds three opening decisions and seven trading days in one persistent business. Decisions cannot be replayed to create extra cash.

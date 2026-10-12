@@ -58,11 +58,26 @@
   if(m.netWorth!==m.capital+m.profit-m.drawings||m.cash<0||m.units<0)return {error:'accounting'};
   return m;
  }
- let state={version:1,actions:[],reviews:[]},saving=true;
+ const avatars=['🧑‍💼','👩‍💼','🧑‍🎓','👨‍💼'];
+ const tasks=day=>['story','supplier','price','staff',...(day>=6?['funds']:[])];
+ const tender=(price,i)=>Math.ceil(price/10)*10+(i%2?10:0);
+ let state={version:1,actions:[],reviews:[],owner:{name:'Meena',avatar:'🧑‍💼'},draft:null},saving=true;
  function valid(s){return s&&s.version===1&&Array.isArray(s.reviews)&&new Set(s.reviews).size===s.reviews.length&&s.reviews.every(i=>Number.isInteger(i)&&i>=0&&i<D.reviews.length)&&!project(s.actions).error&&(!s.reviews.length||project(s.actions).complete);}
- try{const raw=localStorage.getItem(key);if(raw){const s=JSON.parse(raw);if(valid(s))state=s;}}catch(_){saving=false;}
+ try{const raw=localStorage.getItem(key);if(raw){const s=JSON.parse(raw);if(valid(s)){state=s;state.owner=validOwner(s.owner)?s.owner:{name:'Meena',avatar:'🧑‍💼'};state.draft=validDraft(s.draft,s.actions)?s.draft:null;}}}catch(_){saving=false;}
+
+ function validOwner(o){return o&&typeof o.name==='string'&&o.name.trim().length>0&&o.name.length<=30&&avatars.includes(o.avatar);}
+ function actionFrom(d){return {type:'day',day:d.stage-2,supplier:d.supplier,quantity:d.quantity,price:d.price,staff:d.staff,eventChoice:d.eventChoice};}
+ function validDraft(d,actions){
+  if(!d||d.stage!==actions.length||d.stage<3||d.stage>9||!['plan','shift'].includes(d.phase)||!Array.isArray(d.done)||new Set(d.done).size!==d.done.length||!d.done.every(id=>tasks(d.stage-2).includes(id))||!Array.isArray(d.checks)||!find(D.suppliers,d.supplier)||!find(D.staff,d.staff)||!Number.isInteger(d.quantity)||d.quantity<0||d.quantity>20||!Number.isInteger(d.price)||d.price<1||d.price>80||!D.days[d.stage-3].choices.some(c=>c.id===d.eventChoice))return false;
+  if(d.phase==='shift'){const next=project([...actions,actionFrom(d)]);if(next.error||!tasks(d.stage-2).every(id=>d.done.includes(id)))return false;const h=next.history.at(-1);return d.checks.length<=h.sold&&d.checks.every((change,i)=>change===tender(h.effectivePrice,i)-h.effectivePrice);}
+  return d.checks.length===0;
+ }
+ function draft(){if(state.actions.length<3||state.actions.length>=10)return null;if(!validDraft(state.draft,state.actions)){const m=project(state.actions),p=find(D.products,m.product);state.draft={stage:state.actions.length,supplier:'local',quantity:m.units>=5?0:5,price:p.cost+5,staff:'solo',eventChoice:D.days[m.day].choices[0].id,done:[],phase:'plan',checks:[]};}return state.draft;}
+ function updateDraft(values){const current=draft();if(!current)return false;const next={...current,...values};if(!validDraft(next,state.actions))return false;state.draft=next;save();return true;}
+
  function save(){try{localStorage.setItem(key,JSON.stringify(state));saving=true;}catch(_){saving=false;}}
- function apply(action){if(state.actions.length>=10)return {error:'complete'};const next=project([...state.actions,action]);if(next.error)return next;state.actions.push(JSON.parse(JSON.stringify(action)));save();return next;}
- window.BusinessJourney={get state(){return state;},get saving(){return saving;},get model(){return project(state.actions);},project,valid,apply,
-  review(i,choice){if(!project(state.actions).complete||!D.reviews[i]||D.reviews[i].answer!==choice)return false;if(!state.reviews.includes(i))state.reviews.push(i);save();return true;},reset(){state={version:1,actions:[],reviews:[]};save();}};
+ function apply(action){if(state.actions.length>=10)return {error:'complete'};const next=project([...state.actions,action]);if(next.error)return next;if(action.requireTill){const sold=next.history.at(-1).sold,price=next.history.at(-1).effectivePrice;if(!Array.isArray(action.tillChecks)||action.tillChecks.length!==sold||!action.tillChecks.every((change,i)=>change===tender(price,i)-price))return {error:'till'};}state.actions.push(JSON.parse(JSON.stringify(action)));state.draft=null;save();return next;}
+ window.BusinessJourney={get state(){return state;},get saving(){return saving;},get model(){return project(state.actions);},project,valid,apply,draft,updateDraft,tasks,tender,actionFrom,
+  setOwner(o){if(!validOwner(o))return false;state.owner={name:o.name.trim(),avatar:o.avatar};save();return true;},
+  review(i,choice){if(!project(state.actions).complete||!D.reviews[i]||D.reviews[i].answer!==choice)return false;if(!state.reviews.includes(i))state.reviews.push(i);save();return true;},reset(){state={version:1,actions:[],reviews:[],owner:state.owner,draft:null};save();}};
 })();
